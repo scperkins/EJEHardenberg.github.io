@@ -1,0 +1,6 @@
+#Ignore my page generator
+xemark
+
+#Ignore xe files for my generator
+*.xe
+*.xemark
