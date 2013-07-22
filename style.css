@@ -7,3 +7,20 @@ html{
 	background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #E2DBFA 100%); /* Webkit (Chrome 11+) */ 
 	background-image: linear-gradient(to bottom, #FFFFFF 0%, #E2DBFA 100%); /* W3C Markup, IE10 Release Preview */ 
 }
+body{
+	width: 70%;
+	margin-left: 10%;
+	padding-left: 5%;
+	margin-right: 10%;
+	padding-right: 5%;
+	margin-top: 0px;
+	padding-top: 2%;
+	margin-bottom: 0px;
+	padding-bottom: 2%;
+	border-left-width: thick;
+	border-right-width: medium;
+	border-color: black;
+	border-left-style: solid;
+	border-right-style: solid;
+
+}
