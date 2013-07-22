@@ -23,5 +23,16 @@ body{
 	border-color: black;
 	border-left-style: solid;
 	border-right-style: solid;
-
+	background-image: linear-gradient(bottom, rgb(143,199,255) 0%, rgb(229,251,255) 61%);
+	background-image: -o-linear-gradient(bottom, rgb(143,199,255) 0%, rgb(229,251,255) 61%);
+	background-image: -moz-linear-gradient(bottom, rgb(143,199,255) 0%, rgb(229,251,255) 61%);
+	background-image: -webkit-linear-gradient(bottom, rgb(143,199,255) 0%, rgb(229,251,255) 61%);
+	background-image: -ms-linear-gradient(bottom, rgb(143,199,255) 0%, rgb(229,251,255) 61%);
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(143,199,255)),
+		color-stop(0.61, rgb(229,251,255))
+	);
 }
