@@ -6,6 +6,7 @@ html{
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #E2DBFA)); /* Webkit (Safari/Chrome 10) */ 
 	background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #E2DBFA 100%); /* Webkit (Chrome 11+) */ 
 	background-image: linear-gradient(to bottom, #FFFFFF 0%, #E2DBFA 100%); /* W3C Markup, IE10 Release Preview */ 
+	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
 }
 body{
 	width: 70%;
