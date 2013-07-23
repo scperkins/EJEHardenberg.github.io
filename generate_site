@@ -11,11 +11,8 @@ fi
 
 #Constants
 HEAD="" #Start off with no header
-HOME="home.xe"
 LISTFILES="ls -1 *.xe"
 
-#Generate index file.
-cat $HEAD $HOME | ./xemark > index.html
 
 #Find the header file if it exists
 for file in $LISTFILES; do 
