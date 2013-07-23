@@ -35,6 +35,10 @@ for file in $LISTFILES; do
 			#Not reserved, render it
 			NEWNAME=${file%.*}
 			cat $HEAD $file | ./xemark > "${NEWNAME}.html"
+			echo "Creating ${NEWNAME}.html from ${file}"
+			if [ -f $HEAD ]; then
+				echo "Using header file during generation"
+			fi
 		fi
 	fi
 done
