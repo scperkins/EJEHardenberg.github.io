@@ -2,7 +2,7 @@ Change Log
 
 ------------------------
 
-- v0.1 Test of styling on github's pages.
+- v0.1 Test of styling on github's pages. With basic gradients and links rendered by xemark
 - v0.0 Simple test of pages to see if serving
 
 
