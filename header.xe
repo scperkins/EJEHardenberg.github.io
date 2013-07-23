@@ -6,7 +6,7 @@
 <:nav:
 - Home -> index.html
 - Projects -> #projects.html
-- Resume -> #resume.html
+- Resume -> resume.html
 - Blog -> #blog.html
 >
 
