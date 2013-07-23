@@ -76,3 +76,6 @@ body{
 	-moz-transition: opacity,background 1s ease-in-out;
 	-webkit-transition: opacity,background 1s ease-in-out;
 }
+#nav li a{
+	display: block;
+}
