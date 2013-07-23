@@ -2,6 +2,7 @@ Change Log
 
 ------------------------
 
+- v0.2 Created Content on home page.
 - v0.1 Test of styling on github's pages. With basic gradients and links rendered by xemark
 - v0.0 Simple test of pages to see if serving
 
