@@ -5,7 +5,7 @@
 #:top:  Ethan Eldridge
 <:nav:
 - Home -> index.html
-- Projects -> #projects.html
+- Projects -> projects.html
 - Resume -> resume.html
 - Blog -> #blog.html
 >
