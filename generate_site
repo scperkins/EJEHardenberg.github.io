@@ -84,8 +84,10 @@ if [ $((COUNTER)) == $((NUM_OF_FILES)) ] && [ $(( $((NUM_OF_FILES)) % $((2)) )) 
 	cat $HEAD $FILES_TO_JOIN $TEMPFILE | ./xemark > "blog/page_${PAGENUM}.html"
 fi
 
-#Remove the tmp file
-rm ${TEMPFILE}
+#Remove the tmp file if it was created
+if [ -f ${TEMPFILE} ]; then
+	rm ${TEMPFILE}
+fi
 
 #Finally, if there is a home file, make it the index file
 if [ -f "home.html" ]; then
