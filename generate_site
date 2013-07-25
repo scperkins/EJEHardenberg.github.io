@@ -67,7 +67,7 @@ for file in $LISTBLOGPOSTS; do
 				#need -e for proper escape characters
 				echo -e "\n<\n-${BLOGFOOTER_OLDER}$((${PAGENUM}+1))\n>\n" > ${TEMPFILE}
 			else
-				if [ $((COUNTER)) == $((NUM_OF_FILES)) ]; then
+				if [ $(( COUNTER + POSTS_PER_PAGE )) -gt $((NUM_OF_FILES)) ]; then
 					echo -e "\n<\n-${BLOGFOOTER_NEWER}$((${PAGENUM}-1))\n>\n" > ${TEMPFILE}	
 				else
 					echo -e "\n<\n-${BLOGFOOTER_NEWER}$((${PAGENUM}-1))\n-${BLOGFOOTER_OLDER}$((${PAGENUM}+1))\n>\n" > ${TEMPFILE}
@@ -81,6 +81,11 @@ for file in $LISTBLOGPOSTS; do
 		COUNTER=$((COUNTER+1))
 	fi
 done
+
+if [ $((COUNTER)) == $((NUM_OF_FILES)) ] && [ $(( $((NUM_OF_FILES)) % $((2)) )) == $((0)) ]; then
+	echo -e "\n<\n-${BLOGFOOTER_NEWER}$((${PAGENUM}-1))\n>\n" > ${TEMPFILE}	
+	cat $HEAD $FILES_TO_JOIN $TEMPFILE | ./xemark > "blog/page_${PAGENUM}.html"
+fi
 
 #Remove the tmp file
 rm ${TEMPFILE}
