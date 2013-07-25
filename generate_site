@@ -1,0 +1,49 @@
+#!/bin/bash
+
+#Check for xemark executable
+if [ -f 'xemark' ];
+then
+	echo "Found xemark executable, preparing documents"
+else
+	echo "Could not find xemark executable. Stopping script."
+	echo "Please compile xemark and place into path"
+fi
+
+#Constants
+HEAD="" #Start off with no header
+HOME="home.xe"
+LISTFILES="ls -1 *.xe"
+
+#Generate index file.
+cat $HEAD $HOME | ./xemark > index.html
+
+#Find the header file if it exists
+for file in $LISTFILES; do 
+	if [ -f $file ]; then
+		if [ $file == "header.xe" ]; then
+			HEAD=$file
+		fi
+	fi
+done
+
+#Loop through the xe files and generate html from them
+for file in $LISTFILES; do
+	if [ -f $file ]; then
+		if [ $file == "header.xe" ]; then
+			echo "Found header. Skipping"
+		else
+			#Not reserved, render it
+			NEWNAME=${file%.*}
+			cat $HEAD $file | ./xemark > "${NEWNAME}.html"
+			echo "Creating ${NEWNAME}.html from ${file}"
+			if [ -f $HEAD ]; then
+				echo "Using header file during generation"
+			fi
+		fi
+	fi
+done
+
+#Finally, if there is a home file, make it the index file
+if [ -f "home.html" ]; then
+	mv home.html index.html
+fi

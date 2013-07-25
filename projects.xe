@@ -1,0 +1,29 @@
+
+## My Recent Side Projects (full list here) -> fullprojects.html
+
+
+In my spare time I like to work on my own projects or collaborate with others on solutions to problems in the community. My most recent work is listed below, for a full list you can click here -> -> fullprojects.html or the link above. I try my best to keep this up to date, but if you're really aching to know what I've been up to, checkout my github -> https://github.com/EJEHardenberg for the most up to date information.
+
+
+<
+- Green Up VT - Summer 203
+	<
+		- An application to assist with GreenUpVermont -> http://www.greenupvermont.org/ and help to coordinate volunteers. Developed as part of the national civic day of hacking -> hackforchange.org challenge by code for btv -> codeforbtv.org , The application was hastily made in php during the event. Then heaviy refactored into a RESTful API with mobile,ios and android client interfaces (Still in progress). My main contribution was the specification, design, and implementation of the REST api backend done in python. Also primarily responsible for task delegation and repository contribution maintenance.
+		- You can see our current progress on the project here -> https://github.com/EJEHardenberg/GreenUp
+	>
+- Linkregater - Summer 2013
+	<
+		- A web crawling visualization written in Javascript and making use of HTML5's canvas for drawing. Simply enter a url and watch it do it's work! It does perform a large number of HTTP requests and might slow down your browser while it runs. Simply close the tab if it becomes a problem. 
+		- Check out the App here -> http://www.uvm.edu/~ejeldrid/projects/linkregater/ 
+	>
+- Rat-a-tat-cat - Spring 2013
+	<
+		- A google app engine card game created for my Software Engineering class. Implementation was done in an agile workflow with a group headed by Phelan Vendeville. Responsible for architecture design, repository maintenance, and artificial intelligence for computer player. 
+		- Play the game here -> http://rat-a-tat-cat.appspot.com/
+	>
+- Presentation on Multiple Level Association Analysis -Spring 2013
+	<
+		- A presentation on Mining Multiple-Level Association Rules in Large Databases adapted from Jiawei Han, and Yongjian Fu's original presentation for my CS 332 Data Mining class. 
+		- View the presentation here -> http://www.uvm.edu/~ejeldrid/resources/MLAR_Presentation.pdf
+	>
+>
