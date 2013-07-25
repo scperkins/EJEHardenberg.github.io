@@ -18,7 +18,7 @@ TEMPFILE="tmp.gen"
 BLOGFOOTER_OLDER="Older Posts -> page_"
 BLOGFOOTER_NEWER="Newer Posts -> page_"
 POSTS_PER_PAGE=2
-NUM_OF_FILES=$(ls -1 | wc -l)
+NUM_OF_FILES=$(ls *.xe -1 | wc -l)
 
 #Generate index file.
 cat $HEAD $HOME | ./xemark > index.html
@@ -67,10 +67,10 @@ for file in $LISTBLOGPOSTS; do
 				#need -e for proper escape characters
 				echo -e "\n<\n-${BLOGFOOTER_OLDER}$((${PAGENUM}+1))\n>\n" > ${TEMPFILE}
 			else
-				if [ $((NUM_OF_FILES - $((COUNTER)))) -lt $((POSTS_PER_PAGE)) ]; then
-					echo -e "\n<\n-${BLOGFOOTER_NEWER}$((${PAGENUM}))\n>\n" > ${TEMPFILE}	
+				if [ $((COUNTER)) == $((NUM_OF_FILES)) ]; then
+					echo -e "\n<\n-${BLOGFOOTER_NEWER}$((${PAGENUM}-1))\n>\n" > ${TEMPFILE}	
 				else
-					echo -e "\n<\n-${BLOGFOOTER_NEWER}${PAGENUM}\n-${BLOGFOOTER_OLDER}$((${PAGENUM}+1))\n>\n" > ${TEMPFILE}
+					echo -e "\n<\n-${BLOGFOOTER_NEWER}$((${PAGENUM}-1))\n-${BLOGFOOTER_OLDER}$((${PAGENUM}+1))\n>\n" > ${TEMPFILE}
 				fi
 				
 			fi
@@ -78,8 +78,8 @@ for file in $LISTBLOGPOSTS; do
 			PAGENUM=$((PAGENUM + 1))
 			FILES_TO_JOIN=""
 		fi
+		COUNTER=$((COUNTER+1))
 	fi
-	COUNTER=$((COUNTER+1))
 done
 
 #Remove the tmp file
