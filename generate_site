@@ -13,6 +13,12 @@ fi
 HEAD="" #Start off with no header
 HOME="home.xe"
 LISTFILES="ls -1 *.xe"
+LISTBLOGPOSTS="ls -1 blog/*.xe"
+TEMPFILE="tmp.gen"
+BLOGFOOTER_OLDER="Older Posts -> page_"
+BLOGFOOTER_NEWER="Newer Posts -> page_"
+POSTS_PER_PAGE=2
+NUM_OF_FILES=$(ls -1 | wc -l)
 
 #Generate index file.
 cat $HEAD $HOME | ./xemark > index.html
@@ -42,6 +48,42 @@ for file in $LISTFILES; do
 		fi
 	fi
 done
+
+#Generate the blog posts with pagination from the blog directory.
+COUNTER=1
+PAGENUM=1
+FILES_TO_JOIN=""
+
+for file in $LISTBLOGPOSTS; do 
+	if [ -f $file ]; then
+		#Generate the blog
+		NEWNAME=${file%.*}
+		cat $HEAD $file | ./xemark > "${NEWNAME}.html"
+		#Generate the aggregate blog
+		FILES_TO_JOIN="${FILES_TO_JOIN} $file "
+		if [ $(( COUNTER % POSTS_PER_PAGE )) == $((0)) ]; then
+			#If we're at the first page then only the next page should be appended
+			if [ $((PAGENUM)) == 1 ]; then
+				#need -e for proper escape characters
+				echo -e "\n<\n-${BLOGFOOTER_OLDER}$((${PAGENUM}+1))\n>\n" > ${TEMPFILE}
+			else
+				if [ $((NUM_OF_FILES - $((COUNTER)))) -lt $((POSTS_PER_PAGE)) ]; then
+					echo -e "\n<\n-${BLOGFOOTER_NEWER}$((${PAGENUM}))\n>\n" > ${TEMPFILE}	
+				else
+					echo -e "\n<\n-${BLOGFOOTER_NEWER}${PAGENUM}\n-${BLOGFOOTER_OLDER}$((${PAGENUM}+1))\n>\n" > ${TEMPFILE}
+				fi
+				
+			fi
+			cat $HEAD $FILES_TO_JOIN $TEMPFILE | ./xemark > "blog/page_${PAGENUM}.html"
+			PAGENUM=$((PAGENUM + 1))
+			FILES_TO_JOIN=""
+		fi
+	fi
+	COUNTER=$((COUNTER+1))
+done
+
+#Remove the tmp file
+rm ${TEMPFILE}
 
 #Finally, if there is a home file, make it the index file
 if [ -f "home.html" ]; then
