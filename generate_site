@@ -11,7 +11,6 @@ fi
 
 #Constants
 HEAD="" #Start off with no header
-HOME="home.xe"
 LISTFILES="ls -1 *.xe"
 LISTBLOGPOSTS="ls -1 blog/*.xe"
 TEMPFILE="tmp.gen"
@@ -20,8 +19,6 @@ BLOGFOOTER_NEWER="Newer Posts -> page_"
 POSTS_PER_PAGE=2
 NUM_OF_FILES=$(ls *.xe -1 | wc -l)
 
-#Generate index file.
-cat $HEAD $HOME | ./xemark > index.html
 
 #Find the header file if it exists
 for file in $LISTFILES; do 
