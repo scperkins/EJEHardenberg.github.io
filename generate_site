@@ -23,7 +23,7 @@ NUM_OF_FILES=$(ls *.xe -1 | wc -l)
 #Find the header file if it exists
 for file in $LISTFILES; do 
 	if [ -f $file ]; then
-		if [ $file == "header.xe" ]; then
+		if [ $file == "xe/header.xe" ]; then
 			HEAD=$file
 		fi
 	fi
@@ -32,7 +32,7 @@ done
 #Loop through the xe files and generate html from them
 for file in $LISTFILES; do
 	if [ -f $file ]; then
-		if [ $file == "header.xe" ]; then
+		if [ $file == "xe/header.xe" ]; then
 			echo "Found header. Skipping"
 		else
 			#Not reserved, render it
