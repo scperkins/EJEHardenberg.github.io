@@ -1,7 +1,7 @@
 
 ## Full list of projects I've worked on in the past
 
-<
+<:projects:
 - Green Up VT - Summer 203
 	<
 		- An application to assist with GreenUpVermont -> http://www.greenupvermont.org/ and help to coordinate volunteers. Developed as part of the national civic day of hacking -> hackforchange.org challenge by code for btv -> codeforbtv.org , The application was hastily made in php during the event. Then heaviy refactored into a RESTful API with mobile,ios and android client interfaces (Still in progress). My main contribution was the specification, design, and implementation of the REST api backend done in python. Also primarily responsible for task delegation and repository contribution maintenance.

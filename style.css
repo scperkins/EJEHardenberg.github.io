@@ -79,3 +79,16 @@ body{
 #nav li a{
 	display: block;
 }
+#projects > li{
+	font-weight: bolder;
+	font-size: 110%;
+	list-style-type: none;
+	text-decoration: underline;
+}
+#projects > ul{
+	list-style-type: none;
+	font-size: 90%;
+}
+#projects > ul > li + li{
+	font-style: italic;
+}
