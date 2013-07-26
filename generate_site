@@ -11,7 +11,7 @@ fi
 
 #Constants
 HEAD="" #Start off with no header
-LISTFILES="ls -1 *.xe"
+LISTFILES="ls -1 xe/*.xe"
 LISTBLOGPOSTS="ls -1 blog/*.xe"
 TEMPFILE="tmp.gen"
 BLOGFOOTER_OLDER="Older Posts -> page_"
@@ -37,6 +37,7 @@ for file in $LISTFILES; do
 		else
 			#Not reserved, render it
 			NEWNAME=${file%.*}
+			NEWNAME=${NEWNAME##*/}
 			cat $HEAD $file | ./xemark > "${NEWNAME}.html"
 			echo "Creating ${NEWNAME}.html from ${file}"
 			if [ -f $HEAD ]; then
