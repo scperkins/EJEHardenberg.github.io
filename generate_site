@@ -80,6 +80,10 @@ for file in $LISTBLOGPOSTS; do
 	fi
 done
 
+if [ $((NUM_OF_FILES)) -lt $((POSTS_PER_PAGE)) ]; then
+	cat $HEAD $FILES_TO_JOIN | ./xemark > "blog/page_1.html"
+fi
+
 if [ $((COUNTER)) == $((NUM_OF_FILES)) ] && [ $(( $((NUM_OF_FILES)) % $((2)) )) == $((0)) ]; then
 	echo -e "\n<\n-${BLOGFOOTER_NEWER}$((${PAGENUM}-1))\n>\n" > ${TEMPFILE}	
 	cat $HEAD $FILES_TO_JOIN $TEMPFILE | ./xemark > "blog/page_${PAGENUM}.html"
