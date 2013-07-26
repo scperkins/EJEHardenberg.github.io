@@ -4,10 +4,10 @@
 
 #:top:  Ethan Eldridge
 <:nav:
-- Home -> index.html
-- Projects -> projects.html
-- Resume -> resume.html
-- Blog -> page_1.html
+- Home -> ../index.html
+- Projects -> ../projects.html
+- Resume -> ../resume.html
+- Blog -> ../page_1.html
 >
 
 ==============================

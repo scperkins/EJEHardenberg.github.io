@@ -51,42 +51,46 @@ done
 COUNTER=1
 PAGENUM=1
 FILES_TO_JOIN=""
-
+BLOGHEAD="blog/blogheader.xe"
 for file in $LISTBLOGPOSTS; do 
 	if [ -f $file ]; then
-		#Generate the blog
-		NEWNAME=${file%.*}
-		cat $HEAD $file | ./xemark > "${NEWNAME}.html"
-		#Generate the aggregate blog
-		FILES_TO_JOIN="${FILES_TO_JOIN} $file "
-		if [ $(( COUNTER % POSTS_PER_PAGE )) == $((0)) ]; then
-			#If we're at the first page then only the next page should be appended
-			if [ $((PAGENUM)) == 1 ]; then
-				#need -e for proper escape characters
-				echo -e "\n<\n-${BLOGFOOTER_OLDER}$((${PAGENUM}+1))\n>\n" > ${TEMPFILE}
-			else
-				if [ $(( COUNTER + POSTS_PER_PAGE )) -gt $((NUM_OF_FILES)) ]; then
-					echo -e "\n<\n-${BLOGFOOTER_NEWER}$((${PAGENUM}-1))\n>\n" > ${TEMPFILE}	
+		if [ $file == $BLOGHEAD ]; then
+			echo "Found blogheader. Skipping"
+		else
+			#Generate the blog
+			NEWNAME=${file%.*}
+			cat $BLOGHEAD $file | ./xemark > "${NEWNAME}.html"
+			#Generate the aggregate blog
+			FILES_TO_JOIN="${FILES_TO_JOIN} $file "
+			if [ $(( COUNTER % POSTS_PER_PAGE )) == $((0)) ]; then
+				#If we're at the first page then only the next page should be appended
+				if [ $((PAGENUM)) == 1 ]; then
+					#need -e for proper escape characters
+					echo -e "\n<\n-${BLOGFOOTER_OLDER}$((${PAGENUM}+1))\n>\n" > ${TEMPFILE}
 				else
-					echo -e "\n<\n-${BLOGFOOTER_NEWER}$((${PAGENUM}-1))\n-${BLOGFOOTER_OLDER}$((${PAGENUM}+1))\n>\n" > ${TEMPFILE}
+					if [ $(( COUNTER + POSTS_PER_PAGE )) -gt $((NUM_OF_FILES)) ]; then
+						echo -e "\n<\n-${BLOGFOOTER_NEWER}$((${PAGENUM}-1))\n>\n" > ${TEMPFILE}	
+					else
+						echo -e "\n<\n-${BLOGFOOTER_NEWER}$((${PAGENUM}-1))\n-${BLOGFOOTER_OLDER}$((${PAGENUM}+1))\n>\n" > ${TEMPFILE}
+					fi
+					
 				fi
-				
+				cat $HEAD $FILES_TO_JOIN $TEMPFILE | ./xemark > "page_${PAGENUM}.html"
+				PAGENUM=$((PAGENUM + 1))
+				FILES_TO_JOIN=""
 			fi
-			cat $HEAD $FILES_TO_JOIN $TEMPFILE | ./xemark > "blog/page_${PAGENUM}.html"
-			PAGENUM=$((PAGENUM + 1))
-			FILES_TO_JOIN=""
+			COUNTER=$((COUNTER+1))
 		fi
-		COUNTER=$((COUNTER+1))
 	fi
 done
 
 if [ $((NUM_OF_FILES)) -lt $((POSTS_PER_PAGE)) ]; then
-	cat $HEAD $FILES_TO_JOIN | ./xemark > "blog/page_1.html"
+	cat $HEAD $FILES_TO_JOIN | ./xemark > "page_1.html"
 fi
 
 if [ $((COUNTER)) == $((NUM_OF_FILES)) ] && [ $(( $((NUM_OF_FILES)) % $((2)) )) == $((0)) ]; then
-	echo -e "\n<\n-${BLOGFOOTER_NEWER}$((${PAGENUM}-1))\n>\n" > ${TEMPFILE}	
-	cat $HEAD $FILES_TO_JOIN $TEMPFILE | ./xemark > "blog/page_${PAGENUM}.html"
+	echo -e "\n<\n-${OOTER_NEWER}$((${PAGENUM}-1))\n>\n" > ${TEMPFILE}	
+	cat $HEAD $FILES_TO_JOIN $TEMPFILE | ./xemark > "page_${PAGENUM}.html"
 fi
 
 #Remove the tmp file if it was created
