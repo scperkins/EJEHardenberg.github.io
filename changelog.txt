@@ -2,6 +2,7 @@ Change Log
 
 ------------------------
 
+- v0.4 First blog post generated
 - v0.3 Added projects page and rendered with newest version of xemark (which supports inline links)
 - v0.2 Created Content on home page.
 - v0.1 Test of styling on github's pages. With basic gradients and links rendered by xemark
