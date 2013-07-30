@@ -2,6 +2,7 @@ Change Log
 
 ------------------------
 
+- v0.6 Updated blog with git crash course and pre styling
 - v0.5 Updated projects to have Kirby Cross link
 - v0.4 First blog post generated
 - v0.3 Added projects page and rendered with newest version of xemark (which supports inline links)
