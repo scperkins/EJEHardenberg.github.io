@@ -85,8 +85,20 @@ for file in $LISTBLOGPOSTS; do
 done
 
 if [ $((NUM_OF_FILES)) -lt $((POSTS_PER_PAGE)) ]; then
+	for file in $LISTBLOGPOSTS; do
+		if [ -f $file ]; then
+			if [ $file == $BLOGHEAD ]; then
+				echo "Found blogheader. Skipping again."
+			else
+				NEWNAME=${file%.*}
+				#Generate the aggregate blog
+				FILES_TO_JOIN="${FILES_TO_JOIN} $file "
+			fi
+		fi
+	done 
 	cat $HEAD $FILES_TO_JOIN | ./xemark > "page_1.html"
 fi
+
 
 if [ $((COUNTER)) == $((NUM_OF_FILES)) ] && [ $(( $((NUM_OF_FILES)) % $((2)) )) == $((0)) ]; then
 	echo -e "\n<\n-${OOTER_NEWER}$((${PAGENUM}-1))\n>\n" > ${TEMPFILE}	
