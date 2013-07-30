@@ -78,4 +78,6 @@ body{
 }
 #nav li a{
 	display: block;
+}pre{
+	background-color: #f0ffff;
 }
