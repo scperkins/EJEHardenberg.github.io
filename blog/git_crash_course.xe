@@ -1,42 +1,10 @@
-<html><head><title>
-Ethan Joachim Eldridge's Webzone
-</title>
-<link rel="stylesheet" type="text/css" href="style.css"></head><body><p>
 
-<h1 id="top">  Ethan Eldridge
-</h1>
-<ul id="nav">
-<li>
- <a href="index.html">Home </a>
-
-</li>
-<li>
- <a href="projects.html">Projects </a>
-
-</li>
-<li>
- <a href="resume.html">Resume </a>
-
-</li>
-<li>
- <a href="page_1.html">Blog </a>
-
-</li>
-</ul>
-
-<hr>
-
-<hr>
-
-<h2>  Quick 'n' dirty git crash <a href="blog/git_crash_course.html">course </a>
-</h2>
-</p><p>
+===============================================================================
+##  Quick 'n' dirty git crash course -> blog/git_crash_course.html
 
 
-<h3>The Terminal and You
-</h3>
-<hr>
-
+###The Terminal and You
+==================================
 
 Your terminal is your entrance to the world of your computer's innards. You can
 do everything you can do through your GUI (Graphical User Interface), but without
@@ -45,8 +13,7 @@ substitute for a good terminal when it comes to manuevering on a server or manag
 a tool like git. 
 
 Here are some basics
-<h6>Note that a $ indicates we're typing into the command prompt
-</h6>
+######Note that a $ indicates we're typing into the command prompt
 
 Some basic commands ::
   <table>
@@ -91,14 +58,12 @@ Some basic commands ::
       </tr>
     </tbody>
   </table> 
-</p><p>
 
 
 With those basic commands you should be able to get by in the terminal without too much trouble. Here are some 
 examples of using those commands for your reference:
 
-<h6>Note that I'm showing the output of each command on the next line down, And that a # in the command means just a comment, just my note to you
-</h6>
+######Note that I'm showing the output of each command on the next line down, And that a # in the command means just a comment, just my note to you
  <pre>
  $pwd
  /home/ethan
@@ -136,10 +101,8 @@ examples of using those commands for your reference:
 This is a pretty minimal example of showing some of the functionality, each of the commands can take arguments and if you'd like
 to see them then you can typically type the name of the command followed by a -h or --help to get some information. There's also always the manual pages which you can get to with <pre>$man command</pre>
 
-<h3>Getting to Git
-</h3>
-<hr>
-
+###Getting to Git
+===============================================
 
 Git is a fantastic version control system (VCS) designed to manage source code efficiently. It was created by the same man who created
 the Linux Kernal and is used by him to maintain over 2000 developers over the world working on it. It can also be used by graphic
@@ -148,8 +111,7 @@ folder and start working, when you're happy with what you have, commit. Then con
 can always revert the folder to exactly the same state as it was before you made your changes. The following section will let you
 know how to accomplish all of this.
 
-<h3>The basics
-</h3>
+###The basics
 
 A repository is a fancy word for a folder that is under version control. Git is a distributed VCS, which means that there is no
 primary or central repository for a project. But rather, each person working on the project has their own local version of the files.
@@ -158,7 +120,6 @@ All of these files are kept up to date with each other by each person pushing an
 Here's what I mean; I maintain a repository on github for a project I'm working on. You come along and like what you see and decide to help out. You pop open my issue tracker and notice something you know how to fix. To get a copy of my repository you "fork" me on github. This brings a copy of the files on github into a repository associated with your account. Next, you "pull" my files onto your local machine, make your changes, "commit" and then "push" them back up to your repository. At this point, you open what's called a "pull request" to my repository from yours. This let's me know that you want me to "pull" the changes you've made and integrate them into my "upstream" repository.
 
 Ok, so that's a whole lot of terminology in one use case. So let's break it down a bit.
-</p><p>
 
 
   <table>
@@ -199,7 +160,6 @@ Ok, so that's a whole lot of terminology in one use case. So let's break it down
       </tr>
     </tbody>
   </table>
-</p><p>
 
 
 This is not an exhaustive table, there's a lot to git but the basics are simple. You work on a project, add the changes, and when you're happy with what you have, you commit them. So let's look at a use case of creating a local repository:
@@ -275,7 +235,7 @@ Our next case is renaming a file. Normally you'd do this through your fancy grap
  $git mv file.txt renamedfile.txt
  $git status -sb
  ## master
- R  <a href="renamedfile.txt">file.txt </a>
+ R  file.txt -> renamedfile.txt
  $git commit #(Do your commit message here to save renaming that file)
  </pre>
 
@@ -306,7 +266,6 @@ The mv command moves a file, oddly enough moving a file and renaming a file are 
  Well then. According to git we've deleted our file named renamedfile.txt and there's a new file that we haven't added to our repository yet named silly.txt
 
 See anything wrong with this? Let me point it out. If you're trying to keep track of changes to a file over the course of a repository history (you know, so you can undo them if you have to) then having a file marked as deleted is going to make that dream come to a grinding halt. There's no way for git to know that you haven't created a new file named silly.txt, after all moving a file is the same as renaming it, and when you move a file that's basically saying it doesn't exist anymore at the old location and now exists at the new. So you can see why git would track this as a deletion.
-</p><p>
 
 
 Pedantry aside, we can undo what we just did with git
@@ -324,7 +283,6 @@ Pedantry aside, we can undo what we just did with git
  </pre>
 
 So we've undeleted our file by reseting the HEAD of our repository. The HEAD of our repository is like a finger that points at the current changes in our repository. There's a more technical explanation for it, but you can google for that since it's not that important right now. Also, you might notice that when we did our status, we had two files in our repository. Why's that? Becuase git wasn't tracking silly.txt so of course it wouldn't remove the file when we reset the head. Files you don't add to the repository with git are left alone.
-</p><p>
 
 
 We've unstaged the changes to our repository, but you'll notice that if you list directory then you'll see that your file still doesn't actually exist. To get it back, we need to checkout the file. This will undo the changes we've done (deleting the file) and if we list our directory again we'll have our file back.
@@ -333,17 +291,14 @@ We've unstaged the changes to our repository, but you'll notice that if you list
  $ls
  renamedfile.txt
  </pre>
-</p><p>
 
 
  Alright, so we've made a repository in git. We've added, staged, and deleted files from it. We've renamed a file and made two commits. Now let's utilize some of the power that git offers us through version control. Let's run the command <pre>gitk</pre>
 
  After a moment a big gray window will open up. Welcome to the repository viewer that ships with git. In the top left corner we have our git log, which includes all our commits. You'll notice that the first line of your commit will be shown here. This is one of the reasons why I emphasize good commit messages like I described above. To the right of the log you'll see a column for authors and timestamps. Each of these logically matches up with the commit that was authored at that particular time.
-</p><p>
 
 
  Click one of the commits. Specifically, the first one. The bottom windows are now full of information. The right hand side lists the files changed, and if you click on one of those files the changes that occured will show up in the left pane. Additions to files will show up in green, and deletions will show up in red. You'll also see your full commit message if you look at the top of the left pane, or click the comments line on the right pane. 
-</p><p>
 
 
  Looking directly underneath the top left pane, you'll see a SHA1 ID identifier followed by a bunch of numbers. This is a hash. And is how you can identify each commit. Close gitk now and open your terminal. It's great  to see the full history of your git repository, but for now all we need is the log. 
@@ -413,16 +368,12 @@ What about if we didn't really mean to reset at all and we want our commit back?
 Alright, so we've hit on some new commands. First off, we used git checkout to make our repository be like the snapshot that is in commit 2a1b3ff (which is after we renamed the file), we were in something called a detached HEAD state. This just means that we've grabbed our snapshot and we're not currently tracking any history for what we do. Git kindly informs us that if we want to commit and make changes, we can create a new branch and switch to it with the command git checkout -b new_branch_name. Because we're not making any changes, we use the git branch name_of_branch(in our case tmp) to create a branch based on our current commit (2a1b3ff) and then we switch branches to our master branch (the one we've been working on this whole time). 
 
 To remind you, each branch is like a different version of our repository, so we now have two versions of our repository, we have master and tmp, one has the renamed files we want and the other is the branch we reset. To merge the two together, specifically, merge the changes of tmp onto master. We move to the master branch with git checkout master, and then we use git merge tmp to merge the tmp branch onto master. Straightforward right? To clean up our repository we then use git branch -d tmp to delete the old branch we're not using anymore. This is generally a good idea, if you're merged a branch in, then it makes perfect sense to remove it.
-</p><p>
 
 
-<h3>Working with remotes
-</h3>
-<hr>
+###Working with remotes
+===============================================================================
 
-
-So we've learned how to manage our local repository. Now let's learn how to use git to collaborate with others. Go ahead and setup an account on github, and then follow the excellent <a href="https://help.github.com/articles/generating-ssh-keys">instructions </a> on how to setup your ssh keys with github. 
-</p><p>
+So we've learned how to manage our local repository. Now let's learn how to use git to collaborate with others. Go ahead and setup an account on github, and then follow the excellent instructions -> https://help.github.com/articles/generating-ssh-keys on how to setup your ssh keys with github. 
 
 
 Once you've done this, create a repository on github (I'll call mine example) and DONT initialize it with a readme. Github will inform you on how to setup your remotes but I'll reiterate it here anyway. Note that your github url's will be different
@@ -435,7 +386,7 @@ Compressing objects: 100% (2/2), done.
 Writing objects: 100% (5/5), 576 bytes, done.
 Total 5 (delta 0), reused 0 (delta 0)
 To git@github.com:your_username_here/example.gitthe
- * [new branch]      <a href="master">master </a>
+ * [new branch]      master -> master
 Branch master set up to track remote branch master from origin.
  </pre>
 
@@ -443,7 +394,6 @@ If you messed typing your repository url in, then you can this command to help:
  <pre>
 git remote set-url origin git@github.com:username_here/example.git
  </pre>
-</p><p>
 
 
 So now you have a repository that's different, what if you want to work with other people? Use git remote add to add their repository's to yours. Something like this will do:
@@ -469,43 +419,7 @@ Here are the commands you need to know when dealing with remotes:
  </pre>
 
 To find out a remote name, you can use git remote -v to list your remotes and their names will be on the left. The branch names can be listed by saying git branch. If you're working with code and you want to make sure that the code you're merging in is clearly coming from a branch other than the one you're merging into (such as a topic branch being merged into master), use the --no-ff argument to the merge command and you'll see a clear difference in gitk's log that will make it easy to distinguish when code was merged. If you don't use the --no-ff (which stands for no fast forward) then you'll "fast forward" the changes onto the branch, which will make it look like all the commits from the branch being merged took place on the branch you're merging into.
-</p><p>
-
-</p><p>
 
 
-There's plenty more to git. Such as dealing with merging code and dealing with conflicts (git is smart enough to merge things automatically for you most of the time but sometimes it needs help) but this covers the basics. I recommend reading the git pro <a href="http://git-scm.com/book">book </a> as it is a fantastic overview of git and really helps people understand it.
 
-<hr>
-
-<h2>  How this site was <a href="blog/how_this_site_was_made.html">made </a>
-</h2>
-</p><p>
-
-
-This site was generated by a small bash <a href="https://github.com/EJEHardenberg/EJEHardenberg.github.io/blob/master/generate_site">script </a> ( < 100 lines! ) and a markup rendering program I created called <a href="https://github.com/EJEHardenberg/xemark">xemark. </a>  The markdown language is of my own creation, and based off of markdown. The entire language can be described by in about 20 lines of <a href="https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form">BNF </a> and a few notes of my <a href="https://github.com/EJEHardenberg/xemark/blob/master/Grammar.xemark">own. </a> 
-</p><p>
-
-
-If you're actually taking a look and cross referencing the BNF with the files in the xe folder, you'll notice that these aren't valid xemark files. First off, they don't have the #XEMARK_<number> as the first line. Secondly they're all missing a title field indicated by an @ sign. So, how could the xemark executable parse these files correctly? A quick look in the source indicates that the execution of the parser stops if they header isn't right. The magic happens in the bash script used to generate the site. Specifically the use of the cat command. If you feed multiple files to cat before piping it's output, you'll merge together the two files. By merging together the header file and the other xe files, we have valid xe files that all share the same header. Effectively, we've accomplished something similar to a php include.
-</p><p>
-
-
-The next important feature of the script generating this site is the pagination of the blog posts. None of the older or newer post links are part of the file. They're being included in the same way as the header file is. Except they're being generated by the script itself. Unfortunately, you need to either feed a file to cat, or pipe echo's output to it. To make things simple, the footer is placed into a temporary file, then appended as each page is made.
-</p><p>
-
-</p><p>
-
-
-While creating this website I also tested xemarks capabilities as a <a href="http://en.wikipedia.org/wiki/Common_Gateway_Interface">CGI </a> script. I <a href="http://ethaneldridgecs.blogspot.com/2013/07/frankencode-with-rails-and-xemark.html">blogged </a> about this a little bit, and used a Ruby on Rails server to do the heavy lifting of actually running an http server. But it's most definitely overkill to use a rails server to simply call a parsing program like xemark on a single file while sending the output to a browser. It might be more appropriate to construct a minimal python server (which takes a very small amount of code)
-</p><p>
-
-
- <script src="https://gist.github.com/EJEHardenberg/6085477.js"></script>
-
-<li id="note">
- Note that you can grab example.xe and the python simple server script from the xemark <a href="https://github.com/EJEHardenberg/xemark">repository. </a> if you'd like to play around with them a little bit more.
-
-</li>
-
-</p></body></html>
+There's plenty more to git. Such as dealing with merging code and dealing with conflicts (git is smart enough to merge things automatically for you most of the time but sometimes it needs help) but this covers the basics. I recommend reading the git pro book -> http://git-scm.com/book as it is a fantastic overview of git and really helps people understand it.
