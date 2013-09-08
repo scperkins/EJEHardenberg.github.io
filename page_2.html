@@ -1,0 +1,182 @@
+<html><head><title>
+Ethan Joachim Eldridge's Webzone
+</title>
+<link rel="stylesheet" type="text/css" href="style.css"></head><body><p>
+
+<h1 id="top">  Ethan Eldridge
+</h1>
+<ul id="nav">
+<li>
+ <a href="index.html">Home </a>
+
+</li>
+<li>
+ <a href="projects.html">Projects </a>
+
+</li>
+<li>
+ <a href="resume.html">Resume </a>
+
+</li>
+<li>
+ <a href="page_1.html">Blog </a>
+
+</li>
+</ul>
+
+<hr>
+
+
+<hr>
+
+
+<h2>  Time <a href="blog/time_catcher_part1.html">Catcher </a>
+</h2>
+</p><p>
+
+
+I've begun work on a new <a href="https://github.com/EJEHardenberg/timecatcher">project </a> and so far it's coming along nicely. I've been using some software at work to keep track of my hours, it's called office time. It works fine, simple interface, easy to manage for the most part, and at least 20 features I don't use. Ever. 
+
+So being the kind of guy I am, I decided that I could probably make a simple to use task tracking utility. Here are some of my motivations. 
+<ul>
+<li>
+ I spend about 60-80% of my day in a terminal. So I should be able to access the utility from there
+
+</li>
+<li>
+ I need to keep track of a task per day, and then be able to display it meaningfully later on
+
+</li>
+<li>
+ I want to be able to add notes to myself about the task as I work on it
+
+</li>
+<li>
+ I should only be active on a single task at a time
+
+</li>
+</ul>
+
+So let's see. I'm going to working in the command line, well that means I'll want an executable file. I could write a bash script, but bash syntax is not the best for anything complicated. So I want a higher language. I want to sit low, and I like C. So I'll do it in C. 
+
+Keeping track of a single task, well that's simple. Give it a name. I'll have to be able to have it be permanent, and I even have a process running in the background (no) or I make an object of some kind in a file and use that to keep track of things. Now that sounds easy. If it works for git, it will work for me. If I want to keep track of my tasks per day, I should store these object files into their own folder, named after the current date. The benefit to this is that if I want to generate spreadsheets or information later on, I can do it by date with these folders.
+
+Adding a note, well that's easy too, keep track of it in the file for the current task.
+
+Being active on only a single task at a time? Now that seems hard to enforce. Because I'll be able to start a task, then end a task with a command. So I could fire off a bunch of tasks then finish them when I wanted to and the timing data would be complete garbage. Ah! So I'll keep track of the last created task in some type of master file. Easy! When a new task is created, the other task will be 'paused' or for starters I won't let a user switch tasks unless they finish one first. 
+</p><p>
+
+
+And this is my first plan. So far it's coming along and I've got the directory to hold this information all good and am writing out the usage documentation, as a guide to me and a guide to anyone else who wants to use it. 
+</p><p>
+
+</p><p>
+
+
+<hr>
+
+
+<h2>  Time Catcher <a href="blog/time_catcher_part2.html">Part2 </a>
+</h2>
+</p><p>
+
+
+So the work on my newest <a href="https://github.com/EJEHardenberg/timecatcher">prokect </a> is at a point where I felt comfotable enough for an alpha release. It's pretty simple. The basics are done. You can start tasks, finish them, switch between them and view information for one or all tasks.
+
+The best part? In my opinion it's a combination of the following:
+ 
+<ul>
+<li>
+ It's all in C.
+
+</li>
+<li>
+ It's memory leak free and has no unintialized value runtime errors.
+
+</li>
+<li>
+ The Bash Completion of it's commands
+
+</li>
+<li>
+ It's only 1600 lines of code. Refactored from ~2600 just today.
+
+</li>
+<li>
+ It doesn't consume your process space by having a running timer
+
+</li>
+</ul>
+
+So let's see. What were some cool things I probably want to touch on. Oh right, how about the way it tracks time? 
+
+The algorithm is actually pretty simple. It depends on a couple of things. First off, each task has a sequence file and an information file. These are stored in the .tc directory the program creates in the home directory. The information files are only important for the view --all command. But the sequence files are the heart of a task. In each file is a simple format:
+</p><p>
+
+
+  <pre> 
+  <seq num><state><epoch time> 
+  <seq num><state><epoch time> 
+  </pre>
+</p><p>
+
+
+ So you might see where this is going. A task can be in 1 of 5 possible states. Only 3 of which are ever recorded in the sequence file: Started, paused, and finished (The other two states are for error handling).
+
+ The algorithm to read information is simple:
+
+ <pre>
+while( read 3 fields stated above) 
+if seqNum = 0
+startTime = seqTime;
+else 
+if( priorState == STARTED and (state = PAUSED or state = TC_FINISHED) ) 
+runningTime = runningTime + (seqTime - priorTime);
+
+priorTime = seqTime;
+priorState = state;
+
+if runningTime = 0 and state == STARTED 
+runningTime =  time(0) - startTime;
+
+ </pre>
+
+Basically all we're doing is computing the time between when the task started being in progress and when it was finished. Taking into affect that if it is current in progress we'll use the current time as the ending time (not shown here). One little tricky bit is that the running time is affected at the very end after the loop if the runningTime is zero and we're in a started state. We do this because of the special case of when a task is first started and there's only a single entry in the sequence file.
+
+There's far more interesting things going on in the program besides this little algorithm. But it seems like since it's a time tracking program it's appropriate to mention it at the very least. Some more interesting tidbits are:
+
+1. This program calls it's own main.
+
+What's that? Did your head just explode? Did your pedentic sense of justice to the C++ C99 standard come raging forth? Reality check. I'm compiling with cc and ansi pedantic. The C (C! not C++! PURE C!) standard doesn't say I can't call my own main if I want to. And guess what. There's no loss (on my machine at least) of the current stack or anything. I return from the call to main as you'd expect and carry on my way to free the memory allocated in the calling function. If you're interested, the recursive call is in the tc-start.c file. 
+
+2.  The program creates a directory in your home directory
+
+How does it do this? The wonderful world of environmental variables! Believe it or not, if you give a path to fopen with a tilde... it's not going to like it. Why? Because the tilde is really a shell expansion for your home directory. So you either have to grab the environment or use wordexp to do word expansion on the tilde itself. I do both. If you're curious how it's done, check out tc-directory.c
+
+3. It runs through the tasks directory within the .tc directory and finds the filename's using the opendir commands. 
+
+It was my first time getting a chance to play with the dirent library so it was a lot fun. The code's in tc-view.c around where the --all command is parsed out. 
+
+4. Bash Completion
+
+Ok, so this is just cool. I didn't know how to do completion for my own programs before and I found it it's not that hard using all the excellent tutorials around for it. There is <a href="http://www.debian-administration.org/articles/316">one </a> in particular that everyone links to. Probably because you can easily modify the example scripts to get what you'd like out of it. Perhaps my favorite part of this whole process was this clever bash command:
+
+ <pre> cat ~/.tc/indexes/*.index | cut -d ' ' -f 2- | uniq | grep -v  [[:space:]]*8 | rev | cut -d ' ' -f 2- | rev` </pre>
+
+This is part of the completion script, specifically, this grabs the list of tasks that aren't in progress. How? Easy. We cat the index files to retrieve the task names and the states of them. Then we grab the 2nd field onward with cut (using space as our delimiter). Do an inverse grep for the state that corresponds to the in progress state. Then we reverse the string (wait why you might ask). Then we remove the first field of the reversed string (which happens to be the state). Then we flip the string again and we're only left with the task name itself. Cool right?
+</p><p>
+
+
+This has been a very fun project to do, and I think I'll probably add a few more commands before I'm done with it. But while I do, I'll definitely be using it to keep track of how long I spend on it! (Talk about dog fooding)
+</p><p>
+
+
+<ul>
+<li>
+Newer <a href="page_1">Posts </a>
+
+</li>
+</ul>
+
+
+</p></body></html>
