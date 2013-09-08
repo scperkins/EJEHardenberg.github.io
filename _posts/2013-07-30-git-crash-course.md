@@ -15,8 +15,9 @@ a tool like git.
 Here are some basics
 ######Note that a $ indicates we're typing into the command prompt
 
-Some basic commands ::
-  <table>
+Some basic commands
+
+<table>
     <thead>
       <tr><th>Command</th><th>What it means</th></th><th>Description</th></tr>
     </thead>
@@ -67,33 +68,22 @@ examples of using those commands for your reference:
  <pre>
  $pwd
  /home/ethan
-
  $ls
  Desktop Downloads Pictures Public Themes Videos Documents Music Programming
-
  $cd Programming/
  C Grails Java Open-Source Python Ruby scripts Web Work
-
  $cd ../ #../ means go up a directory, you can chain these like ../../ to move up 2 directories
-
  $ls
  Desktop Downloads Pictures Public Themes Videos Documents Music Programming tmp.txt
-
  $touch tmp.txt #Create a file called tmp.txt that's blank
-
  $vi tmp.txt
  #Vim would open here and I would edit the file, then use esc + : + wq to write and save it
-
  $nano tmp.txt
  #nano would open here and I would edit the file, then use ctrl+o ctrl+x to write and save
-
  $cd Programming/C/xemark/ #You can do all the changes at once if you know where you're going
-
  $ls
  a.out  constants.h  example.xe  functions.h  grammar.html  Grammar.xe  LICENSE  mark-server  parser.c  README.md  xemark
-
  $cd #cd with no directory will bring you back to your home directory
-
  $ls
  Desktop Downloads Pictures Public Themes Videos Documents Music Programming tmp.txt
  </pre>
@@ -121,8 +111,7 @@ Here's what I mean; I maintain a repository on github for a project I'm working 
 
 Ok, so that's a whole lot of terminology in one use case. So let's break it down a bit.
 
-
-  <table>
+<table>
     <thead>
       <tr>
         <th>Term</th>
@@ -167,12 +156,10 @@ This is not an exhaustive table, there's a lot to git but the basics are simple.
  <pre>
  $pwd 
  /home/ethan/
-
  $mkdir example
  $cd example/
  $git init
  Initialized empty Git repository in /home/ethan/example/.git/
-
  $touch file.txt
  $git status
  # On branch master
@@ -184,14 +171,11 @@ This is not an exhaustive table, there's a lot to git but the basics are simple.
  #
  # file.txt
  nothing added to commit but untracked files present (use "git add" to track)
-
  $git add file.txt
  $git status -sb #this is just a short status view so this page doesn't get long
  ## Initial commit on master
  A  file.txt
-
  $git commit
-
  # Please enter the commit message for your changes. Lines starting
  # with '#' will be ignored, and an empty message aborts the commit.
  # On branch master
@@ -202,17 +186,15 @@ This is not an exhaustive table, there's a lot to git but the basics are simple.
  #   (use "git rm --cached <file>..." to unstage)
  #
  #       new file:   file.txt
-
+</pre>
  At this point you should have either nano or vi open, type in a commit message and save. 
  (if you need a guide on how to save, look at the command reference again at the top of the page)
  My commit message below:
-
+<pre>
  Added an example file named file.txt
-
  This is a super exciting commit message that details everything
  that I've done in this commit that way people can tell what I did!
  # Please enter the commit message for your changes. Lines starting...
-
  [master (root-commit) ed51ab3] Added an example file named file.txt
  0 files changed
  create mode 100644 file.txt
@@ -273,12 +255,10 @@ Pedantry aside, we can undo what we just did with git
  $git reset HEAD
  Unstaged changes after reset:
  D renamedfile.txt
- 
  $git status -sb
  ## master
  D renamedfile.txt
  ?? silly.txt
-
  $rm silly.txt
  </pre>
 
@@ -316,7 +296,6 @@ Note that the hashes at the beginning of each line might be different on your ma
   ## master
   D file.txt
   ?? renamedfile.txt
-
   $rm renamedfile.txt
   $git checkout file.txt
   $ls
@@ -334,33 +313,26 @@ Note that the hashes at the beginning of each line might be different on your ma
 What about if we didn't really mean to reset at all and we want our commit back? We can do this too. Let's say we go back on un-renaming the file (we're so wishy washy). Because we have the hash from the log, (2a1b3ff in my case) we can redo our changes by doing the following:
  <pre>
  $git checkout 2a1b3ff
- Note: checking out '2a1b3ff'.
-
+ Note: checking out '2a1b3ff'. 
  You are in 'detached HEAD' state. You can look around, make experimental
  changes and commit them, and you can discard any commits you make in this
  state without impacting any branches by performing another checkout.
-
  If you want to create a new branch to retain commits you create, you may
  do so (now or later) by using -b with the checkout command again. Example:
-
   git checkout -b new_branch_name
-
  HEAD is now at 2a1b3ff... Renamed file to renamedfile
  $git branch tmp
  $git checkout master
  Previous HEAD position was 2a1b3ff... Renamed file to renamedfile
  Switched to branch 'master'
-
  $git merge tmp
  Updating ed51ab3..2a1b3ff
  Fast-forward
   file.txt => renamedfile.txt |    0
   1 file changed, 0 insertions(+), 0 deletions(-)
   rename file.txt => renamedfile.txt (100%)
- 
  $git branch -d tmp
  Deleted branch tmp (was 2a1b3ff).
-
  $git log --oneline
  2a1b3ff Renamed file to renamedfile
  ed51ab3 Added an example file named file.txt
@@ -371,7 +343,7 @@ To remind you, each branch is like a different version of our repository, so we 
 
 
 ###Working with remotes
-===============================================================================
+
 
 So we've learned how to manage our local repository. Now let's learn how to use git to collaborate with others. Go ahead and setup an account on github, and [then follow the excellent instructions]  on how to setup your ssh keys with github. 
 

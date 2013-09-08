@@ -21,17 +21,17 @@ So let's see. What were some cool things I probably want to touch on. Oh right, 
 The algorithm is actually pretty simple. It depends on a couple of things. First off, each task has a sequence file and an information file. These are stored in the .tc directory the program creates in the home directory. The information files are only important for the view --all command. But the sequence files are the heart of a task. In each file is a simple format:
 
 
-  <pre> 
-  <seq num><state><epoch time> 
-  <seq num><state><epoch time> 
-  </pre>
+<pre> 
+  &lt;seq num&gt; &lt;state&gt; &lt;epoch time&gt;  
+  &lt;seq num&gt; &lt;state&gt; &lt;epoch time&gt;  
+</pre>
 
 
  So you might see where this is going. A task can be in 1 of 5 possible states. Only 3 of which are ever recorded in the sequence file: Started, paused, and finished (The other two states are for error handling).
 
  The algorithm to read information is simple:
 
- <pre>
+<pre>
 	while( read 3 fields stated above) 
 		if seqNum = 0
 			startTime = seqTime;
@@ -51,19 +51,19 @@ Basically all we're doing is computing the time between when the task started be
 
 There's far more interesting things going on in the program besides this little algorithm. But it seems like since it's a time tracking program it's appropriate to mention it at the very least. Some more interesting tidbits are:
 
-1. This program calls it's own main.
+- This program calls it's own main.
 
 What's that? Did your head just explode? Did your pedentic sense of justice to the C++ C99 standard come raging forth? Reality check. I'm compiling with cc and ansi pedantic. The C (C! not C++! PURE C!) standard doesn't say I can't call my own main if I want to. And guess what. There's no loss (on my machine at least) of the current stack or anything. I return from the call to main as you'd expect and carry on my way to free the memory allocated in the calling function. If you're interested, the recursive call is in the tc-start.c file. 
 
-2.  The program creates a directory in your home directory
+-  The program creates a directory in your home directory
 
 How does it do this? The wonderful world of environmental variables! Believe it or not, if you give a path to fopen with a tilde... it's not going to like it. Why? Because the tilde is really a shell expansion for your home directory. So you either have to grab the environment or use wordexp to do word expansion on the tilde itself. I do both. If you're curious how it's done, check out tc-directory.c
 
-3. It runs through the tasks directory within the .tc directory and finds the filename's using the opendir commands. 
+- It runs through the tasks directory within the .tc directory and finds the filename's using the opendir commands. 
 
 It was my first time getting a chance to play with the dirent library so it was a lot fun. The code's in tc-view.c around where the --all command is parsed out. 
 
-4. Bash Completion
+- Bash Completion
 
 Ok, so this is just cool. I didn't know how to do completion for my own programs before and I found it it's not that hard using all the excellent tutorials around for it. There is [one in particular]  that everyone links to. Probably because you can easily modify the example scripts to get what you'd like out of it. Perhaps my favorite part of this whole process was this clever bash command:
 
