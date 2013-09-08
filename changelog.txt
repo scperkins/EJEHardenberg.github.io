@@ -2,6 +2,7 @@ Change Log
 
 ------------------------
 
+- v0.12 First push of mostly markdown content.
 - v0.11 Putting blog in maintainance mode.
 - v0.10 Restructing to markdown.
 - v0.9 Added time catcher part 2 post

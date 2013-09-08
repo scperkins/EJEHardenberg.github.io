@@ -1,112 +1,81 @@
-
-html{
-	background-image: -ms-linear-gradient(top, #FFFFFF 0%, #E2DBFA 100%); /* IE10 Consumer Preview */ 
-	background-image: -moz-linear-gradient(top, #FFFFFF 0%, #E2DBFA 100%); /* Mozilla Firefox */ 
-	background-image: -o-linear-gradient(top, #FFFFFF 0%, #E2DBFA 100%); /* Opera */ 
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #E2DBFA)); /* Webkit (Safari/Chrome 10) */ 
-	background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #E2DBFA 100%); /* Webkit (Chrome 11+) */ 
-	background-image: linear-gradient(to bottom, #FFFFFF 0%, #E2DBFA 100%); /* W3C Markup, IE10 Release Preview */ 
-	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
+*{margin:0;padding:0;}
+body {
+    font:13.34px helvetica,arial,freesans,clean,sans-serif;
+    color:black;
+    line-height:1.4em;
+    background-color: #F8F8F8;
+    padding: 0.7em;
 }
-body{
-	width: 70%;
-	margin-left: 10%;
-	padding-left: 5%;
-	margin-right: 10%;
-	padding-right: 5%;
-	margin-top: 0px;
-	padding-top: 2%;
-	margin-bottom: 0px;
-	padding-bottom: 2%;
-	border-left-width: thick;
-	border-right-width: medium;
-	border-color: black;
-	border-left-style: solid;
-	border-right-style: solid;
-	background-image: linear-gradient(bottom, rgb(143,199,255) 0%, rgb(229,251,255) 61%);
-	background-image: -o-linear-gradient(bottom, rgb(143,199,255) 0%, rgb(229,251,255) 61%);
-	background-image: -moz-linear-gradient(bottom, rgb(143,199,255) 0%, rgb(229,251,255) 61%);
-	background-image: -webkit-linear-gradient(bottom, rgb(143,199,255) 0%, rgb(229,251,255) 61%);
-	background-image: -ms-linear-gradient(bottom, rgb(143,199,255) 0%, rgb(229,251,255) 61%);
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0, rgb(143,199,255)),
-		color-stop(0.61, rgb(229,251,255))
-	);
+p {
+    margin:1em 0;
+    line-height:1.5em;
 }
-ul{
-	list-style-type: none;
+table {
+    font-size:inherit;
+    font:100%;
+    margin:1em;
 }
-p:before{
-	/* Weird hack for &nbsp in a before. See: https://bugzilla.mozilla.org/show_bug.cgi?id=215770*/
-	content: '\0000A0\0000A0\0000A0';
+table th{border-bottom:1px solid #bbb;padding:.2em 1em;}
+table td{border-bottom:1px solid #ddd;padding:.2em 1em;}
+input[type=text],input[type=password],input[type=image],textarea{font:99% helvetica,arial,freesans,sans-serif;}
+select,option{padding:0 .25em;}
+optgroup{margin-top:.5em;}
+pre,code{font:12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}
+pre {
+    margin:1em 0;
+    font-size:12px;
+    background-color:#eee;
+    border:1px solid #ddd;
+    padding:5px;
+    line-height:1.5em;
+    color:#444;
+    overflow:auto;
+    -webkit-box-shadow:rgba(0,0,0,0.07) 0 1px 2px inset;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;border-radius:3px;
 }
-#nav{
-	text-align: center;
-	list-style-type: none;
+pre code {
+    padding:0;
+    font-size:12px;
+    background-color:#eee;
+    border:none;
 }
-#nav li{
-	display: inline-block;
+code {
+    font-size:12px;
+    background-color:#f8f8ff;
+    color:#444;
+    padding:0 .2em;
+    border:1px solid #dedede;
+}
+img{border:0;max-width:100%;}
+abbr{border-bottom:none;}
+a{color:#4183c4;text-decoration:none;}
+a:hover{text-decoration:underline;}
+a code,a:link code,a:visited code{color:#4183c4;}
+h2,h3{margin:1em 0;}
+h1,h2,h3,h4,h5,h6{border:0;}
+h1{font-size:170%;border-top:4px solid #aaa;padding-top:.5em;margin-top:1.5em;}
+h1:first-child{margin-top:0;padding-top:.25em;border-top:none;}
+h2{font-size:150%;margin-top:1.5em;border-top:4px solid #e0e0e0;padding-top:.5em;}
+h3{margin-top:1em;}
+hr{border:1px solid #ddd;}
+ul{margin:1em 0 1em 2em;}
+ol{margin:1em 0 1em 2em;}
+ul li,ol li{margin-top:.5em;margin-bottom:.5em;}
+ul ul,ul ol,ol ol,ol ul{margin-top:0;margin-bottom:0;}
+blockquote{margin:1em 0;border-left:5px solid #ddd;padding-left:.6em;color:#555;}
+dt{font-weight:bold;margin-left:1em;}
+dd{margin-left:2em;margin-bottom:1em;}
+@media screen and (min-width: 768px) {
+    body {
+        width: 748px;
+        margin:10px auto;
+    }
+}
+ol{
+	display: inline;
+}
+ol li{
 	width: 20%;
-	background-image: linear-gradient(bottom, rgb(143,199,255) 0%, rgb(229,251,255) 31%);
-	background-image: -o-linear-gradient(bottom, rgb(143,199,255) 0%, rgb(229,251,255) 31%);
-	background-image: -moz-linear-gradient(bottom, rgb(143,199,255) 0%, rgb(229,251,255) 31%);
-	background-image: -webkit-linear-gradient(bottom, rgb(143,199,255) 0%, rgb(229,251,255) 31%);
-	background-image: -ms-linear-gradient(bottom, rgb(143,199,255) 0%, rgb(229,251,255) 31%);
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0, rgb(143,199,255)),
-		color-stop(0.31, rgb(229,251,255))
-	);
-
-}
-#nav li:hover{
-	cursor: pointer;
-	opacity: .5;
- 	background-image: linear-gradient(bottom, rgb(229,251,255) 0%, rgb(143,199,255) 51%);
-	background-image: -o-linear-gradient(bottom, rgb(229,251,255) 0%, rgb(143,199,255) 51%);
-	background-image: -moz-linear-gradient(bottom, rgb(229,251,255) 0%, rgb(143,199,255) 51%);
-	background-image: -webkit-linear-gradient(bottom, rgb(229,251,255) 0%, rgb(143,199,255) 51%);
-	background-image: -ms-linear-gradient(bottom, rgb(229,251,255) 0%, rgb(143,199,255) 51%);
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0, rgb(229,251,255)),
-		color-stop(0.51, rgb(143,199,255))
-	);
-    transition: opacity,background 1s ease-in-out;
-	-moz-transition: opacity,background 1s ease-in-out;
-	-webkit-transition: opacity,background 1s ease-in-out;
-}
-#nav li a{
-	display: block;
-}
-#projects > li,#resume > li{
-	font-weight: bolder;
-	font-size: 110%;
-	list-style-type: none;
-	text-decoration: underline;
-}
-#projects > ul{
-	list-style-type: none;
-	font-size: 90%;
-}
-#projects > ul > li + li{
-	font-style: italic;
-}
-
-#resume > ul > li{
-	font-style: italic;
-}
-#resume > ul > li + li{
-	font-style: normal;
-	font-size: 90%;
-}
-pre{
-	background-color: #f0ffff;
+	text-align: center;
 }
