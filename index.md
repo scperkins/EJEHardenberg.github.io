@@ -85,7 +85,7 @@ guaranteed thing.
 [college]:http://www.uvm.edu/
 [90s]:https://www.youtube.com/watch?v=C-u5WLJ9Yk4
 [Computer Science]:http://www.molecularecologist.com/wp-content/uploads/2012/11/penguins-in-the-matrix-479271.jpg
-[applied math major]:http://www.youtube.com/watch?feature=player_profilepage&v=4niz8TfY794
+[applied math major]:http://www.youtube.com/watch?feature=player_profilepage&gt;v=4niz8TfY794
 [CS Crew]:http://www.uvm.edu/~cscrew/
 [UPE]:http://upe.acm.org/
 [VHFA]:http://www.vhfa.org/
@@ -103,7 +103,7 @@ guaranteed thing.
 
 [Home]:index.html
 [Github]:https://github.com/EJEHardenberg
-[Blog]:blog/index.html
+[Blog]:blog.html
 [Projects]:projects.html
 [Resume]:resume.html
 

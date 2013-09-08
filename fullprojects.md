@@ -45,7 +45,7 @@ Full List of Projects [return]
 	- You can [play the game here]
 	
 - Live Log - Spring 2013
-	- Joshua Dickerson created an easy to use, open source logging framework in PHP and I helped out by creating a ruby client to interface with his PHP back and frontend. Check out the repository on github under my maintenance, or [Josh's repository on bitbucket] or [his github]
+	- Joshua Dickerson created an easy to use, open source logging framework in PHP and I helped out by creating a ruby client to interface with his PHP back and frontend. Check out the repository on github under my maintenance, or [Joshs repository on bitbucket] or [his github]
 	- Check out the [livelog github repository]
 	
 - CS Crew Website - Spring 2013
@@ -159,7 +159,7 @@ Full List of Projects [return]
 [made a tutorial]:http://www.uvm.edu/~ejeldrid/tutorial/frogger/index.html
 [livelog github repository]:https://github.com/EJEHardenberg/livelog
 [his github]:https://github.com/JoshuaDickerson/livelog 
-[Josh's repository on bitbucket]:https://bitbucket.org/JoshuaDickerson/livelog
+[Joshs repository on bitbucket]:https://bitbucket.org/JoshuaDickerson/livelog
 [UVM CS Crew]:http://www.uvm.edu/~cscrew
 [crew git repository here]:https://github.com/EJEHardenberg/WebsiteWeekend
 [website here]:http://www.uvm.edu/~cscrew
