@@ -4,7 +4,7 @@ layout: post
 ---
 
 ###The Terminal and You
-==================================
+
 
 Your terminal is your entrance to the world of your computer's innards. You can
 do everything you can do through your GUI (Graphical User Interface), but without
