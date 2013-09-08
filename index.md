@@ -1,11 +1,10 @@
 ---
 title: Site under maintance!
+layout: template
 ---
 
 
-My site is currently undergoing massive overhaul! 
-=================================================
+The site is currently maintaince.
+=======================================================================
 
-
-Come back later!
-----------------
+Come back later!!
