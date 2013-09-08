@@ -35,7 +35,7 @@ In my spare time I like to work on my own projects or collaborate with others on
 	
 
 
-[click here]:fullprojects.html
+[click here]:/fullprojects
 
 [Home]:/index.html
 [Github]:https://github.com/EJEHardenberg
