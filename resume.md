@@ -1,6 +1,5 @@
 ---
 title: Resume
-layout: template
 ---
 
 
