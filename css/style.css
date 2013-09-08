@@ -81,3 +81,21 @@ ol li{
     text-align: center;
     font-size: 120%;
 }
+.floatright{
+    float: right;
+}
+#huge{
+    text-align: center;
+    font-size: 200%;
+}
+#library {
+  display: none;
+}
+
+canvas {
+  -webkit-transform: translateZ(0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
