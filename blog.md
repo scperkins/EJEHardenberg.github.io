@@ -1,24 +1,19 @@
 ---
-title: Blahg 
+title: Blog 
 layout: template
 ---
 
+Blog
+-----------------------------------------------------------------------
 
-Ethan Joachim Eldridge: A Programmer.
-=======================================================================
+{% for post in site.posts limit: 10 %}
+<p>
+	<h2>{{ post.title }}</h2>
+    <h4>{{ post.date | date_to_long_string }}</h4>
+    <p>
+      {{ post.content |	truncatewords: 50 }}
+    </p>
+    <a href="{{ post.url }}">Read More</a>
+</p>
+{% endfor %}
 
-1. [Home]
-2. [Github]
-3. [Blog]
-4. [Projects]
-5. [Resume]
-
-
-It will be back soon...
-----------------------------------------------------------------------
-
-[Home]:/index.html
-[Github]:https://github.com/EJEHardenberg
-[Blog]:/blog
-[Projects]:/projects
-[Resume]:/resume
