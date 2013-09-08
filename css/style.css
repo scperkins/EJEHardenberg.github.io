@@ -99,3 +99,10 @@ canvas {
   left: 0;
   z-index: -1;
 }
+ul ul > li{
+    font-style: italic;
+}
+ul ul > li + li{
+    font-style: normal;
+    font-size: 90%;
+}
