@@ -63,6 +63,14 @@ var Fireworks = (function() {
     createFirework();
     createFirework();
     createFirework();
+
+    anchors = document.getElementsByTagName("a");
+    for (var i = anchors.length - 1; i >= 0; i--) {
+      anchors[i].onmouseover = function(e){
+        createFirework();
+      }
+    };
+
     // and now we set off
     update();
   }
