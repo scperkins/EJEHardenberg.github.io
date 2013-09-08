@@ -581,7 +581,7 @@ And this is my first plan. So far it's coming along and I've got the directory t
 </p><p>
 
 
-So the work on my newest <a href="https://github.com/EJEHardenberg/timecatcher">prokect </a> is at a point where I felt comfotable enough for an alpha release. It's pretty simple. The basics are done. You can start tasks, finish them, switch between them and view information for one or all tasks.
+So the work on my newest <a href="https://github.com/EJEHardenberg/timecatcher">project </a> is at a point where I felt comfotable enough for an alpha release. It's pretty simple. The basics are done. You can start tasks, finish them, switch between them and view information for one or all tasks.
 
 The best part? In my opinion it's a combination of the following:
  
@@ -611,29 +611,33 @@ The best part? In my opinion it's a combination of the following:
 So let's see. What were some cool things I probably want to touch on. Oh right, how about the way it tracks time? 
 
 The algorithm is actually pretty simple. It depends on a couple of things. First off, each task has a sequence file and an information file. These are stored in the .tc directory the program creates in the home directory. The information files are only important for the view --all command. But the sequence files are the heart of a task. In each file is a simple format:
+</p><p>
 
- <pre> 
- 	<seq num> <state> <epoch time> 
-<ul>
- </pre>
+
+  <pre> 
+  &lot;seq num&gt; &lot;state&gt; &lot;epoch time&gt;  
+  &lot;seq num&gt; &lot;state&gt; &lot;epoch time&gt;  
+  </pre>
+</p><p>
+
 
  So you might see where this is going. A task can be in 1 of 5 possible states. Only 3 of which are ever recorded in the sequence file: Started, paused, and finished (The other two states are for error handling).
 
  The algorithm to read information is simple:
 
  <pre>
-while( read 3 fields stated above) 
-if seqNum = 0
-startTime = seqTime;
-else 
-if( priorState == STARTED and (state = PAUSED or state = TC_FINISHED) ) 
-runningTime = runningTime + (seqTime - priorTime);
+    while( read 3 fields stated above) 
+      if seqNum = 0
+        startTime = seqTime;
+      else 
+        if( priorState == STARTED and (state = PAUSED or state = TC_FINISHED) ) 
+          runningTime = runningTime + (seqTime - priorTime);
 
-priorTime = seqTime;
-priorState = state;
+         priorTime = seqTime;
+        priorState = state;
 
-if runningTime = 0 and state == STARTED 
-runningTime =  time(0) - startTime;
+    if runningTime = 0 and state == STARTED 
+      runningTime =  time(0) - startTime;
 
  </pre>
 

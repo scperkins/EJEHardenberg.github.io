@@ -111,11 +111,15 @@ The best part? In my opinion it's a combination of the following:
 So let's see. What were some cool things I probably want to touch on. Oh right, how about the way it tracks time? 
 
 The algorithm is actually pretty simple. It depends on a couple of things. First off, each task has a sequence file and an information file. These are stored in the .tc directory the program creates in the home directory. The information files are only important for the view --all command. But the sequence files are the heart of a task. In each file is a simple format:
+</p><p>
 
- <pre> 
- 	<seq num> <state> <epoch time> 
-<ul>
- </pre>
+
+  <pre> 
+  <seq num><state><epoch time> 
+  <seq num><state><epoch time> 
+  </pre>
+</p><p>
+
 
  So you might see where this is going. A task can be in 1 of 5 possible states. Only 3 of which are ever recorded in the sequence file: Started, paused, and finished (The other two states are for error handling).
 
