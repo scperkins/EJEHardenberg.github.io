@@ -9,9 +9,10 @@ layout: template
 Your website is hideous!
 -----------------------------------------------------------------------
 
-Is it? Is it? Probably. I'm a bit of a minimalist to be honest. And I 
-like shiny fancy things I like the simple clean look that these pages 
-have.
+Is it really? Probably. Well, I'm a bit of a minimalist to be honest.
+Shiny fancy things  are great for client applications and such. But for
+a simple blog, project, and resume listing? I like the simple clean 
+look that these pages have.
 
 Some background on me: 
 -----------------------------------------------------------------------
