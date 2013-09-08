@@ -1,9 +1,13 @@
+---
+title: Home
+---
+
 <html>
 	<head>
 		<title>Ethan Joachim Eldridge | Home</title>
 		<meta name="description" content="Ethan Eldridge's personal website"/>
 		<meta name="keywords" content="Ethan,Eldridge,Joachim,Programming"/>
-		 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<link rel="stylesheet" href="style.css" type="text/css" />
 
 	</head>
