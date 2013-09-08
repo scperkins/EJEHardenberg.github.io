@@ -1,5 +1,6 @@
 ---
 title: Full Projects List
+layout: template
 ---
 
 
@@ -18,7 +19,7 @@ Full List of Projects [return]
 
 - TimeCatcher - Fall 2013
 	- TimeCatcher is a time logging utility which doesn't eat your CPU cycles. Most logging software runs in the background spinning the clock away to keep track of your progress. TimeCatcher works on a simple start and stop system managed through the command line in order to not do that. Memory leak free and supporting command completion through bash shells, time catcher is a simple to use and good time logging program.
-	- You can checkout the [TimeCatcher Repository here]:https://github.com/EJEHardenberg/timecatcher
+	- You can checkout the [TimeCatcher Repository here]
 
 - Xemark - Summer 2013
 	- Xemark is a simple markdown language designed to be translated into html by a parser following it's BNF grammar. The parser was used as a component in generating this webpage. A bash script made did the rest of the work. Xemark functions like a CGI script in that it's input is translated from one format to an output in another (in this case xemark markdown to html). Becuase of this property it is easy to use xemark within a http server context to serve .xe files up as html to users.
@@ -141,11 +142,12 @@ Full List of Projects [return]
 
 [return]:projects.html
 [click here]:fullprojects.html
-[Home]:index.html
+
+[Home]:/index.html
 [Github]:https://github.com/EJEHardenberg
-[Blog]:blog/index.html
-[Projects]:projects.html
-[Resume]:resume.html
+[Blog]:/blog
+[Projects]:/projects
+[Resume]:/resume
 [xemark here]:https://github.com/EJEHardenberg/xemark
 [GreenUp Vermont]:http://www.greenupvermont.org/
 [Civic day of hacking]:http://www.hackforchange.org

@@ -1,5 +1,6 @@
 ---
 title: Blahg 
+layout: template
 ---
 
 
@@ -16,8 +17,8 @@ Ethan Joachim Eldridge: A Programmer.
 It will be back soon...
 ----------------------------------------------------------------------
 
-[Home]:index.html
+[Home]:/index.html
 [Github]:https://github.com/EJEHardenberg
-[Blog]:blog/index.html
-[Projects]:projects.html
-[Resume]:resume.html
+[Blog]:/blog
+[Projects]:/projects
+[Resume]:/resume
