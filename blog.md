@@ -1,6 +1,5 @@
 ---
 title: Blahg 
-layout: template
 ---
 
 

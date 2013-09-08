@@ -1,6 +1,5 @@
 ---
 title: Full Projects List
-layout: template
 ---
 
 
