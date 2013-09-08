@@ -1,5 +1,6 @@
 ---
 title: Resume
+layout: template
 ---
 
 
@@ -120,8 +121,9 @@ speaking skills. Quick learner.
 [wiimote whiteboard]:http://www.youtube.com/watch?v=VwhGGChEUHg
 [projects page]:projects.html
 
-[Home]:index.html
+
+[Home]:/index.html
 [Github]:https://github.com/EJEHardenberg
-[Blog]:blog/index.html
-[Projects]:projects.html
-[Resume]:resume.html
+[Blog]:/blog
+[Projects]:/projects
+[Resume]:/resume
