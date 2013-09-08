@@ -2,6 +2,7 @@ Change Log
 
 ------------------------
 
+- v0.15 Hotfix/404 for full projects
 - v0.14 Favicon
 - v0.13 Done with jeykll and generating the site.
 - v0.12 First push of mostly markdown content.
