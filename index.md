@@ -29,7 +29,7 @@ I led two orginizations: The [CS Crew] and UVM's [UPE] chapter. While I
 was doing that I also had a work study job with UVM's atheletic
 marketing departent as well as TWO internships. One maintaining [VHFA]
 websites for the state and the other doing contract work for
-[Brandthropology]. Someone how I managed to do all of that and get a
+[Brandthropology]. Somehow I managed to do all of that and get a
 [paper published in GECCO] my junior year. Focusing on evolutionary
 computation methods and machine learning I eventually ended up working
 on a senior project called Danger Zone that aggregated tweets from
