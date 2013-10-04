@@ -2,6 +2,7 @@ Change Log
 
 ------------------------
 
+- v0.19 Added wordpress post
 - v0.18 Added stack smash blog post
 - v0.17 Fixed Typo on main page.
 - v0.16 Timecatcher part 3 post.
