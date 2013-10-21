@@ -24,7 +24,7 @@ design. Besides spending time on the computer, I played flute for 9 years
 and picked up other instruments like guitar, drums, and the bass along 
 the way. 
 
- I attended the [University of Vermont and graduated in 2013 with a 
+ I attended the [University of Vermont] and graduated in 2013 with a 
 degree in [Computer Science]. I was one class shy of an [applied math major] 
 because I was busy leading two organizations (The [CS Crew] and UVM's [UPE]
 chapter), working for UVM's athletic marketing department, maintaining
@@ -59,7 +59,7 @@ basis. You can check out some of my previous versions [here]  [and here].
 If you want to know more about me let me know through my contact form or
 email me (my email is on my github). I have [another blog] besides the one
 on this site if you're interested in that sort of thing. I try to keep
-the two relatively in sync with each other but it's guaranteed.
+the two relatively in sync with each other but it's not guaranteed.
 
 
 
