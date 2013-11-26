@@ -2,6 +2,7 @@ Change Log
 
 ------------------------
 
+- v0.23 HTML Templates and handlebar post
 - v0.22 Google Maps Number as markers post
 - v0.21 Fixed links on home page and forgotten word
 - v0.20 Reworded home page.
