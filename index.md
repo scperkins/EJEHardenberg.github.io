@@ -59,7 +59,8 @@ basis. You can check out some of my previous versions [here]  [and here].
 If you want to know more about me let me know through my contact form or
 email me (my email is on my github). I have [another blog] besides the one
 on this site if you're interested in that sort of thing. I try to keep
-the two relatively in sync with each other but it's not guaranteed.
+the two relatively in sync with each other but it's not guaranteed. I also
+enjoy cooking and have made a [small site dedicated to my exploits].
 
 
 
@@ -81,6 +82,7 @@ the two relatively in sync with each other but it's not guaranteed.
 [and here]:http://www.cems.uvm.edu/~ejeldrid/contact.php
 [another blog]:http://ethaneldridgecs.blogspot.com
 [Maggie Eppstein]:http://www.cs.uvm.edu/~meppstei/
+[small site dedicated to my exploits]:http://ejehardenberg.github.io/cooking/
 
 
 [Home]:/index.html

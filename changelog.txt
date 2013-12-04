@@ -2,6 +2,7 @@ Change Log
 
 ------------------------
 
+- v0.25 Added link to cooking site
 - v0.24 WordPress Post__in query bug
 - v0.23 HTML Templates and handlebar post
 - v0.22 Google Maps Number as markers post
