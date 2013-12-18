@@ -1,5 +1,5 @@
 ---
-title: Git Crash Course
+title: Empty Post__in WordPress problem
 layout: post
 ---
 
