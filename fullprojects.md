@@ -7,6 +7,14 @@ Full List of Projects [return]
 -----------------------------------------------------------------------
 
 
+- WordPress2Harp - Winter 2013
+	- Created a small python script to migrate a WordPress site to a Harp one after lurking in the Harp IRC's.
+	- You can see the [WpJson4Harp script here] or see it [featured in a blog post from Harp here!]
+
+- GreenServ - Winter 2013 - Spring 2014
+	- GreenServ is a custom JSON only, API server written in C to provide a backend to the Green Up VT project. Created to replace the python Google App Engine version of the API, it was coded to spec (with some minor enhancements) and [under stress testing] performing much better than the instances of the App Engine 
+	- You can view the [GreenServ repository here]
+
 - TimeCatcher - Fall 2013
 	- TimeCatcher is a time logging utility which doesn't eat your CPU cycles. Most logging software runs in the background spinning the clock away to keep track of your progress. TimeCatcher works on a simple start and stop system managed through the command line in order to not do that. Memory leak free and supporting command completion through bash shells, time catcher is a simple to use and good time logging program.
 	- You can checkout the [TimeCatcher Repository here]

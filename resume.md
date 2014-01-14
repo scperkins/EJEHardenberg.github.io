@@ -42,6 +42,7 @@ My true love is C. But sadly I don't get to use it on the job much.
 - Member of [Best Student Team HackVT]
 - Created a [wiimote whiteboard]
 - Co author of a [paper published in GECCO]
+- Featured in [Harp Weekly!]
   
 
 
@@ -111,7 +112,7 @@ speaking skills. Quick learner.
 [paper published in GECCO]:http://www.sigevo.org/gecco-2012/papers-accepted.html
 [wiimote whiteboard]:http://www.youtube.com/watch?v=VwhGGChEUHg
 [projects page]:projects.html
-
+[Harp Weekly!]:http://harpjs.com/blog/harp-weekly-2013-11-17
 
 [Home]:/index.html
 [Github]:https://github.com/EJEHardenberg
