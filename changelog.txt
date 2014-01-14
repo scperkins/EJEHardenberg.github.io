@@ -2,6 +2,7 @@ Change Log
 
 ------------------------
 
+- v0.30 Updated projects list
 - v0.29 Chunked Encoding for Reporting
 - v0.28 Added Hosts File Trickery
 - v0.27 Fixed Post__in title
