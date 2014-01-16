@@ -190,3 +190,5 @@ Full List of Projects [return]
 [obstacle avoidance blog post]:http://ethaneldridgecs.blogspot.com/2010/11/ha-new-approach.html
 [Read my (brief) notes here]:http://www.uvm.edu/~ejeldrid/resources/LZSystem%20PDF.pdf
 [TimeCatcher Repository here]:https://github.com/EJEHardenberg/timecatcher
+[WpJson4Harp script here]:https://github.com/EJEHardenberg/wpJson4Harp
+[featured in a blog post from Harp here!]:http://harpjs.com/blog/harp-weekly-2013-11-17
