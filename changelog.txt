@@ -2,6 +2,7 @@ Change Log
 
 ------------------------
 
+- v0.32 Added php time post
 - v0.31 Fixed links
 - v0.30 Updated projects list
 - v0.29 Chunked Encoding for Reporting
