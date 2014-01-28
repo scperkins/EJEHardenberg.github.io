@@ -2,6 +2,7 @@ Change Log
 
 ------------------------
 
+- v0.34 Added harp blogpost
 - v0.33 Added links to Writing page.
 - v0.32 Added php time post
 - v0.31 Fixed links
