@@ -15,9 +15,9 @@ hours to create the [little site here] which is pretty good. Harp is simple and
 easy to use and I recommend it to anyone getting into static site generators, to 
 me at least, it was WAY more intuitively than Jekyll (which this site runs on)
 
-[little site here]:ejehardenberg.github.io/writing
+[little site here]://ejehardenberg.github.io/writing
 [featured]:http://harpjs.com/blog/harp-weekly-2013-11-17
-[harp]:harpjs.com
-[poetry]:ejehardenberg.github.io/writing/poetry
-[smut]:ejehardenberg.github.io/writing/smut
-[narrations]:ejehardenberg.github.io/writing/narrations
+[harp]:http://harpjs.com
+[poetry]://ejehardenberg.github.io/writing/poetry
+[smut]://ejehardenberg.github.io/writing/smut
+[narrations]://ejehardenberg.github.io/writing/narrations
