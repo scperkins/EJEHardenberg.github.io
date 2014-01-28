@@ -1,9 +1,3 @@
----
-title: Time Catcher Part 2! (Alpha)
-layout: post
----
-
-
 So the work on my [newest project] is at a point where I felt comfortable enough for an alpha release. It's pretty simple. The basics are done. You can start tasks, finish them, switch between them and view information for one or all tasks.
 
 The best part? In my opinion it's a combination of the following:

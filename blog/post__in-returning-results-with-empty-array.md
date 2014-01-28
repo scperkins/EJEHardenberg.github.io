@@ -1,8 +1,3 @@
----
-title: Empty Post__in WordPress problem
-layout: post
----
-
 Ran into a funny thing today. If you're performing a wordpress search
 with WP_Query, and you're using the post__in parameter to specify an
 array of ID's to retrieve and your array is _empty_ then you end up with

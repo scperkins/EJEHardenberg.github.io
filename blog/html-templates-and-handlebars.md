@@ -1,8 +1,3 @@
----
-title: HTML Templates and Handlebar
-layout: post
----
-
 This post is by no means a tutorial, just chronocling my short adventure into HTML templates tonight. 
 ------------------------------------------------------------------------
 

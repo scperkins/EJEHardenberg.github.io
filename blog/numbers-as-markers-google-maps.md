@@ -1,8 +1,3 @@
----
-title: Numbers as Markers on Google Maps
-layout: post
----
-
 I was making a heatmap for a client today, and thought to myself. Boy 
 wouldn't it be great to have the 'total heat' of an area show up on top
 of the map.

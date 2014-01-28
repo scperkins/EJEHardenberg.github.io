@@ -1,8 +1,3 @@
----
-title: Short Codes and Routing in WordPress
-layout: post
----
-
 One of the projects at my workplace has got me diving into WordPress. Should be
 easy right? It's php, one of the simplest, easy to use (besides it's dreadful
 $ symbol before everything), and dynamically typed languages out there. What 

@@ -1,8 +1,3 @@
----
-title: Using Chunked Encoding for Reporting in Wordpress
-layout: post
----
-
 Note: Before you use the TL;DR due be sure it's appropriate to do so, see [here](http://wordpress.stackexchange.com/questions/20192/wp-function-filter-for-modifying-http-headers)
 
 ###The TL;DR;

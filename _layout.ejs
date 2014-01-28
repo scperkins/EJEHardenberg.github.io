@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta name="description" content="Ethan Eldridge's personal website"/>
+	<meta name="keywords" content="Ethan,Eldridge,Joachim,Programming"/>
+	<meta charset=utf-8 />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+    <link rel='stylesheet' href='main.css' />
+    <script src="/js/app.js"></script>
+    <meta name="description" content="<%= description %>" />
+  </head>
+  <body>
+  	<%- partial("_partials/_header") %>
+    <%- yield %>
+    <div id="footer">
+      <p>Copyright (c) Ethan Eldridge</p>
+    </div>
+  </body>
+</html>

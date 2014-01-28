@@ -1,7 +1,3 @@
----
-title: Home
-layout: template
----
 
 
 Besides Programming, I enjoy writing human-readable text as well. I've used 

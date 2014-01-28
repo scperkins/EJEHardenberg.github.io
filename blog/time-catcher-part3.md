@@ -1,9 +1,3 @@
----
-title: Time Catcher Part 3
-layout: post
----
-
-
 Well, I've been using [my program] to keep track of my time on a few projects 
 and have made a few additions since the alpha release I talked about in my last
 post. Just taking a quick look through my gitk for the repository and I'm seeing

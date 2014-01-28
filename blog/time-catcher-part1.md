@@ -1,9 +1,3 @@
----
-title: Time Catcher Part 1
-layout: post
----
-
-
 I've begun work on a [new project] and so far it's coming along nicely. I've been using some software at work to keep track of my hours, it's called office time. It works fine, simple interface, easy to manage for the most part, and at least 20 features I don't use. Ever. 
 
 So being the kind of guy I am, I decided that I could probably make a simple to use task tracking utility. Here are some of my motivations. 

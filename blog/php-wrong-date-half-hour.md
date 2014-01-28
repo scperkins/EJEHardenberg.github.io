@@ -1,8 +1,3 @@
----
-title: Incorrect Time in PHP despite Timezone
-layout: post
----
-
 Today I was configuring a server's system time, the server was an Amazon
 one and after setting the php.ini file's `date.timezone` field I found a
 perplexing output from running php's date functions.

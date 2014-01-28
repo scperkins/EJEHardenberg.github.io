@@ -1,9 +1,3 @@
----
-title: Home
-layout: template
----
-
-
 
 
 Your website is hideous!

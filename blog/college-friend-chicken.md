@@ -1,8 +1,3 @@
----
-title: My Cooking Recipes
-layout: post
----
-
 I've recently picked up cooking, taking pictures of my food, and [SnapChat]ting 
 my meals to all my friends. For the few that respond positively, I generally 
 share the recipes with them via a painful exercise in thumb-fu on my tiny phones

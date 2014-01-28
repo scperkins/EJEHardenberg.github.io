@@ -1,8 +1,3 @@
----
-title: Hosts file and Testing deployment
-layout: post
----
-
 My coWorkers and I were trying to determine a way to take a production
 system that isn't maintained under version control, and swap it out with
 the new system that needs to be deployed with as little downtime for the

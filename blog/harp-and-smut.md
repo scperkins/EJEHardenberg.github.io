@@ -1,9 +1,3 @@
----
-title: Harp and Smut
-layout: post
----
-
-
 ###Harp and Smut
 
 I like to write. When I'm bored in the morning sometimes I get inspired by some

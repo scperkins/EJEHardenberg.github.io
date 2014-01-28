@@ -1,8 +1,3 @@
----
-title: Stack Smashing
-layout: post
----
-
 I've been playing around with C a lot in my spare time recently. Something I 
 managed to run into last night was an interesting case of buffer overflow that
 valgrind lovingly referred to as "stack smashing".

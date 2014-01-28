@@ -1,8 +1,3 @@
----
-title: Git Crash Course
-layout: post
----
-
 ###The Terminal and You
 
 
