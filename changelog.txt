@@ -2,6 +2,7 @@ Change Log
 
 ------------------------
 
+- v0.36 Added post from old master branch
 - v0.35 Switched from jekyll to harp
 - v0.34 Added harp blogpost
 - v0.33 Added links to Writing page.
