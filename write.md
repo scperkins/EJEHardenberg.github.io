@@ -18,7 +18,7 @@ to focus my new writings just here.
 </div>
 
 <div class="big-button">
-	<a href="/writer" title="Read at your own risk!">
+	<a href="/writing" title="Read at your own risk!">
 		To view my non-technical work
 	</a>
 </div>
