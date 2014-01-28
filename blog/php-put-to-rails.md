@@ -1,7 +1,4 @@
----
-title: PHP Restful PUT request to Ruby on Rails Server
-layout: post
----
+
 
 Working on a project for work involving a Rails server and a WordPress
 plugin I came accross the need to perform a PUT to Rails. Simple right?
