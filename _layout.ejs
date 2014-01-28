@@ -11,10 +11,17 @@
     <meta name="description" content="<%= description %>" />
   </head>
   <body>
+	<aside id="library">
+	      <img src="/images/nightsky.png" id="nightsky" />
+	      <img src="/images/big-glow.png" id="big-glow" />
+	      <img src="/images/small-glow.png" id="small-glow" />
+	</aside>
   	<%- partial("_partials/_header") %>
     <%- yield %>
     <div id="footer">
       <p>Copyright (c) Ethan Eldridge</p>
     </div>
+	<script src="/js/requestanimframe.js"></script>
+  	<script src="/js/fireworks.js"></script>
   </body>
 </html>
