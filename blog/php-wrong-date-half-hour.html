@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>Incorrect Time in PHP despite Timezone</title>
+    <meta name="description" content="Ethan Eldridge's personal website"/>
+	<meta name="keywords" content="Ethan,Eldridge,Joachim,Programming"/>
+	<meta charset=utf-8 />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+    <link rel='stylesheet' href='/main.css' />
+    <script src="/js/app.js"></script>
+    <meta name="description" content="Personal website of Ethan Joachim Eldridge. Resume, blog, cooking, writing and more" />
+  </head>
+  <body>
+  	<h1 id="huge">Ethan Joachim Eldridge: A Programmer.</h1>
+
+<ol>
+	<li><a href="/index.html">Home</a></li>
+	<li><a href="https://github.com/EJEHardenberg">Github</a></li>
+	<li><a href="/write">Writing</a></li>
+	<li><a href="/projects">Projects</a></li>
+	<li><a href="/resume">Resume</a></li>
+	<li><a href="//ejehardenberg.github.io/cooking">Cooking</a></li>
+</ol>
+
+
+
+    <p>Today I was configuring a server&#39;s system time, the server was an Amazon
+one and after setting the php.ini file&#39;s <code>date.timezone</code> field I found a
+perplexing output from running php&#39;s date functions.</p>
+<p>The time was off by a half hour! </p>
+<p>This was quite odd since it wasn&#39;t a whole hour. After thinking a bit and
+checking the php.ini settings, I looked at the date.default_latitude and 
+date.default_longitude fields. They were set to somewhere in turkey. 
+Editing these two fields to point to within the same timezone as the one
+I had set caused the time to switch to the correct one.</p>
+<p>Very strange! According to the php documentation, those configuration 
+settings only effect the sunrise functions. Apparently not!</p>
+
+    
+
+  
+      <a class="floatleft" href=chunked-encoding-for-reports>Using Chunked Encoding for Reporting in Wordpress</a>
+  
+
+  
+      <a class="floatright" href=harp-and-smut>Harp and Smut</a>
+  
+    <div id="footer">
+      <p>Copyright (c) Ethan Eldridge</p>
+    </div>
+  </body>
+</html>

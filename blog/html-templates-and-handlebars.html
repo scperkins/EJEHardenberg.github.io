@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>HTML Templates and Handlebar</title>
+    <meta name="description" content="Ethan Eldridge's personal website"/>
+	<meta name="keywords" content="Ethan,Eldridge,Joachim,Programming"/>
+	<meta charset=utf-8 />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+    <link rel='stylesheet' href='/main.css' />
+    <script src="/js/app.js"></script>
+    <meta name="description" content="Personal website of Ethan Joachim Eldridge. Resume, blog, cooking, writing and more" />
+  </head>
+  <body>
+  	<h1 id="huge">Ethan Joachim Eldridge: A Programmer.</h1>
+
+<ol>
+	<li><a href="/index.html">Home</a></li>
+	<li><a href="https://github.com/EJEHardenberg">Github</a></li>
+	<li><a href="/write">Writing</a></li>
+	<li><a href="/projects">Projects</a></li>
+	<li><a href="/resume">Resume</a></li>
+	<li><a href="//ejehardenberg.github.io/cooking">Cooking</a></li>
+</ol>
+
+
+
+    <h2>This post is by no means a tutorial, just chronocling my short adventure into HTML templates tonight. </h2>
+<p>I&#39;ve just started playing around with HTML templates. It took me a small
+amount of searching for the right tutorials, but after a while I found 
+a couple that when I combined them it all started worked together nicely. `</p>
+<p><a href="handlebarsjs.com">HandleBars</a> is pretty simple to use. Stare at the 
+documentation and syntax for a while, then realize that yes, if you want
+to do anything &#39;fancy&#39; like <code>if(a==b)</code> that you&#39;ll need to write your own
+helper. But, if you&#39;re just looking for some simple and easy to use
+templating, it&#39;s great. </p>
+<p>I knew from the start, that I wanted to include my templates from seperate
+files. It didn&#39;t make much sense to me to put the template directly into
+my source code files, since the only things I wanted to template for were
+items that would appear across multiple pages and it makes sense then to
+push the templates into their own files for that. So I decided to include
+jQuery into my project so I wouldn&#39;t spend a lot of time writing javascript
+ajax boilerplate code.  </p>
+<p>The <code>.load()</code> function turned out to be very useful. Since I could point it
+to a url and then simply use a callback function once it was done. After
+a few false starts (such as realizing that <code>if(a==b)</code> was beyond Handlebar&#39;s
+abilities) I got a template spitting information out onto the page. </p>
+<p>From there, I moved the data itself into it&#39;s own file that I loaded again, 
+with <code>.load()</code>. Figuring that if I make a backend API to power my small
+project I&#39;m starting on, that abstracting the data into it&#39;s own areas 
+accesible via URL now, will turn out to be good foresight later on. </p>
+<p>We&#39;ll see what else comes of it. Oh, the best thing about HandleBar is 
+that you can <em>precompile</em> your templates, which means that when you&#39;re
+creating dozens of templated items, that you can save yourself a good 
+amount of processing time just by compiling early and not for each
+instance of your templated data.</p>
+
+    
+
+  
+      <a class="floatleft" href=numbers-as-markers-google-maps>Numbers as Markers on Google Maps</a>
+  
+
+  
+      <a class="floatright" href=post__in-returning-results-with-empty-array>Empty Post__in WordPress problem</a>
+  
+    <div id="footer">
+      <p>Copyright (c) Ethan Eldridge</p>
+    </div>
+  </body>
+</html>

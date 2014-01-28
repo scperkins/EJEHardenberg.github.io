@@ -1,0 +1,126 @@
+<html>
+  <head>
+    <title>Numbers as Markers on Google Maps</title>
+    <meta name="description" content="Ethan Eldridge's personal website"/>
+	<meta name="keywords" content="Ethan,Eldridge,Joachim,Programming"/>
+	<meta charset=utf-8 />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+    <link rel='stylesheet' href='/main.css' />
+    <script src="/js/app.js"></script>
+    <meta name="description" content="Personal website of Ethan Joachim Eldridge. Resume, blog, cooking, writing and more" />
+  </head>
+  <body>
+  	<h1 id="huge">Ethan Joachim Eldridge: A Programmer.</h1>
+
+<ol>
+	<li><a href="/index.html">Home</a></li>
+	<li><a href="https://github.com/EJEHardenberg">Github</a></li>
+	<li><a href="/write">Writing</a></li>
+	<li><a href="/projects">Projects</a></li>
+	<li><a href="/resume">Resume</a></li>
+	<li><a href="//ejehardenberg.github.io/cooking">Cooking</a></li>
+</ol>
+
+
+
+    <p>I was making a heatmap for a client today, and thought to myself. Boy 
+wouldn&#39;t it be great to have the &#39;total heat&#39; of an area show up on top
+of the map.</p>
+<p>Turns out, it&#39;s easy to put down a marker, and only slightly harder to 
+get a number down instead. The key here is that you have to use an 
+overlay and then have the map position everything for you via projection.</p>
+<p>So how do you do it? </p>
+<pre><code>function NumberMarker(latlng,  map, value) {
+    this.latlng_ = latlng;
+        this.value = value;
+        /*Do this or nothing will happen:*/
+        this.setMap(map);
+    }
+
+NumberMarker.prototype = new google.maps.OverlayView();
+NumberMarker.prototype.draw = function() {
+    var me = this;
+    var div = this.div_;
+    if (!div) {
+        // Create a overlay text DIV
+        div = this.div_ = document.createElement(&#39;DIV&#39;);
+        // Create the DIV representing our NumberMarker
+        div.style.border = &quot;none&quot;;
+        div.style.position = &quot;absolute&quot;;
+        div.style.paddingLeft = &quot;0px&quot;;
+        div.style.cursor = &#39;pointer&#39;;
+
+        var span = document.createElement(&quot;span&quot;);
+        span.className = &quot;markerOverlay&quot;;
+        span.appendChild(document.createTextNode(this.value));
+        div.appendChild(span);
+        google.maps.event.addDomListener(div, &quot;click&quot;, function(event) {
+        google.maps.event.trigger(me, &quot;click&quot;);
+    });
+
+    // Then add the overlay to the DOM
+    var panes = this.getPanes();
+        panes.overlayImage.appendChild(div);
+    }
+
+    // Position the overlay 
+    var point = this.getProjection().fromLatLngToDivPixel(this.latlng_);
+    if (point) {
+      div.style.left = point.x + &#39;px&#39;;
+      div.style.top = point.y + &#39;px&#39;;
+    }
+};
+
+NumberMarker.prototype.remove = function() {
+    // Check if the overlay was on the map and needs to be removed.
+    if (this.div_) {    
+        this.div_.parentNode.removeChild(this.div_);
+        this.div_ = null;
+    }
+};
+
+NumberMarker.prototype.getPosition = function() {
+    return this.latlng_;
+};
+
+var myLatlng = new google.maps.LatLng(75,45);
+// define map properties
+var myOptions = {
+  zoom: 5,
+  center: myLatlng,
+  mapTypeId: google.maps.MapTypeId.ROADMAP,
+  disableDefaultUI: false,
+  scrollwheel: true,
+  draggable: true,
+  navigationControl: true,
+  mapTypeControl: false,
+  scaleControl: true,
+  disableDoubleClickZoom: false
+};
+// we&#39;ll use the heatmapArea 
+var map = new google.maps.Map($(&#39;#maparea&#39;&#39;)[0], myOptions);
+
+var overlay;
+overlay = new NumberMarker(myLatlng, map, &#39;whatever text or numbers you want here&#39;);</code></pre>
+<p>Bam. There you go. In my application I loop through a bunch of 
+information and create a number of these markers on the map. I also use
+<a href="http://www.patrick-wied.at/static/heatmapjs/">heatmap.js</a> to create my heat maps at the same time. Overall, it works 
+pretty well. </p>
+<p>If you need any type of information positioned on a map, then just change the 
+span tag to be whatever you need it to be and create it appropriately. </p>
+
+    
+
+  
+      <a class="floatleft" href=shortcodes-routing-wordpress>Short Codes and Routing in WordPress</a>
+  
+
+  
+      <a class="floatright" href=html-templates-and-handlebars>HTML Templates and Handlebar</a>
+  
+    <div id="footer">
+      <p>Copyright (c) Ethan Eldridge</p>
+    </div>
+  </body>
+</html>
