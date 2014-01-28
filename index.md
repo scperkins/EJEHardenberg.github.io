@@ -3,8 +3,10 @@
 Your website is hideous!
 -----------------------------------------------------------------------
 
-Is it? Is it? Probably. I'm a bit of a minimalist and I simple clean 
-look that these pages have.
+Is it really? Probably. I'm a bit of a minimalist to be honest.
+Shiny fancy things  are great for client applications. But for
+a simple blog, project, and resume listing? I like a simple clean 
+look.
 
 Some background on me: 
 -----------------------------------------------------------------------
