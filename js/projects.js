@@ -206,7 +206,9 @@ function projectLoad(){
 		var descriptionTag = document.createElement("p")
 		var referencesTag = document.createElement("p")
 		titleTag.appendChild(document.createTextNode(project.title))
+		titleTag.appendChild(document.createTextNode(" "))
 		timePeriod.appendChild(document.createTextNode(project.period))
+		timePeriod.style.float = "right"
 		titleTag.appendChild(timePeriod)
 		descriptionTag.innerHTML = project.description
 		referencesTag.innerHTML = project.references
