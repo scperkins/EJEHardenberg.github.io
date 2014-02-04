@@ -2,8 +2,6 @@ Change Log
 
 ------------------------
 
-- v0.38 Fixed links in blog post from harp
-- v0.37 Harp Version of Site
 - v0.36 Added post from old master branch
 - v0.35 Switched from jekyll to harp
 - v0.34 Added harp blogpost
