@@ -58,5 +58,9 @@
   "harp-and-smut": {
     "title": "Harp and Smut",
     "date": "2014-01-27"
+  },
+  "varnish" : {
+    "title" : "Varnish and API Servers",
+    "date" : "2014-02-17"
   }
 }
