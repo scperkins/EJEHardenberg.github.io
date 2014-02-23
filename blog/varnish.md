@@ -40,11 +40,11 @@ support exactly this. Here's the configuration:
             #Invalidate only the neccesary things per endpoint
             if ( req.url ~ "(?i)/api/comments" ) {
                     ban("req.url ~ (?i)/api/comments");
-                    ban("req.url ~ (?)/api/pins");
+                    ban("req.url ~ (?i)/api/pins");
             }
             if ( req.url ~ "(?i)/api/pins" ) {
                     ban("req.url ~ (?i)/api/comments");
-                    ban("req.url ~ (?)/api/pins");
+                    ban("req.url ~ (?i)/api/pins");
             }
             if ( req.url ~ "(?i)/api/heatmap" ) {
                     ban("req.url ~ (?i)/api/heatmap");
