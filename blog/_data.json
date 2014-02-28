@@ -62,5 +62,9 @@
   "varnish" : {
     "title" : "Varnish and API Servers",
     "date" : "2014-02-17"
+  },
+  "wordpress-gripes" : {
+    "title" : "Gripes with wordpress's postmeta and autoload",
+    "date" : "2014-02-28"
   }
 }
