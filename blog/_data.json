@@ -66,5 +66,9 @@
   "wordpress-gripes" : {
     "title" : "Gripes with wordpress's postmeta and autoload",
     "date" : "2014-02-28"
+  },
+  "resource-replace" : {
+    "title" : "Resource Replace, update js and css domain links",
+    "date" : "2014-03-06"
   }
 }
