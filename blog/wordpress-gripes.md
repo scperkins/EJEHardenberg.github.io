@@ -168,4 +168,4 @@ instead focus on good normalized schema design. Just my 2 cents.
 [w3tc]:http://wordpress.org/plugins/w3-total-cache/
 [super cache]:https://wordpress.org/plugins/wp-super-cache/
 [e-commerce]:http://wordpress.org/plugins/tags/ecommerce
-[great slideshow]:www.slideshare.net/billkarwin/how-to-design-indexes-really
+[great slideshow]:http://www.slideshare.net/billkarwin/how-to-design-indexes-really
