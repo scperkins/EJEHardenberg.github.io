@@ -70,5 +70,9 @@
   "resource-replace" : {
     "title" : "Resource Replace, update js and css domain links",
     "date" : "2014-03-06"
+  },
+  "grails-service-mocks" : {
+    "title" : "Grails Service Mocks",
+    "date" : "2014-03-26"
   }
 }
