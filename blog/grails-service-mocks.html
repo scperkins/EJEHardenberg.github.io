@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <title>Grails Service Mocks</title>
+    <meta name="description" content="Ethan Eldridge's personal website"/>
+	<meta name="keywords" content="Ethan,Eldridge,Joachim,Programming"/>
+	<meta charset=utf-8 />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+    <link rel='stylesheet' href='/main.css' />
+    <script src="/js/app.js"></script>
+    <meta name="description" content="Personal website of Ethan Joachim Eldridge. Resume, blog, cooking, writing and more" />
+  </head>
+  <body>
+  	<h1 id="huge">Ethan Joachim Eldridge: A Programmer.</h1>
+
+<ol>
+	<li><a href="/index.html">Home</a></li>
+	<li><a href="https://github.com/EJEHardenberg">Github</a></li>
+	<li><a href="/write">Writing</a></li>
+	<li><a href="/projects">Projects</a></li>
+	<li><a href="/resume">Resume</a></li>
+	<li><a href="//ejehardenberg.github.io/cooking">Cooking</a></li>
+</ol>
+
+
+
+    <h3>Mocking a service method within another service in Grails 2.3.4</h3>
+<p>I&#39;ve been working with <a href="http://grails.org/doc/2.3.4/guide/">Grails</a> recently. And one of the biggest wastes of time
+I deal with is Unit and Integration testing. Now, I&#39;m not saying Tests are a 
+waste of time: If you&#39;re creating useful and meaningful tests, then you&#39;re doing
+it right. If you&#39;re testing accessors and mutators... well, there&#39;s a special 
+place in productivity hell that you belong. </p>
+<p>One of the biggest things in Grails is that they support a lot of different ways
+to mock interactions wihin Unit tests. But sometimes, you want to test a service
+that relies on other services. If you&#39;re really trying to just test a single 
+service and just need to ignore the wired-in auxillary services, ones first thought
+might be to use <em><a href="http://groovy.codehaus.org/gapi/groovy/mock/interceptor/MockFor.html">MockFor</a></em> or <a href="http://www.ibm.com/developerworks/library/j-grails10209/">MockDomain</a> or any other mock.</p>
+<p><strong>For the love of God save yourself and don&#39;t do this</strong></p>
+<p>You&#39;ll find yourself dealing with a lot of useless and uninformative error messages
+if you do<sup>1</sup>. And I really don&#39;t recommend trying to understand the long list of 
+closures and other verbose messages that appear in the stack traces. (I myself 
+was playing with metaClass as well and accidently broke the JVM running on my 
+machine for a little while!)</p>
+<p>So far, in my experience, the best way to mock out a couple simple functions 
+within a test is to use a stub and to affect <em>only</em> <em>the</em> <em>instance</em> <em>of</em> <em>the</em> 
+<em>service</em> <em>you</em> <em>need</em> <em>to</em>. It&#39;s simple, and it&#39;s a two parter like this:</p>
+<pre><code>@TestFor(SomeService)
+public class SomeServiceTests{
+    def someService
+    @Before
+    public void setup() throws Exception {
+        def mock = [
+            someMethodInWiredService: {String anyparameters, Object youmighthave -&gt; return &quot;mock!&quot; }
+        ] as WiredService
+        someService.wiredService = mock
+        //... continue on happily
+    }
+    ...</code></pre>
+<p>And that&#39;s it. No strange <code>MockFor(ClassName)</code> or wondering whether or not you&#39;ve
+restored a services <code>metaClass</code> to it&#39;s original state or anything of that nature.
+To me, this is the way that makes sense to mock during an integration test. This
+might not fit into your scenario, as really the reason why I&#39;m doing this is 
+because I need to essentially ignore another service. Why? I need to run this
+test in the integration environment, but since this other services calls performs
+a lot of other things (like sending emails for example), and I don&#39;t really want
+to verify or wait for those processes to complete<sup>2</sup>, I just stub it out.</p>
+<p><sup>1 Ok maybe you can use it sometimes usefully, but you shouldn&#39;t be using Mocks in integration tests most of the time. The use case here is that you need to just stub out a service call during a test.</sup>
+<sup>2 And the other service has it&#39;s own test that handles all of it&#39;s testing</sup></p>
+
+    
+
+  
+      <a class="floatleft" href=resource-replace>Resource Replace, update js and css domain links</a>
+  
+
+  
+   <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg'; // required: replace example with your forum shortname
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <div id="footer">
+      <p>Copyright (c) Ethan Eldridge</p>
+    </div>
+  </body>
+</html>
