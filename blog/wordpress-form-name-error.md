@@ -29,6 +29,7 @@ wp-includes/query.php (WordPress Version 3.7.1)
 
 The `$q` variable is the query variables which are retrieved like this:
 ```
+wp-includes/class-wp.php (WordPress Version 3.7.1)
 2142		$q = &$this->query_vars;
 2143
 2144		// Fill again in case pre_get_posts unset some vars.
