@@ -74,5 +74,9 @@
   "grails-service-mocks" : {
     "title" : "Grails Service Mocks",
     "date" : "2014-03-26"
+  },
+  "wordpress-form-name-error" : {
+    "title" : "404 Error from WordPress Form Submit with an input named 'name'",
+    "date" : "2014-04-05"
   }
 }
