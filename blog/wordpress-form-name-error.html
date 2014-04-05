@@ -45,7 +45,8 @@ Wordpress Core. Here&#39;s the snippet that is causing the slightly unexpected b
 2340        } elseif ( &#39;&#39; != $q[&#39;pagename&#39;] ) {
 2341            if ( isset($this-&gt;queried_object_id) ) {</code></pre>
 <p>The <code>$q</code> variable is the query variables which are retrieved like this:</p>
-<pre><code>2142        $q = &amp;$this-&gt;query_vars;
+<pre><code>wp-includes/class-wp.php
+2142        $q = &amp;$this-&gt;query_vars;
 2143
 2144        // Fill again in case pre_get_posts unset some vars.
 2145        $q = $this-&gt;fill_query_vars($q);</code></pre>
