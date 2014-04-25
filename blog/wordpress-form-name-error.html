@@ -45,7 +45,7 @@ Wordpress Core. Here&#39;s the snippet that is causing the slightly unexpected b
 2340        } elseif ( &#39;&#39; != $q[&#39;pagename&#39;] ) {
 2341            if ( isset($this-&gt;queried_object_id) ) {</code></pre>
 <p>The <code>$q</code> variable is the query variables which are retrieved like this:</p>
-<pre><code>wp-includes/class-wp.php
+<pre><code>wp-includes/class-wp.php (WordPress Version 3.7.1)
 2142        $q = &amp;$this-&gt;query_vars;
 2143
 2144        // Fill again in case pre_get_posts unset some vars.
@@ -66,6 +66,8 @@ of lots of code making the assumptions that no user will ever try to use</p>
       <a class="floatleft" href=grails-service-mocks>Grails Service Mocks</a>
   
 
+  
+      <a class="floatright" href=adding-actions-to-user-lists>Adding Actions to the WordPress User Lists</a>
   
    <div id="disqus_thread"></div>
     <script type="text/javascript">
