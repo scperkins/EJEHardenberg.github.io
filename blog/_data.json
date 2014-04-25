@@ -78,5 +78,9 @@
   "wordpress-form-name-error" : {
     "title" : "404 Error from WordPress Form Submit with an input named 'name'",
     "date" : "2014-04-05"
+  },
+  "adding-actions-to-user-lists" : {
+    "title" : "Adding Actions to the WordPress User Lists",
+    "date" : "2014-04-25"
   }
 }
