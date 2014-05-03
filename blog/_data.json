@@ -82,5 +82,9 @@
   "adding-actions-to-user-lists" : {
     "title" : "Adding Actions to the WordPress User Lists",
     "date" : "2014-04-25"
+  },
+  "varnish-directors" : {
+    "title" : "Varnish Directors and API Caching",
+    "date" : "2014-05-02"
   }
 }
