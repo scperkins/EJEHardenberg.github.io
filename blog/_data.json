@@ -90,5 +90,9 @@
   "green-up-vt-app": {
     "title" : "Green Up Vermont",
     "date" : "2014-05-04"
+  },
+  "serial-hill-climber-golang" : {
+    "title" : "Serial Hill Climber in GoLang",
+    "date" : "2014-05-20"
   }
 }

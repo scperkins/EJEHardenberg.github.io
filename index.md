@@ -22,7 +22,7 @@ because I was busy leading two organizations (The [CS Crew] and UVM's [UPE]
 chapter), working for UVM's athletic marketing department, maintaining
 [VHFA]'s seven websites, and doing contract work for [Brandthropology].
 
- My junior year I took a graduuate level evolutionary computation (EC)
+ My junior year I took a graduate level evolutionary computation (EC)
  course  taught by [Maggie Eppstein] and coauthored a [paper published in GECCO]
  on the practical applications of such methods. By the end of my time at 
  University my focus was on EC methods and machine learning. My senior
