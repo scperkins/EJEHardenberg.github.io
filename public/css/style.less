@@ -1,28 +1,70 @@
 @bgColor: #eee;
+@gutter: 10px;
+@fontColor: #7bab2e;
+@linkColor: #4183c4;
+@colorSpeed: 300ms;
+
+html{
+	background-color: @bgColor;
+	font:13.34px helvetica,arial,freesans,clean,sans-serif;
+    line-height:1.4em;
+    zoom: 90%;
+}
+
+p {
+	text-indent: 2em;
+    margin:1em 0;
+    line-height:1.5em;
+}
 
 body{
-	background-color: #bgColor;
-	width: 80%;
+	background-color: lighten(@bgColor,50%);
+	padding: 0 @gutter @gutter @gutter;
+	width: 70%;
+	width: 72em;
 	margin: 0 auto;
 }
 
+a{color: @linkColor;}
+a:visited{ color: darken(@linkColor,20%);}
+a:active{color: lighten(@linkColor,10%);}
+a:hover{color: darken(@linkColor,10%);}
+
 header{
+	color: @fontColor;
 	width: 100%;
+	h1{
+		margin-top: 0;
+		padding-top: @gutter;
+		text-align: center;
+		padding-bottom: @gutter;
+		border-bottom: black solid thin;
+	}
 	nav{
 		ul{
+			margin-top: 0px;
 			list-style: none;
 			li{
-				padding: 5px;
+				padding: 0px;
+				padding-top: @gutter;
 				display: inline-block;
-				a{
+				a{	
+					padding-right: @gutter;
+					transition: background-color @colorSpeed*1.5 linear;
 					display: block;
 					img{
-						margin-right: 1em;
+						padding-left: @gutter/2;
+						padding-right: @gutter/2;
 						vertical-align: middle;
 						width: 32px;
 						height: 32px;
 						border-radius: 15px;
 					}
+				}
+				a:hover{
+					background-color: darken(@bgColor,10%);
+					transition: background-color @colorSpeed linear;
+					opacity: .8;
 				}
 			}
 		}
