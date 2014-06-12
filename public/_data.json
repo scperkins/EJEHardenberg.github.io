@@ -1,0 +1,32 @@
+{
+	"index" : {
+		"title" : "Webspace",
+		"navtitle" : "About me",
+		"description" : "Personal website of Ethan Joachim Eldridge. Resume, blog, cooking, writing and more"
+	},
+	"projects" : {
+		"title" : "Projects",
+		"navtitle" : "Projects",
+		"description" : "A listing and description of projects Ethan Eldridge has worked on"
+	},
+	"resume" : {
+		"title" : "Resume",
+		"navtitle" : "Resume",
+		"description" : "Professional and eductional experience listing for Ethan Eldridge."
+	},
+	"tech-blog" : {
+		"title" : "Tech Blog",
+		"navtitle" : "Tech Blog",
+		"description" : "This blog is where Ethan Eldridge writes about technology, programming, and gotcha's he has ran into on the job, as well as tutorials and interesting facts about projects he has worked on"
+	},
+	"cooking" : {
+		"title" : "Recipes and Cooking",
+		"navtitle" : "Cooking",
+		"description" : "Easy to make recipes and simple cooking tips based on what Ethan Eldridge eats at home."
+	},
+	"writing" : {
+		"title" : "Short Stories and Smut",
+		"navtitle" : "Writing",
+		"description" : "Short narrations, Amateur poetry and boredom-induced smut written by Ethan Eldridge"
+	}
+}
