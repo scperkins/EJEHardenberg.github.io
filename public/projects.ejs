@@ -1,10 +1,19 @@
-
-
-<ul>
+<dl id="projects-list">
 	<% 
 	for(var item in projects){ %>
-		<li>
+		<dt>
 			<%= projects[item].title %>
-		</li>
+			<span>
+				<%= projects[item].period %>
+			</span>
+		</dt>
+		<dd>
+			<p>
+				<%= projects[item].description %>
+			</p>
+			<p>
+				<%- projects[item].references %>
+			</p>
+		</dd>
 	<% }; %>
-</ul>
+</dl>
