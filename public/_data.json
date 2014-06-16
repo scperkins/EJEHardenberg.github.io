@@ -1,6 +1,6 @@
 {
 	"index" : {
-		"title" : "Webspace",
+		"title" : "Ethan Joachim Eldridge's Webspace",
 		"navtitle" : "About me",
 		"navimage" : "ethan.jpeg",
 		"description" : "Personal website of Ethan Joachim Eldridge. Resume, blog, cooking, writing and more"
@@ -34,5 +34,8 @@
 		"navtitle" : "Writing",
 		"navimage" : "writing.png",
 		"description" : "Short narrations, Amateur poetry and boredom-induced smut written by Ethan Eldridge"
+	},
+	"404" : {
+		"layout" : false
 	}
 }

@@ -31,16 +31,21 @@ a:active{color: lighten(@linkColor,10%);}
 a:hover{color: darken(@linkColor,10%);}
 
 header{
+
 	color: #d4bc8c;
 	background-color: #597987;
 	width: 100%;
+	padding-top: @gutter;
+	padding-bottom: @gutter;
 	h1{
 		margin-top: 0;
 		padding-top: @gutter;
 		text-align: center;
 		padding-bottom: @gutter;
-		border-bottom: black solid thin;
+		margin-bottom: 0;
 	}
+	border-bottom: black solid thin;
+	
 }
 nav{
 		width: 15%;
@@ -73,8 +78,40 @@ nav{
 		}
 	}
 #content{
+	border-left: thin black solid;
 	padding-left: @gutter;
 	padding-right: @gutter;
 	display: inline-block;
 	width: 80%;
+}
+
+#f404{
+	background-repeat:no-repeat;
+    background-size: 100% 100%;
+	background-image: url('/images/404.jpg');
+	min-height: 100%;
+	padding-left: 5%;
+	a, a:active, a:visited, a:hover{
+		color: black;
+		text-decoration: none;	
+	}
+	body{
+		width: 90%;
+		min-height: 100%;
+		background-color: rgba(0,0,0,0);
+		nav{
+			width: 100%;
+			ul{
+				li{
+					display:inline-block;
+				}
+			}
+		}
+		p{
+			a{
+				border-bottom: thin black solid;	
+			}
+			
+		}
+	}
 }
