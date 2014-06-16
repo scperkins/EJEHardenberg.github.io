@@ -20,9 +20,11 @@
 		<header>
 			<%- partial('_shared/header') %>
 		</header>
-		<div>
+
+		<div id="content">
 			<%- yield %>
 		</div>
+		<%- partial('_shared/nav') %>
 	</body>
 
 </html>
