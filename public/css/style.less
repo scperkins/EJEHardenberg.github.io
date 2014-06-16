@@ -5,7 +5,7 @@
 @colorSpeed: 300ms;
 
 html{
-	background-color: @bgColor;
+	background-color: black;
 	background-image: url('/images/california.jpg');
 	background-size: contain;
 	background-repeat: no-repeat;
@@ -19,8 +19,7 @@ p {
     line-height:1.5em;
 }
 
-body{
-	
+body{	
 	background-color: lighten(@bgColor,50%);
 	margin: 0 auto;
 }
@@ -122,9 +121,16 @@ nav{
 	padding: 2em;
 	overflow: hidden;
 	overflow-y: scroll;
-	min-height: 400px;
-	max-height: 600px;
-	span{
-		float: right;
+	
+	dt{
+		font-weight: bold;
+		border-bottom: thin solid black;
+		span{
+			float: right;
+		}	
+	}
+	p{
+		margin: @gutter/2;
+
 	}
 }
