@@ -133,9 +133,25 @@ nav{
 }
 
 #recipes{
+	div[name=search-div]{
+		width: 100%;
+		text-align: right;
+		label{
+			margin: 0 auto;
+		}
+		input{
+			transition: box-shadow @colorSpeed linear;
+		}
+		label input:focus{
+			transition: box-shadow @colorSpeed linear;
+			border-color: blue thin;
+			box-shadow: 0 0 10px lighten(blue,10%);
+		}
+	}
 	#index{
 		article{
 			background-color: darken(@bgColor, 5%);
+			transition: background-color @colorSpeed linear;
 			padding: @gutter/2;
 			margin: @gutter/2;
 			text-align: center;
@@ -151,8 +167,19 @@ nav{
 				font-style: italic;
 			}
 		}
+		a{
+			display: inline;
+		}
+		article:hover{
+			background-color: darken(@bgColor, 20%);
+			transition: background-color @colorSpeed linear;
+		}
 	}
 	.recipe{
+		h3{
+			padding: @gutter/2*3;
+			margin: 0px;
+		}
 		img{
 			max-height: 300px;
 			float: right;
