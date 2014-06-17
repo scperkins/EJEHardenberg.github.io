@@ -35,6 +35,12 @@
 		"navimage" : "writing.png",
 		"description" : "Short narrations, Amateur poetry and boredom-induced smut written by Ethan Eldridge"
 	},
+	"contact" : {
+		"title" : "Contact me",
+		"navtitle" : "Contact",
+		"navimage" : "contact.png",
+		"description" : "How to contact Ethan Joachim Eldridge, for inquiries about contributing to projects, contracting, or just asking for advice."
+	},
 	"404" : {
 		"layout" : false
 	}
