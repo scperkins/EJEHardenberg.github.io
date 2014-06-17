@@ -147,5 +147,28 @@
 	"7-up-chicken-marinade" : {"title":"7-up Chicken Marinade","image":"7up.jpg","difficulty":"Easy","ingredients":[{"name":"2 Cups 7 up"},{"name":"1 Cup Soy sauce"},{"name":"1 Tablespoon horse radish"},{"name":"1/2 teaspoon minced garlic"},{"name":"1 Cup Oil"}],"description":"Delicious Marinade, really! Try it!","directions":[{"instruction":"Mix all the ingredients in a container that will fit them all"},{"instruction":"Cut chicken into strips and puncture with fork"},{"instruction":"place chicken into marinade"},{"instruction":"let sit for 8 hours in fridge"},{"instruction":"Cook up your chicken and eat! "}]},
 	"tortillas" : {"title":"Tortillas","image":"tortillas.jpg","difficulty":"Easy","ingredients":[{"name":"1/2 Cup Flour"},{"name":"1/8 Teaspoon salt"},{"name":"1/4 Baking Powder"},{"name":"3/4 teaspoons lard or butter"},{"name":"3 tablespoons water"}],"description":"Simple, quick and tasty Tortillas","directions":[{"instruction":"Mix the dry ingredients in a bowl"},{"instruction":"add in lard/butter until flour resembles cornmeal (add more than 3/4 teaspoons if neccesary)"},{"instruction":"Add water and mix until dough comes together"},{"instruction":"Place dough on lightly floured surface and knead until smooth and elastic."},{"instruction":"Divide the dough into equal pieces and roll into balls (this recipe makes 3-4)"},{"instruction":"Preheat a frying pan over medium high heat"},{"instruction":"Use a floured rolling pin (or bottle if you don't have a pin) and roll out the balls until flat"},{"instruction":"Place one at a time into hot pan and cook until golden on each side, flipping as neccesary."},{"instruction":"Serve with salsa or put meat/taco stuff on 'em! "}]},
 	"cinnamin-chicken-empanada" : {"title":"Cinnamon Chicken Empanada","image":"cinna-chicken-empanada.jpg","difficulty":"Medium","ingredients":[{"name":"1/2 Cup Flour"},{"name":"1/8 Teaspoon salt"},{"name":"1/4 Baking Powder"},{"name":"3/4 teaspoons lard or butter"},{"name":"3 tablespoons water"},{"name":"1 tablespoon cinnamin (or more, to taste!)"},{"name":"2 Chicken breast"},{"name":"1 Chopped onion"},{"name":"Cumin/Garlic powder (optional)"}],"description":"Cinnamin Tortilla and delicious Chicken","directions":[{"instruction":"Chop the onion and place to one side"},{"instruction":"Slice chicken into 1 inch thick strips"},{"instruction":"Spice chicken with Cumin and garlic powder if using"},{"instruction":"Mix dry ingredients in bowl"},{"instruction":"Add in lard/butter until flour looks like cornmeal"},{"instruction":"Add water to flour and mix until elastic"},{"instruction":"lightly flour countertop and  knead dough into ball. "},{"instruction":"Seperate dough into 6 balls and roll flat with rolling pin"},{"instruction":"place chopped onions and chicken into rolled out dough and  wrap, closing over chicken."},{"instruction":"preheat oven to 350 and cook chicken for 20 minutes"},{"instruction":"Serve hot and tasty"}]},
-	"honey-lime-marinade" : {"title":"Honey Lime Marinade","image":"Honeylime.jpg","difficulty":"Easy","ingredients":[{"name":"1 Garlic Clove"},{"name":"1 Lime or 1 tablespoon lime juice"},{"name":"1 tablespoon olive oil"},{"name":"1 tablespoon honey"},{"name":"3 tablespoons Soy Sauce"}],"description":"Delicious and Quick Marinade","directions":[{"instruction":"cut garlic clove finely, place in a container. I use an old tomato sauce glass container"},{"instruction":"Squeeze juice out of lime or pour lime juice into container"},{"instruction":"pour olive oil into container"},{"instruction":"pour honey into container, if you do the oil before the honey it won't stick!"},{"instruction":"pour soy sauce into container"},{"instruction":"Add Chicken, beef, vegitables or whatever you'd like to marinade"},{"instruction":"Shake"},{"instruction":"Store in fridge for 4 hours or longer"},{"instruction":"Cook anyway you like! I like to poach my chicken in it's own marinade but you're free to do what you want!"}]}
+	"honey-lime-marinade" : {"title":"Honey Lime Marinade","image":"Honeylime.jpg","difficulty":"Easy","ingredients":[{"name":"1 Garlic Clove"},{"name":"1 Lime or 1 tablespoon lime juice"},{"name":"1 tablespoon olive oil"},{"name":"1 tablespoon honey"},{"name":"3 tablespoons Soy Sauce"}],"description":"Delicious and Quick Marinade","directions":[{"instruction":"cut garlic clove finely, place in a container. I use an old tomato sauce glass container"},{"instruction":"Squeeze juice out of lime or pour lime juice into container"},{"instruction":"pour olive oil into container"},{"instruction":"pour honey into container, if you do the oil before the honey it won't stick!"},{"instruction":"pour soy sauce into container"},{"instruction":"Add Chicken, beef, vegitables or whatever you'd like to marinade"},{"instruction":"Shake"},{"instruction":"Store in fridge for 4 hours or longer"},{"instruction":"Cook anyway you like! I like to poach my chicken in it's own marinade but you're free to do what you want!"}]},
+	"oven-asparagus" : {
+		"title":"Oven Roasted Asparagus",
+		"image":"asparagus.jpg",
+		"difficulty":"Easy",
+		"ingredients":[
+			{"name":"Asparagus"},
+			{"name":"Olive Oil"},
+			{"name":"Soy Sauce"},
+			{"name":"Salt & Pepper"},
+			{"name":"Cheese"}
+		],
+		"description":"Delicious as a snack food, or as a side with dinner",
+		"directions":[
+			{"instruction" : "Preheat oven to 425 degrees"},
+			{"instruction":"Lay asparagus down in glass pan or on a cookie sheet"},
+			{"instruction":"Drizzle Oil over asparagus, no need to drench them, a few capfuls is normally enough"},
+			{"instruction":"Dash Salt and Pepper (and any other spices) over asparagus"},
+			{"instruction":"Splash soy sauce over asparagus (again, a few capfuls)"},
+			{"instruction":"Sprinkle cheese over asparagus"},
+			{"instruction":"Place in Oven for 15 minutes"},
+			{"instruction":"Eat!"}
+			]
+	}
 }
