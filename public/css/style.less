@@ -199,10 +199,27 @@ nav{
 			margin: 0px;
 			padding: @gutter;
 			background-color: darken(@bgColor, 5%);
+			box-shadow:  0 @gutter/2 0 darken(@bgColor,10%);
 			border-right: black thin solid;
 		}
 		ul{
+			padding: 0;
 			list-style-type: none;
+			li{
+				text-align: center;
+				transition: background-color @colorSpeed linear;
+				background-color: darken(@bgColor,10%);
+				border-radius: 2em;
+				margin-bottom: @gutter;
+				a{
+					display: block;
+					padding: @gutter/2;
+				}
+			}
+			li:hover{
+				transition: background-color @colorSpeed linear;
+				background-color: lighten(@bgColor,10%);
+			}
 		}
 	}
 	section:last-of-type{
