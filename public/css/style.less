@@ -187,3 +187,27 @@ nav{
 		}
 	}
 }
+
+#writing{
+	section{
+		vertical-align: top;
+		width: 33%;
+		display: inline-block;
+		margin: 0px;
+		padding: 0px;
+		div{
+			margin: 0px;
+			padding: @gutter;
+			background-color: darken(@bgColor, 5%);
+			border-right: black thin solid;
+		}
+		ul{
+			list-style-type: none;
+		}
+	}
+	section:last-of-type{
+		div{
+			border-right: none;
+		}
+	}
+}

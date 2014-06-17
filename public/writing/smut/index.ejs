@@ -1,0 +1,12 @@
+<p>
+	Smut happens. If you have something against erotic literature, leave now. If
+	not, then enjoy the random passages inspired by longing, boredom, or good 
+	times.
+</p>
+<% for(var slug in public.smut._data){ %>
+	<div class="outside-block">
+		<div class="blocks">
+  			<h3><a href="<%= slug %>"><%= public.smut._data[slug].title %></a></h3>
+  		</div>
+  	</div>
+<% }; %>
