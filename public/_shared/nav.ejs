@@ -3,7 +3,7 @@
 		<% for(var slug in public._data){ 
 			if(slug != "404"){ %>
 			<li>
-				<a href="<%= slug %>">
+				<a href="/<%= slug %>">
 					<img src="/images/<%= public._data[slug].navimage %>" /><!--
 					--><%= public._data[slug].navtitle %>
 				</a>

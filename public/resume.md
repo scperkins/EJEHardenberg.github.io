@@ -66,26 +66,26 @@ speaking skills. Quick learner.
 	- Co-founder of [Xenon Apps], creating RESTful API services in C and system
 	  administration of company servers. Created company Website with [Sean Perkins].
 
-- Bear Code Junior Developer 9/13 - Present
+- [Bear Code] Junior Developer 9/13 - Present
 	- Montpelier, VT
 	- Full time programmer, designing and implementing Ruby on Rails/Java Spring 
 	  projects. Working in Test Driven Environment and non-hierarchical agile teams.
 
-- Bear Code Software Engineering Intern 6/13 - 9/13
+- [Bear Code] Software Engineering Intern 6/13 - 9/13
 	- Montpelier, VT
 	- Internship funding by the non-profit Vermont HITEC,
 	  Responsible for maintenance of Java EE applications,
 	  back end work, data modeling and sprint estimation for Ruby on Rails
       projects.
 	
-- Brandthropology Intern 1/13 - 5/13
+- [Brandthropology] Intern 1/13 - 5/13
 	- Burlington, VT
 	- Responsible for creating Drupal modules for in-house
 	  use as well as working on client sites with Drupal, Wordpress, and
       jQuery. reated backup interface and tool to interact with iDrive through
       Bash, Expect, and PHP scripts.
 	
-- Information Technology Assistant 9/12 - 5/13
+- [VHFA] Information Technology Assistant 9/12 - 5/13
 	- Burlington, VT
 	- Responsible for finishing a Database migration project
 	  and developing administrative tools for web content
@@ -98,7 +98,7 @@ speaking skills. Quick learner.
 	  on Buy.com based on personal choice from website and
 	  priority lists sent by Employer.
 	
-- University of Vermont CS Crew Executive 1/11-5/13
+- University of Vermont [CS Crew] Executive 1/11-5/13
 	- University of Vermont, Burlington, VT
 	- Involved in group projects hosted by CS Crew,
 	  organizing events, offering help hours to students
@@ -117,3 +117,7 @@ speaking skills. Quick learner.
 [Xenon Apps]://xenonapps.com
 [Developer on GreenUp VT's iOS application]:http://www.reformer.com/localnews/ci_25671287/green-up-day-app-now-available
 [Sean Perkins]://scperkins.github.io
+[Bear Code]://bear-code.com
+[Brandthropology]://www.brandthropology.com
+[VHFA]:http://www.vhfa.org/
+[CS Crew]://uvm.edu/~cscrew
