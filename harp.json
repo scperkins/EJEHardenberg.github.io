@@ -49,7 +49,7 @@
 				"title" : "Presentation on Multiple Level Association Analysis",
 				"period" : "Spring 2013",
 				"description" : "A presentation on Mining Multiple-Level Association Rules in Large Databases adapted from Jiawei Han, and Yongjian Fu's original presentation for my CS 332 Data Mining class.",
-				"references" : "View the <a href=\"http://www.uvm.edu/~ejeldrid/resources/MLAR_Presentation.pdf\">MLAR Presentation here</a>"
+				"references" : "View the <a href=\"/resources/MLAR_Presentation.pdf\">MLAR Presentation here</a>"
 			},
 			{
 				"title" : "Kirby Cross",
@@ -73,7 +73,7 @@
 				"title" : "Craigs Crawler",
 				"period" : "Spring 2013",
 				"description" : "A web crawler that uses a Naive Bayes classifer to figure out what price range an apartment listing is in by its title text and description. Written in Ruby, the project uses the <a href=\"https://github.com/alexandru/stuff-classifier\">Naive Bayes implementation by alexandru</a>. Created to do my final paper for CS 332 Data Mining with <a href=\"http://www.cs.uvm.edu/~xwu/home.html\">Xindong Wu</a>",
-				"references" : "<a href=\"http://www.uvm.edu/~ejeldrid/resources/332.pdf\">Read the paper</a> or <a href=\"https://github.com/EJEHardenberg/CraigsCrawl\">Check out the repository</a>"
+				"references" : "<a href=\"/resources/332.pdf\">Read the paper</a> or <a href=\"https://github.com/EJEHardenberg/CraigsCrawl\">Check out the repository</a>"
 			},
 			{
 				"title" : "Go Fish For Software Engineering (CS 205)",
@@ -115,13 +115,13 @@
 				"title" : "Krupa, J.S., Chatterjee, S., Eldridge, E., Rizzo, D.M., and Eppstein, M.J. \"Evolutionary Feature Selection for Classification: A Plug-In Hybrid Vehicle Adoption Application\", accepted for Genetic and Evolutionary Computation Conference (GECCO), 2012."  ,
 				"period" : "Fall 2011/Spring  2012",
 				"description": "real world application of Genetic Algorithms in analysis of a large consumer survey relayed to Plug in Hybrid Electric Vehicles. I worked on it with two graduate students: Joseph Krupa, and Somdeb Chatterjee in Maggie Eppsteins CS 352 course last fall. Joe continued expanding on the project and it was accepted to the GECCO 2012 Conference. My first published paper!",
-				"references" : "Read the <a href=\"http://www.uvm.edu/~ejeldrid/resources/Gecco2012Paper.pdf\">GECCO paper here</a>"
+				"references" : "Read the <a href=\"/resources/Gecco2012Paper.pdf\">GECCO paper here</a>"
 			},
 			{
 				"title" : "Approaches to Solving Infinite Q-Learning Oscillations in a Grid World",
 				"period" : "Spring 2012",
 				"description" : "My term project for CS295 Machine Learning, using Matlab I implemented Watson's Q-Learning Algorithm and applied it to a simulated Grid World. Upon discovering an issue involving circular logic as a result of the algorithm, I implemented 4 new approaches which resulted in a drastic improvement in performance in trail simulations. The next year, the professor asked to use my paper/project as an example of what his students should strive for.",
-				"references" : "<a href=\"http://www.uvm.edu/~ejeldrid/resources/MachineLearningPaper.pdf\">Read the Q-Learning paper here</a>"
+				"references" : "<a href=\"/resources/MachineLearningPaper.pdf\">Read the Q-Learning paper here</a>"
 			},
 			{
 				"title" : "CS20 Course Website",
@@ -133,7 +133,7 @@
 				"title" : "Installation Guide for using the iRobot Create Simulator",
 				"period" : "Spring 2012",
 				"description" : "An installation guide I created as support for a course taught at UVM. Intended for use by freshmen and lower level engineers when installing and configuring a simulation using the iRobot Create Simulator from Cornell. ",
-				"references" : "<a href=\"http://www.uvm.edu/~ejeldrid/resources/installAndConfigRoomba.pdf\">Read the Install Guide</a>"
+				"references" : "<a href=\"/resources/installAndConfigRoomba.pdf\">Read the Install Guide</a>"
 			},
 			{
 				"title" : "WiiMote WhiteBoard",
@@ -145,13 +145,13 @@
 				"title" : "Matlab Workshop One",
 				"period" : "Spring 2012",
 				"description" : "A supplementary tutorial and overview of a Workshop I ran Spring semester of Junior Year. Part One of Two. ",
-				"references" : "Read the <a href=\"http://www.uvm.edu/~ejeldrid/resources/Workshop1.pdf\">workshop paper here</a>"
+				"references" : "Read the <a href=\"/resources/Workshop1.pdf\">workshop paper here</a>"
 			},
 			{
 				"title" : "Small Paper about Object Oriented Programming in Assembly",
 				"period" : "Fall 2011",
 				"description" : "A small paper on various data structures and how they're implemented on the lowest level, structs, linked lists, and classes are discussed in brevity.",
-				"references" : "Read the <a href=\"http://www.uvm.edu/~ejeldrid/resources/mipsoob.pdf\">OOP Assembly paper here</a>"
+				"references" : "Read the <a href=\"/resources/mipsoob.pdf\">OOP Assembly paper here</a>"
 			},
 			{
 				"title" : "Evolving Bipedal Locomotion through Recurrent Connections",
@@ -163,7 +163,7 @@
 				"title" : "N-Bit Schema Mutation Extension",
 				"period" : " Fall 2011",
 				"description" : "An extension of proportion predictions for mutation based change in Holland's Schema Theorem. Implementation includes a small matlab function that computes the difference equations for any chromosome passed in.",
-				"references" : "Read the <a href=\"http://www.uvm.edu/~ejeldrid/resources/NBitMutation.pdf\">schema extension paper here</a>"
+				"references" : "Read the <a href=\"/resources/NBitMutation.pdf\">schema extension paper here</a>"
 			},
 			{
 				"title" : "Eldridge Budget Buddy",
@@ -175,13 +175,13 @@
 				"title" : "Cluster",
 				"period" : "Spring-Summer 2011",
 				"description" : "A 3-Phase project that involved simulated swarm agents that bred until collectively they were able to push a block through a maze in C++. The Cluster sometimes fails, but only due to it's greedy approach to obstacle avoidance. The paper discusses runtime analysis as well as features and design choices within the project itself.",
-				"references" : "Read the <a href=\"http://www.uvm.edu/~ejeldrid/resources/Ethan%20Eldridge%20Cluster%20AI.pdf\">cluster paper here</a>"
+				"references" : "Read the <a href=\"/resources/Ethan%20Eldridge%20Cluster%20AI.pdf\">cluster paper here</a>"
 			},
 			{
 				"title" : "Turret 2D and 3D",
 				"period" : "Fall 2010-Spring 2011",
 				"description" : "Project in C++ to create a simulated turret that would track and shoot down an object flying within view of it. Runtime analysis and thorough treatment of vectors was used.",
-				"references" : "Read the <a href=\"http://www.uvm.edu/~ejeldrid/resources/Ethan%20Eldridge%20Turret%203D.pdf\">Turret Paper</a>"
+				"references" : "Read the <a href=\"/resources/Ethan%20Eldridge%20Turret%203D.pdf\">Turret Paper</a>"
 			},
 			{
 				"title" : "Obstacle Avoidance",
@@ -193,7 +193,7 @@
 				"title" : "Latimer-Zerachiel System",
 				"period" : "Fall 2010",
 				"description" : "C++ program designed to allow one computer to execute batch commands on another. The networking component was never completed but the language and parsing built for the command and reciever listener were finished.",
-				"references" : "<a href=\"http://www.uvm.edu/~ejeldrid/resources/LZSystem%20PDF.pdf\">Read my (brief) notes here</a>"
+				"references" : "<a href=\"/resources/LZSystem%20PDF.pdf\">Read my (brief) notes here</a>"
 			}
 		]
 	}

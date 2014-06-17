@@ -64,9 +64,9 @@ I hope you find this website useful, as it is a collection of [cooking],
 [and here]:http://www.cems.uvm.edu/~ejeldrid/contact.php
 [another blog]:http://ethaneldridgecs.blogspot.com
 [Maggie Eppstein]:http://www.cs.uvm.edu/~meppstei/
-[cooking]:http://ejehardenberg.github.io/cooking/
+[cooking]:/cooking
 [localvore]:http://www.localvoretoday.com
-[writing]:http://ejehardenberg.github.io/writing/
+[writing]:/writing
 
 
 [Home]:/index.html
