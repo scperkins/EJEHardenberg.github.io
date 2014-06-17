@@ -1,0 +1,22 @@
+<h2>Some of my recipes</h2>
+<p>
+
+</p>
+<div id="index">
+<% for( slug in public.cooking._data ){
+	if( slug == "index" ) continue;
+	var recipe = public.cooking._data[slug]
+	%>
+	<article>
+		<a href="<%= slug %>">
+			<h3><%- recipe.title %></h3>
+			<img src="/images/cooking/<%= recipe.image %>" />
+		</a>
+		<p>
+			<%- recipe.description %>
+		</p>
+	</article>
+	<%
+}
+%>
+</div>
