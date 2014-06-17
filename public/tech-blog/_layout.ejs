@@ -51,7 +51,7 @@
       <% if (nextP) { %>
           <a href=<%= nextP.slug %>><%= nextP.title %></a>
       <% } %>
-       
+      <%- partial('../_shared/disqus') %>   
     </div>
     <%- partial('../_shared/nav') %>
   </body>
