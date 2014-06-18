@@ -122,5 +122,10 @@
     "title" : "Serial Hill Climber in GoLang",
     "date" : "2014-05-20",
     "description" : "My first foray into GoLang, creating a simple serial hill climber (the simplest of all evolutionary algorithms) in GoLang. Using some of the concurrent features of Go make it a very powerful language for Evolutionary method implementations."
+  },
+  "item-processor-example" : {
+    "title" : "Spring Batch ItemProcessListener Example",
+    "date" : "2014-06-18",
+    "description" : "I couldn't find an example of an item processor being used anywhere, so I decided to make one myself! A simple and quick example of how to use an ItemProcessListener from Spring Batch's"
   }
 }
