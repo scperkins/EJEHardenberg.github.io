@@ -30,7 +30,7 @@ To create an item processor you need to implement the `ItemProcessListener<T,S>`
 
 	package com.example;
 
-	public class MyExampleProcessorListener implements<Baz, Boz>{
+	public class MyExampleProcessorListener implements ItemProcessListener<Baz, Boz>{
 		@Override
 		public void beforeProcess(Baz baz){
 			if(baz == null){
