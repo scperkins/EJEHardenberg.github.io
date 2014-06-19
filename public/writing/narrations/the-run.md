@@ -1,0 +1,13 @@
+Transferring himself from wooden stairs to the leaf covered pavement, his bright blue soles shoo-ed the crunching plants into the wind.
+
+One step. Two step. Now a bounce. His knee bending with each footfall. Instead of his usual running style, he was trying out something new. He was trying to glide. His eyes partially closed as his music reverberated through his bones, he felt his body giving and taking from the sidewalk. Glancing up, he passed by a few other nocturnal humans, eyes catching but nothing more than a brief nod.
+
+Besides the music, only his breath was of concern to him. He could feel his legs take each hit to the ground in stride. Beginning to push off as he came up on each step, his body began to hop up and down. Shadow informing him his hair was now bouncing back and forth, he focused again on his breathing and ran.
+
+He ran farther than his usual. Making his way through the downtown street and to the grocery store in one galloping trot rather than stopping halfway like he might have normally. His heart wasn't beating quickly, in fact he felt lighter than usual. After a long day of stress it didn't seem like a run would have done him any good. But tonight was different. He wasn't running to burn off steam. He wasn't running to run away from his problem. He was running because he wanted to. Because it felt good. Because he wanted to feel his body roll and speak to him.
+
+He made it to the store and spat out the blood in his mouth. In one pass he grabbed an apple, pepper, onion, chicken breast, popcorn and milk and made his way to the shortest line he could in the store. A thin sheet of sweat coated him as he bounced gently back and forth on his toes as the cashier scanned each item.
+
+Making his way back into the cool night air, the black jacket's zipper loudly made it's way to his neck before the jog continued. This time, up the side of the main pedestrian street. A few people he passed stared at him a little. Running? On this street? How dare you. He smiled to himself as he stopped in at Ben & Jerry's, turning in his coupon for a free pint before stuffing it alongside his milk in his grocery bag. Stretching out for a moment, he felt his back crack and he began lopping off up the hill again.
+
+As he reached the top, a small girl was joyfully bouncing next to her mother and father as they ambled up the street. She looked up at him, he looked down at her, and she took off running next to him: smiling at him as her balloon billowed outward. He smiled, his longer legs quickly putting distance between them, she smiled and waved goodbye while she could keep up. Flashing a smile at her, he turned back towards the road. Pausing to let a car speed past, he stepped off into the road and continued his run home.

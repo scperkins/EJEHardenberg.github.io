@@ -1,0 +1,33 @@
+<h2>Some of my recipes</h2>
+<p>
+	Everyone eats, and since I'm often busy with projects I prefer to create meals
+	that are fast, delicious, and don't require a lot of ingredients. You can find
+	some of the meals I make on a somewhat regular basis below. If you've got a 
+	recipe you want to share feel free to let me know and I'll put it on this page!
+</p>
+<div name="search-div">
+	<label>
+		Search:
+		<input type="text" name="search" />
+	</label>
+</div>
+<div id="index">
+<% for( slug in public.cooking._data ){
+	if( slug == "index" ) continue;
+	var recipe = public.cooking._data[slug]
+	%>
+	<a href="<%= slug %>">
+	<article>
+		
+			<h3><%- recipe.title %></h3>
+			<img src="/images/cooking/<%= recipe.image %>" />
+		
+		<p>
+			<%- recipe.description %>
+		</p>
+	</article>
+	</a>
+	<%
+}
+%>
+</div>

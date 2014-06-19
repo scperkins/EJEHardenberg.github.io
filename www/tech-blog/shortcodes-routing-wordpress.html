@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Ethan's Tech Blog | Short Codes and Routing in WordPress</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="While creating a WordPress module for work, I wanted to serve up a php page, nothing particularly WordPress-y about it, but I ran into some interesting snags that I documented." />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="Ethan,Eldridge,Joachim,Programming"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=1040" />
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Short Codes and Routing in WordPress" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="/images/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="While creating a WordPress module for work, I wanted to serve up a php page, nothing particularly WordPress-y about it, but I ran into some interesting snags that I documented." />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Short Codes and Routing in WordPress" />
+    
+    <meta name="twitter:description" content="While creating a WordPress module for work, I wanted to serve up a php page, nothing particularly WordPress-y about it, but I ran into some interesting snags that I documented." />
+    
+    <meta name="twitter:image" content="/images/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='/css/style.css' />
+
+	<!-- Core Javascript -->
+	<script type="text/javascript" src="/javascript/jquery.min.1.9.1.js" ></script>
+	<script type="text/javascript" src="/javascript/app.js" ></script>
+
+	 <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-43866715-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+  </head>
+  <body>
+    <header>
+      <h1>Short Codes and Routing in WordPress</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <p>One of the projects at my workplace has got me diving into WordPress. Should be
+easy right? It&#39;s php, one of the simplest, easy to use (besides it&#39;s dreadful
+$ symbol before everything), and dynamically typed languages out there. What 
+could go wrong?</p>
+<p>Simple: Everything. If you want to do custom code in a WordPress site, you make
+a plugin. Sounds easy enough, sounds like Drupal&#39;s modules. Cool. That makes 
+perfect sense to me. But then came the learning curve. </p>
+<p>Luckily the <a href="codex.wordpress.org">Codex</a> has a ton of information, and there are some great tutorials
+out there. But anything involving how to run just a standard php file was near
+impossible to find. All I wanted to do was be able to say: This URL goes to This
+file, without making an .htaccess file. And it seemed impossible. </p>
+<p>Luckily, I had an example (sort of) of how to make a custom router.
+Granted it was nested heavily into a massive plugin that I had to search
+through. But it used the technique of making objects that were
+associated with custom post types in order to serve it&#39;s content. </p>
+<p>Well that was great. But I only really wanted to serve a single page.
+Not a bunch of posts. I could programatically create a page from my
+plug-in and then try to somehow hook up listening to JUST that page with
+a slug of some kind and then make the template include my file? </p>
+<p>But that seemed messy. There had to be a clean way. So I got thinking.
+Well, if they can include custom post types, then I can make just one
+and then keep a reference to it some how. Simple enough. Use get_option
+to check the ID of the post I&#39;ll make from some initializing function. </p>
+<p>So I did that (after some trial and error where I forgot to hook into
+the init hook of wordpress before calling wp_insert_post -- which fails
+by the way, fatally. No WP_Error or anything) and bam. It was working. </p>
+<p>The best part of the whole routing system was that since I was capturing
+my php files output in the output buffer (ob_start and friends). That
+content was then sent to wordpress as a string to be interpreted as the 
+content of the post being rendered onto the page. This means that any 
+shortcodes in the php files output were expanded. </p>
+<p>This is actually very cool because it allows me to integrate the 
+flexibility of my php code with the simplicity of shortcodes. Essentially
+I ended up with my own meta language to write my views in. A nice combination
+of php and shortcodes. </p>
+<p>I made a small plugin called <a href="https://github.com/EJEHardenberg/qroute">qroute</a> that does this routing. And tested 
+the shortcode output with a few custome <a href="https://github.com/EJEHardenberg/dealcodes">shortcodes</a>. If you need nesting
+of shortcodes (which is likely), you just need to call do_shortcode on 
+whatever the string being returned from the other shortcodes is. </p>
+
+      
+
+      
+          <a href=stack-smashing>Stack Smashing</a>
+      
+
+      
+          <a href=numbers-as-markers-google-maps>Numbers as Markers on Google Maps</a>
+      
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="/images/ethan.jpeg" /><!--
+					-->About me
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="/images/project.png" /><!--
+					-->Projects
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="/images/cv.png" /><!--
+					-->Resume
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="/images/tech-blog.png" /><!--
+					-->Tech Blog
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="/images/cooking.jpg" /><!--
+					-->Cooking
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="/images/writing.png" /><!--
+					-->Writing
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="/images/contact.png" /><!--
+					-->Contact
+				</a>
+			</li>
+		
+		<li>
+			<a href="https://github.com/EJEHardenberg">
+				<img src="/images/github.png" /><!--
+				-->Github
+			</a>
+		</li>
+		<li>
+			<a href="https://twitter.com/EthanJEldridge">
+				<img src="/images/twitter-bird-light-bgs.png" /><!--
+				-->@EthanJEldridge
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="/images/LinkedIn_logo.png" /><!--
+				-->LinkIn
+			</a>
+		</li>
+	</ul>
+</nav>
+  </body>
+</html>
+  	

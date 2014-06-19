@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Ethan's Tech Blog | Stack Smashing</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="A short post about how I ran into an interesting case of Stack Smashing while working on the GreenUp VT REST API written in C." />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="Ethan,Eldridge,Joachim,Programming"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=1040" />
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Stack Smashing" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="/images/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="A short post about how I ran into an interesting case of Stack Smashing while working on the GreenUp VT REST API written in C." />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Stack Smashing" />
+    
+    <meta name="twitter:description" content="A short post about how I ran into an interesting case of Stack Smashing while working on the GreenUp VT REST API written in C." />
+    
+    <meta name="twitter:image" content="/images/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='/css/style.css' />
+
+	<!-- Core Javascript -->
+	<script type="text/javascript" src="/javascript/jquery.min.1.9.1.js" ></script>
+	<script type="text/javascript" src="/javascript/app.js" ></script>
+
+	 <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-43866715-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+  </head>
+  <body>
+    <header>
+      <h1>Stack Smashing</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <p>I&#39;ve been playing around with C a lot in my spare time recently. Something I 
+managed to run into last night was an interesting case of buffer overflow that
+valgrind lovingly referred to as &quot;stack smashing&quot;.</p>
+<p>Let me layout some of the information for you:</p>
+<p>We have, mysql interaction through a file called (cleverly) db.c. It&#39;s queries
+are stored in it&#39;s header file as strings ready to have their %s, %08lu and 
+%whathaveyou filled up by the information I sprintf (or snprintf) into them. </p>
+<p>Next up, we have a couple of structs that represent some of the tables in the
+database. These are my models. Each model is pretty simple, simple fields, some
+special methods to zero-out the memory used in the structures and a few functions
+that format whatever data is given to them before storing it into the model.</p>
+<p>Finally, we have the JSON helper file, which takes one of the model structures 
+and then formats a JSON representation of it, once again, through some sprintf
+activity. </p>
+<p>This is all pretty simple sounding. So where did it go wrong?</p>
+<p>Oddly enough, in the JSON formatting. Here&#39;s what would happen:</p>
+<ul>
+<li>I&#39;d make a model structure</li>
+<li>I&#39;d insert it into the database</li>
+<li>I&#39;d transform it into a JSON structure</li>
+<li>I&#39;d print said JSON structure</li>
+<li>I&#39;d attempt to delete the structure from the database</li>
+<li>A failed SQL query would occur</li>
+<li>The JSON would attempt to print out form the result of the query</li>
+<li>Stack Smash</li>
+</ul>
+<p>When I saw the error messages, I began hunting around a bit for the problem near 
+where the program had reported the smash -- at the end of the insertion function.</p>
+<p>The strange thing was that it was reporting the last line of the function as the
+area that was having a bad read. Confused I stared at my output for a little bit
+before turning towards the mySQL error that had been reported above valgrind&#39;s
+output and backtraces. </p>
+<p>Syntax error? I checked the query. No error there. So somehow I was introducing 
+a syntax error into my query when inserting content. Well that sounds reasonable.</p>
+<p>Except that the content being printed into the query was a sha256 hash. In ASCII
+characters. So how the heck could there be a syntax error near a timestamp? 
+(This was the reported error).</p>
+<p>With nothing else to go off of in my log, I added logging to the query itself
+within the function and was surprised to see that my sha256 hash had somehow
+went from being 64 characters of ASCII to being part of the text stored in a 
+different field of the struct.</p>
+<p>Clearly something had gone wrong when I wrote the field in the structure right? 
+I checked my functions and saw that I had very deliverately set the size of the
+character buffers to safe sizes and that they shouldn&#39;t have overran.</p>
+<p>Switching to trial and error mode I decided to print the offending field through
+out the programs lifetime and figure out when it changed. I was made even more
+confused when it was changed when the structure had been formatted for JSON use. </p>
+<p>I scanned my JSON formatting code. Added additional logging. Nothing went wrong
+in the function it seemed. My program crashed and burned on exiting that function
+though. Taking a second look, my last statement in the function was something
+along the lines of</p>
+<pre> return sprintf(jsonOutput, "%formattinghere",bunch,of,variables) </pre>
+
+<p>Well, at least it made sense to accidently overrun a buffer during the use of
+sprintf -- after all, sprintf is notorious for usage in buffer overflow attacks.</p>
+<p>I increased the size of my jsonOutput variable and lo and behold all worked well.
+Decreasing it down again resulted in a stack smash and a crash. Good! Reproducable
+errors are the best kind. </p>
+<p>To actually fix the problem (besides increasing a buffer size) I&#39;m re-coding my
+formatting functions to all use snprintf and do some sanity checking on the lengths
+of characters written before attempting to write into the output buffer. </p>
+<p>It&#39;s these kind&#39;s of problems that I love to be honest. Dealing with memory and
+with primitive data types is probably one of my favorite things to do. </p>
+
+      
+
+      
+          <a href=time-catcher-part3>Time Catcher Part 3</a>
+      
+
+      
+          <a href=shortcodes-routing-wordpress>Short Codes and Routing in WordPress</a>
+      
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="/images/ethan.jpeg" /><!--
+					-->About me
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="/images/project.png" /><!--
+					-->Projects
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="/images/cv.png" /><!--
+					-->Resume
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="/images/tech-blog.png" /><!--
+					-->Tech Blog
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="/images/cooking.jpg" /><!--
+					-->Cooking
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="/images/writing.png" /><!--
+					-->Writing
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="/images/contact.png" /><!--
+					-->Contact
+				</a>
+			</li>
+		
+		<li>
+			<a href="https://github.com/EJEHardenberg">
+				<img src="/images/github.png" /><!--
+				-->Github
+			</a>
+		</li>
+		<li>
+			<a href="https://twitter.com/EthanJEldridge">
+				<img src="/images/twitter-bird-light-bgs.png" /><!--
+				-->@EthanJEldridge
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="/images/LinkedIn_logo.png" /><!--
+				-->LinkIn
+			</a>
+		</li>
+	</ul>
+</nav>
+  </body>
+</html>
+  	

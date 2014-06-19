@@ -1,0 +1,54 @@
+<section>
+	<div>
+		<h2><a href="narrations">Narrations</a></h2>
+		<small>Short stories &amp; descriptions of things seen or done</small>
+	</div>
+	<ul>
+		<% 
+		for( item in public.writing.narrations._data){
+			var story = public.writing.narrations._data[item]
+			%>
+			<li>
+				<a href="narrations/<%= item %>"><%= story.title %></a>
+			</li>
+			<%
+		}
+		%>
+	</ul>
+</section><!--
+--><section>
+	<div>
+		<h2><a href="poetry" >Poetry</a></h2>
+		<small>I'm no poet, but this is some of the stuff I've written</small>
+	</div>
+	<ul>
+		<% 
+		for( item in public.writing.poetry._data){
+			var poem = public.writing.poetry._data[item]
+			%>
+			<li>
+				<a href="poetry/<%= item %>"><%= poem.title %></a>
+			</li>
+			<%
+		}
+		%>
+	</ul>
+</section><!--
+--><section>
+	<div>
+		<h2><a href="smut">Smut</a></h2>
+		<small>Yes, really, I get bored sometimes and write this stuff</small>
+	</div>
+	<ul>
+		<% 
+		for( item in public.writing.smut._data){
+			var smutStory = public.writing.smut._data[item]
+			%>
+			<li>
+				<a href="smut/<%= item %>"><%= smutStory.title %></a>
+			</li>
+			<%
+		}
+		%>
+	</ul>
+</section>

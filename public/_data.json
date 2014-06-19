@@ -1,0 +1,47 @@
+{
+	"index" : {
+		"title" : "Ethan Joachim Eldridge's Webspace",
+		"navtitle" : "About me",
+		"navimage" : "ethan.jpeg",
+		"description" : "Personal website of Ethan Joachim Eldridge. Resume, blog, cooking, writing and more"
+	},
+	"projects" : {
+		"title" : "Projects",
+		"navtitle" : "Projects",
+		"navimage" : "project.png",
+		"description" : "A listing and description of projects Ethan Eldridge has worked on"
+	},
+	"resume" : {
+		"title" : "Resume",
+		"navtitle" : "Resume",
+		"navimage" : "cv.png",
+		"description" : "Professional and eductional experience listing for Ethan Eldridge."
+	},
+	"tech-blog" : {
+		"title" : "Tech Blog",
+		"navtitle" : "Tech Blog",
+		"navimage" : "tech-blog.png",
+		"description" : "This blog is where Ethan Eldridge writes about technology, programming, and gotcha's he has ran into on the job, as well as tutorials and interesting facts about projects he has worked on"
+	},
+	"cooking" : {
+		"title" : "Recipes and Cooking",
+		"navtitle" : "Cooking",
+		"navimage" : "cooking.jpg",
+		"description" : "Easy to make recipes and simple cooking tips based on what Ethan Eldridge eats at home."
+	},
+	"writing" : {
+		"title" : "Short Stories and Smut",
+		"navtitle" : "Writing",
+		"navimage" : "writing.png",
+		"description" : "Short narrations, Amateur poetry and boredom-induced smut written by Ethan Eldridge"
+	},
+	"contact" : {
+		"title" : "Contact me",
+		"navtitle" : "Contact",
+		"navimage" : "contact.png",
+		"description" : "How to contact Ethan Joachim Eldridge, for inquiries about contributing to projects, contracting, or just asking for advice."
+	},
+	"404" : {
+		"layout" : false
+	}
+}

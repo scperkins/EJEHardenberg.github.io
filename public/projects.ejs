@@ -1,0 +1,33 @@
+<h2>In my spare time</h2>
+<p>
+	For many people, they do one thing at work and have a hobby or three at home
+	that they pursue. For me, programming is both my work and my hobby. 
+</p>
+<p>
+	I have always loved programming, and when I firsted created my website 
+	~<%= (new Date().getFullYear()) - 2009 %> years ago I created a small 
+	list of the projects I was working on. Since then, I have always tried to 
+	have at least one or two projects going on; they are cataloged below.
+</p>
+<p>
+
+</p>
+<dl id="projects-list">
+	<% 
+	for(var item in projects){ %>
+		<dt>
+			<%= projects[item].title %>
+			<span>
+				<%= projects[item].period %>
+			</span>
+		</dt>
+		<dd>
+			<p>
+				<%- projects[item].description %>
+			</p>
+			<p>
+				<%- projects[item].references %>
+			</p>
+		</dd>
+	<% }; %>
+</dl>

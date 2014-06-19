@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Ethan's Tech Blog | Spring Batch ItemProcessListener Example</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="I couldn&#39;t find an example of an item processor being used anywhere, so I decided to make one myself! A simple and quick example of how to use an ItemProcessListener from Spring Batch&#39;s" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="Ethan,Eldridge,Joachim,Programming"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=1040" />
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Spring Batch ItemProcessListener Example" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="/images/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="I couldn&#39;t find an example of an item processor being used anywhere, so I decided to make one myself! A simple and quick example of how to use an ItemProcessListener from Spring Batch&#39;s" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Spring Batch ItemProcessListener Example" />
+    
+    <meta name="twitter:description" content="I couldn&#39;t find an example of an item processor being used anywhere, so I decided to make one myself! A simple and quick example of how to use an ItemProcessListener from Spring Batch&#39;s" />
+    
+    <meta name="twitter:image" content="/images/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='/css/style.css' />
+
+	<!-- Core Javascript -->
+	<script type="text/javascript" src="/javascript/jquery.min.1.9.1.js" ></script>
+	<script type="text/javascript" src="/javascript/app.js" ></script>
+
+	 <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-43866715-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+  </head>
+  <body>
+    <header>
+      <h1>Spring Batch ItemProcessListener Example</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>ItemProcessorListener Example, Spring Batch</h3>
+<p>For a recent work project I&#39;ve been up to my ears in <a href="http://projects.spring.io/spring-batch/">Spring Batch</a>, and besides
+documentation, when I am thrown into a new project I tend to use <a href="www.mkyong.com/tutorials/spring-batch-tutorial/">good examples</a>
+of people using the library to supplement my learning. So when we decided that we
+needed finer grain tracking of each item being processed, I went in search of
+examples of item procesor listeners. </p>
+<p>The number one hit on google for spring batch listeners examples was <a href="www.mkyong.com/spring-batch/spring-batch-listeners-example/">mykongs</a>
+excellent example. The problem of course, is that him and everyone else I came
+accross were <em>never</em> using the ItemProcessListener. The closest thing to an 
+example I could find was <a href="http://stackoverflow.com/questions/18417753/implementing-itemprocesslistener-for-a-chain-of-itemprocessors">this stackoverflow question</a>.</p>
+<p>The <a href="http://docs.spring.io/spring-batch/trunk/apidocs/org/springframework/batch/core/ItemProcessListener.html">ItemProcessListener</a> allows you to hook into the 3 core methods of the item
+workflow. You can hook into it before the item is processed, after, and when the
+processor throws an error. Throwing an error while you&#39;re in one of the three
+listener methods will result in a failed step, so be care to check your exceptions!</p>
+<p>The three methods you can use are intuitively named:</p>
+<ul>
+<li>afterProcess</li>
+<li>beforeProcess(T item)`</li>
+<li>onProcessError</li>
+</ul>
+<p>One of the things you need to watch out for is that if your processor can return
+null (i.e. you are filtering items out), then the <code>afterProcess/onProcessError</code> 
+will also recieve the null object. Just one of those things to be aware of.</p>
+<p>To create an item processor you need to implement the <code>ItemProcessListener&lt;T,S&gt;</code> interface:</p>
+<pre><code>package com.example;
+
+public class MyExampleProcessorListener implements ItemProcessListener&lt;Baz, Boz&gt;{
+    @Override
+    public void beforeProcess(Baz baz){
+        if(baz == null){
+            //...
+        }
+        //...
+    }
+
+    @Override
+    public void afterProcess(Baz baz, Boz boz){
+        //..
+    }
+
+    @Override
+    public void onProcessError(Baz baz, Exception e){
+        //..
+    }
+}</code></pre>
+<p>And in your configuration you need to have your step configured with your listener
+specified in the configuration of your step:</p>
+<pre><code>&lt;bean id=&quot;exampleListener&quot; class=&quot;com.example.MyExampleProcessorListener&quot;  scope=&quot;step&quot;/&gt;
+
+&lt;batch:job id=&quot;example&quot; job-repository=&quot;jobRepository&quot;&gt;
+    &lt;batch:step id=&quot;exampleStep&quot;&gt;
+        &lt;batch:tasklet transaction-manager=&quot;transactionManager&quot;&gt;
+            &lt;batch:chunk reader=&quot;&quot; processor=&quot;&quot; writer=&quot;&quot; commit-interval=&quot;&quot; /&gt;
+        &lt;/batch:tasklet&gt;
+        &lt;batch:listeners&gt;
+            &lt;batch:listener ref=&quot;exampleListener&quot; /&gt;
+        &lt;/batch:listeners&gt;
+    &lt;/batch:step&gt;
+&lt;/batch:job&gt;</code></pre>
+<p>One of the things that tripped me up for a little bit was that the <code>listeners</code> 
+tag in your XML setup <strong>must</strong> be within the step and not inside the tasklet.
+Placing the listeners inside your chunk, tasklet, or anywhere else strange 
+will result in the code simply not executing. One of the useful things that 
+I walked away from that silly encounter was that XSD files and <a href="http://xmlsoft.org/xmllint.html">xmllint</a> can be
+very helpful when you&#39;re troubleshooting your xml configuration files.</p>
+
+      
+
+      
+          <a href=serial-hill-climber-golang>Serial Hill Climber in GoLang</a>
+      
+
+      
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="/images/ethan.jpeg" /><!--
+					-->About me
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="/images/project.png" /><!--
+					-->Projects
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="/images/cv.png" /><!--
+					-->Resume
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="/images/tech-blog.png" /><!--
+					-->Tech Blog
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="/images/cooking.jpg" /><!--
+					-->Cooking
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="/images/writing.png" /><!--
+					-->Writing
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="/images/contact.png" /><!--
+					-->Contact
+				</a>
+			</li>
+		
+		<li>
+			<a href="https://github.com/EJEHardenberg">
+				<img src="/images/github.png" /><!--
+				-->Github
+			</a>
+		</li>
+		<li>
+			<a href="https://twitter.com/EthanJEldridge">
+				<img src="/images/twitter-bird-light-bgs.png" /><!--
+				-->@EthanJEldridge
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="/images/LinkedIn_logo.png" /><!--
+				-->LinkIn
+			</a>
+		</li>
+	</ul>
+</nav>
+  </body>
+</html>
+  	

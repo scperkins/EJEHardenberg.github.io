@@ -1,0 +1,10 @@
+<p>
+	<%- description %>
+</p>
+<% for(var slug in public.writing.	narrations._data){ %>
+	<div class="outside-block">
+		<div class="blocks">
+  			<h3><a href="<%= slug %>"><%= public.writing.narrations._data[slug].title %></a></h3>
+  		</div>
+  	</div>
+<% }; %>

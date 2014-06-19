@@ -1,0 +1,32 @@
+<nav>
+	<ul>
+		<% for(var slug in public._data){ 
+			if(slug != "404"){ %>
+			<li>
+				<a href="/<%= slug %>">
+					<img src="/images/<%= public._data[slug].navimage %>" /><!--
+					--><%= public._data[slug].navtitle %>
+				</a>
+			</li>
+		<%  }
+		}; %>
+		<li>
+			<a href="https://github.com/EJEHardenberg">
+				<img src="/images/github.png" /><!--
+				-->Github
+			</a>
+		</li>
+		<li>
+			<a href="https://twitter.com/EthanJEldridge">
+				<img src="/images/twitter-bird-light-bgs.png" /><!--
+				-->@EthanJEldridge
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="/images/LinkedIn_logo.png" /><!--
+				-->LinkIn
+			</a>
+		</li>
+	</ul>
+</nav>

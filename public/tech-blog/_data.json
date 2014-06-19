@@ -1,0 +1,131 @@
+{
+  "index" : {
+    "layout" : "index",
+    "title" : "Ethan's Tech Blog",
+    "description" : "A blog consisting of first-hand experiences with technology, solutions to gotchas and bugs I've found in programs. And sometimes just reviews of a new application that I've used"
+  },
+  "git-crash-course": {
+    "title": "Git Crash Course",
+    "date": "2013-07-30",
+    "description" : "A short tutorial on some of the basics of using <a href=\"http://git-scm.com/\">Git</a> version control."
+  },
+  "how-this-site-was-made": {
+    "title": "How this site was made",
+    "date": "2013-07-30",
+    "description" : "An (out of date) overview of how this website was made. I used my XeMark language as a static site generator for one of the versions of my website."
+  },
+  "time-catcher-part1": {
+    "title": "Time Catcher Part 1",
+    "date": "2013-09-01",
+    "description" : "The first of a 3 part blog post where I kept running commentary as I created my TimeCatcher programmer."
+  },
+  "time-catcher-part2": {
+    "title": "Time Catcher Part 2! (Alpha)",
+    "date": "2013-09-07",
+    "description" : "The second part of the 3 part blog series on my program, Timecather. In this post I talk about a few of the algorithms used within the programmer and a couple other interesting pieces of the code."
+  },
+  "time-catcher-part3": {
+    "title": "Time Catcher Part 3",
+    "date": "2013-09-25",
+    "description" : "The third part of the TimeCatcher program series, discussion on implementation of pausing and deleting tasks within the program."
+  },
+  "stack-smashing": {
+    "title": "Stack Smashing",
+    "date" : "2013-10-2",
+    "description" : "A short post about how I ran into an interesting case of Stack Smashing while working on the GreenUp VT REST API written in C."
+  },
+  "shortcodes-routing-wordpress": {
+    "title": "Short Codes and Routing in WordPress",
+    "date": "2013-10-3",
+    "description" : "While creating a WordPress module for work, I wanted to serve up a php page, nothing particularly WordPress-y about it, but I ran into some interesting snags that I documented."
+  },
+  "numbers-as-markers-google-maps": {
+    "title": "Numbers as Markers on Google Maps",
+    "date": "2013-10-25",
+    "description" : "How to have custom markers on a google map that show numbers"
+  },
+  "html-templates-and-handlebars": {
+    "title": "HTML Templates and Handlebar",
+    "date": "2013-11-25",
+    "description" : "While looking into some new technology, I ended up messing around with HTML Templates and thought they were cool enough to write about"
+  },
+  "post__in-returning-results-with-empty-array": {
+    "title": "Empty Post__in WordPress problem",
+    "date": "2013-11-27",
+    "description" : "A short description of a small problem I ran into while using the WP_Query class with an Empty post__in field."
+  },
+  "college-friend-chicken": {
+    "title": "My Cooking Recipes",
+    "date" : "2013-12-3",
+    "description" : "Blog post about creating the first design and implementation of the cooking section of my website."
+  },
+  "hosts-file-deployment": {
+    "title": "Hosts file and Testing deployment",
+    "date": "2014-01-2",
+    "description" : "A easy way to trick your computer into using a test environment with a live URL."
+  },
+  "chunked-encoding-for-reports": {
+    "title": "Using Chunked Encoding for Reporting in Wordpress",
+    "date" : "2014-01-9",
+    "description" : "When writing pages that have a lot of output, it's beneficial to use Chunked Encoding rather than Content-length, this post talks about doing it for reporting screens in WordPress"
+  },
+  "php-wrong-date-half-hour": {
+    "title": "Incorrect Time in PHP despite Timezone",
+    "date": "2014-01-16",
+    "description" : "A weird configuration problem with TimeZone settings in PHP and how it was fixed."
+  },
+  "harp-and-smut": {
+    "title": "Harp and Smut",
+    "date": "2014-01-27",
+    "description" : "A short post about the first time I used <a href=\"//harpjs.com\">Harp</a> to create a website"
+  },
+  "varnish" : {
+    "title" : "Varnish and API Servers",
+    "date" : "2014-02-17",
+    "description" : "How to configure Varnish for cachingg of RESTful resources for API Servers, the GreenUp Server configuration is used as an example"
+  },
+  "wordpress-gripes" : {
+    "title" : "Gripes with wordpress's postmeta and autoload",
+    "date" : "2014-02-28",
+    "description" : "A short tirade about how poor defaults for indexes and shoddy plugins can cause a large amount of pain for a WordPress site's performance"
+  },
+  "resource-replace" : {
+    "title" : "Resource Replace, update js and css domain links",
+    "date" : "2014-03-06",
+    "description" : "Information about a small plugin to update javascript and css domain names for easier CDN usage for WordPress sites that I wrote."
+  },
+  "grails-service-mocks" : {
+    "title" : "Grails Service Mocks",
+    "date" : "2014-03-26"
+  },
+  "wordpress-form-name-error" : {
+    "title" : "404 Error from WordPress Form Submit with an input named 'name'",
+    "date" : "2014-04-05",
+    "description" : "Discovery of a bit of an oddity in WordPress's form input names, you can't have one named 'name'!"
+  },
+  "adding-actions-to-user-lists" : {
+    "title" : "Adding Actions to the WordPress User Lists",
+    "date" : "2014-04-25",
+    "description" : "How to add links and actions to the 'users.php' page of WordPress via filters."
+  },
+  "varnish-directors" : {
+    "title" : "Varnish Directors and API Caching",
+    "date" : "2014-05-02",
+    "description" : "How to setup round robin, and health checks for multiple back ends behind Varnish HTTP Cache. GreenUp VT API Server as a case study."
+  },
+  "green-up-vt-app": {
+    "title" : "Green Up Vermont",
+    "date" : "2014-05-04",
+    "description" : "A short look into what the Green Up VT launch day was like for the developers at XenonApps who monitored the application all day."
+  },
+  "serial-hill-climber-golang" : {
+    "title" : "Serial Hill Climber in GoLang",
+    "date" : "2014-05-20",
+    "description" : "My first foray into GoLang, creating a simple serial hill climber (the simplest of all evolutionary algorithms) in GoLang. Using some of the concurrent features of Go make it a very powerful language for Evolutionary method implementations."
+  },
+  "item-processor-example" : {
+    "title" : "Spring Batch ItemProcessListener Example",
+    "date" : "2014-06-18",
+    "description" : "I couldn't find an example of an item processor being used anywhere, so I decided to make one myself! A simple and quick example of how to use an ItemProcessListener from Spring Batch's"
+  }
+}

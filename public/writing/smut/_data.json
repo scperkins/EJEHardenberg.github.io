@@ -1,0 +1,23 @@
+{
+	"hold-again" : {
+		"title" : "Together Again"
+	},	
+	"close" : {
+		"title" : "Close"
+	},
+	"hot-chocolate" : {
+		"title" : "Hot Chocolate"
+	},
+	"tickle" : {
+		"title" : "Tickle"
+	},
+	"dream" : {
+		"title" : "The Dream"
+	},
+	"counterpart" : {
+		"title" : "Counterpart Kisses"
+	},
+	"shower" : {
+		"title" : "In the Shower"
+	}
+}

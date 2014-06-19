@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Ethan's Tech Blog | 404 Error from WordPress Form Submit with an input named &#39;name&#39;</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Discovery of a bit of an oddity in WordPress&#39;s form input names, you can&#39;t have one named &#39;name&#39;!" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="Ethan,Eldridge,Joachim,Programming"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=1040" />
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | 404 Error from WordPress Form Submit with an input named &#39;name&#39;" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="/images/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Discovery of a bit of an oddity in WordPress&#39;s form input names, you can&#39;t have one named &#39;name&#39;!" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | 404 Error from WordPress Form Submit with an input named &#39;name&#39;" />
+    
+    <meta name="twitter:description" content="Discovery of a bit of an oddity in WordPress&#39;s form input names, you can&#39;t have one named &#39;name&#39;!" />
+    
+    <meta name="twitter:image" content="/images/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='/css/style.css' />
+
+	<!-- Core Javascript -->
+	<script type="text/javascript" src="/javascript/jquery.min.1.9.1.js" ></script>
+	<script type="text/javascript" src="/javascript/app.js" ></script>
+
+	 <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-43866715-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+  </head>
+  <body>
+    <header>
+      <h1>404 Error from WordPress Form Submit with an input named &#39;name&#39;</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Form with name=&quot;name&quot; causes 404 in WordPress</h3>
+<p>While I haven&#39;t tracked down the source of the problem within WordPress itself,
+I was having some trouble with a form on a custom template on a WordPress site.</p>
+<p>I had made my form, was hitting submit then promptly seeing a 404 page. </p>
+<p>Confusing? I&#39;ll say, especially considering the form was submitting to itself. 
+So I took a look at my code, commented out the redirects I had, through <code>error_log</code>
+around a little trying to track down where the execution broke. Nothing. No err&#39;s,
+no warnings.</p>
+<p>So I did what any developer does, I googled a few keywords checking for 404 errors
+on submitting a form, and then eventually ended up on <a href="http://wordpress.org/support/topic/posting-form-to-custom-template-results-in-404">this support forum</a> where
+member <a href="http://wordpress.org/support/profile/ianstapleton">ianstapleton</a> noted that changing the input name caused the form submission 
+to work again. </p>
+<p>It&#39;s a bit of a strange fix, but it makes sense when you consider the code inside of 
+Wordpress Core. Here&#39;s the snippet that is causing the slightly unexpected behavior:</p>
+<pre><code>wp-includes/query.php (WordPress Version 3.7.1)
+2337        if ( &#39;&#39; != $q[&#39;name&#39;] ) {
+2338            $q[&#39;name&#39;] = sanitize_title_for_query( $q[&#39;name&#39;] );
+2339            $where .= &quot; AND $wpdb-&gt;posts.post_name = &#39;&quot; . $q[&#39;name&#39;] . &quot;&#39;&quot;;
+2340        } elseif ( &#39;&#39; != $q[&#39;pagename&#39;] ) {
+2341            if ( isset($this-&gt;queried_object_id) ) {</code></pre>
+<p>The <code>$q</code> variable is the query variables which are retrieved like this:</p>
+<pre><code>wp-includes/class-wp.php (WordPress Version 3.7.1)
+2142        $q = &amp;$this-&gt;query_vars;
+2143
+2144        // Fill again in case pre_get_posts unset some vars.
+2145        $q = $this-&gt;fill_query_vars($q);</code></pre>
+<p>In other words, the <code>$_POST</code> and <code>$_GET</code> variables seem to be merged into a single
+<code>query_vars</code> propertie and then used from there. <code>wp_parse_args</code> is used during
+part of the merging (from a brief look into the <code>fill_query_vars</code> function) and
+so we end up looking for a post with the name of whatever we submitted in the form.
+Which is, not what we wanted to do. You could use it to create a custom search
+form for looking for exact matches on post names, but that&#39;d be a little silly. </p>
+<p>Regardless, I wonder if this is the intended behavior of WordPress or just a result
+of lots of code making the assumptions that no user will ever try to use</p>
+<pre><code>&lt;input type=&quot;text&quot; name=&quot;name&quot; /&gt;</code></pre>
+
+      
+
+      
+          <a href=grails-service-mocks>Grails Service Mocks</a>
+      
+
+      
+          <a href=adding-actions-to-user-lists>Adding Actions to the WordPress User Lists</a>
+      
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="/images/ethan.jpeg" /><!--
+					-->About me
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="/images/project.png" /><!--
+					-->Projects
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="/images/cv.png" /><!--
+					-->Resume
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="/images/tech-blog.png" /><!--
+					-->Tech Blog
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="/images/cooking.jpg" /><!--
+					-->Cooking
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="/images/writing.png" /><!--
+					-->Writing
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="/images/contact.png" /><!--
+					-->Contact
+				</a>
+			</li>
+		
+		<li>
+			<a href="https://github.com/EJEHardenberg">
+				<img src="/images/github.png" /><!--
+				-->Github
+			</a>
+		</li>
+		<li>
+			<a href="https://twitter.com/EthanJEldridge">
+				<img src="/images/twitter-bird-light-bgs.png" /><!--
+				-->@EthanJEldridge
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="/images/LinkedIn_logo.png" /><!--
+				-->LinkIn
+			</a>
+		</li>
+	</ul>
+</nav>
+  </body>
+</html>
+  	

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Ethan J. Eldridge | <%= title %></title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="<%= description %>" />
+		<meta name="author" content="Ethan Eldridge">
+		<meta name="keywords" content="Ethan,Eldridge,Joachim,Programming"/>
+		<meta name="robots" content="index, follow"  />
+    	<meta name="revisit-after" content="1 month" />
+    	<meta name="viewport" content="width=1040" />
+    	
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+		<link rel="icon" href="/favicon.ico" type="image/ico">
+
+		<%- partial('_shared/og') %>
+		<%- partial('_shared/scripts') %>
+	</head>
+	<body>
+		<header>
+			<%- partial('_shared/header') %>
+		</header>
+
+		<div id="content">
+			<%- yield %>
+		</div>
+		<%- partial('_shared/nav') %>
+	</body>
+</html>

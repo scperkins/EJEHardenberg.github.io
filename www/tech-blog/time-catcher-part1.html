@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Ethan's Tech Blog | Time Catcher Part 1</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="The first of a 3 part blog post where I kept running commentary as I created my TimeCatcher programmer." />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="Ethan,Eldridge,Joachim,Programming"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=1040" />
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Time Catcher Part 1" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="/images/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="The first of a 3 part blog post where I kept running commentary as I created my TimeCatcher programmer." />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Time Catcher Part 1" />
+    
+    <meta name="twitter:description" content="The first of a 3 part blog post where I kept running commentary as I created my TimeCatcher programmer." />
+    
+    <meta name="twitter:image" content="/images/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='/css/style.css' />
+
+	<!-- Core Javascript -->
+	<script type="text/javascript" src="/javascript/jquery.min.1.9.1.js" ></script>
+	<script type="text/javascript" src="/javascript/app.js" ></script>
+
+	 <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-43866715-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+  </head>
+  <body>
+    <header>
+      <h1>Time Catcher Part 1</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <p>I&#39;ve begun work on a <a href="https://github.com/EJEHardenberg/timecatcher">new project</a> and so far it&#39;s coming along nicely. I&#39;ve been using some software at work to keep track of my hours, it&#39;s called office time. It works fine, simple interface, easy to manage for the most part, and at least 20 features I don&#39;t use. Ever. </p>
+<p>So being the kind of guy I am, I decided that I could probably make a simple to use task tracking utility. Here are some of my motivations. </p>
+<ul>
+<li>I spend about 60-80% of my day in a terminal. So I should be able to access the utility from there</li>
+<li>I need to keep track of a task per day, and then be able to display it meaningfully later on</li>
+<li>I want to be able to add notes to myself about the task as I work on it</li>
+<li>I should only be active on a single task at a time</li>
+</ul>
+<p>So let&#39;s see. I&#39;m going to working in the command line, well that means I&#39;ll want an executable file. I could write a bash script, but bash syntax is not the best for anything complicated. So I want a higher language. I want to sit low, and I like C. So I&#39;ll do it in C. </p>
+<p>Keeping track of a single task, well that&#39;s simple. Give it a name. I&#39;ll have to be able to have it be permanent, and I even have a process running in the background (no) or I make an object of some kind in a file and use that to keep track of things. Now that sounds easy. If it works for git, it will work for me. If I want to keep track of my tasks per day, I should store these object files into their own folder, named after the current date. The benefit to this is that if I want to generate spreadsheets or information later on, I can do it by date with these folders.</p>
+<p>Adding a note, well that&#39;s easy too, keep track of it in the file for the current task.</p>
+<p>Being active on only a single task at a time? Now that seems hard to enforce. Because I&#39;ll be able to start a task, then end a task with a command. So I could fire off a bunch of tasks then finish them when I wanted to and the timing data would be complete garbage. Ah! So I&#39;ll keep track of the last created task in some type of master file. Easy! When a new task is created, the other task will be &#39;paused&#39; or for starters I won&#39;t let a user switch tasks unless they finish one first. </p>
+<p>And this is my first plan. So far it&#39;s coming along and I&#39;ve got the directory to hold this information all good and am writing out the usage documentation, as a guide to me and a guide to anyone else who wants to use it. </p>
+
+      
+
+      
+          <a href=how-this-site-was-made>How this site was made</a>
+      
+
+      
+          <a href=time-catcher-part2>Time Catcher Part 2! (Alpha)</a>
+      
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="/images/ethan.jpeg" /><!--
+					-->About me
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="/images/project.png" /><!--
+					-->Projects
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="/images/cv.png" /><!--
+					-->Resume
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="/images/tech-blog.png" /><!--
+					-->Tech Blog
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="/images/cooking.jpg" /><!--
+					-->Cooking
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="/images/writing.png" /><!--
+					-->Writing
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="/images/contact.png" /><!--
+					-->Contact
+				</a>
+			</li>
+		
+		<li>
+			<a href="https://github.com/EJEHardenberg">
+				<img src="/images/github.png" /><!--
+				-->Github
+			</a>
+		</li>
+		<li>
+			<a href="https://twitter.com/EthanJEldridge">
+				<img src="/images/twitter-bird-light-bgs.png" /><!--
+				-->@EthanJEldridge
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="/images/LinkedIn_logo.png" /><!--
+				-->LinkIn
+			</a>
+		</li>
+	</ul>
+</nav>
+  </body>
+</html>
+  	

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Ethan's Tech Blog | <%= title %></title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="<%= description %>" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="Ethan,Eldridge,Joachim,Programming"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=1040" />
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/ico">
+
+    <%- partial('../_shared/og') %>
+    <%- partial('../_shared/scripts') %>
+  </head>
+  <body>
+    <header>
+      <%- partial('../_shared/header') %>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <%- yield %>
+      <%
+        var articles = [] 
+
+        for(var slug in public["tech-blog"]._data){ 
+          public["tech-blog"]._data[slug].slug = slug
+          if(slug != "index"){
+            articles.push(public["tech-blog"]._data[slug])  
+          }
+        };
+
+        var prevP = false
+        var nextP = false
+        for ( var i = articles.length - 1; i >= 0; i--) {
+          var article = articles[i]
+          if( article.slug == current.source ){
+            nextP = articles[i+1]
+            prevP = articles[i-1]
+          }
+        }; 
+      %>
+
+      <% if (prevP) { %>
+          <a href=<%= prevP.slug %>><%= prevP.title %></a>
+      <% } %>
+
+      <% if (nextP) { %>
+          <a href=<%= nextP.slug %>><%= nextP.title %></a>
+      <% } %>
+      <%- partial('../_shared/disqus') %>   
+    </div>
+    <%- partial('../_shared/nav') %>
+  </body>
+</html>
+  	
