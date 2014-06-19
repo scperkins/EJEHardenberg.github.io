@@ -257,3 +257,35 @@ code {
 		}
 	}
 }
+
+.outside-block{
+	display: inline-block;
+	padding: 0px;
+	margin: @gutter/2;
+	h3{
+		margin: @gutter/5;
+		a{
+			padding: @gutter;
+			margin: @gutter/2;
+			display: inline-block;
+			outline: black thin solid;
+			cursor: pointer;
+
+			transition: background-color @colorSpeed linear;
+		}
+	}
+}
+.outside-block:nth-child(even) a{
+	background-color: @bgColor;
+}
+.outside-block:nth-child(odd) a{
+	background-color: lighten(@bgColor, 10%);
+}
+.outside-block:nth-child(even) a:hover{
+	transition: background-color @colorSpeed linear;
+	background-color: #aaa;
+}
+.outside-block:nth-child(odd) a:hover{
+	transition: background-color @colorSpeed linear;
+	background-color: darken(@bgColor, 10%);
+}
