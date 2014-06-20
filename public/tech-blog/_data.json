@@ -7,121 +7,146 @@
   "git-crash-course": {
     "title": "Git Crash Course",
     "date": "2013-07-30",
-    "description" : "A short tutorial on some of the basics of using <a href=\"http://git-scm.com/\">Git</a> version control."
+    "description" : "A short tutorial on some of the basics of using <a href=\"http://git-scm.com/\">Git</a> version control.",
+    "keywords" : "git,tutorial,crash course,Ethan"
   },
   "how-this-site-was-made": {
     "title": "How this site was made",
     "date": "2013-07-30",
-    "description" : "An (out of date) overview of how this website was made. I used my XeMark language as a static site generator for one of the versions of my website."
+    "description" : "An (out of date) overview of how this website was made. I used my XeMark language as a static site generator for one of the versions of my website.",
+    "keywords" : "development,XeMark,website"
   },
   "time-catcher-part1": {
     "title": "Time Catcher Part 1",
     "date": "2013-09-01",
-    "description" : "The first of a 3 part blog post where I kept running commentary as I created my TimeCatcher programmer."
+    "description" : "The first of a 3 part blog post where I kept running commentary as I created my TimeCatcher programmer.",
+    "keywords" : "timecatcher,time,tracking,program,Ethan Eldridge,C"
   },
   "time-catcher-part2": {
     "title": "Time Catcher Part 2! (Alpha)",
     "date": "2013-09-07",
-    "description" : "The second part of the 3 part blog series on my program, Timecather. In this post I talk about a few of the algorithms used within the programmer and a couple other interesting pieces of the code."
+    "description" : "The second part of the 3 part blog series on my program, Timecather. In this post I talk about a few of the algorithms used within the programmer and a couple other interesting pieces of the code.",
+    "keywords" : "timecatcher,time,tracking,program,Ethan Eldridge,C"
   },
   "time-catcher-part3": {
     "title": "Time Catcher Part 3",
     "date": "2013-09-25",
-    "description" : "The third part of the TimeCatcher program series, discussion on implementation of pausing and deleting tasks within the program."
+    "description" : "The third part of the TimeCatcher program series, discussion on implementation of pausing and deleting tasks within the program.",
+    "keywords" : "timecatcher,time,tracking,program,Ethan Eldridge,C"
   },
   "stack-smashing": {
     "title": "Stack Smashing",
     "date" : "2013-10-2",
-    "description" : "A short post about how I ran into an interesting case of Stack Smashing while working on the GreenUp VT REST API written in C."
+    "description" : "A short post about how I ran into an interesting case of Stack Smashing while working on the GreenUp VT REST API written in C.",
+    "keywords" : "Stack Smashing,C,REST,API,Server,GreenUp,XenonApps"
   },
   "shortcodes-routing-wordpress": {
     "title": "Short Codes and Routing in WordPress",
     "date": "2013-10-3",
-    "description" : "While creating a WordPress module for work, I wanted to serve up a php page, nothing particularly WordPress-y about it, but I ran into some interesting snags that I documented."
+    "description" : "While creating a WordPress module for work, I wanted to serve up a php page, nothing particularly WordPress-y about it, but I ran into some interesting snags that I documented.",
+    "keywords" : "shortcodes,routing,WordPress,Plugins,PHP"
   },
   "numbers-as-markers-google-maps": {
     "title": "Numbers as Markers on Google Maps",
     "date": "2013-10-25",
-    "description" : "How to have custom markers on a google map that show numbers"
+    "description" : "How to have custom markers on a google map that show numbers",
+    "keywords" : "Google Maps,Markers,Numbers,Custom Markers,Maps,Google"
   },
   "html-templates-and-handlebars": {
     "title": "HTML Templates and Handlebar",
     "date": "2013-11-25",
-    "description" : "While looking into some new technology, I ended up messing around with HTML Templates and thought they were cool enough to write about"
+    "description" : "While looking into some new technology, I ended up messing around with HTML Templates and thought they were cool enough to write about",
+    "keywords" : "templates,HTML,Handlebar,javascript"
   },
   "post__in-returning-results-with-empty-array": {
     "title": "Empty Post__in WordPress problem",
     "date": "2013-11-27",
-    "description" : "A short description of a small problem I ran into while using the WP_Query class with an Empty post__in field."
+    "description" : "A short description of a small problem I ran into while using the WP_Query class with an Empty post__in field.",
+    "keywords" : "WordPress,bug,error,input,name,form,forms"
   },
   "college-friend-chicken": {
     "title": "My Cooking Recipes",
     "date" : "2013-12-3",
-    "description" : "Blog post about creating the first design and implementation of the cooking section of my website."
+    "description" : "Blog post about creating the first design and implementation of the cooking section of my website.",
+    "keywords" : "Cooking,Recipes,Ethan,HarpJS,Harp"
   },
   "hosts-file-deployment": {
     "title": "Hosts file and Testing deployment",
     "date": "2014-01-2",
-    "description" : "A easy way to trick your computer into using a test environment with a live URL."
+    "description" : "A easy way to trick your computer into using a test environment with a live URL.",
+    "keywords" : "Configuration,Hosts,Hosts File,development"
   },
   "chunked-encoding-for-reports": {
     "title": "Using Chunked Encoding for Reporting in Wordpress",
     "date" : "2014-01-9",
-    "description" : "When writing pages that have a lot of output, it's beneficial to use Chunked Encoding rather than Content-length, this post talks about doing it for reporting screens in WordPress"
+    "description" : "When writing pages that have a lot of output, it's beneficial to use Chunked Encoding rather than Content-length, this post talks about doing it for reporting screens in WordPress",
+    "keywords" : "WordPress,Chunked Encoding,Reporting,Performance"
   },
   "php-wrong-date-half-hour": {
     "title": "Incorrect Time in PHP despite Timezone",
     "date": "2014-01-16",
-    "description" : "A weird configuration problem with TimeZone settings in PHP and how it was fixed."
+    "description" : "A weird configuration problem with TimeZone settings in PHP and how it was fixed.",
+    "keywords" : "PHP,Configuration,TimeZone,Incorrect,Error"
   },
   "harp-and-smut": {
     "title": "Harp and Smut",
     "date": "2014-01-27",
-    "description" : "A short post about the first time I used <a href=\"//harpjs.com\">Harp</a> to create a website"
+    "description" : "A short post about the first time I used <a href=\"//harpjs.com\">Harp</a> to create a website",
+    "keywords" : "Harp,HarpJS,Smut,Static Site,Development"
   },
   "varnish" : {
     "title" : "Varnish and API Servers",
     "date" : "2014-02-17",
-    "description" : "How to configure Varnish for cachingg of RESTful resources for API Servers, the GreenUp Server configuration is used as an example"
+    "description" : "How to configure Varnish for caching of RESTful resources for API Servers, the GreenUp Server configuration is used as an example",
+    "keywords" : "Varnish,API,Performance,REST,GreenUp,Configuration,Caching"
   },
   "wordpress-gripes" : {
     "title" : "Gripes with wordpress's postmeta and autoload",
     "date" : "2014-02-28",
-    "description" : "A short tirade about how poor defaults for indexes and shoddy plugins can cause a large amount of pain for a WordPress site's performance"
+    "description" : "A short tirade about how poor defaults for indexes and shoddy plugins can cause a large amount of pain for a WordPress site's performance",
+    "keywords" : "WordPress,Performance,Postmeta,indexes,SQL"
   },
   "resource-replace" : {
     "title" : "Resource Replace, update js and css domain links",
     "date" : "2014-03-06",
-    "description" : "Information about a small plugin to update javascript and css domain names for easier CDN usage for WordPress sites that I wrote."
+    "description" : "Information about a small plugin to update javascript and css domain names for easier CDN usage for WordPress sites that I wrote.",
+    "keywords" : "Resource Replace,Ethan,Joachim,Eldridge,CDN,update,javascript,css,WordPress"
   },
   "grails-service-mocks" : {
     "title" : "Grails Service Mocks",
-    "date" : "2014-03-26"
+    "date" : "2014-03-26",
+    "description" : "Stubbing out unneccesary service calls in Grails without Mocks",
+    "keywords" : "Grails,Mock,Stub,Service"
   },
   "wordpress-form-name-error" : {
     "title" : "404 Error from WordPress Form Submit with an input named 'name'",
     "date" : "2014-04-05",
-    "description" : "Discovery of a bit of an oddity in WordPress's form input names, you can't have one named 'name'!"
+    "description" : "Discovery of a bit of an oddity in WordPress's form input names, you can't have one named 'name'!",
+    "keywords" : "WordPress,name,input,error,bug,Ethan,Eldridge"
   },
   "adding-actions-to-user-lists" : {
     "title" : "Adding Actions to the WordPress User Lists",
     "date" : "2014-04-25",
-    "description" : "How to add links and actions to the 'users.php' page of WordPress via filters."
+    "description" : "How to add links and actions to the 'users.php' page of WordPress via filters.",
+    "keywords" : "WordPress,Actions,Users,users.php,filters,Programming,Web"
   },
   "varnish-directors" : {
     "title" : "Varnish Directors and API Caching",
     "date" : "2014-05-02",
-    "description" : "How to setup round robin, and health checks for multiple back ends behind Varnish HTTP Cache. GreenUp VT API Server as a case study."
+    "description" : "How to setup round robin, and health checks for multiple back ends behind Varnish HTTP Cache. GreenUp VT API Server as a case study.",
+    "keywords" : "Varnish,Directors,API,Caching,GreenUp VT,Ethan,Eldridge,XenonApps"
   },
   "green-up-vt-app": {
     "title" : "Green Up Vermont",
     "date" : "2014-05-04",
-    "description" : "A short look into what the Green Up VT launch day was like for the developers at XenonApps who monitored the application all day."
+    "description" : "A short look into what the Green Up VT launch day was like for the developers at XenonApps who monitored the application all day.",
+    "keywords" : "GreenUp,GreenUpVT,GreenUp VT,Vermont,Greep Up,XenonApps,App,Programming"
   },
   "serial-hill-climber-golang" : {
     "title" : "Serial Hill Climber in GoLang",
     "date" : "2014-05-20",
-    "description" : "My first foray into GoLang, creating a simple serial hill climber (the simplest of all evolutionary algorithms) in GoLang. Using some of the concurrent features of Go make it a very powerful language for Evolutionary method implementations."
+    "description" : "My first foray into GoLang, creating a simple serial hill climber (the simplest of all evolutionary algorithms) in GoLang. Using some of the concurrent features of Go make it a very powerful language for Evolutionary method implementations.",
+    "keywords" : "GoLang,Serial Hill Climber,Evolutionary Algorithms,Algorithms,Computation,concurrent,Ethan,Eldridge,Programming"
   },
   "item-processor-example" : {
     "title" : "Spring Batch ItemProcessListener Example",
