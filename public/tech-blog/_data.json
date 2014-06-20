@@ -126,6 +126,8 @@
   "item-processor-example" : {
     "title" : "Spring Batch ItemProcessListener Example",
     "date" : "2014-06-18",
-    "description" : "I couldn't find an example of an item processor being used anywhere, so I decided to make one myself! A simple and quick example of how to use an ItemProcessListener from Spring Batch's"
+    "description" : "I couldn't find an example of an item processor being used anywhere, so I decided to make one myself! A simple and quick example of how to use an ItemProcessListener from Spring Batch's",
+    "keywords" : "Spring,Batch,ItemProcessListener,Item,Process,Listener,ItemProcessor,Java,Ethan,Eldridge,Joachim,Programming,"
+
   }
 }

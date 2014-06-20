@@ -2,6 +2,7 @@
 	"globals" : {
 		"title" : "Ethan Joachim Eldridge's Webspace",
 		"description" : "The website of Ethan Joachim Eldridge, code tutorials, poetry, narratives, recipes, and information about the Programmer Ethan.",
+		"keywords" : "Ethan,Eldridge,Joachim,Programming",
 		"projects" : [
 			{
 				"title" : "WordPress2Harp",
