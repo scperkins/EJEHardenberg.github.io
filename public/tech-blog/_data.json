@@ -91,7 +91,7 @@
   "harp-and-smut": {
     "title": "Harp and Smut",
     "date": "2014-01-27",
-    "description" : "A short post about the first time I used <a href=\"//harpjs.com\">Harp</a> to create a website",
+    "description" : "A short post about the first time I used <a href=\"http://harpjs.com\">Harp</a> to create a website",
     "keywords" : "Harp,HarpJS,Smut,Static Site,Development"
   },
   "varnish" : {
