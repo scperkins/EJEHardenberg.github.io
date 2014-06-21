@@ -76,8 +76,8 @@ very helpful when you're troubleshooting your xml configuration files.
 
 
 [Spring Batch]:http://projects.spring.io/spring-batch/
-[good examples]:www.mkyong.com/tutorials/spring-batch-tutorial/
-[mykongs]:www.mkyong.com/spring-batch/spring-batch-listeners-example/
+[good examples]://www.mkyong.com/tutorials/spring-batch-tutorial/
+[mykongs]://www.mkyong.com/spring-batch/spring-batch-listeners-example/
 [this stackoverflow question]:http://stackoverflow.com/questions/18417753/implementing-itemprocesslistener-for-a-chain-of-itemprocessors
 [ItemProcessListener]:http://docs.spring.io/spring-batch/trunk/apidocs/org/springframework/batch/core/ItemProcessListener.html
 [xmllint]:http://xmlsoft.org/xmllint.html
