@@ -1,8 +1,8 @@
-    
+    <%- partial('macros') %>
     <!-- Facebook Open Graph Tags -->
     <meta property="og:title" content="Ethan Eldridge | <%= title %>" />
     <meta property="og:type" content="article" />
-    <meta property="og:image" content="//ethanjoachimeldridge.info////<%= staticimagesurl %>//ethan.jpeg" />
+    <meta property="og:image" content="//ethanjoachimeldridge.info////<%= macros.rrImageDomain() %>//ethan.jpeg" />
     <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
     <% if( description ){ %>
     <meta property="og:description" content="<%= description %>" />
@@ -14,4 +14,4 @@
     <% if( description ){ %>
     <meta name="twitter:description" content="<%= description %>" />
     <% } %>
-    <meta name="twitter:image" content="//ethanjoachimeldridge.info////<%= staticimagesurl %>//ethan.jpeg" />
+    <meta name="twitter:image" content="//ethanjoachimeldridge.info////<%= macros.rrImageDomain() %>//ethan.jpeg" />

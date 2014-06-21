@@ -1,9 +1,18 @@
 {
 	"globals" : {
+		"macros" : {},
 		"title" : "Ethan Joachim Eldridge's Webspace",
 		"description" : "The website of Ethan Joachim Eldridge, code tutorials, poetry, narratives, recipes, and information about the Programmer Ethan.",
 		"keywords" : "Ethan,Eldridge,Joachim,Programming",
-		"staticimagesurl" : "static.ethanjoachimeldridge.info",
+		"staticimagesurl" : [
+			"static.ethanjoachimeldridge.info", 
+			"static2.ethanjoachimeldridge.info",
+			"static3.ethanjoachimeldridge.info",
+			"static4.ethanjoachimeldridge.info",
+			"static5.ethanjoachimeldridge.info",
+			"static6.ethanjoachimeldridge.info",
+			"static7.ethanjoachimeldridge.info"
+			],
 		"staticjavascripturl" : "js.ethanjoachimeldridge.info",
 		"staticcssurl" : "css.ethanjoachimeldridge.info",
 		"projects" : [
