@@ -114,10 +114,10 @@ speaking skills. Quick learner.
 [Harp Weekly!]:http://harpjs.com/blog/harp-weekly-2013-11-17
 
 [Github]:https://github.com/EJEHardenberg
-[Xenon Apps]://xenonapps.com
+[Xenon Apps]:http://xenonapps.com
 [Developer on GreenUp VT's iOS application]:http://www.reformer.com/localnews/ci_25671287/green-up-day-app-now-available
-[Sean Perkins]://scperkins.github.io
-[Bear Code]://bear-code.com
+[Sean Perkins]:http://scperkins.github.io
+[Bear Code]:http://bear-code.com
 [Brandthropology]://www.brandthropology.com
 [VHFA]:http://www.vhfa.org/
-[CS Crew]://uvm.edu/~cscrew
+[CS Crew]:http://uvm.edu/~cscrew
