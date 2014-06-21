@@ -92,14 +92,14 @@ pages, I created a partial for it that can be easily injected wherever I need it
 
 This will result in the following markup:
 
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Ethan J. Eldridge | Ethan Joachim Eldridge&#39;s Webspace</title>
-    	<!-- snip -->
+	<!DOCTYPE HTML>
+	<html>
+		<head>
+			<title>Ethan J. Eldridge | Ethan Joachim Eldridge&#39;s Webspace</title>
+	    	<!-- snip -->
 
-		<link rel="shortcut icon" href="//static6.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-		<link rel="icon" href="//static7.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+			<link rel="shortcut icon" href="//static6.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+			<link rel="icon" href="//static7.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
 
 You can see that we simply have incrementing subdomains for our static content (in this case, domains 6 and 7)
 

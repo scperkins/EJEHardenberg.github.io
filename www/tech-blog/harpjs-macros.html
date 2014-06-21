@@ -133,13 +133,14 @@ macros.rrImageDomain = function rrImageDomain(){
         &lt;link rel=&quot;shortcut icon&quot; href=&quot;//&lt;%= macros.rrImageDomain() %&gt;//favicon.ico&quot; type=&quot;image/x-icon&quot; /&gt;
         &lt;link rel=&quot;icon&quot; href=&quot;//&lt;%= macros.rrImageDomain() %&gt;//favicon.ico&quot; type=&quot;image/ico&quot;&gt;</code></pre>
 <p>This will result in the following markup:</p>
-<p>&lt;!DOCTYPE HTML&gt;</p>
-<p><html>
-    <head>
-        <title>Ethan J. Eldridge | Ethan Joachim Eldridge&#39;s Webspace</title>
-        <!-- snip --></p>
-<pre><code>    &lt;link rel=&quot;shortcut icon&quot; href=&quot;//static6.ethanjoachimeldridge.info/favicon.ico&quot; type=&quot;image/x-icon&quot; /&gt;
-    &lt;link rel=&quot;icon&quot; href=&quot;//static7.ethanjoachimeldridge.info/favicon.ico&quot; type=&quot;image/ico&quot;&gt;</code></pre>
+<pre><code>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Ethan J. Eldridge | Ethan Joachim Eldridge&amp;#39;s Webspace&lt;/title&gt;
+        &lt;!-- snip --&gt;
+
+        &lt;link rel=&quot;shortcut icon&quot; href=&quot;//static6.ethanjoachimeldridge.info/favicon.ico&quot; type=&quot;image/x-icon&quot; /&gt;
+        &lt;link rel=&quot;icon&quot; href=&quot;//static7.ethanjoachimeldridge.info/favicon.ico&quot; type=&quot;image/ico&quot;&gt;</code></pre>
 <p>You can see that we simply have incrementing subdomains for our static content (in this case, domains 6 and 7)</p>
 <p>By using macros like this it is easy to generate a site that is not only fast to 
 serve (due to the static content itself), but also fast to load (due to leveraging
