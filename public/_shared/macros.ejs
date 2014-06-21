@@ -1,5 +1,6 @@
 <%
 macros.rrImageDomain = function rrImageDomain(){
-	return staticimagesurl[Math.floor(Math.random() * staticimagesurl.length)];
+	//Round robin style
+	return staticimagesurl[nextDomain++ % maxDomains];
 }
 %>

@@ -153,6 +153,11 @@
     "date" : "2014-06-18",
     "description" : "I couldn't find an example of an item processor being used anywhere, so I decided to make one myself! A simple and quick example of how to use an ItemProcessListener from Spring Batch's",
     "keywords" : "Spring,Batch,ItemProcessListener,Item,Process,Listener,ItemProcessor,Java,Ethan,Eldridge,Joachim,Programming,"
-
+  },
+  "harpjs-macros" : {
+    "title" : "HarpJS and Macros, Static Delivery for Static Content",
+    "date" : "2014-06-20",
+    "description" : "A HarpJS recipe for leveraging CDN's and Static content delivery for your HarpJs site",
+    "keywords" : "HarpJS,Harp,CDN,Static Site,Static Content,Delivery Network,Performance,Website Development,Ethan,Joachim,Eldridge,Programming"
   }
 }
