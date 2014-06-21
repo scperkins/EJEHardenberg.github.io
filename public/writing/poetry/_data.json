@@ -97,5 +97,8 @@
 	},
 	"say" : {
 		"title" : "Say"
+	},
+	"hole" : {
+		"title" : "Hole"
 	}
 }
