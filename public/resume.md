@@ -118,6 +118,6 @@ speaking skills. Quick learner.
 [Developer on GreenUp VT's iOS application]:http://www.reformer.com/localnews/ci_25671287/green-up-day-app-now-available
 [Sean Perkins]:http://scperkins.github.io
 [Bear Code]:http://bear-code.com
-[Brandthropology]://www.brandthropology.com
+[Brandthropology]:http://www.brandthropology.com
 [VHFA]:http://www.vhfa.org/
 [CS Crew]:http://uvm.edu/~cscrew
