@@ -159,5 +159,11 @@
     "date" : "2014-06-20",
     "description" : "A HarpJS recipe for leveraging CDN's and Static content delivery for your HarpJs site",
     "keywords" : "HarpJS,Harp,CDN,Static Site,Static Content,Delivery Network,Performance,Website Development,Ethan,Joachim,Eldridge,Programming"
+  },
+  "googlebot-heisenbug" : {
+    "title" : "'Caught in the Spiders Web' -- A googlebot Heisenbug",
+    "date" : "2014-06-23",
+    "description" : "An interesting bug occured today, and it was all googles fault...",
+    "keywords" : "googlebot,spider,Heisenbug,spiders,bugs,software development,urls visited without a user"
   }
 }
