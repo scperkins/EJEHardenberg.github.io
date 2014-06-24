@@ -13,7 +13,7 @@ of the database that handled the updates.
 
 Soon enough we saw the tell-tale logs come through, but they didn't make any sense.
 Our tester had taken no action, and hadn't done anything that would have caused
-any response the page. So, I took the next logical step: something automated was 
+any response from the page. So, I took the next logical step: something automated was 
 going on.
 
 I checked the cron logs for anything suspicious, then moved to triggering the jobs
