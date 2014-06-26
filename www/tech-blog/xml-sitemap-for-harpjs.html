@@ -1,0 +1,238 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Ethan's Tech Blog | XML Sitemap for Harp JS</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="How to generate a valid XML sitemap for your HarpJS site. It&#39;s easy!" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="SEO,Sitemap,HarpJS,Development,Programming,Recipes"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=1040" />
+      
+    <link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="//static1.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | XML Sitemap for Harp JS" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="How to generate a valid XML sitemap for your HarpJS site. It&#39;s easy!" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | XML Sitemap for Harp JS" />
+    
+    <meta name="twitter:description" content="How to generate a valid XML sitemap for your HarpJS site. It&#39;s easy!" />
+    
+    <meta name="twitter:image" content="//static1.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+	<!-- Core Javascript -->
+	<script type="text/javascript" src="//js.ethanjoachimeldridge.info/jquery.min.1.9.1.js" ></script>
+	<script type="text/javascript" src="//js.ethanjoachimeldridge.info/app.js" ></script>
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
+  ga('send', 'pageview');
+
+</script>
+  </head>
+  <body>
+    <header>
+      <h1>XML Sitemap for Harp JS</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Generating an XML Sitemap For HarpJS</h3>
+<p>So, quite frankly, I really enjoy using <a href="http://harpjs.com">Harp</a> to manage my website. I love 
+markdown, I love simple and easy conventions for site compilation. Heck, I
+think the file.datatype.ejs is extremely clever and very useful. Here&#39;s one
+of the reasons why:</p>
+<p><strong>Generating an XML Sitemap with Harp of your entire site is really easy.</strong></p>
+<p>Harp&#39;s site <a href="/http://harpjs.com/recipes/blog-sitemap">has a recipe for a Sitemap</a>, however this generates an HTML ordered
+list. While this functions for your users as a map, it&#39;s not the easiest format
+for a googlebot to crawl. That would be the <a href="http://www.sitemaps.org/protocol.html">Sitemap Protocol</a>. Which is simply
+a list of links (plain txt) or an XML document. </p>
+<p>It&#39;s straightfoward to generate a list of links using harp&#39;s recipe, but let&#39;s
+go ahead and generate the XML version of a sitemap. I&#39;ll use my website as an
+example.</p>
+<p>Here&#39;s the code:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+    &lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;&lt;%
+var filter = /(\.html$)/; 
+var replace = /(\.html$)|(^index\.html$)/; 
+
+function tree(head, tail) {
+      for (key in head) { 
+        val = head[key]; 
+        if (key !== &#39;.git&#39; &amp;&amp; key !== &#39;_data&#39;) { 
+              if (key == &#39;_contents&#39;) { 
+                for (i in val) { 
+                      file = val[i]
+                      if (filter.test(file) &amp;&amp; !/^404\.html/.test(file)) { 
+                        file = file.replace(replace, &quot;&quot;); 
+                        date = null
+                        if(head[&#39;_data&#39;]){
+                               obj = head[&#39;_data&#39;][file]
+                               if(obj &amp;&amp; obj.date){
+                                   date = new Date(Date.parse(obj.date)).toISOString()
+                               }
+                        }
+                        if(!date){
+                            date = new Date().toISOString()
+                        }
+%&gt;&lt;url&gt;
+    &lt;loc&gt;http://wwww.ethanjoachimeldridge.info&lt;%= tail + file %&gt;&lt;/loc&gt;
+    &lt;changefreq&gt;daily&lt;/changefreq&gt;
+    &lt;lastmod&gt;&lt;%= date %&gt;&lt;/lastmod&gt;
+&lt;/url&gt;
+&lt;%
+                   }
+                }
+              } else { 
+                tree(val, tail + key + &quot;/&quot;)
+            }
+        }
+    }
+}
+
+tree(public, &quot;/&quot;) 
+%&gt;&lt;/urlset&gt; </code></pre>
+<p>If you&#39;ve looked at Harp&#39;s recipe you&#39;ll notice that the tree function is nearly
+word for word the same. That&#39;s because I adapted Harp&#39;s recipe for my own. What
+changed? </p>
+<ol>
+<li>We&#39;re wrapping the whole list in the XML version and schema tags</li>
+<li>We&#39;re telling search engines how often our content changes <a href="http://www.sitemaps.org/protocol.html#changefreqdef">daily, monthly...</a></li>
+<li>And we&#39;re also telling them when the file changed last (sort of)</li>
+</ol>
+<p>Something that I&#39;m not doing here is actually <a href="http://linux.die.net/man/1/stat">stat</a>ing the files to see when they
+were last modified. If I figure out how to do this from Harp&#39;s environment I&#39;ll update
+this post. But my way simply uses the last compilation date of your website if you
+don&#39;t set any date meta field in your file&#39;s meta data.</p>
+<p>What I mean by that last bit, if it&#39;s not clear, is that in my <code>_data.json</code> file
+for my blog directories, I have a meta field called &#39;date&#39; where I have already 
+entered a date (in the format of YYYY-MM-DD if you&#39;re wondering), the code simply
+parses that date and converts it into ISO format. Nothing hard.</p>
+<p>If you use this recipe, you&#39;ll need to change the <code>&lt;loc&gt;</code> tag to have <em>your</em> domain
+name on it. Sitemap URL&#39;s should <strong>always</strong> be absolute. So be sure to do go ahead
+and do that so you don&#39;t spam my server with 404&#39;s ;)    </p>
+
+      
+
+      
+          <a href=custom-permalinks-for-custom-templates>Custom Permalinks for Custom Tables and Pages</a>
+      
+
+      
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" /><!--
+					-->About me
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" /><!--
+					-->Projects
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" /><!--
+					-->Resume
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" /><!--
+					-->Tech Blog
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" /><!--
+					-->Cooking
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" /><!--
+					-->Writing
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" /><!--
+					-->Contact
+				</a>
+			</li>
+		
+			<li>
+				<a href="/Sitemap">
+					<img src="//static1.ethanjoachimeldridge.info/undefined" /><!--
+					-->undefined
+				</a>
+			</li>
+		
+		<li>
+			<a href="https://github.com/EJEHardenberg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" /><!--
+				-->Github
+			</a>
+		</li>
+		<li>
+			<a href="https://twitter.com/EthanJEldridge">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" /><!--
+				-->@EthanJEldridge
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" /><!--
+				-->LinkIn
+			</a>
+		</li>
+	</ul>
+</nav>
+  </body>
+</html>
+  	

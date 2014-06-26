@@ -168,8 +168,14 @@
   },
   "custom-permalinks-for-custom-templates" : {
     "title" : "Custom Permalinks for Custom Tables and Pages",
-    "date" : "2014-06-26",
+    "date" : "2014-06-25",
     "description" : "How to create custom permalinks for custom pages and page templates. If you're using a custom table and need to alter information on a Page template based on this, then this blog post is for you!",
     "keywords" : "Custom permalinks,custom tables,custom pages,permalinks,wordpress,SEO,ugly links"
+  },
+  "xml-sitemap-for-harpjs" : {
+    "title" : "XML Sitemap for Harp JS",
+    "date" : "2014-06-26",
+    "description" : "How to generate a valid XML sitemap for your HarpJS site. It's easy!",
+    "keywords" : "SEO,Sitemap,HarpJS,Development,Programming,Recipes"
   }
 }
