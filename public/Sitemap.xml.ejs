@@ -12,10 +12,20 @@ function tree(head, tail) {
 		          	file = val[i]
 		          	if (filter.test(file) && !/^404\.html/.test(file)) { 
 		            	file = file.replace(replace, ""); 
-		            
+		            	date = null
+		            	if(head['_data']){
+		                   	obj = head['_data'][file]
+		                   	if(obj && obj.date){
+		                   		date = new Date(Date.parse(obj.date)).toISOString()
+		                   	}
+		                }
+		                if(!date){
+		                	date = new Date().toISOString()
+		                }
 %><url>
 	<loc><%= tail + file %></loc>
 	<changefreq>daily</changefreq>
+	<lastmod><%= date %></lastmod>
 </url>
 <%
 		           }
