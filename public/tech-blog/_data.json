@@ -165,5 +165,11 @@
     "date" : "2014-06-23",
     "description" : "An interesting bug occured today, and it was all googles fault...",
     "keywords" : "googlebot,spider,Heisenbug,spiders,bugs,software development,urls visited without a user"
+  },
+  "custom-permalinks-for-custom-templates" : {
+    "title" : "Custom Permalinks for Custom Tables and Pages",
+    "date" : "2014-06-26",
+    "description" : "How to create custom permalinks for custom pages and page templates. If you're using a custom table and need to alter information on a Page template based on this, then this blog post is for you!",
+    "keywords" : "Custom permalinks,custom tables,custom pages,permalinks,wordpress,SEO,ugly links"
   }
 }
