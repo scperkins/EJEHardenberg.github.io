@@ -36,24 +36,34 @@
           }
         };
 
-        var prevP = false
-        var nextP = false
+        var others = []
+        var numGetPosts = 5
         for ( var i = articles.length - 1; i >= 0; i--) {
           var article = articles[i]
           if( article.slug == current.source ){
-            nextP = articles[i+1]
-            prevP = articles[i-1]
+            //Only works if there are more than numGetPosts total
+            var distance = 1
+            while(others.length <= numGetPosts){
+              if(articles[i + distance]){                
+                others.push(articles[i + distance])
+              }
+              if(articles[i - distance]){
+                others.push(articles[i - distance])
+              }
+              distance++
+            }
           }
         }; 
       %>
-
-      <% if (prevP) { %>
-          <a href=<%= prevP.slug %>><%= prevP.title %></a>
-      <% } %>
-
-      <% if (nextP) { %>
-          <a href=<%= nextP.slug %>><%= nextP.title %></a>
-      <% } %>
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <% for( idx in others){
+            var post = others[idx]
+            %><li><a href=<%= post.slug %>><%= post.title %></a></li><%
+          }%>
+        </ul>
+      </div>
       <%- partial('../_shared/disqus') %>   
     </div>
     <%- partial('../_shared/nav') %>
