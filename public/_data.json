@@ -1,9 +1,15 @@
 {
 	"index" : {
 		"title" : "Ethan Joachim Eldridge's Webspace",
+		"navtitle" : "Home",
+		"navimage" : "california.jpg",
+		"description" : "Personal website of Ethan Joachim Eldridge. Resume, blog, cooking, writing and more"
+	},
+	"about" : {
+		"title" : "About Ethan J. Eldridge",
 		"navtitle" : "About me",
 		"navimage" : "ethan.jpeg",
-		"description" : "Personal website of Ethan Joachim Eldridge. Resume, blog, cooking, writing and more"
+		"description" : "Background information about Ethan Joachim Eldridge and his life experiences."
 	},
 	"projects" : {
 		"title" : "Projects",
