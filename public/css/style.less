@@ -303,7 +303,29 @@ code {
 			padding: 1em;
 		}
 		div{
-			display: inline-block;
+			ul{
+				list-style-type: none;
+			}
+			width: 100%;
+			display: block;
+			text-align: left;
+			background-color: black;
+		}
+		div:nth-child(even){
+			text-align: right;
+			background-color: lighten(@bgColor, 5%);
+		}
+		div[name="cooking"]{			
+			/*Note to Self, Change this to 'CDN'*/
+			background-image: url('/images/cooking/asparagus.jpg');
+			background-repeat: no-repeat;
+		}
+		div[name="posts"]{
+			background-image: url('/images/writing.png');
+			background-repeat: no-repeat;
+		}
+		div[name="writing"]{
+			background-color: darken(@bgColor, 10%);
 		}
 	}
 }
