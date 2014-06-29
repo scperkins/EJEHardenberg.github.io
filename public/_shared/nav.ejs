@@ -1,7 +1,7 @@
 <nav>
 	<ul>
 		<% for(var slug in public._data){ 
-			if(slug != "404"){ %>
+			if(slug != "404" && slug != 'Sitemap'){ %>
 			<li>
 				<a href="/<%= slug %>">
 					<img src="//<%= macros.rrImageDomain() %>/<%= public._data[slug].navimage %>" /><!--
