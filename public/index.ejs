@@ -79,42 +79,33 @@
 		<ul>
 			<%
 			var shown = 0
-			var writings = []
 			for(idx in public.writing.narrations._data){
-				public.writing.narrations._data[idx].slug = idx
-				writings.push(public.writing.narrations._data[idx])
-			}
-
-			for(var idx = writings.length -1;  idx >= 0; idx--){
+				var post = public.writing.narrations._data[idx]
 				if(shown > toShow/2){
 					break
 				}
-				if( writings[idx].slug != 'index' ){
+				if( post.slug != 'index'){
 					%><li>
-						<a href="/writing/narrations/<%= writings[idx].slug %>"><%= writings[idx].title %></a>
+						<a href="/writing/narrations/<%= post.slug %>"><%= post.title %></a>
 					</li><%
 					shown++
 				}
+				
 			}
 
 			shown = 0
-			writings = []
 			for(idx in public.writing.poetry._data){
-				public.writing.poetry._data[idx].slug = idx
-				writings.push(public.writing.poetry._data[idx])
-			}	
-
-			for(var idx = writings.length -1;  idx >= 0; idx--){
+				var post = public.writing.poetry._data[idx]
 				if(shown > toShow/2){
 					break
 				}
-				if( writings[idx].slug != 'index' ){
+				if( post.slug != 'index'){
 					%><li>
-						<a href="/writing/poetry/<%= writings[idx].slug %>"><%= writings[idx].title %></a>
+						<a href="/writing/poetry/<%= post.slug %>"><%= post.title %></a>
 					</li><%
 					shown++
 				}
-			}
+			}	
 			%>
 		</ul>
 	</div>
