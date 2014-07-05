@@ -170,5 +170,30 @@
 			{"instruction":"Place in Oven for 15 minutes"},
 			{"instruction":"Eat!"}
 			]
+	},
+	"potato-pancakes" : {
+		"title" : "Potato Pancakes",
+		"image" : "potato.jpg",
+		"difficulty" : "medium",
+		"ingredients" : [
+			{"name" : "6 large potatoes"},
+			{"name" : "2 eggs"},
+			{"name" : "salt & pepper"},
+			{"name" : "spices to your liking"},
+			{"name" : "bread crumbs"},
+			{"name" : "Butter"}
+		],
+		"description" : "Tasty potato pancakes, serve it with applesauce or sugar!",
+		"directions" : [
+			{"instruction" : "clean and peel the potatoes"},
+			{"instruction" : "cut or process potatoes in a food processor (chunky or smooth, however you like em)"},
+			{"instruction" : "break eggs into a bowl and season with Salt, pepper, and spices"},
+			{"instruction" : "mix potatoes and egg mix together, add breadcrumbs as well. "},
+			{"instruction" : "Let mixture sit for 5 minutes or so"},
+			{"instruction" : "turn on a frying pan to medium heat and melt butter in the pan"},
+			{"instruction" : "pour a bit of a mixture out into a pancake, flatten it about 1/4 inch and let fry"},
+			{"instruction" : "once each side is golden brown flip it and brown the other side."},
+			{"instruction" : "Serve with sugar, cream, applesauce, or salt! "}
+		]
 	}
 }
