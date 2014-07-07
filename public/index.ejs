@@ -84,9 +84,9 @@
 				if(shown > toShow/2){
 					break
 				}
-				if( post.slug != 'index'){
+				if( idx != 'index'){
 					%><li>
-						<a href="/writing/narrations/<%= post.slug %>"><%= post.title %></a>
+						<a href="/writing/narrations/<%= idx %>"><%= post.title %></a>
 					</li><%
 					shown++
 				}
@@ -99,9 +99,9 @@
 				if(shown > toShow/2){
 					break
 				}
-				if( post.slug != 'index'){
+				if( idx != 'index'){
 					%><li>
-						<a href="/writing/poetry/<%= post.slug %>"><%= post.title %></a>
+						<a href="/writing/poetry/<%= idx %>"><%= post.title %></a>
 					</li><%
 					shown++
 				}
