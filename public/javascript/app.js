@@ -2,14 +2,31 @@ jQuery( document ).ready(function( $ ) {
 	if( $('input[name="search"]').length > 0 ){
 		$('input[name="search"]').on('keyup', function(evt){
 
-			$('article p:not(:contains("'+$(this).val()+'"))').parent().fadeOut()
-			$('article h3:not(:contains("'+$(this).val()+'"))').parent().fadeOut()
-			$('article p:contains("'+$(this).val()+'")').parent().fadeIn()
-			$('article h3:contains("'+$(this).val()+'")').parent().fadeIn()
+			var search = $(this).val().toUpperCase()
+
+			$('article').contents().filter(function() {
+				if( this.innerHTML ){
+					if(this.innerHTML.toUpperCase().indexOf(search) >= 0){
+						return false;
+					}
+				}
+      			return true
+    		}).closest('article').fadeOut()
+
+    		$('article').contents().filter(function() {
+				if( this.innerHTML ){
+					if(this.innerHTML.toUpperCase().indexOf(search) >= 0){
+						return true;
+					}
+				}
+      			return false
+    		}).closest('article').fadeIn()
 
 			if($(this).val().length <= 0){
 				$('article').fadeIn()		
 			}
+
+			evt.stopPropagation()
 		})
 
 		$('input[name="search"]').on('blur', function(evt){
