@@ -1,4 +1,7 @@
 {
+	"options" : {
+		"title" : "Options"
+	},
 	"sunset" : {
 		"title" : "Sunset"
 	},
