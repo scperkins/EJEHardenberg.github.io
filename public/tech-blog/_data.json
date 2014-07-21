@@ -177,5 +177,11 @@
     "date" : "2014-06-26",
     "description" : "How to generate a valid XML sitemap for your HarpJS site. It's easy!",
     "keywords" : "SEO,Sitemap,HarpJS,Development,Programming,Recipes"
+  },
+  "bgi" : {
+    "title" : "BGI, a way to track your spending",
+    "date" : "2014-07-21",
+    "description" : "Playing around with C CGI scripting in order to track spending habits is fun! A look into a side project.",
+    "keywords" : "C,CGI,BGI,Budgeting,Spending"
   }
 }
