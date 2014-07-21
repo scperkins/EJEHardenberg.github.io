@@ -21,7 +21,7 @@
 	<article>
 		
 			<h3><%- recipe.title %></h3>
-			<img src="//<%= macros.rrImageDomain() %>/cooking/<%= recipe.image %>" />
+			<img src="//<%= macros.imgSrc("/cooking/" + recipe.image) %>" />
 		
 		<p>
 			<%- recipe.description %>
