@@ -3,4 +3,14 @@ macros.rrImageDomain = function rrImageDomain(){
 	//Round robin style
 	return staticimagesurl[nextDomain++ % maxDomains];
 }
+macros.imgSrc = function imgSrc(filePath){
+	if(filePath in imagecache){
+		return imagecache[filePath]
+	}
+	/* Take the file path and add it to the domain for the image, cache and return */
+	var domain = macros.rrImageDomain()
+	var src = domain + filePath
+	imagecache[filePath] = src
+	return src
+}
 %>
