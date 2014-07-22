@@ -4,7 +4,7 @@
 			if(slug != "404" && slug != 'Sitemap'){ %>
 			<li>
 				<a href="/<%= slug %>">
-					<img src="//<%= macros.imgSrc("/" + public._data[slug].navimage) %>" width="32px" /><!--
+					<img src="//<%= macros.imgSrc("/" + public._data[slug].navimage) %>" width="32px" height="32px" /><!--
 					--><%= public._data[slug].navtitle %>
 				</a>
 			</li>
@@ -12,19 +12,19 @@
 		}; %>
 		<li>
 			<a href="https://github.com/EJEHardenberg">
-				<img src="//<%= macros.imgSrc("/github.png") %>" /><!--
+				<img src="//<%= macros.imgSrc("/github.png") %>" width="32px" height="32px" /><!--
 				-->Github
 			</a>
 		</li>
 		<li>
 			<a href="https://twitter.com/EthanJEldridge">
-				<img src="//<%= macros.imgSrc("/twitter-bird-light-bgs.png") %>" /><!--
+				<img src="//<%= macros.imgSrc("/twitter-bird-light-bgs.png") %>" width="32px" height="32px" /><!--
 				-->@EthanJEldridge
 			</a>
 		</li>
 		<li>
 			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//<%= macros.imgSrc("/LinkedIn_logo.png") %>" /><!--
+				<img src="//<%= macros.imgSrc("/LinkedIn_logo.png") %>" width="32px" height="32px"/><!--
 				-->LinkIn
 			</a>
 		</li>
