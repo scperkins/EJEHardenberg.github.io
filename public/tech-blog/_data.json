@@ -183,5 +183,11 @@
     "date" : "2014-07-21",
     "description" : "Playing around with C CGI scripting in order to track spending habits is fun! A look into a side project.",
     "keywords" : "C,CGI,BGI,Budgeting,Spending"
+  },
+  "harp-macro-revisit" : {
+    "title" : "Harp CDN Macro Revisited",
+    "date" : "2014-07-22",
+    "description" : "Revisiting a macro in a previous blog post, cleaning it up for browser caching performance",
+    "keywords" : "Harp,Development,Programming,Recipes,CDN,macros"
   }
 }
