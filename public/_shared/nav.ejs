@@ -4,7 +4,7 @@
 			if(slug != "404" && slug != 'Sitemap'){ %>
 			<li>
 				<a href="/<%= slug %>">
-					<img src="//<%= macros.imgSrc("/" + public._data[slug].navimage) %>" /><!--
+					<img src="//<%= macros.imgSrc("/" + public._data[slug].navimage) %>" width="32px" /><!--
 					--><%= public._data[slug].navtitle %>
 				</a>
 			</li>
