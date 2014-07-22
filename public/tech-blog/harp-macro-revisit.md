@@ -32,14 +32,14 @@ and `http://cdn.example.com/images/nice.jpg`
 Let's make an example page and try it out. Throw this HTML into a file, save it, 
 and then open it:
 
-	&lt;html&gt;
-		&lt;head&gt;&lt;title&gt;My Test&lt;/title&gt;&lt;/head&gt;
-		&lt;body&gt;
-			&lt;img src=&quot;http://static1.ethanjoachimeldridge.info/ethan.jpeg&quot;&gt;
-			&lt;img src=&quot;http://static2.ethanjoachimeldridge.info/ethan.jpeg&quot;&gt;
-			&lt;img src=&quot;http://www.ethanjoachimeldridge.info/images/ethan.jpeg&quot; &gt;
-		&lt;/body&gt;
-	&lt;/html&gt;
+	<html>
+		<head><title>My Test</title></head>
+		<body>
+			<img src="http://static1.ethanjoachimeldridge.info/ethan.jpeg">
+			<img src="http://static2.ethanjoachimeldridge.info/ethan.jpeg">
+			<img src="http://www.ethanjoachimeldridge.info/images/ethan.jpeg" >
+		</body>
+	</html>
 
 And now open `about:cache` (or chrome://cache if you're on chrome) and you'll see something
 like this:
