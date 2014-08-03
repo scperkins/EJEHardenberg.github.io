@@ -2,11 +2,11 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Oven Roasted Asparagus</title>
+    <title>Ethan's Tech Blog | Private Talk and plans for some tutorials</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Delicious as a snack food, or as a side with dinner" />
+    <meta name="description" content="Some thoughts after creating a private chat server with c and qdecoder. Planning to create a set of tutorials" />
     <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="Ethan,Eldridge,Joachim,Programming"/>
+    <meta name="keywords" content="C,CGI,apache,chat,server,tutorial"/>
     <meta name="robots" content="index, follow"  />
       <meta name="revisit-after" content="1 month" />
       <meta name="viewport" content="width=1040">
@@ -17,19 +17,19 @@
 
         
     <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Oven Roasted Asparagus" />
+    <meta property="og:title" content="Ethan Eldridge | Private Talk and plans for some tutorials" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
     
-    <meta property="og:description" content="Delicious as a snack food, or as a side with dinner" />
+    <meta property="og:description" content="Some thoughts after creating a private chat server with c and qdecoder. Planning to create a set of tutorials" />
     
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Oven Roasted Asparagus" />
+    <meta name="twitter:title" content="Ethan Eldridge | Private Talk and plans for some tutorials" />
     
-    <meta name="twitter:description" content="Delicious as a snack food, or as a side with dinner" />
+    <meta name="twitter:description" content="Some thoughts after creating a private chat server with c and qdecoder. Planning to create a set of tutorials" />
     
     <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     	<!-- Core CSS Scripts -->
@@ -48,85 +48,48 @@
 
 </script>
   </head>
-  <body id="recipes">
+  <body>
     <header>
-      <h1>Recipes</h1>
+      <h1>Private Talk and plans for some tutorials</h1>
     </header>
 
-    <div id="content">
-    	
-<a href="/cooking">Back</a>
-<div class="recipe">
-	<h2>Oven Roasted Asparagus</h2>
-	<img src="//static5.ethanjoachimeldridge.info/cooking/asparagus.jpg" />
-	<em>
-		Difficulty: Easy
-	</em>
-	<p>
-		Delicious as a snack food, or as a side with dinner
-	</p>
-	<strong>Ingredients</strong>
-	<ul>
-	
-		<li>
-			Asparagus
-		</li>
-		
-		<li>
-			Olive Oil
-		</li>
-		
-		<li>
-			Soy Sauce
-		</li>
-		
-		<li>
-			Salt &amp; Pepper
-		</li>
-		
-		<li>
-			Cheese
-		</li>
-		
-	</ul>
-	<strong>Directions</strong>
-	<ol>
-	
-		<li>
-			Preheat oven to 425 degrees
-		</li>
-		
-		<li>
-			Lay asparagus down in glass pan or on a cookie sheet
-		</li>
-		
-		<li>
-			Drizzle Oil over asparagus, no need to drench them, a few capfuls is normally enough
-		</li>
-		
-		<li>
-			Dash Salt and Pepper (and any other spices) over asparagus
-		</li>
-		
-		<li>
-			Splash soy sauce over asparagus (again, a few capfuls)
-		</li>
-		
-		<li>
-			Sprinkle cheese over asparagus
-		</li>
-		
-		<li>
-			Place in Oven for 15 minutes
-		</li>
-		
-		<li>
-			Eat!
-		</li>
-		
-	</ol>
-</div>
 
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Private Talk. A simple chat server behind apache</h3>
+<p>I&#39;ve been <a href="http://www.ethanjoachimeldridge.info/tech-blog/bgi">into CGI recently</a> and wanted to continue the trend. So I
+started a <a href="https://github.com/EJEHardenberg/pChat">new project</a> to make a small chat server. You might ask
+yourself, why do that? Everyone uses facebook Chat or G+ chat
+now-a-days. No one uses AIM or Yahoo to message people anymore. </p>
+<p>And to that I say: yeah but <strong>everyone</strong> stores your data.<sup>*</sup></p>
+<p>So recent life events have left in me in a situation where one of my
+closest friends is going to be overseas for a while and I wanted a way
+to talk to them. Following the opposing view to the <a href="http://en.wikipedia.org/wiki/Not_invented_here">NIH</a> principle and
+satisfying my natural curiousity of how hard it would be to make a chat
+server, combined with this situation has resulted in a small chat server
+being made.</p>
+<p>It was really easy. </p>
+<p>So easy in fact, that I&#39;m thinking I will write a couple blog posts with
+tutorials in them on how to make your own private chat server. I think
+it will be fun, and hopefully helpful to people learning everywhere. The
+structure of the tutorial will probably be something like this: </p>
+<ul>
+<li>Introduction to qdecoder and apache CGI</li>
+<li>Creating a register and login system with qdecoder</li>
+<li>Creating a chat program with C and apache</li>
+</ul>
+<p>I&#39;m hoping that will be an alright pace for things and will probably
+provide sample code as some type of small library. </p>
+<p><sup>* Not everyone, for example there is this <a href="http://labs.bittorrent.com/experiments/bittorrent-chat.html">excellent project</a> going
+on:  </sup></p>
+
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=harp-macro-revisit>Harp CDN Macro Revisited</a></li><li><a href=bgi>BGI, a way to track your spending</a></li><li><a href=xml-sitemap-for-harpjs>XML Sitemap for Harp JS</a></li><li><a href=custom-permalinks-for-custom-templates>Custom Permalinks for Custom Tables and Pages</a></li><li><a href=googlebot-heisenbug>&#39;Caught in the Spiders Web&#39; -- A googlebot Heisenbug</a></li><li><a href=harpjs-macros>HarpJS and Macros, Static Delivery for Static Content</a></li>
+        </ul>
+      </div>
       <div id="disqus_thread"></div>
     <script type="text/javascript">
         var disqus_shortname = 'ejehardenberg';
@@ -221,9 +184,6 @@
 		</li>
 	</ul>
 </nav>
-    	<!-- Core Javascript -->
-	<script type="text/javascript" src="//js.ethanjoachimeldridge.info/jquery.min.1.9.1.js" ></script>
-	<script type="text/javascript" src="//js.ethanjoachimeldridge.info/app.js" async></script>
   </body>
 </html>
   	

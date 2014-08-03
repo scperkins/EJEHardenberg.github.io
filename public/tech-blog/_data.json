@@ -192,7 +192,7 @@
   },
   "privateTalk" : {
     "title" : "Private Talk and plans for some tutorials",
-    "date" : "2014-98-03",
+    "date" : "2014-08-03",
     "description" : "Some thoughts after creating a private chat server with c and qdecoder. Planning to create a set of tutorials",
     "keywords" : "C,CGI,apache,chat,server,tutorial"
   }
