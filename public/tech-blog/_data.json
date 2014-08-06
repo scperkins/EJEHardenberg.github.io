@@ -195,5 +195,11 @@
     "date" : "2014-08-03",
     "description" : "Some thoughts after creating a private chat server with c and qdecoder. Planning to create a set of tutorials",
     "keywords" : "C,CGI,apache,chat,server,tutorial"
+  },
+  "free-item-in-authorize-line-item-invalid" : {
+    "title" : "Authorize LineItem's, mixed free and paid for causes error",
+    "date" : "2014-08-06",
+    "description" : "Ran into a problem where Authorize.net's API wasn't accepting 0 as a unit price because it wasn't formatted as 0.00, but only when a free and non free item were in the line items.",
+    "keywords" : "PHP,Authorize.net,CIM,LineItems,ecommerce,error,debugging"
   }
 }
