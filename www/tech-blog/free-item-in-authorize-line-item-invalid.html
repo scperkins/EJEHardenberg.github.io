@@ -2,11 +2,11 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Ethan's Tech Blog | Private Talk and plans for some tutorials</title>
+    <title>Ethan's Tech Blog | Authorize LineItem&#39;s, mixed free and paid for causes error</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Some thoughts after creating a private chat server with c and qdecoder. Planning to create a set of tutorials" />
+    <meta name="description" content="Ran into a problem where Authorize.net&#39;s API wasn&#39;t accepting 0 as a unit price because it wasn&#39;t formatted as 0.00, but only when a free and non free item were in the line items." />
     <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="C,CGI,apache,chat,server,tutorial"/>
+    <meta name="keywords" content="PHP,Authorize.net,CIM,LineItems,ecommerce,error,debugging"/>
     <meta name="robots" content="index, follow"  />
       <meta name="revisit-after" content="1 month" />
       <meta name="viewport" content="width=1040">
@@ -17,19 +17,19 @@
 
         
     <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Private Talk and plans for some tutorials" />
+    <meta property="og:title" content="Ethan Eldridge | Authorize LineItem&#39;s, mixed free and paid for causes error" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
     
-    <meta property="og:description" content="Some thoughts after creating a private chat server with c and qdecoder. Planning to create a set of tutorials" />
+    <meta property="og:description" content="Ran into a problem where Authorize.net&#39;s API wasn&#39;t accepting 0 as a unit price because it wasn&#39;t formatted as 0.00, but only when a free and non free item were in the line items." />
     
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Private Talk and plans for some tutorials" />
+    <meta name="twitter:title" content="Ethan Eldridge | Authorize LineItem&#39;s, mixed free and paid for causes error" />
     
-    <meta name="twitter:description" content="Some thoughts after creating a private chat server with c and qdecoder. Planning to create a set of tutorials" />
+    <meta name="twitter:description" content="Ran into a problem where Authorize.net&#39;s API wasn&#39;t accepting 0 as a unit price because it wasn&#39;t formatted as 0.00, but only when a free and non free item were in the line items." />
     
     <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     	<!-- Core CSS Scripts -->
@@ -50,44 +50,54 @@
   </head>
   <body>
     <header>
-      <h1>Private Talk and plans for some tutorials</h1>
+      <h1>Authorize LineItem&#39;s, mixed free and paid for causes error</h1>
     </header>
 
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Private Talk. A simple chat server behind apache</h3>
-<p>I&#39;ve been <a href="http://www.ethanjoachimeldridge.info/tech-blog/bgi">into CGI recently</a> and wanted to continue the trend. So I
-started a <a href="https://github.com/EJEHardenberg/pChat">new project</a> to make a small chat server. You might ask
-yourself, why do that? Everyone uses facebook Chat or G+ chat
-now-a-days. No one uses AIM or Yahoo to message people anymore. </p>
-<p>And to that I say: yeah but <strong>everyone</strong> stores your data.<sup>*</sup></p>
-<p>So recent life events have left in me in a situation where one of my
-closest friends is going to be overseas for a while and I wanted a way
-to talk to them. Following the opposing view to the <a href="http://en.wikipedia.org/wiki/Not_invented_here">NIH</a> principle and
-satisfying my natural curiousity of how hard it would be to make a chat
-server, combined with this situation has resulted in a small chat server
-being made.</p>
-<p>It was really easy. </p>
-<p>So easy in fact, that I&#39;m thinking I will write a couple blog posts with
-tutorials in them on how to make your own private chat server. I think
-it will be fun, and hopefully helpful to people learning everywhere. The
-structure of the tutorial will probably be something like this: </p>
-<ul>
-<li>Introduction to qdecoder and apache CGI</li>
-<li>Creating a register and login system with qdecoder</li>
-<li>Creating a chat program with C and apache</li>
-</ul>
-<p>I&#39;m hoping that will be an alright pace for things and will probably
-provide sample code as some type of small library. </p>
-<p><sup>* Not everyone, for example there is this <a href="http://labs.bittorrent.com/experiments/bittorrent-chat.html">excellent project</a> going
-on:  </sup></p>
+      <h3>Unit Price of 0 causing problems in Authorize.net CIM lineitem</h3>
+<p>Today at work I ran into an interesting problem. The problem was this: </p>
+<p>One of our clients has an ecommerce platform we built for them, as part of its
+backend, it uses Authorize.net&#39;s <a href="http://developer.authorize.net/api/cim/">CIM service</a>. Today and yesterday they happened
+to be running a free item. Besides the obvious server load funtimes to be troubleshot,
+there was a peculiar problem popping up. If someone tried to buy the free item and
+any other non-free item, the Authorize.net API would return this error message:</p>
+<pre><code>The element &#39;lineItems&#39; in namespace
+AnetApi/xml/v1/schema/AnetApiSchema.xsd&#39; has invalid child element
+taxable&#39; in namespace &#39;AnetApi/xml/v1/schema/AnetApiSchema.xsd&#39;. List
+of possible elements expected: &#39;unitPrice&#39; in namespace
+AnetApi/xml/v1/schema/AnetApiSchema.xsd&#39;.</code></pre>
+<p>Which seemed a bit odd. Why would the taxable element be messed up? It&#39;s simply set
+to false all the time. User&#39;s were checking out with the free item fine, and with
+paid items fine, but when combined into multiple line items this message appeared.</p>
+<p>Troubleshooting involved playing around locally with removing the unit price and
+taxable fields entirely, getting a different error message. Good! This means that
+the problem does involve those two fields. Removing the taxable field didn&#39;t change
+the message, so it seemed the problem lay in the unitPrice being 0.</p>
+<p>I checked out the <a href="https://api.authorize.net/xml/v1/schema/AnetApiSchema.xsd">schema</a> from authorize and noted the following area:</p>
+<pre><code>&lt;xs:restriction base=&quot;xs:decimal&quot;&gt;
+    &lt;xs:minInclusive value=&quot;0.00&quot;/&gt;
+    &lt;xs:fractionDigits value=&quot;4&quot;/&gt;
+&lt;/xs:restriction&gt;</code></pre>
+<p>Well, I wondered, could it be that it is seeing 0 as a false value or something
+other than an integer? In <a href="http://stackoverflow.com/a/14720793/1808164">this SO post</a> someone noted that qoutes are a good idea,
+to which I tried and recieved a message about the format being invalid. So that
+was out. </p>
+<p>Instead, I used <code>sprintf</code> to format the number into a decimal form so that Authorize&#39;s
+API wouldn&#39;t treat it as whatever it had been.</p>
+<p>Old:</p>
+<pre><code>$lineItem-&gt;unitPrice = $item-&gt;price // is 0</code></pre>
+<p>Fixed:</p>
+<pre><code>$lineItem-&gt;unitPrice   = sprintf(&quot;%.2f&quot;, $item-&gt;price);</code></pre>
+<p>And lo&#39; and behold. The transaction with a mixed set of items was processed succesfully!</p>
+<p>Hope this helps anyone out there who runs into the same problem I did. </p>
 
       
       <h3>Other Posts</h3>
       <div id="other-posts">
         <ul>
-          <li><a href=free-item-in-authorize-line-item-invalid>Authorize LineItem&#39;s, mixed free and paid for causes error</a></li><li><a href=harp-macro-revisit>Harp CDN Macro Revisited</a></li><li><a href=bgi>BGI, a way to track your spending</a></li><li><a href=xml-sitemap-for-harpjs>XML Sitemap for Harp JS</a></li><li><a href=custom-permalinks-for-custom-templates>Custom Permalinks for Custom Tables and Pages</a></li><li><a href=googlebot-heisenbug>&#39;Caught in the Spiders Web&#39; -- A googlebot Heisenbug</a></li>
+          <li><a href=privateTalk>Private Talk and plans for some tutorials</a></li><li><a href=harp-macro-revisit>Harp CDN Macro Revisited</a></li><li><a href=bgi>BGI, a way to track your spending</a></li><li><a href=xml-sitemap-for-harpjs>XML Sitemap for Harp JS</a></li><li><a href=custom-permalinks-for-custom-templates>Custom Permalinks for Custom Tables and Pages</a></li><li><a href=googlebot-heisenbug>&#39;Caught in the Spiders Web&#39; -- A googlebot Heisenbug</a></li>
         </ul>
       </div>
       <div id="disqus_thread"></div>
