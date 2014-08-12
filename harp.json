@@ -21,6 +21,12 @@
 		"staticcssurl" : "css.ethanjoachimeldridge.info",
 		"projects" : [
 			{
+				"title" : "PCI, Private Chat Interface",
+				"period" : "Summer 2014",
+				"description" : "An exercise in creating a chat interface using C CGI and Javascript. Static site with Harp and CGI backend similar to BGI.",
+				"references" : "You can see the blogpost about it <a href=\"http://www.ethanjoachimeldridge.info/tech-blog/privateTalk\">here</a>"
+			},
+			{
 				"title" : "BGI, Budget Gateway Interface",
 				"period" : "Summer 2014",
 				"description" : "A simple application to keep track of spending habits and display metrics. Created as a static site using HarpJs that uses a C CGI backend with a custom flatfile datastore.",
