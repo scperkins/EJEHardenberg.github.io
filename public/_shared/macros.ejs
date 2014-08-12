@@ -1,6 +1,7 @@
 <%
 macros.rrImageDomain = function rrImageDomain(){
 	//Round robin style
+	if(environment == "development") return "localhost:9000/images"
 	return staticimagesurl[nextDomain++ % maxDomains];
 }
 macros.imgSrc = function imgSrc(filePath){
