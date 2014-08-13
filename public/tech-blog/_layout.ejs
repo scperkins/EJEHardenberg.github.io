@@ -28,16 +28,16 @@
       <% } else { %>
         <br/>
         <h3>
-          You've stumbled onto a post that is coming soon! But for now you can't see it. Sorry.
+          You've stumbled onto a post that is coming soon! But for now you can't see it. Sorry. 
         </h3>
-        <%- partial('../_shared/no') %>
+        <p> For now why don't you checkout the other posts?</p>
       <%  } %>
       <%
         var articles = [] 
 
         for(var slug in public["tech-blog"]._data){ 
           public["tech-blog"]._data[slug].slug = slug
-          if(slug != "index" && !public["tech-blog"]._data[slug].draft){
+          if(slug != "index" && !public["tech-blog"]._data[slug].draft || (slug == current.source && slug != "index") ){
             articles.push(public["tech-blog"]._data[slug])  
           }
         };
@@ -60,7 +60,6 @@
             }
           }
         }; 
-        
       %>
       <h3>Other Posts</h3>
       <div id="other-posts">
