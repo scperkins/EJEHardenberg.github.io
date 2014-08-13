@@ -65,7 +65,7 @@
 				if(shown > toShow){
 					break
 				}
-				if( posts[idx].slug != 'index' ){
+				if( posts[idx].slug != 'index' && !posts[idx].draft ){
 					%><li>
 						<a href="/tech-blog/<%= posts[idx].slug %>"><%= posts[idx].title %></a>
 					</li><%

@@ -32,7 +32,7 @@
           for(var slug in public["tech-blog"]._data){ 
             public["tech-blog"]._data[slug].slug = slug
 
-            if(slug != "index"){
+            if(slug != "index" && !public["tech-blog"]._data[slug].draft){
               articles.push(public["tech-blog"]._data[slug])  
             }
           };

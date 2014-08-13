@@ -23,13 +23,21 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <%- yield %>
+      <% if ( ! public["tech-blog"]._data[current.source].draft) { %>
+        <%- yield %>
+      <% } else { %>
+        <br/>
+        <h3>
+          You've stumbled onto a post that is coming soon! But for now you can't see it. Sorry.
+        </h3>
+        <%- partial('../_shared/no') %>
+      <%  } %>
       <%
         var articles = [] 
 
         for(var slug in public["tech-blog"]._data){ 
           public["tech-blog"]._data[slug].slug = slug
-          if(slug != "index"){
+          if(slug != "index" && !public["tech-blog"]._data[slug].draft){
             articles.push(public["tech-blog"]._data[slug])  
           }
         };
@@ -52,6 +60,7 @@
             }
           }
         }; 
+        
       %>
       <h3>Other Posts</h3>
       <div id="other-posts">
