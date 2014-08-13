@@ -15,6 +15,9 @@ function tree(head, tail) {
 		            	date = null
 		            	if(head['_data']){
 		                   	obj = head['_data'][file]
+		                   	if(obj && obj.draft){
+		                   		continue;
+		                   	}
 		                   	if(obj && obj.date){
 		                   		date = new Date(Date.parse(obj.date)).toISOString()
 		                   	}
