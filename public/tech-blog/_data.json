@@ -206,8 +206,7 @@
     "title" : "Adding Scheduled Posts to your Harp Site",
     "date" : "2014-08-13",
     "description" : "How to create scheduled posts for your Harp Site",
-    "keywords" : "Harp,HarpJS,tutorial,recipe,HTML,JS",
-    "draft" : true
+    "keywords" : "Harp,HarpJS,tutorial,recipe,HTML,JS"
   },
   "cgi-c-harp-1" : {
     "title" : "Let's make a chat server, Part 1",

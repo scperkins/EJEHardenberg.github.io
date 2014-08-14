@@ -23,16 +23,14 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <% if ( ! public["tech-blog"]._data[current.source].draft) { %>
-        <%- yield %>
+      <% if ( ! public["tech-blog"]._data[current.source].draft) { %><%- yield %>
       <% } else { %>
         <br/>
         <h3>
           You've stumbled onto a post that is coming soon! But for now you can't see it. Sorry. 
         </h3>
         <p> For now why don't you checkout the other posts?</p>
-      <%  } %>
-      <%
+      <%  }
         var articles = [] 
 
         for(var slug in public["tech-blog"]._data){ 
