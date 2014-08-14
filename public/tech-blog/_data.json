@@ -202,9 +202,16 @@
     "description" : "Ran into a problem where Authorize.net's API wasn't accepting 0 as a unit price because it wasn't formatted as 0.00, but only when a free and non free item were in the line items.",
     "keywords" : "PHP,Authorize.net,CIM,LineItems,ecommerce,error,debugging"
   },
+  "adding-scheduled-posts" : {
+    "title" : "Adding Scheduled Posts to your Harp Site",
+    "date" : "2014-08-13",
+    "description" : "How to create scheduled posts for your Harp Site",
+    "keywords" : "Harp,HarpJS,tutorial,recipe,HTML,JS",
+    "draft" : true
+  },
   "cgi-c-harp-1" : {
     "title" : "Let's make a chat server, Part 1",
-    "date" : "2014-08-13",
+    "date" : "2014-08-16",
     "description" : "First installment of a C CGI and Harp powered chat platform.",
     "keywords" : "C,CGI,Harp,HarpJS,Chat,Server,tutorial",
     "draft" : true
