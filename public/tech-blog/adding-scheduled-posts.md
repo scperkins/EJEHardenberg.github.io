@@ -187,7 +187,7 @@ Where publish.sh is:
     cd /path/to/your/directory/
     harp compile
 
-And then you'll be comping harp every day at 5 minutes after midnight. If you use
+And then you'll be compiling harp every day at 5 minutes after midnight. If you use
 gh-pages you'll probably want to add this cron task locally, if it's on a server
 then you'll want to do it up there. All in all it's pretty simple to add scheduled
 posts to your blog or site! 
