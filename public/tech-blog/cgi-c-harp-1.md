@@ -12,7 +12,7 @@ tie our new code to our CGI and we'll suddenly have a proof of concept chat serv
 
 <b style="padding-left: 25%;">The full source code for this tutorial is located [here on github]</b>
 
-So without further adue, let's talk about what we need for a Chat Server from the
+So without further ado, let's talk about what we need for a Chat Server from the
 backend perspective: 
 
 - A list of Users
@@ -315,7 +315,7 @@ The test itself will do the following:
 - check the modification time to make sure it's changed
 - verify that the message we chatted is there when we read the file
 
-So without further aduei:
+So without further ado:
 
 _test-chat.c_
 
