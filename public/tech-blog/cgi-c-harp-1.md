@@ -7,7 +7,10 @@ will focus on using [qdecoder] to create CGI scripts to wrap the code in this tu
 and tie it to the web. Finally, we'll create the HTML,Basic CSS, and Javascript to 
 tie our new code to our CGI and we'll suddenly have a proof of concept chat server.
 
+
 <img src="/images/tech-blog/harp-apache-flatfile.png" width="400px" height="300px" style="padding-left: 25%;"/>
+
+<b style="padding-left: 25%;">The full source code for this tutorial is located [here on github]</b>
 
 So without further adue, let's talk about what we need for a Chat Server from the
 backend perspective: 
@@ -24,8 +27,6 @@ user who was talking along with it. Easy enough? I think so.
 Now how do we save our chat? We can easily save it to a file and that's what we're
 going to do. We're going to do the most simplistic thing we can and so long as
 you're [on a unix like server] we won't worry too much about concurrency problems.
-
-<b>The full source code for this tutorial is located [here on github]</b>
 
 So let's get to the directory structure of the internal C code of our project! Run
 the commands below to get the right structure.
