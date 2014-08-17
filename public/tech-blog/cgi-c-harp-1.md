@@ -121,7 +121,7 @@ _headers/internal/chatfile.h_
 	#include "config.h"
 
 	/* Returns 1 if the lastCheckedTime is less than the last write to the file */
-	time_t fileLastModifiedAfter(const char * filename, time_t lastCheckedTime);
+	int fileLastModifiedAfter(const char * filename, time_t lastCheckedTime);
 
 	/* Returns NULL on err, otherwise a Read Only file descriptor for the chat file */
 	FILE * getChatFile();
@@ -186,7 +186,7 @@ _src/internal/chatfile.c_ (continued)
 
 Three of the exposed methods have simple code that is easy to follow:
 
-	time_t fileLastModifiedAfter(const char * filename, time_t lastCheckedTime){
+	int fileLastModifiedAfter(const char * filename, time_t lastCheckedTime){
 		struct stat buffer;
 		stat(filename, &buffer);
 		return lastCheckedTime < buffer.st_mtime;
@@ -262,8 +262,115 @@ this stuff works, how can I be sure Ethan's not pulling a fast one on me?
 Well, you can't ;) except that we're going to add a test directory and write a 
 couple tests:
 
+    mkdir test
+    touch test/test-chat.c
 
+Next we'll update our **Makefile** to compile our test for us and then use asserts
+to guarantee that our code works as expected:
 
+_Makefile_
+
+	#Configurations and setup
+	CC = cc
+	CFLAGS = -std=gnu99 -pedantic -Wall -Wextra -Werror -g -I./headers
+	LINKFLAGS = $(CFLAGS) 
+
+	INTERNAL = $(patsubst src/internal/%.c,%, $(wildcard src/internal/*.c))
+
+	OBJECTS := $(patsubst src/%.c,obj/%.o,$(wildcard src/*.c))
+	TARGETS := $(patsubst src/%.c,bin/%.cgi,$(wildcard src/*.c))
+	     
+	#Commands to help test and run programs:	
+	valgrind = valgrind --tool=memcheck --leak-check=yes --show-reachable=yes --num-callers=20 --track-fds=yes
+
+	all: $(TARGETS) internal
+	internal: $(INTERNAL)
+
+	$(TARGETS): $(OBJECTS) $(INTERNAL)
+		${CC} ${LINKFLAGS} -o $@ $(patsubst bin/%.cgi, obj/%.o, $@ ) $(patsubst %, obj/%.o, $(INTERNAL))
+
+	$(INTERNAL): ./headers/config.h
+		${CC} ${CFLAGS} -c src/internal/$@.c -o obj/$@.o 
+
+	clean: ./headers/config.h
+		rm -f obj/*.o ${TARGETS}
+
+	$(OBJECTS): obj/%.o : src/%.c ./headers/config.h
+		${CC} ${CFLAGS} -c -o $@ $< 
+
+	test-internal:
+		${CC} ${LINKFLAGS} test/test-chat.c obj/chatfile.o -o bin/test-chat.out
+
+The addition to the file is:
+
+    test-internal:
+		${CC} ${LINKFLAGS} test/test-chat.c obj/chatfile.o -o bin/test-chat.out
+
+This will compile our test file into a binary we can run by executing `./bin/test-chat.out`
+The test itself will do the following:
+
+- initialize the chat internals with **chatInit**
+- update the chat with a message
+- check the modification time to make sure it's changed
+- verify that the message we chatted is there when we read the file
+
+So without further aduei:
+
+_test-chat.c_
+
+	#include "chatfile.h"
+	#include <assert.h>
+	#include <unistd.h>
+
+	int main(){
+
+		/* Test init */
+		int success = chatInit();
+		assert(success == 1);
+
+		/* Test adding to conversation */
+		success = updateConversation("test", "I AM GROOT");
+		assert(success == 1);
+
+		sleep(1);
+		/* Test modified time */
+		assert(fileLastModifiedAfter(DATA_FILE, time(0)) == 0 );
+
+		/* Test that reading converation has what was written */
+		FILE * fp = getChatFile();
+		assert(fp != NULL);
+
+		char buffer[512];
+		bzero(buffer, sizeof(buffer));
+		fgets(buffer, sizeof(buffer), fp);
+		fclose(fp);
+
+		assert( strstr(buffer, "I AM GROOT") != NULL);
+		
+		return 0;
+	}
+
+This test simply calls each of our methods and `assert`s that they work as we
+expect them to. Assert's are a great way to guarantee a contract with your code.
+They're good for some development processes (not all) and can be used to make
+sure your code is error free. To test your own implementation use the following 
+commands:
+
+    make test-internal 
+    ./bin/test-chat.out
+
+If you don't get any errors, then you're good to go! You can also check out the
+`DATA_DIR` file and see that things are being written to it. 
+
+This wraps up the tutorial, stay tuned for the next installment for how to expose
+these internal functions to the web using CGI and [qdecoder]! Believe it or not,
+we've done the hard part of designing our application and writing the fundamental 
+peaces of our core code. We've tested them to ensure they're correct, and we've
+made a simple API for our other code to talk to when we implement it. In the next
+tutorial not only will we add qdecoder and learn how to write basic CGI, but we'll
+create an API that will expose our resources to the web.
+
+See you next time!
 
 
 
