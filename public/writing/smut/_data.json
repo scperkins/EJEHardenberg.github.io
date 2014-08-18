@@ -1,23 +1,30 @@
 {
 	"hold-again" : {
-		"title" : "Together Again"
+		"title" : "Together Again",
+		"date" : "2014-06-17"
 	},	
 	"close" : {
-		"title" : "Close"
+		"title" : "Close",
+		"date" : "2014-06-17"
 	},
 	"hot-chocolate" : {
-		"title" : "Hot Chocolate"
+		"title" : "Hot Chocolate",
+		"date" : "2014-06-17"
 	},
 	"tickle" : {
-		"title" : "Tickle"
+		"title" : "Tickle",
+		"date" : "2014-06-17"
 	},
 	"dream" : {
-		"title" : "The Dream"
+		"title" : "The Dream",
+		"date" : "2014-06-17"
 	},
 	"counterpart" : {
-		"title" : "Counterpart Kisses"
+		"title" : "Counterpart Kisses",
+		"date" : "2014-06-17"
 	},
 	"shower" : {
-		"title" : "In the Shower"
+		"title" : "In the Shower",
+		"date" : "2014-06-17"
 	}
 }
