@@ -1,182 +1,227 @@
 {
 	"values" : {
 		"title" : "Values",
-		"date" : "2014-08-18"
+		"date" : "2014-08-18",
+		"freq" : "monthly"
 	},
 	"sheeples" : {
 		"title" : "Sheeples",
-		"date" : "2014-08-15"
+		"date" : "2014-08-15",
+		"freq" : "monthly"
 	},
 	"no-thoughts" : {
 		"title" : "No thoughts, so loud",
-		"date" : "2014-08-14"
+		"date" : "2014-08-14",
+		"freq" : "monthly"
 	},
 	"break" : {
 		"title" : "Break",
-		"date" : "2014-08-11"
+		"date" : "2014-08-11",
+		"freq" : "monthly"
 	},
 	"catcall" : {
 		"title" : "Catcall",
-		"date" : "2014-08-04"
+		"date" : "2014-08-04",
+		"freq" : "monthly"
 	},
 	"commonplace" : {
 		"title" : "Commonplace",
-		"date" : "2014-07-28"
+		"date" : "2014-07-28",
+		"freq" : "monthly"
 	},
 	"vines" : {
 		"title" : "Vines",
-		"date" : "2014-07-23"
+		"date" : "2014-07-23",
+		"freq" : "monthly"
 	},
 	"options" : {
 		"title" : "Options",
-		"date" : "2014-07-21"
+		"date" : "2014-07-21",
+		"freq" : "monthly"
 	},
 	"sunset" : {
 		"title" : "Sunset",
-		"date" : "2014-07-11"
+		"date" : "2014-07-11",
+		"freq" : "monthly"
 	},
 	"quiet-sky" : {
 		"title" : "Quiet Sky",
-		"date" : "2014-07-07"
+		"date" : "2014-07-07",
+		"freq" : "monthly"
 	},
 	"bubbles" : {
 		"title" : "Bubbling",
-		"date" : "2014-07-01"
+		"date" : "2014-07-01",
+		"freq" : "monthly"
 	},
 	"in-bed" : {
 		"title" : "Next to you",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"glass" : {
 		"title" : "Glass",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"phones" : {
 		"title" : "Phones",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"duet" : {
 		"title" : "Duet",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"tongues-in-cheek" : {	
 		"title" : "Tongue in Cheek",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"graveyard" : {
 		"title" : "Graveyard",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"to-err" : {
 		"title" : "To Err",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"writer" : {
 		"title" : "Writer",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"thief" : {
 		"title" : "Thief",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"softened" : {
 		"title" : "Softened",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"shame" : {
 		"title" : "Shame",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"bussing" : {
 		"title" : "Bussing",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"against-me" : {
 		"title" : "Against Me",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"jealous" : {
 		"title" : "Anemic",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"phone" : {
 		"title" : "Smile",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"deliberate" : {
 		"title" : "Deliberate",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"bug"     :{
 		"title" : "Bug",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"success" :{
 		"title" : "Success",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"converse" : {
 		"title" : "Converse",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"hedgehog" :{
 		"title" : "HedgeHog",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"txt-msg":{
 		"title" : "Txt Msg",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"you-are":{
 		"title" : "You are",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"youth" : {
 		"title" : "Youth",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"cotton" : {
 		"title" : "Cotton Candy",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"vanity" :{
 		"title" : "Vanity",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"for-your-eyes-alone" : {
 		"title" : "For Your Eyes Alone",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"lead-you-on" : {
 		"title" : "Lead you On",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"basin" : {
 		"title" : "Basin",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"sunlight-stripes-the-mountain" : {
 		"title" : "Sunlight Stripes the Mountain",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"point" : {
 		"title" : "There's a Point",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"mint" : {
 		"title" : "Mint",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"warmth" : {
 		"title" : "Warmth",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"say" : {
 		"title" : "Say",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"hole" : {
 		"title" : "Hole",
-		"date" : "2014-06-20"
+		"date" : "2014-06-20",
+		"freq" : "monthly"
 	}
 }
