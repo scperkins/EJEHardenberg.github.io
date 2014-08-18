@@ -13,6 +13,7 @@ function tree(head, tail) {
 		          	if (filter.test(file) && !/^404\.html/.test(file)) { 
 		            	file = file.replace(replace, ""); 
 		            	date = null
+		            	freq = "daily"
 		            	if(head['_data']){
 		                   	obj = head['_data'][file]
 		                   	if(obj && obj.draft){
@@ -21,13 +22,16 @@ function tree(head, tail) {
 		                   	if(obj && obj.date){
 		                   		date = new Date(Date.parse(obj.date)).toISOString()
 		                   	}
+		                   	if(obj && obj.freq){
+		                   		freq = obj.freq
+		                   	}
 		                }
 		                if(!date){
 		                	date = new Date().toISOString()
 		                }
 %><url>
 	<loc>http://wwww.ethanjoachimeldridge.info<%= tail + file %></loc>
-	<changefreq>daily</changefreq>
+	<changefreq><%= freq %></changefreq>
 	<lastmod><%= date %></lastmod>
 </url>
 <%
