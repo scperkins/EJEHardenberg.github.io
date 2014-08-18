@@ -87,10 +87,14 @@ function tree(head, tail) {
                       if (filter.test(file) &amp;&amp; !/^404\.html/.test(file)) { 
                         file = file.replace(replace, &quot;&quot;); 
                         date = null
+                        freq = &quot;daily&quot;
                         if(head[&#39;_data&#39;]){
                                obj = head[&#39;_data&#39;][file]
                                if(obj &amp;&amp; obj.date){
                                    date = new Date(Date.parse(obj.date)).toISOString()
+                               }
+                               if(obj &amp;&amp; obj.freq){
+                                   freq = obj.freq
                                }
                         }
                         if(!date){
@@ -98,7 +102,7 @@ function tree(head, tail) {
                         }
 %&gt;&lt;url&gt;
     &lt;loc&gt;http://wwww.ethanjoachimeldridge.info&lt;%= tail + file %&gt;&lt;/loc&gt;
-    &lt;changefreq&gt;daily&lt;/changefreq&gt;
+    &lt;changefreq&gt;&lt;%= freq %&gt;&lt;/changefreq&gt;
     &lt;lastmod&gt;&lt;%= date %&gt;&lt;/lastmod&gt;
 &lt;/url&gt;
 &lt;%
@@ -132,6 +136,9 @@ parses that date and converts it into ISO format. Nothing hard.</p>
 <p>If you use this recipe, you&#39;ll need to change the <code>&lt;loc&gt;</code> tag to have <em>your</em> domain
 name on it. Sitemap URL&#39;s should <strong>always</strong> be absolute. So be sure to do go ahead
 and do that so you don&#39;t spam my server with 404&#39;s ;)    </p>
+<p><strong>Update: August 18th, 2014</strong></p>
+<p>We can set the <code>freq</code> tag for the XML to whatever we want from the metadata for
+any page by specifying: <code>&quot;freq&quot; : &quot;&lt;freq&gt;&quot;</code>, simply replace <code>&lt;freq&gt;</code> with <a href="http://www.sitemaps.org/protocol.html#changefreqdef">daily, monthly...</a></p>
 
       
       <h3>Other Posts</h3>
