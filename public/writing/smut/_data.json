@@ -1,30 +1,37 @@
 {
 	"hold-again" : {
 		"title" : "Together Again",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "yearly"
 	},	
 	"close" : {
 		"title" : "Close",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "yearly"
 	},
 	"hot-chocolate" : {
 		"title" : "Hot Chocolate",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "yearly"
 	},
 	"tickle" : {
 		"title" : "Tickle",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "yearly"
 	},
 	"dream" : {
 		"title" : "The Dream",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "yearly"
 	},
 	"counterpart" : {
 		"title" : "Counterpart Kisses",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "yearly"
 	},
 	"shower" : {
 		"title" : "In the Shower",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "yearly"
 	}
 }
