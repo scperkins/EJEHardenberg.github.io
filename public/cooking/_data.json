@@ -1,7 +1,8 @@
 { 
 	"index" : {
 		"title" : "Ethan's Cooking Recipes",
-		"description" : "A small bundle of recipes of things I eat for dinner that are easy to make."
+		"description" : "A small bundle of recipes of things I eat for dinner that are easy to make.",
+		"freq" : "daily"
 	},
 	"fried-chicken" : {
 	"title" : "Fried Chicken",
