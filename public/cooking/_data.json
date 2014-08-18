@@ -18,7 +18,8 @@
 		{"instruction" : "Put each piece of breaded chicken aside until the oil in the pan is hot."},
 		{"instruction" : "Lay the chicken into the oil and turn each piece over every few minutes until the chicken is cooked well."},
 		{"instruction" : "Serve hot with whatever sauces or spices you'd like."}
-	]
+	],
+	"date" : "2014-06-16"
 	},
 	"backed-cheddar-chicken" : {
 		"title" : "Baked Cheddar Chicken",
@@ -35,7 +36,8 @@
 			{"instruction" : "Bake for 25 minutes"},
 			{"instruction" : "Brush butter on and cook another 10 or until golden brown"},
 			{"instruction" : "Serve with noodles, sauce, and spices to your liking"}
-		]
+		],
+		"date" : "2014-06-16"
 	},
 	"kiwi-apple-pie" : {
 		"title" : "Apple Kiwi Pie",
@@ -67,7 +69,8 @@
 			{"instruction" : "sprinkle top of pie with crumble or seal with a second pie crust if you have one (slice to vent)"},
 			{"instruction" : "Cover edge of pie with tin foil"},
 			{"instruction" : "Bake pie in center of oven for 20 minutes, remove strip bake for 25-30 more"}
-		]
+		],
+		"date" : "2014-06-16"
 	},
 	"chicken-and-rice" : {
 		"title" : "Chicken and Rice",
@@ -93,7 +96,8 @@
 			{"instruction" : "turn chicken occasionally until rice is done"},
 			{"instruction" : "Pour rice onto plate, pour vegitables on top and add soy sauce"},
 			{"instruction" : "Eat."}
-		]
+		],
+		"date" : "2014-06-16"
 	},
 	"garlic-bread" : {
 		"title":"Garlic Bread",
@@ -112,7 +116,8 @@
 			{"instruction" : "Chop garlic thinly, then spread over bread"},
 			{"instruction" : "sprinkle cheese on bread"},
 			{"instruction" : "On the top rack of the oven, broil the bread for 3-5 minutes"}
-		]
+		],
+		"date" : "2014-06-16"
 	},
 	"radish-pizza" : {
 		"title":"Radish Pizza",
@@ -139,15 +144,23 @@
 			{"instruction":"grind pepper and sprinkle salt to taste"},
 			{"instruction":"Bake pizza for 5-10mins more, or until the cheese is satisfactorily melted and the crust is a bit brown"},
 			{"instruction":"optional: sprinkly with arugula and drizzle with balsamic vinaigrette if you're feeling wild"}
-		]
+		],
+		"date" : "2014-06-16"
 	},
-	"german-brown-bread" : { "title":"German Brown Bread","image":"german-brown-bread.jpeg","difficulty":"Medium","ingredients":[{"name":"1/2 c. oatmeal (45 grams)"},{"name":"1/2 c. whole wheat flour (70 grams)"},{"name":"1 c. boiling water"},{"name":"1 T. honey"},{"name":"1 T. molasses (optional)"},{"name":"1 T. oil"},{"name":"1 tsp. salt"},{"name":"1/4 c. warm water"},{"name":"1/4 tsp. instant yeast"},{"name":"1 1/2 - 2 c. whole wheat flour (200 -250 grams or more)"}],"description":"Do you like to be happy?  Me too.  Make this bread.  Happiness awaits.","directions":[{"instruction":"Mix oats and whole wheat flour in a bowl. Add the boiling water and stir. Stir in the honey, molasses, oil and salt and let cool to lukewarm (about 1/2 hour or more). It's OK if it's room temperature, too."},{"instruction":"To the bowl, add the 1/4 teaspoon of instant yeast, the extra water and one cup of whole wheat flour. Here, I used whole wheat white flour from King Arthur. Stir until flour is wet and dough is homogeneous...ent paper or a floured baker's peel. Slash the top of the loaf with a sharp razor blade. (I slashed in a square pattern.)"},{"instruction":"Place the loaf in the oven on the cornmeal or flour-strewn stone and turn down to 400°F. Bake for 30-40 minutes, or until the internal temperature reaches 190°F."},{"instruction":"Note: Those hard crusts you love are created with steam. You may create steam in the oven for the first 5 minutes. Heat an old roasting pan on the rack below the stone and pour 2 cups of boiling water in it right after you put the bread in the oven."},{"instruction":"Spray water the sides of the oven with a squirt bottle two or three times in the first 5 minutes. Turn oven down to 400°F and bake for 30 minutes or more, until the internal temperature reaches 190°F."},{"instruction":"Bread steams itself dry, so let the bread cool for at least 2 hours before slicing or it may seem gummy inside."}]},
-	"chicken-tacos" : {"title":"Chicken Tacos","image":"tacos.jpg","difficulty":"Easy","ingredients":[{"name":"1 Green and Red Pepper"},{"name":"1 Onion"},{"name":"1 Tomato"},{"name":"2 Chicken Breasts"},{"name":"Cinnamon"},{"name":"Cumin"},{"name":"Paprika"},{"name":"12 Taco Shells"}],"description":"Spiced Chicken and Tasty Tacos","directions":[{"instruction":"Preheat oven to 325"},{"instruction":"Chop Peppers, Onions, and Tomato into small chunks"},{"instruction":"Mix Spices together in small bowl. The amounts are arbitrary, you need enough to cover the bottom of the small bowl and to coat the chicken pieces in. Mix blend to taste (I like to add Chili Pepper in). "},{"instruction":"Place Taco Shells into oven until warmed"},{"instruction":"Heat frying pan to medium heat and saute vegetables."},{"instruction":"Slice chicken breasts into small slices about 1-2 inches long. "},{"instruction":"Place sliced chicken into bowl with spices and mix until  the spices have stuck to the chicken"},{"instruction":"Once vegetables are done, pour vegetables onto a plate for serving and drop chicken into pan."},{"instruction":"Cook chicken until insides are no longer pink, turning every few minutes to evenly cook the meat. "},{"instruction":"Removes shells from the oven and place vegetables and meat into shells. "},{"instruction":"Optionally, heat some salsa in a small pot and apply to taco shells."},{"instruction":"Eat an be merry"}]},
-	"prison-pad-thai" : {"title":"Prison Pad Thai","image":"prison.jpg","difficulty":"Easy","ingredients":[{"name":"1 pkg chicken ramen noodles"},{"name":"1/3 cup peanut butter"},{"name":"1/4 cup crushed peanuts"},{"name":"2 tsp hotsauce"}],"description":"Pad Thai made easy!","directions":[{"instruction":"Prepare Ramen noodles as per directions on package"},{"instruction":"Drain excess liquid"},{"instruction":"Stir in peanut butter, hotsauce"},{"instruction":"Add more as needed"},{"instruction":"Garnish with more crushed peanuts on top w/parsely"},{"instruction":"Bon Apetit, cellmate!"}]},
-	"7-up-chicken-marinade" : {"title":"7-up Chicken Marinade","image":"7up.jpg","difficulty":"Easy","ingredients":[{"name":"2 Cups 7 up"},{"name":"1 Cup Soy sauce"},{"name":"1 Tablespoon horse radish"},{"name":"1/2 teaspoon minced garlic"},{"name":"1 Cup Oil"}],"description":"Delicious Marinade, really! Try it!","directions":[{"instruction":"Mix all the ingredients in a container that will fit them all"},{"instruction":"Cut chicken into strips and puncture with fork"},{"instruction":"place chicken into marinade"},{"instruction":"let sit for 8 hours in fridge"},{"instruction":"Cook up your chicken and eat! "}]},
-	"tortillas" : {"title":"Tortillas","image":"tortillas.jpg","difficulty":"Easy","ingredients":[{"name":"1/2 Cup Flour"},{"name":"1/8 Teaspoon salt"},{"name":"1/4 Baking Powder"},{"name":"3/4 teaspoons lard or butter"},{"name":"3 tablespoons water"}],"description":"Simple, quick and tasty Tortillas","directions":[{"instruction":"Mix the dry ingredients in a bowl"},{"instruction":"add in lard/butter until flour resembles cornmeal (add more than 3/4 teaspoons if neccesary)"},{"instruction":"Add water and mix until dough comes together"},{"instruction":"Place dough on lightly floured surface and knead until smooth and elastic."},{"instruction":"Divide the dough into equal pieces and roll into balls (this recipe makes 3-4)"},{"instruction":"Preheat a frying pan over medium high heat"},{"instruction":"Use a floured rolling pin (or bottle if you don't have a pin) and roll out the balls until flat"},{"instruction":"Place one at a time into hot pan and cook until golden on each side, flipping as neccesary."},{"instruction":"Serve with salsa or put meat/taco stuff on 'em! "}]},
-	"cinnamin-chicken-empanada" : {"title":"Cinnamon Chicken Empanada","image":"cinna-chicken-empanada.jpg","difficulty":"Medium","ingredients":[{"name":"1/2 Cup Flour"},{"name":"1/8 Teaspoon salt"},{"name":"1/4 Baking Powder"},{"name":"3/4 teaspoons lard or butter"},{"name":"3 tablespoons water"},{"name":"1 tablespoon cinnamin (or more, to taste!)"},{"name":"2 Chicken breast"},{"name":"1 Chopped onion"},{"name":"Cumin/Garlic powder (optional)"}],"description":"Cinnamin Tortilla and delicious Chicken","directions":[{"instruction":"Chop the onion and place to one side"},{"instruction":"Slice chicken into 1 inch thick strips"},{"instruction":"Spice chicken with Cumin and garlic powder if using"},{"instruction":"Mix dry ingredients in bowl"},{"instruction":"Add in lard/butter until flour looks like cornmeal"},{"instruction":"Add water to flour and mix until elastic"},{"instruction":"lightly flour countertop and  knead dough into ball. "},{"instruction":"Seperate dough into 6 balls and roll flat with rolling pin"},{"instruction":"place chopped onions and chicken into rolled out dough and  wrap, closing over chicken."},{"instruction":"preheat oven to 350 and cook chicken for 20 minutes"},{"instruction":"Serve hot and tasty"}]},
-	"honey-lime-marinade" : {"title":"Honey Lime Marinade","image":"Honeylime.jpg","difficulty":"Easy","ingredients":[{"name":"1 Garlic Clove"},{"name":"1 Lime or 1 tablespoon lime juice"},{"name":"1 tablespoon olive oil"},{"name":"1 tablespoon honey"},{"name":"3 tablespoons Soy Sauce"}],"description":"Delicious and Quick Marinade","directions":[{"instruction":"cut garlic clove finely, place in a container. I use an old tomato sauce glass container"},{"instruction":"Squeeze juice out of lime or pour lime juice into container"},{"instruction":"pour olive oil into container"},{"instruction":"pour honey into container, if you do the oil before the honey it won't stick!"},{"instruction":"pour soy sauce into container"},{"instruction":"Add Chicken, beef, vegitables or whatever you'd like to marinade"},{"instruction":"Shake"},{"instruction":"Store in fridge for 4 hours or longer"},{"instruction":"Cook anyway you like! I like to poach my chicken in it's own marinade but you're free to do what you want!"}]},
+	"german-brown-bread" : { "title":"German Brown Bread","image":"german-brown-bread.jpeg","difficulty":"Medium","ingredients":[{"name":"1/2 c. oatmeal (45 grams)"},{"name":"1/2 c. whole wheat flour (70 grams)"},{"name":"1 c. boiling water"},{"name":"1 T. honey"},{"name":"1 T. molasses (optional)"},{"name":"1 T. oil"},{"name":"1 tsp. salt"},{"name":"1/4 c. warm water"},{"name":"1/4 tsp. instant yeast"},{"name":"1 1/2 - 2 c. whole wheat flour (200 -250 grams or more)"}],"description":"Do you like to be happy?  Me too.  Make this bread.  Happiness awaits.","directions":[{"instruction":"Mix oats and whole wheat flour in a bowl. Add the boiling water and stir. Stir in the honey, molasses, oil and salt and let cool to lukewarm (about 1/2 hour or more). It's OK if it's room temperature, too."},{"instruction":"To the bowl, add the 1/4 teaspoon of instant yeast, the extra water and one cup of whole wheat flour. Here, I used whole wheat white flour from King Arthur. Stir until flour is wet and dough is homogeneous...ent paper or a floured baker's peel. Slash the top of the loaf with a sharp razor blade. (I slashed in a square pattern.)"},{"instruction":"Place the loaf in the oven on the cornmeal or flour-strewn stone and turn down to 400°F. Bake for 30-40 minutes, or until the internal temperature reaches 190°F."},{"instruction":"Note: Those hard crusts you love are created with steam. You may create steam in the oven for the first 5 minutes. Heat an old roasting pan on the rack below the stone and pour 2 cups of boiling water in it right after you put the bread in the oven."},{"instruction":"Spray water the sides of the oven with a squirt bottle two or three times in the first 5 minutes. Turn oven down to 400°F and bake for 30 minutes or more, until the internal temperature reaches 190°F."},{"instruction":"Bread steams itself dry, so let the bread cool for at least 2 hours before slicing or it may seem gummy inside."}],
+		"date" : "2014-06-16"},
+	"chicken-tacos" : {"title":"Chicken Tacos","image":"tacos.jpg","difficulty":"Easy","ingredients":[{"name":"1 Green and Red Pepper"},{"name":"1 Onion"},{"name":"1 Tomato"},{"name":"2 Chicken Breasts"},{"name":"Cinnamon"},{"name":"Cumin"},{"name":"Paprika"},{"name":"12 Taco Shells"}],"description":"Spiced Chicken and Tasty Tacos","directions":[{"instruction":"Preheat oven to 325"},{"instruction":"Chop Peppers, Onions, and Tomato into small chunks"},{"instruction":"Mix Spices together in small bowl. The amounts are arbitrary, you need enough to cover the bottom of the small bowl and to coat the chicken pieces in. Mix blend to taste (I like to add Chili Pepper in). "},{"instruction":"Place Taco Shells into oven until warmed"},{"instruction":"Heat frying pan to medium heat and saute vegetables."},{"instruction":"Slice chicken breasts into small slices about 1-2 inches long. "},{"instruction":"Place sliced chicken into bowl with spices and mix until  the spices have stuck to the chicken"},{"instruction":"Once vegetables are done, pour vegetables onto a plate for serving and drop chicken into pan."},{"instruction":"Cook chicken until insides are no longer pink, turning every few minutes to evenly cook the meat. "},{"instruction":"Removes shells from the oven and place vegetables and meat into shells. "},{"instruction":"Optionally, heat some salsa in a small pot and apply to taco shells."},{"instruction":"Eat an be merry"}],
+		"date" : "2014-06-16"},
+	"prison-pad-thai" : {"title":"Prison Pad Thai","image":"prison.jpg","difficulty":"Easy","ingredients":[{"name":"1 pkg chicken ramen noodles"},{"name":"1/3 cup peanut butter"},{"name":"1/4 cup crushed peanuts"},{"name":"2 tsp hotsauce"}],"description":"Pad Thai made easy!","directions":[{"instruction":"Prepare Ramen noodles as per directions on package"},{"instruction":"Drain excess liquid"},{"instruction":"Stir in peanut butter, hotsauce"},{"instruction":"Add more as needed"},{"instruction":"Garnish with more crushed peanuts on top w/parsely"},{"instruction":"Bon Apetit, cellmate!"}],
+		"date" : "2014-06-16"},
+	"7-up-chicken-marinade" : {"title":"7-up Chicken Marinade","image":"7up.jpg","difficulty":"Easy","ingredients":[{"name":"2 Cups 7 up"},{"name":"1 Cup Soy sauce"},{"name":"1 Tablespoon horse radish"},{"name":"1/2 teaspoon minced garlic"},{"name":"1 Cup Oil"}],"description":"Delicious Marinade, really! Try it!","directions":[{"instruction":"Mix all the ingredients in a container that will fit them all"},{"instruction":"Cut chicken into strips and puncture with fork"},{"instruction":"place chicken into marinade"},{"instruction":"let sit for 8 hours in fridge"},{"instruction":"Cook up your chicken and eat! "}],
+		"date" : "2014-06-16"},
+	"tortillas" : {"title":"Tortillas","image":"tortillas.jpg","difficulty":"Easy","ingredients":[{"name":"1/2 Cup Flour"},{"name":"1/8 Teaspoon salt"},{"name":"1/4 Baking Powder"},{"name":"3/4 teaspoons lard or butter"},{"name":"3 tablespoons water"}],"description":"Simple, quick and tasty Tortillas","directions":[{"instruction":"Mix the dry ingredients in a bowl"},{"instruction":"add in lard/butter until flour resembles cornmeal (add more than 3/4 teaspoons if neccesary)"},{"instruction":"Add water and mix until dough comes together"},{"instruction":"Place dough on lightly floured surface and knead until smooth and elastic."},{"instruction":"Divide the dough into equal pieces and roll into balls (this recipe makes 3-4)"},{"instruction":"Preheat a frying pan over medium high heat"},{"instruction":"Use a floured rolling pin (or bottle if you don't have a pin) and roll out the balls until flat"},{"instruction":"Place one at a time into hot pan and cook until golden on each side, flipping as neccesary."},{"instruction":"Serve with salsa or put meat/taco stuff on 'em! "}],
+		"date" : "2014-06-16"},
+	"cinnamin-chicken-empanada" : {"title":"Cinnamon Chicken Empanada","image":"cinna-chicken-empanada.jpg","difficulty":"Medium","ingredients":[{"name":"1/2 Cup Flour"},{"name":"1/8 Teaspoon salt"},{"name":"1/4 Baking Powder"},{"name":"3/4 teaspoons lard or butter"},{"name":"3 tablespoons water"},{"name":"1 tablespoon cinnamin (or more, to taste!)"},{"name":"2 Chicken breast"},{"name":"1 Chopped onion"},{"name":"Cumin/Garlic powder (optional)"}],"description":"Cinnamin Tortilla and delicious Chicken","directions":[{"instruction":"Chop the onion and place to one side"},{"instruction":"Slice chicken into 1 inch thick strips"},{"instruction":"Spice chicken with Cumin and garlic powder if using"},{"instruction":"Mix dry ingredients in bowl"},{"instruction":"Add in lard/butter until flour looks like cornmeal"},{"instruction":"Add water to flour and mix until elastic"},{"instruction":"lightly flour countertop and  knead dough into ball. "},{"instruction":"Seperate dough into 6 balls and roll flat with rolling pin"},{"instruction":"place chopped onions and chicken into rolled out dough and  wrap, closing over chicken."},{"instruction":"preheat oven to 350 and cook chicken for 20 minutes"},{"instruction":"Serve hot and tasty"}],
+		"date" : "2014-06-16"},
+	"honey-lime-marinade" : {"title":"Honey Lime Marinade","image":"Honeylime.jpg","difficulty":"Easy","ingredients":[{"name":"1 Garlic Clove"},{"name":"1 Lime or 1 tablespoon lime juice"},{"name":"1 tablespoon olive oil"},{"name":"1 tablespoon honey"},{"name":"3 tablespoons Soy Sauce"}],"description":"Delicious and Quick Marinade","directions":[{"instruction":"cut garlic clove finely, place in a container. I use an old tomato sauce glass container"},{"instruction":"Squeeze juice out of lime or pour lime juice into container"},{"instruction":"pour olive oil into container"},{"instruction":"pour honey into container, if you do the oil before the honey it won't stick!"},{"instruction":"pour soy sauce into container"},{"instruction":"Add Chicken, beef, vegitables or whatever you'd like to marinade"},{"instruction":"Shake"},{"instruction":"Store in fridge for 4 hours or longer"},{"instruction":"Cook anyway you like! I like to poach my chicken in it's own marinade but you're free to do what you want!"}],
+		"date" : "2014-06-16"},
 	"oven-asparagus" : {
 		"title":"Oven Roasted Asparagus",
 		"image":"asparagus.jpg",
@@ -169,7 +182,8 @@
 			{"instruction":"Sprinkle cheese over asparagus"},
 			{"instruction":"Place in Oven for 15 minutes"},
 			{"instruction":"Eat!"}
-			]
+			],
+		"date" : "2014-06-17"
 	},
 	"potato-pancakes" : {
 		"title" : "Potato Pancakes",
@@ -194,7 +208,8 @@
 			{"instruction" : "pour a bit of a mixture out into a pancake, flatten it about 1/4 inch and let fry"},
 			{"instruction" : "once each side is golden brown flip it and brown the other side."},
 			{"instruction" : "Serve with sugar, cream, applesauce, or salt! "}
-		]
+		],
+		"date" : "2014-07-05"
 	},
 	"french-bread" : {
 		"title" : "Honeyed French Bread",
@@ -221,7 +236,8 @@
 			{"instruction" : "Grease a pan and roll out the bread onto it, slashing the top and glazing with Honey"},
 			{"instruction" : "Let it bake for 30-35 minutes and then enjoy it!"},
 			{"instruction" : "I originally grabbed this recipe from <a href=\"http://keephomesimple.blogspot.com/2010/05/quick-french-bread.html\">this blog</a>, and halved it and added honey. It's so good!"}
-		]
+		],
+		"date" : "2014-07-05"
 	},
 	"mozz-chicken" : {
 		"title" : "Mozzerella Chicken",
@@ -247,6 +263,7 @@
 			{"instruction" : "Place chicken on top of peppers, then lay the arches of onions over each chicken piece"},
 			{"instruction" : "Cook for 20 minutes"},
 			{"instruction" : "Serve with noodles or whatever your heart desires!"}
-		]
+		],
+		"date" : "2014-07-18"
 	}
 }
