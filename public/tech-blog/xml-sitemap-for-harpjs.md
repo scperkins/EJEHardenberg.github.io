@@ -33,10 +33,14 @@ Here's the code:
 			          	if (filter.test(file) && !/^404\.html/.test(file)) { 
 			            	file = file.replace(replace, ""); 
 			            	date = null
+			            	freq = "daily"
 			            	if(head['_data']){
 			                   	obj = head['_data'][file]
 			                   	if(obj && obj.date){
 			                   		date = new Date(Date.parse(obj.date)).toISOString()
+			                   	}
+			                   	if(obj && obj.freq){
+			                   		freq = obj.freq
 			                   	}
 			                }
 			                if(!date){
@@ -44,7 +48,7 @@ Here's the code:
 			                }
 	%><url>
 		<loc>http://wwww.ethanjoachimeldridge.info<%= tail + file %></loc>
-		<changefreq>daily</changefreq>
+		<changefreq><%= freq %></changefreq>
 		<lastmod><%= date %></lastmod>
 	</url>
 	<%
@@ -81,6 +85,11 @@ parses that date and converts it into ISO format. Nothing hard.
 If you use this recipe, you'll need to change the `<loc>` tag to have _your_ domain
 name on it. Sitemap URL's should **always** be absolute. So be sure to do go ahead
 and do that so you don't spam my server with 404's ;)	
+
+**Update: August 18th, 2014**
+
+We can set the `freq` tag for the XML to whatever we want from the metadata for
+any page by specifying: `"freq" : "<freq>"`, simply replace `<freq>` with [daily, monthly...]
 
 [Harp]:http://harpjs.com
 [has a recipe for a Sitemap]:/http://harpjs.com/recipes/blog-sitemap
