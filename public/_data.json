@@ -9,7 +9,8 @@
 		"title" : "About Ethan J. Eldridge",
 		"navtitle" : "About me",
 		"navimage" : "ethan.jpeg",
-		"description" : "Background information about Ethan Joachim Eldridge and his life experiences."
+		"description" : "Background information about Ethan Joachim Eldridge and his life experiences.",
+		"date" : "2014-06-17"
 	},
 	"projects" : {
 		"title" : "Projects",
@@ -45,7 +46,8 @@
 		"title" : "Contact me",
 		"navtitle" : "Contact",
 		"navimage" : "contact.png",
-		"description" : "How to contact Ethan Joachim Eldridge, for inquiries about contributing to projects, contracting, or just asking for advice."
+		"description" : "How to contact Ethan Joachim Eldridge, for inquiries about contributing to projects, contracting, or just asking for advice.",
+		"date" : "2014-06-17"
 	},
 	"404" : {
 		"layout" : false

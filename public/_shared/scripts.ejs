@@ -1,5 +1,5 @@
 	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//<%= staticcssurl %>/style.css' />
+	<link rel='stylesheet' href='//<%= environment == "development" ? "localhost:9000/css/" : staticcssurl %>/style.css' />
 
 
 	<%- partial('analytics') %>
