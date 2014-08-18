@@ -1,78 +1,97 @@
 {
 	"makeup" : {
 		"title" : "MakeUp",
-		"date" : "2014-08-02"
+		"date" : "2014-08-02",
+		"freq" : "monthly"
 	},
 	"creativity" : {
 		"title" : "Creativity Boiling",
-		"date" : "2014-06-20"
+		"date" : "2014-06-20",
+		"freq" : "monthly"
 	},
 	"sitting" : {
 		"title" : "Sitting",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"goodday" : {
 		"title" : "Good Day",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},	
 	"porch" : {
 		"title" : "Porch",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"cause" : {
 		"title" : "Cause",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"dress" : {
 		"title" : "Dress",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"slump" : {
 		"title" : "Slump",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"thankyoubrother" : {
 		"title" : "Thank You",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"ride" : {
 		"title" : "ride",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"flute" : {
 		"title" : "The Flute's Memory",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"morning-bus" : {
 		"title" : "Morning Bus",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"trees" : {
 		"title" : "Trees",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"donut" : {
 		"title" : "Donut",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"kindness" : {
 		"title" : "Kindness",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"reading" : {
 		"title" : "Reading",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"columbus-day" : {
 		"title" : "Columbus Day",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"snow-daydream" : {
 		"title" : "Snow Daydream",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	},
 	"the-run" : {
 		"title" : "The Run",
-		"date" : "2014-06-17"
+		"date" : "2014-06-17",
+		"freq" : "monthly"
 	}
 }
