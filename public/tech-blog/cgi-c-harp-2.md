@@ -160,7 +160,7 @@ _src/heartbeat.c_
     #ifdef ENABLE_FASTCGI
         while(FCGI_Accept() >= 0) {
     #endif
-        qentry_t *req = qcgireq_parse(NULL, 0);
+        qentry_t *req = qcgireq_parse(NULL, Q_CGI_GET);
         qcgires_setcontenttype(req, "application/JSON");
 
         int initialized = chatInit();
@@ -243,7 +243,7 @@ needs:
 
 #####Polling
 
-Let's define our contract: The user will send us a timestamp of when they last
+Let's define our contract: The user will send us an epoch timestamp of when they last
 retrieved the history for the chat. If this timestamp is less than the last 
 modification time of our history file, we know that the history has been updated. 
 Sounds like the perfect opportunity to make use of our function `fileLastModifiedAfter`!
@@ -261,10 +261,100 @@ give us the chance to perform some data validation (it is _user_ input after all
 For ease of use later on, let's say we'll send back a JSON object that looks like
 this:
 
-    {"updated": true}
+    {"updated": true /* or false */}
 
+And with that, our contract is defined and signed with the outside word. Easily
+enough, we can translate out above specification into the following CGI script:
 
+_poll.c__
 
+#include "config.h"
+#include "chatfile.h"
+#include "load_qdecoder.h"
+
+static void printUpdated(int updated){
+    printf("{\"updated\": %s}", updated ? "true" : "false");
+}
+
+    int main(void){
+        chatInit();
+    #ifdef ENABLE_FASTCGI
+        while(FCGI_Accept() >= 0) {
+    #endif
+        qentry_t *req = qcgireq_parse(NULL, Q_CGI_GET);
+        char * sentTime = NULL; 
+        long long intermediateTime = 0L;
+        time_t parsedTime = 0;
+        qcgires_setcontenttype(req, "application/json");
+
+        sentTime = req->getstr(req, "date", true);
+        if(sentTime == NULL){
+            /* They did not send us a proper request. */
+            printUpdated(0);
+            goto end;
+        }
+
+        int scanned = sscanf(sentTime, "%lld", &intermediateTime);
+        if(scanned != 1){
+            /* Incorrect format likely since we couldn't parse it out */
+            printUpdated(0);
+            free(sentTime);
+            goto end;
+        }
+
+        parsedTime = (time_t)intermediateTime;
+
+        int updated = fileLastModifiedAfter(DATA_FILE, parsedTime);
+        printUpdated(updated);
+        
+        free(sentTime);
+        // De-allocate memories
+        end:
+        req->free(req);
+    #ifdef ENABLE_FASTCGI
+        }
+    #endif
+        return 0;
+    }
+
+This source code is a bit longer than before, but simple. First, we ensure that
+the chat server is initialized with `chatInit`. I do this before the Fast CGI accept
+becuase we know that our initialization is just creating a file, which only really
+needs to be done once. Next, we parse our request for `GET` variables using the `Q_CGI_GET` 
+flag to the `qcgireq_parse` function. We then ensure that the expected URL parameter
+of `date` was sent to us, convert it to a `time_t` type, and finally use our
+internal function `fileLastModifiedAfter` to check whether or not the file's been updated
+since the `parsedTime`.
+
+You might be wondering? How do I test this script since it takes a URL parameter. 
+We don't have any URL's after all! It's simple my friends! CGI is really nothing
+more than passing information along in Environmental variables, because of this
+it's easy to specify a variable on the command line and "pass" it to the script.
+For example here are some tests of our poll script:
+
+    make
+    QUERY_STRING="date=no" ./bin/poll.cgi 
+        Content-Type: application/json
+
+        {"updated": false}
+
+    QUERY_STRING="date2=100000000000" ./bin/poll.cgi 
+        Content-Type: application/json
+
+        {"updated": false}
+
+    QUERY_STRING="date=1" ./bin/poll.cgi 
+        Content-Type: application/json
+            
+        {"updated": true}
+
+You can see that it works correctly, a non integral `date` or no `date` parameter 
+at all means we get `false`, and if we send in an actual time we'll get `true`.
+Running these scripts from the command line and verifying their correctness is
+something you should always try to do, and we can update out **Makefile** to perform
+these tests for us:
+
+_Makefile_
 
 
 
