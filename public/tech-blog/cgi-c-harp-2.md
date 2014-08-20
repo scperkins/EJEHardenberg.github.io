@@ -147,11 +147,13 @@ in the last tutorial</b>, and it's always a good idea to do so.
 We're going to make a heartbeat script. This is a standard API trick, it's simple
 to make, and when you want to know if your server is still functioning it's a good
 way to check. Some heartbears can be complicated, but our's is going to be super
-simple. We'll simply spit out the time. Check it out:
+simple. We'll simply spit out the time and make sure the chat is initialized. 
+Check it out:
 
 _src/heartbeat.c_
 
     #include "config.h"
+    #include "chatfile.h"
     #include "load_qdecoder.h"
 
     int main(void){
@@ -161,7 +163,9 @@ _src/heartbeat.c_
         qentry_t *req = qcgireq_parse(NULL, 0);
         qcgires_setcontenttype(req, "application/JSON");
 
-        printf("{ heartbeat: %ld }", time(0));
+        int initialized = chatInit();
+
+        printf("{ \"heartbeat\" : %ld, \"initialized\" : %s }", time(0), initialized ? "true" : "false");
 
         // De-allocate memories
         req->free(req);
@@ -223,12 +227,45 @@ If you run your compiled file you should receive a heartbeat response:
     ./bin/heartbeat.cgi
     Content-Type: application/JSON
 
-    { heartbeat: 1408486060 }
+    { "heartbeat" : 1408487034, "initialized" : true }
 
 and now that we're alive, we can get to the fun stuff! Wiring your internal functions
 from the previous tutorial into CGI scripts!
 
-#### Adding some internals to your scripts
+#### Polling, Reading, and Writing with CGI and Internals
+
+We now have enough knowledge to implement every function which our chat server
+needs:
+
+- Polling: Check if the user needs to refresh their copy of the conversation
+- Reading: Retrieve the current chat history
+- Writing: Send a message to the chat server
+
+#####Polling
+
+Let's define our contract: The user will send us a timestamp of when they last
+retrieved the history for the chat. If this timestamp is less than the last 
+modification time of our history file, we know that the history has been updated. 
+Sounds like the perfect opportunity to make use of our function `fileLastModifiedAfter`!
+
+If you recall, the function has a signature like so:
+
+    int fileLastModifiedAfter(const char * filename, time_t lastCheckedTime);
+
+we know the filename (It's a constant), and now we just need a `time_t` value. Well,
+we know that `time_t` is defined to be `int`, `long int`, `float`, or whatever your 
+system/compiler feels like, so we need to be sure we store the result into something
+big enough. Then we'll convert it to the proper type and use it. This will also
+give us the chance to perform some data validation (it is _user_ input after all). 
+
+For ease of use later on, let's say we'll send back a JSON object that looks like
+this:
+
+    {"updated": true}
+
+
+
+
 
 
 
