@@ -252,7 +252,7 @@
   },
   "cgi-c-harp-2" : {
     "title" : "Let's make a chat server, Part 2",
-    "date" : "2014-08-16",
+    "date" : "2014-08-21",
     "description" : "Second installment of a C CGI and Harp powered chat platform.",
     "keywords" : "C,CGI,Harp,HarpJS,Chat,Server,tutorial,qdecoder,API",
     "freq" : "monthly"
