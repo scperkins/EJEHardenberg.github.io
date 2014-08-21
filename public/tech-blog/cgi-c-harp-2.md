@@ -506,8 +506,58 @@ in order to automate some tests of your script:
 And last but not least, we have the script for reading the history file out to the
 world:
 
+    #include "config.h"
+    #include "chatfile.h"
+    #include "load_qdecoder.h"
 
+    int main(void){
+    #ifdef ENABLE_FASTCGI
+        while(FCGI_Accept() >= 0) {
+    #endif
+        qentry_t *req = qcgireq_parse(NULL, Q_CGI_GET);
+        qcgires_setcontenttype(req, "text/plain");
 
+        FILE * fp =  getChatFile();
+        if(fp == NULL){
+            printf("%s\n", "Could not retrieve chat history. Please try again later");
+            goto end;
+        }
+
+        int cOrEOF;
+        char c;
+        while( (cOrEOF = fgetc(fp)) != EOF){
+            c = (char)cOrEOF;
+            printf("%c", c);
+        }
+        fclose(fp);
+
+        end:
+        req->free(req);
+    #ifdef ENABLE_FASTCGI
+        }
+    #endif
+        return 0;
+    }
+
+This script is straightforward, we retrieve our chat history with the internal
+function `getChatFile` and then output to the world as plain text. If we can't 
+read the file we simply print out an error message. An observant reader will 
+notice that we're not calling `chatInit` anywhere. We know that `chatInit` simply
+creates our history file, which we're going to check for anyway when we try to
+read it. So there's no point in checking twice and we skip the call to initialize.
+
+Since we're storing the chat in the **tmp** directory (if you're using the defaults
+from last tutorial and on a *nix system.) the chat will be cleared whenever you
+shut off your computer at least, so people need to either poll or check the heartbeat
+of your server to make sure it's initialized.
+
+Since the read script is stateless, you don't need to worry about sending any environmental
+variables when trying to test it and can simply run it with `./bin/read.cgi` after
+a `make` command.
+
+And that's it for the CGI scripts! Now we just need to set up a server:
+
+#### Apache Configuration
 
 
 [Harp]:http://harpjs.com
