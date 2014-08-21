@@ -559,6 +559,54 @@ And that's it for the CGI scripts! Now we just need to set up a server:
 
 #### Apache Configuration
 
+So now all that we have to do is setup a new virtual host in our apache configuration
+to wrap our CGI scripts. First off, if you're working locally, add this line to
+yours hosts file (/etc/hosts for *nix, %systemroot%\system32\drivers\etc\ for windows)
+
+    127.0.0.1 www.chat.dev
+
+and next in your apache configuration file:
+
+    <VirtualHost *:80>
+            ServerAdmin webmaster@localhost
+            ServerName www.chat.dev
+            DocumentRoot /path/to/this/repository/tutorialchat/www
+            <Directory />
+                    Options Indexes
+                    AllowOverride None
+            </Directory>
+            Alias /chat /path/to/this/repository/tutorialchat/bin
+            <Directory />
+                    AddHandler cgi-script .cgi
+                    AllowOverride None
+                    Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+                    Order allow,deny
+                    Allow from all
+            </Directory>
+    
+            ErrorLog /path/to/this/repository/tutorialchat/error.log
+    
+            # Possible values include: debug, info, notice, warn, error, crit,
+            # alert, emerg.
+            LogLevel warn
+    
+    </VirtualHost>
+
+Note you'll need to change the path's inside the configuration to match your own
+server, but it's pretty easy to do. What we've done is said that when someone goes
+to `/chat/<file>.cgi` we'll let apache `ExecCGI` and run the script there. This
+means that **anything** in that directory ending in **.cgi** will be able to be
+seen from the outside world.
+
+Before you restart/start your webserver we need to make the document root exist.
+
+    mkdir wwww
+    echo "<html><body><h1>I'm alive\!" > www/index.html
+
+now start or restart your apache and navigate to `http://www.chat.dev`
+
+
+
 
 [Harp]:http://harpjs.com
 [qdecoder]:http://www.qdecoder.org/wiki/qdecoder
