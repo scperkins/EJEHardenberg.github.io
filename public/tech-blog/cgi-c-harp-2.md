@@ -52,7 +52,7 @@ to take a good guess. Let's take an overview of the functions we're going to use
 If you've configured qdecoder with fast CGI, then you'll be using this function
 to keep your script running (as oppose to turning on and off for each request).
 The library provides a simple define to check for the configuration, so you'll
-see this in a few places as a fallback in case the library doesn't support it:
+see this in a few places as a fallback in case the runtime doesn't support it:
 
     #ifdef ENABLE_FASTCGI
         while(FCGI_Accept() >= 0) {
@@ -116,7 +116,7 @@ to the `->getstr` method is whether or not the caller is responsible for freeing
 the string returned to them or not. If you're in a **single** thread environment
 then you'll safe to use false and you won't need to worry about `free`-ing the strings
 you from the request (so long as you free the request itself), but if you're working
-in a multithreaded application you'll want to use `true` and free them when you can.
+in a multithreaded application or fastCGI you'll want to use `true` and free them when you can.
 
 Another difference to note is that we do not have seperate calls for `GET` or `POST`
 but in this case, because we've passed `0` as the second parameter to `qcgireq_parse` 
@@ -266,7 +266,7 @@ this:
     {"updated": true /* or false */}
 
 And with that, our contract is defined and signed with the outside word. Easily
-enough, we can translate out above specification into the following CGI script:
+enough, we can translate our above specification into the following CGI script:
 
 _poll.c_
 
@@ -350,7 +350,7 @@ For example here are some tests of our poll script:
             
         {"updated": true}
 
-You can see that it works correctly, a non identegral `date` or no `date` parameter 
+You can see that it works correctly, a non integral `date` or no `date` parameter 
 at all means we get `false`, and if we send in an actual time we'll get `true`.
 Running these scripts from the command line and verifying their correctness is
 something you should always try to do, and we can update out **Makefile** to perform
@@ -454,7 +454,7 @@ _chat.h_
 
 You'll notice this is exceptionally similar to the polling process, except that 
 we do our validations a little differently. First off, there is none for the
-chat message itself. Why? Because going into the minitiua of what we would actually
+chat message itself. Why? Because going into the minutiae of what we would actually
 have to watch for is WAY too much for this blog post. Second, we are limiting the
 length of the username. Why? Because I figured we had to do some type of validation 
 for this script. And this code, in my estimation, is more protective than using `strlen`. 
@@ -462,6 +462,7 @@ Why? Because `strlen` relies on the string being ended properly, and we're deali
 with user input. So we assume nothing and simply count characters while checking
 for the end of the string.
 
+<hr>
 By this point you're probably wondering: "Why does he keep using `goto`?"
 
 And the answer is, because it makes my code cleaner. Now before you declare a 
@@ -476,6 +477,7 @@ in this use case:
 The script above can be rewritten to not use `goto`, if you want to repeat code and
 nest a bunch of if conditionals inside one another. Also, the flow of the code is
 logicaly structured as well.
+<hr>
 
 Next up, how to test the above script? When you send a `POST` request to a server, 
 a few environmental variables are set pertaining to the Content-Length, the Request
@@ -488,7 +490,7 @@ pipe data into our script. You can do so by running the following:
 This will send a message of "hi" from the user "test" into the chat history in the
 `DATA_FILE`. The `CONTENT_LENGTH` is **extremely** important for the inner workings
 of qdecoder, and if you're testing your scripts out then make sure to set this right.
-Also, when testing this out, I found that only the right `CONTENT_TYPE` would allow
+Also, when testing this out, I found that only the right `CONTENT_TYPE` (application/x-www-form-urlencoded) would allow
 qdecoder to work from the cli for postings. You can add the following to your **Makefile**
 in order to automate some tests of your script:
 

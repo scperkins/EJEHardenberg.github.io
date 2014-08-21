@@ -255,7 +255,6 @@
     "date" : "2014-08-16",
     "description" : "Second installment of a C CGI and Harp powered chat platform.",
     "keywords" : "C,CGI,Harp,HarpJS,Chat,Server,tutorial,qdecoder,API",
-    "freq" : "daily",
-    "draft" : true
+    "freq" : "monthly"
   }
 }
