@@ -140,7 +140,8 @@ scripts, a variable isn't initialized properly, you've written somewhere you
 shouldn't or you've read somewhere you definitely shouldn't have. All of these
 things will cause that error. And if you're lucky, you'll get a memory dump in 
 your error log for you to decipher. <b>This is why we tested our internal code
-in the last tutorial</b>, and it's always a good idea to do so.
+in the last tutorial</b>, and it's always a good idea to do so. Also, use [valgrind] 
+to test everything you do! (more on that in a bit!)
 
 ####Your first qdecoder script 
 
@@ -238,10 +239,11 @@ We now have enough knowledge to implement every function which our chat server
 needs:
 
 - Polling: Check if the user needs to refresh their copy of the conversation
-- Reading: Retrieve the current chat history
 - Writing: Send a message to the chat server
+- Reading: Retrieve the current chat history
 
-#####Polling
+
+#### _Polling_
 
 Let's define our contract: The user will send us an epoch timestamp of when they last
 retrieved the history for the chat. If this timestamp is less than the last 
@@ -266,15 +268,15 @@ this:
 And with that, our contract is defined and signed with the outside word. Easily
 enough, we can translate out above specification into the following CGI script:
 
-_poll.c__
+_poll.c_
 
-#include "config.h"
-#include "chatfile.h"
-#include "load_qdecoder.h"
+    #include "config.h"
+    #include "chatfile.h"
+    #include "load_qdecoder.h"
 
-static void printUpdated(int updated){
-    printf("{\"updated\": %s}", updated ? "true" : "false");
-}
+    static void printUpdated(int updated){
+        printf("{\"updated\": %s}", updated ? "true" : "false");
+    }
 
     int main(void){
         chatInit();
@@ -348,7 +350,7 @@ For example here are some tests of our poll script:
             
         {"updated": true}
 
-You can see that it works correctly, a non integral `date` or no `date` parameter 
+You can see that it works correctly, a non identegral `date` or no `date` parameter 
 at all means we get `false`, and if we send in an actual time we'll get `true`.
 Running these scripts from the command line and verifying their correctness is
 something you should always try to do, and we can update out **Makefile** to perform
@@ -356,7 +358,153 @@ these tests for us:
 
 _Makefile_
 
+    #...previous code above...
+    test-poll:
+        QUERY_STRING="date=no" ${valgrind} ./bin/poll.cgi
+        QUERY_STRING="date=1" ${valgrind} ./bin/poll.cgi
+        QUERY_STRING="date=100000000000" ${valgrind} ./bin/poll.cgi
+        QUERY_STRING="" ${valgrind} ./bin/poll.cgi
 
+And then running `make test-poll` will valgrind each of the scenarios we are trying 
+to test our poll script for. I **highly** recommend using [valgrind] when testing
+for undefined behavior as it is _immensely_ helpful in pretty much all circumstances.
+With this code we can now poll our chat server's file! Now we need to write to it:
+
+#### _Writing_
+
+In order for a chat server to work, people need to be able to chat! So we'll need
+to define a protocol for user A to talk to user B by sending a message of some kind.
+Easy enough, let's say that with each submission the chatter sends their username
+and their message to the server within a `POST` request. We'll use the standard
+web format of `parameter=value&param2=value2` to do this.
+
+Specifically we'll send the parameter `u` for user and `m` for message. This means
+that within our script we'll parse the data like so:
+
+    char * user = req->getstr(req, "u", true);
+    char * msg  = req->getstr(req, "m", true);
+
+And then we'll need to somehow store it, lucky for us we have `updateConversation` 
+from our internal's library to work with. The signature looks like this:
+
+    int updateConversation(const char * user, const char * addendum)
+
+Gosh, it's like we designed it this way or something! 
+
+Enough chatter, let's get to the code:
+
+_chat.h_
+
+    #include "config.h"
+    #include "chatfile.h"
+    #include "load_qdecoder.h"
+
+    /* Don't pass msg with newline or "'s! */
+    static void printSuccess(int updated, char * msg){
+        printf("{\"success\": %s, \"message\" : \"%s\"}", updated ? "true" : "false", msg);
+    }
+
+    int main(void){
+        chatInit();
+    #ifdef ENABLE_FASTCGI
+        while(FCGI_Accept() >= 0) {
+    #endif
+        qentry_t *req = qcgireq_parse(NULL, Q_CGI_POST);
+        char * user = NULL; 
+        char * msg = NULL;
+        qcgires_setcontenttype(req, "application/json");
+
+        user = req->getstr(req, "u", true);
+        if(user == NULL){
+            /* They did not send us a proper request. */
+            printSuccess(0, "Invalid Request");
+            goto end;
+        }
+        /* Limit the user name length */
+        int i = 0;
+        int maxlength = 21;
+        for (i = 0; i < maxlength && user[i] != '\0'; ++i)
+            ;
+        if(i == maxlength){
+            printSuccess(0, "Username too long");
+            free(user);
+            goto end;
+        }
+
+        msg = req->getstr(req, "m", true);
+        if(msg == NULL){
+            printSuccess(0, "Invalid Request");
+            free(user);
+            goto end;
+        }
+
+        int updated = updateConversation(user, msg);
+        printSuccess(updated, "Message has been sent");
+        
+        free(user);
+        free(msg);
+        // De-allocate memories
+        end:
+        req->free(req);
+    #ifdef ENABLE_FASTCGI
+        }
+    #endif
+        return 0;
+    }
+
+You'll notice this is exceptionally similar to the polling process, except that 
+we do our validations a little differently. First off, there is none for the
+chat message itself. Why? Because going into the minitiua of what we would actually
+have to watch for is WAY too much for this blog post. Second, we are limiting the
+length of the username. Why? Because I figured we had to do some type of validation 
+for this script. And this code, in my estimation, is more protective than using `strlen`. 
+Why? Because `strlen` relies on the string being ended properly, and we're dealing
+with user input. So we assume nothing and simply count characters while checking
+for the end of the string.
+
+By this point you're probably wondering: "Why does he keep using `goto`?"
+
+And the answer is, because it makes my code cleaner. Now before you declare a 
+crusade on me for bad practice and etc, let me explain to you why `goto` is good
+in this use case:
+
+- `goto` is a local jump, it's not an actual long jump statement
+- we prevent a lot of conditional branching and repeated code by using it
+- it's very readable in my opinion since all the scripts are small enough to view at once
+- `goto` is great for error handling since C has no conditionals
+
+The script above can be rewritten to not use `goto`, if you want to repeat code and
+nest a bunch of if conditionals inside one another. Also, the flow of the code is
+logicaly structured as well.
+
+Next up, how to test the above script? When you send a `POST` request to a server, 
+a few environmental variables are set pertaining to the Content-Length, the Request
+Method, and various other things. The most important thing to remember is that the
+data comes in on stdin. So to test it, we need to set the proper variables and then
+pipe data into our script. You can do so by running the following:
+
+    CONTENT_TYPE="application/x-www-form-urlencoded" REQUEST_METHOD=POST CONTENT_LENGTH=11 ./bin/chat.cgi <<< "u=test&m=hi"
+
+This will send a message of "hi" from the user "test" into the chat history in the
+`DATA_FILE`. The `CONTENT_LENGTH` is **extremely** important for the inner workings
+of qdecoder, and if you're testing your scripts out then make sure to set this right.
+Also, when testing this out, I found that only the right `CONTENT_TYPE` would allow
+qdecoder to work from the cli for postings. You can add the following to your **Makefile**
+in order to automate some tests of your script:
+
+
+    test-chat:
+        CONTENT_TYPE="application/x-www-form-urlencoded" REQUEST_METHOD=POST CONTENT_LENGTH=7 ${valgrind} ./bash bin/chat.cgi <<< "u=12345" 
+        CONTENT_TYPE="application/x-www-form-urlencoded" REQUEST_METHOD=POST CONTENT_LENGTH=23 ${valgrind} ./bin/chat.cgi <<< "u=123456789012345678901"
+        CONTENT_TYPE="application/x-www-form-urlencoded" REQUEST_METHOD=POST CONTENT_LENGTH=11 ${valgrind} ./bin/chat.cgi <<< "u=test&m=hi"
+
+**Note:**<small>You might need to set #!/bin/bash at the top of the Makefile, or change the symlink of /bin/sh to /bin/bash instead of /bin/dash if you have problems running `make test-chat`</small>
+
+
+#### _Reading_
+
+And last but not least, we have the script for reading the history file out to the
+world:
 
 
 
@@ -373,3 +521,4 @@ _Makefile_
 [from here]:https://github.com/wolkykim/qdecoder
 [google fu]:http://lmgtfy.com/?q=qdecoder+windows
 [documentation]:http://wolkykim.github.io/qdecoder/
+[valgrind]:http://valgrind.org/
