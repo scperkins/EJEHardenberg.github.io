@@ -615,6 +615,26 @@ you should be greeted with the familiar:
 
 which let's you know that your chat server is up and ready for an interface.
 
+####What's next
+
+With that, you have a fully operation chat server. Kind of. It stills needs a web
+interface but that will come in the next tutorial. For now if you want to be sure
+that everything is working (becuase a heartbeat wasn't enough), make your index
+file use this markup instead:
+
+    <html><body><h1>I'm alive. Yay.
+    <iframe src="/chat/read.cgi"></iframe>
+
+Run the following commands to get something to appear in the chat box:
+
+    make test-internal
+    ./bin/test-chat.out
+    refresh your browser page
+
+We'll get into HTML, Javascript, and a small amount of CSS for the front end in 
+the next tutorial! I'll show you how to setup a [Harp] project and we'll test
+the full application. See you then!
+
 
 
 
