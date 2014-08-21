@@ -563,9 +563,13 @@ So now all that we have to do is setup a new virtual host in our apache configur
 to wrap our CGI scripts. First off, if you're working locally, add this line to
 yours hosts file (/etc/hosts for *nix, %systemroot%\system32\drivers\etc\ for windows)
 
+_/etc/hosts_
+
     127.0.0.1 www.chat.dev
 
 and next in your apache configuration file:
+
+_/sites-available/default_
 
     <VirtualHost *:80>
             ServerAdmin webmaster@localhost
@@ -601,9 +605,15 @@ seen from the outside world.
 Before you restart/start your webserver we need to make the document root exist.
 
     mkdir wwww
-    echo "<html><body><h1>I'm alive\!" > www/index.html
+    echo "<html><body><h1>I'm alive. Yay." > www/index.html
 
-now start or restart your apache and navigate to `http://www.chat.dev`
+now start or restart your apache and navigate to `http://www.chat.dev` and you'll
+see the words "I'm alive. Yay." on the screen. If you navigate to `http://www.chat.dev/chat/heartbeat.cgi`
+you should be greeted with the familiar:
+
+    { "heartbeat" : 1408623802, "initialized" : true }
+
+which let's you know that your chat server is up and ready for an interface.
 
 
 
