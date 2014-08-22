@@ -246,15 +246,23 @@
   "cgi-c-harp-1" : {
     "title" : "Let's make a chat server, Part 1",
     "date" : "2014-08-16",
-    "description" : "First installment of a C CGI and Harp powered chat platform.",
+    "description" : "First installment of a C CGI and Harp powered chat platform. The first part focuses on C-based internal functions.",
     "keywords" : "C,CGI,Harp,HarpJS,Chat,Server,tutorial",
     "freq" : "monthly"
   },
   "cgi-c-harp-2" : {
     "title" : "Let's make a chat server, Part 2",
     "date" : "2014-08-21",
-    "description" : "Second installment of a C CGI and Harp powered chat platform.",
+    "description" : "Second installment of a C CGI and Harp powered chat platform. This tutorial focuses on the CGI and qdecoder portions.",
     "keywords" : "C,CGI,Harp,HarpJS,Chat,Server,tutorial,qdecoder,API",
     "freq" : "monthly"
+  },
+  "cgi-c-harp-3" : {
+    "title" : "Let's make a chat server, Part 3",
+    "date" : "2014-08-23",
+    "description" : "Third installment of a C CGI and Harp powered chat platform. This post shows how to create the web interface to the server",
+    "keywords" : "C,CGI,Harp,HarpJS,Chat,Server,tutorial,qdecoder,API,HTML,CSS,javascript,Ethan,Eldridge",
+    "freq" : "daily",
+    "draft" : true
   }
 }
