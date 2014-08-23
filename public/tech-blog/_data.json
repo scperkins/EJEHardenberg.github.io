@@ -262,7 +262,6 @@
     "date" : "2014-08-23",
     "description" : "Third installment of a C CGI and Harp powered chat platform. This post shows how to create the web interface to the server",
     "keywords" : "C,CGI,Harp,HarpJS,Chat,Server,tutorial,qdecoder,API,HTML,CSS,javascript,Ethan,Eldridge",
-    "freq" : "daily",
-    "draft" : false
+    "freq" : "monthly"
   }
 }
