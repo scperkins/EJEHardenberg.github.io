@@ -129,6 +129,7 @@ Our layout is going to be pretty generic, but we don't need much for this:
             window.chatdomain = "<%= chatdomain %>"
         </script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/chat.js"></script>
     </html>
 
 
@@ -326,10 +327,50 @@ Which is far better than a mess of elements on the screen. It's certainly not th
 most beautiful thing in the world, but it's good enough for this tutorial. We're
 almost done with our chat server now! We just need to wire the components up!
 
+**Note:** <small>if you want to run your website with harp and tweak the styles, you 
+can use `harp server` from the root of the project to run a local server on port 9000</small>
+
 
 ####Connecting Front to Back
 
+The last thing we need to do is handle the javascript talking to our CGI scripts.
+The high level view of what we're going to do is the following:
 
+- check that the server is online
+- poll the server for updates
+- create a user handle and keep it
+- send a message
+- recieve all messages
+
+This is not an extensive list of things to do, so let's dive in:
+
+##### Some setup
+
+_chat.js_
+
+    jQuery( document ).ready(function( $ ) {
+        var heartbeatURL = window.chatdomain + "/heartbeat.cgi"
+        var pollURL = window.chatdomain + "/poll.cgi"
+        var readURL = window.chatdomain + "/read.cgi"
+    })
+
+Remember **chat.js**? We created this file at the beginning of this tutorial, and
+now it's time to fill it out. We define a couple convenience URL's so that we 
+can easily change them if the scripts change. This is why we attached the chatdomain 
+to the window object, so we could grab it easily here.
+
+##### Checking the pulse of the server
+
+To make sure we have a connection to the server we can poll out heartbeat script 
+and check the `initialized` field of the returned object. If this is false we know
+something is up and we shouldn't allow the user to do anything:
+
+    Content-Type: application/JSON
+
+    { "heartbeat" : 1408764565, "initialized" : true }
+
+If we get a response like the above then we know we're still connected and don't
+need to disable the chatting functions of the server.
 
 
 
