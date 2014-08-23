@@ -2,7 +2,8 @@
 
 If you haven't read the [first post] or the [previous post] you might want to do 
 that before starting this one! If you're looking for the source code for the finished
-project, you can find that [here on github] in my repositories.
+project, you can find that [here on github] in my repositories. If you want to see
+and use the finished project you can do so [right here].
 
 ####The Plan
 
@@ -645,10 +646,18 @@ we do in `doServerPoll` is able to send us any updates that we haven't recieved
 yet. If we fail, we ask to perform the heartbeat to check if the server is alive
 and we let the user know we coudn't load their text.
 
+####Finishing up 
+
+With that, we're finished up. You can see and use the final product [right here]
+and chat with me or anyone else whose online. The files are temporary so they'll
+be cleared out whenever I reboot my server and also whenever I run a cronjob to
+remove the chat file. If you find any bugs or errors please [let me know] and I'll
+get onto fixing it. Have fun and I hope you learned something!
 
 
 
-
+[let me know]:https://github.com/EJEHardenberg/chat-tutorial/issues
+[right here]:http://chat.ethanjoachimeldridge.info/
 [cloudfare's javascript]:http://cdnjs.com/
 [Harp]:http://harpjs.com
 [harp's quickstart page]:http://harpjs.com/docs/quick-
