@@ -7,8 +7,7 @@ project, you can find that [here on github] in my repositories.
 ####The Plan
 
 In this post we're going to install [Harp], and I'll show you some quick tricks 
-and recipes in making our site look decent. Also, we'll also use [pure] css to
-have a decent looking base css file. Once the layout is in place we'll connect
+and recipes in making our site look decent. Once the layout is in place we'll connect
 the front end to the backend with some simple javascript using [jquery]. 
 
 ####Install Harp
@@ -65,7 +64,7 @@ an ejs file does not mean you can't include a jade file. That's one of the beaut
 of harp, you can mix and match and get what you expect.
 
 Next up on our list of basics, data files! Harp supports two data files, **harp.json**
-and **_data.json**. The file we'll be using is **harp.json*, which is a global data
+and **_data.json**. The file we'll be using is **harp.json**, which is a global data
 file accessible from your code anywhere in your ejs or jade files. You cannot access
 this or any other data object within markdown, html, or any other file besides those
 two. Since **harp.json** is a global data sheet, that means **_data.json** is ...
@@ -105,24 +104,96 @@ _harp.json_
 
 We've defined the global properties of our website. Besides the `globals` field 
 all of these properties are arbitrary. You can store whatever you normally store
-into a JSON object for use in your site. On my own site I store CDN url's, macro functions,
+into a JSON object for use in your site. On my own site [I store CDN] url's, [macro functions],
 and even a list of projects. For our server, we've created a sitewide title and description
 as well as defined a `chatdomain`. This domain is going to be a property we use
 in our javascripts to tell the front end where to submit requests to. 
+
 **Note**: Readers of the [previous post] will note that `chatdomain` is our CGI URL.
 
+Our layout is going to be pretty generic, but we don't need much for this:
+
+    <!DOCTYPE html>
+        <head>
+            <title><%= title %></title>
+            <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+            <meta name="description" content="<%= description %>" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="stylesheet" type="text/css" href="/style.css">
+        </head>
+        <body>
+            <%- yield %>
+        </body>
+        <script type="text/javascript">
+            /* Globals for use by the scripts */
+            window.chatdomain = "<%= chatdomain %>"
+        </script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    </html>
+
+
+So here we have our first ejs file, if we want to output some variable we wrap it
+in `<%` and `%>` tags. Once we do this harp will lookup our variable for us and 
+spit it out (provided it exists). When harp performs a lookup, any data in the
+current directory's **_data.json** file will override anything in the **harp.json** 
+global file. This is useful for having a fall back title in your global and then
+having specific ones for each page of your site. 
+
+In our case, we are spitting out a global javascript variable `chatdomain` and 
+attaching it to the window object of the browser. This will allow any of our 
+javascript files to use the URL stored in **harp.json** to find out where the CGI
+server is. We're also using [cloudfare's javascript] CDN to get jquery onto our 
+site without having to download anything to any local environments. 
 
 
 ####Designing our interface
 
-####Using Pure CSS
+Most people in their twenties know what a chatroom looked like, after all, before
+we had Facebook and g+ we had AIM, IRC, and chatrooms everywhere. The internet was
+a wild place of pop-up ads, too many windows open, and being constantly asked for your A/S/L.
+There's less of that now, but the interface to a chat still typically looks something like 
+this:
+
+<img src="/images/tech-blog/chat-diagram.png" width="500px" height="400px" style="padding-left: 25%;">
+
+We're going to make something similar to this, in that we'll have a main window
+area to display the current chat going on, and a dialog box of some kind to send
+messages. Don't worry it will have a _much_ better color scheme and presentation.
+I promise. That said, let's get some code onto the screen:
+
+_index.ejs_
+
+    <header>
+        <h1><%= title %></h1>
+        <small>Talk to random people, you never know who you'll talk to!</small>
+    </header>
+    <section>
+        <form>
+            <input name="u" >
+            <textarea name="m"></textarea>
+            <button>Send</button>
+            <label>
+                <small>Press Enter to Send</small>
+                <input type="checkbox" name="entersend" />
+            </label>
+        </form>
+    </section>
+    <section>
+        <div id="history">
+            <marquee>Loading</marquee>
+        </div>
+    </section>
+
+
+
+####Styling our site
 
 ####Connecting Front to Back
 
 
 
 
-
+[cloudfare's javascript]:http://cdnjs.com/
 [Harp]:http://harpjs.com
 [harp's quickstart page]:http://harpjs.com/docs/quick-
 [partials]:http://harpjs.com/docs/development/partial
@@ -132,6 +203,7 @@ in our javascripts to tell the front end where to submit requests to.
 [here on github]:https://github.com/EJEHardenberg/chat-tutorial
 [first post]:http://www.ethanjoachimeldridge.info/tech-blog/cgi-c-harp-1
 [previous post]:http://www.ethanjoachimeldridge.info/tech-blog/cgi-c-harp-2
-[pure]:http://purecss.io/
 [jquery]:http://jquery.com/
-[yield]:http://harpjs.com/docs/development/yield
+[yield here]:http://harpjs.com/docs/development/yield
+[I store CDN]:http://www.ethanjoachimeldridge.info/tech-blog/harp-macro-revisit
+[macro functions]:http://www.ethanjoachimeldridge.info/tech-blog/harpjs-macros
