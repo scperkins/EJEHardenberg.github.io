@@ -171,6 +171,9 @@ _index.ejs_
     <section>
         <form action="/chat/chat.cgi" method="POST">
             <input name="u" placeholder="Enter your chat handle">
+            <sup>
+                <span name="updates"></span>
+            </sup>
             <button>Send</button>
             <label>
                 <small>Press Enter to Send</small>
@@ -352,7 +355,11 @@ _chat.js_
         var heartbeatURL = window.chatdomain + "/heartbeat.cgi"
         var pollURL = window.chatdomain + "/poll.cgi"
         var readURL = window.chatdomain + "/read.cgi"
+        var serverUp = true
+
     })
+
+**Note**: <small>All javascript code from this point on will be within the `.ready`'s callback function</small>
 
 Remember **chat.js**? We created this file at the beginning of this tutorial, and
 now it's time to fill it out. We define a couple convenience URL's so that we 
@@ -370,7 +377,247 @@ something is up and we shouldn't allow the user to do anything:
     { "heartbeat" : 1408764565, "initialized" : true }
 
 If we get a response like the above then we know we're still connected and don't
-need to disable the chatting functions of the server.
+need to disable the chatting functions of the server. We'll be using the `serverUp` 
+variable to keep track of whether or not our functions should allow users to chat. 
+So let's define a couple of utility functions to make our code cleaner later:
+
+    
+    var userInputs = 'input,textarea,button'
+    function modifyInputs(onOrOff){
+        $(userInputs).prop('disable',onOrOff)
+        $(userInputs).prop('readonly',onOrOff)
+    }
+    function disableInputs(){
+        modifyInputs(true);
+        setTimeout(doHeartBeat, 1000)
+    }
+
+    function enableInputs(){
+        modifyInputs(false)
+        setTimeout(doServerPoll, 1000)
+    }
+
+These functions simply toggle the state of user controls for inputting text. Note
+that this doesn't stop the button from submitting in all browsers, but we'll be 
+handling that one in a difference way through our serverUp variable. We're also 
+calling a couple of functions `doHeartbeat` and `doServerPoll` which we'll get to
+in a moment.
+
+To check our server we'll send a heartbeat request to our CGI script and check the 
+initialized field of the returned object. If we run into any sort of error on the
+way, we'll treat it as a failure then keep repeating our heartbeat until something 
+works.
+
+    function doHeartBeat(){
+        $.ajax({
+            type: "GET",
+            url: heartbeatURL,
+            success: function(response){
+                serverUp = response.initialized         
+                $('marquee').text("Loaded!").blur()
+                $('marquee').fadeTo("slow",0.0)
+                $('#history').fadeTo("fast",1.0)
+                if(serverUp) enableInputs()
+                else disableInputs()
+            },
+            error: function(){
+                $('marquee').fadeTo("slow",1.0)
+                $('marquee').text("Could not connect to server,retrying in 1 second").blur()
+                $('#history').fadeTo("slow",.2)
+                disableInputs()
+                
+            }
+        })
+    }
+
+There's nothing hard about this code, it simply performs an AJAX request in order 
+to accomplish what we literally just described. A heartbeat server check and an 
+initialization of our Chat server's javascript functionality.
+
+#####Polling for updates
+
+The next thing we need to do is to begin Polling the server for data. This is accomplished 
+in the function `doServerPoll`
+
+    var first = true
+    var lastUpdatedTime = (new Date().getTime()/1000).toFixed(0)
+    function doServerPoll(){
+        $.ajax({
+            type: "GET",
+            url: pollURL + "?date=" + lastUpdatedTime,
+            success: function(response){
+                if( response.updated || first){
+                    first = false
+                    getChatHistory()
+                }
+                setTimeout(doServerPoll, 2000)
+            },
+            error: function(){
+                serverUp = false
+                alert("Connection to Server Lost! Reconnecting...")
+                doHeartBeat()
+            }
+        })
+    }
+
+This function call is pretty similar to the heartbeat besides we have to handle the
+very first call to it. In our first call we need to get the chat history, which we'll 
+do with the function `getChatHistory` (not coded yet). We're sending a request to 
+poll the server if there are any updates to the chat history, and if so, we'll display 
+them with the chat history function. If we fail we begin checking the heartbeat of 
+the server again where we'll start the whole process over again. This function, like 
+`doHeartBeat` is recursive, calling `setTimeout` with functions that call itself. Taken 
+as a whole, the heartbeat and the polling create a timed loop on our page.
+
+#####Saving the User's handle and persisting it
+
+Our user's need to have names, otherwise we wouldn't be able to tell them apart. 
+Since we have a place to store the user's name all we have to do is monitor that 
+and update a cookie on our users browser whenever neccesary. Because we're saving 
+the information in a cookie we'll be able to remember the user's name whenever 
+they come back to our page. 
+
+The cookie format is a simple one, and there exist many javascript wrapper libraries 
+out there that take care of the minutiae of dealing with it for you. But since our 
+use case is _so_ simple we're just going to set it directly.
+
+    var cookieName = "userhandle"
+    function setUserHandle(){
+        var value = $('input[name=u]').val()
+        if(value.trim() == "") return;
+        var date = new Date();
+        date.setTime(date.getTime()+(365*24*60*60*1000));
+        var expires = "; expires="+date.toGMTString();
+        
+        document.cookie = cookieName+"="+value+expires+"; path=/";
+    }
+
+    function readUserHandle() {
+        var nameEQ = cookieName + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+
+Both of these functions are modified versions of [this S.O answer] that have been 
+changed to fit into our single cookie use case. With these two utility functions 
+we can automatically set the users name or change it whenever they want. To facilitate 
+this, we'll use jQuery to add an event handler onto the input.
+
+    var savedHandle = readUserHandle()
+    if(savedHandle != null){
+        $('input[name=u]').val(savedHandle)
+    }
+    $('input[name=u]').on('keyup',setUserHandle)
+    $('input[name=u]').on('change',setUserHandle)
+
+Whenever a user presses a key or moves their focus outside of the user input box 
+we'll set the handle cookie. In addition, we come to the first line of code that 
+aren't just function calls! When the page loads we'll grab the cookie of the user 
+and if it exists we'll set the input to that value. In this way, we provide the 
+user with the pleasant experience of not having to enter their handle everytime.
+
+#####Sending the server a message
+
+While you can post the form right now and it will submit, it's not very helpful 
+to send the user **away** from the screen they're on for a live chat experience. 
+So we need to override the handlers on the form itself to prevent the page from 
+changing, this is easily done like so:
+
+    $('form').submit(function(evt){
+        evt.preventDefault()
+        if(!serverUp){
+            alert("The Server is not available right now. Please wait while we establish your connection")
+            return false
+        }
+        /* Some simple validation */
+        if( $('input[name=u]').val().trim() == "" ){
+            alert("You must enter a username!")
+            return false
+        }
+
+        if( $('input[name=u]').val().trim().length > 20 ){
+            alert("usernames must be less than 20 characters")
+            return false
+        }
+
+        if( $('textarea').val().trim() == "" ){
+            alert("Please enter a message before sending")
+            return false
+        }
+
+        
+        var data = $(this).serialize()
+        var url = $(this).attr('action')
+        var method = $(this).attr('method')
+        $(this).fadeTo("slow",0.5)
+        $.ajax({
+            type: method,
+            data: data,
+            url: url,
+            context: this,
+            success: function(response){
+                var updates = $(this).find('span[name=updates]')
+                updates.text(response.message)
+                setTimeout(function(){
+                    updates.text("")
+                }, 500)
+                $(this).find('textarea').val("")
+                $(this).fadeTo("slow",1.0)
+                $(this).find('textarea').focus()
+            },
+            error: function(){
+                var updates = $(this).find('span[name=updates]')
+                updates.text("There was an error in contacting the server, please hold.")
+                setTimeout(function(){
+                    updates.text("")
+                }, 3000)
+                $(this).fadeTo("slow",1.0)
+                serverUp = false
+                doHeartBeat()
+            }
+        })
+        return false
+
+    })    
+
+Note that the only reason this function is so much code is because we validate that we
+actually submitting something to the server before we send it. Even though we
+do validation on the server itself, it's still best practices to validate everywhere. 
+Within the success/error callbacks of the `$.ajax` method we're using the `span` 
+tag inside. If we fail we'll update the span tags to show a message to the user 
+for a short period of time.
+
+The only thing left to do as far as sending messages go, is to make it possible
+to send a chat message by pressing the enter key. We can do this by monitoring 
+the clicked state of the checkbox, and updating a boolean variable within the javascript
+that is used by another listener on the textarea.
+
+    var enterToSend = false
+    $('input[name=entersend]').click(function(evt){
+        entersend = this.checked
+    })
+    $('textarea[name=m]').on('keydown',function(evt){
+        if(entersend){
+            if (event.which == 13 || event.keyCode == 13) {
+                $('form').submit()
+            }
+        }
+    })
+
+We use both `event.which` and `event.keyCode` becuase some browsers don't support
+`keyCode`. With this in place we can finish up our chat server by showing what
+we've been submitting to the user.
+
+#####Reading the chat history
+
+
+
+
 
 
 
@@ -392,3 +639,4 @@ need to disable the chatting functions of the server.
 [this]:http://ajaxload.info/
 [less]:http://lesscss.org/
 [generated here]:http://css-tricks.com/examples/ButtonMaker/#
+[this S.O answer]:http://stackoverflow.com/a/24103596/1808164
