@@ -187,7 +187,8 @@ _index.ejs_
     <section>
         <div id="history">
             <marquee>Loading</marquee>
-            <pre></pre>
+            <!-- inline becuase pre refuses to listen to us sometimes -->
+            <pre style="margin: 5px; word-wrap: break-word; overflow-y: auto; max-height: 300px;"></pre>
         </div>
     </section>
 
@@ -625,6 +626,11 @@ server, it's what loads the current chat into the user's view and lets them
 know they're online. It's a simple ajax call and one important assignment to
 `lastUpdatedTime`:
 
+    function scrollFix(){
+        var elem = $('#history pre')[0]
+        elem.scrollTop = elem.scrollHeight
+    }
+
     function getChatHistory(){
         $.ajax({
             url: readURL,
@@ -636,6 +642,7 @@ know they're online. It's a simple ajax call and one important assignment to
             success: function(response){
                 /* The response is plain/text */
                 $('#history pre').text(response)
+                scrollFix()
                 lastUpdatedTime = (new Date().getTime()/1000).toFixed(0)
             }
         })
@@ -644,7 +651,8 @@ know they're online. It's a simple ajax call and one important assignment to
 By setting `lastUpdatedTime` to when we last updated our chat history the polling
 we do in `doServerPoll` is able to send us any updates that we haven't recieved
 yet. If we fail, we ask to perform the heartbeat to check if the server is alive
-and we let the user know we coudn't load their text.
+and we let the user know we coudn't load their text. Also, we move the view of the
+history down by calling our `scrollFix` function. 
 
 ####Finishing up 
 
