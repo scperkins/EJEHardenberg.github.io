@@ -186,6 +186,7 @@ _index.ejs_
     <section>
         <div id="history">
             <marquee>Loading</marquee>
+            <pre></pre>
         </div>
     </section>
 
@@ -269,8 +270,10 @@ at it:
                     min-height: 400px;
                     display: block;
                     width: 100%;
-                    
                     overflow: auto;
+                    pre{
+                        text-align: left;
+                    }
                 }
             }
             padding-bottom: 10px;
@@ -615,7 +618,32 @@ we've been submitting to the user.
 
 #####Reading the chat history
 
+Believe it or not, this is extremely easy to do. Our last, but most important 
+function to write is `getChatHistory`, called from our first polling to the 
+server, it's what loads the current chat into the user's view and lets them 
+know they're online. It's a simple ajax call and one important assignment to
+`lastUpdatedTime`:
 
+    function getChatHistory(){
+        $.ajax({
+            url: readURL,
+            method: "GET",
+            error: function(){
+                $('#history pre').text("Could not load chat history!")
+                doHeartBeat()
+            },
+            success: function(response){
+                /* The response is plain/text */
+                $('#history pre').text(response)
+                lastUpdatedTime = (new Date().getTime()/1000).toFixed(0)
+            }
+        })
+    }
+
+By setting `lastUpdatedTime` to when we last updated our chat history the polling
+we do in `doServerPoll` is able to send us any updates that we haven't recieved
+yet. If we fail, we ask to perform the heartbeat to check if the server is alive
+and we let the user know we coudn't load their text.
 
 
 
