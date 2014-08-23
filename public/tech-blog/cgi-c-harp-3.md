@@ -168,14 +168,15 @@ _index.ejs_
         <small>Talk to random people, you never know who you'll talk to!</small>
     </header>
     <section>
-        <form>
-            <input name="u" >
-            <textarea name="m"></textarea>
+        <form action="/chat/chat.cgi" method="POST">
+            <input name="u" placeholder="Enter your chat handle">
             <button>Send</button>
             <label>
                 <small>Press Enter to Send</small>
-                <input type="checkbox" name="entersend" />
+                <input type="checkbox" name="entersend"  />
             </label>
+            <textarea name="m" placeholder="type your message here and press send"></textarea>
+            
         </form>
     </section>
     <section>
@@ -184,11 +185,150 @@ _index.ejs_
         </div>
     </section>
 
+When rendered in a browser we get a bundle of elements on our page:
 
+<img src="/images/tech-blog/elements-of-chat.png" width="544" height="198" style="padding-left: 25%" />
+
+Yes, we're using a marquee tag. Why not? I like to have some fun with my HTML. And
+sadly, the [blink tag] is deprecated. It makes a decent loading animation if you
+don't want to use something like [this] to make a nice loading image. Note that
+our form is posting to our CGI script that will create a message for us. We've
+also put a send button in place, as well as the option to use enter to send instead
+of pressing the button. We'll wire this whole thing up after we've made it acceptable
+to look at.
 
 ####Styling our site
 
+One of the many reasons I use [Harp] is for the native [less] support. I love being
+able to write my CSS in a hierarchical way. If you haven't used [less] before, 
+there's no reason to fear! I'm sure you'll understand it with just a single glance 
+at it:
+
+    @bgcolor: #F24E20;
+
+    html{
+        font-family: Georgia, Serif;
+        background-color: lighten(@bgcolor, 10);
+    }
+    body{
+        margin: 0 auto;
+        text-align: center;
+        width: 60%;
+        background-color: @bgcolor;
+        border-radius: 2em;
+        header{
+            width: 100%;
+            padding: 0;
+            background-color: darken(@bgcolor, 20);
+            h1{
+                padding-bottom: 5px;
+                margin-top: 0px;
+                margin-bottom: 0px;
+            } 
+            small{
+                display: block;
+                width: 100%;
+                padding-top: 5px;
+                font-style: italic;
+                background-color: darken(@bgcolor, 10);
+            }
+        }
+        section{
+            width: 100%;
+            form{
+                padding-left: 10%;
+                width: 80%;
+                input,textarea{
+                    width: 100%;
+                    display: block;
+                }
+                textarea{
+                    min-height: 60px;
+                }
+                label{
+                    input{
+                        vertical-align: middle;
+                        display: inline-block;
+                        width: auto;
+                    }
+                }
+            }
+            #history{
+                min-height: 400px;
+                background-color: #eee;
+                width: 80%;
+                margin-left: 10%;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                padding-bottom: 10px;
+                div{
+                    min-height: 400px;
+                    display: block;
+                    width: 100%;
+                    
+                    overflow: auto;
+                }
+            }
+            padding-bottom: 10px;
+        }
+    }
+
+    button {
+       border-top: 1px solid #f797bf;
+       background: #d66585;
+       background: -webkit-gradient(linear, left top, left bottom, from(#9c3e78), to(#d66585));
+       background: -webkit-linear-gradient(top, #9c3e78, #d66585);
+       background: -moz-linear-gradient(top, #9c3e78, #d66585);
+       background: -ms-linear-gradient(top, #9c3e78, #d66585);
+       background: -o-linear-gradient(top, #9c3e78, #d66585);
+       -webkit-border-radius: 15px;
+       -moz-border-radius: 15px;
+       border-radius: 15px;
+       -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+       -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+       box-shadow: rgba(0,0,0,1) 0 1px 0;
+       text-shadow: rgba(0,0,0,.4) 0 1px 0;
+       color: white;
+       text-decoration: none;
+       vertical-align: middle;
+       }
+    button:hover {
+        cursor: pointer;
+        border-top-color: #28597a;
+        background: #28597a;
+        color: #ccc;
+       }
+    button:active {
+       border-top-color: #1b435e;
+       background: #1b435e;
+       }
+
+A couple things, you can pretty much ignore the button css, all of that was 
+[generated here] because I'm too lazy to spend a lot of time on a gradient. But
+the rest of the code is all mine and yours. The color theme exists to show you
+that the `darken` function of less is very cool. Also, you'll notice that we have
+a variable controlling the color scheme of the page. Variables in less begin with
+an `@` sign, and are declared the same as other CSS properties, like so:
+
+    @somevar: sameval;
+
+Another thing to notice is the nesting of elements, this is the hierachical structuring
+of less that I was talking about. It is very intuitive to follow that the CSS rules
+apply with the cascade of nesting and only there. Writing the same thing in plain
+CSS would take a good amount more code and be far less readable. Also, harp minifies
+your assets for you, so you don't have to go to an outside tool for that either!
+
+Once the above css is in place, the chat screen will now look like this:
+
+<img src="/images/tech-blog/chat-styled.png" width="600px" height="362px" style="padding-left: 25%">
+
+Which is far better than a mess of elements on the screen. It's certainly not the
+most beautiful thing in the world, but it's good enough for this tutorial. We're
+almost done with our chat server now! We just need to wire the components up!
+
+
 ####Connecting Front to Back
+
 
 
 
@@ -206,4 +346,8 @@ _index.ejs_
 [jquery]:http://jquery.com/
 [yield here]:http://harpjs.com/docs/development/yield
 [I store CDN]:http://www.ethanjoachimeldridge.info/tech-blog/harp-macro-revisit
-[macro functions]:http://www.ethanjoachimeldridge.info/tech-blog/harpjs-macros
+[macro functions]:http://www.ethanjoachimeldridge.info/tech-blog/harpjs-
+[blink tag]:https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blink
+[this]:http://ajaxload.info/
+[less]:http://lesscss.org/
+[generated here]:http://css-tricks.com/examples/ButtonMaker/#
