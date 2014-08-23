@@ -210,7 +210,8 @@ I promise. That said, let&#39;s get some code onto the screen:</p>
 &lt;section&gt;
     &lt;div id=&quot;history&quot;&gt;
         &lt;marquee&gt;Loading&lt;/marquee&gt;
-        &lt;pre&gt;&lt;/pre&gt;
+        &lt;!-- inline becuase pre refuses to listen to us sometimes --&gt;
+        &lt;pre style=&quot;margin: 5px; word-wrap: break-word; overflow-y: auto; max-height: 300px;&quot;&gt;&lt;/pre&gt;
     &lt;/div&gt;
 &lt;/section&gt;</code></pre>
 <p>When rendered in a browser we get a bundle of elements on our page:</p>
@@ -596,7 +597,12 @@ function to write is <code>getChatHistory</code>, called from our first polling 
 server, it&#39;s what loads the current chat into the user&#39;s view and lets them 
 know they&#39;re online. It&#39;s a simple ajax call and one important assignment to
 <code>lastUpdatedTime</code>:</p>
-<pre><code>function getChatHistory(){
+<pre><code>function scrollFix(){
+    var elem = $(&#39;#history pre&#39;)[0]
+    elem.scrollTop = elem.scrollHeight
+}
+
+function getChatHistory(){
     $.ajax({
         url: readURL,
         method: &quot;GET&quot;,
@@ -607,6 +613,7 @@ know they&#39;re online. It&#39;s a simple ajax call and one important assignmen
         success: function(response){
             /* The response is plain/text */
             $(&#39;#history pre&#39;).text(response)
+            scrollFix()
             lastUpdatedTime = (new Date().getTime()/1000).toFixed(0)
         }
     })
@@ -614,7 +621,8 @@ know they&#39;re online. It&#39;s a simple ajax call and one important assignmen
 <p>By setting <code>lastUpdatedTime</code> to when we last updated our chat history the polling
 we do in <code>doServerPoll</code> is able to send us any updates that we haven&#39;t recieved
 yet. If we fail, we ask to perform the heartbeat to check if the server is alive
-and we let the user know we coudn&#39;t load their text.</p>
+and we let the user know we coudn&#39;t load their text. Also, we move the view of the
+history down by calling our <code>scrollFix</code> function. </p>
 <h4>Finishing up</h4>
 <p>With that, we&#39;re finished up. You can see and use the final product <a href="http://chat.ethanjoachimeldridge.info/">right here</a>
 and chat with me or anyone else whose online. The files are temporary so they&#39;ll
