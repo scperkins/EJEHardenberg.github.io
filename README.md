@@ -19,9 +19,12 @@ good macros you can use in your own. For example:
 - [XML Sitemap]: an adaption of Harp's sitemap recipe (ordered list)
   into a search engine compliant xml format.
 
+- [Javascript Inclusion]: a recipe on including javascript files based on your
+  file path.
 
 [CDN Recipe]:http://www.ethanjoachimeldridge.info/tech-blog/harp-macro-revisit
 [XML Sitemap]:http://www.ethanjoachimeldridge.info/tech-blog/xml-sitemap-for-harpjs
+[Javascript Inclusion]:http://www.ethanjoachimeldridge.info/tech-blog/dynamically-including-js
 
 [visit the site]:http://www.ethanjoachimeldridge.info
 [Harp]:http://www.harpjs.com
