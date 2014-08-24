@@ -263,5 +263,12 @@
     "description" : "Third installment of a C CGI and Harp powered chat platform. This post shows how to create the web interface to the server",
     "keywords" : "C,CGI,Harp,HarpJS,Chat,Server,tutorial,qdecoder,API,HTML,CSS,javascript,Ethan,Eldridge",
     "freq" : "monthly"
+  },
+  "dynamically-including-js" : {
+    "title" : "Loading JS dynamically in Harp",
+    "date" : "2014-08-24",
+    "description" : "How to dynamically include Javascript on a page served by harp",
+    "keywords" : "Harp,HarpJS,javascript,dynamic,include,Ethan,Eldridge,recipe",
+    "freq" : "monthly"
   }
 }
