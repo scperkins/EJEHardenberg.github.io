@@ -270,5 +270,11 @@
     "description" : "How to dynamically include Javascript on a page served by harp",
     "keywords" : "Harp,HarpJS,javascript,dynamic,include,Ethan,Eldridge,recipe",
     "freq" : "monthly"
+  },
+  "autoload-harp-css-js" : {
+    "title" : "Autoload your CSS and Javascript in Harp",
+    "date" : "2014-08-25",
+    "description" : "In a follow up to the last post, I'll show you how to use the same technique to load both CSS and Javascript",
+    "keywords" : "Harp,HarpJS,javascript,dynamic,autoload,recipe,Ethan,Eldridge"
   }
 }
