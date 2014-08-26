@@ -22,6 +22,9 @@ good macros you can use in your own. For example:
 - [Javascript Inclusion]: a recipe on including javascript files based on your
   file path.
 
+- [Autoload Resources]: a recipe on including both CSS and Javascript based on
+  the current file path.
+
 I also blog about my projects that I do, you can checkout the project page on 
 the website for that. One of the ones that I like is my [chat server tutorial] 
 series. Feel free to check it out!
@@ -29,8 +32,10 @@ series. Feel free to check it out!
 [CDN Recipe]:http://www.ethanjoachimeldridge.info/tech-blog/harp-macro-revisit
 [XML Sitemap]:http://www.ethanjoachimeldridge.info/tech-blog/xml-sitemap-for-harpjs
 [Javascript Inclusion]:http://www.ethanjoachimeldridge.info/tech-blog/dynamically-including-js
+[Autoload Resources]:http://www.ethanjoachimeldridge.info/tech-blog/autoload-harp-css-js
 
 [chat server tutorial]:http://www.ethanjoachimeldridge.info/tech-blog/cgi-c-harp-1
+
 
 [visit the site]:http://www.ethanjoachimeldridge.info
 [Harp]:http://www.harpjs.com
