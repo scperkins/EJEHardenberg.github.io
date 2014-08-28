@@ -15,7 +15,7 @@ While creating this website I also tested xemarks capabilities as a CGI script. 
 - Also, you'll need to have the xemark executable and example.xe in the same directory as your serving python program
 =
 
-[bash script]:https://github.com/EJEHardenberg/EJEHardenberg.github.io/blob/master/generate_site
+[bash script]:https://github.com/EJEHardenberg/ethanjoachimeldridge.info/blob/master/generate_site
 [xemark]:https://github.com/EJEHardenberg/xemark
 [BNF]:https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form
 [few notes of my own.]:https://github.com/EJEHardenberg/xemark/blob/master/Grammar.xemark

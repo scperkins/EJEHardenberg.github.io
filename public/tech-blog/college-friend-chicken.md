@@ -28,4 +28,4 @@ It was a fun project and I'll probably keep adding recipes to it as I cook more.
 
 [SnapChat]:http://www.snapchat.com/
 [Harp]:http://harpjs.com
-[here]:http://ejehardenberg.github.io/cooking/
+[here]:http://ethanjoachimeldridge.info/cooking/
