@@ -1,4 +1,9 @@
 {
+	"letter" : {
+		"title" : "Letter",
+		"date" : "2014-08-28",
+		"freq" : "monthly"
+	},
 	"values" : {
 		"title" : "Values",
 		"date" : "2014-08-18",
