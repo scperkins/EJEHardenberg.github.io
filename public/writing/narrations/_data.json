@@ -1,4 +1,9 @@
 {
+	"choice" : {
+		"title" : "Choice",
+		"date" : "2014-08-29",
+		"freq" : "monthly"
+	},
 	"scooter" : {	
 		"title" : "Scooter",
 		"date" : "2014-08-25",
