@@ -121,7 +121,7 @@ is unhealthy. Useful!
 
 
 [Varnish]:https://www.varnish-cache.org/
-[blogged before]:http://ethanjoachimeldridge.info/blog/varnish
+[blogged before]:http://ethanjoachimeldridge.info/tech-blog/varnish
 [XenonApps]:http://xenonapps.com
 [Green Up App]:https://itunes.apple.com/us/app/green-up-vt/id860271437?ls=1&mt=8
 [AWS]:http://aws.amazon.com/
