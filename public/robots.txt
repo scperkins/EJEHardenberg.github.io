@@ -1,0 +1,2 @@
+User-agent: LinkWalker/3.0 (http://www.brandprotect.com)
+Disallow: /
