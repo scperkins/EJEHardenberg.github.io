@@ -2,8 +2,8 @@ Some background on me:
 -----------------------------------------------------------------------
 
 I grew up in the [90s], learning how to program in Basic from a
-programming book in 7th grade. I learned basic HTML in 8th grade and
-throughout highschool I took classes in Flash, Visual Basic, C++ and web
+programming book in 7th grade. The next year I learned basic HTML and
+throughout highschool took classes in Flash, Visual Basic, C++ and web
 design. Besides spending time on the computer, I played flute for 9 years
 and picked up other instruments like guitar, drums, and the bass along 
 the way. 
@@ -29,10 +29,12 @@ What I do now:
 After graduating I interned through a program called [Vermont HITEC] and
 landed an internship at [Bear Code] working on Java 2EE and Rails
 projects. I spent the summer working on the back end system for
-[YouDilligence] and after a few months began designing
-a system for a [localvore]. Bear Code hired me after my internship was
+[YouDilligence] and after a few months began designing and implementing
+a system for [localvore]. Bear Code hired me after my internship was
 over and I currently work as a Junior Developer there; though I also do
-contract work on the side sometimes.
+contract work on the side sometimes. At Bear Code I work in PHP, Java, and
+any other language to get the job done, and also research and study applied
+computer vision.
 
 In my spare time, I like to work on my personal projects as well as 
 contribute to Open Source ones. You can check out my [Github] for a 
