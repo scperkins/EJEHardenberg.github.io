@@ -290,5 +290,30 @@
 		],
 		"date" : "2014-07-18",
 		"freq" : "monthly"
+	},
+	"rice-stirfry" : {
+		"title" : "Vegi-stir fry",
+		"image" : "rice-stirfry.jpg",
+		"difficulty" : "easy",
+		"ingredients" : [
+			{"name" : "1/2 a Summer Squash"},
+			{"name" : "1/4 a sliced tomato"},
+			{"name" : "1/2 sliced red pepper"},
+			{"name" : "1/2 sliced green pepper"},
+			{"name" : "1/2 sliced onion"},
+			{"name" : "1/2 cup rice"},
+			{"name" : "Vegitable or Olive oil"}
+		],
+		"description" : "A really simple bunch of vegis that can add color and taste to any dish!",
+		"date" : "2014-09-02",
+		"freq" : "monthly",
+		"directions" : [
+			{"instruction" :  "Pour 1 cup of water into a pot and start boiling it for the rice, when it begins to bubble add the rice and turn the heat to low"},
+			{"instruction" : "Add oil to a frying pan and turn it to medium heat, letting it heat up while you chop the vegitables"},
+			{"instruction" : "Add the vegitables to the hot oil and stir occasionally" },
+			{"instruction" : "Keep stirring/mixing until the rice has cooked for at least 20 minutes, then strain the rice and add it to the vegitables"},
+			{"instruction" : "mix it all up and add soy sauce or any seasonings you want"},
+			{"instruction" : "Eat! For a heartier meal you can add pulled pork, chicken, or pepperoni to the pan as well!"}
+		]
 	}
 }
