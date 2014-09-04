@@ -1,0 +1,38 @@
+@fallback: blue;
+@background: linear-gradient(#2e88c4, #075698);
+
+.bubble{
+	content: "";
+	position: absolute;
+	background-color: @fallback;
+	background: @background;
+	border-radius: 30px;
+}
+
+.thought{
+	display: inline-block;
+	width: 20%;
+	padding: 50px 40px;
+	margin: 1em auto 80px;
+	text-align: center;
+	color: #fff;
+	background-color: @fallback;
+	background: @background;
+	border-radius: ~"220px/120px"; /* Ugly Hack https://github.com/less/less.js/issues/146 */
+	position: relative;
+	/* Make the thought bubbles */
+	&:before{
+		.bubble;
+		bottom: -20px;
+		left: 50px;
+		width: 30px;
+		height: 30px;
+	}
+	&:after{
+		.bubble;
+		left: 30px;
+		bottom: -30px;
+		width: 15px;
+		height: 15px;
+	}
+}
