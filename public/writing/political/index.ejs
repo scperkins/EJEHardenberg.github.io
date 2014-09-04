@@ -1,15 +1,13 @@
 <section>
-	<ul>
-		<% 
-		for( item in public.writing.political._data){
-			if(item == "index") continue
-			var thought = public.writing.political._data[item]
-			%>
-			<li class="thought">
-				<a href="<%= item %>"><%= thought.title %></a>
-			</li>
-			<%
-		}
+	<div>
+	<% 
+	for( item in public.writing.political._data){
+		if(item == "index") continue
+		var thought = public.writing.political._data[item]
 		%>
-	</ul>
+		<a class="thought" href="<%= item %>"><%= thought.title %></a>
+		<%
+	}
+	%>
+	</div>
 </section>
