@@ -1,8 +1,9 @@
 <section>
+	<h2><a href="disclaimer">Disclaimer</a></h2>
 	<div>
 	<% 
 	for( item in public.writing.political._data){
-		if(item == "index") continue
+		if(item == "index" || item == "disclaimer") continue
 		var thought = public.writing.political._data[item]
 		%>
 		<a class="thought" href="<%= item %>"><%= thought.title %></a>

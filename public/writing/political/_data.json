@@ -4,21 +4,9 @@
 		"description" : "Thoughts, opinions, musings, and general feelings on opinions today",
 		"freq" : "daily"
 	},
-	"test" : {
-		"title" : "This is just a test"
-	},
-	"test1" : {
-		"title" : "This is just a test"
-	},"test2" : {
-		"title" : "This is just a test"
-	},"test3" : {
-		"title" : "This is just a test"
-	},"test4" : {
-		"title" : "This is just a test"
-	},"test5" : {
-		"title" : "This is just a test"
-	},"test6" : {
-		"title" : "This is just a test"
+	"disclaimer" : {
+		"title" : "A Disclaimer on Views expressed",
+		"description" : "A simple warning to those who may enter and read",
+		"freq" : "monthly"
 	}
-
 }
