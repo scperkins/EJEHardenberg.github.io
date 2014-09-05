@@ -26,6 +26,17 @@ section{
 	border-radius: 30px;
 }
 
+
+.Transition{
+	-o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+	/* ...and now for the proper property */
+    transition:.5s;
+}
+
+
 .border-radius(@prop){
 	-webkit-border-radius:@prop;
   	-moz-border-radius:@prop;
@@ -33,6 +44,7 @@ section{
 }
 
 .thought{
+	.Transition;
 	.thoughtcompat;
 	/* Things to make it look like a bubble:; */
 	font-size: 1.5em;
@@ -62,5 +74,16 @@ section{
 		width: 15px;
 		height: 15px;
 		.border-radius(15px);
+	}
+	&:hover{
+		color: black;
+		background-color: darken(@fallback, 10);
+		background: linear-gradient(darken(#2e88c4,10), lighten(#075698, 10));
+	}
+	&:visited{
+		color: white;
+	}
+	&:active{
+		color: black;
 	}
 }
