@@ -315,5 +315,31 @@
 			{"instruction" : "mix it all up and add soy sauce or any seasonings you want"},
 			{"instruction" : "Eat! For a heartier meal you can add pulled pork, chicken, or pepperoni to the pan as well!"}
 		]
+	},
+	"chicken-salad" : {
+		"title" : "Toasted Almond Chicken Salad",
+		"image" : "chicken-salad.jpg",
+		"difficulty" : "easy",
+		"ingredients" : [
+			{"name" : "1 Chicken Breast" },
+			{"name" : "1 Small Red Onion"},
+			{"name" : "1 Slice of Lemon"},
+			{"name" : "1/2 Cup Mayonaise"},
+			{"name" : "Pepper (to taste, or 1/4 teaspoon" },
+			{"name" : "1/2 Cup almonds (sliver or not your choice)"},
+			{"name" : "1 or 2 Stalks of celery"}
+		],
+		"description" : "A simple and delicious chicken salad recipe. Makes enough for 1 or 2. Also you can always toast more almonds than you need and have a snack!",
+		"date" : "2014-09-06",
+		"freq" : "monthly",
+		"difficulty" : "easy",
+		"directions" : [
+			{"instruction" : "Chop up all the vegitables and put them into a container"},
+			{"instruction" : "Slice the chicken into small chunks and fry in a pan on medium heat until white throughout"},
+			{"instruction" : "Dump chicken in with vegitables in container, in another pan start roasting the almonds (medium heat or highter)" },
+			{"instruction" : "Squeeze the lemon slice over the chicken and vegis and add pepper and mayonaise"},
+			{"instruction" : "Be sure to toss and shake the almonds until they're roasted well, bot burnt then add the almonds to the mix and stir" },
+			{"instruction" : "Eat or serve cold later"}
+		]
 	}
 }
