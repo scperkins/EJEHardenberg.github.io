@@ -241,10 +241,12 @@ about games, and that's really it.
 At this point, anyone responding to Quinn or her followers are really just taking
 bait and not helping the true goal of the cause. It's important to keep an eye
 on them, as they might have valid things to say at some point. But always remember
-guys,girls, and in-betweens.
+guys,girls, and in-betweens:
 
-<img src="/images/politics/gamer-gate/b8.jpg">
+<img style="padding-left: 20%;" src="/images/politics/gamer-gate/b8.jpg">
 
+
+**Please read the disclaimer linked at the top of the page before commenting.**
 
 
 
