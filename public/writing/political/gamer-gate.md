@@ -18,7 +18,7 @@ If you want a TL;DR; I highly suggest you check the [wiki] here. It's got the ke
 points without a lot of the drama. The drama is what I'm going to look at in the
 first part of this post because it's how this thing got so big in the first place.
 
-First off, for a more neutral view on this, check out [aljazeera] they do a good
+First off, for a more unbiased view on this, check out [aljazeera] they do a good
 job of remaining neutral most of the time, and while they don't have every fact
 on there. It's a good overview of some of the stuff that's happened. Also, GamerGate,
 despite how much she is mentioned, is not about Zoe Quinn.
@@ -179,7 +179,7 @@ Let me address something here quickly. When I say 4chan, the reaction I get from
 people is one of disgust, contempt, or all around "what the hell is wrong with you?".
 The reason for that is because 4chan is, lovingly known, as "the asshole of the internet".
 They get blamed for a lot of stuff. Sometimes rightly, sometimes incorrectly. The
-people who accuse 4chan of this are only thinking of the imageboard known as /b/.
+people who accuse 4chan of this are only thinking of the imageboard known as /b/ 90% of the time.
 
 /b/ Is the random board. It literally can have posts about anything. It is the 
 wildest, most rediculous, and most offensive board it can be, simply because it
@@ -194,7 +194,7 @@ of being rogue and able to say whatever you want to say continues on /b/.
 refuge for various groups of people. There are boards for [origami], there are
 boards for [science and math], there are boards for [programming], etc. I don't
 need to go on, the various chans out there offer tons of places for people with
-similar interests to gather. 
+similar interests to gather (Such as video gamers). 
 
 But I digress, let's refocus the argument back to GamerGate.
 
@@ -207,7 +207,7 @@ if someone is an **Ambassador of Gaming** it is their job to represent all of ga
 Not just women. Not just the battles they pick and choose. The representation they
 want, is not what the gaming media shows. I don't think I've seen a bigger example
 of how it doesn't than the way this whole thing has been treated. The way 
-[#NotYourShield tag blew up] is not just a PR move. It's because the anyone willing
+[#NotYourShield tag blew up] is not just a PR move. It's because anyone willing
 to take the bait of arguing with Zoe and her followers are immediately attacked 
 as being male, white, basement nerds who should be castrated.
 
@@ -240,8 +240,7 @@ about games, and that's really it.
 
 At this point, anyone responding to Quinn or her followers are really just taking
 bait and not helping the true goal of the cause. It's important to keep an eye
-on them, as they might have valid things to say at some point. But always remember
-guys,girls, and in-betweens:
+on them, as they might have valid things to say at some point. But always remember:
 
 <img style="padding-left: 20%;" src="/images/politics/gamer-gate/b8.jpg">
 
@@ -260,7 +259,7 @@ guys,girls, and in-betweens:
 [imgur link]:http://imgur.com/a/Mfh61
 [source]:http://www.reddit.com/r/KotakuInAction/comments/2fn6vz/looks_like_zoe_edited_those_irc_logs_a_little/
 [aljazeera]:http://stream.aljazeera.com/story/201409032102-0024126
-[the board game I own and love]:https://pbs.twimg.com/media/Bw7nvwOIgAAtN_6.jpg
+[the board game I own and love]:https://twitter.com/EthanJEldridge/status/508598615926116352/photo/1
 [There's already a compendium of "Zoes side" harassing GamerGate supporters]:http://gamergateharrassment.tumblr.com/
 [suggest reading this great post on the subject]:http://kazerad.tumblr.com/post/96020280368/faceless-together
 [opposed Scientology]:http://en.wikipedia.org/wiki/Project_Chanology
