@@ -8,5 +8,10 @@
 		"title" : "A Disclaimer on Views expressed",
 		"description" : "A simple warning to those who may enter and read",
 		"freq" : "monthly"
+	},
+	"gamer-gate" : {
+		"title" : "Gamer Gate",
+		"description" : "Views and thoughts on #GamerGate and 4chan",
+		"freq" : "monthly"
 	}
 }
