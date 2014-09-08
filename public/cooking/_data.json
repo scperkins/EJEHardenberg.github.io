@@ -344,7 +344,7 @@
 	},
 	"lemon-avocado-sauce" : {	
 		"title" : "Lemon Avocado Sauce",
-		"image" : "",
+		"image" : "avocado-lemon.jpg",
 		"difficulty" : "easy",
 		"ingredients" : [
 			{"name" : "2 Avocados"},
