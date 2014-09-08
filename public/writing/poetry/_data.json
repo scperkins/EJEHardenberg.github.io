@@ -1,4 +1,9 @@
 {
+	"end-of-season" : {
+		"title" : "End of Season",
+		"date" : "2014-09-08",
+		"freq" : "monthly"
+	},
 	"letter" : {
 		"title" : "Letter",
 		"date" : "2014-08-28",
