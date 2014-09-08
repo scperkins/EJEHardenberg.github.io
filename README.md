@@ -1,4 +1,5 @@
-This is my website, there are many like it, but this one is mine. 
+This is my website, there are many like it, but this one is mine. And
+you can [view it here]
 
 Setup:
 ------------------------------------------------------------------------
@@ -36,6 +37,6 @@ series. Feel free to check it out!
 
 [chat server tutorial]:http://www.ethanjoachimeldridge.info/tech-blog/cgi-c-harp-1
 
-
+[view it here]:http://www.ethanjoachimeldridge.fino
 [visit the site]:http://www.ethanjoachimeldridge.info
 [Harp]:http://www.harpjs.com
