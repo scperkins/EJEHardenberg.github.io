@@ -50,6 +50,13 @@ live it. And the recent controversy has only made it worst:
 
 <img src="/images/politics/gamer-gate/wizards.png" style="padding-left: 25%;" width="554px" height="181px" />
 
+**Update** [The Escapist Magazine has apologized to WizardChan]
+
+<blockquote>
+But to explain is not to excuse. Our editor-in-chief, Greg Tito, having reviewed the facts at hand, concluded we ourselves have been imperfect in maintaining journalistic standards. A particularly problematic article, the one which generated his review, was about the alleged harassment of an indie developer by a forum community which denied the allegations but was itself victimized as a result of them. The article failed to cite the harassment as alleged, failed to give the forum community an opportunity present its point of view, and did not verify the claims or secure other sources. Mr. Tito has personally updated the article and spoken to all our editors about the importance of adhering to standards that will prevent such bad incidents from happening again. We, as a team, apologize for this error, both to our readers and to the forum community that suffered as a result. I, personally, apologize for this error, as well.
+</blockquote>
+- Archon
+
 #### The plot thickens, IRC logs? Proof of Harassment? No.
 
 Yesterday, Zoe released a group of screenshots and images showing IRC logs to prove
@@ -274,3 +281,4 @@ on them, as they might have valid things to say at some point. But always rememb
 [gaming journalism that has taken the hit]:http://www.slate.com/articles/technology/bitwise/2014/09/gamergate_explodes_gaming_journalists_declare_the_gamers_are_over_but_they.html
 [the escapist has approached the issue]:http://www.escapistmagazine.com/news/view/137293-Exclusive-Zoe-Quinn-Posts-Chat-Logs-Debunking-GamerGate-4Chan-and-Quinn-Respond
 [gameinformer]:http://www.gameinformer.com/
+[The Escapist Magazine has apologized to WizardChan]:http://www.escapistmagazine.com/articles/view/video-games/editorials/12223-The-Escapist-Publisher-Issues-Public-Statement-on-Gamergate
