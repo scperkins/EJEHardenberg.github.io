@@ -5,6 +5,7 @@ Here's some journalistic integrity for you. These are my biases:
 - I've been going to various chan's since I was in Highschool
 - I've played Video Games for as long as I can remember
 - I'm white. 
+- I'm biologically male
 - I am not a journalist in anyway
 - I made the following meme when 'The Fappening' blew up
 
