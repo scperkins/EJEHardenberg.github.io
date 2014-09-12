@@ -1,4 +1,9 @@
 {
+	"missed" : {	
+		"title" : "Pull me Out",
+		"date" : "2014-09-12",
+		"freq" : "monthly"
+	},
 	"end-of-season" : {
 		"title" : "End of Season",
 		"date" : "2014-09-08",
