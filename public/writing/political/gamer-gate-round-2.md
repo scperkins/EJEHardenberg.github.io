@@ -1,6 +1,6 @@
 ###What does GamerGate Mean to me? 
 
-I wrote [about the scandal] in my last post. But this time I want to
+I wrote a rather biased opinion [about the scandal] in my last post. But this time I want to
 talk about something different. I want to talk about how GamerGate has
 affected me personally. Also, this post will try to touch on some of the
 issues in it as well (no cause is without flaw).
@@ -43,7 +43,7 @@ each others voices. In the same way that people who don't agree with
 \#GamerGate boost each other's opinions, we do the same. We share links,
 articles, and come to each others aid when we run out of ideas or need
 help debating a topic. To draw an obvious parallel, we're playing on the
-same team in an FPS and actually coordinating. 
+same team in an RTS and actually coordinating. 
 
 That last comment reeks of an "us vs them" mentality. This brings me to
 my next point about \#burgersandfries: we actively police each other.
@@ -74,16 +74,97 @@ rallied around it.
 
 
 \*<small>the mentioned IRC member is triggered by trigger warnings and must be
-warned of them in advance. </small>
+warned of them in advance. </small>  
 \*\*<small>That's a link to a video game board on 4chan, if you don't like
-4chan: don't click it.</small>
+4chan: don't click it.</small>  
 \*\*\*<small>The definition of Propaganda: information used to promote or 
-publicize a particular political cause or point of view.</small>
+publicize a particular political cause or point of view.</small>  
 
 
+#### Why I actively promote and push the \#GamerGate hashtag
+
+When people have opinions that they view as important, they want to talk
+about it. In the same way that I really want to write a post about the
+disgusting treatment by the US government of the issues within Ferguson,
+I want to talk about \#GamerGate. Because it's _important_ to me. Because
+when an industry releases 6 articles proclaiming the death of an
+identity within 24 hours, something is wrong. It makes me pause and
+wonder: wait, why do they want to dissuade their consumers from labeling
+themselves as their consumbers? And when that identity is one that I am
+a member of, then yeah, I'm going to start looking into things.
+
+So, you might wonder, how did this guy hear about this? I was browsing
+[/v/] when someone said: "So how does it feel to know that gamers are
+dead?", they linked to an article. Which I looked at and saw the
+wonderful words "misogynists" to describe anyone who plays video games.
+I felt attacked. Why was this website spouting off over-zealous claims
+that an entire group of people were horrible? It's not unheard of for
+such a thing to be true (I'm looking at you Neo Nazis), but to me it
+definitely wasn't true about gamers of all people. 
+
+Sure, when I think about playing a first person shooter online, I know
+that people are gonna trash talk each other. It's par for the course. I
+know some people, when trash talking, get carried away and use language
+that they might not in everyday conversation. I know that there's a lot
+of assholes. But to me, that doesn't mean that the entire culture of the
+identity is screwed up. **A few minor voices in a group do not represent
+an entire group**. And this goes for every single group out there. 
+
+As an example, a few months ago I got into a debate
+about feminism with a few friends. My girlfriend at the time talked to
+me about it, and we talked about it like civil adults. I listened to
+her. She listened to me. We both came out learning a bit more about each
+other's views. Specifically, she learned a lot of statistics about
+male-centered issues in the US court system, and I learned to understand
+that the people who I called "Feminazis" were a small sect of feminism.
+They don't represent the full group, nor do they represent the ideals of
+the movement. 
+
+My point, is that the moment you start looking at only the people in a
+group as being a complete view of that group, you're wrong. You need to
+take a step back, and evaluate what the group stands for. You need to
+get more opinions from as many of the people within the group as you
+can. And with all this information, you need to come to your own
+understanding of what the group is. For me, with feminism, I was focused
+on the extremists, after it was pointed out to me that that's not what
+it's about, I changed my views on the group. One of the reasons I push
+the \#GamerGate tag so hard from my own twitter, is that I think other
+people need to have the same wake up call. Other people need to realize
+that the ideal of journalistic integrity and transparency is what
+\#GamerGate is all about.
+
+#### Fighting for an Ideal and the border on Harassment
+
+So all of this said, we end up looking at a couple of things. How can
+you support something that could be damaging to someone elses career?
+How can you sleep at night knowing you might have robbed someone from
+their job because of something you pushed? How can you know what you're
+doing is right or not? How can you fight for \#GamerGate if you think
+about the effect it has on very real people?
+
+Something that I've wrestled with is my own exitement when the
+vindicating facts come in. Things like [this] got me really excited.
+Because people had posted screenshots of the allegations in email form,
+but no one had provided any audio proof with the department. It got me
+excited, not because I want to see this woman burn, but because here was
+someone actually doing their research. Finding facts. And sharing them
+in a way that could be validated. In other words, journalism. Before you
+get all crazed, the man who posted that is still following up with the
+FBI for details on the case since it might have gone to their
+jurisdiction. **Update: someone posted a screenshot of an email, I'm
+still waiting for the original video poster to respond to it though**. 
+This type of thing, where facts are checked with sources are what I want
+to see more of out of the gaming media. I think that the escapist has
+set an example for everyone [with their public statement to revise their
+policies] and I hope more people follow. 
+
+
+
+[with their public statement to revise their policies]:escapistmagazine.com/articles/view/video-games/editorials/12223-The-Escapist-Publisher-Issues-Public-Statement-on-Gamergate
+[this]:https://www.youtube.com/watch?v=GaXDLpjG3XU
 [great narrative and timeline]:https://medium.com/@cainejw/a-narrative-of-gamergate-and-examination-of-claims-of-collusion-with-4chan-5cf6c1a52a60
-[/v/]:http://www.4chan.org/v/
-[media may claim we're dead]:http://www.forbes.com/sites/erikkain/2014/09/01/the-gamer-is-dead-long-live-the-gamer/
-[Harp]:http://harpjs.com
-[about the scandal]:gamer-gate
-[tech blog]:/tech-blog
+[/v/]:http://www.4chan.org/v/  
+[media may claim we're dead]:http://www.forbes.com/sites/erikkain/2014/09/01/the-gamer-is-dead-long-live-the-gamer/  
+[Harp]:http://harpjs.com  
+[about the scandal]:gamer-gate  
+[tech blog]:/tech-blog  
