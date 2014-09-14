@@ -158,8 +158,48 @@ to see more of out of the gaming media. I think that the escapist has
 set an example for everyone [with their public statement to revise their
 policies] and I hope more people follow. 
 
+#### What is the End goal of \#GamerGate to me?
+
+As recent events have shown, the media protects their friends regardless
+of whether it's right or wrong. They don't fact check, investigate,
+there's places where cronyism is rampant. I want game's to be respected
+due to their merit. Not favoritism or because someone slept with
+someone else. You can check [alexa.com] on sites like kotaku and polygon
+and see that their popularity and rank have dropped dramatically, this
+is how you can tell that \#GamerGate is more than just arguing about a
+he said she said event. This is how you can tell, undeniably, that
+\#GamerGate is a consumer revolt against a media that has failed to
+represent their own. And when the consumer is appeased that a website
+has gotten back to integrious journalism: [they're allowed back with
+welcome arms]. This is a free market system actually working. 
+
+The end goal, for me, is to see a revival of ethical business and
+journalistic standards within the Gaming Industry. Objectivity, honesty,
+and research in each article that's published. At the same time, the
+games produced and marketed must be criticized in a way that makes
+sense. If a game is blatently sexist or "tropey" then it should be
+pointed out so, in a biased and objective manner. The end goal is not to
+cause people to lose their jobs, but to help them become better at them.
+I don't want feminism ousted from gaming, in my opinion it offers a
+valid lense to look at a piece of artwork through. I want feminism
+within the industry to push and empower women, as [The Fine Young
+Capitalists have done]. What I don't need or want, is an opressive voice
+silencing artistic freedom of expression for it's own furtherings of
+unresearched propaganda. Sometimes, a duck is just a duck. 
+
+#### Conclusion
+
+In the end you must decide for yourself what you believe. In the end you
+must decide if you will research your own facts and look at the sources
+of articles. You must decide if you will allow others to think for you,
+or if you will take your grain of salt with each article, each blog
+post, each headline you read. It is your choice and no one but you
+should ever make that decision for you.
 
 
+[The Fine Young Capitalists have done]:http://www.thefineyoungcapitalists.com
+[they're allowed back with welcome arms]:http://www.alexa.com/siteinfo/escapistmagazine.com
+[alexa.com]:http://www.alexa.com/
 [with their public statement to revise their policies]:escapistmagazine.com/articles/view/video-games/editorials/12223-The-Escapist-Publisher-Issues-Public-Statement-on-Gamergate
 [this]:https://www.youtube.com/watch?v=GaXDLpjG3XU
 [great narrative and timeline]:https://medium.com/@cainejw/a-narrative-of-gamergate-and-examination-of-claims-of-collusion-with-4chan-5cf6c1a52a60
