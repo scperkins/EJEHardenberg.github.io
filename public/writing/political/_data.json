@@ -9,6 +9,11 @@
 		"description" : "A simple warning to those who may enter and read",
 		"freq" : "monthly"
 	},
+	"gamer-gate-round-2" : {
+		"title" : "End Goals of Gamer Gate",
+		"description" : "My personal views on how #GamerGate affects me, and what I want out of it in the end.",
+		"freq" : "monthly"
+	},
 	"gamer-gate" : {
 		"title" : "Gamer Gate",
 		"description" : "Views and thoughts on #GamerGate and 4chan",
