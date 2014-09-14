@@ -37,6 +37,6 @@ series. Feel free to check it out!
 
 [chat server tutorial]:http://www.ethanjoachimeldridge.info/tech-blog/cgi-c-harp-1
 
-[view it here]:http://www.ethanjoachimeldridge.fino
+[view it here]:http://www.ethanjoachimeldridge.info
 [visit the site]:http://www.ethanjoachimeldridge.info
 [Harp]:http://www.harpjs.com
