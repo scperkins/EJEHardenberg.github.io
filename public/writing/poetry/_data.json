@@ -1,4 +1,9 @@
 {
+	"haze" : {
+		"title" : "Haze",
+		"date" : "2014-09-15",
+		"freq" : "monthly"
+	},
 	"missed" : {	
 		"title" : "Pull me Out",
 		"date" : "2014-09-12",
