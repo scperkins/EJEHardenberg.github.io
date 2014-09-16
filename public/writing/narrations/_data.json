@@ -1,4 +1,9 @@
 {
+	"routine" : {
+		"title" : "Routine",
+		"date" : "2014-09-16",
+		"freq" : "monthly"
+	},
 	"secret" : {	
 		"title" : "Secret",
 		"date" : "2014-09-01",
