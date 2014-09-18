@@ -1,4 +1,9 @@
 {
+	"gate" : {
+		"title" : "Gatefall",
+		"date" : "2014-09-15",
+		"freq" : "monthly"
+	},
 	"haze" : {
 		"title" : "Haze",
 		"date" : "2014-09-15",
