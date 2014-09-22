@@ -1,4 +1,9 @@
 {
+	"deluge" : {
+		"title" : "Deluge",
+		"date" : "2014-09-22",
+		"freq" : "monthly" 
+	},
 	"gate" : {
 		"title" : "Gatefall",
 		"date" : "2014-09-15",
