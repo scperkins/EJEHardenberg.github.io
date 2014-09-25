@@ -282,5 +282,11 @@
     "date" : "2014-09-01",
     "description" : "Showing how to use a recursive mixin in LESS CSS to create easily coloured likert scales.",
     "keywords" : "likert,scale,LESS,css,color,design,tip,mixin,recursion,recursive"
-  }
+  },
+  "using-encrypted-search-in-chromium" : {
+    "title" : "Using Encrypted Search in Chrome",
+    "date" : "2014-09-25",
+    "description" : "Showing how to set up your browser for more secure searches! For chrome only",
+    "keywords" : "chrome,chromium,security,encrypted,search,encryption,secure,google"
+  } 
 }
