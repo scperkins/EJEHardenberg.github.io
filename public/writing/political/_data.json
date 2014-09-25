@@ -1,8 +1,13 @@
 {
+	"cronyism-and-networking" : {
+		"title" : "Cronyism vs. Networking",
+		"description" : "An critique and observation of the differences and the fine line between Cronyism and Networking",
+		"freq" : "monthly"
+	},
 	"index" : {
 		"title" : "Free Speech on Current Events & Politics",
 		"description" : "Thoughts, opinions, musings, and general feelings on opinions today",
-		"freq" : "daily"
+		"freq" : "monthly"
 	},
 	"disclaimer" : {
 		"title" : "A Disclaimer on Views expressed",
