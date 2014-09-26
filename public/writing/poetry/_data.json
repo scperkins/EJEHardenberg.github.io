@@ -1,4 +1,9 @@
 {
+	"be" : {
+		"title" : "Be",
+		"date" : "2014-09-26",
+		"freq" : "monthly"
+	},
 	"deluge" : {
 		"title" : "Deluge",
 		"date" : "2014-09-22",
