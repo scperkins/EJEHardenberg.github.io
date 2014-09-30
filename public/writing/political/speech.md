@@ -113,12 +113,48 @@ So what does this all mean when it comes to our youtube arguing troll?
 Or even to the unknowing internet browser who happens to comment
 something that 'triggers' someone? Is it harassment? Should they be
 sued? Is there more than a misunderstanding here or an accidental
-infringement? 
+infringement? Well, one of the elements of the tort is that the actions
+the defendant (the one who has been accused of causing emotional
+distress) took were extreme or outrageous. A simple bit of clever
+prauding at peoples soft spots to get a rise out of them is not extreme,
+so it doesn't fall under that. Not to mention that the actions of the
+troll have to actually cause emotional distress, not the actions of a
+large group of people, but the actions of that specific person. 
 
-Continue here ethan
-http://en.wikipedia.org/wiki/Intentional_infliction_of_emotional_distress
+Now what about something else on the internet? Parody? You see it all
+the time, autotuned videos of speeches, silly comics or drawings of
+public figures, even fanfiction sometimes. Are these examples of
+Hate Speech, slander, or libel? Once again, the answer is no. Parody is
+actually protected by the first amendment, and was in the case of
+Hustler v. Falwell when the surpreme court decided public figures do not
+have protection from parody. One of the things people seem to not
+realize, is that the moment you create a youtube video you have put
+yourself out there as a possible limited public figure. 
 
+This is not victim shaming, a limited public figure is anyone who
+engages in actions which generate publicity within a narrow area of
+interest. Guess what? A youtube channel or show falls into this
+category. Therefore parody of youtubers is allowed, and hell, sometimes
+you get some pretty amusing stuff from it. This also brings in the fun
+realm of caricature and other political art. People get pretty creative
+about these things, and I think it's quite humorous and a good thing,
+afterall, anyone with a good sense of humor will recognize the parody
+and laugh along before getting back to business. 
 
+I've talked about the innocuous type of troll. Not the kind of person
+who goes out of their way to attack someone. I don't refer to these
+people as trolls, because that's not anywhere close to my definition of
+it. A troll is just someone who finds amusement in riling someone up for
+"the lulz", and I have no problem with that and find it pretty funny
+sometimes. But someone who verbally attacks and harasses someone is not
+a troll, they are a harasser. And should be called as such. Language is
+very important as it defines how we think, express ourselves, and
+justify our actions. 
+
+So let's talk about the elephant in the room I've been thinking about
+ever since starting writing this piece. The website in question has been
+in the news recently and is something I lovingly refer to as "The
+Asshole of the Internet". 4chan.
 
 
 
@@ -136,6 +172,6 @@ saying something typically doesn't net you a jailcell, as shown in
 [Watts v. United States]
 </small>
 
-
+[]:https://www.youtube.com/watch?v=iEsMCSGBjCI
 [Watts v. United Status]:http://en.wikipedia.org/wiki/Threatening_the_President_of_the_United_States#Watts_v._United_States
 [we all know how well that works]:http://xkcd.com/386/
