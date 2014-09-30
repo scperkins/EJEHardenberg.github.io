@@ -44,7 +44,7 @@ Speech.<sup>\[1\]</sup>
 Besides fighting words, threats, child pornography, obscenity,
 defamation, invasion of privacy and intentional emotional distress all
 fall into the category of exclusions of Freedom of Speech. Let me give
-an example of each I suppose: 
+an example of each: 
 
 - **True Threats**<sup>\[2\]</sup>: this is obvious, if I say I will kill you, that is not
   protected by the 1st amendment as free speech. 
@@ -70,7 +70,7 @@ understanding).
 
 There's a lot more to cover here besides just Torts, such as public
 employee speech, student speech, government speech, dealings with
-national security, and even in patent law. But I'm really more focused
+national security, and even your voice in patent law. But I'm really more focused
 on the internet culture around free speech than this. And while
 obviously these things are related, I don't want to go to far down the
 legal rabbit whole. So let's get back to the topic we started with armed
@@ -90,7 +90,7 @@ In my opinion, teasing is an important part of anyone's growth as it teaches one
 take criticism, build up a bit of a thicker skin, and in general prepare
 for the much harder situations down the line like messing up and needing
 to own up to it. A simple troll who hops onto a forum and starts playing
-devil's advocate and saying silly things is not in anyway, in the wrong.
+devil's advocate and saying silly things is not in anyway morally wrong.
 No matter how frustrating you find it. Why? Because of fighting words.
 Because there is no threat of imminent violence. Because in the United
 States v. American Library Association and in Reno v. ACLU, the full
@@ -102,12 +102,15 @@ distress. This is an extremely grey area, for example, one does not
 always know what might cause someone distress. The thing about torts,
 besides being a funny word, is that they can often be unintentional or
 due to negligence. An emotional distress can be caused by intentional OR
-reckless disregard, and both of these are sufficient for a tort case.
+reckless disregard, and both of these are sufficient for a tort case to
+go through.
+
 The other grey area here is on the side of the distressed party, the
 reaction _must_ be severe. Which is based upon the intensity, duration,
 and any physical reactions to the stress. Almost always, mental
 disorders that have been documented by a mental health professional are
-required for an actual tort case. 
+required for an actual tort case. Otherwise you're pretty much told,
+correctly, that someone criticizing you on the internet is not a crime.
 
 So what does this all mean when it comes to our youtube arguing troll?
 Or even to the unknowing internet browser who happens to comment
@@ -139,7 +142,8 @@ you get some pretty amusing stuff from it. This also brings in the fun
 realm of caricature and other political art. People get pretty creative
 about these things, and I think it's quite humorous and a good thing,
 afterall, anyone with a good sense of humor will recognize the parody
-and laugh along before getting back to business. 
+and laugh along before getting back to business of discussing whatever
+niche they're in. 
 
 I've talked about the innocuous type of troll. Not the kind of person
 who goes out of their way to attack someone. I don't refer to these
@@ -151,12 +155,20 @@ a troll, they are a harasser. And should be called as such. Language is
 very important as it defines how we think, express ourselves, and
 justify our actions. 
 
-So let's talk about the elephant in the room I've been thinking about
-ever since starting writing this piece. The website in question has been
-in the news recently and is something I lovingly refer to as "The
-Asshole of the Internet". 4chan.
+So now you're a little more educated, about freedom of speech. And so I
+want to ask you now, what do you think [this video]? Do you believe an
+April fools joke was meant to cause emotional distress? Do you believe 
+Jensine Anahita was justified in calling Title IX? If you've read this
+all the way through, I wonder if you agree with me when I say that
+jokes, parody, and satire is protected by the 1st Amendment. Do you
+believe that the memo sent around by Linda Bennet was a good intention
+or thought policing? Chat in the comments below about it, follow the 1st
+amendment and try not to troll each other too much ;) 
 
-
+<strong>
+If I've gotten something wrong, feel free to point it out along with a
+relevant source and I'll revise.
+</strong>
 
 <small>
 \[1\]
@@ -172,6 +184,7 @@ saying something typically doesn't net you a jailcell, as shown in
 [Watts v. United States]
 </small>
 
-[]:https://www.youtube.com/watch?v=iEsMCSGBjCI
+[this video]:https://www.youtube.com/watch?v=iEsMCSGBjCI
+[events]:http://knowyourmeme.com/memes/pools-closed
 [Watts v. United Status]:http://en.wikipedia.org/wiki/Threatening_the_President_of_the_United_States#Watts_v._United_States
 [we all know how well that works]:http://xkcd.com/386/

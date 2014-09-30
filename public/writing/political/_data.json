@@ -1,4 +1,9 @@
 {
+	"speech" : {
+		"title" : "Freedom of Speech",
+		"description" : "A look into internet culture around trolling and freedom of speech.",
+		"freq" : "monthly"
+	},
 	"cronyism-and-networking" : {
 		"title" : "Cronyism vs. Networking",
 		"description" : "An critique and observation of the differences and the fine line between Cronyism and Networking",
