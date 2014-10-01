@@ -361,5 +361,35 @@
 			{"instruction" : "Blend/Process the mixture until well mixed and creamy"},
 			{"instruction" : "Throw a dallop on pasta or salad and enjoy!"}
 		]
+	},
+	"gnochi-lasagna" : {
+		"title" : "Gnochi Lasagna",
+		"image" : "gnochi-lasagna.jpg",
+		"difficulty" : "medium",
+		"ingredients" : [
+			{"name" : "1 tbsp olive oil"},
+			{"name" : "1 onion chopped"},
+			{"name" : "1 Red Pepper, chopped"},
+			{"name" : "1 Garlic clove"},
+			{"name" : "1 can (400g) chopped tomatoes"},
+			{"name" : "1 package (500g) gnochi"},
+			{"name" : "Basil leaves"},
+			{"name" : "Half a 125g ball mozeralla"},
+			{"name" : "A frying pan, ovenproof dish, and an oven"}
+		],
+		"description" : "This is a recipe sent to me by a friend, originally from <a href=\"http://www.bbcgoodfood.com/recipes/7192/gnocchi-and-tomato-bake\">this website</a>, it looks good and Emily recommends it!",
+		"date" : "2014-10-01",
+		"freq" : "monthly", 
+		"directions" : [
+			{"instruction" : "Turn the stovetop up to high and heat oil in the pan"},
+			{"instruction" : "Soften the onion and pepper in the pan for 5 minutes"},
+			{"instruction" : "Stir in the garlic, fry it for 1 more minute"},
+			{"instruction" : "Dump the tomatoes and gnochi into the pan and give it a quick stir"},
+			{"instruction" : "Bring the pan to a simmer and let it bubble for 10-15 minutes (stirring everynow and then)"},
+			{"instruction" : "Once the gnochi is soft and the sauce is thicker, stir in your basil and seasonings"},
+			{"instruction" : "Transfer the whole thing to the ovenproof dish, then sprinke it with mozeralla chunks"},
+			{"instruction" : "Grill it for 5-6 minutes in your oven until the cheese is bubbling and golden"},
+			{"instruction" : "EAT IT!"}
+		]
 	}
 }
