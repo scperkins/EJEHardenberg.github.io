@@ -7,4 +7,4 @@ Crying out with lies of an identity forsaken
 Entranched in field without any no man's land   
 Letting nothing slip, liars spoke but tipped their hand   
 Collusion without condolence and a plot unveiled   
-Out in the open the change comes but is truth entailed?   
+Out in the open the change will come; but is truth entailed?   
