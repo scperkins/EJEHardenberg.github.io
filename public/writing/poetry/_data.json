@@ -1,4 +1,9 @@
 {
+	"spin" : {
+		"title" : "Spin",
+		"date" : "2014-10-02",
+		"freq" : "monthly"
+	},
 	"be" : {
 		"title" : "Be",
 		"date" : "2014-09-26",
