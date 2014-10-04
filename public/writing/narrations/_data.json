@@ -1,4 +1,9 @@
 {
+	"fest" : {
+		"title" : "Grand March",
+		"date" : "2014-10-04",
+		"freq" : "monthly"
+	},
 	"maddie" : {
 		"title" : "20.00",
 		"date" : "2014-09-28",
