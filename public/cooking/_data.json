@@ -6,6 +6,7 @@
 	},
 	"fried-chicken" : {
 		"date" : "2014-10-06",
+		"image" : "fried-chicken.jpg",
 		"freq" : "monthly"
 	},
 	"backed-cheddar-chicken" : {
