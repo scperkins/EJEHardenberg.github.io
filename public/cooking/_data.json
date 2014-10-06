@@ -5,6 +5,7 @@
 		"freq" : "daily"
 	},
 	"fried-chicken" : {
+		"title" : "Fried Chicken",
 		"date" : "2014-10-06",
 		"image" : "fried-chicken.jpg",
 		"freq" : "monthly"
@@ -12,19 +13,6 @@
 	"backed-cheddar-chicken" : {
 		"title" : "Baked Cheddar Chicken",
 		"image" : "baked-chedder-chicken.jpg",
-		"difficulty" : "Easy",
-		"ingredients" : [
-			{"name" : "Chicken Breast"},{ "name" : "Shredded cheese"},{ "name" : "Milk"},{ "name" : "Melted Butter"},{"name" : "Breadcrumbs"}
-		],
-		"description" : "Simple baked chicken recipe",
-		"directions" : [
-			{"instruction" : "Oven to 400 degrees"},
-			{"instruction" : "Dip chicken in milk, cheese, then breadcrumbs"},
-			{"instruction" : "Place on pan, cover in foil"},
-			{"instruction" : "Bake for 25 minutes"},
-			{"instruction" : "Brush butter on and cook another 10 or until golden brown"},
-			{"instruction" : "Serve with noodles, sauce, and spices to your liking"}
-		],
 		"date" : "2014-06-16",
 		"freq" : "monthly"
 	},
