@@ -21,7 +21,14 @@
     </header>
 
     <div id="content">
+      <a href="/cooking">Back</a>
+      <% if(current.source != "index"){ %>
+        <div class="recipe">
+      <% } %>
     	<%- yield %>
+      <% if(current.source != "index"){ %>
+        </div>
+      <% } %>
       <%- partial('../_shared/disqus') %>   
     </div>
     <%- partial('../_shared/nav') %>
