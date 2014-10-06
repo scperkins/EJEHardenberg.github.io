@@ -5,23 +5,8 @@
 		"freq" : "daily"
 	},
 	"fried-chicken" : {
-	"title" : "Fried Chicken",
-	"image" : "fried-chicken.jpg",
-	"difficulty" : "Easy",
-	"ingredients" : [
-		{"name" : "chicken"},{ "name" : "breadcrumbs"},{ "name" : "oil"},{ "name" : "1 egg"}
-	],
-	"description" : "Easy to make fried Chicken",
-	"directions" : [
-		{"instruction" : "Turn a frying pan to medium heat and pour enough oil to cover the bottom of the pan in."},
-		{"instruction" : "While you're waiting for the oil to heat up, pour the breadcrumbs into a bowl and beat an egg in other."},
-		{"instruction" : "Dip the chicken in the egg and then roll it into the breakcrumbs."},
-		{"instruction" : "Put each piece of breaded chicken aside until the oil in the pan is hot."},
-		{"instruction" : "Lay the chicken into the oil and turn each piece over every few minutes until the chicken is cooked well."},
-		{"instruction" : "Serve hot with whatever sauces or spices you'd like."}
-	],
-	"date" : "2014-06-16",
-	"freq" : "monthly"
+		"date" : "2014-10-06",
+		"freq" : "monthly"
 	},
 	"backed-cheddar-chicken" : {
 		"title" : "Baked Cheddar Chicken",

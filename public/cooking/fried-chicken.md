@@ -1,6 +1,6 @@
 ## Fried Chicken
 
-<img src="/cooking/fried-chicken.jpg">
+<img src="/images/cooking/fried-chicken.jpg">
 
 **Difficulty: Easy**
 
