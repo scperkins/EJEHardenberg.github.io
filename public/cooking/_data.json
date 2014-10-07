@@ -51,7 +51,7 @@
 		"title":"German Brown Bread",
 		"image":"german-brown-bread.jpeg",
 		"description": "A delicious bread recipe from our guest chef, EC Hill",
-		"date" : "2014-06-16",
+		"date" : "2014-10-07",
 		"freq" : "monthly" 
 	},
 	"chicken-tacos" : {
@@ -65,7 +65,7 @@
 		"title":"Prison Pad Thai",
 		"image":"prison.jpg",
 		"description":"Pad Thai made easy!",
-		"date" : "2014-06-16",
+		"date" : "2014-10-07",
 		"freq" : "monthly" 
 	},
 	"7-up-chicken-marinade" : {
@@ -73,7 +73,7 @@
 		"image":"7up.jpg",
 		"difficulty":"Easy",
 		"description":"Delicious Marinade, really! Try it!",
-		"date" : "2014-06-16",
+		"date" : "2014-10-07",
 		"freq" : "monthly" 
 	},
 	"tortillas" : {"title":"Tortillas","image":"tortillas.jpg","difficulty":"Easy","ingredients":[{"name":"1/2 Cup Flour"},{"name":"1/8 Teaspoon salt"},{"name":"1/4 Baking Powder"},{"name":"3/4 teaspoons lard or butter"},{"name":"3 tablespoons water"}],"description":"Simple, quick and tasty Tortillas","directions":[{"instruction":"Mix the dry ingredients in a bowl"},{"instruction":"add in lard/butter until flour resembles cornmeal (add more than 3/4 teaspoons if neccesary)"},{"instruction":"Add water and mix until dough comes together"},{"instruction":"Place dough on lightly floured surface and knead until smooth and elastic."},{"instruction":"Divide the dough into equal pieces and roll into balls (this recipe makes 3-4)"},{"instruction":"Preheat a frying pan over medium high heat"},{"instruction":"Use a floured rolling pin (or bottle if you don't have a pin) and roll out the balls until flat"},{"instruction":"Place one at a time into hot pan and cook until golden on each side, flipping as neccesary."},{"instruction":"Serve with salsa or put meat/taco stuff on 'em! "}],
