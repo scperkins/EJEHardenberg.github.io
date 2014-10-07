@@ -54,8 +54,11 @@
 		"date" : "2014-06-16",
 		"freq" : "monthly" 
 	},
-	"chicken-tacos" : {"title":"Chicken Tacos","image":"tacos.jpg","difficulty":"Easy","ingredients":[{"name":"1 Green and Red Pepper"},{"name":"1 Onion"},{"name":"1 Tomato"},{"name":"2 Chicken Breasts"},{"name":"Cinnamon"},{"name":"Cumin"},{"name":"Paprika"},{"name":"12 Taco Shells"}],"description":"Spiced Chicken and Tasty Tacos","directions":[{"instruction":"Preheat oven to 325"},{"instruction":"Chop Peppers, Onions, and Tomato into small chunks"},{"instruction":"Mix Spices together in small bowl. The amounts are arbitrary, you need enough to cover the bottom of the small bowl and to coat the chicken pieces in. Mix blend to taste (I like to add Chili Pepper in). "},{"instruction":"Place Taco Shells into oven until warmed"},{"instruction":"Heat frying pan to medium heat and saute vegetables."},{"instruction":"Slice chicken breasts into small slices about 1-2 inches long. "},{"instruction":"Place sliced chicken into bowl with spices and mix until  the spices have stuck to the chicken"},{"instruction":"Once vegetables are done, pour vegetables onto a plate for serving and drop chicken into pan."},{"instruction":"Cook chicken until insides are no longer pink, turning every few minutes to evenly cook the meat. "},{"instruction":"Removes shells from the oven and place vegetables and meat into shells. "},{"instruction":"Optionally, heat some salsa in a small pot and apply to taco shells."},{"instruction":"Eat an be merry"}],
-		"date" : "2014-06-16",
+	"chicken-tacos" : {
+		"title":"Chicken Tacos",
+		"image":"tacos.jpg",
+		"description":"Spiced Chicken and Tasty Tacos",
+		"date" : "2014-10-07",
 		"freq" : "monthly" 
 	},
 	"prison-pad-thai" : {"title":"Prison Pad Thai","image":"prison.jpg","difficulty":"Easy","ingredients":[{"name":"1 pkg chicken ramen noodles"},{"name":"1/3 cup peanut butter"},{"name":"1/4 cup crushed peanuts"},{"name":"2 tsp hotsauce"}],"description":"Pad Thai made easy!","directions":[{"instruction":"Prepare Ramen noodles as per directions on package"},{"instruction":"Drain excess liquid"},{"instruction":"Stir in peanut butter, hotsauce"},{"instruction":"Add more as needed"},{"instruction":"Garnish with more crushed peanuts on top w/parsely"},{"instruction":"Bon Apetit, cellmate!"}],
