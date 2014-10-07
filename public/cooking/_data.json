@@ -76,11 +76,18 @@
 		"date" : "2014-10-07",
 		"freq" : "monthly" 
 	},
-	"tortillas" : {"title":"Tortillas","image":"tortillas.jpg","difficulty":"Easy","ingredients":[{"name":"1/2 Cup Flour"},{"name":"1/8 Teaspoon salt"},{"name":"1/4 Baking Powder"},{"name":"3/4 teaspoons lard or butter"},{"name":"3 tablespoons water"}],"description":"Simple, quick and tasty Tortillas","directions":[{"instruction":"Mix the dry ingredients in a bowl"},{"instruction":"add in lard/butter until flour resembles cornmeal (add more than 3/4 teaspoons if neccesary)"},{"instruction":"Add water and mix until dough comes together"},{"instruction":"Place dough on lightly floured surface and knead until smooth and elastic."},{"instruction":"Divide the dough into equal pieces and roll into balls (this recipe makes 3-4)"},{"instruction":"Preheat a frying pan over medium high heat"},{"instruction":"Use a floured rolling pin (or bottle if you don't have a pin) and roll out the balls until flat"},{"instruction":"Place one at a time into hot pan and cook until golden on each side, flipping as neccesary."},{"instruction":"Serve with salsa or put meat/taco stuff on 'em! "}],
+	"tortillas" : {
+		"title":"Tortillas",
+		"image":"tortillas.jpg",
+		"difficulty":"Easy",
+		"description":"Simple, quick and tasty Tortillas",
 		"date" : "2014-06-16",
 		"freq" : "monthly" 
 	},
-	"cinnamin-chicken-empanada" : {"title":"Cinnamon Chicken Empanada","image":"cinna-chicken-empanada.jpg","difficulty":"Medium","ingredients":[{"name":"1/2 Cup Flour"},{"name":"1/8 Teaspoon salt"},{"name":"1/4 Baking Powder"},{"name":"3/4 teaspoons lard or butter"},{"name":"3 tablespoons water"},{"name":"1 tablespoon cinnamin (or more, to taste!)"},{"name":"2 Chicken breast"},{"name":"1 Chopped onion"},{"name":"Cumin/Garlic powder (optional)"}],"description":"Cinnamin Tortilla and delicious Chicken","directions":[{"instruction":"Chop the onion and place to one side"},{"instruction":"Slice chicken into 1 inch thick strips"},{"instruction":"Spice chicken with Cumin and garlic powder if using"},{"instruction":"Mix dry ingredients in bowl"},{"instruction":"Add in lard/butter until flour looks like cornmeal"},{"instruction":"Add water to flour and mix until elastic"},{"instruction":"lightly flour countertop and  knead dough into ball. "},{"instruction":"Seperate dough into 6 balls and roll flat with rolling pin"},{"instruction":"place chopped onions and chicken into rolled out dough and  wrap, closing over chicken."},{"instruction":"preheat oven to 350 and cook chicken for 20 minutes"},{"instruction":"Serve hot and tasty"}],
+	"cinnamin-chicken-empanada" : {
+		"title":"Cinnamon Chicken Empanada",
+		"image":"cinna-chicken-empanada.jpg",
+		"difficulty":"Medium","ingredients":[{"name":"1/2 Cup Flour"},{"name":"1/8 Teaspoon salt"},{"name":"1/4 Baking Powder"},{"name":"3/4 teaspoons lard or butter"},{"name":"3 tablespoons water"},{"name":"1 tablespoon cinnamin (or more, to taste!)"},{"name":"2 Chicken breast"},{"name":"1 Chopped onion"},{"name":"Cumin/Garlic powder (optional)"}],"description":"Cinnamin Tortilla and delicious Chicken","directions":[{"instruction":"Chop the onion and place to one side"},{"instruction":"Slice chicken into 1 inch thick strips"},{"instruction":"Spice chicken with Cumin and garlic powder if using"},{"instruction":"Mix dry ingredients in bowl"},{"instruction":"Add in lard/butter until flour looks like cornmeal"},{"instruction":"Add water to flour and mix until elastic"},{"instruction":"lightly flour countertop and  knead dough into ball. "},{"instruction":"Seperate dough into 6 balls and roll flat with rolling pin"},{"instruction":"place chopped onions and chicken into rolled out dough and  wrap, closing over chicken."},{"instruction":"preheat oven to 350 and cook chicken for 20 minutes"},{"instruction":"Serve hot and tasty"}],
 		"date" : "2014-06-16",
 		"freq" : "monthly" 
 	},
