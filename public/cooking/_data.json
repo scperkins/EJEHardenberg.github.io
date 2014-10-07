@@ -7,6 +7,7 @@
 	"fried-chicken" : {
 		"title" : "Fried Chicken",
 		"date" : "2014-10-06",
+		"description" : "Simple, easy, tasty",
 		"image" : "fried-chicken.jpg",
 		"freq" : "monthly"
 	},
@@ -42,11 +43,14 @@
 	"radish-pizza" : {
 		"title":"Radish Pizza",
 		"image":"radish-pizza.jpeg",
-		"description":"You think you hate radishes? Think again, This recipe is a bona fide radish converter",
+		"description":"You think you hate radishes? Think again, according to our guest chef, This recipe is a bona fide radish converter",
 		"date" : "2014-10-07",
 		"freq" : "monthly"
 	},
-	"german-brown-bread" : { "title":"German Brown Bread","image":"german-brown-bread.jpeg","difficulty":"Medium","ingredients":[{"name":"1/2 c. oatmeal (45 grams)"},{"name":"1/2 c. whole wheat flour (70 grams)"},{"name":"1 c. boiling water"},{"name":"1 T. honey"},{"name":"1 T. molasses (optional)"},{"name":"1 T. oil"},{"name":"1 tsp. salt"},{"name":"1/4 c. warm water"},{"name":"1/4 tsp. instant yeast"},{"name":"1 1/2 - 2 c. whole wheat flour (200 -250 grams or more)"}],"description":"Do you like to be happy?  Me too.  Make this bread.  Happiness awaits.","directions":[{"instruction":"Mix oats and whole wheat flour in a bowl. Add the boiling water and stir. Stir in the honey, molasses, oil and salt and let cool to lukewarm (about 1/2 hour or more). It's OK if it's room temperature, too."},{"instruction":"To the bowl, add the 1/4 teaspoon of instant yeast, the extra water and one cup of whole wheat flour. Here, I used whole wheat white flour from King Arthur. Stir until flour is wet and dough is homogeneous...ent paper or a floured baker's peel. Slash the top of the loaf with a sharp razor blade. (I slashed in a square pattern.)"},{"instruction":"Place the loaf in the oven on the cornmeal or flour-strewn stone and turn down to 400°F. Bake for 30-40 minutes, or until the internal temperature reaches 190°F."},{"instruction":"Note: Those hard crusts you love are created with steam. You may create steam in the oven for the first 5 minutes. Heat an old roasting pan on the rack below the stone and pour 2 cups of boiling water in it right after you put the bread in the oven."},{"instruction":"Spray water the sides of the oven with a squirt bottle two or three times in the first 5 minutes. Turn oven down to 400°F and bake for 30 minutes or more, until the internal temperature reaches 190°F."},{"instruction":"Bread steams itself dry, so let the bread cool for at least 2 hours before slicing or it may seem gummy inside."}],
+	"german-brown-bread" : { 
+		"title":"German Brown Bread",
+		"image":"german-brown-bread.jpeg",
+		"description": "A delicious bread recipe from our guest chef, EC Hill",
 		"date" : "2014-06-16",
 		"freq" : "monthly" 
 	},
