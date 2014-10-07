@@ -4,7 +4,7 @@
 
 **Difficulty: Easy**
 
-A recipe from my best friend Sean, a simple pad thai recipe that anyone could make. Whether you're in your kitchen, or in a prison. 
+A recipe from my best friend [Sean](https://twitter.com/syntacticsugar_), a simple pad thai recipe that anyone could make. Whether you're in your kitchen, or in a prison. 
 
 - 1 pkg chicken ramen noodles
 - 1/3 cup peanut butter
