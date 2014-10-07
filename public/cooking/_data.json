@@ -68,7 +68,11 @@
 		"date" : "2014-06-16",
 		"freq" : "monthly" 
 	},
-	"7-up-chicken-marinade" : {"title":"7-up Chicken Marinade","image":"7up.jpg","difficulty":"Easy","ingredients":[{"name":"2 Cups 7 up"},{"name":"1 Cup Soy sauce"},{"name":"1 Tablespoon horse radish"},{"name":"1/2 teaspoon minced garlic"},{"name":"1 Cup Oil"}],"description":"Delicious Marinade, really! Try it!","directions":[{"instruction":"Mix all the ingredients in a container that will fit them all"},{"instruction":"Cut chicken into strips and puncture with fork"},{"instruction":"place chicken into marinade"},{"instruction":"let sit for 8 hours in fridge"},{"instruction":"Cook up your chicken and eat! "}],
+	"7-up-chicken-marinade" : {
+		"title":"7-up Chicken Marinade",
+		"image":"7up.jpg",
+		"difficulty":"Easy",
+		"description":"Delicious Marinade, really! Try it!",
 		"date" : "2014-06-16",
 		"freq" : "monthly" 
 	},
