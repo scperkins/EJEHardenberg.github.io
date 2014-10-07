@@ -13,12 +13,14 @@
 	"backed-cheddar-chicken" : {
 		"title" : "Baked Cheddar Chicken",
 		"image" : "baked-chedder-chicken.jpg",
+		"description" : "Easy to make cheddar chicken!",
 		"date" : "2014-06-16",
 		"freq" : "monthly"
 	},
 	"kiwi-apple-pie" : {
 		"title" : "Apple Kiwi Pie",
 		"image" : "kiwi-apple-pie.jpg",
+		"description" : "A delicious and sweet pie",
 		"date" : "2014-06-16",
 		"freq" : "monthly"
 	},
@@ -26,34 +28,13 @@
 		"title" : "Chicken and Rice",
 		"image" : "chicken-and-rice.jpg",
 		"difficulty" : "Medium",
-		"ingredients" : [
-			{"name" : "1/2 cup Rice"},
-			{"name" : "1 cup water"},
-			{"name" : "Chili and Cumin Spices"},
-			{"name" : "1 Onion"},
-			{"name" : "1 Red and Green Pepper"},
-			{"name" : "2 Chicken breasts"}
-		],
 		"description" : "30 minutes Chicken and Spiced Rice",
-		"directions" : [
-			{"instruction" : "Boil water in a small pot"},
-			{"instruction" : "Slice chicken into strips"},
-			{"instruction" : "Chop Onion and Peppers"},
-			{"instruction" : "Heat pan to medium heat and dump vegis in"},
-			{"instruction" : "Add spices to boiling water (to taste)"},
-			{"instruction" : "When water is boiled, add rice, turn heat to simmer low and add rice. Cover and don't open for 20 minutes"},
-			{"instruction" : "When rice has been in for about 5-10 minutes, add chicken to vegitables"},
-			{"instruction" : "turn chicken occasionally until rice is done"},
-			{"instruction" : "Pour rice onto plate, pour vegitables on top and add soy sauce"},
-			{"instruction" : "Eat."}
-		],
 		"date" : "2014-06-16",
 		"freq" : "monthly"
 	},
 	"garlic-bread" : {
 		"title":"Garlic Bread",
 		"image":"garlic-bread.jpg",
-		"difficulty":"Easy",
 		"ingredients":[
 			{"name" : "Thick Bread (italian works well)"},
 			{"name" : "4-6 cloves of Garlic"},
