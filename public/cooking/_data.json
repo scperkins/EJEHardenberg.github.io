@@ -14,14 +14,14 @@
 		"title" : "Baked Cheddar Chicken",
 		"image" : "baked-chedder-chicken.jpg",
 		"description" : "Easy to make cheddar chicken!",
-		"date" : "2014-06-16",
+		"date" : "2014-10-07",
 		"freq" : "monthly"
 	},
 	"kiwi-apple-pie" : {
 		"title" : "Apple Kiwi Pie",
 		"image" : "kiwi-apple-pie.jpg",
 		"description" : "A delicious and sweet pie",
-		"date" : "2014-06-16",
+		"date" : "2014-10-07",
 		"freq" : "monthly"
 	},
 	"chicken-and-rice" : {
@@ -29,27 +29,14 @@
 		"image" : "chicken-and-rice.jpg",
 		"difficulty" : "Medium",
 		"description" : "30 minutes Chicken and Spiced Rice",
-		"date" : "2014-06-16",
+		"date" : "2014-10-06",
 		"freq" : "monthly"
 	},
 	"garlic-bread" : {
 		"title":"Garlic Bread",
 		"image":"garlic-bread.jpg",
-		"ingredients":[
-			{"name" : "Thick Bread (italian works well)"},
-			{"name" : "4-6 cloves of Garlic"},
-			{"name" : "Butter"},
-			{"name" : "Shredded Cheese"}
-		],
 		"description":"Delicious Simple Garlic Bread",
-		"directions":[
-			{"instruction":"Cut Loaf of bread in half"},
-			{"instruction" : "Spread butter on bread thickly"},
-			{"instruction" : "Chop garlic thinly, then spread over bread"},
-			{"instruction" : "sprinkle cheese on bread"},
-			{"instruction" : "On the top rack of the oven, broil the bread for 3-5 minutes"}
-		],
-		"date" : "2014-06-16",
+		"date" : "2014-10-07",
 		"freq" : "monthly"
 	},
 	"radish-pizza" : {

@@ -1,5 +1,7 @@
 ### Garlic Bread
 
+<img src="/images/cooking/garlic-bread.jpg">
+
 **Difficulty: Easy**
 
 Delicious, buttery, garlic-y, tasty tasty bread. One of the best things to have on a cool or warm day with some pasta and sauce. 
@@ -13,7 +15,7 @@ Delicious, buttery, garlic-y, tasty tasty bread. One of the best things to have 
 
 **Instructions: **
 
-- Cut Loaf of bread in half
+- Cut Loaf of bread in half	
 - Spread butter on bread thickly
 - Chop garlic thinly, then spread over bread
 - sprinkle cheese on bread
