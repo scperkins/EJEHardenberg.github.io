@@ -94,34 +94,15 @@
 	"honey-lime-marinade" : {
 		"title":"Honey Lime Marinade",
 		"image":"Honeylime.jpg",
-		"difficulty":"Easy",
 		"description":"Delicious and Quick Marinade",
-		"date" : "2014-06-16",
+		"date" : "2014-10-08",
 		"freq" : "monthly" 
 	},
 	"oven-asparagus" : {
 		"title":"Oven Roasted Asparagus",
 		"image":"asparagus.jpg",
-		"difficulty":"Easy",
-		"ingredients":[
-			{"name":"Asparagus"},
-			{"name":"Olive Oil"},
-			{"name":"Soy Sauce"},
-			{"name":"Salt & Pepper"},
-			{"name":"Cheese"}
-		],
 		"description":"Delicious as a snack food, or as a side with dinner",
-		"directions":[
-			{"instruction" : "Preheat oven to 425 degrees"},
-			{"instruction":"Lay asparagus down in glass pan or on a cookie sheet"},
-			{"instruction":"Drizzle Oil over asparagus, no need to drench them, a few capfuls is normally enough"},
-			{"instruction":"Dash Salt and Pepper (and any other spices) over asparagus"},
-			{"instruction":"Splash soy sauce over asparagus (again, a few capfuls)"},
-			{"instruction":"Sprinkle cheese over asparagus"},
-			{"instruction":"Place in Oven for 15 minutes"},
-			{"instruction":"Eat!"}
-			],
-		"date" : "2014-06-17",
+		"date" : "2014-10-08",
 		"freq" : "monthly"
 	},
 	"potato-pancakes" : {
