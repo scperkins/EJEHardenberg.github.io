@@ -1,5 +1,7 @@
 ### Gnochi Lasagna
 
+<img src="/images/cooking/gnochi-lasagna.jpg">
+
 This is a recipe sent to me by our guest chef Emily, originally from [this website]. I have yet to try it, but it looks good and she recommends it! So try it out and encourage me to make/eat it too!
 
 **Difficulty: Medium**
