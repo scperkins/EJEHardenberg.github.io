@@ -123,28 +123,8 @@
 		"title" : "Mozzerella Chicken",
 		"image" : "mozz-chicken.jpg",
 		"difficulty" : "easy",
-		"ingredients" : [
-			{"name" : "1 Chicken Breast"},
-			{"name" : "Mozzerella Cheese"},
-			{"name" : "1/2 Red Pepper"},
-			{"name" : "1/2 Green Pepper"},
-			{"name" : "1 Slice of Onion"},
-			{"name" : "Spices (basil & garlic for me)"}
-		], 
 		"description" : "A simple recipe that looks impressive when plated, and it's tasty!",
-		"directions" : [
-			{"instruction" : "Preheat oven to 350 degrees F."},
-			{"instruction" : "Cut peppers into 1 inch strips, place on foil on a baking sheet"},
-			{"instruction" : "Peel apart the slice of onion so you have the curved pieces seperated into arches, place to one side."},
-			{"instruction" : "Slice chicken breast in two (this recipe makes two pieces of Mozzerella Chicken)"},
-			{"instruction" : "Cut part of the way through each chicken breast in the middle, spread chicken slightly open"},
-			{"instruction" : "Stuff the chicken with cheese"},
-			{"instruction" : "Spice the chicken to taste (you can also do this under the cheese if you want!)"},
-			{"instruction" : "Place chicken on top of peppers, then lay the arches of onions over each chicken piece"},
-			{"instruction" : "Cook for 20 minutes"},
-			{"instruction" : "Serve with noodles or whatever your heart desires!"}
-		],
-		"date" : "2014-07-18",
+		"date" : "2014-10-08",
 		"freq" : "monthly"
 	},
 	"rice-stirfry" : {
