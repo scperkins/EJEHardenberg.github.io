@@ -122,7 +122,6 @@
 	"mozz-chicken" : {
 		"title" : "Mozzerella Chicken",
 		"image" : "mozz-chicken.jpg",
-		"difficulty" : "easy",
 		"description" : "A simple recipe that looks impressive when plated, and it's tasty!",
 		"date" : "2014-10-08",
 		"freq" : "monthly"
@@ -130,53 +129,17 @@
 	"rice-stirfry" : {
 		"title" : "Vegi-stir fry",
 		"image" : "rice-stirfry.jpg",
-		"difficulty" : "easy",
-		"ingredients" : [
-			{"name" : "1/2 a Summer Squash"},
-			{"name" : "1/4 a sliced tomato"},
-			{"name" : "1/2 sliced red pepper"},
-			{"name" : "1/2 sliced green pepper"},
-			{"name" : "1/2 sliced onion"},
-			{"name" : "1/2 cup rice"},
-			{"name" : "Vegitable or Olive oil"}
-		],
 		"description" : "A really simple bunch of vegis that can add color and taste to any dish!",
-		"date" : "2014-09-02",
-		"freq" : "monthly",
-		"directions" : [
-			{"instruction" :  "Pour 1 cup of water into a pot and start boiling it for the rice, when it begins to bubble add the rice and turn the heat to low"},
-			{"instruction" : "Add oil to a frying pan and turn it to medium heat, letting it heat up while you chop the vegitables"},
-			{"instruction" : "Add the vegitables to the hot oil and stir occasionally" },
-			{"instruction" : "Keep stirring/mixing until the rice has cooked for at least 20 minutes, then strain the rice and add it to the vegitables"},
-			{"instruction" : "mix it all up and add soy sauce or any seasonings you want"},
-			{"instruction" : "Eat! For a heartier meal you can add pulled pork, chicken, or pepperoni to the pan as well!"}
-		]
+		"date" : "2014-10-08",
+		"freq" : "monthly"
 	},
 	"chicken-salad" : {
 		"title" : "Toasted Almond Chicken Salad",
 		"image" : "chicken-salad.jpg",
-		"difficulty" : "easy",
-		"ingredients" : [
-			{"name" : "1 Chicken Breast" },
-			{"name" : "1 Small Red Onion"},
-			{"name" : "1 Slice of Lemon"},
-			{"name" : "1/2 Cup Mayonaise"},
-			{"name" : "Pepper (to taste, or 1/4 teaspoon" },
-			{"name" : "1/2 Cup almonds (sliver or not your choice)"},
-			{"name" : "1 or 2 Stalks of celery"}
-		],
 		"description" : "A simple and delicious chicken salad recipe. Makes enough for 1 or 2. Also you can always toast more almonds than you need and have a snack!",
-		"date" : "2014-09-06",
+		"date" : "2014-10-08",
 		"freq" : "monthly",
-		"difficulty" : "easy",
-		"directions" : [
-			{"instruction" : "Chop up all the vegitables and put them into a container"},
-			{"instruction" : "Slice the chicken into small chunks and fry in a pan on medium heat until white throughout"},
-			{"instruction" : "Dump chicken in with vegitables in container, in another pan start roasting the almonds (medium heat or highter)" },
-			{"instruction" : "Squeeze the lemon slice over the chicken and vegis and add pepper and mayonaise"},
-			{"instruction" : "Be sure to toss and shake the almonds until they're roasted well, bot burnt then add the almonds to the mix and stir" },
-			{"instruction" : "Eat or serve cold later"}
-		]
+		"difficulty" : "easy"
 	},
 	"lemon-avocado-sauce" : {	
 		"title" : "Lemon Avocado Sauce",
