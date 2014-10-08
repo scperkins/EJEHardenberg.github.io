@@ -143,23 +143,10 @@
 	},
 	"lemon-avocado-sauce" : {	
 		"title" : "Lemon Avocado Sauce",
-		"image" : "avocado-lemon.jpg",
-		"difficulty" : "easy",
-		"ingredients" : [
-			{"name" : "2 Avocados"},
-			{"name" : "1 Lemon" },
-			{"name" : "Salt & Pepper"}
-		],
+		"image" : "avocado-lemon.jpg",		
 		"description" : "A super simple creamy sauce you can put on anything from salad to pasta",
-		"date" : "2014-09-08",
-		"freq" : "monthly",
-		"directions" : [
-			{"instruction" : "Squeeze the lemon juice from the lemon into a blender or food processor"},
-			{"instruction" : "Scoop out the 2 avocados into the dish"},
-			{"instruction" : "Dash some salt and pepper into the mixture" },
-			{"instruction" : "Blend/Process the mixture until well mixed and creamy"},
-			{"instruction" : "Throw a dallop on pasta or salad and enjoy!"}
-		]
+		"date" : "2014-10-08",
+		"freq" : "monthly"
 	},
 	"gnochi-lasagna" : {
 		"title" : "Gnochi Lasagna",
