@@ -201,6 +201,30 @@ code {
 			box-shadow: 0 0 10px lighten(blue,10%);
 		}
 	}
+	div[name=bios]{
+		div{
+			padding: @gutter;
+			background-color: #eee;
+			border-radius: 2em;	
+			width: 44%;
+			display: inline-block;
+			h3,img,p{
+				padding: @gutter/2;
+				display: inline-block;
+			}
+			h3{
+				margin-bottom: @gutter/2;
+			}
+			p{
+				margin-top: @gutter/2;
+			}
+			img{
+				border-radius: 2em;
+				float: right;
+				vertical-align: middle;
+			}
+		}
+	}
 	#index{
 		article{
 			background-color: darken(@bgColor, 5%);
