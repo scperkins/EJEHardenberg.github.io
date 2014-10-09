@@ -83,6 +83,16 @@
 	some of the meals I make on a somewhat regular basis below. If you've got a 
 	recipe you want to share feel free to let me know and I'll put it on this page! If you contribute enough, you might even end up as a guest chef like Emily!
 </p>
+<div id="filter-div">
+	<ul>
+		<li>
+			<a name="filter" onclick="d3Filters('emily')" href="#author:emily">Emily</a>
+		</li>
+		<li>
+			<a name="filter" onclick="d3Filters('ethan')" href="#author:ethan">Ethan</a>
+		</li>
+	</ul>
+</div>
 <div name="search-div">
 	<label>
 		Search:
@@ -91,9 +101,10 @@
 </div>
 <div id="index">
 
+
 	<a href="fried-chicken">
-	<article>
-		
+	<article name="fried-chicken">
+		<input type="hidden" name="tags" value="Fried ChickenethanSimple, easy, tasty">
 			<h3>Fried Chicken</h3>
 			<img src="//static.ethanjoachimeldridge.info/cooking/fried-chicken.jpg" />
 		
@@ -104,8 +115,8 @@
 	</a>
 	
 	<a href="backed-cheddar-chicken">
-	<article>
-		
+	<article name="backed-cheddar-chicken">
+		<input type="hidden" name="tags" value="Baked Cheddar ChickenethanEasy to make cheddar chicken!">
 			<h3>Baked Cheddar Chicken</h3>
 			<img src="//static1.ethanjoachimeldridge.info/cooking/baked-chedder-chicken.jpg" />
 		
@@ -116,8 +127,8 @@
 	</a>
 	
 	<a href="kiwi-apple-pie">
-	<article>
-		
+	<article name="kiwi-apple-pie">
+		<input type="hidden" name="tags" value="Apple Kiwi PieethanA delicious and sweet pie">
 			<h3>Apple Kiwi Pie</h3>
 			<img src="//static2.ethanjoachimeldridge.info/cooking/kiwi-apple-pie.jpg" />
 		
@@ -128,8 +139,8 @@
 	</a>
 	
 	<a href="chicken-and-rice">
-	<article>
-		
+	<article name="chicken-and-rice">
+		<input type="hidden" name="tags" value="Chicken and Riceethan30 minutes Chicken and Spiced Rice">
 			<h3>Chicken and Rice</h3>
 			<img src="//static3.ethanjoachimeldridge.info/cooking/chicken-and-rice.jpg" />
 		
@@ -140,8 +151,8 @@
 	</a>
 	
 	<a href="garlic-bread">
-	<article>
-		
+	<article name="garlic-bread">
+		<input type="hidden" name="tags" value="Garlic BreadethanDelicious Simple Garlic Bread">
 			<h3>Garlic Bread</h3>
 			<img src="//static4.ethanjoachimeldridge.info/cooking/garlic-bread.jpg" />
 		
@@ -152,8 +163,8 @@
 	</a>
 	
 	<a href="radish-pizza">
-	<article>
-		
+	<article name="radish-pizza">
+		<input type="hidden" name="tags" value="Radish PizzaemilyYou think you hate radishes? Think again, according to our guest chef, This recipe is a bona fide radish converter">
 			<h3>Radish Pizza</h3>
 			<img src="//static5.ethanjoachimeldridge.info/cooking/radish-pizza.jpeg" />
 		
@@ -164,8 +175,8 @@
 	</a>
 	
 	<a href="german-brown-bread">
-	<article>
-		
+	<article name="german-brown-bread">
+		<input type="hidden" name="tags" value="German Brown BreademilyA delicious bread recipe from our guest chef, EC Hill">
 			<h3>German Brown Bread</h3>
 			<img src="//static6.ethanjoachimeldridge.info/cooking/german-brown-bread.jpeg" />
 		
@@ -176,8 +187,8 @@
 	</a>
 	
 	<a href="chicken-tacos">
-	<article>
-		
+	<article name="chicken-tacos">
+		<input type="hidden" name="tags" value="Chicken TacosethanSpiced Chicken and Tasty Tacos">
 			<h3>Chicken Tacos</h3>
 			<img src="//static7.ethanjoachimeldridge.info/cooking/tacos.jpg" />
 		
@@ -188,8 +199,8 @@
 	</a>
 	
 	<a href="prison-pad-thai">
-	<article>
-		
+	<article name="prison-pad-thai">
+		<input type="hidden" name="tags" value="Prison Pad ThaiseanPad Thai made easy!">
 			<h3>Prison Pad Thai</h3>
 			<img src="//static.ethanjoachimeldridge.info/cooking/prison.jpg" />
 		
@@ -200,8 +211,8 @@
 	</a>
 	
 	<a href="7-up-chicken-marinade">
-	<article>
-		
+	<article name="7-up-chicken-marinade">
+		<input type="hidden" name="tags" value="7-up Chicken MarinadeethanDelicious Marinade, really! Try it!">
 			<h3>7-up Chicken Marinade</h3>
 			<img src="//static1.ethanjoachimeldridge.info/cooking/7up.jpg" />
 		
@@ -212,8 +223,8 @@
 	</a>
 	
 	<a href="tortillas">
-	<article>
-		
+	<article name="tortillas">
+		<input type="hidden" name="tags" value="TortillasethanSimple, quick and tasty Tortillas">
 			<h3>Tortillas</h3>
 			<img src="//static2.ethanjoachimeldridge.info/cooking/tortillas.jpg" />
 		
@@ -224,8 +235,8 @@
 	</a>
 	
 	<a href="cinnamin-chicken-empanada">
-	<article>
-		
+	<article name="cinnamin-chicken-empanada">
+		<input type="hidden" name="tags" value="Cinnamon Chicken EmpanadaethanCinnamin Tortilla and delicious Chicken">
 			<h3>Cinnamon Chicken Empanada</h3>
 			<img src="//static3.ethanjoachimeldridge.info/cooking/cinna-chicken-empanada.jpg" />
 		
@@ -236,8 +247,8 @@
 	</a>
 	
 	<a href="honey-lime-marinade">
-	<article>
-		
+	<article name="honey-lime-marinade">
+		<input type="hidden" name="tags" value="Honey Lime MarinadeethanDelicious and Quick Marinade">
 			<h3>Honey Lime Marinade</h3>
 			<img src="//static4.ethanjoachimeldridge.info/cooking/Honeylime.jpg" />
 		
@@ -248,8 +259,8 @@
 	</a>
 	
 	<a href="oven-asparagus">
-	<article>
-		
+	<article name="oven-asparagus">
+		<input type="hidden" name="tags" value="Oven Roasted AsparagusethanDelicious as a snack food, or as a side with dinner">
 			<h3>Oven Roasted Asparagus</h3>
 			<img src="//static5.ethanjoachimeldridge.info/cooking/asparagus.jpg" />
 		
@@ -260,8 +271,8 @@
 	</a>
 	
 	<a href="potato-pancakes">
-	<article>
-		
+	<article name="potato-pancakes">
+		<input type="hidden" name="tags" value="Potato PancakesethanTasty potato pancakes, serve it with applesauce or sugar!">
 			<h3>Potato Pancakes</h3>
 			<img src="//static6.ethanjoachimeldridge.info/cooking/potato.jpg" />
 		
@@ -272,8 +283,8 @@
 	</a>
 	
 	<a href="french-bread">
-	<article>
-		
+	<article name="french-bread">
+		<input type="hidden" name="tags" value="Honeyed French BreadethanAn Easy and Quick recipe for bread">
 			<h3>Honeyed French Bread</h3>
 			<img src="//static7.ethanjoachimeldridge.info/cooking/french-bread.jpg" />
 		
@@ -284,8 +295,8 @@
 	</a>
 	
 	<a href="mozz-chicken">
-	<article>
-		
+	<article name="mozz-chicken">
+		<input type="hidden" name="tags" value="Mozzerella ChickenethanA simple recipe that looks impressive when plated, and it&#39;s tasty!">
 			<h3>Mozzerella Chicken</h3>
 			<img src="//static.ethanjoachimeldridge.info/cooking/mozz-chicken.jpg" />
 		
@@ -296,8 +307,8 @@
 	</a>
 	
 	<a href="rice-stirfry">
-	<article>
-		
+	<article name="rice-stirfry">
+		<input type="hidden" name="tags" value="Vegi-stir fryethanA really simple bunch of vegis that can add color and taste to any dish!">
 			<h3>Vegi-stir fry</h3>
 			<img src="//static1.ethanjoachimeldridge.info/cooking/rice-stirfry.jpg" />
 		
@@ -308,8 +319,8 @@
 	</a>
 	
 	<a href="chicken-salad">
-	<article>
-		
+	<article name="chicken-salad">
+		<input type="hidden" name="tags" value="Toasted Almond Chicken SaladethanA simple and delicious chicken salad recipe. Makes enough for 1 or 2. Also you can always toast more almonds than you need and have a snack!">
 			<h3>Toasted Almond Chicken Salad</h3>
 			<img src="//static2.ethanjoachimeldridge.info/cooking/chicken-salad.jpg" />
 		
@@ -320,8 +331,8 @@
 	</a>
 	
 	<a href="lemon-avocado-sauce">
-	<article>
-		
+	<article name="lemon-avocado-sauce">
+		<input type="hidden" name="tags" value="Lemon Avocado SauceethanA super simple creamy sauce you can put on anything from salad to pasta">
 			<h3>Lemon Avocado Sauce</h3>
 			<img src="//static3.ethanjoachimeldridge.info/cooking/avocado-lemon.jpg" />
 		
@@ -332,8 +343,8 @@
 	</a>
 	
 	<a href="gnochi-lasagna">
-	<article>
-		
+	<article name="gnochi-lasagna">
+		<input type="hidden" name="tags" value="Gnochi LasagnaemilyThis is a recipe sent to me by a friend, originally from &lt;a href=&quot;http://www.bbcgoodfood.com/recipes/7192/gnocchi-and-tomato-bake&quot;&gt;this website&lt;/a&gt;, it looks good and Emily recommends it!">
 			<h3>Gnochi Lasagna</h3>
 			<img src="//static4.ethanjoachimeldridge.info/cooking/gnochi-lasagna.jpg" />
 		
@@ -344,8 +355,8 @@
 	</a>
 	
 	<a href="butternut-squash-lentil-chickpea-soup">
-	<article>
-		
+	<article name="butternut-squash-lentil-chickpea-soup">
+		<input type="hidden" name="tags" value="Butternut Chickpea SoupemilyA hearty soup for cold winter nights">
 			<h3>Butternut Chickpea Soup</h3>
 			<img src="//static5.ethanjoachimeldridge.info/cooking/chickpea-soup.jpeg" />
 		
@@ -356,6 +367,34 @@
 	</a>
 	
 </div>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+<script type="text/javascript">
+	window.cookingdata = [{"title":"Fried Chicken","date":"2014-10-06","description":"Simple, easy, tasty","image":"fried-chicken.jpg","freq":"monthly","author":"ethan","slug":"fried-chicken","metadata":"fried chicken2014-10-06simple, easy, tastyfried-chicken.jpgmonthlyethanfried-chickenfried chicken2014-10-06simple, easy, tastyfried-chicken.jpgmonthlyethanfried-chicken"},{"title":"Baked Cheddar Chicken","image":"baked-chedder-chicken.jpg","description":"Easy to make cheddar chicken!","date":"2014-10-07","freq":"monthly","author":"ethan","slug":"backed-cheddar-chicken","metadata":"baked cheddar chickenbaked-chedder-chicken.jpgeasy to make cheddar chicken!2014-10-07monthlyethanbacked-cheddar-chickenbaked cheddar chickenbaked-chedder-chicken.jpgeasy to make cheddar chicken!2014-10-07monthlyethanbacked-cheddar-chicken"},{"title":"Apple Kiwi Pie","image":"kiwi-apple-pie.jpg","description":"A delicious and sweet pie","date":"2014-10-07","freq":"monthly","author":"ethan","slug":"kiwi-apple-pie","metadata":"apple kiwi piekiwi-apple-pie.jpga delicious and sweet pie2014-10-07monthlyethankiwi-apple-pieapple kiwi piekiwi-apple-pie.jpga delicious and sweet pie2014-10-07monthlyethankiwi-apple-pie"},{"title":"Chicken and Rice","image":"chicken-and-rice.jpg","difficulty":"Medium","description":"30 minutes Chicken and Spiced Rice","date":"2014-10-06","freq":"monthly","author":"ethan","slug":"chicken-and-rice","metadata":"chicken and ricechicken-and-rice.jpgmedium30 minutes chicken and spiced rice2014-10-06monthlyethanchicken-and-ricechicken and ricechicken-and-rice.jpgmedium30 minutes chicken and spiced rice2014-10-06monthlyethanchicken-and-rice"},{"title":"Garlic Bread","image":"garlic-bread.jpg","description":"Delicious Simple Garlic Bread","date":"2014-10-07","freq":"monthly","author":"ethan","slug":"garlic-bread","metadata":"garlic breadgarlic-bread.jpgdelicious simple garlic bread2014-10-07monthlyethangarlic-breadgarlic breadgarlic-bread.jpgdelicious simple garlic bread2014-10-07monthlyethangarlic-bread"},{"title":"Radish Pizza","image":"radish-pizza.jpeg","description":"You think you hate radishes? Think again, according to our guest chef, This recipe is a bona fide radish converter","date":"2014-10-07","freq":"monthly","author":"emily","slug":"radish-pizza","metadata":"radish pizzaradish-pizza.jpegyou think you hate radishes? think again, according to our guest chef, this recipe is a bona fide radish converter2014-10-07monthlyemilyradish-pizzaradish pizzaradish-pizza.jpegyou think you hate radishes? think again, according to our guest chef, this recipe is a bona fide radish converter2014-10-07monthlyemilyradish-pizza"},{"title":"German Brown Bread","image":"german-brown-bread.jpeg","description":"A delicious bread recipe from our guest chef, EC Hill","date":"2014-10-07","freq":"monthly","author":"emily","slug":"german-brown-bread","metadata":"german brown breadgerman-brown-bread.jpega delicious bread recipe from our guest chef, ec hill2014-10-07monthlyemilygerman-brown-breadgerman brown breadgerman-brown-bread.jpega delicious bread recipe from our guest chef, ec hill2014-10-07monthlyemilygerman-brown-bread"},{"title":"Chicken Tacos","image":"tacos.jpg","description":"Spiced Chicken and Tasty Tacos","date":"2014-10-07","freq":"monthly","author":"ethan","slug":"chicken-tacos","metadata":"chicken tacostacos.jpgspiced chicken and tasty tacos2014-10-07monthlyethanchicken-tacoschicken tacostacos.jpgspiced chicken and tasty tacos2014-10-07monthlyethanchicken-tacos"},{"title":"Prison Pad Thai","image":"prison.jpg","description":"Pad Thai made easy!","date":"2014-10-07","freq":"monthly","author":"sean","slug":"prison-pad-thai","metadata":"prison pad thaiprison.jpgpad thai made easy!2014-10-07monthlyseanprison-pad-thaiprison pad thaiprison.jpgpad thai made easy!2014-10-07monthlyseanprison-pad-thai"},{"title":"7-up Chicken Marinade","image":"7up.jpg","difficulty":"Easy","description":"Delicious Marinade, really! Try it!","date":"2014-10-07","freq":"monthly","author":"ethan","slug":"7-up-chicken-marinade","metadata":"7-up chicken marinade7up.jpgeasydelicious marinade, really! try it!2014-10-07monthlyethan7-up-chicken-marinade7-up chicken marinade7up.jpgeasydelicious marinade, really! try it!2014-10-07monthlyethan7-up-chicken-marinade"},{"title":"Tortillas","image":"tortillas.jpg","difficulty":"Easy","description":"Simple, quick and tasty Tortillas","date":"2014-10-07","freq":"monthly","author":"ethan","slug":"tortillas","metadata":"tortillastortillas.jpgeasysimple, quick and tasty tortillas2014-10-07monthlyethantortillastortillastortillas.jpgeasysimple, quick and tasty tortillas2014-10-07monthlyethantortillas"},{"title":"Cinnamon Chicken Empanada","image":"cinna-chicken-empanada.jpg","description":"Cinnamin Tortilla and delicious Chicken","date":"2014-10-07","freq":"monthly","author":"ethan","slug":"cinnamin-chicken-empanada","metadata":"cinnamon chicken empanadacinna-chicken-empanada.jpgcinnamin tortilla and delicious chicken2014-10-07monthlyethancinnamin-chicken-empanadacinnamon chicken empanadacinna-chicken-empanada.jpgcinnamin tortilla and delicious chicken2014-10-07monthlyethancinnamin-chicken-empanada"},{"title":"Honey Lime Marinade","image":"Honeylime.jpg","description":"Delicious and Quick Marinade","date":"2014-10-08","freq":"monthly","author":"ethan","slug":"honey-lime-marinade","metadata":"honey lime marinadehoneylime.jpgdelicious and quick marinade2014-10-08monthlyethanhoney-lime-marinadehoney lime marinadehoneylime.jpgdelicious and quick marinade2014-10-08monthlyethanhoney-lime-marinade"},{"title":"Oven Roasted Asparagus","image":"asparagus.jpg","description":"Delicious as a snack food, or as a side with dinner","date":"2014-10-08","freq":"monthly","author":"ethan","slug":"oven-asparagus","metadata":"oven roasted asparagusasparagus.jpgdelicious as a snack food, or as a side with dinner2014-10-08monthlyethanoven-asparagusoven roasted asparagusasparagus.jpgdelicious as a snack food, or as a side with dinner2014-10-08monthlyethanoven-asparagus"},{"title":"Potato Pancakes","image":"potato.jpg","description":"Tasty potato pancakes, serve it with applesauce or sugar!","date":"2014-10-08","freq":"monthly","author":"ethan","slug":"potato-pancakes","metadata":"potato pancakespotato.jpgtasty potato pancakes, serve it with applesauce or sugar!2014-10-08monthlyethanpotato-pancakespotato pancakespotato.jpgtasty potato pancakes, serve it with applesauce or sugar!2014-10-08monthlyethanpotato-pancakes"},{"title":"Honeyed French Bread","image":"french-bread.jpg","description":"An Easy and Quick recipe for bread","date":"2014-10-08","freq":"monthly","author":"ethan","slug":"french-bread","metadata":"honeyed french breadfrench-bread.jpgan easy and quick recipe for bread2014-10-08monthlyethanfrench-breadhoneyed french breadfrench-bread.jpgan easy and quick recipe for bread2014-10-08monthlyethanfrench-bread"},{"title":"Mozzerella Chicken","image":"mozz-chicken.jpg","description":"A simple recipe that looks impressive when plated, and it's tasty!","date":"2014-10-08","freq":"monthly","author":"ethan","slug":"mozz-chicken","metadata":"mozzerella chickenmozz-chicken.jpga simple recipe that looks impressive when plated, and it's tasty!2014-10-08monthlyethanmozz-chickenmozzerella chickenmozz-chicken.jpga simple recipe that looks impressive when plated, and it's tasty!2014-10-08monthlyethanmozz-chicken"},{"title":"Vegi-stir fry","image":"rice-stirfry.jpg","description":"A really simple bunch of vegis that can add color and taste to any dish!","date":"2014-10-08","freq":"monthly","author":"ethan","slug":"rice-stirfry","metadata":"vegi-stir fryrice-stirfry.jpga really simple bunch of vegis that can add color and taste to any dish!2014-10-08monthlyethanrice-stirfryvegi-stir fryrice-stirfry.jpga really simple bunch of vegis that can add color and taste to any dish!2014-10-08monthlyethanrice-stirfry"},{"title":"Toasted Almond Chicken Salad","image":"chicken-salad.jpg","description":"A simple and delicious chicken salad recipe. Makes enough for 1 or 2. Also you can always toast more almonds than you need and have a snack!","date":"2014-10-08","freq":"monthly","difficulty":"easy","author":"ethan","slug":"chicken-salad","metadata":"toasted almond chicken saladchicken-salad.jpga simple and delicious chicken salad recipe. makes enough for 1 or 2. also you can always toast more almonds than you need and have a snack!2014-10-08monthlyeasyethanchicken-saladtoasted almond chicken saladchicken-salad.jpga simple and delicious chicken salad recipe. makes enough for 1 or 2. also you can always toast more almonds than you need and have a snack!2014-10-08monthlyeasyethanchicken-salad"},{"title":"Lemon Avocado Sauce","image":"avocado-lemon.jpg","description":"A super simple creamy sauce you can put on anything from salad to pasta","date":"2014-10-08","freq":"monthly","author":"ethan","slug":"lemon-avocado-sauce","metadata":"lemon avocado sauceavocado-lemon.jpga super simple creamy sauce you can put on anything from salad to pasta2014-10-08monthlyethanlemon-avocado-saucelemon avocado sauceavocado-lemon.jpga super simple creamy sauce you can put on anything from salad to pasta2014-10-08monthlyethanlemon-avocado-sauce"},{"title":"Gnochi Lasagna","image":"gnochi-lasagna.jpg","difficulty":"medium","description":"This is a recipe sent to me by a friend, originally from <a href=\"http://www.bbcgoodfood.com/recipes/7192/gnocchi-and-tomato-bake\">this website</a>, it looks good and Emily recommends it!","date":"2014-10-08","freq":"monthly","author":"emily","slug":"gnochi-lasagna","metadata":"gnochi lasagnagnochi-lasagna.jpgmediumthis is a recipe sent to me by a friend, originally from <a href=\"http://www.bbcgoodfood.com/recipes/7192/gnocchi-and-tomato-bake\">this website</a>, it looks good and emily recommends it!2014-10-08monthlyemilygnochi-lasagnagnochi lasagnagnochi-lasagna.jpgmediumthis is a recipe sent to me by a friend, originally from <a href=\"http://www.bbcgoodfood.com/recipes/7192/gnocchi-and-tomato-bake\">this website</a>, it looks good and emily recommends it!2014-10-08monthlyemilygnochi-lasagna"},{"title":"Butternut Chickpea Soup","image":"chickpea-soup.jpeg","description":"A hearty soup for cold winter nights","date":"2014-10-09","freq":"daily","author":"emily","slug":"butternut-squash-lentil-chickpea-soup","metadata":"butternut chickpea soupchickpea-soup.jpega hearty soup for cold winter nights2014-10-09dailyemilybutternut-squash-lentil-chickpea-soupbutternut chickpea soupchickpea-soup.jpega hearty soup for cold winter nights2014-10-09dailyemilybutternut-squash-lentil-chickpea-soup"}]
+	
+	function d3Filters(filter){
+		//define keyfunc
+		var keyfunc = function(d){
+			return (d && d.slug) || d3.select(this).attr('name')
+		}
+		var tmpData = []
+		for (var i = window.cookingdata.length - 1; i >= 0; i--) {
+			var keep = window.cookingdata[i].metadata.indexOf(filter)
+			if(keep != -1)
+				tmpData.push(window.cookingdata[i])
+		};
+
+		var recipes = d3.selectAll("#index article").data(tmpData, keyfunc)
+
+		recipes.style('display','inline-block').transition().style('opacity',100)
+		
+		recipes.exit()
+			.transition()
+			.style('opacity',0)
+			.transition()
+			.style('display','none')
+	}
+</script>
 
       
       <div id="disqus_thread"></div>
