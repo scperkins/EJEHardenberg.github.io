@@ -96,20 +96,12 @@ if(environment == "development"){
 
 		var recipes = d3.selectAll("#index article").data(tmpData, keyfunc)
 
-		recipes.transition().style('opacity',100)
+		recipes.style('display','inline-block').transition().style('opacity',100)
 		
 		recipes.exit()
 			.transition()
 			.style('opacity',0)
-			.remove()
-
-		recipes.enter()
-			.append('article')
-			.style('opacity',100)
-			.transition().style('opacity',100)
-
-		
-
-
+			.transition()
+			.style('display','none')
 	}
 </script>
