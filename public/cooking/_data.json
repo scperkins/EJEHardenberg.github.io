@@ -155,5 +155,12 @@
 		"description" : "This is a recipe sent to me by a friend, originally from <a href=\"http://www.bbcgoodfood.com/recipes/7192/gnocchi-and-tomato-bake\">this website</a>, it looks good and Emily recommends it!",
 		"date" : "2014-10-08",
 		"freq" : "monthly"
+	},
+	"butternut-squash-lentil-chickpea-soup" : {
+		"title" : "Butternut Chickpea Soup",
+		"image" : "chickpea-soup.jpeg",
+		"description" : "A hearty soup for cold winter nights",
+		"date" : "2014-10-09",
+		"freq" : "daily"
 	}
 }
