@@ -138,8 +138,10 @@ was floating around:
 
 The obvious thing here is that whoever sent her the CP is a moron. Anita should
 never have had to see such a thing, she shouldn't have been a target for that.
-Nonetheless, she _retweeted_ the damn thing. In essence distributing the illegal
-content to her followers. Perhaps as a solid attempt at show that it actually
+Nonetheless, she _tweeted_ the block report without censoring the user
+name she had blocked. Within the hours it was still up, anyone who
+checked that profile was exposed to the illegal content. In essence she
+distributed the illegal content to her followers. Perhaps as a solid attempt at show that it actually
 happened, but it was a hasty and misguided thing. I hope she doesn't get condemned
 for it, I just hope she learns something from it. 
 
@@ -190,7 +192,7 @@ They get blamed for a lot of stuff. Sometimes rightly, sometimes incorrectly. Th
 people who accuse 4chan of this are only thinking of the imageboard known as /b/ 90% of the time.
 
 /b/ Is the random board. It literally can have posts about anything. It is the 
-wildest, most rediculous, and most offensive board it can be, simply because it
+wildest, most ridiculous, and most offensive board it can be, simply because it
 exists for the sole purpose of being random. When it first began it helped bring
 together the members of the Anonymous group, who [opposed Scientology], and 
 [assisted the egyptian people]. While the collective of Anonymous has generally
