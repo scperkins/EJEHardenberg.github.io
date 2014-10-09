@@ -1,4 +1,9 @@
 {
+	"renewal" : {	
+		"title" : "Renewal",	
+		"date" : "2014-10-09",
+		"freq" : "monthly"
+	},
 	"spin" : {
 		"title" : "Spin",
 		"date" : "2014-10-02",
