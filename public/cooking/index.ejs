@@ -26,10 +26,10 @@
 <div id="filter-div">
 	<ul>
 		<li>
-			<a name="filter" href="#author:emily">Emily</a>
+			<a name="filter" onclick="d3Filters('emily')" href="#author:emily">Emily</a>
 		</li>
 		<li>
-			<a name="filter" href="#author:ethan">Ethan</a>
+			<a name="filter" onclick="d3Filters('ethan')" href="#author:ethan">Ethan</a>
 		</li>
 	</ul>
 </div>
@@ -75,14 +75,8 @@ if(environment == "development"){
 <script type="text/javascript" src="<%= d3src %>"></script>
 <script type="text/javascript">
 	window.cookingdata = <%- JSON.stringify(cookingdata) %>
-	var filterBtns = document.getElementsByName('filter')
-	for (var i = 0; i < filterBtns.length; i++) {
-		filterBtns[i].onclick = d3Filters
-	};
 	
-	function d3Filters(){
-		var link = d3.select(this).attr('href')
-		var filter = link.split(':')[1]
+	function d3Filters(filter){
 		//define keyfunc
 		var keyfunc = function(d){
 			return (d && d.slug) || d3.select(this).attr('name')
