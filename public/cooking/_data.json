@@ -9,21 +9,24 @@
 		"date" : "2014-10-06",
 		"description" : "Simple, easy, tasty",
 		"image" : "fried-chicken.jpg",
-		"freq" : "monthly"
+		"freq" : "monthly",
+		"author" : "ethan"
 	},
 	"backed-cheddar-chicken" : {
 		"title" : "Baked Cheddar Chicken",
 		"image" : "baked-chedder-chicken.jpg",
 		"description" : "Easy to make cheddar chicken!",
 		"date" : "2014-10-07",
-		"freq" : "monthly"
+		"freq" : "monthly",
+		"author" : "ethan"
 	},
 	"kiwi-apple-pie" : {
 		"title" : "Apple Kiwi Pie",
 		"image" : "kiwi-apple-pie.jpg",
 		"description" : "A delicious and sweet pie",
 		"date" : "2014-10-07",
-		"freq" : "monthly"
+		"freq" : "monthly",
+		"author" : "ethan"
 	},
 	"chicken-and-rice" : {
 		"title" : "Chicken and Rice",
@@ -31,42 +34,48 @@
 		"difficulty" : "Medium",
 		"description" : "30 minutes Chicken and Spiced Rice",
 		"date" : "2014-10-06",
-		"freq" : "monthly"
+		"freq" : "monthly",
+		"author" : "ethan"
 	},
 	"garlic-bread" : {
 		"title":"Garlic Bread",
 		"image":"garlic-bread.jpg",
 		"description":"Delicious Simple Garlic Bread",
 		"date" : "2014-10-07",
-		"freq" : "monthly"
+		"freq" : "monthly",
+		"author" : "ethan"
 	},
 	"radish-pizza" : {
 		"title":"Radish Pizza",
 		"image":"radish-pizza.jpeg",
 		"description":"You think you hate radishes? Think again, according to our guest chef, This recipe is a bona fide radish converter",
 		"date" : "2014-10-07",
-		"freq" : "monthly"
+		"freq" : "monthly",
+		"author" : "emily"
 	},
 	"german-brown-bread" : { 
 		"title":"German Brown Bread",
 		"image":"german-brown-bread.jpeg",
 		"description": "A delicious bread recipe from our guest chef, EC Hill",
 		"date" : "2014-10-07",
-		"freq" : "monthly" 
+		"freq" : "monthly",
+		"author" : "emily" 
 	},
 	"chicken-tacos" : {
 		"title":"Chicken Tacos",
 		"image":"tacos.jpg",
 		"description":"Spiced Chicken and Tasty Tacos",
 		"date" : "2014-10-07",
-		"freq" : "monthly" 
+		"freq" : "monthly",
+		"author" : "ethan"
 	},
 	"prison-pad-thai" : {
 		"title":"Prison Pad Thai",
 		"image":"prison.jpg",
 		"description":"Pad Thai made easy!",
 		"date" : "2014-10-07",
-		"freq" : "monthly" 
+		"freq" : "monthly",
+		"author" : "sean" 
 	},
 	"7-up-chicken-marinade" : {
 		"title":"7-up Chicken Marinade",
@@ -74,7 +83,8 @@
 		"difficulty":"Easy",
 		"description":"Delicious Marinade, really! Try it!",
 		"date" : "2014-10-07",
-		"freq" : "monthly" 
+		"freq" : "monthly",
+		"author" : "ethan" 
 	},
 	"tortillas" : {
 		"title":"Tortillas",
@@ -82,56 +92,64 @@
 		"difficulty":"Easy",
 		"description":"Simple, quick and tasty Tortillas",
 		"date" : "2014-10-07",
-		"freq" : "monthly" 
+		"freq" : "monthly",
+		"author" : "ethan" 
 	},
 	"cinnamin-chicken-empanada" : {
 		"title":"Cinnamon Chicken Empanada",
 		"image":"cinna-chicken-empanada.jpg",
 		"description":"Cinnamin Tortilla and delicious Chicken",
 		"date" : "2014-10-07",
-		"freq" : "monthly" 
+		"freq" : "monthly",
+		"author" : "ethan" 
 	},
 	"honey-lime-marinade" : {
 		"title":"Honey Lime Marinade",
 		"image":"Honeylime.jpg",
 		"description":"Delicious and Quick Marinade",
 		"date" : "2014-10-08",
-		"freq" : "monthly" 
+		"freq" : "monthly",
+		"author" : "ethan" 
 	},
 	"oven-asparagus" : {
 		"title":"Oven Roasted Asparagus",
 		"image":"asparagus.jpg",
 		"description":"Delicious as a snack food, or as a side with dinner",
 		"date" : "2014-10-08",
-		"freq" : "monthly"
+		"freq" : "monthly",
+		"author" : "ethan"
 	},
 	"potato-pancakes" : {
 		"title" : "Potato Pancakes",
 		"image" : "potato.jpg",	
 		"description" : "Tasty potato pancakes, serve it with applesauce or sugar!",
 		"date" : "2014-10-08",
-		"freq" : "monthly"
+		"freq" : "monthly",
+		"author" : "ethan"
 	},
 	"french-bread" : {
 		"title" : "Honeyed French Bread",
 		"image" : "french-bread.jpg", 
 		"description" : "An Easy and Quick recipe for bread",
 		"date" : "2014-10-08",
-		"freq" : "monthly"
+		"freq" : "monthly",
+		"author" : "ethan"
 	},
 	"mozz-chicken" : {
 		"title" : "Mozzerella Chicken",
 		"image" : "mozz-chicken.jpg",
 		"description" : "A simple recipe that looks impressive when plated, and it's tasty!",
 		"date" : "2014-10-08",
-		"freq" : "monthly"
+		"freq" : "monthly",
+		"author" : "ethan"
 	},
 	"rice-stirfry" : {
 		"title" : "Vegi-stir fry",
 		"image" : "rice-stirfry.jpg",
 		"description" : "A really simple bunch of vegis that can add color and taste to any dish!",
 		"date" : "2014-10-08",
-		"freq" : "monthly"
+		"freq" : "monthly",
+		"author" : "ethan"
 	},
 	"chicken-salad" : {
 		"title" : "Toasted Almond Chicken Salad",
@@ -139,14 +157,16 @@
 		"description" : "A simple and delicious chicken salad recipe. Makes enough for 1 or 2. Also you can always toast more almonds than you need and have a snack!",
 		"date" : "2014-10-08",
 		"freq" : "monthly",
-		"difficulty" : "easy"
+		"difficulty" : "easy",
+		"author" : "ethan"
 	},
 	"lemon-avocado-sauce" : {	
 		"title" : "Lemon Avocado Sauce",
 		"image" : "avocado-lemon.jpg",		
 		"description" : "A super simple creamy sauce you can put on anything from salad to pasta",
 		"date" : "2014-10-08",
-		"freq" : "monthly"
+		"freq" : "monthly",
+		"author" : "ethan"
 	},
 	"gnochi-lasagna" : {
 		"title" : "Gnochi Lasagna",
@@ -154,13 +174,15 @@
 		"difficulty" : "medium",
 		"description" : "This is a recipe sent to me by a friend, originally from <a href=\"http://www.bbcgoodfood.com/recipes/7192/gnocchi-and-tomato-bake\">this website</a>, it looks good and Emily recommends it!",
 		"date" : "2014-10-08",
-		"freq" : "monthly"
+		"freq" : "monthly",
+		"author" : "emily"
 	},
 	"butternut-squash-lentil-chickpea-soup" : {
 		"title" : "Butternut Chickpea Soup",
 		"image" : "chickpea-soup.jpeg",
 		"description" : "A hearty soup for cold winter nights",
 		"date" : "2014-10-09",
-		"freq" : "daily"
+		"freq" : "daily",
+		"author" : "emily"
 	}
 }
