@@ -6,7 +6,8 @@
 
 In our guest chef's own words: 
 
-    Do you like to be happy?  Me too.  Make this bread.  Happiness awaits.
+    Do you like to be happy?  Me too.  
+    Make this bread.  Happiness awaits.
 
 Making bread is fantastic, the whole house smells delicious you get out some butter or jam and then go to town. Toast, sandwiches, hm, everything with bread is delicious. And I love German food, so German bread? Heck yes:
 

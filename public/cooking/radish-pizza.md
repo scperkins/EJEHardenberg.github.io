@@ -17,6 +17,7 @@ A recipe from my friend and fellow food enthusiast, Emily!
 - half a red onion
 - olive oil
 - salt and pepper
+- red pepper flakes
 
 **Directions:**
 
