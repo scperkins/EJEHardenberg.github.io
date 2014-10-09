@@ -23,6 +23,16 @@
 	some of the meals I make on a somewhat regular basis below. If you've got a 
 	recipe you want to share feel free to let me know and I'll put it on this page! If you contribute enough, you might even end up as a guest chef like Emily!
 </p>
+<div id="filter-div">
+	<ul>
+		<li>
+			<a name="filter" href="#author:emily">Emily</a>
+		</li>
+		<li>
+			<a name="filter" href="#author:ethan">Ethan</a>
+		</li>
+	</ul>
+</div>
 <div name="search-div">
 	<label>
 		Search:
@@ -30,13 +40,20 @@
 	</label>
 </div>
 <div id="index">
+<% var cookingdata = []
+%>
 <% for( slug in public.cooking._data ){
 	if( slug == "index" ) continue;
 	var recipe = public.cooking._data[slug]
+	//Construct easily searchable meta data
+	recipe.slug = slug
+	recipe.metadata = ''
+	for(item in recipe){ recipe.metadata += recipe[item].toLowerCase()}
+	cookingdata.push(recipe)
 	%>
 	<a href="<%= slug %>">
-	<article>
-		
+	<article name="<%= slug %>">
+		<input type="hidden" name="tags" value="<%= recipe.title + recipe.author + recipe.description %>">
 			<h3><%- recipe.title %></h3>
 			<img src="//<%= macros.imgSrc("/cooking/" + recipe.image) %>" />
 		
@@ -49,3 +66,50 @@
 }
 %>
 </div>
+<%
+var d3src = "//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"
+if(environment == "development"){
+	d3src = "/javascript/d3.min.js"
+}
+%>
+<script type="text/javascript" src="<%= d3src %>"></script>
+<script type="text/javascript">
+	window.cookingdata = <%- JSON.stringify(cookingdata) %>
+	var filterBtns = document.getElementsByName('filter')
+	for (var i = 0; i < filterBtns.length; i++) {
+		filterBtns[i].onclick = d3Filters
+	};
+	
+	function d3Filters(){
+		var link = d3.select(this).attr('href')
+		var filter = link.split(':')[1]
+		//define keyfunc
+		var keyfunc = function(d){
+			return (d && d.slug) || d3.select(this).attr('name')
+		}
+		var tmpData = []
+		for (var i = window.cookingdata.length - 1; i >= 0; i--) {
+			var keep = window.cookingdata[i].metadata.indexOf(filter)
+			if(keep != -1)
+				tmpData.push(window.cookingdata[i])
+		};
+
+		var recipes = d3.selectAll("#index article").data(tmpData, keyfunc)
+
+		recipes.transition().style('opacity',100)
+		
+		recipes.exit()
+			.transition()
+			.style('opacity',0)
+			.remove()
+
+		recipes.enter()
+			.append('article')
+			.style('opacity',100)
+			.transition().style('opacity',100)
+
+		
+
+
+	}
+</script>
