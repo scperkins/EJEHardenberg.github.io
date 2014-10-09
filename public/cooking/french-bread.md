@@ -6,7 +6,7 @@ This is a really simple recipe for french bread, that always comes out delicious
 
 Check out the original recipe page, it's got way more pictures so you might find it good as a starting point then using this when you just want to refresh your mind on the recipe.
 
-**Difficulty: Easy**
+**Difficulty: Medium**
 
 - 1.25 cups warm water
 - 3 Cups Flour
