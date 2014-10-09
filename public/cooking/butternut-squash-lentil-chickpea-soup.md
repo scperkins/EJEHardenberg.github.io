@@ -2,6 +2,7 @@
 
 <img src="/images/cooking/chickpea-soup.jpeg">
 
+
 Canadians know where it’s at.  If you want a soup that fills you up after a long day trooping over the tundra and warms you up better than snuggling with 20 fluffy huskies, search no longer. 
 
 _Servings_: so many.  This soup can feed an army.  I like to let it cool, set aside some for dinner/lunch, then ladle the rest into muffin tins, freeze the tins, pop the frozen soup cubes out of the tin, and then store them in ziplocs in the freezer for a rainy day (or a blizzard if you’re in Canada). 
@@ -9,6 +10,8 @@ _Servings_: so many.  This soup can feed an army.  I like to let it cool, set as
 _Time_:   25 mins preparation
 
 20 mins minimum cooking (longer if you want the stew to be thicker - you can use a slow cooker if you have one)
+
+**Difficulty: Medium**
 
 **Ingredients:**
 

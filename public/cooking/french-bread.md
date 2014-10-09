@@ -8,6 +8,8 @@ Check out the original recipe page, it's got way more pictures so you might find
 
 **Difficulty: Medium**
 
+**Ingredients:**
+
 - 1.25 cups warm water
 - 3 Cups Flour
 - 1 Tablespoon sugar
