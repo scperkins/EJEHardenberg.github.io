@@ -186,6 +186,22 @@ code {
 }
 
 #recipes{
+	div#filter-div{
+		ul{
+			list-style-type: none;	
+			li{
+				display: inline-block;
+				width: 20%;
+				a{
+					display: block;
+					
+					background-color: darken(@bgColor, 10);	
+					text-align: center;
+					cursor: pointer;
+				}
+			}
+		}
+	}
 	div[name=search-div]{
 		width: 100%;
 		text-align: right;
