@@ -23,22 +23,25 @@
 	some of the meals I make on a somewhat regular basis below. If you've got a 
 	recipe you want to share feel free to let me know and I'll put it on this page! If you contribute enough, you might even end up as a guest chef like Emily!
 </p>
-<div id="filter-div">
-	<h3>View Recipes By Chef:</h3>
-	<ul>
-		<li>
-			<a name="filter" onclick="d3Filters('emily')" href="#author:emily">Emily</a>
-		</li>
-		<li>
-			<a name="filter" onclick="d3Filters('ethan')" href="#author:ethan">Ethan</a>
-		</li>
-	</ul>
-</div>
-<div name="search-div">
-	<label>
-		Search: 
-		<input type="text" name="search" title="Search for ingredients, titles, author" />
-	</label>
+<div name="above-index">
+	<div id="filter-div">
+		<h3>View Recipes By Chef:</h3>
+		<ul>
+			<li>
+				<a name="filter" onclick="d3Filters('emily')" href="#author:emily">Emily</a>
+			</li>
+			<li>
+				<a name="filter" onclick="d3Filters('ethan')" href="#author:ethan">Ethan</a>
+			</li>
+		</ul>
+	</div>
+	<div name="search-div">
+		<h3>Search Ingredients, Titles, Descriptions</h3>
+		<label>
+			Search: 
+			<input type="text" name="search" title="Search for ingredients, titles, author" />
+		</label>
+	</div>
 </div>
 <div id="index">
 <% var cookingdata = []

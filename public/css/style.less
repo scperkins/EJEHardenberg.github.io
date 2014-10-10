@@ -186,35 +186,43 @@ code {
 }
 
 #recipes{
-	div#filter-div{
-		ul{
-			list-style-type: none;	
-			li{
-				display: inline-block;
-				width: 20%;
-				a{
-					display: block;
-					
-					background-color: darken(@bgColor, 10);	
-					text-align: center;
-					cursor: pointer;
+	div[name=above-index]{
+		width: 100%;
+		display: block;
+		div#filter-div{
+			display: inline-block;
+			width: 50%;
+			ul{
+				width: 100%;
+				list-style-type: none;	
+				li{
+					display: inline-block;
+					width: 20%;
+					a{
+						display: block;
+						
+						background-color: darken(@bgColor, 10);	
+						text-align: center;
+						cursor: pointer;
+					}
 				}
 			}
 		}
-	}
-	div[name=search-div]{
-		width: 100%;
-		text-align: right;
-		label{
-			margin: 0 auto;
-		}
-		input{
-			transition: box-shadow @colorSpeed linear;
-		}
-		label input:focus{
-			transition: box-shadow @colorSpeed linear;
-			border-color: blue thin;
-			box-shadow: 0 0 10px lighten(blue,10%);
+		div[name=search-div]{
+			float: right;
+			display: inline-block;
+			text-align: right;
+			label{
+				margin: 0 auto;
+			}
+			input{
+				transition: box-shadow @colorSpeed linear;
+			}
+			label input:focus{
+				transition: box-shadow @colorSpeed linear;
+				border-color: blue thin;
+				box-shadow: 0 0 10px lighten(blue,10%);
+			}
 		}
 	}
 	div[name=bios]{
