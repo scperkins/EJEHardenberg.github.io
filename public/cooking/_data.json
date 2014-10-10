@@ -182,7 +182,15 @@
 		"image" : "chickpea-soup.jpeg",
 		"description" : "A hearty soup for cold winter nights",
 		"date" : "2014-10-09",
-		"freq" : "daily",
+		"freq" : "monthly",
 		"author" : "emily"
+	},
+	"vt-rhubarb-cake" : {
+		"title" : "VT Rhubarb Cake",
+		"image" : "vt-rhubarb-cake.jpg",
+		"description" : "Emily's favorite desert, rhubarb pie!",
+		"date" : "2014-10-10",
+		"author" : "emily",
+		"freq" : "monthly"
 	}
 }
