@@ -39,7 +39,7 @@
 	"radish-pizza" : {
 		"title":"Radish Pizza",
 		"image":"radish-pizza.jpeg",
-		"description":"You think you hate radishes? Think again, according to our guest chef, This recipe is a bona fide radish converter",
+		"description":"You think you hate radishes? Think again, according to Emily, This recipe is a bona fide radish converter",
 		"date" : "2014-10-07",
 		"freq" : "monthly",
 		"author" : "emily"
@@ -47,7 +47,7 @@
 	"german-brown-bread" : { 
 		"title":"German Brown Bread",
 		"image":"german-brown-bread.jpeg",
-		"description": "A delicious bread recipe from our guest chef, EC Hill",
+		"description": "A delicious bread recipe from Emily, AKA: the famous novelist EC Hill",
 		"date" : "2014-10-07",
 		"freq" : "monthly",
 		"author" : "emily" 
