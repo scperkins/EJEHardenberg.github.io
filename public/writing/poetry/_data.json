@@ -1,4 +1,9 @@
 {
+	"split" : {
+		"title" : "Split",
+		"date" : "2014-10-13",
+		"freq" : "monthly"
+	},
 	"renewal" : {	
 		"title" : "Renewal",	
 		"date" : "2014-10-09",
