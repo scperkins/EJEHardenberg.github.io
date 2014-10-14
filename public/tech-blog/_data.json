@@ -288,5 +288,11 @@
     "date" : "2014-09-25",
     "description" : "Showing how to set up your browser for more secure searches! For chrome only",
     "keywords" : "chrome,chromium,security,encrypted,search,encryption,secure,google"
-  } 
+  },
+  "upgrading-chromium-33-to-37" : {
+    "title" : "Fixing the flash player in Chromium Version 37",
+    "date" : "2014-10-14",
+    "description" : "How to fix pepper flash for chromium version 37 after upgrading",
+    "keywords" : "chrome,chromium,configuration,flash,flash player,version 37,37.0.2062.120"
+  }
 }
