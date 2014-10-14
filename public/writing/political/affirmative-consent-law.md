@@ -235,11 +235,100 @@ to handle all these items.
 my thought here: The language is biased and should be changed to reflect
 a fair trial and treatment of both parties within the case.
 
-**Section 1b Items 6,7, and 8**: also follow what one would expect from 
+**Section 1b Items 6,7,8, and 9**: also follow what one would expect from 
 a victim oriented bill, simply stating that in general one must find
 witnesses, provide resources for the possible victim, and involve individuals
-specialized in advocating and helping.
+specialized in advocating and helping. Number 9 ensures there are policies
+in place to investigate the possible usage of alcohol/drugs in all cases.
 
+**Section 1b Item 10** is a rather strange clause. It states that any witness
+or complainant (person who brought in the case) are not held accountable
+for violating an institutions conduct policy at the time of the incident. 
+So long as the institution determines the violation wasn't outstandingly
+bad, adversely affecting the safety of others involved, or screwing with
+academic honestly, the violations are fine. 
 
+Trying to think of an example of this, the only situation coming to mind 
+would be a party where two people get drunk and an incident occurs. Within
+the investigation, the witnesses and the person bringing the case up (likely
+the victim in this case) will not have sanctions placed on them for any
+minor misconduct they might do. I'm not sure if this broad statement covers 
+underage drinking (I get the feeling it would vary by institute), but it 
+likely covers things like skateboarding down a hallway, shouting and being
+an annoyance to others while intoxicated. 
 
+Silly examples aside, this clause could be used to justify defense by a 
+victim against their assaulter that might normally be prohibitive. Most 
+student conduct codes prohibit violence between students. However, in 
+this case, the rule would be ignored in the nature of self-defense. This
+is a good thing, otherwise the student might get in trouble by anyone
+pedantically upholding the conduct rules for simply defending themselves.
 
+**Section 1b Item 11** states that there must be a policy dictating the 
+role of staff within the case. This brings up a point I brought up before:
+The staff of a University or other secondary school is likely not equipped 
+to properly handle these types of cases. Their role must be defined, and 
+this line item states so. 
+
+However, it states this within the victim-centered policy making section 
+of the bill. This means that not only does the institution define it's own
+role in these cases, it also means that whatever policies put in place will
+be biased and oriented towards a possible victim. While this is not neccesarily  
+a bad thing, the addition of accused-centered policies such that both 
+parties are treated fairly and confidentially by the law would help balance 
+out the bill. Before you call my a defender of rapists, remember that 
+there are people who falsely accuse out there, and that by law everyone 
+deserves a fair trial.
+
+**Section 1b Item 12** adresses my previous concerns about campus officials
+being ill-prepared for this, it states: 
+
+    A comprehensive, trauma-informed training program for campus
+    officials involved in investigating and adjudicating sexual assault, 
+    domestic violence, dating violence, and stalking cases.
+
+this is a fantastic addition to the law. Since it mandates there _must_ 
+not only be staff who can handle it, but that they must be trained in a
+comprehensive way to deal with these situations. This clause alone is 
+a wonderful step forward, though I wish that there was something more in 
+this clause stating that the training would be done by police or federal 
+officials who specialize in this. 
+
+One of the few things I can say about this in a negative tone is that most
+people are simply not equipped to handle this type of thing. And for a victim
+to come forward, they might choose to tell a preferred teacher before they
+tell an official. This type of behavior where one does not seek help due
+to being uncomfortable is what I personally have seen in individuals. So
+this clause could be helped by expanding it to include guidelines for _all_
+staff of an institute, such that they know to call in someone properly 
+trained if a student approaches them with this type of issue.
+
+The last item of **Section 1b**, **Item 13**, says there must be
+
+    Procedures for confidential reporting by victims and third parties.
+
+Since this line item is within the victim-centered section, it seems to 
+make sense. But this statement is cheekily snubbing out the ability for
+someone who believes that they've raped someone to report it. Does that
+idea sound strange to you? Someone confessing to rape or reporting it? 
+
+Imagine this, a scenario like the one's I've described before, where two
+individuals are blackout drunk, they hook-up without either party really
+being aware, and then wake up the next morning. One of these people can
+decide to be a victim, but say they don't report it. And now the person 
+who feels they took advantage of the other has a guilty conscious. They
+cannot report this feeling  in a confidential way to the administration 
+unless the institute has more policies in place than just those dictated 
+by Item 13.
+
+While it might be hard to imagine, there are people in the world who 
+make mistakes and own up to them. No matter what the damnation to them 
+may be. These people are rare, but they exist and those who need a clean
+conscious should be able to bring forward their case. Neither Item 13 or 
+Item 2 of section 1b cater to the needs of someone who wants to be brought
+in for something they're guilty of. Once again, call me a rapist defender 
+I guess, but I believe everyone should have an equal opportunity to get
+help or have their case be heard in a confidential way before they get 
+sent to prison.
+
+#### Section C
