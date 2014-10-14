@@ -370,4 +370,88 @@ will know where to go, who to talk to, and what to do when incidents occur.
 It also means accused and individuals who witness any crimes will also 
 know, so far as they can remember, what to do and who to contact.
 
-Section 1e
+**Section 1e** this last part is both good and bad. Outlining that an 
+outreach program must be included sounds great on paper. However, the 
+content of that orientation can cause divides in what might otherwise be
+a normal and happy group. For example, I recently watched [a video] where
+policies seemed to have gone too far. Instead of bringing people together,
+they only drove them apart. After looking at the [people who produced the video]
+I decided that they seemed like people whom I would normally disagree with
+on the political spectrum, but I think part of their arguments hold validity.
+
+When you make culture and differences about how others have oppressed others,
+you shut out narratives that might have happened otherwise, such as why 
+culture X is so great, or why culture Y has adopted new things because of Z. 
+If all you ever focus on is the negative, than how will anything positive
+ever happen? Student Orientations should familarize students with each other
+_and_ make **all** students comfortable to be who they are. Dialogue on 
+not harassing can be part of that without taking the extremist ways that
+the university in that video did. I'm not saying that it shouldn't be talked
+about, no, history is important, but the first thing you learn about someone
+shouldn't be how hated they might be. You should be free to make your own
+decisions on what kind and type of person they are. But I digress, back 
+to the bill.
+
+#### Last paragraph, Section 2.
+
+At the very end of this long list of items is a single paragraph dubbed
+**section 2**.
+
+    If the Commission on State Mandates determines that this act
+    contains costs mandated by the state, reimbursement to local 
+    agencies and school districts for those costs shall be made 
+    pursuant to Part 7 (commencing with Section 17500) of Division 
+    4 of Title 2 of the Government Code.
+
+Which simply says that if you spend money on implementing the law, you'll
+get reimbursed according to a bunch of government forms (probably).
+
+
+#### Wrapping up
+
+If you're stil with me, I'm amazed, good job, you could have probably 
+read the bill yourself 5 times over in the course of my disection. And 
+if you did, then let me know if your interpretation of the bill differs
+from mine. Do you disagree with me? If so, then read [the disclaimer]
+and then tell me so! If you can change or broaden my mind on anything 
+I've discussed here I welcome it. And if I've changed your opinion, then
+feel free to stroke my ego in the comments section if you'd like.
+
+As a whole, I believe this bill is a great step, revamping the law as a
+"yes means yes" vs "no means no" will likely cause rape statistics to 
+increase, simply because the number of events that will count as rape and
+be able to be legally dealt with will. Believe it or not, I think it would
+be great to see that chart change, since it means more people are getting
+adequate justice served who might not have before. Honestly, this is 
+what happened with [sweeden when they expanded their definition of rape],
+and despite the disturbing statistics on the surface, if you look at the 
+meaning of the data you'll see the benefits.
+
+Despite the good faith of this bill, I do believe that there are flaws in
+it, and that it needs to be reworked to be more fair to both parties involved.
+(my major contention is item 5 as mentioned above)
+Perhaps other legislation deals with the issues I brought up, but my awareness
+of them is lacking. I only know that both sides should be fairly represented
+and until the legal definition of rape is changed from this:
+
+    The penetration, no matter how slight, of the vagina or 
+    anus with any body part or object, or oral penetration 
+    by a sex organ of another person, without the consent 
+    of the victim
+
+to something more equal\* than no matter what policies are in place, I
+probably won't be satisfied with any type of 'victim centered' policy.
+
+**Notice:** If you feel like qouting this post, please link back to it, 
+and try not to qoute out of context! Be a good netizen!
+
+\*<small>This definition is not inclusive to the scenario where a woman has 
+vaginal sex with a man by force, as she is not penetrating him and
+therefore is not, legally, raping him.</small>
+
+
+[a video]:https://www.youtube.com/watch?v=6EbQfmVoOfM
+[people who produced the video]:http://www.thefire.org
+[the disclaimer]:http://www.ethanjoachimeldridge.info/writing/political/disclaimer
+[sweeden when they expanded their definition of rape]:http://en.wikipedia.org/wiki/Rape_in_Sweden#Swedish_rape_statistics_explained
+[]:http://www.justice.gov/opa/pr/attorney-general-eric-holder-announces-revisions-uniform-crime-report-s-definition-rape
