@@ -331,4 +331,43 @@ I guess, but I believe everyone should have an equal opportunity to get
 help or have their case be heard in a confidential way before they get 
 sent to prison.
 
-#### Section C
+#### Section 1C and 1D, Money money money
+
+Both sections 1C and 1D deal with enforcement of the policies mandated by 
+the above. The way you get any sort of large institution in America to 
+do something is to talk in the language they understand: money.
+
+Section 1C simply says that in order to recieve state funds, the campus 
+must have collaborative partnerships with advocacy and other support 
+groups, _to the extent feasible_. This qualifier is a way of saying, if 
+the campus has no group to handle X, then it's ok because it wasn't
+_feasible_ to have a partnership with something that doesn't exist. Since
+the other policies help put in place these changes for better resources, 
+I don't imagine that qualifier will be much of a problem.
+
+The other thing I'd like to note is the last part of Section 1C:
+
+    and including resources for the accused.
+
+This last sentence really helps me respect this bill more. As said above, 
+I was put off by the victim-centered policy without a similar set of 
+policies for the accused. But at least outside of that section, it also
+mandates that there must be resources of the accused as well. Note that
+this section is included in the details of getting funding. 
+
+If any institution fails to provide resources for an accused person, then
+their funding should be cut. **That** is the power of that sentence being
+contained within that section. Note that this holds true if resources are
+not provided to potential victims as well. An enforceable clause such as
+this will, I hope, cause both parties of these types of crimes to be taken
+seriously, confidentially, and fairly.
+
+Section 1D reiterates the requirement of these policies to be upheld otherwise
+state funds will be removed. But further goes on to note that the university
+must not only implement the policies, but promote these policies and make
+all students aware of them. This is also a good thing. It means victims 
+will know where to go, who to talk to, and what to do when incidents occur.
+It also means accused and individuals who witness any crimes will also 
+know, so far as they can remember, what to do and who to contact.
+
+Section 1e
