@@ -2,11 +2,11 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Ethan's Tech Blog | Using Encrypted Search in Chrome</title>
+    <title>Ethan's Tech Blog | Fixing the flash player in Chromium Version 37</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Showing how to set up your browser for more secure searches! For chrome only" />
+    <meta name="description" content="How to fix pepper flash for chromium version 37 after upgrading" />
     <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="chrome,chromium,security,encrypted,search,encryption,secure,google"/>
+    <meta name="keywords" content="chrome,chromium,configuration,flash,flash player,version 37,37.0.2062.120"/>
     <meta name="robots" content="index, follow"  />
       <meta name="revisit-after" content="1 month" />
       <meta name="viewport" content="width=1040">
@@ -17,19 +17,19 @@
 
         
     <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Using Encrypted Search in Chrome" />
+    <meta property="og:title" content="Ethan Eldridge | Fixing the flash player in Chromium Version 37" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
     
-    <meta property="og:description" content="Showing how to set up your browser for more secure searches! For chrome only" />
+    <meta property="og:description" content="How to fix pepper flash for chromium version 37 after upgrading" />
     
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Using Encrypted Search in Chrome" />
+    <meta name="twitter:title" content="Ethan Eldridge | Fixing the flash player in Chromium Version 37" />
     
-    <meta name="twitter:description" content="Showing how to set up your browser for more secure searches! For chrome only" />
+    <meta name="twitter:description" content="How to fix pepper flash for chromium version 37 after upgrading" />
     
     <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     	<!-- Core CSS Scripts -->
@@ -52,70 +52,40 @@
   </head>
   <body>
     <header>
-      <h1>Using Encrypted Search in Chrome</h1>
+      <h1>Fixing the flash player in Chromium Version 37</h1>
     </header>
 
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Using Encrypted search in chrome.</h3>
-<p>Today, while reading <a href="https://www.imperialviolet.org/2010/06/25/overclocking-ssl.html">this post about how SSL isn&#39;t a performance
-problem anymore</a>, I discovered a new tool: <a href="https://encrypted.google.com">encrypted google search</a>.
-Thinking to myself that this was a great thing to have handy, I decided
-to go ahead and make it my default search engine. </p>
-<h4>How to do it</h4>
-<p>These instructions are for Chromium 33.0.1750.152 because that&#39;s what
-I&#39;m running, but I imagine that they&#39;re extremely similar to any other
-chrome based browser. First off, open up your settings at
-<a href="chrome://settings/">chrome://settings/</a>. If this doesn&#39;t work, look in any of the dropdown
-menus for something saying settings. </p>
-<p>Once you&#39;ve got settings open find the Search section and click &#39;manage
-search engines&#39;, doing so will pop open a big box with lots of ways you
-can search the web. Most likely, your default is set to google. Also,
-you&#39;ll notice a huge bunch of letters and whatnot in a url-looking thing
-in the third column. This is what we&#39;re changing. Right now, all your
-information about your browser, version number, and whatever else is
-sent up to the google mothership. So change this to the following:</p>
-<pre><code>https://encrypted.google.com/#q=%s</code></pre>
-<p>Simple right? The <code>%s</code> is where your search query will be replaced. This
-is what it should look like:</p>
-<p><img src="/images/tech-blog/search-engine.png" width="716px" height="461px" /></p>
-<h4>Why is it secure?</h4>
-<p>First off, we can tell something immediatly by the URL. The use of the
-# (which is a fragment of a url) gives us good indication about what&#39;s
-just been sent to the server. Specifically, anything after the # is
-not. Why? This is just the way URL&#39;s work, fragments are used to jump to
-parts of pages (like on wikipedia when you click something in the table
-of contents), because they&#39;re only meant for use within the browser, the
-fragments are never sent to the server at all. </p>
-<p>What this means is that your query is not included in the URL of the
-page you&#39;re viewing. This is better because if someone is sniffing your
-packets or monitoring traffic, or even just looking at accesslogs, they
-can see what you were searching for. Obviously you&#39;re still doing a
-search, so how are we doing it?</p>
-<p>Inspecting the network panel you&#39;d notice that those requests are still
-going out with your search terms in them. So that made me wonder, if
-everything is in the URL still, going somewhere, then why is this any
-better? Turns out someone <a href="http://security.stackexchange.com/questions/32367/what-is-the-difference-between-https-google-com-and-https-encrypted-google-c">already asked</a>, and if a site that you click
-on isn&#39;t using HTTPS, then they won&#39;t recieve any additional information
-besides the fact that you came from google. </p>
-<p>This means google is still mining your searches and tayloring everything
-to your needs (which you probably enjoy despite the semi-creepiness of
-it sometimes), but if someone isn&#39;t respecting your decision to surf the
-web under SSL, they don&#39;t get to know about you until they shape up. </p>
-<p>Ironically enough, this site isn&#39;t hosted under SSL, nor is it likely to
-be anytime soon. (SSL certificates cost a lot of money). So while I use
-google analytics to try to guage what I should write about next, I&#39;ll
-never know why you got to my site if you&#39;re using the encrypted google
-search. </p>
-<p>Anyway, stay safe, search secured, and never let a hacker sniff your
-packets without proper protection!</p>
+      <h3>Upgrading from Chromium 33 to 37</h3>
+<p>The other day I upgraded from <a href="http://www.chromium.org/">Chromium</a> version 33 to 37. Needless to say I broke a few things.</p>
+<p>The flashplayer was screwed up, so I had to try to fix that. After trying some suggestions on symlinking things from /opt/chrome in and failing, then pulling down the latest stable release and manually copying out the flash player plugin and trying to use that. I did some more research and crawling of mailing lists and found a solution that worked.</p>
+<p><a href="http://www.webupd8.org/2013/04/install-pepper-flash-player-for.html">Here are the instructions I used</a> to install the ppa for chromium&#39;s pepper flash plugin. From yout terminal do the following:</p>
+<pre><code>sudo add-apt-repository ppa:skunk/pepper-flash
+sudo apt-get update
+sudo apt-get install pepflashplugin-installer</code></pre>
+<p>The instructions then tell you to edit the /etc/chromium-browser/default profile and add in the following line to the script:</p>
+<pre><code>. /usr/lib/pepflashplugin-installer/pepflashplayer.sh</code></pre>
+<p>That dot is important and supposed to be there btw. This fixed my problem until I restarted my computer. Then I had to add the line back in. At first I thought to myself, well I&#39;ll just put an echo into my <code>.bash_profile</code> and that will be that. But, since the file is owned by root it&#39;s not so simple. So I took a look at the profile itself. Upon investigation I found that in the profile it states this:</p>
+<pre><code> This file is sourced by /bin/sh from 2 # /usr/bin/chromium-browser</code></pre>
+<p>So, I hopped over to <code>/usr/bin/chromium-browser</code> and checked out the script. Around line 76 I found a call to source the file. After investigating the script a bit I decided to add the following to my bash profile:</p>
+<pre><code>#fix chromium flash player 
+export FLASH_VERSION=15.0.0.152
+export CHROMIUM_FLAGS=&quot;${CHROMIUM_FLAGS} --ppapi-flash-path=/usr/lib/pepflashplugin-installer/libpepflashplayer.so --ppapi-flash-version=$FLASH_VERSION&quot;</code></pre>
+<p>But this is not the only way to fix it! On line 81 of the bin script it reads all the profiles in the <code>customizations</code> directory. So we could simply add the call to the pepflashplayer script in a custom profile.</p>
+<p>So this is <strong>/etc/chromium-browser/customizations/flash</strong>:</p>
+<pre><code>. /usr/lib/pepflashplugin-installer/pepflashplayer.sh</code></pre>
+<p>And then fix it up by running the following:</p>
+<pre><code>$sudo chmod --reference=/etc/chromium-browser/default /etc/chromium-browser/customizations/flash 
+$ sudo chown --reference=/etc/chromium-browser/default /etc/chromium-browser/customizations/flash </code></pre>
+<p>At that point you are no longer screwing with global exported flags and instead can use your custom profile instead. Neat right?</p>
 
       
       <h3>Other Posts</h3>
       <div id="other-posts">
         <ul>
-          <li><a href=upgrading-chromium-33-to-37>Fixing the flash player in Chromium Version 37</a></li><li><a href=likert-scales-less-css>Coloring Likert Scales with LESS CSS</a></li><li><a href=autoload-harp-css-js>Autoload your CSS and Javascript in Harp</a></li><li><a href=dynamically-including-js>Loading JS dynamically in Harp</a></li><li><a href=cgi-c-harp-3>Let&#39;s make a chat server, Part 3</a></li><li><a href=cgi-c-harp-2>Let&#39;s make a chat server, Part 2</a></li>
+          <li><a href=using-encrypted-search-in-chromium>Using Encrypted Search in Chrome</a></li><li><a href=likert-scales-less-css>Coloring Likert Scales with LESS CSS</a></li><li><a href=autoload-harp-css-js>Autoload your CSS and Javascript in Harp</a></li><li><a href=dynamically-including-js>Loading JS dynamically in Harp</a></li><li><a href=cgi-c-harp-3>Let&#39;s make a chat server, Part 3</a></li><li><a href=cgi-c-harp-2>Let&#39;s make a chat server, Part 2</a></li>
         </ul>
       </div>
       <div id="disqus_thread"></div>
