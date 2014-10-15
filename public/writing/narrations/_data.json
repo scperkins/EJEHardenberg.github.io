@@ -1,4 +1,9 @@
 {
+	"hold-back" : {
+		"title" : "Hold Back",
+		"date" : "2014-10-15",
+		"freq" : "monthly" 
+	},
 	"fest" : {
 		"title" : "Grand March",
 		"date" : "2014-10-04",
