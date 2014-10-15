@@ -432,7 +432,7 @@ it, and that it needs to be reworked to be more fair to both parties involved.
 (my major contention is item 5 as mentioned above)
 Perhaps other legislation deals with the issues I brought up, but my awareness
 of them is lacking. I only know that both sides should be fairly represented
-and until the legal definition of rape is changed from this:
+and until the [legal definition] of rape is changed from this:
 
     The penetration, no matter how slight, of the vagina or 
     anus with any body part or object, or oral penetration 
@@ -454,4 +454,4 @@ therefore is not, legally, raping him.</small>
 [people who produced the video]:http://www.thefire.org
 [the disclaimer]:http://www.ethanjoachimeldridge.info/writing/political/disclaimer
 [sweeden when they expanded their definition of rape]:http://en.wikipedia.org/wiki/Rape_in_Sweden#Swedish_rape_statistics_explained
-[]:http://www.justice.gov/opa/pr/attorney-general-eric-holder-announces-revisions-uniform-crime-report-s-definition-rape
+[legal definition]:http://www.justice.gov/opa/pr/attorney-general-eric-holder-announces-revisions-uniform-crime-report-s-definition-rape

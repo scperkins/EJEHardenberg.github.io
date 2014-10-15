@@ -1,4 +1,10 @@
 {
+	"affirmative-consent-law" : {
+		"title" : "Thoughts on Affirmative Consent",
+		"description" : "A laymans look into the problems in the new law from california, a disection piece of each portion of the bill",
+		"freq" : "monthly",
+		"keywords" : "consent,rape,california,bill 967,affirmative consent,affirmative,consent,legal,law"
+	},
 	"speech" : {
 		"title" : "Freedom of Speech",
 		"description" : "A look into internet culture around trolling and freedom of speech.",
