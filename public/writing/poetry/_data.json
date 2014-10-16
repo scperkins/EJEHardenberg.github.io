@@ -1,4 +1,9 @@
 {
+	"ship" : {
+		"title" : "Ship",
+		"date" : "2014-10-16",
+		"freq" : "monthly"
+	},
 	"split" : {
 		"title" : "Split",
 		"date" : "2014-10-13",
