@@ -294,5 +294,11 @@
     "date" : "2014-10-14",
     "description" : "How to fix pepper flash for chromium version 37 after upgrading",
     "keywords" : "chrome,chromium,configuration,flash,flash player,version 37,37.0.2062.120"
+  },
+  "today-we-learned-through-games" : {
+    "title" : "Teaching Through Games",
+    "date" : "2014-10-17",
+    "description" : "Educating young students and mentoring people is a great way to give back to the community, when doing so it's great to engage them, and a great way to do so is through games",
+    "keywords" : "nim,education,games,learning,mentoring,learn,C++,game,games,21"
   }
 }
