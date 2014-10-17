@@ -8,7 +8,7 @@ One of the biggest hurdles for students in learning is finding something
 that engages them and challenges them without being absolutely over their
 heads. Since I'm teaching this student C++, the level of detail they have
 to learn in order to create even a simple program is far greater than if
-I were teaching them python.
+I were teaching them something like python.
 
 The other day, while thinking about what would be taught to my apprentice
 I hit on the idea that I should use the same game which I learned while I
