@@ -1,4 +1,9 @@
 {
+	"bluedress" : {
+		"title" : "Blue Dress",
+		"date" : "2014-10-17",
+		"freq" : "monthly"
+	},
 	"hold-back" : {
 		"title" : "Hold Back",
 		"date" : "2014-10-15",
