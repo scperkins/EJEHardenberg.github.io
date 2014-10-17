@@ -2,11 +2,11 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Ethan's Tech Blog | Fixing the flash player in Chromium Version 37</title>
+    <title>Ethan's Tech Blog | Teaching Through Games</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="How to fix pepper flash for chromium version 37 after upgrading" />
+    <meta name="description" content="Educating young students and mentoring people is a great way to give back to the community, when doing so it&#39;s great to engage them, and a great way to do so is through games" />
     <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="chrome,chromium,configuration,flash,flash player,version 37,37.0.2062.120"/>
+    <meta name="keywords" content="nim,education,games,learning,mentoring,learn,C++,game,games,21"/>
     <meta name="robots" content="index, follow"  />
       <meta name="revisit-after" content="1 month" />
       <meta name="viewport" content="width=1040">
@@ -17,19 +17,19 @@
 
         
     <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Fixing the flash player in Chromium Version 37" />
+    <meta property="og:title" content="Ethan Eldridge | Teaching Through Games" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
     
-    <meta property="og:description" content="How to fix pepper flash for chromium version 37 after upgrading" />
+    <meta property="og:description" content="Educating young students and mentoring people is a great way to give back to the community, when doing so it&#39;s great to engage them, and a great way to do so is through games" />
     
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Fixing the flash player in Chromium Version 37" />
+    <meta name="twitter:title" content="Ethan Eldridge | Teaching Through Games" />
     
-    <meta name="twitter:description" content="How to fix pepper flash for chromium version 37 after upgrading" />
+    <meta name="twitter:description" content="Educating young students and mentoring people is a great way to give back to the community, when doing so it&#39;s great to engage them, and a great way to do so is through games" />
     
     <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     	<!-- Core CSS Scripts -->
@@ -52,40 +52,64 @@
   </head>
   <body>
     <header>
-      <h1>Fixing the flash player in Chromium Version 37</h1>
+      <h1>Teaching Through Games</h1>
     </header>
 
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Upgrading from Chromium 33 to 37</h3>
-<p>The other day I upgraded from <a href="http://www.chromium.org/">Chromium</a> version 33 to 37. Needless to say I broke a few things.</p>
-<p>The flashplayer was screwed up, so I had to try to fix that. After trying some suggestions on symlinking things from /opt/chrome in and failing, then pulling down the latest stable release and manually copying out the flash player plugin and trying to use that. I did some more research and crawling of mailing lists and found a solution that worked.</p>
-<p><a href="http://www.webupd8.org/2013/04/install-pepper-flash-player-for.html">Here are the instructions I used</a> to install the ppa for chromium&#39;s pepper flash plugin. From yout terminal do the following:</p>
-<pre><code>sudo add-apt-repository ppa:skunk/pepper-flash
-sudo apt-get update
-sudo apt-get install pepflashplugin-installer</code></pre>
-<p>The instructions then tell you to edit the /etc/chromium-browser/default profile and add in the following line to the script:</p>
-<pre><code>. /usr/lib/pepflashplugin-installer/pepflashplayer.sh</code></pre>
-<p>That dot is important and supposed to be there btw. This fixed my problem until I restarted my computer. Then I had to add the line back in. At first I thought to myself, well I&#39;ll just put an echo into my <code>.bash_profile</code> and that will be that. But, since the file is owned by root it&#39;s not so simple. So I took a look at the profile itself. Upon investigation I found that in the profile it states this:</p>
-<pre><code> This file is sourced by /bin/sh from 2 # /usr/bin/chromium-browser</code></pre>
-<p>So, I hopped over to <code>/usr/bin/chromium-browser</code> and checked out the script. Around line 76 I found a call to source the file. After investigating the script a bit I decided to add the following to my bash profile:</p>
-<pre><code>#fix chromium flash player 
-export FLASH_VERSION=15.0.0.152
-export CHROMIUM_FLAGS=&quot;${CHROMIUM_FLAGS} --ppapi-flash-path=/usr/lib/pepflashplugin-installer/libpepflashplayer.so --ppapi-flash-version=$FLASH_VERSION&quot;</code></pre>
-<p>But this is not the only way to fix it! On line 81 of the bin script it reads all the profiles in the <code>customizations</code> directory. So we could simply add the call to the pepflashplayer script in a custom profile.</p>
-<p>So this is <strong>/etc/chromium-browser/customizations/flash</strong>:</p>
-<pre><code>. /usr/lib/pepflashplugin-installer/pepflashplayer.sh</code></pre>
-<p>And then fix it up by running the following:</p>
-<pre><code>$sudo chmod --reference=/etc/chromium-browser/default /etc/chromium-browser/customizations/flash 
-$ sudo chown --reference=/etc/chromium-browser/default /etc/chromium-browser/customizations/flash </code></pre>
-<p>At that point you are no longer screwing with global exported flags and instead can use your custom profile instead. Neat right?</p>
+      <h3>Teaching and Learning Through Games</h3>
+<p>At work recently I&#39;ve had the task of mentoring a young student. This
+involves teaching them how to program, how to approach problems related
+to code, and how to help them improve themselves.</p>
+<p>One of the biggest hurdles for students in learning is finding something
+that engages them and challenges them without being absolutely over their
+heads. Since I&#39;m teaching this student C++, the level of detail they have
+to learn in order to create even a simple program is far greater than if
+I were teaching them python.</p>
+<p>The other day, while thinking about what would be taught to my apprentice
+I hit on the idea that I should use the same game which I learned while I
+was their age. Which is a simplified game of <a href="http://en.wikipedia.org/wiki/Nim">Nim</a>, called the <a href="http://en.wikipedia.org/wiki/Nim#The_21_game">21 game</a>.
+Up until this point the student had only been going over tutorials from 
+<a href="http://www.cplusplus.com/">cplusplus.com</a>; which, while informative, aren&#39;t the most engaging.</p>
+<p>So I coded up a quick game of Nim in about 5 minutes to share:</p>
+<script src="https://gist.github.com/EJEHardenberg/6da876d965bc57a33cbc.js"></script>
+
+<p>This was a simple game, which would work provided that the user entered
+valid inputs. [We all know that&#39;s not going to happen and we must be defensive about our code].
+So my lesson to the student today was built up of the following:</p>
+<ul>
+<li>Show them the game played correctly</li>
+<li>Show them how bad inputs affect the current program</li>
+<li>Nudge them in the right direction about how to approach 1 of the issues</li>
+<li>Answer any questions they had while they implemented solutions to the problems</li>
+<li>Repeat from step 2 until the program is defensive</li>
+<li>Add in new features, like a computer player, scoreboard, or playing the game 
+more than once</li>
+</ul>
+<p>This lesson definitely engaged the student a lot more than sitting and 
+reading tutorials all morning. Over the course of 3 hours I saw the proficiency
+and understanding of the code increase. It was very rewarding. The student is
+still new to programming, so best practices weren&#39;t really being followed here,
+there was a <code>goto</code> to restart the game, there were redundant statements, and 
+nothing was in functions. </p>
+<p>But, it was built up piecemeal, expanded on for each new feature, and it worked.
+What&#39;s most important is that this was an encouraging lesson and engaging one to
+the student, and it was easy to tell that they were enjoying this far more than
+reading the tutorials from before.</p>
+<p>I encourage you to take the little bit of code at the top and make your
+own version of the game before looking at my implementation below that 
+was created as I sat next to the student. Teaching is an amazingly rewarding
+experience and really helps to ground your knowledge, it is one of the best
+ways to learn and to refresh your own foundations. Highly recommend it.</p>
+<script src="https://gist.github.com/EJEHardenberg/c97d64f01eb7b29256eb.js"></script>
+
 
       
       <h3>Other Posts</h3>
       <div id="other-posts">
         <ul>
-          <li><a href=today-we-learned-through-games>Teaching Through Games</a></li><li><a href=using-encrypted-search-in-chromium>Using Encrypted Search in Chrome</a></li><li><a href=likert-scales-less-css>Coloring Likert Scales with LESS CSS</a></li><li><a href=autoload-harp-css-js>Autoload your CSS and Javascript in Harp</a></li><li><a href=dynamically-including-js>Loading JS dynamically in Harp</a></li><li><a href=cgi-c-harp-3>Let&#39;s make a chat server, Part 3</a></li>
+          <li><a href=upgrading-chromium-33-to-37>Fixing the flash player in Chromium Version 37</a></li><li><a href=using-encrypted-search-in-chromium>Using Encrypted Search in Chrome</a></li><li><a href=likert-scales-less-css>Coloring Likert Scales with LESS CSS</a></li><li><a href=autoload-harp-css-js>Autoload your CSS and Javascript in Harp</a></li><li><a href=dynamically-including-js>Loading JS dynamically in Harp</a></li><li><a href=cgi-c-harp-3>Let&#39;s make a chat server, Part 3</a></li>
         </ul>
       </div>
       <div id="disqus_thread"></div>
