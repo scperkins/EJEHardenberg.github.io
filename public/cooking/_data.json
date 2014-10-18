@@ -4,6 +4,14 @@
 		"description" : "A small bundle of recipes of things I eat for dinner that are easy to make.",
 		"freq" : "daily"
 	},
+	"pan-fried-salmon" : {
+		"title" : "Pan Fried Salmon",
+		"image" : "salmon.jpg",
+		"description" : "An easy seared salmon recipe, wicked good",
+		"date" : "2014-10-18",
+		"author" : "ethan",
+		"freq" : "monthly"
+	},
 	"vt-rhubarb-cake" : {
 		"title" : "VT Rhubarb Cake",
 		"image" : "vt-rhubarb-cake.jpg",
