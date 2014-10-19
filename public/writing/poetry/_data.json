@@ -1,4 +1,9 @@
 {
+	"highground" : {
+		"title" : "High Ground",
+		"date" : "2014-10-19",
+		"freq" : "monthly" 
+	},
 	"ship" : {
 		"title" : "Ship",
 		"date" : "2014-10-16",
