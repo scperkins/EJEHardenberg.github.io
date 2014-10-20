@@ -52,7 +52,7 @@ ways to learn and to refresh your own foundations. Highly recommend it.
 
 <script src="https://gist.github.com/EJEHardenberg/c97d64f01eb7b29256eb.js"></script>
 
-[We all know that's not going to happen and we must be defensive]:http://en.wikipedia.org/wiki/Defensive_programming
+[We all know that's not going to happen and we must be defensive about our code]:http://en.wikipedia.org/wiki/Defensive_programming
 [cplusplus.com]:http://www.cplusplus.com/
 [Nim]:http://en.wikipedia.org/wiki/Nim
 [21 game]:http://en.wikipedia.org/wiki/Nim#The_21_game
