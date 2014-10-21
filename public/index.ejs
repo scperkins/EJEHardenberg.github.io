@@ -98,6 +98,7 @@ me politically, checkout <a href="/writing/political">the politics section</a>
 			}
 
 			shown = 0
+			toShow = 36
 			for(idx in public.writing.poetry._data){
 				var post = public.writing.poetry._data[idx]
 				if(shown > toShow/2){
@@ -108,6 +109,9 @@ me politically, checkout <a href="/writing/political">the politics section</a>
 						<a href="/writing/poetry/<%= idx %>"><%= post.title %></a>
 					</li><%
 					shown++
+					if(shown % 3 == 1){
+						%></ul><ul><%
+					}
 				}
 			}	
 			%>
