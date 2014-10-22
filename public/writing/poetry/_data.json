@@ -1,4 +1,9 @@
 {
+	"raise" : {
+		"title" : "Raise",
+		"date" : "2014-10-22",
+		"freq" : "monthly"
+	},
 	"highground" : {
 		"title" : "High Ground",
 		"date" : "2014-10-19",
