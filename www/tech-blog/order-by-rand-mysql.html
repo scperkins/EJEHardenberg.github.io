@@ -2,11 +2,11 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Ethan's Tech Blog | Using Encrypted Search in Chrome</title>
+    <title>Ethan's Tech Blog | Order by Rand without a starting ID of 1</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Showing how to set up your browser for more secure searches! For chrome only" />
+    <meta name="description" content="There are many posts that discuss how not to use order by rand. However all of these fail to address what to do when the distribution of numbers lies at only one extreme of a range. This is how you handle that." />
     <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="chrome,chromium,security,encrypted,search,encryption,secure,google"/>
+    <meta name="keywords" content="mysql,order by rand,random,unequal,distribution,order,rand"/>
     <meta name="robots" content="index, follow"  />
       <meta name="revisit-after" content="1 month" />
       <meta name="viewport" content="width=1040">
@@ -17,19 +17,19 @@
 
         
     <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Using Encrypted Search in Chrome" />
+    <meta property="og:title" content="Ethan Eldridge | Order by Rand without a starting ID of 1" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
     
-    <meta property="og:description" content="Showing how to set up your browser for more secure searches! For chrome only" />
+    <meta property="og:description" content="There are many posts that discuss how not to use order by rand. However all of these fail to address what to do when the distribution of numbers lies at only one extreme of a range. This is how you handle that." />
     
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Using Encrypted Search in Chrome" />
+    <meta name="twitter:title" content="Ethan Eldridge | Order by Rand without a starting ID of 1" />
     
-    <meta name="twitter:description" content="Showing how to set up your browser for more secure searches! For chrome only" />
+    <meta name="twitter:description" content="There are many posts that discuss how not to use order by rand. However all of these fail to address what to do when the distribution of numbers lies at only one extreme of a range. This is how you handle that." />
     
     <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     	<!-- Core CSS Scripts -->
@@ -52,70 +52,57 @@
   </head>
   <body>
     <header>
-      <h1>Using Encrypted Search in Chrome</h1>
+      <h1>Order by Rand without a starting ID of 1</h1>
     </header>
 
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Using Encrypted search in chrome.</h3>
-<p>Today, while reading <a href="https://www.imperialviolet.org/2010/06/25/overclocking-ssl.html">this post about how SSL isn&#39;t a performance
-problem anymore</a>, I discovered a new tool: <a href="https://encrypted.google.com">encrypted google search</a>.
-Thinking to myself that this was a great thing to have handy, I decided
-to go ahead and make it my default search engine. </p>
-<h4>How to do it</h4>
-<p>These instructions are for Chromium 33.0.1750.152 because that&#39;s what
-I&#39;m running, but I imagine that they&#39;re extremely similar to any other
-chrome based browser. First off, open up your settings at
-<a href="chrome://settings/">chrome://settings/</a>. If this doesn&#39;t work, look in any of the dropdown
-menus for something saying settings. </p>
-<p>Once you&#39;ve got settings open find the Search section and click &#39;manage
-search engines&#39;, doing so will pop open a big box with lots of ways you
-can search the web. Most likely, your default is set to google. Also,
-you&#39;ll notice a huge bunch of letters and whatnot in a url-looking thing
-in the third column. This is what we&#39;re changing. Right now, all your
-information about your browser, version number, and whatever else is
-sent up to the google mothership. So change this to the following:</p>
-<pre><code>https://encrypted.google.com/#q=%s</code></pre>
-<p>Simple right? The <code>%s</code> is where your search query will be replaced. This
-is what it should look like:</p>
-<p><img src="/images/tech-blog/search-engine.png" width="716px" height="461px" /></p>
-<h4>Why is it secure?</h4>
-<p>First off, we can tell something immediatly by the URL. The use of the
-# (which is a fragment of a url) gives us good indication about what&#39;s
-just been sent to the server. Specifically, anything after the # is
-not. Why? This is just the way URL&#39;s work, fragments are used to jump to
-parts of pages (like on wikipedia when you click something in the table
-of contents), because they&#39;re only meant for use within the browser, the
-fragments are never sent to the server at all. </p>
-<p>What this means is that your query is not included in the URL of the
-page you&#39;re viewing. This is better because if someone is sniffing your
-packets or monitoring traffic, or even just looking at accesslogs, they
-can see what you were searching for. Obviously you&#39;re still doing a
-search, so how are we doing it?</p>
-<p>Inspecting the network panel you&#39;d notice that those requests are still
-going out with your search terms in them. So that made me wonder, if
-everything is in the URL still, going somewhere, then why is this any
-better? Turns out someone <a href="http://security.stackexchange.com/questions/32367/what-is-the-difference-between-https-google-com-and-https-encrypted-google-c">already asked</a>, and if a site that you click
-on isn&#39;t using HTTPS, then they won&#39;t recieve any additional information
-besides the fact that you came from google. </p>
-<p>This means google is still mining your searches and tayloring everything
-to your needs (which you probably enjoy despite the semi-creepiness of
-it sometimes), but if someone isn&#39;t respecting your decision to surf the
-web under SSL, they don&#39;t get to know about you until they shape up. </p>
-<p>Ironically enough, this site isn&#39;t hosted under SSL, nor is it likely to
-be anytime soon. (SSL certificates cost a lot of money). So while I use
-google analytics to try to guage what I should write about next, I&#39;ll
-never know why you got to my site if you&#39;re using the encrypted google
-search. </p>
-<p>Anyway, stay safe, search secured, and never let a hacker sniff your
-packets without proper protection!</p>
+      <h3>Order by Random in MySQL (without starting at 1)</h3>
+<p>The classic tale of <code>ORDER BY RAND</code> is one which many programmers find
+themselves running into. Quickly after attempting, they find themselves
+in heaps of trouble with database queries piling up as rows upon rows
+are shuffled about only to return a single record as output. </p>
+<p>There are <a href="http://jan.kneschke.de/projects/mysql/order-by-rand/">many</a>,
+<a href="mihasya.com/blog/pull-random-data-out-of-mysql-without-making-it-cry-using-and-optimizing-order-by-limit-offset-etc/">many</a>,
+blogs on the subject already. Something these fail to address though is
+the situation where your id&#39;s (assuming you&#39;ve got a numeric <code>AUTO_INCREMENT</code> id) 
+don&#39;t start at one. The first link mentions dealing with gaps in the id&#39;s 
+of your record set; but it uses another table to do so, becuase it assumes that you&#39;ve deleted
+random rows in your set and therefore no long have an ordered list.</p>
+<p>What about this situation?</p>
+<p>You&#39;ve been testing out code, deleting all the rows as a whole at the 
+end of each run, and now have an id that starts at 45663 and ends at 
+47321. The method described in many blogs is typically similar to this:</p>
+<pre><code>SELECT * FROM 
+    table r1 JOIN
+    (SELECT CEIL(RAND() * 
+        (SELECT MAX(id) FROM table)) AS id
+    ) r2
+WHERE r1.id &gt;= r2.id
+ORDER BY r1.id ASC </code></pre>
+<p>Which <strong>will</strong> work if you have a wide distribution of ids. But if you have
+a densely populated set of numbers sitting at the extremes of your set,
+then you&#39;re likely to get the same Id over and over again.</p>
+<p>So how do you fix it? Simple, instead of using <code>RAND() * MAX(ID)</code> use
+<code>MAX(ID) - MIN(ID)</code> to retrieve roughly how many numbers there are in 
+your table and then add a random number from that range to your base id.</p>
+<pre><code>SELECT * FROM 
+    table f JOIN 
+    (SELECT MIN(id) + (
+        (MAX(id) - MIN(id))*RAND()
+        ) AS &#39;rid&#39; FROM table) b 
+    ON f.id &gt;= b.rid
+ORDER BY f.id ASC</code></pre>
+<p>Once you do this you no longer have to worry about where your Id starts,
+and can safely delete every row in a table without having to reset and 
+rely on your <code>AUTO_INCREMENT</code> id starting from 1. </p>
 
       
       <h3>Other Posts</h3>
       <div id="other-posts">
         <ul>
-          <li><a href=upgrading-chromium-33-to-37>Fixing the flash player in Chromium Version 37</a></li><li><a href=likert-scales-less-css>Coloring Likert Scales with LESS CSS</a></li><li><a href=today-we-learned-through-games>Teaching Through Games</a></li><li><a href=autoload-harp-css-js>Autoload your CSS and Javascript in Harp</a></li><li><a href=order-by-rand-mysql>Order by Rand without a starting ID of 1</a></li><li><a href=dynamically-including-js>Loading JS dynamically in Harp</a></li>
+          <li><a href=today-we-learned-through-games>Teaching Through Games</a></li><li><a href=upgrading-chromium-33-to-37>Fixing the flash player in Chromium Version 37</a></li><li><a href=using-encrypted-search-in-chromium>Using Encrypted Search in Chrome</a></li><li><a href=likert-scales-less-css>Coloring Likert Scales with LESS CSS</a></li><li><a href=autoload-harp-css-js>Autoload your CSS and Javascript in Harp</a></li><li><a href=dynamically-including-js>Loading JS dynamically in Harp</a></li>
         </ul>
       </div>
       <div id="disqus_thread"></div>
