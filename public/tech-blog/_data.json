@@ -300,5 +300,11 @@
     "date" : "2014-10-17",
     "description" : "Educating young students and mentoring people is a great way to give back to the community, when doing so it's great to engage them, and a great way to do so is through games",
     "keywords" : "nim,education,games,learning,mentoring,learn,C++,game,games,21"
+  },
+  "order-by-rand-mysql" : {
+    "title" : "Order by Rand without a starting ID of 1",
+    "date" : "2014-10-23",
+    "description" : "There are many posts that discuss how not to use order by rand. However all of these fail to address what to do when the distribution of numbers lies at only one extreme of a range. This is how you handle that.",
+    "keywords" : "mysql,order by rand,random,unequal,distribution,order,rand"
   }
 }
