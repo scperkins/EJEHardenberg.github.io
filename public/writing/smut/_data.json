@@ -1,4 +1,9 @@
 {
+	"touch" : {
+		"title" : "Touch",
+		"date" : "2014-10-24",
+		"freq" : "yearly"
+	},
 	"hold-again" : {
 		"title" : "Together Again",
 		"date" : "2014-06-17",
