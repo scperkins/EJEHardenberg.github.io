@@ -1,4 +1,4 @@
-The warmth of her fingers tracing his spine sent shivers up his spine.
+The warmth of her fingers tracing his spine sent shivers up his body.
 Rolling the muscles underneath his shoulders he arched his back upwards
 and turned to look at the nude woman perched on him.
 
