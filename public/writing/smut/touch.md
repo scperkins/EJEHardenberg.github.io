@@ -3,11 +3,12 @@ Rolling the muscles underneath his shoulders he arched his back upwards
 and turned to look at the nude woman perched on him.
 
 Her black hair haphazardly resting on her smooth shoulders, the blue 
-streak cutting the otherwise solid color of her bangs in half. She leaned
-towards him and he felt her breasts push up against his back. Her mouth 
-coming to rest on his cheek as she enveloped him in a hug.
+streak cutting the otherwise solid color of her bangs emphasized the electric 
+steel of her eyes. She leaned towards him and he felt her breasts push 
+up against his back. Her mouth coming to rest on his cheek as she 
+enveloped him in her arms.
 
-Intwining hands with her, he rolled his shoulders forward and slowly 
+Entwining hands with her, he rolled his shoulders forward and slowly 
 started rolling to one side. Her grasp on him pulled harder as she began
 to lose her balance and squeeked as she braced herself against the wall 
 with one hand. Smiling, he finished his roll and pulled her face down to 

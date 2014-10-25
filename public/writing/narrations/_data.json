@@ -1,4 +1,9 @@
-{
+{	
+	"bookstore" : {
+		"title" : "Book Store",
+		"date" : "2014-10-25",
+		"freq" : "monthly"
+	},
 	"splitday" : {	
 		"title" : "Split Day",
 		"date" : "2014-10-22",
