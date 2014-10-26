@@ -1,4 +1,9 @@
 {
+	"prost" : {
+		"title" : "Prost",
+		"date" : "2014-10-26",
+		"freq" : "monthly"
+	},
 	"plugging-holes" : {
 		"title" : "Plugging Holes",
 		"date" : "2014-10-23",
