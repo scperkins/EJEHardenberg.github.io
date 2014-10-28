@@ -1,4 +1,4 @@
-### Use OpenCV for Spring Bean XML Configuration
+### Use OpenCV Classes in Spring Bean XML Configuration
 
 Today I ran into an infuriating issue that lasted for several hours. Here's the 
 stack trace I was given when trying to run `mvn tomcat:run`:
