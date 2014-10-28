@@ -306,5 +306,11 @@
     "date" : "2014-10-23",
     "description" : "There are many posts that discuss how not to use order by rand. However all of these fail to address what to do when the distribution of numbers lies at only one extreme of a range. This is how you handle that.",
     "keywords" : "mysql,order by rand,random,unequal,distribution,order,rand"
+  },
+  "load-opencv-for-spring-bean" : {
+    "title" : "Load Native Library in XML (OpenCV)",
+    "date" : "2014-10-28",
+    "description" : "With normal Java classes you can use System.loadLibrary to use native libraries, but what do you do when you're configuring code via XML?",
+    "keywords" : "OpenCV,XML,Configuration,loadLibrary,UnsatisfiedLinkError,instantiate,dependency"
   }
 }
