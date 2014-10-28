@@ -311,6 +311,6 @@
     "title" : "Use Native Library Classes in XML Beans (OpenCV)",
     "date" : "2014-10-28",
     "description" : "With normal Java classes you can use System.loadLibrary to use native libraries, but what do you do when you're configuring classes via XML?",
-    "keywords" : "OpenCV,XML,Configuration,loadLibrary,UnsatisfiedLinkError,Native,JNI,Bean,Java,instantiate,dependency"
+    "keywords" : "OpenCV,XML,Configuration,loadLibrary,Spring,UnsatisfiedLinkError,Native,JNI,Bean,Java,instantiate,dependency,Batch"
   }
 }
