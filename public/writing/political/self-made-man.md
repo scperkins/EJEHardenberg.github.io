@@ -4,6 +4,7 @@
 
 - [Why I Bought the book](#why-this-book)
 - [How this post is laid out](#layout)
+- [Chapter 1: Getting Started](#chapter1)
 
 
 <div id="why-this-book"></div>
@@ -62,6 +63,45 @@ further disgressions, let's talk about how I'm going to approach this:
 <div id="layout"></div>
 #### The format of my review and thoughts 
 
+Thoroughness is something to look for in a review of anything, so
+despite how long it may make this post, I'm going to do my best to be
+thorough. This means a mini review on each chapter of the book and my
+reactions, agreements, disagreements, and general thoughts on each. If
+you're looking for a comprehensive review then here it is:
+
+
+<div id="chapter1"></div>
+#### The Whys and Hows of It
+
+The start of the book is a simple introduction to why Mrs\* Vincent
+wrote the book. How her time as a child and a rough coming of age
+throughout puberty and college shaped the decisions that eventually led
+her to crossdress for a year and a half. Also, she discloses that the
+book is not a research study on gender differences, but rather one
+woman's _experience_ of a social culture of which she had never been a
+part of. 
+
+This chapter goes over a few things that I immediately related to,
+learning how to use makeup to disguise oneself, binding gendered parts
+(for the author: her breasts, for me: my penis), minding gender cues and
+getting voice training. All of these were things I as a reader could
+immediately relate to (though she had theatre help while I mainly used
+youtube), and for someone who doesn't crossdress: I think they'd find it
+fascinating what someone needs to do to portray themselves as someone
+else, and accept the person looking at them in the mirror as someone
+else. 
+
+One of the things that struck me, that must be talked about (especially
+since this is the politics blog on my site), is the section in the
+beginning about eye contact. From her perspectives of both male and
+female I qoute:
+
+(Pg 2 & 3)
+
+
+\*<small>I say Mrs becuase there is a dedication to her wife at the
+start of the book, I assume this is correct title use, but if not let me
+know in the comments below</small>
 
 
 [recent events]:https://medium.com/@aquapendulum/my-letter-to-jason-schreier-about-gamergate-ethics-f890d357188
