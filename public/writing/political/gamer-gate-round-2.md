@@ -15,7 +15,7 @@ As I did in the last post, I want to state upfront that I am biased.
 #### \#burgersandfries
 
 I absolutely love IRC channels, when I first learned about [Harp] I went
-into their IRC channel and began part of their community. I don't go in
+into their IRC channel and became part of their community. I don't go in
 as much as I used to, but I still actively blog on my [tech blog] about
 using it. The #burgersandfries community is a group of random people,
 over 300, that come from different countries, communities, race, gender,
