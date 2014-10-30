@@ -1,4 +1,9 @@
 {
+	"space" : {
+		"title" : "Space",
+		"date" : "2014-10-30",
+		"freq" : "monthly"
+	},
 	"devpressed" : {
 		"title" : "Unending",
 		"date" : "2014-10-29",
