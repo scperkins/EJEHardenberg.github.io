@@ -5,7 +5,7 @@ I've just started playing around with HTML templates. It took me a small
 amount of searching for the right tutorials, but after a while I found 
 a couple that when I combined them it all started worked together nicely. `
 
-[HandleBars](handlebarsjs.com) is pretty simple to use. Stare at the 
+[HandleBars](http://handlebarsjs.com) is pretty simple to use. Stare at the 
 documentation and syntax for a while, then realize that yes, if you want
 to do anything 'fancy' like `if(a==b)` that you'll need to write your own
 helper. But, if you're just looking for some simple and easy to use

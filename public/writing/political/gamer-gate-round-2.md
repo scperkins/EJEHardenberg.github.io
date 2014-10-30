@@ -200,7 +200,7 @@ should ever make that decision for you.
 [The Fine Young Capitalists have done]:http://www.thefineyoungcapitalists.com
 [they're allowed back with welcome arms]:http://www.alexa.com/siteinfo/escapistmagazine.com
 [alexa.com]:http://www.alexa.com/
-[with their public statement to revise their policies]:escapistmagazine.com/articles/view/video-games/editorials/12223-The-Escapist-Publisher-Issues-Public-Statement-on-Gamergate
+[with their public statement to revise their policies]:http://escapistmagazine.com/articles/view/video-games/editorials/12223-The-Escapist-Publisher-Issues-Public-Statement-on-Gamergate
 [this]:https://www.youtube.com/watch?v=GaXDLpjG3XU
 [great narrative and timeline]:https://medium.com/@cainejw/a-narrative-of-gamergate-and-examination-of-claims-of-collusion-with-4chan-5cf6c1a52a60
 [/v/]:http://www.4chan.org/v/  

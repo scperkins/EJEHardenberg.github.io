@@ -50,4 +50,4 @@ whatever the string being returned from the other shortcodes is.
 
 [shortcodes]:https://github.com/EJEHardenberg/dealcodes
 [qroute]:https://github.com/EJEHardenberg/qroute
-[Codex]:codex.wordpress.org
+[Codex]:http://codex.wordpress.org
