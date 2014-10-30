@@ -164,7 +164,7 @@ instead focus on good normalized schema design. Just my 2 cents.
 
 
 [Codex]:http://codex.wordpress.org
-[Harp]:harpjs.com
+[Harp]:http://harpjs.com
 [w3tc]:http://wordpress.org/plugins/w3-total-cache/
 [super cache]:https://wordpress.org/plugins/wp-super-cache/
 [e-commerce]:http://wordpress.org/plugins/tags/ecommerce

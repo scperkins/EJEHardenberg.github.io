@@ -6,7 +6,7 @@ in heaps of trouble with database queries piling up as rows upon rows
 are shuffled about only to return a single record as output. 
 
 There are [many](http://jan.kneschke.de/projects/mysql/order-by-rand/),
-[many](mihasya.com/blog/pull-random-data-out-of-mysql-without-making-it-cry-using-and-optimizing-order-by-limit-offset-etc/),
+[many](http://mihasya.com/blog/pull-random-data-out-of-mysql-without-making-it-cry-using-and-optimizing-order-by-limit-offset-etc/),
 blogs on the subject already. Something these fail to address though is
 the situation where your id's (assuming you've got a numeric `AUTO_INCREMENT` id) 
 don't start at one. The first link mentions dealing with gaps in the id's 
