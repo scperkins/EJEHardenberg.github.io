@@ -97,7 +97,62 @@ beginning about eye contact. From her perspectives of both male and
 female I qoute:
 
 (Pg 2 & 3)
+<blockquote>
 
+As a woman, you couldn't walk down those streets invisibly. You were an
+object of desire or at least semiprurient interest to the men who waited
+there, even if you weren't pretty - that, or you were just another pussy
+to be put in its place. Either way, their eyes followed you all the way
+up and down the street, never wavering, asserting their dominance as a
+matter of course. If you were female and you lived there, you got used
+to being stared down because it happened every day and there wasn't
+anything you could do about it.
+
+<br>
+
+But that night in drag, we walked by those same stoops and doorways and
+bodegas. We walked by those same groups of men. Only this time they
+didn't stare. On the contrary, when they met my eyes they looked away
+immediately and concertedly and never looked back. It was astoundind,
+the difference, the respec they showed me by _not_ looking at me, by
+purposely not staring.
+
+<br>
+
+That was it. That was what had annoyed me so much about meeting their
+gaze as a woman, not the desire, if that was ever there, but the
+disrespect, the entitlement. It was rude, and it was meant to be rude,
+and seeing those guys looking away deferentially when they thought I was
+male, I could validate in retrospect the true hostility of their former
+stares.
+<br>
+
+But that wasn't all there was to it. There was something more than
+respect being communicated in their averted gaze, something subtler,
+less direct. It was more like a disinclination to show disrespect. For
+them, to look away was to decline a challenge, to adhere to a code of
+behavior that kept the peace and the pecking order among male animals.
+To look another male in the eye and hold his gaze is to invite conflict,
+either that or accept the status quom to leave each man to his tiny
+sphere of influence, the small buffer of pride and poise that surrounds
+and keeps him.
+
+</blockquote>
+
+When I first read this I found myself very conflicted. I took offense
+to her "pecking order among male animals", in it I saw a slight
+inclination to view the male as subhuman, other language in the chapter
+also made me feel that she saw herself as some some enlightened pinacle
+of moral superiority coming to visit the savages. 
+
+But I continued reading, and I decided to ignore anything that
+immediately started to offend me and instead to look into **what** she
+was saying and not **how** she was doing it. Once that position was
+taken, I could follow and agree with her in many places. For example,
+during my first cross-dressing experience I was catcalled and wolf
+whistled at by a group of fratboys on a porch. _This amused me to no
+end_ because the thrill of passing as a woman and fooling these
+blowhards made me laugh. 
 
 \*<small>I say Mrs becuase there is a dedication to her wife at the
 start of the book, I assume this is correct title use, but if not let me
