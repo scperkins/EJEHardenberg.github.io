@@ -2,11 +2,11 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Ethan's Tech Blog | Teaching Through Games</title>
+    <title>Ethan's Tech Blog | Dynamic Tablename&#39;s in Order By with NamedParameterJdbc</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Educating young students and mentoring people is a great way to give back to the community, when doing so it&#39;s great to engage them, and a great way to do so is through games" />
+    <meta name="description" content="" />
     <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="nim,education,games,learning,mentoring,learn,C++,game,games,21"/>
+    <meta name="keywords" content="Java,NamedParameterJdbcTemplate,Order,Order By,table,dynamic,column,spring,mysql"/>
     <meta name="robots" content="index, follow"  />
       <meta name="revisit-after" content="1 month" />
       <meta name="viewport" content="width=1040">
@@ -17,19 +17,15 @@
 
         
     <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Teaching Through Games" />
+    <meta property="og:title" content="Ethan Eldridge | Dynamic Tablename&#39;s in Order By with NamedParameterJdbc" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
     
-    <meta property="og:description" content="Educating young students and mentoring people is a great way to give back to the community, when doing so it&#39;s great to engage them, and a great way to do so is through games" />
-    
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Teaching Through Games" />
-    
-    <meta name="twitter:description" content="Educating young students and mentoring people is a great way to give back to the community, when doing so it&#39;s great to engage them, and a great way to do so is through games" />
+    <meta name="twitter:title" content="Ethan Eldridge | Dynamic Tablename&#39;s in Order By with NamedParameterJdbc" />
     
     <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     	<!-- Core CSS Scripts -->
@@ -52,64 +48,52 @@
   </head>
   <body>
     <header>
-      <h1>Teaching Through Games</h1>
+      <h1>Dynamic Tablename&#39;s in Order By with NamedParameterJdbc</h1>
     </header>
 
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Teaching and Learning Through Games</h3>
-<p>At work recently I&#39;ve had the task of mentoring a young student. This
-involves teaching them how to program, how to approach problems related
-to code, and how to help them improve themselves.</p>
-<p>One of the biggest hurdles for students in learning is finding something
-that engages them and challenges them without being absolutely over their
-heads. Since I&#39;m teaching this student C++, the level of detail they have
-to learn in order to create even a simple program is far greater than if
-I were teaching them something like python.</p>
-<p>The other day, while thinking about what would be taught to my apprentice
-I hit on the idea that I should use the same game which I learned while I
-was their age. Which is a simplified game of <a href="http://en.wikipedia.org/wiki/Nim">Nim</a>, called the <a href="http://en.wikipedia.org/wiki/Nim#The_21_game">21 game</a>.
-Up until this point the student had only been going over tutorials from 
-<a href="http://www.cplusplus.com/">cplusplus.com</a>; which, while informative, aren&#39;t the most engaging.</p>
-<p>So I coded up a quick game of Nim in about 5 minutes to share:</p>
-<script src="https://gist.github.com/EJEHardenberg/6da876d965bc57a33cbc.js"></script>
+      <h3>Ambiguous Columns with Java NamedParameterJdbcTemplate and Order By Clauses</h3>
+<p>Sometime you have queries that Join two tables together that share a column name. When selecting an <code>ORDER BY</code> clause for your statement, in order to use the shared column name you must specify which of the two table&#39;s column will be used. For example:</p>
+<p><strong>Table A</strong></p>
+<pre><code>id | foo | bar | baz</code></pre>
+<p><strong>Table B</strong></p>
+<pre><code>id | bar | baz | boz</code></pre>
+<p><strong>Query</strong></p>
+<pre><code>SELECT * FROM A a JOIN B b ON a.id = b.id ORDER BY a.bar</code></pre>
+<p>Note how we must say <code>a.bar</code>, otherwise mySQL will complain about the column being ambiguous since it is. In our application let&#39;s say that the user can filter results from A and B and arrange things by any column. So using a <a href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/namedparam/NamedParameterJdbcTemplate.html">NamedParameterJdbcTemplate</a> we&#39;ll have a query like so:</p>
+<p><strong>Parameterized Query</strong></p>
+<pre><code>SELECT * FROM A a JOIN Bb ON a.id = b.id ORDER BY :order</code></pre>
+<p>Attempts to set up your parameter map like so will fail:</p>
+<pre><code>Map&lt;String, Object&gt; parameters = new HashMap&lt;String, Object&gt;();
+String order = //set to baz,boz,foo,bar, or id
+parameters.put(&quot;order&quot;, order);
 
-<p>This was a simple game, which would work provided that the user entered
-valid inputs. <a href="http://en.wikipedia.org/wiki/Defensive_programming">We all know that&#39;s not going to happen and we must be defensive about our code</a>.
-So my lesson to the student today was built up of the following:</p>
-<ul>
-<li>Show them the game played correctly</li>
-<li>Show them how bad inputs affect the current program</li>
-<li>Nudge them in the right direction about how to approach 1 of the issues</li>
-<li>Answer any questions they had while they implemented solutions to the problems</li>
-<li>Repeat from step 2 until the program is defensive</li>
-<li>Add in new features, like a computer player, scoreboard, or playing the game 
-more than once</li>
-</ul>
-<p>This lesson definitely engaged the student a lot more than sitting and 
-reading tutorials all morning. Over the course of 3 hours I saw the proficiency
-and understanding of the code increase. It was very rewarding. The student is
-still new to programming, so best practices weren&#39;t really being followed here,
-there was a <code>goto</code> to restart the game, there were redundant statements, and 
-nothing was in functions. </p>
-<p>But, it was built up piecemeal, expanded on for each new feature, and it worked.
-What&#39;s most important is that this was an encouraging lesson and engaging one to
-the student, and it was easy to tell that they were enjoying this far more than
-reading the tutorials from before.</p>
-<p>I encourage you to take the little bit of code at the top and make your
-own version of the game before looking at my implementation below that 
-was created as I sat next to the student. Teaching is an amazingly rewarding
-experience and really helps to ground your knowledge, it is one of the best
-ways to learn and to refresh your own foundations. Highly recommend it.</p>
-<script src="https://gist.github.com/EJEHardenberg/c97d64f01eb7b29256eb.js"></script>
-
+namedParameterJdbcTemplate.query( query, parameters, ...); //fail</code></pre>
+<p>Because if you pass in baz or bar for <code>:order</code> then you&#39;ll end up with an
+ambiguous column error. So you might try to change it up by doing this:</p>
+<p><strong>Still the wrong Query</strong></p>
+<pre><code>SELECT * FROM A a JOIN Bb ON a.id = b.id ORDER BY a.:order    </code></pre>
+<p>Which will fail again with an error implying you need to qoute the value.</p>
+<p><strong><em>Still</em> the wrong Query</strong></p>
+<pre><code>SELECT * FROM A a JOIN Bb ON a.id = b.id ORDER BY `a`.`:order`</code></pre>
+<p>only now it will fail because the parameter `order`` doesn&#39;t exist. </p>
+<p>So what do you do? Simple, use our original query and pass the tablename to
+disambiguate the clause:</p>
+<p><strong>The right way</strong></p>
+<pre><code>String query = &quot;SELECT * FROM A a JOIN Bb ON a.id = b.id ORDER BY :order&quot;
+Map&lt;String, Object&gt; parameters = new HashMap&lt;String, Object&gt;();
+String order = //set to baz,boz,foo,bar, or id
+parameters.put(&quot;order&quot;, &quot;a.&quot; + order); //note table name addition
+namedParameterJdbcTemplate.query( query, parameters, ...); //success!</code></pre>
+<p>Hope this helps someone else out there.</p>
 
       
       <h3>Other Posts</h3>
       <div id="other-posts">
         <ul>
-          <li><a href=order-by-rand-mysql>Order by Rand without a starting ID of 1</a></li><li><a href=upgrading-chromium-33-to-37>Fixing the flash player in Chromium Version 37</a></li><li><a href=load-opencv-for-spring-bean>Use Native Library Classes in XML Beans (OpenCV)</a></li><li><a href=using-encrypted-search-in-chromium>Using Encrypted Search in Chrome</a></li><li><a href=ambiguous-columns-namedparameterjdbc-order-by>Dynamic Tablename&#39;s in Order By with NamedParameterJdbc</a></li><li><a href=likert-scales-less-css>Coloring Likert Scales with LESS CSS</a></li>
+          <li><a href=load-opencv-for-spring-bean>Use Native Library Classes in XML Beans (OpenCV)</a></li><li><a href=order-by-rand-mysql>Order by Rand without a starting ID of 1</a></li><li><a href=today-we-learned-through-games>Teaching Through Games</a></li><li><a href=upgrading-chromium-33-to-37>Fixing the flash player in Chromium Version 37</a></li><li><a href=using-encrypted-search-in-chromium>Using Encrypted Search in Chrome</a></li><li><a href=likert-scales-less-css>Coloring Likert Scales with LESS CSS</a></li>
         </ul>
       </div>
       <div id="disqus_thread"></div>
