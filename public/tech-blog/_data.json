@@ -316,7 +316,7 @@
   "ambiguous-columns-namedparameterjdbc-order-by" : {
     "title" : "Dynamic Tablename's in Order By with NamedParameterJdbc",
     "date" : "2014-10-31",
-    "description" : "",
+    "description" : "When you want to have a parameterized Order By clause and you need to specify the table as well as the column, this is what you do",
     "keywords" : "Java,NamedParameterJdbcTemplate,Order,Order By,table,dynamic,column,spring,mysql"
   }
 }
