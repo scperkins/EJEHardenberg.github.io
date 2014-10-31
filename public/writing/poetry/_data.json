@@ -1,4 +1,9 @@
 {
+	"silent" : {
+		"title" : "Silent Good",
+		"date" : "2014-10-31",
+		"freq" : "monthly"
+	},
 	"space" : {
 		"title" : "Space",
 		"date" : "2014-10-30",
