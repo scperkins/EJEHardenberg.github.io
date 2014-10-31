@@ -4,7 +4,7 @@
   <head>
     <title>Ethan's Writing | <%= title %></title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="A short poem by Ethan J. Eldridge" />
+    <meta name="description" content="<%= poemDescription %>" />
     <meta name="author" content="Ethan Eldridge">
     <meta name="keywords" content="Ethan,Eldridge,Joachim,Poetry,poems,writing"/>
     <meta name="robots" content="index, follow"  />
@@ -26,9 +26,9 @@
       <em>
       	<%- yield %>
       </em>
-      <p>
+      <p><% if (current.source != "index"){ %>
         Last updated: <%= date %>
-      </p>
+      </p><%}%>
       <%- partial('../../_shared/disqus') %>   
     </div>
     <%- partial('../../_shared/nav') %>

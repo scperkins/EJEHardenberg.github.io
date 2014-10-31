@@ -2,7 +2,8 @@
 	"silent" : {
 		"title" : "Silent Good",
 		"date" : "2014-10-31",
-		"freq" : "monthly"
+		"freq" : "monthly",
+		"poemDescription" : "A poem about silent acts of goodness"
 	},
 	"space" : {
 		"title" : "Space",
@@ -318,5 +319,8 @@
 		"title" : "Hole",
 		"date" : "2014-06-20",
 		"freq" : "monthly"
+	},
+	"index" : {
+		"poemDescription" : "List of Ethan J. Eldridge's poems"
 	}
 }
