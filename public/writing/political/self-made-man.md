@@ -5,6 +5,7 @@
 - [Why I Bought the book](#why-this-book)
 - [How this post is laid out](#layout)
 - [Chapter 1: Getting Started](#chapter1)
+- [Chapter 2: ...](#chapter2)
 
 
 <div id="why-this-book"></div>
@@ -152,11 +153,38 @@ taken, I could follow and agree with her in many places. For example,
 during my first cross-dressing experience I was catcalled and wolf
 whistled at by a group of fratboys on a porch. _This amused me to no
 end_ because the thrill of passing as a woman and fooling these
-blowhards made me laugh. 
+blowhards made me laugh. Throughout that night the difference in treatment 
+by friends and strangers was _extremely_ evident to me. Some good, some 
+bad. I received more looks and was noticed more by people walking down 
+the street. I felt the eyes on me. And the funny thing was that many 
+were women, sizing me up in what felt like a competition of some kind. 
+
+In the same way as Mrs Vincent found a difference in treatment, so did I. 
+Having cross-dressed every halloween since, I've started to build up my 
+own personal experience of life through the eyes of a woman. While no way 
+nearly as comprehensive as her's, I found similarity in many of her 
+expressions about the pyschological affects it can have to hold two views 
+on something at the same time. Wondering: would I be treated this way if 
+I was X or Y? And there is definite truth in her words when she discusses 
+the value of perception and your own projection. If you go into a scene 
+awkward and uncomfortable, trying to make sure no one finds our you're 
+not what you are trying to appear as, the cracks show, but if you assert 
+yourself as being a man (in Mrs Vincent's case) and presenting that to 
+the people you're talking to, then you'll see people accept you as what 
+you say you are. 
+
+This chapter even by itself, despite simply being an introductorary 12 or
+something pages, is worth getting the book for. And the rest of the book 
+dives far deeper into the rabbit-hole of masculinity. I'm curious what 
+others think about her analysis of eye contact, it would be very interesting 
+to hear both men and women's responses in the comments below.
 
 \*<small>I say Mrs becuase there is a dedication to her wife at the
 start of the book, I assume this is correct title use, but if not let me
 know in the comments below</small>
+
+<div id="chapter2"></div>
+#### Some catchy thing for chapter 2
 
 
 [recent events]:https://medium.com/@aquapendulum/my-letter-to-jason-schreier-about-gamergate-ethics-f890d357188
