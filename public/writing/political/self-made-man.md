@@ -5,7 +5,7 @@
 - [Why I Bought the book](#why-this-book)
 - [How this post is laid out](#layout)
 - [Chapter 1: Getting Started](#chapter1)
-- [Chapter 2: ...](#chapter2)
+- [Chapter 2: Friendship](#chapter2)
 
 
 <div id="why-this-book"></div>
@@ -184,7 +184,9 @@ start of the book, I assume this is correct title use, but if not let me
 know in the comments below</small>
 
 <div id="chapter2"></div>
-#### Some catchy thing for chapter 2
+#### Friendship, Manning up, and Closeness
+
+
 
 
 [recent events]:https://medium.com/@aquapendulum/my-letter-to-jason-schreier-about-gamergate-ethics-f890d357188
