@@ -4,6 +4,7 @@
 	for( item in public.writing.political._data){
 		if(item == "index" || item == "disclaimer") continue
 		var thought = public.writing.political._data[item]
+		if(thought.draft) continue
 		%>
 		<a class="thought" href="<%= item %>"><%= thought.title %></a>
 		<%

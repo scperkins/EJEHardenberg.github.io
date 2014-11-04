@@ -1,4 +1,10 @@
 {
+	"self-made-man" : {
+		"title" : "Self Made Woman",
+		"description" : "Thoughts and review on the book Self Made Man",
+		"freq" : "daily",
+		"draft" : true
+	},
 	"affirmative-consent-law" : {
 		"title" : "Thoughts on Affirmative Consent",
 		"description" : "A laymans look into the problems in the new law from california, a disection piece of each portion of the bill",
