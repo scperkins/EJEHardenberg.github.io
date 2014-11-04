@@ -186,6 +186,7 @@ know in the comments below</small>
 <div id="chapter2"></div>
 #### Friendship, Manning up, and Closeness
 
+The second chapter details how the author infiltrated a men's bowling league. 
 
 
 
