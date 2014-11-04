@@ -4,7 +4,7 @@
 		"description" : "Thoughts and review on the book Self Made Man",
 		"freq" : "daily",
 		"draft" : true
-	},
+	}, 
 	"affirmative-consent-law" : {
 		"title" : "Thoughts on Affirmative Consent",
 		"description" : "A laymans look into the problems in the new law from california, a disection piece of each portion of the bill",
@@ -14,31 +14,37 @@
 	"speech" : {
 		"title" : "Freedom of Speech",
 		"description" : "A look into internet culture around trolling and freedom of speech.",
-		"freq" : "monthly"
+		"freq" : "monthly",
+		"keywords" : "freedom,speech,Freedom of Speech,youtube,trolling,troll,internet,tort,torts"
 	},
 	"cronyism-and-networking" : {
 		"title" : "Cronyism vs. Networking",
 		"description" : "An critique and observation of the differences and the fine line between Cronyism and Networking",
-		"freq" : "monthly"
+		"freq" : "monthly",
+		"keywords" : "Cronyism,Networking,legal,ethics,ethical"
 	},
 	"index" : {
 		"title" : "Free Speech on Current Events & Politics",
 		"description" : "Thoughts, opinions, musings, and general feelings on opinions today",
-		"freq" : "monthly"
+		"freq" : "monthly",
+		"keywords" : "opinion"
 	},
 	"disclaimer" : {
 		"title" : "A Disclaimer on Views expressed",
 		"description" : "A simple warning to those who may enter and read",
-		"freq" : "monthly"
+		"freq" : "monthly",
+		"keywords" : "warning,disclaimer,policy"
 	},
 	"gamer-gate-round-2" : {
 		"title" : "End Goals of Gamer Gate",
 		"description" : "My personal views on how #GamerGate affects me, and what I want out of it in the end.",
-		"freq" : "monthly"
+		"freq" : "monthly",
+		"keywords" : "GamerGate,#GamerGate,Gamer,View,Opinion,Goals"
 	},
 	"gamer-gate" : {
 		"title" : "Gamer Gate",
 		"description" : "Views and thoughts on #GamerGate and 4chan",
-		"freq" : "monthly"
+		"freq" : "monthly",
+		"keywords" : "#GamerGate,GamerGate,Scandal,4chan"
 	}
 }
