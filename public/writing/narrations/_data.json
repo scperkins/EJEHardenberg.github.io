@@ -1,4 +1,9 @@
-{	
+{
+	"sleepless" : {
+		"title" : "Sleepless",
+		"date" : "2014-11-03",
+		"freq" : "monthly"
+	},	
 	"bookstore" : {
 		"title" : "Book Store",
 		"date" : "2014-10-25",

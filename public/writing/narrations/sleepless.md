@@ -5,10 +5,11 @@ leave the warm trappings of his own body heat overwhelm any inclination
 to change the environment. Wriggling side to side, he begins thinking to
 himself. 
 
-What to do today? 
+When will I fall asleep?
 
-Flights of fancy begin to bubble: an adventure to the lake near his
-home? A pleasant meal within his favorite restaurant? Letter writing and
-a cafe with hot black tea? Ideas flowing, he almost get's out of bed.
-Turning onto his side and closing his eyes he wondered briefly what he
-should do before falling asleep again. 
+Turning onto his side and closing both eyes he wondered briefly what
+should be done before falling asleep again. After what felt like
+forever, but was more likely to be five minutes, his eyes opened again
+and he sighed. Fluffing the pillow and rolling to the other side of the
+bed. Another few minutes and still nothing had changed. 
+
