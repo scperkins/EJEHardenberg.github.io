@@ -318,5 +318,11 @@
     "date" : "2014-10-31",
     "description" : "When you want to have a parameterized Order By clause and you need to specify the table as well as the column, this is what you do",
     "keywords" : "Java,NamedParameterJdbcTemplate,Order,Order By,table,dynamic,column,spring,mysql"
+  },
+  "arcstar-chrome-extensions" : {
+    "title" : "*Arc: My First Chrome Extension",
+    "date" : "2014-11-06",
+    "description" : "A simple archiving plugin, my first chrome extension and some thoughts on it",
+    "keywords" : "arcstar,*arc,chrome,chromium,extension,archive,tweetsave"
   }
 }
