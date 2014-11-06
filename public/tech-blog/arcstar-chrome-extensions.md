@@ -8,7 +8,7 @@ just saving information that someone might choose to delete later.
 - Threats made against someone 
 - Evidence of harassment or bullying online
 
-A [recent website] let's you easily save tweets, they've got a 
+A [recent website] lets you easily save tweets, they've got a 
 bookmarklet and an API as well. So I thought to myself, it'd be nice to 
 be able to save a tweet with a single click, and if you're on a website 
 be able to save that as well. While thinking about this, I decided it'd 
