@@ -1,4 +1,10 @@
 {
+	"cut" : {
+		"title" : "Cut",
+		"date" : "2014-11-07",
+		"freq" : "monthly",
+		"poemDescription" : "Thoughts on how social networks cut us off from each other"
+	},
 	"fury" : {
 		"title" : "Fury",
 		"date" : "2014-11-4",
