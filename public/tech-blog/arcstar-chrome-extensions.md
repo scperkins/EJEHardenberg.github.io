@@ -20,7 +20,7 @@ This led to some pretty simple code:
 	var arcGenerator = {
 	  genArc: function(url) {
 	    /* If on twitter also send to tweetsave */
-	    if(url.match(/twitter.com/)){
+	    if(url.match(/twitter.com\/[^\/]+\/status/)){
 	      setTimeout(function(){
 	        open('http://tweetsave.com/?tweet='+encodeURIComponent(url))
 	      },10)
@@ -77,6 +77,10 @@ suggestion I'd make to Google would be to make a "Your Apps" link to your
 own developed apps from the main chrome store page, instead of having to 
 go to the developer center first, then see the link. It'd be nice to have
 a faster way to share the url of your own plugins.
+
+**Edit:** The owner of TweetSave contacted me and suggested to narrow
+the TweetSave archiving link to just statuses since TweetSave only
+archives status updates. Version 1.2.1 in the store handles this. 
 
 [\*arc]:https://chrome.google.com/webstore/detail/arc-one-click-archiving/hmbmdbfkpgemaefgbinhcfodneaocfeg
 [recent website]:http://tweetsave.com/
