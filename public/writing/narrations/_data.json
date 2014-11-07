@@ -1,4 +1,9 @@
 {
+	"across" : {
+		"title" : "Across",
+		"date" : "2014-11-07",
+		"freq" : "monthly" 
+	},
 	"sleepless" : {
 		"title" : "Sleepless",
 		"date" : "2014-11-03",
