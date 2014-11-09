@@ -39,7 +39,7 @@ intent is to inform you, and hopefully get you to protest as well
 because you believe in the message. And because *you are afraid of what
 will happen if you don't*. 
 
-
+-- Ethan gather top peace ful protests and talk about them
 
 [Win Hearts And Minds]:http://johnpilger.com/articles/power-illusion-and-americas-last-taboo
 [when bus drivers went on strike]:http://vtdigger.org/2014/04/03/tentative-agreement-ccta-drivers-back-road-friday/
