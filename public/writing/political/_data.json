@@ -1,4 +1,10 @@
 {
+	"protesting" : {	
+		"title" : "On Protesting",
+		"description" : "Brief thoughts on peaceful protests",
+		"freq" : "monthly",
+		"draft" : false
+	},
 	"self-made-man" : {
 		"title" : "Self Made Woman",
 		"description" : "Thoughts and review on the book Self Made Man",

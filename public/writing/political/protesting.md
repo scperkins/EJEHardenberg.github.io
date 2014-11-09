@@ -26,23 +26,59 @@ by the end of it and also, hopefully, scared.
 #### A successful protest inspires change
 
 Because _that_ is what a protest is really an attempt to do. A protest
-is an attempt to bring about a change, it's an attempt, as it were to
+is an attempt to bring about a change, it's an attempt, as it were to,
 [Win Hearts And Minds]. This can be through an appeal to someone's moral
 values or good nature, but really, fear is a better motivater. A protest
 says: "If you don't do something now, about this issue I'm showing you,
 there will be consequences that will affect you". 
 
-There *are* non-violent protests, or simple protests of people sitting
+There *are* nonviolent protests, or simple protests of people sitting
 down. But even when these happen, if you talk to the protester's you're
 likely going to hear about whatever is causing them to protest, and the
 intent is to inform you, and hopefully get you to protest as well
 because you believe in the message. And because *you are afraid of what
-will happen if you don't*. 
+will happen if you don't*. Nonviolent protests typically don't gain a
+lot of news coverage since watching someone sit somewhere for a long
+time isn't particularly interesting to most. 
 
--- Ethan gather top peace ful protests and talk about them
+#### Importance of a Goal
+
+From what I can tell, most protests are around a single core issue. This
+seems wise. While they're many many issues in the world, trying to address
+all of them at once is a naive and foolhardy approach. However when
+there is a single, simple demand, it is _much_ easier to fight back
+against a system.
+
+For example, [Women's Suffrage] took over nearly a century, but it was a
+nonviolent protest, using hunger strikes and picketing as one of its
+many methods of inspiring change. In [India], Mahatma Gandhi rejected
+British taxes and products and became renown around the world. During
+World War II [The White Rose] distributed leaflet's protesting the
+German Nationalist Party's control of the government. 
+
+Each of these movements had one simple goal. Voting rights, a stance
+against imperialism, and a call to action against tyrany. All of these
+happened in the last century. 
+
+Recently, I took part in a small protest within my own town for Net
+Neutrality. It was small, but still part of the [international event]
+and will hopefully bare fruit soon. After speaking to a few people, most
+feel that protests don't change much. And I think that that attitude
+comes from their view on American Society. Primarily, that the news
+media often doesn't report on peaceful protests or other events that
+don't generate a lot of buzz. 
+
+It's a shame. 
+
+
 
 [Win Hearts And Minds]:http://johnpilger.com/articles/power-illusion-and-americas-last-taboo
 [when bus drivers went on strike]:http://vtdigger.org/2014/04/03/tentative-agreement-ccta-drivers-back-road-friday/
 [students at Pomona College]:http://www.dailykos.com/story/2014/02/15/1277714/-Divestment-protest-and-human-oil-spill-at-Pitzer-College-2-14-14
 [within the #RealNetNeutrality]:https://twitter.com/search?src=typd&q=%23RealNetNeutrality
 [John Oliver]:https://www.youtube.com/watch?v=fpbOEoRrHyU
+[Women's Suffrage]:http://en.wikipedia.org/wiki/Women%27s_suffrage_in_the_United_States
+[India]:http://en.wikipedia.org/wiki/Salt_March
+[The White Rose]:http://en.wikipedia.org/wiki/White_Rose
+[international event]:https://www.battleforthenet.com/#protest
+
