@@ -1,4 +1,10 @@
 {
+	"words" : {
+		"title" : "Words",
+		"date" : "2014-11-12",
+		"freq" : "monthly",
+		"poemDescription" : "Thoughts on being called names for being different"
+	},
 	"cut" : {
 		"title" : "Cut",
 		"date" : "2014-11-07",
