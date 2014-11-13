@@ -1,4 +1,9 @@
 {
+	"whitehat" : {
+		"title" : "White Hat",
+		"date" : "2014-11-13",
+		"freq" : "monthly" 
+	},
 	"5oclock" : {
 		"title" : "5 O'Clock",
 		"date" : "2014-11-10",
