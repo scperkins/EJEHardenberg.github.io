@@ -1,4 +1,10 @@
 {
+	"firstsnow" : {
+		"title" : "First Snow",
+		"date" : "2014-11-14",
+		"freq" : "monthly",
+		"poemDescription" : "The sight of snow on the ground for the first time."
+	},
 	"words" : {
 		"title" : "Words",
 		"date" : "2014-11-12",
