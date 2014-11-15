@@ -273,6 +273,23 @@ to them, they continue to be her friends and treat her just the same. Not just a
 	for you is a true and great friend.
 </blockquote>
 
+Ultimately, my reactions to this chapter were to be amused by each joke and story,
+to feel sympathy when hearing of some of the very real and very difficult issues
+each of these men face, and to feel solidarity with the author and these men I 
+don't even know. There are truths echoed that you'll hear any man repeat in those
+pages, to see them on page, written by a woman, was remarkable. Often I feel that 
+men's issues are brushed under the rug in favor of womens, while there are plenty
+of reasons one might prioritize, it was still nice to see even slight recognition
+of this. Reading more of the book only further showed me just how seriously the 
+author had taken her work.
+
+If you're looking to see how your typical 'guys night' is, no look further than 
+this chapter, it hits on a lot of core pieces I've seen in all male events. Though
+there were some things which I've never seen and found unsettling. And if you find
+something that disturbs you during the chapter, remember that this is a small set
+of men, and Mrs. Vincent specifically went out of her way to find areas of intense
+masculinity.
+
 <div id="chapter3"></div>
 #### Strippers, Sex, and Secrets
 
