@@ -6,6 +6,7 @@
 - [How this post is laid out](#layout)
 - [Chapter 1: Getting Started](#chapter1)
 - [Chapter 2: Friendship](#chapter2)
+- [Chapter 3: Sex](#chapter3)
 
 
 <div id="why-this-book"></div>
@@ -187,6 +188,98 @@ know in the comments below</small>
 #### Friendship, Manning up, and Closeness
 
 The second chapter details how the author infiltrated a men's bowling league. 
+An area which she found a group of men who, despite her being poor at
+the sport, took her under their wing. At first, Mrs. Vincent was wary and
+nervous:
+
+<blockquote>
+	My eyes blurred in panic. I didn't see anything. I remember being 
+	aware only of a wave of noise and imagined distrust coming at me
+	from undistinguishable faces. Probably only one or two people
+	actually turned to look, but it felt as if every pair of eyes in the
+	place had landed on me and stuck.
+</blockquote>
+
+However, upon meeting her teammates she is instantly welcomed and made to
+feel welcome with a simple gesture:
+
+<blockquote>
+	There was something so warm and bonded in this handshake. Receiving 
+	it was a rush, an instant inclusion in a camaraderie that felt very 
+	old and practiced.
+	<br>
+	...
+	<br>
+	This solidarity of sex was something that feminism tried to teach us,
+	and something, it now seemed to me, that men figured out and perfected 
+	a long time ago. On some level men didn't need to learn or remind themselves
+	that brotherhood was powerful. It was just something they seemed to know.
+</blockquote>
+
+While one of the men doesn't greet her with as much enthusiam, simpy nodding
+from across the table, throughout the months at the league she observes this 
+man's son being taught some of the stereotypical rules of manhood. Bob's son, Alex,
+is a chatty kid who, like many children, will blather your ear off if given the
+chance. During her time in the league, Mrs. Vincent observes what she percieves 
+as Alex's trial and error eduction. Where the boy is "thrown to the wolves" and
+taught through teasing and thickening of his skin. The irony that both the boy 
+and author were going through a sort of tutorial in mandhood isn't lost, and a
+good number of interesting insights are given.
+
+Interestingly enough, Mrs. Vincent assumed the worst in these men, as they all 
+represented the stereotypical white man (plumber, construction worker, etc). In
+her own words:
+
+<blockquote>
+	Exposing my own prejudices, I had expected these guys to be filled with 
+	virulent hatred for anyone who wasn't like them, taking their turn to kick
+	the next guy down.
+</blockquote>
+
+Yet throughout the chapter she finds places again and again where these men show
+their true colors, as "rock bottom utilitarians" who judged people by their actions
+and not by their words.
+
+The chapter also covers topics on humor, death, and even some political leanings. 
+It was really a fascinating read, and the author draws her own perceptions, 
+critiquing the macho culture around her in a way only a woman could. Despite my
+feelings that she had a bit of confirmation bias, her views and opinions were
+often fresh and interesting. Her lense of the world of these men's men gave me a
+good deal of food for thought. Perhaps the thing that kept me engrossed in 
+reading was her praise of the nurturing and educational methods of the various 
+men around her.
+
+<blockquote>
+	They took me under their wings. Another older bowler had done this. Taking me
+	aside between rounds, he tried to teach me a few things to improve my game.
+	This was male mentor stuff all the way. He treated me like a son, guiding
+	me with firm encouragement and solid advice, an older man lending a younger
+	man his expertise.
+	<br>
+	This was commonplace. During the course of the bowling season, which lasted
+	nine months, a lot of men from the other teams tried to give me tips on my game.
+</blockquote>
+
+Mrs. Vincent finds herself in a masculine dominated area for nine months, and 
+becomes friends with the members of her team. One in particular, Jim, she grows 
+close to and reveals herself as a woman to him first. Opposite to her expections,
+Jim and the rest of the crew aren't bothered at all. And after revealing herself
+to them, they continue to be her friends and treat her just the same. Not just as 
+"one of the guys", but as a friend. In Norah's words:
+
+<blockquote>
+	They made me look ridiculous to myself and they made me laugh about it. And
+	for that I will always be grateful to them, because anybody who does that 
+	for you is a true and great friend.
+</blockquote>
+
+<div id="chapter3"></div>
+#### Strippers, Sex, and Secrets
+
+
+
+
+
 
 
 
