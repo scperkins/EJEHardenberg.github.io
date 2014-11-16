@@ -1,4 +1,10 @@
 {
+	"wrought" : {
+		"title" : "Wrought",
+		"date" : "2014-11-16",
+		"freq" : "monthly",
+		"poemDescription" : "A haiku on accountability"
+	},
 	"firstsnow" : {
 		"title" : "First Snow",
 		"date" : "2014-11-14",
