@@ -22,6 +22,18 @@
 		"staticcssurl" : "css.ethanjoachimeldridge.info",
 		"projects" : [
 			{
+				"title" : "Shared Voice",
+				"period" : "Fall 2014",
+				"description" : "A twitter app similar to ThunderClap.it but a more homebrew approach",
+				"references" : "You can read more about it on my <a href=\"/tech-blog/shared-voice\">tech blog</a>"
+			},
+			{
+				"title" : "Arc Star",
+				"period" : "Fall 2014",
+				"description" : "A simple archiving extension for chrome and chromium",
+				"references" : "You can get it <a href=\"https://chrome.google.com/webstore/detail/arc-one-click-archiving/hmbmdbfkpgemaefgbinhcfodneaocfeg\">here</a>"
+			},
+			{
 				"title" : "Temporary Chat",
 				"period" : "Fall 2014",
 				"description" : "An anonymous chat room created in C and Javascript, created as a set of tutorials to provide examples of CGI with C",
