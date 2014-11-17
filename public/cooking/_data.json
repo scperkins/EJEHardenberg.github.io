@@ -4,6 +4,22 @@
 		"description" : "A small bundle of recipes of things I eat for dinner that are easy to make.",
 		"freq" : "daily"
 	},
+	"bacon-wrapped-chicken" : {
+		"title" : "Bacon Wrapped Chicken",
+		"image" : "bacon-wrapped-chicken.jpg",
+		"description" : "Chicken wrapped in bacon, just as good as it sounds",
+		"date" : "2014-11-16",
+		"freq" : "monthly",
+		"author" : "ethan"
+	},
+	"oven-squash-and-beets" : { 
+		"title" : "Oven Roasted Squash and Beets",
+		"image" : "squash-beets.jpg",
+		"description" : "A simple recipe for color in your food",
+		"date" : "2014-11-16",
+		"freq" : "monthly",
+		"author" : "ethan"
+	},
 	"pan-fried-salmon" : {
 		"title" : "Pan Fried Salmon",
 		"image" : "salmon.jpg",
