@@ -324,5 +324,11 @@
     "date" : "2014-11-06",
     "description" : "A simple archiving plugin, my first chrome extension and some thoughts on it",
     "keywords" : "arcstar,*arc,chrome,chromium,extension,archive,tweetsave"
+  },
+  "shared-voice" : {
+    "title" : "Shared Voice - Activist's tool",
+    "date" : "2014-11-17",
+    "description" : "A tool similar to ThunderClap.it, but more suited for anonymous culture",
+    "keywords" : "twitter,activism,hacktivism,thunderclap,anonymous,tools"
   }
 }
