@@ -2,11 +2,11 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Ethan's Tech Blog | Dynamic Tablename&#39;s in Order By with NamedParameterJdbc</title>
+    <title>Ethan's Tech Blog | Shared Voice - Activist&#39;s tool</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="When you want to have a parameterized Order By clause and you need to specify the table as well as the column, this is what you do" />
+    <meta name="description" content="A tool similar to ThunderClap.it, but more suited for anonymous culture" />
     <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="Java,NamedParameterJdbcTemplate,Order,Order By,table,dynamic,column,spring,mysql"/>
+    <meta name="keywords" content="twitter,activism,hacktivism,thunderclap,anonymous,tools"/>
     <meta name="robots" content="index, follow"  />
       <meta name="revisit-after" content="1 month" />
       <meta name="viewport" content="width=1040">
@@ -17,19 +17,19 @@
 
         
     <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Dynamic Tablename&#39;s in Order By with NamedParameterJdbc" />
+    <meta property="og:title" content="Ethan Eldridge | Shared Voice - Activist&#39;s tool" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
     
-    <meta property="og:description" content="When you want to have a parameterized Order By clause and you need to specify the table as well as the column, this is what you do" />
+    <meta property="og:description" content="A tool similar to ThunderClap.it, but more suited for anonymous culture" />
     
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Dynamic Tablename&#39;s in Order By with NamedParameterJdbc" />
+    <meta name="twitter:title" content="Ethan Eldridge | Shared Voice - Activist&#39;s tool" />
     
-    <meta name="twitter:description" content="When you want to have a parameterized Order By clause and you need to specify the table as well as the column, this is what you do" />
+    <meta name="twitter:description" content="A tool similar to ThunderClap.it, but more suited for anonymous culture" />
     
     <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     	<!-- Core CSS Scripts -->
@@ -52,52 +52,52 @@
   </head>
   <body>
     <header>
-      <h1>Dynamic Tablename&#39;s in Order By with NamedParameterJdbc</h1>
+      <h1>Shared Voice - Activist&#39;s tool</h1>
     </header>
 
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Ambiguous Columns with Java NamedParameterJdbcTemplate and Order By Clauses</h3>
-<p>Sometime you have queries that Join two tables together that share a column name. When selecting an <code>ORDER BY</code> clause for your statement, in order to use the shared column name you must specify which of the two table&#39;s column will be used. For example:</p>
-<p><strong>Table A</strong></p>
-<pre><code>id | foo | bar | baz</code></pre>
-<p><strong>Table B</strong></p>
-<pre><code>id | bar | baz | boz</code></pre>
-<p><strong>Query</strong></p>
-<pre><code>SELECT * FROM A a JOIN B b ON a.id = b.id ORDER BY a.bar</code></pre>
-<p>Note how we must say <code>a.bar</code>, otherwise mySQL will complain about the column being ambiguous since it is. In our application let&#39;s say that the user can filter results from A and B and arrange things by any column. So using a <a href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/namedparam/NamedParameterJdbcTemplate.html">NamedParameterJdbcTemplate</a> we&#39;ll have a query like so:</p>
-<p><strong>Parameterized Query</strong></p>
-<pre><code>SELECT * FROM A a JOIN Bb ON a.id = b.id ORDER BY :order</code></pre>
-<p>Attempts to set up your parameter map like so will fail:</p>
-<pre><code>Map&lt;String, Object&gt; parameters = new HashMap&lt;String, Object&gt;();
-String order = //set to baz,boz,foo,bar, or id
-parameters.put(&quot;order&quot;, order);
-
-namedParameterJdbcTemplate.query( query, parameters, ...); //fail</code></pre>
-<p>Because if you pass in baz or bar for <code>:order</code> then you&#39;ll end up with an
-ambiguous column error. So you might try to change it up by doing this:</p>
-<p><strong>Still the wrong Query</strong></p>
-<pre><code>SELECT * FROM A a JOIN Bb ON a.id = b.id ORDER BY a.:order    </code></pre>
-<p>Which will fail again with an error implying you need to qoute the value.</p>
-<p><strong><em>Still</em> the wrong Query</strong></p>
-<pre><code>SELECT * FROM A a JOIN Bb ON a.id = b.id ORDER BY `a`.`:order`</code></pre>
-<p>only now it will fail because the parameter `order`` doesn&#39;t exist. </p>
-<p>So what do you do? Simple, use our original query and pass the tablename to
-disambiguate the clause:</p>
-<p><strong>The right way</strong></p>
-<pre><code>String query = &quot;SELECT * FROM A a JOIN Bb ON a.id = b.id ORDER BY :order&quot;
-Map&lt;String, Object&gt; parameters = new HashMap&lt;String, Object&gt;();
-String order = //set to baz,boz,foo,bar, or id
-parameters.put(&quot;order&quot;, &quot;a.&quot; + order); //note table name addition
-namedParameterJdbcTemplate.query( query, parameters, ...); //success!</code></pre>
-<p>Hope this helps someone else out there.</p>
+      <h3>Shared Voice</h3>
+<p>Yesterday I was thinking to myself about how useful <a href="http://twitter.com">Twitter</a> can be for 
+<a href="https://archive.today/bLdK0">internet</a> <a href="http://en.wikibooks.org/wiki/Professionalism/Hacktivism">activism</a> and <a href="http://www.millionmaskmarch.com">protests</a> and trying to figure out how I could lend my talents 
+to activists everywhere. </p>
+<p>I&#39;ve known about <a href="http://thunderclap.it">thunderclap</a> for a while, but one of the things I see as a flaw
+is that it doesn&#39;t really jive well with anonymous culture. For example, consider 
+the case study here:</p>
+<p>You&#39;re an activist who has found something troubling, you&#39;ve decided to be a 
+whistleblower, but you need to get your message out to as many people as possible. 
+Organizing a Thunderclap is public, which means that you&#39;re going to lose some of
+the shock element from your leak.</p>
+<p>So what do you do? </p>
+<p><img src="/images/tech-blog/shared-voice.png" width="800px"> </p>
+<p>Well, I&#39;ve made <a href="https://github.com/EJEHardenberg/SharedVoice">SharedVoice</a>, which is an extremely simple twitter application 
+that solves this usecase. It&#39;s simple and developer friendly: setup a simple 
+webserver with Apache, MySQL, and PHP by following the <a href="https://github.com/EJEHardenberg/SharedVoice/blob/master/setup.md">setup instructions</a> and
+then setup your configuration file named <em>conf.json</em>, something like this:</p>
+<pre><code>{
+    &quot;apiKey&quot; : &quot;YourTwitterAPIKey&quot;,
+    &quot;apiSecretKey&quot; : &quot;YourTwitterAPISecretKey&quot;,
+    &quot;dbname&quot; : &quot;databasename&quot;,
+    &quot;dbuser&quot; : &quot;databaseuser&quot;,
+    &quot;dbpass&quot; : &quot;databasepass&quot;,
+    &quot;dbhost&quot; : &quot;databasehost&quot;,
+    &quot;tweet&quot; : &quot;Anonymous exposes cop as member of KKK behind letter threatening to kill #Ferguson protesters http://bit.ly/11c5xIq    &quot;
+}</code></pre>
+<p>Once this is setup, the text in the &quot;tweet&quot; will appear on the page. In the screenshot
+above, the text there was &quot;This is a test. Pay no mind. This is a test&quot;. After 
+you&#39;ve got the small page setup, you can simply start sharing the link to people 
+you trust to spread your sentiments, and then once you&#39;re ready, hop onto the 
+server to run <code>post.php</code> or setup a cronjob to fire at a specific time/date.</p>
+<p>It&#39;s a simple tool, but I&#39;m hopeful that someone will make use of it. As far as 
+version&#39;s go, you&#39;ll need to use PHP &lt; 5.5 since the <code>mysql_*</code> functions are 
+deprecated after that point. </p>
 
       
       <h3>Other Posts</h3>
       <div id="other-posts">
         <ul>
-          <li><a href=arcstar-chrome-extensions>*Arc: My First Chrome Extension</a></li><li><a href=load-opencv-for-spring-bean>Use Native Library Classes in XML Beans (OpenCV)</a></li><li><a href=shared-voice>Shared Voice - Activist&#39;s tool</a></li><li><a href=order-by-rand-mysql>Order by Rand without a starting ID of 1</a></li><li><a href=today-we-learned-through-games>Teaching Through Games</a></li><li><a href=upgrading-chromium-33-to-37>Fixing the flash player in Chromium Version 37</a></li>
+          <li><a href=arcstar-chrome-extensions>*Arc: My First Chrome Extension</a></li><li><a href=ambiguous-columns-namedparameterjdbc-order-by>Dynamic Tablename&#39;s in Order By with NamedParameterJdbc</a></li><li><a href=load-opencv-for-spring-bean>Use Native Library Classes in XML Beans (OpenCV)</a></li><li><a href=order-by-rand-mysql>Order by Rand without a starting ID of 1</a></li><li><a href=today-we-learned-through-games>Teaching Through Games</a></li><li><a href=upgrading-chromium-33-to-37>Fixing the flash player in Chromium Version 37</a></li>
         </ul>
       </div>
       <div id="disqus_thread"></div>
