@@ -1,4 +1,9 @@
 {
+	"choppy" : {
+		"title" : "Choppy",
+		"date" : "2014-11-18",
+		"freq" : "monthly"
+	},
 	"whitehat" : {
 		"title" : "White Hat",
 		"date" : "2014-11-13",
