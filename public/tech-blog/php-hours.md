@@ -92,6 +92,8 @@ on the list. Here are some example runs:
 	'0.1.2.3.4.5.6' => Sun-Sat
 	'0.2.4.6' => Sun,Tue,Thu,Sat
 
+#### But what about hours?
+
 Using this it is not only easy to construct sequences for each schedule
 for a business, but easy to search a database field to determine if a
 business has hours on a certain day. Just by using the php function
@@ -159,3 +161,16 @@ Searches like:
 
 are going to be useful for filtering or sorting. If scaling, it might be wise to
 implement something more efficient than using `Like %%`though.
+
+#### Why store the days like that?
+
+You might be asking yourself, why would we store the days as `d.d.d.d.d` or something
+similar? The answer is for interface purposes it's much easier. If you're an admin
+you don't want to select ranges from dropdowns or non-intuitive things like that.
+You're going to want to be able to click a button for each day, or drag your cursor 
+over some type of range mechanism. It's extremely simple javascript to convert a
+list of selected buttons to a list of numbers seperated by dots. Not too mention 
+that by representing the days in this way we can easily `explode` on the delimiters 
+and easily use the ideas of sequences for finding the appropriate text.
+
+
