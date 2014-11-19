@@ -149,4 +149,13 @@ operating hours. As far as database table structure goes:
 I'll update this post once I figure out some good index's and querys for efficient
 querying of large pieces of data. For the average use case this is perfectly fine
 though, becuase you're likely to be joining via a business id when displaying 
-hours.    
+hours.
+
+Searches like: 
+
+	SELECT * FROM business_hours WHERE stime < x and x < etime -- where x is a number
+	SELECT * FROM business_hours WHERE daylist LIKE %D% -- where D is a number for day
+	SELECT * FROM business_hours WHERE daylist LIKE %D% AND stime < x AND x < etime
+
+are going to be useful for filtering or sorting. If scaling, it might be wise to
+implement something more efficient than using `Like %%`though.

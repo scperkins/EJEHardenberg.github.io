@@ -330,5 +330,11 @@
     "date" : "2014-11-17",
     "description" : "A tool similar to ThunderClap.it, but more suited for anonymous culture",
     "keywords" : "twitter,activism,hacktivism,thunderclap,anonymous,tools"
+  },
+  "php-hours" : {
+    "title" : "Displaying Business hours with PHP",
+    "date" : "2014-11-19",
+    "description" : "Storing business hours in a database is a common usecase, having searchable business directories is even better. This is one way to do it",
+    "keywords" : "PHP,hours,business,directory,representation,data"
   }
 }
