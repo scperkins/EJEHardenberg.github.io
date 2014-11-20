@@ -1,4 +1,10 @@
 {
+	"outrage" : {
+		"title" : "Outrage",
+		"date" : "2014-11-20",
+		"freq" : "monthly",
+		"poemDescription" : "One should think, consider, and not act on emotion alone"
+	},
 	"wrought" : {
 		"title" : "Wrought",
 		"date" : "2014-11-16",
