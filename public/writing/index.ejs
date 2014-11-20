@@ -25,11 +25,13 @@
 		<% 
 		for( item in public.writing.poetry._data){
 			var poem = public.writing.poetry._data[item]
+			if(item != 'index'){
 			%>
 			<li>
 				<a href="poetry/<%= item %>"><%= poem.title %></a>
 			</li>
 			<%
+			}
 		}
 		%>
 	</ul>
