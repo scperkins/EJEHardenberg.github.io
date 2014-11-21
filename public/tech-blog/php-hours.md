@@ -173,4 +173,19 @@ list of selected buttons to a list of numbers seperated by dots. Not too mention
 that by representing the days in this way we can easily `explode` on the delimiters 
 and easily use the ideas of sequences for finding the appropriate text.
 
+#### Update! Bisection algorithm via [my friend Josh](http://joshuadickerson.com)
+
+After writing this blog post I shared it with a
+[few](http://scperkins.github.io)
+[friends](http://twitter.com/garthfritz) who gave me some feedback.
+While I'm still waiting for my database oriented friend to get back to
+me, Josh suggested an improvement for more efficiently finding the
+sequences from a list of elements. 
+
+ who gave me some feedback. While I'm still waiting for my database
+oriented friend to get back to me, Josh suggested an improvement for
+more efficiently finding the sequences from a list of elements. 
+
+<!-- Ethan Keep going here! use email correspondence or etc -->
+
 
