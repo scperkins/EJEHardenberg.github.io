@@ -186,6 +186,66 @@ sequences from a list of elements.
 oriented friend to get back to me, Josh suggested an improvement for
 more efficiently finding the sequences from a list of elements. 
 
-<!-- Ethan Keep going here! use email correspondence or etc -->
+<blockquote>
+A shortcut to the second method in your post would be to employ a simple
+bisection algorithm. The last element of the array should equal the first 
+element of the array + the size of the array -1, if it does not, 
+bisect until you find the "bad" sequence. Use all the cores.
+</blockquote>
+
+And he's absolutely right that this is a shortcut, for example let's
+look at the difference in efficiency between the sequence implementation 
+above, vs a bisection algorithm approach.
+
+    0.1.2.3.4.5.6
+
+The sequence algorithm will iterate through the full list, concluding
+after N operations that this is a sequence from 0 to 6. Consider the
+following:
+
+    First element: 0, 
+    Size of list: 7 
+    Last element: 6 
+
+According to Josh's shortcut: 0 + 7 -1 = 6 and therefore we have a
+sequence. To do this we only needed to know the size, head, and tail of
+the list. Assuming that we use an implementation of the list that keeps
+track of the length of the list, this will be a constant operation based
+on the number of sequences of the list. As an example of this:
+
+    Original List: 0.1.2.4.6.7
+    Expected Sequences: [1,2,3] [4] [6,7]
+    
+    Bisection algorithm:
+    [1,2,3,4,6,7]           1 + 5 = 7 ? false. cut the array in half
+    [1,2,3] [4,6,7]         Now we can process each list in parallel
+    [1,2,3]                 1 + 2 = 3 ? true: save sequence
+    [4,6,7]                 4 + 2 = 6 ? false: cut the array in half
+    [4] [6,7]               3/2=1 so split with a new list at index 1
+    [4]                     4 + 0 = 4 ? true: save sequence
+    [6,7]                   6 + 1 = 7 ? true: save sequence
+
+This algorithm lends itself easy to recursion, and so long as the list
+is not too large, the depth of the call stack won't be a problem. Since
+we're only dealing with a list of up to 7 elements we have no worry
+about this at all. However since we are dealing with such a small list,
+it may be possible that empirically the simpler difference algorithm
+outperforms the recursive one. 
+
+To test our academic reasoning vs empirical reality we need to have both
+algorithms to run:
+
+    <?php
+    //Keep going here ethan
+    ?>
+
+
+
+
+
+
+
+
+
 
 
