@@ -232,17 +232,6 @@ about this at all. However since we are dealing with such a small list,
 it may be possible that empirically the simpler difference algorithm
 outperforms the recursive one. 
 
-To test our academic reasoning vs empirical reality we need to have both
-algorithms to run:
-
-    <?php
-    //Keep going here ethan
-    ?>
-
-
-
-
-
 
 
 
