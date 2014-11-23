@@ -1,4 +1,10 @@
 {
+	"knives" : {
+		"title" : "Knives",
+		"date" : "2014-11-23",
+		"freq" : "monthly",
+		"poemDescription" : "Everyone is human, even if they disagree, don't ever forget that and never dehumanize people"
+	},
 	"outrage" : {
 		"title" : "Outrage",
 		"date" : "2014-11-20",
