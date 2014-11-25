@@ -20,4 +20,6 @@ against your fellow countrymen, there is no calm
 forget your humanity and indulge in the affair  
 but when you wake up, your community to repair  
 
-
+<img src="/images/poetry/carpushburn.png" />
+<br/>
+<img src="/images/poetry/walgreens.png" />
