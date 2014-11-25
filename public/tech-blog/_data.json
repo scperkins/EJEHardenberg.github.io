@@ -336,5 +336,11 @@
     "date" : "2014-11-19",
     "description" : "Storing business hours in a database is a common usecase, having searchable business directories is even better. This is one way to do it",
     "keywords" : "PHP,hours,business,directory,representation,data"
+  },
+  "subtracting-dates-java" : {
+    "title" : "Adding days with Java",
+    "date" : "2014-11-25",
+    "description" : "Adding and subtracting days in Java, also, how to get the end of the month and first of the month. Useful for database queries and jobs",
+    "keywords" : "Java,Date,Days,Calendar,Subtracting,Adding,First,End,of Month"
   }
 }
