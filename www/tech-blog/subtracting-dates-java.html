@@ -2,11 +2,11 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Ethan's Tech Blog | Shared Voice - Activist&#39;s tool</title>
+    <title>Ethan's Tech Blog | Adding days with Java</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="A tool similar to ThunderClap.it, but more suited for anonymous culture" />
+    <meta name="description" content="Adding and subtracting days in Java, also, how to get the end of the month and first of the month. Useful for database queries and jobs" />
     <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="twitter,activism,hacktivism,thunderclap,anonymous,tools"/>
+    <meta name="keywords" content="Java,Date,Days,Calendar,Subtracting,Adding,First,End,of Month"/>
     <meta name="robots" content="index, follow"  />
       <meta name="revisit-after" content="1 month" />
       <meta name="viewport" content="width=1040">
@@ -17,19 +17,19 @@
 
         
     <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Shared Voice - Activist&#39;s tool" />
+    <meta property="og:title" content="Ethan Eldridge | Adding days with Java" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
     
-    <meta property="og:description" content="A tool similar to ThunderClap.it, but more suited for anonymous culture" />
+    <meta property="og:description" content="Adding and subtracting days in Java, also, how to get the end of the month and first of the month. Useful for database queries and jobs" />
     
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Shared Voice - Activist&#39;s tool" />
+    <meta name="twitter:title" content="Ethan Eldridge | Adding days with Java" />
     
-    <meta name="twitter:description" content="A tool similar to ThunderClap.it, but more suited for anonymous culture" />
+    <meta name="twitter:description" content="Adding and subtracting days in Java, also, how to get the end of the month and first of the month. Useful for database queries and jobs" />
     
     <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     	<!-- Core CSS Scripts -->
@@ -52,52 +52,53 @@
   </head>
   <body>
     <header>
-      <h1>Shared Voice - Activist&#39;s tool</h1>
+      <h1>Adding days with Java</h1>
     </header>
 
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Shared Voice</h3>
-<p>Yesterday I was thinking to myself about how useful <a href="http://twitter.com">Twitter</a> can be for 
-<a href="https://archive.today/bLdK0">internet</a> <a href="http://en.wikibooks.org/wiki/Professionalism/Hacktivism">activism</a> and <a href="http://www.millionmaskmarch.com">protests</a> and trying to figure out how I could lend my talents 
-to activists everywhere. </p>
-<p>I&#39;ve known about <a href="http://thunderclap.it">thunderclap</a> for a while, but one of the things I see as a flaw
-is that it doesn&#39;t really jive well with anonymous culture. For example, consider 
-the case study here:</p>
-<p>You&#39;re an activist who has found something troubling, you&#39;ve decided to be a 
-whistleblower, but you need to get your message out to as many people as possible. 
-Organizing a Thunderclap is public, which means that you&#39;re going to lose some of
-the shock element from your leak.</p>
-<p>So what do you do? </p>
-<p><img src="/images/tech-blog/shared-voice.png" width="800px"> </p>
-<p>Well, I&#39;ve made <a href="https://github.com/EJEHardenberg/SharedVoice">SharedVoice</a>, which is an extremely simple twitter application 
-that solves this usecase. It&#39;s simple and developer friendly: setup a simple 
-webserver with Apache, MySQL, and PHP by following the <a href="https://github.com/EJEHardenberg/SharedVoice/blob/master/setup.md">setup instructions</a> and
-then setup your configuration file named <em>conf.json</em>, something like this:</p>
-<pre><code>{
-    &quot;apiKey&quot; : &quot;YourTwitterAPIKey&quot;,
-    &quot;apiSecretKey&quot; : &quot;YourTwitterAPISecretKey&quot;,
-    &quot;dbname&quot; : &quot;databasename&quot;,
-    &quot;dbuser&quot; : &quot;databaseuser&quot;,
-    &quot;dbpass&quot; : &quot;databasepass&quot;,
-    &quot;dbhost&quot; : &quot;databasehost&quot;,
-    &quot;tweet&quot; : &quot;Anonymous exposes cop as member of KKK behind letter threatening to kill #Ferguson protesters http://bit.ly/11c5xIq    &quot;
-}</code></pre>
-<p>Once this is setup, the text in the &quot;tweet&quot; will appear on the page. In the screenshot
-above, the text there was &quot;This is a test. Pay no mind. This is a test&quot;. After 
-you&#39;ve got the small page setup, you can simply start sharing the link to people 
-you trust to spread your sentiments, and then once you&#39;re ready, hop onto the 
-server to run <code>post.php</code> or setup a cronjob to fire at a specific time/date.</p>
-<p>It&#39;s a simple tool, but I&#39;m hopeful that someone will make use of it. As far as 
-version&#39;s go, you&#39;ll need to use PHP &lt; 5.5 since the <code>mysql_*</code> functions are 
-deprecated after that point. </p>
+      <h3>Adding and Subtracting Days in Java</h3>
+<p>This is going to be a short post. But one which hopefully will provide a
+reference point to anyone doing a quick google search. </p>
+<p>It is often very common to see SQL queries constrained by dates and ranges. 
+For example, if you say: &quot;Give me all the records within the past X days&quot;
+you might see mySQL people using <code>INTERVAL</code> and some other date functions. 
+If you&#39;re a performance conscious person like me, you don&#39;t want to make 
+mySQL compute an interval over and over again for each row (possible in 
+some queries). Instead, you want to provide a hard value to test against. 
+In java it&#39;s easy enough to do something like this:</p>
+<pre><code>import java.util.*;
+
+Map params = new HashMap&lt;String,Object&gt;();
+int daysBack = -x; //x is whatever number you need
+
+Calendar cal = GregorianCalendar.getInstance();
+cal.add(Calendar.DAY_OF_YEAR, daysBack);
+params.put(&quot;afterDate&quot;, cal.getTime());
+
+//query using these params...</code></pre>
+<p>Another situation you might run into is when you want to retrieve records 
+for up to the end of the month or beginning of a month. But months come 
+in all days, shapes, and leap-year sizes! What to do? Java has you covered 
+again:</p>
+<pre><code>Timestamp timestamp = //...
+calendar.setTime(timestamp)
+calendar.add(Calendar.DAY_OF_MONTH,calendar.getActualMaximum(Calendar.DAY_OF_MONTH));</code></pre>
+<p>Another method I&#39;ve seen suggested was to add one month, set the day to the first 
+of the month, then subtract a day. While this will work 10/12 times, it will fail
+on the first and last month since we&#39;ll end up changing the year as well. Of 
+course you can set the year. But why go through all that hassle when you can just
+use <code>getActualMaximum</code> and avoid the issue entirely?</p>
+<p>If you want to set the first day of the month, it&#39;s a single change to a Calendar
+object:</p>
+<pre><code>calendar.set(Calendar.DAY_OF_MONTH, 1)</code></pre>
 
       
       <h3>Other Posts</h3>
       <div id="other-posts">
         <ul>
-          <li><a href=php-hours>Displaying Business hours with PHP</a></li><li><a href=arcstar-chrome-extensions>*Arc: My First Chrome Extension</a></li><li><a href=subtracting-dates-java>Adding days with Java</a></li><li><a href=ambiguous-columns-namedparameterjdbc-order-by>Dynamic Tablename&#39;s in Order By with NamedParameterJdbc</a></li><li><a href=load-opencv-for-spring-bean>Use Native Library Classes in XML Beans (OpenCV)</a></li><li><a href=order-by-rand-mysql>Order by Rand without a starting ID of 1</a></li>
+          <li><a href=php-hours>Displaying Business hours with PHP</a></li><li><a href=shared-voice>Shared Voice - Activist&#39;s tool</a></li><li><a href=arcstar-chrome-extensions>*Arc: My First Chrome Extension</a></li><li><a href=ambiguous-columns-namedparameterjdbc-order-by>Dynamic Tablename&#39;s in Order By with NamedParameterJdbc</a></li><li><a href=load-opencv-for-spring-bean>Use Native Library Classes in XML Beans (OpenCV)</a></li><li><a href=order-by-rand-mysql>Order by Rand without a starting ID of 1</a></li>
         </ul>
       </div>
       <div id="disqus_thread"></div>
