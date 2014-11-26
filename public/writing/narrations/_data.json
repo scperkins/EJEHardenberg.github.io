@@ -1,4 +1,9 @@
 {
+	"push" : {
+		"title" : "Push",
+		"date" : "2014-11-26",
+		"freq" : "monthly"
+	},
 	"write" : {
 		"title" : "Write",
 		"date" : "2014-11-24",
