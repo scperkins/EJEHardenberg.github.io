@@ -1,4 +1,10 @@
 {
+	"gamer-gate-last" : { 
+		"title" : "Thankful for GamerGate",
+		"description" : "Hopefully my last post on GamerGate, an overview of some of the very real change brougt about",
+		"freq" : "monthly",
+		"draft" : false
+	},
 	"protesting" : {	
 		"title" : "On Protesting",
 		"description" : "Brief thoughts on peaceful protests",
