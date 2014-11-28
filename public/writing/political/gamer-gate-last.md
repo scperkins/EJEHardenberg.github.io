@@ -8,6 +8,7 @@ apply:
 - I am not a journalist
 - I play video games
 - I'm white and biologically male
+- Read my [disclaimer] before commenting please.
 
 #### Question everything. Trust, but verify. 
 
@@ -254,3 +255,4 @@ Happy Thanksgiving.
 [RevueMage]:https://twitter.com/RevueMage
 [This techraptor article]:http://techraptor.net/content/twitter-blocklist-10000-accounts-causes-trouble-just-gamers-developers
 [one of the worst offenders]:https://archive.today/hq1oa#selection-2451.0-2451.84
+[disclaimer]:/writing/political/disclaimer
