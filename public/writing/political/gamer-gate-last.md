@@ -1,4 +1,4 @@
-### My final thoughts on #GamerGate
+### My final thoughts on #GamerGate (Hopefully)
 
 I've been meaning to write an update to my ongoing blogging about
 \#GamerGate for a while now, probably at least 3 or so weeks. A lot has
