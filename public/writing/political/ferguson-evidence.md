@@ -58,7 +58,8 @@ me:
 - Examiner counted nine wounds (Page 50), also notes not all of them
   were bullet wounds. 
 - The examiner is the one who removes items from the pockets of the
-  body, but is not aware if he was the first to do so. (Pg 53-54)
+  body, but is not aware if he was the first to do so. (Pg 53-54) He
+  also noted a small amount of weed. 
 - The body's right arm was out and the left arm against the waistband
   (Pg 55)
 - Brown's body had abrasions on the back of his left hand and on the
@@ -69,6 +70,8 @@ me:
   appear to be from an altercation Pg 75-76)
 - Brown's face was turned facing the left side (right cheek to the
   ground) 
+- The Examiner stated he couldn't tell if the wounds were entrance or
+  exit wounds (Pg 74-75)
 
 I'd suggest reading all 78 pages yourself, but these are what stood out
 to me. Primarily which hands were under the body or away and the
@@ -81,9 +84,72 @@ aware during the reporting and incidents. Playing devil's advocate, one
 must wonder if forgetting about the batteries in the camera could have
 been due to a long shift or sleepiness. 
 
-#### The Examiner's report.
+#### The Autopsy
 
+On Pg 27 of the first grand jury testimonal the examiners report is
+marked as State's Exhibit Number 1. Since the identifications are not
+listed on the [released forensics], I'll next look at the autopsy report
+as a way of checking out the examiners testimony.
 
+The [autospy report] is dated August 10th, a day after the shooting. I'm
+going to note here that within the previous testimony it was noted that
+it takes around 12 hours for liver mortis to set in. Given this, and
+that there's probably plenty of things for an examiner to deal with, I'm
+going to assume this was probably part of normal procedure. 
+
+- 7 gunshot wounds that are consistent with the medical examiners
+  testimony (head,chest and right extremities) 
+- Track in the right upper chest that appears to be a re-entrance bullet
+  would continuing from the facial wound. (To me this sounds like a
+  gunshot wound during a fall or something similar)
+- The wound on the right hand is confirmed by skin tissue on the car and
+  is noted as the only close wound. 
+- The bullet entered the palm of the right hand and exited near the
+  wrist. 
+- The police photographs indicate that the gun was within inches of the
+  hand when discharged. No other gunshot wounds show this. 
+- Three wounds in the right arm. One through the [ulna] bone that
+  entered through the back of the forearm and exited through the front.
+  An entrance through the front of the upper arm close to the chest and
+  exits the back of the arm. And a superficial laceration near the elbow
+  that couldn't be determined to enter through the front or back. 
+- 2 Chest wounds, one from a re-entrance from a shot through the head,
+  and another that entered through the upper chest near the [eight rib].
+  It is notable that the bullet continued downard. 
+- 2 Head wounds, one bullet that went into the top of the head through
+  the brain, and another that went through the forehead, grazed the eye,
+  and exited through the lower jaw where it then reentered the chest.
+- The toxicology shows evidence of recent marijuana use, giving the
+  medical examiners testimony to finding the drug in Brown's pockets
+  weight. Though that really has no bearing on the case.
+- In order to produce the wounds mentioned, the report states that the
+  bullets would have had to travel parallel to the ground and Brown's
+  face would have been needing to point to the ground. 
+ 
+
+It is slightly peculiar to me that the examiner on scene didn't note
+the black soot on the skin of the hand area, he noted the gravel in the
+abrasions, but the line of the questions didn't neccesary pursue this
+either. However the testimony of the examiner does corroborate the
+wounds on the right side of the body. 
+
+Based on what the autospy says, we can take a few guesses here:
+
+- Brown was charging the officer as stated in Wilson's testimony
+- Brown was falling over and multiple shots close together would have
+  had to be shot rapidly. 
+- Brown was kneeling or in some position for the officer to be over him
+  and able to fire a downward shot. 
+- Brown was lying on the ground and so was the officer.
+
+Obviously a few of these are a bit absurd. The last in particular, I'd
+hazard to say that the 2nd is as well. Which only leaves the 1st and 3rd
+as plausible, at least given that set of the guesses (If you have any
+more guesses on the positions feel free to comment). 
+
+#### Witness 10
+
+http://graphics8.nytimes.com/newsgraphics/2014/11/24/ferguson-evidence/assets/interviews/interview-witness-10.pdf
 
 #### Wilson's Testimony
 
@@ -93,9 +159,9 @@ been due to a long shift or sleepiness.
 
 
 
-
-
-
-
+[autospy report]:http://graphics8.nytimes.com/newsgraphics/2014/11/24/ferguson-evidence/assets/reports/michael-brown-private-autopsy-report.pdf
+[eight rib]:http://en.wikipedia.org/wiki/Rib#mediaviewer/File:Ribs_labeled.png
+[ulna]:http://en.wikipedia.org/wiki/Ulna
+[released forensics]:http://www.nytimes.com/interactive/2014/11/25/us/evidence-released-in-michael-brown-case.html?_r=0
 [Page 24]:http://graphics8.nytimes.com/newsgraphics/2014/11/24/ferguson-evidence/assets/gj-testimony/grand-jury-volume-01.pdf
 [the nytimes information]:http://www.nytimes.com/interactive/2014/11/25/us/evidence-released-in-michael-brown-case.html?_r=0
