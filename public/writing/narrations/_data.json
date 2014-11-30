@@ -1,4 +1,9 @@
 {
+	"belief" : {
+		"title" : "Belief",
+		"date" : "2014-11-30",
+		"freq" : "monthly"
+	},
 	"push" : {
 		"title" : "Push",
 		"date" : "2014-11-26",
