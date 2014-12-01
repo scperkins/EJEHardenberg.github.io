@@ -64,7 +64,7 @@ applications. Then there are times when you really just want to write in a langu
 you love. Don&#39;t get me wrong, I enjoy writing all the mentioned languages to some
 extent. But my true love, as I&#39;ve said on other parts of my website, is C. </p>
 <h4>So you want to write a web application in C</h4>
-<p>I&#39;ve created a <a href="https://github.com/EJEHardenberg/green-serv">custom server before</a>, but this time I wanted to spend more time
+<p>I&#39;ve created a <a href="https://github.com/EdgeCaseBerg/green-serv">custom server before</a>, but this time I wanted to spend more time
 on the application layer. So I decided to try to learn something new. Specifically,
 CGI scripting. After a quick google search and reading a little bit about CGI I 
 found out that CGI scripting is actually pretty simple. </p>
@@ -85,7 +85,7 @@ TARGETS := $(patsubst src/%.c,bin/%.cgi,$(wildcard src/*.c))
 $(TARGETS): $(OBJECTS) $(UTIL)
     ${CC} ${LINKFLAGS} -o $@ $(patsubst bin/%.cgi, obj/%.o, $@ ) $(patsubst %, obj/%.o, $(UTIL)) ${LIBS}</code></pre>
 <p>While not everything shown here is defined (if you really want you can look at the 
-<a href="https://github.com/EJEHardenberg/BGI/blob/master/Makefile">Makefile source here</a> ), the cool part is that the targets and the objects are
+<a href="https://github.com/EdgeCaseBerg/BGI/blob/master/Makefile">Makefile source here</a> ), the cool part is that the targets and the objects are
 being created based on the source filenames. The line <code>$(patsubst src/%.c,obj/%.o,$(wildcard src/*.c))</code>
 takes all the C files in the src directory, captures their names, then creates a
 string pointing into the object directory with the same name. For example, a file
@@ -107,7 +107,7 @@ job, and that I had everything I needed. Well, except a database.</p>
     CGI. The forms were simple and so was the data validation.
 </small></p>
 <h4>Storing the data</h4>
-<p>I initially thought about using mySQL as my database backend. I used it in <a href="https://github.com/EJEHardenberg/green-serv">green-serv</a>
+<p>I initially thought about using mySQL as my database backend. I used it in <a href="https://github.com/EdgeCaseBerg/green-serv">green-serv</a>
 and am familiar with the C API for it. But, something I didn&#39;t like about using
 mySQL is that my current system&#39;s has 2 versions of mySQL installed (5.5 and the bleeding 5.6)
 and that had foobarred my Makefile in green-serv a bit and I wanted to avoid that.
@@ -181,7 +181,7 @@ lot of ways you can do it. I&#39;ve elected for 4 simple charts. </p>
  fun to implement. Essentially, you need to determine the minimum and maximum times
  over your dataset, then create all the labels and buckets for all the data points.
  Once you have that, you need to map your data points into the right buckets. If 
- you&#39;re curious on the actual implementation, checkout <a href="https://github.com/EJEHardenberg/BGI/blob/master/public/js/timeline.js">timeline.js</a> around lines 104 
+ you&#39;re curious on the actual implementation, checkout <a href="https://github.com/EdgeCaseBerg/BGI/blob/master/public/js/timeline.js">timeline.js</a> around lines 104 
  and on.</p>
 <p> *<sup>By partying I mean coding late into the night and eating pizza of course.</sup></p>
 <h5>And the map Page</h5>
@@ -300,15 +300,15 @@ website that bedazzles all who gaze upon it. Still, I&#39;ll probably try.</p>
 			</a>
 		</li>
 		<li>
-			<a href="https://github.com/EJEHardenberg">
+			<a href="https://github.com/EdgeCaseBerg">
 				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
 				-->Github
 			</a>
 		</li>
 		<li> 
-			<a href="https://twitter.com/EthanJEldridge">
+			<a href="https://twitter.com/TheR3dLily">
 				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				-->@EthanJEldridge
+				-->@TheR3dLily
 			</a>
 		</li>
 		<li>
@@ -319,6 +319,7 @@ website that bedazzles all who gaze upon it. Still, I&#39;ll probably try.</p>
 		</li>
 	</ul>
 </nav>
+
   </body>
 </html>
   	

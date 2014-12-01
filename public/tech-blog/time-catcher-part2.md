@@ -69,5 +69,5 @@ This is part of the completion script, specifically, this grabs the list of task
 This has been a very fun project to do, and I think I'll probably add a few more commands before I'm done with it. But while I do, I'll definitely be using it to keep track of how long I spend on it! (Talk about dog fooding)
 
 
-[newest project]:https://github.com/EJEHardenberg/timecatcher
+[newest project]:https://github.com/EdgeCaseBerg/timecatcher
 [one in particular]:http://www.debian-administration.org/articles/316 

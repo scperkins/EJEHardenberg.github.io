@@ -84,5 +84,5 @@ or EJS:
 
 [previous post]:http://www.ethanjoachimeldridge.info/tech-blog/dynamically-including-js
 [Harp]:http://www.harpjs.com
-[here]:https://github.com/EJEHardenberg/harp-autoload
+[here]:https://github.com/EdgeCaseBerg/harp-autoload
 [XML Sitemap]:http://www.ethanjoachimeldridge.info/tech-blog/xml-sitemap-for-harpjs

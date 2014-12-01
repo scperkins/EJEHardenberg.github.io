@@ -80,16 +80,16 @@ whose primary purpose is to provide abstraction on a database it can be used to
 mitigate the load experienced by a server itself. 
 
 
-[documentation]:https://github.com/EJEHardenberg/GreenUp/tree/master/api
-[C API]:https://github.com/EJEHardenberg/green-serv
+[documentation]:https://github.com/EdgeCaseBerg/GreenUp/tree/master/api
+[C API]:https://github.com/EdgeCaseBerg/green-serv
 [varnish]:https://www.varnish-cache.org
 [vcl]:https://www.varnish-cache.org/docs/3.0/reference/vcl.html
 [Cache Invalidation]:http://en.wikipedia.org/wiki/Cache_invalidation
 [hardest]:http://martinfowler.com/bliki/TwoHardThings.html
 [REST]:http://en.wikipedia.org/wiki/Representational_state_transfer
-[Report]:https://github.com/EJEHardenberg/GreenUp/blob/master/api/readme.md#post-log-message
-[Comments]:https://github.com/EJEHardenberg/GreenUp/blob/master/api/readme.md#submit-comments
-[Markers]:https://github.com/EJEHardenberg/GreenUp/blob/master/api/readme.md#submit-pin
+[Report]:https://github.com/EdgeCaseBerg/GreenUp/blob/master/api/readme.md#post-log-message
+[Comments]:https://github.com/EdgeCaseBerg/GreenUp/blob/master/api/readme.md#submit-comments
+[Markers]:https://github.com/EdgeCaseBerg/GreenUp/blob/master/api/readme.md#submit-pin
 [full list of vcl]:https://www.varnish-cache.org/docs/3.0/reference/vcl.html#subroutines
 [varnish function]:https://www.varnish-cache.org/docs/3.0/reference/vcl.html#functions
 [banning here]:https://www.varnish-cache.org/docs/3.0/tutorial/purging.html

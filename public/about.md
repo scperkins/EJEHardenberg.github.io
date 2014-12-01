@@ -72,7 +72,7 @@ I hope you find this website useful, as it is a collection of [cooking],
 
 
 [Home]:/index.html
-[Github]:https://github.com/EJEHardenberg
+[Github]:https://github.com/EdgeCaseBerg
 [Blog]:/blog
 [Projects]:/projects
 [Resume]:/resume

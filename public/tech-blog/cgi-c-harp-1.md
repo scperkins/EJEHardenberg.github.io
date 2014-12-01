@@ -379,7 +379,7 @@ See you next time!
 [creating a chat server]:http://www.ethanjoachimeldridge.info/tech-blog/privateTalk
 [Harp]:http://harpjs.com
 [qdecoder]:http://www.qdecoder.org/wiki/qdecoder
-[pchat]:https://github.com/EJEHardenberg/pChat
+[pchat]:https://github.com/EdgeCaseBerg/pChat
 [on a unix like server]:http://stackoverflow.com/a/12943431/1808164
-[here on github]:https://github.com/EJEHardenberg/chat-tutorial
+[here on github]:https://github.com/EdgeCaseBerg/chat-tutorial
 [stat command]:http://linux.die.net/man/2/stat

@@ -366,12 +366,12 @@ git remote set-url origin git@github.com:username_here/example.git
 
 So now you have a repository that's different, what if you want to work with other people? Use git remote add to add their repository's to yours. Something like this will do:
  <pre>
- $git remote add upstream git@github.com:EJEHardenberg/example.git
+ $git remote add upstream git@github.com:EdgeCaseBerg/example.git
  $git remote -v
   origin  git@github.com:your_user_name/example.git (fetch)
   origin  git@github.com:your_user_name/example.git (push)
-  upstream  git@github.com:EJEHardenberg/example.git (fetch)
-  upstream  git@github.com:EJEHardenberg/example.git (push)
+  upstream  git@github.com:EdgeCaseBerg/example.git (fetch)
+  upstream  git@github.com:EdgeCaseBerg/example.git (push)
  </pre>
 
 That will add my repository as a remote to yours and git remote -v will list off your repositories. You'll notice that you'll get 2 times as many remotes as you might expect. This is because you have a url for "pushing" and for "fetching". Fetch is a new word, a fetch is similar to a pull with one major difference. A pull will grab changes from another repository and merge them into yours. A fetch will grab changes from the other repository and store them in something called FETCH_HEAD. Which you can then checkout using git checkout FETCH_HEAD to look around (or to check it out ha). Ito use fetch because it allows me to review the changes of another person before merging them into my repository. This is good for when you want to sign off or verify code before allowing it into a repository dedicated to stable versions of some code.

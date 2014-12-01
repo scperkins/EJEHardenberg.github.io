@@ -44,5 +44,5 @@ deprecated after that point.
 
 [Twitter]:http://twitter.com
 [thunderclap]:http://thunderclap.it
-[SharedVoice]:https://github.com/EJEHardenberg/SharedVoice
-[setup instructions]:https://github.com/EJEHardenberg/SharedVoice/blob/master/setup.md
+[SharedVoice]:https://github.com/EdgeCaseBerg/SharedVoice
+[setup instructions]:https://github.com/EdgeCaseBerg/SharedVoice/blob/master/setup.md

@@ -195,13 +195,13 @@ website that bedazzles all who gaze upon it. Still, I'll probably try.
 
 [Harp]:http://harpjs.com
 [Chart.js]:https://github.com/nnnick/Chart.js
-[custom server before]:https://github.com/EJEHardenberg/green-serv
-[green-serv]:https://github.com/EJEHardenberg/green-serv
+[custom server before]:https://github.com/EdgeCaseBerg/green-serv
+[green-serv]:https://github.com/EdgeCaseBerg/green-serv
 [libraries listed here]:http://cgi.resourceindex.com/programs_and_scripts/c_and_c++/libraries_and_classes/
 [qdecoder]:http://www.qdecoder.org/wiki/qdecoder
-[Makefile source here]:https://github.com/EJEHardenberg/BGI/blob/master/Makefile
+[Makefile source here]:https://github.com/EdgeCaseBerg/BGI/blob/master/Makefile
 [examples]:http://www.qdecoder.org/releases/current/examples/
-[timeline.js]:https://github.com/EJEHardenberg/BGI/blob/master/public/js/timeline.js
+[timeline.js]:https://github.com/EdgeCaseBerg/BGI/blob/master/public/js/timeline.js
 [Leaflet.js]:http://Leafletjs.com
 [great success in using it to display a lot of data]:http://www.xenonapps.com/greenupvisualization.html
 [Green Up]:http://www.ethanjoachimeldridge.info/tech-blog/green-up-vt-app.html

@@ -269,7 +269,7 @@ on them, as they might have valid things to say at some point. But always rememb
 [imgur link]:http://imgur.com/a/Mfh61
 [source]:http://www.reddit.com/r/KotakuInAction/comments/2fn6vz/looks_like_zoe_edited_those_irc_logs_a_little/
 [aljazeera]:http://stream.aljazeera.com/story/201409032102-0024126
-[the board game I own and love]:https://twitter.com/EthanJEldridge/status/508598615926116352/photo/1
+[the board game I own and love]:https://twitter.com/TheR3dLily/status/508598615926116352/photo/1
 [There's already a compendium of "Zoes side" harassing GamerGate supporters]:http://gamergateharrassment.tumblr.com/
 [suggest reading this great post on the subject]:http://kazerad.tumblr.com/post/96020280368/faceless-together
 [opposed Scientology]:http://en.wikipedia.org/wiki/Project_Chanology

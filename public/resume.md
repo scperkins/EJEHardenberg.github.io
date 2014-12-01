@@ -113,7 +113,7 @@ speaking skills. Quick learner.
 [projects page]:projects.html
 [Harp Weekly!]:http://harpjs.com/blog/harp-weekly-2013-11-17
 
-[Github]:https://github.com/EJEHardenberg
+[Github]:https://github.com/EdgeCaseBerg
 [Xenon Apps]:http://xenonapps.com
 [Developer on GreenUp VT's iOS application]:http://www.reformer.com/localnews/ci_25671287/green-up-day-app-now-available
 [Sean Perkins]:http://scperkins.github.io

@@ -42,6 +42,6 @@ or `get_header` function in output buffering and to a replace on the
 captured string.
 
 [w3tc]:http://wordpress.org/plugins/w3-total-cache/
-[write my own plugin]:https://github.com/EJEHardenberg/Resource-Replace
-[Resource Replace]:https://github.com/EJEHardenberg/Resource-Replace
+[write my own plugin]:https://github.com/EdgeCaseBerg/Resource-Replace
+[Resource Replace]:https://github.com/EdgeCaseBerg/Resource-Replace
 [ignore patterns]:http://www.php.net/preg_match

@@ -19,4 +19,4 @@ Being active on only a single task at a time? Now that seems hard to enforce. Be
 
 And this is my first plan. So far it's coming along and I've got the directory to hold this information all good and am writing out the usage documentation, as a guide to me and a guide to anyone else who wants to use it. 
 
-[new project]:https://github.com/EJEHardenberg/timecatcher
+[new project]:https://github.com/EdgeCaseBerg/timecatcher

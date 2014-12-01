@@ -9,14 +9,14 @@ The next important feature of the script generating this site is the pagination 
 While creating this website I also tested xemarks capabilities as a CGI script. I [blogged] about this a little bit, and used a Ruby on Rails server to do the heavy lifting of actually running an http server. But it's most definitely overkill to use a rails server to simply call a parsing program like xemark on a single file while sending the output to a browser. It might be more appropriate to construct a minimal python server (which takes a very small amount of code)
 
 
- <script src="https://gist.github.com/EJEHardenberg/6085477.js"></script>
+ <script src="https://gist.github.com/EdgeCaseBerg/6085477.js"></script>
 
 -:note: Note that you can grab example.xe and the python simple server script from the [xemark] repository. If you'd like to play around with them a little bit more.
 - Also, you'll need to have the xemark executable and example.xe in the same directory as your serving python program
 =
 
-[bash script]:https://github.com/EJEHardenberg/ethanjoachimeldridge.info/blob/master/generate_site
-[xemark]:https://github.com/EJEHardenberg/xemark
+[bash script]:https://github.com/EdgeCaseBerg/ethanjoachimeldridge.info/blob/master/generate_site
+[xemark]:https://github.com/EdgeCaseBerg/xemark
 [BNF]:https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form
-[few notes of my own.]:https://github.com/EJEHardenberg/xemark/blob/master/Grammar.xemark
+[few notes of my own.]:https://github.com/EdgeCaseBerg/xemark/blob/master/Grammar.xemark
 [blogged]:http://ethaneldridgecs.blogspot.com/2013/07/frankencode-with-rails-and-xemark.html

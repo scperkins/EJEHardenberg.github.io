@@ -84,4 +84,4 @@ archives status updates. Version 1.2.1 in the store handles this.
 
 [\*arc]:https://chrome.google.com/webstore/detail/arc-one-click-archiving/hmbmdbfkpgemaefgbinhcfodneaocfeg
 [recent website]:http://tweetsave.com/
-[repository]:https://github.com/EJEHardenberg/arcsave
+[repository]:https://github.com/EdgeCaseBerg/arcsave

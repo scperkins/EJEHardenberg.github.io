@@ -18,7 +18,7 @@ Up until this point the student had only been going over tutorials from
 
 So I coded up a quick game of Nim in about 5 minutes to share:
 
-<script src="https://gist.github.com/EJEHardenberg/6da876d965bc57a33cbc.js"></script>
+<script src="https://gist.github.com/EdgeCaseBerg/6da876d965bc57a33cbc.js"></script>
 
 This was a simple game, which would work provided that the user entered
 valid inputs. [We all know that's not going to happen and we must be defensive about our code].
@@ -50,7 +50,7 @@ was created as I sat next to the student. Teaching is an amazingly rewarding
 experience and really helps to ground your knowledge, it is one of the best
 ways to learn and to refresh your own foundations. Highly recommend it.
 
-<script src="https://gist.github.com/EJEHardenberg/c97d64f01eb7b29256eb.js"></script>
+<script src="https://gist.github.com/EdgeCaseBerg/c97d64f01eb7b29256eb.js"></script>
 
 [We all know that's not going to happen and we must be defensive about our code]:http://en.wikipedia.org/wiki/Defensive_programming
 [cplusplus.com]:http://www.cplusplus.com/

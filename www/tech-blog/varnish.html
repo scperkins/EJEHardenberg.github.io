@@ -63,10 +63,10 @@
 a while with some friends. We&#39;ve managed to make a native iOS application as 
 well as a web application for the client side, and the back end been a labor of
 love for me: creating a JSON C API to service the various endpoints. </p>
-<p>The <a href="https://github.com/EJEHardenberg/green-serv">C API</a> is blindingly fast, and performs amazingly consider I wrote everything
+<p>The <a href="https://github.com/EdgeCaseBerg/green-serv">C API</a> is blindingly fast, and performs amazingly consider I wrote everything
 from scrach (http parsing, json parsing, etc, etc) and the entire application is
 tailored to the needs of the data and client applications. We&#39;ve done a good job
-on <a href="https://github.com/EJEHardenberg/GreenUp/tree/master/api">documentation</a> and on working as a team to solve the various issues and make
+on <a href="https://github.com/EdgeCaseBerg/GreenUp/tree/master/api">documentation</a> and on working as a team to solve the various issues and make
 important decisions. To be honest, I take a degree of pride in it all.</p>
 <p>Anyway, since the API server is designed as an abstraction interface over the data
 (as pretty much all API servers are by definition), I focused on getting the data
@@ -81,10 +81,10 @@ your cache is invalidated and some other great features (such as dropping cookie
 But, in this case, it&#39;s quite easy. Our system is designed to be read intensive
 on most endpoints of the API, and write intensive on one. The resources that are
 handled in a <a href="http://en.wikipedia.org/wiki/Representational_state_transfer">REST</a>ful way are great because of their seperation. This means that
-if I create a new resource for a <a href="https://github.com/EJEHardenberg/GreenUp/blob/master/api/readme.md#post-log-message">Report</a>, then I only need to remove cached copies
+if I create a new resource for a <a href="https://github.com/EdgeCaseBerg/GreenUp/blob/master/api/readme.md#post-log-message">Report</a>, then I only need to remove cached copies
 of the reports, no other resources need to be touched. A clear seperation of parts
 allows this, and I&#39;ll show you the vcl code that facilitates this soon. </p>
-<p>Not all resources are so clean cut though.  Both the <a href="https://github.com/EJEHardenberg/GreenUp/blob/master/api/readme.md#submit-comments">Comments</a> and the <a href="https://github.com/EJEHardenberg/GreenUp/blob/master/api/readme.md#submit-pin">Markers</a>
+<p>Not all resources are so clean cut though.  Both the <a href="https://github.com/EdgeCaseBerg/GreenUp/blob/master/api/readme.md#submit-comments">Comments</a> and the <a href="https://github.com/EdgeCaseBerg/GreenUp/blob/master/api/readme.md#submit-pin">Markers</a>
 are intertwined with each other. This means that if I update one, then I need to
 invalidate both of their cached resources. Simple isn&#39;t it? And vcl is able to 
 support exactly this. Here&#39;s the configuration:</p>
@@ -216,15 +216,15 @@ mitigate the load experienced by a server itself. </p>
 			</a>
 		</li>
 		<li>
-			<a href="https://github.com/EJEHardenberg">
+			<a href="https://github.com/EdgeCaseBerg">
 				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
 				-->Github
 			</a>
 		</li>
 		<li> 
-			<a href="https://twitter.com/EthanJEldridge">
+			<a href="https://twitter.com/TheR3dLily">
 				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				-->@EthanJEldridge
+				-->@TheR3dLily
 			</a>
 		</li>
 		<li>
@@ -235,6 +235,7 @@ mitigate the load experienced by a server itself. </p>
 		</li>
 	</ul>
 </nav>
+
   </body>
 </html>
   	

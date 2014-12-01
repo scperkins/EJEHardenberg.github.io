@@ -76,10 +76,10 @@ to perform even better next year.
 [news]:http://www.timesargus.com/article/20140502/THISJUSTIN/705029881
 [Josh Dickerson]:http://www.joshuadickerson.com/
 [Anders]:https://github.com/popwarfour
-[API server]:https://github.com/EJEHardenberg/GreenUp/tree/master/api
+[API server]:https://github.com/EdgeCaseBerg/GreenUp/tree/master/api
 [dashboard]:http://greenup.xenonapps.com/dash/
 [client]:http://greenup.xenonapps.com/client/
 [XSS]:http://en.wikipedia.org/wiki/Cross-site_scripting
-[noted in the readme]:https://github.com/EJEHardenberg/green-serv
-[documentation]:https://github.com/EJEHardenberg/GreenUp/tree/master/api
+[noted in the readme]:https://github.com/EdgeCaseBerg/green-serv
+[documentation]:https://github.com/EdgeCaseBerg/GreenUp/tree/master/api
 [GAE]:https://developers.google.com/appengine/?csw=1

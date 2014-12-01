@@ -642,7 +642,7 @@ the full application. See you then!
 
 [Harp]:http://harpjs.com
 [qdecoder]:http://www.qdecoder.org/wiki/qdecoder
-[here on github]:https://github.com/EJEHardenberg/chat-tutorial
+[here on github]:https://github.com/EdgeCaseBerg/chat-tutorial
 [previous post]:http://www.ethanjoachimeldridge.info/tech-blog/cgi-c-harp-1
 [xampp]:https://www.apachefriends.org/index.html
 [wamp]:http://www.wampserver.com/en/

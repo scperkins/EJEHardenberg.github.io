@@ -16,7 +16,7 @@ Generations? Population Sizes? Sounds perfect for some concurrency play! So I bu
 channels in Go work, and on wetting my appetite for Evolutionary methods. 
 
 Without further adieu, here's the entire Go program:
-<script src="https://gist.github.com/EJEHardenberg/9c535f1cd71f2c2a8012.js"></script>
+<script src="https://gist.github.com/EdgeCaseBerg/9c535f1cd71f2c2a8012.js"></script>
 
 It's pretty simple. Here's a quick run down:
 

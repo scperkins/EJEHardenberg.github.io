@@ -48,6 +48,6 @@ of shortcodes (which is likely), you just need to call do_shortcode on
 whatever the string being returned from the other shortcodes is. 
 
 
-[shortcodes]:https://github.com/EJEHardenberg/dealcodes
-[qroute]:https://github.com/EJEHardenberg/qroute
+[shortcodes]:https://github.com/EdgeCaseBerg/dealcodes
+[qroute]:https://github.com/EdgeCaseBerg/qroute
 [Codex]:http://codex.wordpress.org

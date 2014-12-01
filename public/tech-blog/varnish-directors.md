@@ -126,7 +126,7 @@ is unhealthy. Useful!
 [Green Up App]:https://itunes.apple.com/us/app/green-up-vt/id860271437?ls=1&mt=8
 [AWS]:http://aws.amazon.com/
 [Load Balancer]:http://en.wikipedia.org/wiki/Load_balancing_(computing)
-[C API Server]:https://github.com/EJEHardenberg/green-serv
+[C API Server]:https://github.com/EdgeCaseBerg/green-serv
 [Directors]:https://www.varnish-cache.org/docs/2.1/tutorial/advanced_backend_servers.html
 [the same problem as this guy]:https://www.varnish-cache.org/lists/pipermail/varnish-misc/2011-May/020566.html
 [Process Scheduling, Network packet schedeling, and a lot of other places]:http://en.wikipedia.org/wiki/Round-robin_scheduling

@@ -109,7 +109,7 @@ which I include on the scale elements so that background shift is a bit cleaner
 looking. I hope this helps anyone out there looking to do something similar.
 
 
-[a side project]:https://github.com/EJEHardenberg/whoseopinion.com
+[a side project]:https://github.com/EdgeCaseBerg/whoseopinion.com
 [Likert Scales]:http://en.wikipedia.org/wiki/Likert_scale
 [LESS]:http://lesscss.org/
 [Mixin]:http://lesscss.org/features/#mixins-feature

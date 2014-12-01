@@ -214,8 +214,8 @@ Happy Thanksgiving.
 [slow/halt climate change]:http://www.epa.gov/climatechange/wycd/
 [FGC]:http://orchidproject.org/
 [extension for archiving information]:https://chrome.google.com/webstore/detail/arc-one-click-archiving/hmbmdbfkpgemaefgbinhcfodneaocfeg
-[twitter activists]:https://github.com/EJEHardenberg/SharedVoice
-[tools]:https://github.com/EJEHardenberg/HydraHug
+[twitter activists]:https://github.com/EdgeCaseBerg/SharedVoice
+[tools]:https://github.com/EdgeCaseBerg/HydraHug
 [Dossier]:http://press.gamergate.me/dossier/
 [the timeline]:http://gitgud.net/gamergate/gamergateop/tree/master/Current-Happenings
 [before that]:/writing/political/gamer-gate
@@ -237,7 +237,7 @@ Happy Thanksgiving.
 [The escapist revised their ethics policies]:http://www.escapistmagazine.com/articles/view/video-games/editorials/12223-The-Escapist-Publisher-Issues-Public-Statement-on-Gamergate.5
 [IGN announced a policy disclosure coming soon]:http://blogjob.com/oneangrygamer/2014/11/gamergate-igns-disclosure-code-of-ethics-public-policy-coming-soon/
 [GoodGamers.us just updated their ethics policy]:http://www.goodgamers.us/2014/11/26/the-great-big-ethics-policy/
-[thought]:https://twitter.com/EthanJEldridge/status/536177036461490176
+[thought]:https://twitter.com/TheR3dLily/status/536177036461490176
 [innocent until proven otherwise]:http://legal-dictionary.thefreedictionary.com/Innocent+until+proven+guilty
 [you had your "fingers in it"]:https://archive.today/MHpF3
 [IGDA's Puerto Rico]:https://archive.today/OwiKX

@@ -72,7 +72,7 @@ and the other API related services like I had <a href="http://ethanjoachimeldrid
 getting the Apache configuration to stick, but after beating at it until 2am we 
 finally got it. </p>
 <p>Saturday morning I was up by 8am and at Josh&#39;s apartment, joined by our iOS developer
-<a href="https://github.com/popwarfour">Anders</a>, monitoring the status of the <a href="https://github.com/EJEHardenberg/GreenUp/tree/master/api">API server</a> and making sure that the web
+<a href="https://github.com/popwarfour">Anders</a>, monitoring the status of the <a href="https://github.com/EdgeCaseBerg/GreenUp/tree/master/api">API server</a> and making sure that the web
 <a href="http://greenup.xenonapps.com/dash/">dashboard</a> and web app <a href="http://greenup.xenonapps.com/client/">client</a> functioned properly. Around 9am or so we were
 noticing some small bugs in the error logs from the Administrative dashboard we 
 had made. Something was up with the server configuration.</p>
@@ -86,7 +86,7 @@ server running the entire greenup.xenonapps application sounds rediculous. But h
 our tagline on our site doesn&#39;t include efficient for nothing! The Dashboard and 
 clients are light. They&#39;re just simple HTML, some Javascript, and a small PHP
 script to get around some <a href="http://en.wikipedia.org/wiki/Cross-site_scripting">XSS</a> issues we had early on. The biggest resource hog
-was the API server (As expected), however the API server, as <a href="https://github.com/EJEHardenberg/green-serv">noted in the readme</a>
+was the API server (As expected), however the API server, as <a href="https://github.com/EdgeCaseBerg/green-serv">noted in the readme</a>
 is simple and speedy. Using about 13-36% of the CPU on the small box depending on
 the load at the time, it&#39;s reasonably lightweight for something servicing over 100 
 clients connecting and requesting data all at  once. 40mb in resources is great
@@ -101,14 +101,14 @@ might see with something like WordPress or your typical php framework).</p>
 <li>Admin dashboard for GreenUp and ourselves to administer and monitor data</li>
 </ul>
 <p>My role within the project was primarily focused on the API Server itself, constructing
-the <a href="https://github.com/EJEHardenberg/GreenUp/tree/master/api">documentation</a> of the API so that the other applications could use the data
+the <a href="https://github.com/EdgeCaseBerg/GreenUp/tree/master/api">documentation</a> of the API so that the other applications could use the data
 without needing to know the internals of how they retrieved it (that is what an API
 is after all!). We originally used the <a href="https://developers.google.com/appengine/?csw=1">GAE</a> for the program, but when I performed
 a simple load test on it: I managed to seg-fault python. So, I took my documentation
 and used it as a specification for writing the C version of the API. It was a great
 experience. Programming in C is one of my favorite things to do, and getting to
 right not only the JSON and HTTP handling methods, but also interact with the low
-mySQL C API was just downright fun. You can read the commit messages on the <a href="https://github.com/EJEHardenberg/GreenUp/tree/master/api">API server</a>&#39;s
+mySQL C API was just downright fun. You can read the commit messages on the <a href="https://github.com/EdgeCaseBerg/GreenUp/tree/master/api">API server</a>&#39;s
 repository if you want all the details. </p>
 <p>Overall, Green Up was a great success, not only for the local environment, but also
 as a milestone in <a href="http://www.xenonapps.com">XenonApps</a>&#39;s life. As this marks our first successful deployment
@@ -204,15 +204,15 @@ to perform even better next year. </p>
 			</a>
 		</li>
 		<li>
-			<a href="https://github.com/EJEHardenberg">
+			<a href="https://github.com/EdgeCaseBerg">
 				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
 				-->Github
 			</a>
 		</li>
 		<li> 
-			<a href="https://twitter.com/EthanJEldridge">
+			<a href="https://twitter.com/TheR3dLily">
 				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				-->@EthanJEldridge
+				-->@TheR3dLily
 			</a>
 		</li>
 		<li>
@@ -223,6 +223,7 @@ to perform even better next year. </p>
 		</li>
 	</ul>
 </nav>
+
   </body>
 </html>
   	

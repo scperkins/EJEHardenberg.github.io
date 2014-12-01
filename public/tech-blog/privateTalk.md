@@ -34,5 +34,5 @@ on:  </sup>
 
 [excellent project]:http://labs.bittorrent.com/experiments/bittorrent-chat.html
 [into CGI recently]:http://www.ethanjoachimeldridge.info/tech-blog/bgi
-[new project]:https://github.com/EJEHardenberg/pChat
+[new project]:https://github.com/EdgeCaseBerg/pChat
 [NIH]:http://en.wikipedia.org/wiki/Not_invented_here

@@ -71,4 +71,4 @@ won't just be my name on the commit log soon!
 [Garth]:https://github.com/gfritz/
 [my friend]:https://github.com/primehunter326
 [K &amp; R]:http://en.wikipedia.org/wiki/The_C_Programming_Language
-[my program]:https://github.com/EJEHardenberg/timecatcher
+[my program]:https://github.com/EdgeCaseBerg/timecatcher

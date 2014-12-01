@@ -664,7 +664,7 @@ get onto fixing it. Have fun and I hope you learned something!
 
 
 
-[let me know]:https://github.com/EJEHardenberg/chat-tutorial/issues
+[let me know]:https://github.com/EdgeCaseBerg/chat-tutorial/issues
 [right here]:http://chat.ethanjoachimeldridge.info/
 [cloudfare's javascript]:http://cdnjs.com/
 [Harp]:http://harpjs.com
@@ -673,7 +673,7 @@ get onto fixing it. Have fun and I hope you learned something!
 [their download page]:http://nodejs.org/download/
 [harps layout documentation]:http://harpjs.com/docs/development/layout
 [qdecoder]:http://www.qdecoder.org/wiki/qdecoder
-[here on github]:https://github.com/EJEHardenberg/chat-tutorial
+[here on github]:https://github.com/EdgeCaseBerg/chat-tutorial
 [first post]:http://www.ethanjoachimeldridge.info/tech-blog/cgi-c-harp-1
 [previous post]:http://www.ethanjoachimeldridge.info/tech-blog/cgi-c-harp-2
 [jquery]:http://jquery.com/
