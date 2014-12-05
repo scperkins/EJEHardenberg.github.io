@@ -1,4 +1,10 @@
 {
+	"introspection" : {
+		"title" : "Introspection",
+		"date" : "2014-12-5",
+		"freq" : "monthly",
+		"poemDescription" : "Just thinking to myself, own jury, judge, and executioner"
+	},
 	"closed" : {
 		"title" : "Closed",
 		"date" : "2014-12-2",
