@@ -342,5 +342,11 @@
     "date" : "2014-11-25",
     "description" : "Adding and subtracting days in Java, also, how to get the end of the month and first of the month. Useful for database queries and jobs",
     "keywords" : "Java,Date,Days,Calendar,Subtracting,Adding,First,End,of Month"
+  },
+  "mailing-list" : {
+    "title" : "Make your own Mailing List",
+    "date" : "2014-12-8",
+    "description" : "Making a mailing list to share websites and links with your friends is really easy, check out how to do it here.",
+    "keywords" : "mailing,mail,email,list,sharing,postfix,linux"
   }
 }
