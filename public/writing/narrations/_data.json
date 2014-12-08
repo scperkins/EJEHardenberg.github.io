@@ -1,4 +1,9 @@
 {
+	"sidewalk" : {
+		"title" : "Sidewalk",
+		"date" : "2014-12-8",
+		"freq" : "monthly"
+	},
 	"outside" : {
 		"title" : "Sill",
 		"date" : "2014-12-1",
