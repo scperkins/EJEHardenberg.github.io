@@ -1,4 +1,10 @@
 {
+	"not-there" : {
+		"title" : "Not there",
+		"date" : "2014-12-8",
+		"freq" : "monthly",
+		"poemDescription" : "Reading a book about a transwoman. Guess which one."
+	},
 	"introspection" : {
 		"title" : "Introspection",
 		"date" : "2014-12-5",
