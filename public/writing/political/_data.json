@@ -1,4 +1,10 @@
 {
+	"sec-309" : {
+		"title" : "The issue with Section 309",
+		"description" : "Government spying? able to keep your information to break it later? Sure, why not.",
+		"freq" : "monthly",
+		"draft" : false
+	},
 	"gamer-gate-last" : { 
 		"title" : "Thankful for GamerGate",
 		"description" : "Hopefully my last post on GamerGate, an overview of some of the very real change brougt about",
