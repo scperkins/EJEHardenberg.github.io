@@ -348,5 +348,12 @@
     "date" : "2014-12-8",
     "description" : "Making a mailing list to share websites and links with your friends is really easy, check out how to do it here.",
     "keywords" : "mailing,mail,email,list,sharing,postfix,linux"
+  },
+  "proxy-paranoia-and-resolve" : {
+    "title" : "Proxy Paranoia and DNS resolves",
+    "description" : "A few updates and some non-thinking and it's solution. Just a chronicle of fixing a resolv.conf goof",
+    "freq" : "daily",
+    "keywords" : "resolv.conf,env,wget,proxy,chromium,stupidity",
+    "date" : "2013-12-12"
   }
 }
