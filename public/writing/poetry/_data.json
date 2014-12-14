@@ -1,4 +1,10 @@
 {
+	"vote" : { 
+		"title" : "Vote",
+		"date" : "2014-12-14",
+		"freq" : "monthly",
+		"poemDescription" : "Section 309, hr4681 and people not caring that their communications can be held indefinitly."
+	},
 	"words-in-the-dark" : {
 		"title" : "Words in the dark",
 		"date" : "2014-12-11",
