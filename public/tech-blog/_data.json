@@ -352,8 +352,15 @@
   "proxy-paranoia-and-resolve" : {
     "title" : "Proxy Paranoia and DNS resolves",
     "description" : "A few updates and some non-thinking and it's solution. Just a chronicle of fixing a resolv.conf goof",
-    "freq" : "daily",
+    "freq" : "monthly",
     "keywords" : "resolv.conf,env,wget,proxy,chromium,stupidity",
-    "date" : "2013-12-12"
+    "date" : "2014-12-12"
+  },
+  "gotodocumentation-sublime-chromium-default" : {
+    "title" : "Setting Chromium as the default browser for GotoDocumentation in Sublime Text 2",
+    "description" : "GotoDocumentation is a pretty cool package for ST2 that opens documentation in a keystroke, but it doesn't support chromium or chrome on all platforms, this is how you hack it.",
+    "freq" : "monthly",
+    "date" : "2014-12-15",
+    "keywords" : "GotoDocumentation,chromium,chrome,webbrowser,sublime,sublime text,sublime text 2,change default browser"
   }
 }
