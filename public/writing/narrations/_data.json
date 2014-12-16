@@ -1,4 +1,9 @@
 {
+	"tremble" : {
+		"title" : "Tremble",
+		"date" : "2014-12-16",
+		"freq" : "monthly"
+	},
 	"movie" : {
 		"title" : "Movie",
 		"date" : "2014-12-9",
