@@ -1,4 +1,10 @@
 {
+	"conspire" : {
+		"title" : "Conspire",
+		"date" : "2014-12-16",
+		"freq" : "monthly",
+		"poemDescription" : "Get off your ass and do something about the state of the world"
+	},
 	"vote" : { 
 		"title" : "Vote",
 		"date" : "2014-12-14",
