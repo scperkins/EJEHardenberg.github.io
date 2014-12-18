@@ -2,7 +2,7 @@
 	"sec-309" : {
 		"title" : "The issue with Section 309",
 		"description" : "Government spying? able to keep your information to break it later? Sure, why not.",
-		"date" : "12-18-14",
+		"date" : "2014-12-18",
 		"freq" : "monthly",
 		"draft" : false
 	},
@@ -10,36 +10,42 @@
 		"title" : "Thankful for GamerGate",
 		"description" : "Hopefully my last post on GamerGate, an overview of some of the very real change brougt about",
 		"freq" : "monthly",
+		"date" : "2014-11-27",
 		"draft" : false
 	},
 	"protesting" : {	
 		"title" : "On Protesting",
 		"description" : "Brief thoughts on peaceful protests",
 		"freq" : "monthly",
+		"date" : "2014-11-09",
 		"draft" : false
 	},
 	"self-made-man" : {
 		"title" : "Self Made Woman",
 		"description" : "Thoughts and review on the book Self Made Man",
 		"freq" : "daily",
+		"date" : "2014-11-15",
 		"draft" : true
 	}, 
 	"affirmative-consent-law" : {
 		"title" : "Thoughts on Affirmative Consent",
 		"description" : "A laymans look into the problems in the new law from california, a disection piece of each portion of the bill",
 		"freq" : "monthly",
+		"date" : "2014-10-14",
 		"keywords" : "consent,rape,california,bill 967,affirmative consent,affirmative,consent,legal,law"
 	},
 	"speech" : {
 		"title" : "Freedom of Speech",
 		"description" : "A look into internet culture around trolling and freedom of speech.",
 		"freq" : "monthly",
+		"date" : "2014-09-29",
 		"keywords" : "freedom,speech,Freedom of Speech,youtube,trolling,troll,internet,tort,torts"
 	},
 	"cronyism-and-networking" : {
 		"title" : "Cronyism vs. Networking",
 		"description" : "An critique and observation of the differences and the fine line between Cronyism and Networking",
 		"freq" : "monthly",
+		"date" : "2014-09-25",
 		"keywords" : "Cronyism,Networking,legal,ethics,ethical"
 	},
 	"index" : {
@@ -58,12 +64,14 @@
 		"title" : "End Goals of Gamer Gate",
 		"description" : "My personal views on how #GamerGate affects me, and what I want out of it in the end.",
 		"freq" : "monthly",
+		"date" : "2014-10-29",
 		"keywords" : "GamerGate,#GamerGate,Gamer,View,Opinion,Goals"
 	},
 	"gamer-gate" : {
 		"title" : "Gamer Gate",
 		"description" : "Views and thoughts on #GamerGate and 4chan",
 		"freq" : "monthly",
+		"date" : "2014-10-09",
 		"keywords" : "#GamerGate,GamerGate,Scandal,4chan"
 	}
 }
