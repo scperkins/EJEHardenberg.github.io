@@ -6,8 +6,8 @@
 		<title>Ethan's Techblog Feed</title>
 		<link>http://ethanjoachimeldridge.info/tech-blog/feed.xml</link>
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
-		<managingEditor>Ethan Eldridge (ejayeldridge@gmail.com)</managingEditor>
-		<webMaster>Ethan Eldridge (ejayeldridge@gmail.com)</webMaster>
+		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
+		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
 		<lastBuildDate>Mon, 15 Dec 2014 00:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
