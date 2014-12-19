@@ -23,14 +23,14 @@
 		<title>Ethan's Techblog Feed</title>
 		<link>http://ethanjoachimeldridge.info/tech-blog/feed.xml</link>
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
-		<lastBuildDate><%= new Date(highestDate) %></lastBuildDate>
+		<lastBuildDate><%= new Date(highestDate).toGMTString() %></lastBuildDate>
 		<language>en-us</language>
 		<% for (articleIdx in articles) { %>
 		<item>
 			<title><%- articles[articleIdx].title %></title>
 			<link>http://ethanjoachimeldridge.info/tech-blog/<%= articles[articleIdx].slug %></link>
 			<guid>http://ethanjoachimeldridge.info/tech-blog/<%= articles[articleIdx].slug %></guid>
-			<pubDate><%= new Date(Date.parse(articles[articleIdx].date)) %></pubDate>
+			<pubDate><%= new Date(Date.parse(articles[articleIdx].date)).toGMTString() %></pubDate>
 			<description>[CDATA[ <%- articles[articleIdx].description %> ]]</description>
 		</item>
 		<% } %>
