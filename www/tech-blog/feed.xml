@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+	<channel>
+		
+
+		<title>Ethan's Techblog Feed</title>
+		<link>http://ethanjoachimeldridge.info/tech-blog/feed.xml</link>
+		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
+		<lastBuildDate>Sun Dec 14 2014 19:00:00 GMT-0500 (EST)</lastBuildDate>
+		<language>en-us</language>
+		
+		<item>
+			<title>Setting Chromium as the default browser for GotoDocumentation in Sublime Text 2</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/gotodocumentation-sublime-chromium-default</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/gotodocumentation-sublime-chromium-default</guid>
+			<pubDate>Sun Dec 14 2014 19:00:00 GMT-0500 (EST)</pubDate>
+			<description>[CDATA[ GotoDocumentation is a pretty cool package for ST2 that opens documentation in a keystroke, but it doesn't support chromium or chrome on all platforms, this is how you hack it. ]]</description>
+		</item>
+		
+		<item>
+			<title>Proxy Paranoia and DNS resolves</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/proxy-paranoia-and-resolve</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/proxy-paranoia-and-resolve</guid>
+			<pubDate>Thu Dec 11 2014 19:00:00 GMT-0500 (EST)</pubDate>
+			<description>[CDATA[ A few updates and some non-thinking and it's solution. Just a chronicle of fixing a resolv.conf goof ]]</description>
+		</item>
+		
+		<item>
+			<title>Make your own Mailing List</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/mailing-list</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/mailing-list</guid>
+			<pubDate>Mon Dec 08 2014 00:00:00 GMT-0500 (EST)</pubDate>
+			<description>[CDATA[ Making a mailing list to share websites and links with your friends is really easy, check out how to do it here. ]]</description>
+		</item>
+		
+		<item>
+			<title>Adding days with Java</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/subtracting-dates-java</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/subtracting-dates-java</guid>
+			<pubDate>Mon Nov 24 2014 19:00:00 GMT-0500 (EST)</pubDate>
+			<description>[CDATA[ Adding and subtracting days in Java, also, how to get the end of the month and first of the month. Useful for database queries and jobs ]]</description>
+		</item>
+		
+		<item>
+			<title>Displaying Business hours with PHP</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/php-hours</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/php-hours</guid>
+			<pubDate>Tue Nov 18 2014 19:00:00 GMT-0500 (EST)</pubDate>
+			<description>[CDATA[ Storing business hours in a database is a common usecase, having searchable business directories is even better. This is one way to do it ]]</description>
+		</item>
+		
+		<item>
+			<title>Shared Voice - Activist's tool</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/shared-voice</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/shared-voice</guid>
+			<pubDate>Sun Nov 16 2014 19:00:00 GMT-0500 (EST)</pubDate>
+			<description>[CDATA[ A tool similar to ThunderClap.it, but more suited for anonymous culture ]]</description>
+		</item>
+		
+		<item>
+			<title>*Arc: My First Chrome Extension</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/arcstar-chrome-extensions</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/arcstar-chrome-extensions</guid>
+			<pubDate>Wed Nov 05 2014 19:00:00 GMT-0500 (EST)</pubDate>
+			<description>[CDATA[ A simple archiving plugin, my first chrome extension and some thoughts on it ]]</description>
+		</item>
+		
+		<item>
+			<title>Dynamic Tablename's in Order By with NamedParameterJdbc</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/ambiguous-columns-namedparameterjdbc-order-by</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/ambiguous-columns-namedparameterjdbc-order-by</guid>
+			<pubDate>Thu Oct 30 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ When you want to have a parameterized Order By clause and you need to specify the table as well as the column, this is what you do ]]</description>
+		</item>
+		
+		<item>
+			<title>Use Native Library Classes in XML Beans (OpenCV)</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/load-opencv-for-spring-bean</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/load-opencv-for-spring-bean</guid>
+			<pubDate>Mon Oct 27 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ With normal Java classes you can use System.loadLibrary to use native libraries, but what do you do when you're configuring classes via XML? ]]</description>
+		</item>
+		
+		<item>
+			<title>Order by Rand without a starting ID of 1</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/order-by-rand-mysql</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/order-by-rand-mysql</guid>
+			<pubDate>Wed Oct 22 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ There are many posts that discuss how not to use order by rand. However all of these fail to address what to do when the distribution of numbers lies at only one extreme of a range. This is how you handle that. ]]</description>
+		</item>
+		
+		<item>
+			<title>Teaching Through Games</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/today-we-learned-through-games</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/today-we-learned-through-games</guid>
+			<pubDate>Thu Oct 16 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ Educating young students and mentoring people is a great way to give back to the community, when doing so it's great to engage them, and a great way to do so is through games ]]</description>
+		</item>
+		
+		<item>
+			<title>Fixing the flash player in Chromium Version 37</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/upgrading-chromium-33-to-37</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/upgrading-chromium-33-to-37</guid>
+			<pubDate>Mon Oct 13 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ How to fix pepper flash for chromium version 37 after upgrading ]]</description>
+		</item>
+		
+		<item>
+			<title>Using Encrypted Search in Chrome</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/using-encrypted-search-in-chromium</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/using-encrypted-search-in-chromium</guid>
+			<pubDate>Wed Sep 24 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ Showing how to set up your browser for more secure searches! For chrome only ]]</description>
+		</item>
+		
+		<item>
+			<title>Coloring Likert Scales with LESS CSS</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/likert-scales-less-css</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/likert-scales-less-css</guid>
+			<pubDate>Sun Aug 31 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ Showing how to use a recursive mixin in LESS CSS to create easily coloured likert scales. ]]</description>
+		</item>
+		
+		<item>
+			<title>Autoload your CSS and Javascript in Harp</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/autoload-harp-css-js</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/autoload-harp-css-js</guid>
+			<pubDate>Sun Aug 24 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ In a follow up to the last post, I'll show you how to use the same technique to load both CSS and Javascript ]]</description>
+		</item>
+		
+		<item>
+			<title>Loading JS dynamically in Harp</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/dynamically-including-js</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/dynamically-including-js</guid>
+			<pubDate>Sat Aug 23 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ How to dynamically include Javascript on a page served by harp ]]</description>
+		</item>
+		
+		<item>
+			<title>Let's make a chat server, Part 3</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/cgi-c-harp-3</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/cgi-c-harp-3</guid>
+			<pubDate>Fri Aug 22 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ Third installment of a C CGI and Harp powered chat platform. This post shows how to create the web interface to the server ]]</description>
+		</item>
+		
+		<item>
+			<title>Let's make a chat server, Part 2</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/cgi-c-harp-2</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/cgi-c-harp-2</guid>
+			<pubDate>Wed Aug 20 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ Second installment of a C CGI and Harp powered chat platform. This tutorial focuses on the CGI and qdecoder portions. ]]</description>
+		</item>
+		
+		<item>
+			<title>Let's make a chat server, Part 1</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/cgi-c-harp-1</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/cgi-c-harp-1</guid>
+			<pubDate>Fri Aug 15 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ First installment of a C CGI and Harp powered chat platform. The first part focuses on C-based internal functions. ]]</description>
+		</item>
+		
+		<item>
+			<title>Adding Scheduled Posts to your Harp Site</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/adding-scheduled-posts</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/adding-scheduled-posts</guid>
+			<pubDate>Tue Aug 12 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ How to create scheduled posts for your Harp Site ]]</description>
+		</item>
+		
+		<item>
+			<title>Authorize LineItem's, mixed free and paid for causes error</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/free-item-in-authorize-line-item-invalid</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/free-item-in-authorize-line-item-invalid</guid>
+			<pubDate>Tue Aug 05 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ Ran into a problem where Authorize.net's API wasn't accepting 0 as a unit price because it wasn't formatted as 0.00, but only when a free and non free item were in the line items. ]]</description>
+		</item>
+		
+		<item>
+			<title>Private Talk and plans for some tutorials</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/privateTalk</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/privateTalk</guid>
+			<pubDate>Sat Aug 02 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ Some thoughts after creating a private chat server with c and qdecoder. Planning to create a set of tutorials ]]</description>
+		</item>
+		
+		<item>
+			<title>Harp CDN Macro Revisited</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/harp-macro-revisit</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/harp-macro-revisit</guid>
+			<pubDate>Mon Jul 21 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ Revisiting a macro in a previous blog post, cleaning it up for browser caching performance ]]</description>
+		</item>
+		
+		<item>
+			<title>BGI, a way to track your spending</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/bgi</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/bgi</guid>
+			<pubDate>Sun Jul 20 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ Playing around with C CGI scripting in order to track spending habits is fun! A look into a side project. ]]</description>
+		</item>
+		
+		<item>
+			<title>XML Sitemap for Harp JS</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/xml-sitemap-for-harpjs</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/xml-sitemap-for-harpjs</guid>
+			<pubDate>Wed Jun 25 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ How to generate a valid XML sitemap for your HarpJS site. It's easy! ]]</description>
+		</item>
+		
+		<item>
+			<title>Custom Permalinks for Custom Tables and Pages</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/custom-permalinks-for-custom-templates</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/custom-permalinks-for-custom-templates</guid>
+			<pubDate>Tue Jun 24 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ How to create custom permalinks for custom pages and page templates. If you're using a custom table and need to alter information on a Page template based on this, then this blog post is for you! ]]</description>
+		</item>
+		
+		<item>
+			<title>'Caught in the Spiders Web' -- A googlebot Heisenbug</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/googlebot-heisenbug</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/googlebot-heisenbug</guid>
+			<pubDate>Sun Jun 22 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ An interesting bug occured today, and it was all googles fault... ]]</description>
+		</item>
+		
+		<item>
+			<title>HarpJS and Macros, Static Delivery for Static Content</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/harpjs-macros</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/harpjs-macros</guid>
+			<pubDate>Thu Jun 19 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ A HarpJS recipe for leveraging CDN's and Static content delivery for your HarpJs site ]]</description>
+		</item>
+		
+		<item>
+			<title>Spring Batch ItemProcessListener Example</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/item-processor-example</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/item-processor-example</guid>
+			<pubDate>Tue Jun 17 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ I couldn't find an example of an item processor being used anywhere, so I decided to make one myself! A simple and quick example of how to use an ItemProcessListener from Spring Batch's ]]</description>
+		</item>
+		
+		<item>
+			<title>Serial Hill Climber in GoLang</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/serial-hill-climber-golang</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/serial-hill-climber-golang</guid>
+			<pubDate>Mon May 19 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ My first foray into GoLang, creating a simple serial hill climber (the simplest of all evolutionary algorithms) in GoLang. Using some of the concurrent features of Go make it a very powerful language for Evolutionary method implementations. ]]</description>
+		</item>
+		
+		<item>
+			<title>Green Up Vermont</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/green-up-vt-app</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/green-up-vt-app</guid>
+			<pubDate>Sat May 03 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ A short look into what the Green Up VT launch day was like for the developers at XenonApps who monitored the application all day. ]]</description>
+		</item>
+		
+		<item>
+			<title>Varnish Directors and API Caching</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/varnish-directors</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/varnish-directors</guid>
+			<pubDate>Thu May 01 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ How to setup round robin, and health checks for multiple back ends behind Varnish HTTP Cache. GreenUp VT API Server as a case study. ]]</description>
+		</item>
+		
+		<item>
+			<title>Adding Actions to the WordPress User Lists</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/adding-actions-to-user-lists</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/adding-actions-to-user-lists</guid>
+			<pubDate>Thu Apr 24 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ How to add links and actions to the 'users.php' page of WordPress via filters. ]]</description>
+		</item>
+		
+		<item>
+			<title>404 Error from WordPress Form Submit with an input named 'name'</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/wordpress-form-name-error</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/wordpress-form-name-error</guid>
+			<pubDate>Fri Apr 04 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ Discovery of a bit of an oddity in WordPress's form input names, you can't have one named 'name'! ]]</description>
+		</item>
+		
+		<item>
+			<title>Grails Service Mocks</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/grails-service-mocks</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/grails-service-mocks</guid>
+			<pubDate>Tue Mar 25 2014 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ Stubbing out unneccesary service calls in Grails without Mocks ]]</description>
+		</item>
+		
+		<item>
+			<title>Resource Replace, update js and css domain links</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/resource-replace</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/resource-replace</guid>
+			<pubDate>Wed Mar 05 2014 19:00:00 GMT-0500 (EST)</pubDate>
+			<description>[CDATA[ Information about a small plugin to update javascript and css domain names for easier CDN usage for WordPress sites that I wrote. ]]</description>
+		</item>
+		
+		<item>
+			<title>Gripes with wordpress's postmeta and autoload</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/wordpress-gripes</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/wordpress-gripes</guid>
+			<pubDate>Thu Feb 27 2014 19:00:00 GMT-0500 (EST)</pubDate>
+			<description>[CDATA[ A short tirade about how poor defaults for indexes and shoddy plugins can cause a large amount of pain for a WordPress site's performance ]]</description>
+		</item>
+		
+		<item>
+			<title>Varnish and API Servers</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/varnish</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/varnish</guid>
+			<pubDate>Sun Feb 16 2014 19:00:00 GMT-0500 (EST)</pubDate>
+			<description>[CDATA[ How to configure Varnish for caching of RESTful resources for API Servers, the GreenUp Server configuration is used as an example ]]</description>
+		</item>
+		
+		<item>
+			<title>Harp and Smut</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/harp-and-smut</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/harp-and-smut</guid>
+			<pubDate>Sun Jan 26 2014 19:00:00 GMT-0500 (EST)</pubDate>
+			<description>[CDATA[ A short post about the first time I used <a href="http://harpjs.com">Harp</a> to create a website ]]</description>
+		</item>
+		
+		<item>
+			<title>Incorrect Time in PHP despite Timezone</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/php-wrong-date-half-hour</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/php-wrong-date-half-hour</guid>
+			<pubDate>Wed Jan 15 2014 19:00:00 GMT-0500 (EST)</pubDate>
+			<description>[CDATA[ A weird configuration problem with TimeZone settings in PHP and how it was fixed. ]]</description>
+		</item>
+		
+		<item>
+			<title>Using Chunked Encoding for Reporting in Wordpress</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/chunked-encoding-for-reports</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/chunked-encoding-for-reports</guid>
+			<pubDate>Thu Jan 09 2014 00:00:00 GMT-0500 (EST)</pubDate>
+			<description>[CDATA[ When writing pages that have a lot of output, it's beneficial to use Chunked Encoding rather than Content-length, this post talks about doing it for reporting screens in WordPress ]]</description>
+		</item>
+		
+		<item>
+			<title>Hosts file and Testing deployment</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/hosts-file-deployment</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/hosts-file-deployment</guid>
+			<pubDate>Thu Jan 02 2014 00:00:00 GMT-0500 (EST)</pubDate>
+			<description>[CDATA[ A easy way to trick your computer into using a test environment with a live URL. ]]</description>
+		</item>
+		
+		<item>
+			<title>My Cooking Recipes</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/college-friend-chicken</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/college-friend-chicken</guid>
+			<pubDate>Tue Dec 03 2013 00:00:00 GMT-0500 (EST)</pubDate>
+			<description>[CDATA[ Blog post about creating the first design and implementation of the cooking section of my website. ]]</description>
+		</item>
+		
+		<item>
+			<title>Empty Post__in WordPress problem</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/post__in-returning-results-with-empty-array</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/post__in-returning-results-with-empty-array</guid>
+			<pubDate>Tue Nov 26 2013 19:00:00 GMT-0500 (EST)</pubDate>
+			<description>[CDATA[ A short description of a small problem I ran into while using the WP_Query class with an Empty post__in field. ]]</description>
+		</item>
+		
+		<item>
+			<title>HTML Templates and Handlebar</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/html-templates-and-handlebars</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/html-templates-and-handlebars</guid>
+			<pubDate>Sun Nov 24 2013 19:00:00 GMT-0500 (EST)</pubDate>
+			<description>[CDATA[ While looking into some new technology, I ended up messing around with HTML Templates and thought they were cool enough to write about ]]</description>
+		</item>
+		
+		<item>
+			<title>Numbers as Markers on Google Maps</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/numbers-as-markers-google-maps</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/numbers-as-markers-google-maps</guid>
+			<pubDate>Thu Oct 24 2013 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ How to have custom markers on a google map that show numbers ]]</description>
+		</item>
+		
+		<item>
+			<title>Short Codes and Routing in WordPress</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/shortcodes-routing-wordpress</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/shortcodes-routing-wordpress</guid>
+			<pubDate>Thu Oct 03 2013 00:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ While creating a WordPress module for work, I wanted to serve up a php page, nothing particularly WordPress-y about it, but I ran into some interesting snags that I documented. ]]</description>
+		</item>
+		
+		<item>
+			<title>Stack Smashing</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/stack-smashing</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/stack-smashing</guid>
+			<pubDate>Wed Oct 02 2013 00:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ A short post about how I ran into an interesting case of Stack Smashing while working on the GreenUp VT REST API written in C. ]]</description>
+		</item>
+		
+		<item>
+			<title>Time Catcher Part 3</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/time-catcher-part3</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/time-catcher-part3</guid>
+			<pubDate>Tue Sep 24 2013 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ The third part of the TimeCatcher program series, discussion on implementation of pausing and deleting tasks within the program. ]]</description>
+		</item>
+		
+		<item>
+			<title>Time Catcher Part 2! (Alpha)</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/time-catcher-part2</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/time-catcher-part2</guid>
+			<pubDate>Fri Sep 06 2013 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ The second part of the 3 part blog series on my program, Timecather. In this post I talk about a few of the algorithms used within the programmer and a couple other interesting pieces of the code. ]]</description>
+		</item>
+		
+		<item>
+			<title>Time Catcher Part 1</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/time-catcher-part1</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/time-catcher-part1</guid>
+			<pubDate>Sat Aug 31 2013 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ The first of a 3 part blog post where I kept running commentary as I created my TimeCatcher programmer. ]]</description>
+		</item>
+		
+		<item>
+			<title>How this site was made</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/how-this-site-was-made</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/how-this-site-was-made</guid>
+			<pubDate>Mon Jul 29 2013 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ An (out of date) overview of how this website was made. I used my XeMark language as a static site generator for one of the versions of my website. ]]</description>
+		</item>
+		
+		<item>
+			<title>Git Crash Course</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/git-crash-course</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/git-crash-course</guid>
+			<pubDate>Mon Jul 29 2013 20:00:00 GMT-0400 (EDT)</pubDate>
+			<description>[CDATA[ A short tutorial on some of the basics of using <a href="http://git-scm.com/">Git</a> version control. ]]</description>
+		</item>
+		
+	</channel>
+</rss>
