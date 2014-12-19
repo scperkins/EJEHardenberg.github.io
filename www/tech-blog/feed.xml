@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		
 
@@ -8,6 +8,8 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<lastBuildDate>Mon, 15 Dec 2014 00:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
+		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
+
 		
 		<item>
 			<title>Setting Chromium as the default browser for GotoDocumentation in Sublime Text 2</title>
