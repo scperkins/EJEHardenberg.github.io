@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Mon, 15 Dec 2014 00:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Fri, 19 Dec 2014 00:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Create an RSS feed with Harp</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/rss-feed-with-harp</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/rss-feed-with-harp</guid>
+			<pubDate>Fri, 19 Dec 2014 00:00:00 GMT</pubDate>
+			<description>
+				![CDATA[If you want to add an RSS feed to your website and you're using Harp, this is the post for you]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Setting Chromium as the default browser for GotoDocumentation in Sublime Text 2</title>

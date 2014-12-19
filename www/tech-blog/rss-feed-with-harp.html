@@ -58,12 +58,113 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      
-        <br/>
-        <h3>
-          You've stumbled onto a post that is coming soon! But for now you can't see it. Sorry. 
-        </h3>
-        <p> For now why don't you checkout the other posts?</p>
+      <h3>Creating your own RSS feed with HarpJS</h3>
+<p>A lot of people use RSS feeds to aggregate content they want to know 
+about, and by offering this service from your own website or blog you 
+can help distribute your content a little bit easier to the tech-savvy 
+world. The other day one of my friends asked me if <strong>my</strong> website had an 
+RSS feed. </p>
+<p>It does now. And I&#39;m going to show you how to do get your own.</p>
+<p>As you know if you&#39;ve read my <a href="harp-and-smut.html">previous posts</a> I use <a href="http://harpjs.com">HarpJS</a> to compile 
+my website whenever I create new content. Harp let&#39;s you use EJS or Jade 
+to template your website and supports a lot of different content types 
+out of the box. Specifically, I write everything in <a href="daringfireball.net/projects/markdown/syntax">markdown</a> because I 
+love it, and luckily for you and your RSS feed, Harp supports creating 
+XML documents as well, including templating.</p>
+<p>This is the full code that generates <a href="feed.xml">my RSS feed</a>, obviously these types 
+of things depend on the data you have constructed. In my case, each blog 
+post&#39;s meta data (within <code>_data.json</code>) includes a title,description, and 
+date already. When I create a new post I add it to the <em>bottom</em> of my list, 
+which means that to show a listing of each, with the latest at the top, 
+I have to reverset the list first before I use it:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;rss version=&quot;2.0&quot; xmlns:atom=&quot;http://www.w3.org/2005/Atom&quot;&gt;
+    &lt;channel&gt;
+        &lt;%
+        var articles = [] 
+        var highestDate = 0;
+
+          for (var slug in public[&quot;tech-blog&quot;]._data) { 
+            public[&quot;tech-blog&quot;]._data[slug].slug = slug
+
+            if (slug != &quot;index&quot; &amp;&amp; slug != &quot;feed&quot; &amp;&amp; !public[&quot;tech-blog&quot;]._data[slug].draft) {
+                var obj = public[&quot;tech-blog&quot;]._data[slug]
+                obj.slug = slug
+                  articles.push(obj)  
+                  if (highestDate &lt; Date.parse(obj.date)) {
+                      highestDate = Date.parse(obj.date)
+                  }
+            }
+          };
+        articles.reverse()
+        %&gt;
+
+        &lt;title&gt;Ethan&#39;s Techblog Feed&lt;/title&gt;
+        &lt;link&gt;http://ethanjoachimeldridge.info/tech-blog/feed.xml&lt;/link&gt;
+        &lt;description&gt;XML RSS 2.0 feed for Ethan Eldridge&#39;s tech blog&lt;/description&gt;
+        &lt;managingEditor&gt;ejayeldridge@gmail.com (Ethan Eldridge)&lt;/managingEditor&gt;
+        &lt;webMaster&gt;ejayeldridge@gmail.com(Ethan Eldridge)&lt;/webMaster&gt;
+        &lt;lastBuildDate&gt;&lt;%= new Date(highestDate).toGMTString() %&gt;&lt;/lastBuildDate&gt;
+        &lt;language&gt;en-us&lt;/language&gt;
+        &lt;atom:link href=&quot;http://ethanjoachimeldridge.info/tech-blog/feed.xml&quot; rel=&quot;self&quot; type=&quot;application/rss+xml&quot; /&gt;
+
+        &lt;% for (articleIdx in articles) { %&gt;
+        &lt;item&gt;
+            &lt;title&gt;&lt;%- articles[articleIdx].title %&gt;&lt;/title&gt;
+            &lt;link&gt;http://ethanjoachimeldridge.info/tech-blog/&lt;%= articles[articleIdx].slug %&gt;&lt;/link&gt;
+            &lt;guid&gt;http://ethanjoachimeldridge.info/tech-blog/&lt;%= articles[articleIdx].slug %&gt;&lt;/guid&gt;
+            &lt;pubDate&gt;&lt;%= new Date(Date.parse(articles[articleIdx].date)).toGMTString() %&gt;&lt;/pubDate&gt;
+            &lt;description&gt;
+                ![CDATA[&lt;%- articles[articleIdx].description.trim()
+                    .replace(/[\u00A0-\u9999&lt;&gt;\&amp;]/gim, function(i) {
+                        if(i.charCodeAt(0) == &#39;&lt;&#39;){
+                            console.log(i)
+                        }
+                           return &#39;&amp;#&#39;+i.charCodeAt(0)+&#39;;&#39;;
+                    }).replace(/&amp;/gim, &#39;&amp;amp;&#39;) 
+                %&gt;]]
+            &lt;/description&gt;
+        &lt;/item&gt;
+        &lt;% } %&gt;
+    &lt;/channel&gt;
+&lt;/rss&gt;</code></pre>
+<p>Next, the <code>xml</code>,<code>rss</code>, and <code>channel</code> elements are part of the <a href="http://cyber.law.harvard.edu/rss/rss.html">standard</a> 
+and easily implemented using the examples they give you. Same with the 
+feed description itself with the title, link, and editor tags. There are 
+only two items that stood out when creating this feed.</p>
+<h4>The timestamps for date.</h4>
+<p>The date&#39;s need to be valid <a href="http://www.w3.org/Protocols/rfc822/">RFC 822</a> timestamps. This means <em>GMT</em> time. 
+If I were to not call the <code>toGMTString()</code> function on my dates, then I 
+would have an invalid feed because I&#39;d get things like this:</p>
+<pre><code>Fri Dec 19 2014 08:41:43 GMT-0500 (EST)</code></pre>
+<p>Instead of formats like this:</p>
+<pre><code>Fri, 19 Dec 2014 13:42:05 GMT</code></pre>
+<p>If you&#39;re using something like <a href="http://feedvalidator.org/">FeedValidator</a> to make sure your feed is 
+<a href="http://feedvalidator.org/check.cgi?url=http%3A//ethanjoachimeldridge.info/tech-blog/feed.xml">valid</a>, then it will complain unless you use the GMT versions.</p>
+<h4>Links in the Description tag</h4>
+<p>In your RSS feed, if you&#39;re going to put more than just text, you need to
+encode the entities of the data and put them into a <code>CDATA</code> block. The 
+spec page links to <a href="http://cyber.law.harvard.edu/rss/encodingDescriptions.html">how to format</a> your links, but to do it you need some 
+tomfoolery with javascript. Namely this:</p>
+<pre><code>&lt;description&gt;
+    ![CDATA[&lt;%- articles[articleIdx].description.trim()
+        .replace(/[\u00A0-\u9999&lt;&gt;\&amp;]/gim, function(i) {
+            if(i.charCodeAt(0) == &#39;&lt;&#39;){
+                console.log(i)
+            }
+                return &#39;&amp;#&#39;+i.charCodeAt(0)+&#39;;&#39;;
+        }).replace(/&amp;/gim, &#39;&amp;amp;&#39;) 
+    %&gt;]]
+&lt;/description&gt;</code></pre>
+<p>This replaces all the unicode characters (outside of 127 range) with 
+their corresponding character code, then turns them into entities. There 
+is a <a href="http://stackoverflow.com/questions/18749591/encode-html-entities-in-javascript">stackoverflow</a> post describing this in more detail. However, the 
+answer doesn&#39;t mention the <code>.replace(/&amp;/gim, &#39;&amp;amp;&#39;)</code> part, only the 
+<a href="http://jsfiddle.net/E3EqX/13/">fiddle</a> does.</p>
+<p>Once you have these two gotchas under control then you&#39;ll be happily displaying 
+your shiny valid RSS feed image in no time!</p>
+<p><a href="http://feedvalidator.org/check.cgi?url=http%3A//ethanjoachimeldridge.info/tech-blog/feed.xml"><img src="/images/tech-blog/valid-rss-rogers.png" alt="[Valid RSS]" title="Validate my RSS feed" /></a></p>
+
       
       <h3>Other Posts</h3>
       <div id="other-posts">
