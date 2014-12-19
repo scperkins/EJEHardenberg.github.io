@@ -362,5 +362,8 @@
     "freq" : "monthly",
     "date" : "2014-12-15",
     "keywords" : "GotoDocumentation,chromium,chrome,webbrowser,sublime,sublime text,sublime text 2,change default browser"
+  },
+  "feed" : {
+    "layout" : false
   }
 }

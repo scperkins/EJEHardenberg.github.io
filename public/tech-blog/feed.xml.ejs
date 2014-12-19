@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+	<channel>
+		<%
+		var articles = [] 
+		var highestDate = 0;
+
+      	for (var slug in public["tech-blog"]._data) { 
+            public["tech-blog"]._data[slug].slug = slug
+
+            if (slug != "index" && slug != "feed" && !public["tech-blog"]._data[slug].draft) {
+            	var obj = public["tech-blog"]._data[slug]
+            	obj.slug = slug
+          		articles.push(obj)  
+          		if (highestDate < Date.parse(obj.date)) {
+          			highestDate = Date.parse(obj.date)
+          		}
+        	}
+      	};
+		articles.reverse()
+		%>
+
+		<title>Ethan's Techblog Feed</title>
+		<link>http://ethanjoachimeldridge.info/tech-blog/feed.xml</link>
+		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
+		<lastBuildDate><%= new Date(highestDate) %></lastBuildDate>
+		<language>en-us</language>
+		<% for (articleIdx in articles) { %>
+		<item>
+			<title><%- articles[articleIdx].title %></title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/<%= articles[articleIdx].slug %></link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/<%= articles[articleIdx].slug %></guid>
+			<pubDate><%= new Date(Date.parse(articles[articleIdx].date)) %></pubDate>
+			<description>[CDATA[ <%- articles[articleIdx].description %> ]]</description>
+		</item>
+		<% } %>
+	</channel>
+</rss>
