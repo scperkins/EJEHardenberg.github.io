@@ -5,6 +5,10 @@
     "description" : "A blog consisting of first-hand experiences with technology, solutions to gotchas and bugs I've found in programs. And sometimes just reviews of a new application that I've used",
     "freq" : "daily"
   },
+  "feed" : {
+    "layout" : false,
+    "freq" : "daily"
+  },
   "git-crash-course": {
     "title": "Git Crash Course",
     "date": "2013-07-30",
@@ -363,7 +367,11 @@
     "date" : "2014-12-15",
     "keywords" : "GotoDocumentation,chromium,chrome,webbrowser,sublime,sublime text,sublime text 2,change default browser"
   },
-  "feed" : {
-    "layout" : false
+  "rss-feed-with-harp" : {
+    "draft" : true,
+    "title" : "Create an RSS feed with Harp",
+    "description" : "If you want to add an RSS feed to your website and you're using Harp, this is the post for you",
+    "date" : "2014-12-19",
+    "keywords" : "RSS,feed,Harp,HarpJS,xml"
   }
 }

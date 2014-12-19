@@ -35,7 +35,16 @@
 			<link>http://ethanjoachimeldridge.info/tech-blog/<%= articles[articleIdx].slug %></link>
 			<guid>http://ethanjoachimeldridge.info/tech-blog/<%= articles[articleIdx].slug %></guid>
 			<pubDate><%= new Date(Date.parse(articles[articleIdx].date)).toGMTString() %></pubDate>
-			<description>![CDATA[ <%- articles[articleIdx].description %> ]]</description>
+			<description>
+				![CDATA[<%- articles[articleIdx].description.trim()
+					.replace(/[\u00A0-\u9999<>\&]/gim, function(i) {
+						if(i.charCodeAt(0) == '<'){
+							console.log(i)
+						}
+   						return '&#'+i.charCodeAt(0)+';';
+					}).replace(/&/gim, '&amp;') 
+				%>]]
+			</description>
 		</item>
 		<% } %>
 	</channel>
