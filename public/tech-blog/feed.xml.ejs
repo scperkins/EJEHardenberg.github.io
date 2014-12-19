@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<%
 		var articles = [] 
@@ -25,6 +25,8 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<lastBuildDate><%= new Date(highestDate).toGMTString() %></lastBuildDate>
 		<language>en-us</language>
+		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
+
 		<% for (articleIdx in articles) { %>
 		<item>
 			<title><%- articles[articleIdx].title %></title>
