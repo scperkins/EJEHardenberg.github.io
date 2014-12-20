@@ -368,7 +368,6 @@
     "keywords" : "GotoDocumentation,chromium,chrome,webbrowser,sublime,sublime text,sublime text 2,change default browser"
   },
   "rss-feed-with-harp" : {
-    "draft" : false,
     "title" : "Create an RSS feed with Harp",
     "description" : "If you want to add an RSS feed to your website and you're using Harp, this is the post for you",
     "date" : "2014-12-19",
