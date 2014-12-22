@@ -1,4 +1,10 @@
 {
+	"taken" : {
+		"title" : "Taken",
+		"date" : "2014-12-22",
+		"freq" : "monthly",
+		"poemDescription" : "Thinking about all the things I've lost in the past few months"
+	},
 	"tea-kiss" : {
 		"title" : "Tea Kiss",
 		"date" : "2014-12-20",
