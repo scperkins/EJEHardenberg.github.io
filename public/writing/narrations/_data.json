@@ -1,4 +1,9 @@
 {
+	"ice-soccer" : {
+		"title" : "Ice Soccer",
+		"date" : " 2014-12-22",
+		"freq" : "monthly" 
+	},
 	"tremble" : {
 		"title" : "Tremble",
 		"date" : "2014-12-16",
