@@ -7,6 +7,7 @@
 - [Chapter 1: Getting Started](#chapter1)
 - [Chapter 2: Friendship](#chapter2)
 - [Chapter 3: Sex](#chapter3)
+- [Chapter 4: Love](#chapter4)
 
 
 <div id="why-this-book"></div>
@@ -293,14 +294,120 @@ masculinity.
 <div id="chapter3"></div>
 #### Strippers, Sex, and Secrets
 
+I have never been to a strip club, nor have I ever considered it something I 
+wanted to do. In this chapter Norah enters the vile world of strip joints and 
+attempts to analyze it. 
 
+<blockquote>
+	Sometimes even respectable men with respectable lives have primal ugly stuff
+	bracketed somewhere in theirminds, kept in its place apart from the purported 
+	love that goes with the responsibility of fatherhood and husbanding. How could 
+	it be otherwise? Much as they might have liked them to, these drives and desires 
+	didn't somehow cease to exist in respectable company. It was only society's 
+	prevailing myth, or perhaps female wish fulfillment, that had pretended otherwise. 
+	As a result, individual men and women were left to sort out the sordid reality 
+	ontheir own, hurting and getting hurt because sometimes it was too hard to 
+	successfully resolve the conflict between baseline male sexuality and the 
+	civilized role of a man.
+	<br>
+	These clubs and the thoughts and feelings that produce them are the squalid 
+	subbasement of male sexuality in which a lot of men have at least one foot or 
+	toe firmly planted. No matter how high they ascend in the civilized world, 
+	no matter how tall, how dapper, how educated or savvy they stand in the 
+	stratosphere of age and accomplishment, a lot of average guys still have a 
+	nudie film looping in the back of their minds. And the more educated, 
+	politicized, refined they become, the more ashamed of their base proclivities 
+	they often feel.
+</blockquote>
 
+Mrs Vincent brings an interesting perspective to the table in the above quotes 
+and throughout the chapter. Primarily focusing on the feelings of the men in the 
+clubs, (or what she assumes they must feel) and honing in on the why and what it 
+all means. Diving into the notions of primal instincts, understanding of base 
+needs, and trying to find some facsimile of herself and her character Ned she's 
+playing. 
 
+One thing I want to note, is her use of the word _purports_ in the first paragraph. 
+I don't know how many male friends Mrs Vincent has, specifically, how many friends 
+she has seen transition from the role of bachelor to father. But many of my friends 
+have gone through this. It changes a person greatly. For her to casually spew the 
+word: _purports_ in reference to the love which fathers have for their children, 
+and imply that somehow it is a false one, disturbs me. To be frank, my rule of 
+not looking at not how she was saying, but what she was saying, when used here 
+and only on that section, causes me to pause and wonder if the author believes 
+men to be some type of inhuman creature incapable of love entirely. This one issue
+within a larger chapter focused on sexuality is easily ignored though, as much 
+of what she says throughout is engaging and thought provoking.
 
+<blockquote>
+	At some point all of this ceased to be about desire, if it was ever really 
+	about desire in the firstplace, and became about somethingelse: loneliness, 
+	or inner pain, or doing time or penance for some longago hurt that had never
+	healed but somehow found companionable misalliance here with all the other 
+	misfits and detritus. I don't think anybody in that place was really capable 
+	of normal arousal anymore. They were dead inside and you could see it. They 
+	were in pain and sitting with it, looking for it, maybe even getting off to 
+	it, because when pleasure is used up, painis all that's left. It's the only 
+	thing that lasts longer.
+</blockquote> 
 
+Her discussions about her perception of male sexuality were interesting to read, 
+especially when she was reflecting on being exposed to what she called the base 
+of male sexuality. While interesting, I can't help but wonder if she ever thinks 
+about the way that people often seek comfort within the embrace of a stranger 
+during difficult times in their lives, or the way that some people engage in 
+rebound sex after a relationship as if it were therapy. But most of all, I wonder 
+if she feels the same when going to a lesbian strip club, would she be able to 
+make the same arguments or hold beliefs such as this then: 
+
+<blockquote>
+	... emotion, seduction, imagination, mental connection -- the things that are, 
+	perhaps, the hallmarks of female sexuality...
+</blockquote>
+
+When confronted with a similar notion of what she calls male sexuality within a
+stripper named Gina, she becomes confused. When asking why Gina is a dancer, and
+being met with the reply: "I love men.", doubt was the first thing that comes to 
+her mind. At Gina's distaste for women and their anatomy, Mrs Vincent is shocked 
+and assumes that Gina simply must have had a traumatic past that caused her  
+dislike of, in Gina's words: "Wet sloppy pussy". Perhaps it is because of the authors 
+orientation that she doesn't understand, or she simply enjoys secretions of mucus. 
+It seems strange to me that someone would be shocked by another person's preferences 
+so much. Perhaps I'm simply biased because Gina echos some of my own sentiment 
+towards bodily fluids and I'm more inclined to agree with someone who has chosen, 
+from 18-34, to dance due to their passion for something despite not needing the 
+money, and not allow a societal stigma to get in the way of that.
+
+However, Mrs Vincent is by no means unaware of the duel power play within the 
+scenes she visited:
+
+<blockquote>
+	This place wasn't just where men came to be beasts. It was also where women 
+	came to exercise some vestige of sexual power in the most unvarnished way possible.
+	My pussy for your dollars. I say when, I say how, I say how much and I get 
+	paid for it. There was tremendous manipulation built into the rules under
+	which these places operated. The provision against touching the girls could be
+	bent or borken at will by each individual girl, and enforced by guys hired for 
+	the purpose, guys like the pierced biker at the couch-room door. This was an 
+	age-old whore-john-pimp dynamic, but more played at than truly enacted, and 
+	always in a controlled setting. It was a grotesque parody of what women and 
+	men did in real life, the mating dance with all the civilized pretense 
+	stripped away.
+</blockquote>
+ 
+And near the end of the chapter reflects on how no one within these environments 
+is better than the other, that each individual within the clubs has a role to 
+play, and that no participant was more victimized than any other, the debasement 
+of the individuals was equal. Perhaps that was the saddest part about this chapter, 
+perhaps it was one of the more enlightening notes to take from it. Either way, 
+a chapter worth reading.
+
+<div id="chapter4"></div>
+#### Love and dating
 
 
 [recent events]:https://medium.com/@aquapendulum/my-letter-to-jason-schreier-about-gamergate-ethics-f890d357188
 [Christina Hoff Sommers]:https://twitter.com/CHSommers
 [my support of an ethical reform in gaming journalism]:https://gitgud.net/gamergate/gamergateop
 [videos]:https://www.youtube.com/playlist?list=PLytTJqkSQqtr7BqC1Jf4nv3g2yDfu7Xmd
+
