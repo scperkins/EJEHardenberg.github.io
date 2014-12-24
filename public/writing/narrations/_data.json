@@ -1,7 +1,12 @@
 {
+	"cooking" : {
+		"title" : "Cooking",
+		"date" : "2014-12-24",
+		"freq" : "monthly"
+	},
 	"ice-soccer" : {
 		"title" : "Ice Soccer",
-		"date" : " 2014-12-22",
+		"date" : "2014-12-22",
 		"freq" : "monthly" 
 	},
 	"tremble" : {
