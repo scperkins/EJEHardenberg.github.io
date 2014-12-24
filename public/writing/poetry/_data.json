@@ -1,4 +1,10 @@
 {
+	"talk-about" : {
+		"title" : "Talk",
+		"date" : "2014-12-24",
+		"freq" : "monthly",
+		"poemDescription" : "Thinking about how conversations between people get shut down sometimes when they don't want to listen"
+	},
 	"taken" : {
 		"title" : "Taken",
 		"date" : "2014-12-22",
