@@ -1,4 +1,10 @@
 {
+	"message" : {
+		"title" : "Message",
+		"date" : "2014-12-26",
+		"freq" : "monthly",
+		"poemDescription" : "New reply in the inbox is exciting"
+	},
 	"talk-about" : {
 		"title" : "Talk",
 		"date" : "2014-12-24",
