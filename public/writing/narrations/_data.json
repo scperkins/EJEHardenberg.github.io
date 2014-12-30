@@ -1,4 +1,9 @@
 {
+	"anew" : {
+		"title" : "A new",
+		"date" : "2014-12-30",
+		"freq" : "monthly"
+	},
 	"argue" : {
 		"title" : "Argue",
 		"date" : "2014-12-25",
