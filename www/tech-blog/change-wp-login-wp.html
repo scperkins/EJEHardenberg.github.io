@@ -2,11 +2,11 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Ethan's Tech Blog | Setting Chromium as the default browser for GotoDocumentation in Sublime Text 2</title>
+    <title>Ethan's Tech Blog | Change Wordpress login URL</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="GotoDocumentation is a pretty cool package for ST2 that opens documentation in a keystroke, but it doesn&#39;t support chromium or chrome on all platforms, this is how you hack it." />
+    <meta name="description" content="It&#39;s been blogged to death, but this is how you change the login URL for Wordpress 3.7" />
     <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="GotoDocumentation,chromium,chrome,webbrowser,sublime,sublime text,sublime text 2,change default browser"/>
+    <meta name="keywords" content="WordPress,login,url,change login url"/>
     <meta name="robots" content="index, follow"  />
       <meta name="revisit-after" content="1 month" />
       <meta name="viewport" content="width=1040">
@@ -17,19 +17,19 @@
 
         
     <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Setting Chromium as the default browser for GotoDocumentation in Sublime Text 2" />
+    <meta property="og:title" content="Ethan Eldridge | Change Wordpress login URL" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
     
-    <meta property="og:description" content="GotoDocumentation is a pretty cool package for ST2 that opens documentation in a keystroke, but it doesn&#39;t support chromium or chrome on all platforms, this is how you hack it." />
+    <meta property="og:description" content="It&#39;s been blogged to death, but this is how you change the login URL for Wordpress 3.7" />
     
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Setting Chromium as the default browser for GotoDocumentation in Sublime Text 2" />
+    <meta name="twitter:title" content="Ethan Eldridge | Change Wordpress login URL" />
     
-    <meta name="twitter:description" content="GotoDocumentation is a pretty cool package for ST2 that opens documentation in a keystroke, but it doesn&#39;t support chromium or chrome on all platforms, this is how you hack it." />
+    <meta name="twitter:description" content="It&#39;s been blogged to death, but this is how you change the login URL for Wordpress 3.7" />
     
     <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     	<!-- Core CSS Scripts -->
@@ -52,50 +52,55 @@
   </head>
   <body>
     <header>
-      <h1>Setting Chromium as the default browser for GotoDocumentation in Sublime Text 2</h1>
+      <h1>Change Wordpress login URL</h1>
     </header>
 
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>GoToDocumentation Sublime Text 2 and Chromium</h3>
-<p>Today I installed the <a href="https://github.com/kemayo/sublime-text-2-goto-documentation">Goto Documentation</a> package for <a href="http://www.sublimetext.com/2">Sublime Text 2</a>,
-I don&#39;t normally use a lot of packages, but I came across a blogpost about 
-some interesting ones, and this figured I&#39;d try one out.</p>
-<p>The package is simple, you press: <code>SUPER+CTRL+H</code> while your cursor is on 
-a native function, and you&#39;ll get the documentation for it opened in your 
-web browser. For PHP this opens <a href="http://php.net/manual/en/index.php">php.net</a>, for C++ it opens <a href="http://www.cplusplus.com/">cplusplus.com</a>, 
-and I haven&#39;t tested it with anything else yet. The issue I ran into, which 
-seems to be common on Linux Mint, is that the default web browser refuses 
-to change over to chromium.</p>
-<p>In fact, on inspection of the source code of the webbrowser python module,
-there&#39;s 0 mention of chrome at all. After some internet sleuthing I happened 
-on <a href="http://stackoverflow.com/questions/6042335/calling-chrome-web-browser-from-the-webbrowser-get-in-python">this stackoverflow post</a>, and after realizing that my system has Python 
-2.7 and not 2.6 (and no amount of tabbing with <code>/usr/lib/py</code> would change that)
-I opened up the <code>webbrowser.py</code> file and updated it to look like this:</p>
-<pre><code>58 def open(url, new=0, autoraise=True):
-59     for name in _tryorder:
-60         browser = get(&#39;/usr/bin/chromium %s&#39;)
-61         if browser.open(url, new, autoraise):
-62             return True
-63     return False
-64 
-65 def open_new(url):
-66     return open(url, 1)
-67 
-68 def open_new_tab(url):
-69     return open(url, 2)</code></pre>
-<p>A quick and dirty hack, and definitely not ideal (I should take out the <code>for</code> loop)
-but <em>after</em> restarting sublime, I was pleased to discover that the hotkey now 
-opened my documentation in my browser of choice. I then proceeded to close the 
-<a href="https://github.com/kemayo/sublime-text-2-goto-documentation/issues/43">issue</a> I had opened about it on the Goto Documention package&#39;s github.</p>
-<p>Isn&#39;t Linux grand? Hope this helps someone else hack their sublime installation.</p>
+      <h3>Changing wp-login to something else in WordPress 3.7</h3>
+<p>A lot of the time people dislike having wp-login as their url to sign in. Why, I 
+don&#39;t know, but they do. So if you&#39;re really dying to change the sign up url this 
+is one way to do it:</p>
+<h4>Step 1. Change .htacess</h4>
+<p>You&#39;ll want to add something like this into your htaccess file:</p>
+<pre><code>RewriteBase /
+RewriteRule ^sign-in$ wp-login.php</code></pre>
+<p>This will let your server know to respond to the url and send the information to 
+the wp-login page when a request for <em>sign-in</em> comes by.</p>
+<h4>Step 2. Change output of <em>wp_login_url</em></h4>
+<pre><code>add_filter(&#39;login_url&#39;, &#39;wp_login_filterlink&#39;, 10,100);
+function wp_login_filterlink($url, $redirect)
+{
+    $old  = array( &quot;/(wp-login\.php)/&quot;);
+     $new  = array( &quot;sign-in&quot;);
+     return preg_replace( $old, $new, $url, 1);    
+}</code></pre>
+<p>Adding the above code to your <strong>functions.php</strong> will cause the link used when calling 
+the wordpress function <code>wp_login_url</code> to use your new url instead of the old.</p>
+<h4>Step 3. Filter the output of <em>site_url</em></h4>
+<pre><code>add_filter(&#39;site_url&#39;,  &#39;wplogin_filter&#39;, 10, 3);
+function wplogin_filter( $url, $path, $orig_scheme )
+{
+     $old  = array( &quot;/(wp-login\.php)/&quot;);
+     $new  = array( &quot;sign-in&quot;);
+     return preg_replace( $old, $new, $url, 1);
+}</code></pre>
+<p>Once again, in <strong>functions.php</strong> add the code above. This will help you out whenever 
+the login url is generated by the <code>site_url</code> function. It&#39;s important to filter 
+both <code>site_url</code> and <code>wp_login_url</code> so that you don&#39;t accidently end up linking to 
+wp-login, while it won&#39;t hurt you to do so, if your goal is to change the URL 
+then you want to cover all your bases.</p>
+<h4>Some notes</h4>
+<p>Even though you&#39;re using a new URL, your old wp-login.php address will still work. 
+So if you&#39;re changing the URL for anything other than aesthetic reasons, you might 
+want to look into plugins for your security needs.</p>
 
       
       <h3>Other Posts</h3>
       <div id="other-posts">
         <ul>
-          <li><a href=rss-feed-with-harp>Create an RSS feed with Harp</a></li><li><a href=proxy-paranoia-and-resolve>Proxy Paranoia and DNS resolves</a></li><li><a href=change-wp-login-wp>Change Wordpress login URL</a></li><li><a href=mailing-list>Make your own Mailing List</a></li><li><a href=subtracting-dates-java>Adding days with Java</a></li><li><a href=php-hours>Displaying Business hours with PHP</a></li>
+          <li><a href=rss-feed-with-harp>Create an RSS feed with Harp</a></li><li><a href=gotodocumentation-sublime-chromium-default>Setting Chromium as the default browser for GotoDocumentation in Sublime Text 2</a></li><li><a href=proxy-paranoia-and-resolve>Proxy Paranoia and DNS resolves</a></li><li><a href=mailing-list>Make your own Mailing List</a></li><li><a href=subtracting-dates-java>Adding days with Java</a></li><li><a href=php-hours>Displaying Business hours with PHP</a></li>
         </ul>
       </div>
       <div id="disqus_thread"></div>

@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Fri, 19 Dec 2014 00:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Wed, 31 Dec 2014 00:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Change Wordpress login URL</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/change-wp-login-wp</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/change-wp-login-wp</guid>
+			<pubDate>Wed, 31 Dec 2014 00:00:00 GMT</pubDate>
+			<description>
+				![CDATA[It's been blogged to death, but this is how you change the login URL for Wordpress 3.7]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Create an RSS feed with Harp</title>
