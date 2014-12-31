@@ -372,5 +372,11 @@
     "description" : "If you want to add an RSS feed to your website and you're using Harp, this is the post for you",
     "date" : "2014-12-19",
     "keywords" : "RSS,feed,Harp,HarpJS,xml"
+  },
+  "change-wp-login-wp" : {
+    "title" : "Change Wordpress login URL",
+    "description" : "It's been blogged to death, but this is how you change the login URL for Wordpress 3.7",
+    "date" : "2014-12-31",
+    "keywords" : "WordPress,login,url,change login url"
   }
 }
