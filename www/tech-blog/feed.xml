@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Wed, 31 Dec 2014 00:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Thu, 01 Jan 2015 05:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Context Menu Button to remove Exif Metadata</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/exifstrip-context-nautilus</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/exifstrip-context-nautilus</guid>
+			<pubDate>Thu, 01 Jan 2015 05:00:00 GMT</pubDate>
+			<description>
+				![CDATA[Make removing metadata from images easier by creating a context menu command to do it for you]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Change Wordpress login URL</title>
