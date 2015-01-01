@@ -378,5 +378,11 @@
     "description" : "It's been blogged to death, but this is how you change the login URL for Wordpress 3.7",
     "date" : "2014-12-31",
     "keywords" : "WordPress,login,url,change login url"
+  },
+  "exifstrip-context-nautilus" : {
+    "title" : "Context Menu Button to remove Exif Metadata",
+    "description" : "Make removing metadata from images easier by creating a context menu command to do it for you",
+    "date" : "2015-1-1",
+    "keywords" : "exif,exiftool,remove,metadata,nautilus,privacy,security,context,right click,strip"
   }
 }
