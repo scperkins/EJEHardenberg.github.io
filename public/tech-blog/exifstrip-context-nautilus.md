@@ -15,7 +15,7 @@ running: `exiftool -all= <filename>`
 
 This is fine, but what if you want to be able to right click an image and quickly 
 strip the data? Well, here's how you do that if you're using the [Nautilus] file 
-browser. 
+browser (Assuming you've already installed exiftools).
 
 #### First install nautilus actions
 
