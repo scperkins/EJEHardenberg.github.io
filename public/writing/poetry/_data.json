@@ -1,4 +1,16 @@
 {
+	"shackle" : {
+		"title" : "Shackle",
+		"date" : "2015-1-2",
+		"freq" : "monthly",
+		"poemDescription" : "Thinking about activists and how far they go or risk, also thinking about how people decide what to support"
+	},
+	"emoquisition" : {
+		"title" : "Emoquisition",
+		"date" : "2015-1-2",
+		"freq" : "monthly",
+		"poemDescription" : "emotions before logic does not help in activism"
+	},
 	"walk" : {
 		"title" : "Walk",
 		"date" : "2014-12-29",
