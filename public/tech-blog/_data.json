@@ -384,5 +384,11 @@
     "description" : "Make removing metadata from images easier by creating a context menu command to do it for you",
     "date" : "2015-1-1",
     "keywords" : "exif,exiftool,remove,metadata,nautilus,privacy,security,context,right click,strip"
+  },
+  "registration-denial-wordpress" : {
+    "title" : "Deny spam emails from registering in WordPress",
+    "description" : "It only takes a single function to mitigate spam accounts clogging your database with spam users.",
+    "date" : "2015-1-3",
+    "keywords" : "spam,mitigation,wordpress.register,domainnames,email,my_simple_domain_check"
   }
 }
