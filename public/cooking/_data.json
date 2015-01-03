@@ -4,6 +4,14 @@
 		"description" : "A small bundle of recipes of things I eat for dinner that are easy to make.",
 		"freq" : "daily"
 	},
+	"pulled-pork" : {
+		"title" : "Pulled Pork",
+		"image" : "pulled-pork-2.jpg",
+		"description" : "tender, delicious, slow cooked pulled pork",
+		"date" : "2015-1-3",
+		"freq" : "monthly",
+		"author" : "ethan"
+	},
 	"green-pepper-breakfast" : {
 		"title" : "Green Pepper & Chicken Breakfast Roll",
 		"image" : "green-pepper-breakfast.jpg",
