@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Sat, 03 Jan 2015 05:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Mon, 05 Jan 2015 05:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Plugin to Ban users and deny registration in WordPress</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/registration-denial-plugin</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/registration-denial-plugin</guid>
+			<pubDate>Mon, 05 Jan 2015 05:00:00 GMT</pubDate>
+			<description>
+				![CDATA[An expansion on the last blog post, a simple plugin to help moderate your site]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Deny spam emails from registering in WordPress</title>
