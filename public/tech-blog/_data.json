@@ -390,5 +390,11 @@
     "description" : "It only takes a single function to mitigate spam accounts clogging your database with spam users.",
     "date" : "2015-1-3",
     "keywords" : "spam,mitigation,wordpress.register,domainnames,email,my_simple_domain_check"
+  },
+  "registration-denial-plugin" : {
+    "title" : "Plugin to Ban users and deny registration in WordPress",
+    "description" : "An expansion on the last blog post, a simple plugin to help moderate your site",
+    "date" : "2015-1-5",
+    "keywords" : "moderation,wordpress,ban,deny,track,spam,mitigation"
   }
 }
