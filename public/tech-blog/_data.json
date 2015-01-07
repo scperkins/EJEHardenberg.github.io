@@ -396,5 +396,11 @@
     "description" : "An expansion on the last blog post, a simple plugin to help moderate your site",
     "date" : "2015-1-5",
     "keywords" : "moderation,wordpress,ban,deny,track,spam,mitigation"
+  },
+  "mysql-upstart-without-purge" : {
+    "title" : "Stopping mysql Upstart issues without reinstalling",
+    "description" : "Troubleshooting a broken mysql installation without apt-purging",
+    "date" : "2015-1-6",
+    "keywords" : "mysql,upstart,purge,troubleshooting,etc,init.d,rc.d,apt-purge,fixes,ubuntu"
   }
 }
