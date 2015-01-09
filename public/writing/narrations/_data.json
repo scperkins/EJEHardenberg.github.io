@@ -1,4 +1,9 @@
 {
+	"dream" : {
+		"title" : "Dream",
+		"date" : "2015-1-9",
+		"freq" : "monthly"
+	},
 	"anew" : {
 		"title" : "A new",
 		"date" : "2014-12-30",
