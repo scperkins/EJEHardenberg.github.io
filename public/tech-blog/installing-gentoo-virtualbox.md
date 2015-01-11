@@ -112,7 +112,51 @@ was that my prompt complained as it dropped me on my head:
 At this point I had to wonder what was going on, and so I checked the internet 
 for [people having the same problem], checking `/dev/tty` got me a permission 
 denied message, it didn't seem like a size problem like [some users experienced],
-but a permissions one.
+but a permissions one. Running the same command without the debug option gave me
+the error: "making tmpfs for /newroot" and "segmentation fault" right underneath.
+
+So something was clearly up. Looking at the Virtualbox settings, I realized the 
+IDE controller setting was set to **ahci**, but wait didn't I have to say `noload=ahci`
+to get to the shell in the first place? Looking in my host system, I wondered if
+maybe I didn't have the drivers there, so it was having trouble with that? So 
+I looked for clues:
+
+	$locate ahci
+	/lib/modules/3.2.0-23-generic/kernel/drivers/ata/acard-ahci.ko
+	/lib/modules/3.2.0-23-generic/kernel/drivers/ata/ahci_platform.ko
+	/usr/src/linux-headers-3.2.0-23/include/linux/ahci_platform.h
+	/usr/src/linux-headers-3.2.0-23-generic/include/config/sata/ahci
+	/usr/src/linux-headers-3.2.0-23-generic/include/config/sata/ahci.h
+	/usr/src/linux-headers-3.2.0-23-generic/include/config/sata/acard/ahci.h
+	/usr/src/linux-headers-3.2.0-23-generic/include/config/sata/ahci/platform.h
+	/usr/src/linux-headers-3.2.0-23-generic/include/linux/ahci_platform.h
+
+Looking at the `include/config` directories, I noticed something important about
+the ahci files. Namely that they were all emtpy. Returning to the handbook, I 
+read over the boot parameters again, trying out `ide=nodma` since the handbook
+statues:
+
+<blockquote>
+	If the system is having trouble reading from the IDE CDROM, try this option.
+</blockquote>
+
+I also tried any options (such as `nodetect`) that hinted at being able to trouble
+shoot issues with the CDROM. Staring at the screen, I began to wonder if it wasn't
+the cd rom that was the problem, but the space to mount it. There was a line 
+stating that there was a segmentation fault creating `tmpfs for /newroot` after 
+all.
+
+But all in all, no matter what settings I tried, changing the IDE to primary, to 
+slave, to reading the init script and trying to run the mounting of the cd myself,
+it just didn't work. 
+
+You've beaten me for now virtualbox!
+
+<img src="/images/tech-blog/gentoo-beaten.png" />
+
+
+
+
 
 
 
@@ -126,3 +170,4 @@ but a permissions one.
 [Gentoo Website]:https://www.gentoo.org/proj/en/releng/
 [people having the same problem]:http://www.linuxquestions.org/questions/ubuntu-63/bin-sh-can%27t-access-tty%3B-job-control-turned-off-474493/
 [some users experienced]:http://forums.gentoo.org/viewtopic.php?t=152855
+[the right architecture for my system]:http://distfiles.gentoo.org/releases/amd64/current-iso/

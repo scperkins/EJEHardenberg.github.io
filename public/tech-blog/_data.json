@@ -402,5 +402,11 @@
     "description" : "Troubleshooting a broken mysql installation without apt-purging",
     "date" : "2015-1-6",
     "keywords" : "mysql,upstart,purge,troubleshooting,etc,init.d,rc.d,apt-purge,fixes,ubuntu"
+  },
+  "installing-gentoo-virtualbox" : {
+    "title" : "Attempting to install Gentoo into VirtualBox",
+    "description" : "This fails, but hopefully if someone knows how to fix it they'll let me know.",
+    "date" : "2015-1-11",
+    "keywords" : "gentoo,VirtualBox,installation,segmentation fault,no bootable medium"
   }
 }
