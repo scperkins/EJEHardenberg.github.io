@@ -408,5 +408,11 @@
     "description" : "This fails, but hopefully if someone knows how to fix it they'll let me know.",
     "date" : "2015-1-11",
     "keywords" : "gentoo,VirtualBox,installation,segmentation fault,no bootable medium"
+  },
+  "chromium-seccomp-dmesg-errors" : {
+    "title" : "Fixing Chromium's seccomp logging to dmesg",
+    "description" : "If chromium is spamming seccomp error messages to your kernel log, here's how to stop and fix it",
+    "date" : "2015-1-12",
+    "keywords" : "chromium,seccomp,dmesg,chromium-browse,reason=\"seccomp\""
   }
 }
