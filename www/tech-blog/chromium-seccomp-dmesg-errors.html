@@ -2,11 +2,11 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Ethan's Tech Blog | Plugin to Ban users and deny registration in WordPress</title>
+    <title>Ethan's Tech Blog | Fixing Chromium&#39;s seccomp logging to dmesg</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="An expansion on the last blog post, a simple plugin to help moderate your site" />
+    <meta name="description" content="If chromium is spamming seccomp error messages to your kernel log, here&#39;s how to stop and fix it" />
     <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="moderation,wordpress,ban,deny,track,spam,mitigation"/>
+    <meta name="keywords" content="chromium,seccomp,dmesg,chromium-browse,reason=&quot;seccomp&quot;"/>
     <meta name="robots" content="index, follow"  />
       <meta name="revisit-after" content="1 month" />
       <meta name="viewport" content="width=1040">
@@ -17,19 +17,19 @@
 
         
     <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Plugin to Ban users and deny registration in WordPress" />
+    <meta property="og:title" content="Ethan Eldridge | Fixing Chromium&#39;s seccomp logging to dmesg" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
     
-    <meta property="og:description" content="An expansion on the last blog post, a simple plugin to help moderate your site" />
+    <meta property="og:description" content="If chromium is spamming seccomp error messages to your kernel log, here&#39;s how to stop and fix it" />
     
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Plugin to Ban users and deny registration in WordPress" />
+    <meta name="twitter:title" content="Ethan Eldridge | Fixing Chromium&#39;s seccomp logging to dmesg" />
     
-    <meta name="twitter:description" content="An expansion on the last blog post, a simple plugin to help moderate your site" />
+    <meta name="twitter:description" content="If chromium is spamming seccomp error messages to your kernel log, here&#39;s how to stop and fix it" />
     
     <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     	<!-- Core CSS Scripts -->
@@ -52,57 +52,50 @@
   </head>
   <body>
     <header>
-      <h1>Plugin to Ban users and deny registration in WordPress</h1>
+      <h1>Fixing Chromium&#39;s seccomp logging to dmesg</h1>
     </header>
 
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Simple Email Filter and Banning Plugin for WordPress</h3>
-<p>In my <a href="registration-denial-wordpress">last post</a> I showed you how to make a really simple, programmatically 
-maintained filter to deny registration on your WordPress sites. But, if you&#39;re 
-the average user, you probably don&#39;t want to dive into source code when you&#39;re 
-updating a list of spam mails, especially since they might change often or you
-just like a graphical interface for your administrative work. </p>
-<p>Either way, <a href="https://github.com/EdgeCaseBerg/simple-email-filter">I&#39;ve got you covered</a> with my new plugin. I&#39;m calling it <strong> Simple 
-Email Filter &amp; User Ban </strong>, a lengthy, but correct name.</p>
-<p>Here&#39;s how it works, first up you install and activate the plugin like you do 
-any other WordPress plugin. Then you&#39;ll notice a couple of new things.</p>
-<h4>In the <strong>Users</strong> listing you&#39;ll have a new column and new actions</h4>
-<p>You&#39;ll be able to see the last known IP Address of a user who has logged into 
-your site. This is useful for using <a href="http://www.cyberciti.biz/faq/linux-howto-check-ip-blocked-against-iptables/">iptables</a> to drop packets from malicious 
-users who don&#39;t know how to evade those types of things.</p>
-<p><img src="/images/tech-blog/sef/ipaddr.png" width="700px"/></p>
-<p>You&#39;ll also notice that when you hover over a user you&#39;ll be able to click an 
-action button to ban or unban that user.</p>
-<p><img src="/images/tech-blog/sef/unban.png" />
-<img src="/images/tech-blog/sef/ban.png" /></p>
-<p>Once banned, whenever they try to log in they&#39;ll get a nice message that you can 
-set in your <strong>wp-config</strong> file like this:</p>
-<pre><code>define(&#39;SEF_BAN_MESSAGE&#39;, &#39;It seem\&#39;s you\&#39;ve messed up and are banned, contact the site owner&#39;);</code></pre>
-<p>And it will look something like this on their site:</p>
-<p><img src="/images/tech-blog/sef/banned.jpg" /></p>
-<h4>A new options page is available for you!</h4>
-<p>In the Registration Denial&#39;s setting page, you&#39;ll be able to manage the list of 
-domain and strings that you won&#39;t accept registrations from. This means no more 
-managing the programmatic list and using a simple list interface instead</p>
-<p><img src="/images/tech-blog/sef/settings.png" /></p>
-<p>Once you&#39;ve listed the domains you count as spam, you&#39;ll be able to live in 
-moderate peace while the spam users will only see messages like this:</p>
-<p><img src="/images/tech-blog/sef/denied.png" /></p>
-<p>As with the ban message, you can set the denial message from <strong>wp-config</strong> as well:</p>
-<pre><code>define(&#39;SEF_DENY_MESSAGE&#39;, &#39;Registration halted, please contact support.&#39;);</code></pre>
-<h4>And that&#39;s it!</h4>
-<p>Enjoy! If you have ideas or enhancements feel free to send me a pull request on 
-<a href="https://github.com/EdgeCaseBerg/simple-email-filter">github</a>, and if you have any problems you can open an issue there. The source 
-code is Open and freely available for modification, though I of course appreciate 
-a backlink and a mention if you use my code.</p>
+      <h3>Chromium dmesg full of seccomp bugs fix</h3>
+<p>I&#39;ve been getting into the habit of checking my <code>dmesg</code> log more often.
+While <a href="/tech/blog/mysql-upstart-without-purge">troubleshooting my mysql</a> errors the other week I noticed a lot 
+of IO errors from my chromium installation (Chromium 37.0.2062.120) and
+decided to look into it today.</p>
+<p>I was getting similar <a href="https://productforums.google.com/forum/#!topic/chrome/vVZYVdKgGh0">issues</a> to many others and had a log full of things
+like this:</p>
+<pre><code>[13225.732272] type=1701 audit(1421087245.965:678): auid=4294967295 uid=1000 gid=1000 ses=4294967295 pid=4664 comm=&quot;chromium-browse&quot; reason=&quot;seccomp&quot; sig=0 syscall=257 compat=0 ip=0x7f09c46f0720 code=0x50001
+[13225.732375] type=1701 audit(1421087245.965:679): auid=4294967295 uid=1000 gid=1000 ses=4294967295 pid=4664 comm=&quot;chromium-browse&quot; reason=&quot;seccomp&quot; sig=0 syscall=2 compat=0 ip=0x7f09c46f06c0 code=0x50001
+[13225.732383] type=1701 audit(1421087245.965:680): auid=4294967295 uid=1000 gid=1000 ses=4294967295 pid=4664 comm=&quot;chromium-browse&quot; reason=&quot;seccomp&quot; sig=0 syscall=2 compat=0 ip=0x7f09c46f06c0 code=0x50001
+[13225.732391] type=1701 audit(1421087245.965:681): auid=4294967295 uid=1000 gid=1000 ses=4294967295 pid=4664 comm=&quot;chromium-browse&quot; reason=&quot;seccomp&quot; sig=0 syscall=2 compat=0 ip=0x7f09c46f06c0 code=0x50001</code></pre>
+<p>After looking into it, the messages have something to do with the sandbox
+environment in chrome. If you add the flag <code>--disable-seccomp-filter-sandbox</code> 
+to the startup of chromium you&#39;ll not see the messages anymore, but you&#39;ll
+also not be running a sandbox anymore. This is a bit of security issue, 
+so you likely won&#39;t want to run without that flag. </p>
+<p>The easiest way to clean up the dmesg log is to tell the system logger to
+send the chromium messages to their own log and not into the kernels. You 
+can do this <a href="http://askubuntu.com/a/425302/254629">pretty easily</a> on systems that use the syslog service 
+accessible from <code>initctl</code>. On my system I had to restart the <code>rsyslog</code> but
+besides that the setup was the same to fix the logging issue:</p>
+<ol>
+<li>Create the file <strong>/etc/rsyslog.d/30-seccomp.conf</strong></li>
+<li>Add the code below this list to that file:</li>
+<li>Restart the syslog via <code>initctl restart rsyslog</code> or <code>initctl restart syslog</code> 
+(depending on your system)</li>
+</ol>
+<pre><code>if $msg contains &#39; reason=&quot;seccomp&quot;&#39; and $msg contains &#39; comm=&quot;chrom&#39; \
+      then -/var/log/chromium-seccomp.log
+&amp; ~</code></pre>
+<p>Then you&#39;ll have those messages being logged to another area other than 
+cluttering up your syslog!</p>
 
       
       <h3>Other Posts</h3>
       <div id="other-posts">
         <ul>
-          <li><a href=mysql-upstart-without-purge>Stopping mysql Upstart issues without reinstalling</a></li><li><a href=registration-denial-wordpress>Deny spam emails from registering in WordPress</a></li><li><a href=installing-gentoo-virtualbox>Attempting to install Gentoo into VirtualBox</a></li><li><a href=exifstrip-context-nautilus>Context Menu Button to remove Exif Metadata</a></li><li><a href=chromium-seccomp-dmesg-errors>Fixing Chromium&#39;s seccomp logging to dmesg</a></li><li><a href=change-wp-login-wp>Change Wordpress login URL</a></li>
+          <li><a href=installing-gentoo-virtualbox>Attempting to install Gentoo into VirtualBox</a></li><li><a href=mysql-upstart-without-purge>Stopping mysql Upstart issues without reinstalling</a></li><li><a href=registration-denial-plugin>Plugin to Ban users and deny registration in WordPress</a></li><li><a href=registration-denial-wordpress>Deny spam emails from registering in WordPress</a></li><li><a href=exifstrip-context-nautilus>Context Menu Button to remove Exif Metadata</a></li><li><a href=change-wp-login-wp>Change Wordpress login URL</a></li>
         </ul>
       </div>
       <div id="disqus_thread"></div>
