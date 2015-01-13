@@ -1,4 +1,10 @@
 {
+	"ace" : {
+		"title" : "ace",
+		"date" : "2015-1-13",
+		"freq" : "monthly",
+		"poemDescription" : "A new start, enough to kick back in gear, but not sure where to go"
+	},
 	"unsure" : {
 		"title" : "Unsure",
 		"date" : "2015-1-5",
