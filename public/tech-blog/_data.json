@@ -414,5 +414,11 @@
     "description" : "If chromium is spamming seccomp error messages to your kernel log, here's how to stop and fix it",
     "date" : "2015-1-12",
     "keywords" : "chromium,seccomp,dmesg,chromium-browse,reason=\"seccomp\""
+  },
+  "caja-exifstrip-context-action" : {
+    "title" : "Adding Right Click context actions to Caja",
+    "description" : "A simple script to enable stripping of exifdata from the caja file manager",
+    "date" : "2015-1-14",
+    "keywords" : "caja,exiftool,strip,privacy,caja-actions,context menu,right click,menu"
   }
 }
