@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Mon, 12 Jan 2015 05:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Wed, 14 Jan 2015 05:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Adding Right Click context actions to Caja</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/caja-exifstrip-context-action</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/caja-exifstrip-context-action</guid>
+			<pubDate>Wed, 14 Jan 2015 05:00:00 GMT</pubDate>
+			<description>
+				![CDATA[A simple script to enable stripping of exifdata from the caja file manager]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Fixing Chromium's seccomp logging to dmesg</title>
