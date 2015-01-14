@@ -65,8 +65,8 @@ to perform even better next year.
 
 
 [Green Up App]:https://itunes.apple.com/us/app/green-up-vt/id860271437?ls=1&mt=8
-[couple]:http://ethanjoachimeldridge.info/tech-blog/varnish
-[before]:http://ethanjoachimeldridge.info/tech-blog/varnish-directors
+[couple]:/tech-blog/varnish
+[before]:/tech-blog/varnish-directors
 [XenonApps]:http://www.xenonapps.com
 [Green Up Organization]:http://www.greenupvermont.org
 [press]:http://digital.vpr.net/post/green-day-theres-app

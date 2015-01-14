@@ -130,7 +130,7 @@ your shiny valid RSS feed image in no time!
 [standard]:http://cyber.law.harvard.edu/rss/rss.html
 [previous posts]:harp-and-smut.html
 [HarpJS]:http://harpjs.com
-[markdown]:daringfireball.net/projects/markdown/syntax
+[markdown]:http://daringfireball.net/projects/markdown/syntax
 [my RSS feed]:feed.xml
 [FeedValidator]:http://feedvalidator.org/
 [valid]:http://feedvalidator.org/check.cgi?url=http%3A//ethanjoachimeldridge.info/tech-blog/feed.xml

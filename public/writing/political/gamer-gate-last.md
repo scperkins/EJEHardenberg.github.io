@@ -166,7 +166,7 @@ love animals, or have been victims of bullying or abuse.
 
 And finally, if you really want to dive into #GamerGate after seeing the
 facts listed above, I'd say a good starting place is the [Dossier] on
-gamergate.me, or maybe on the [wiki](wiki.gamergate.me).
+gamergate.me, or maybe on the [wiki](http://wiki.gamergate.me).
 
 #### In conclusion
 

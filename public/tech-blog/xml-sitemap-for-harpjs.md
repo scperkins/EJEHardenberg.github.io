@@ -92,7 +92,7 @@ We can set the `freq` tag for the XML to whatever we want from the metadata for
 any page by specifying: `"freq" : "<freq>"`, simply replace `<freq>` with [daily, monthly...]
 
 [Harp]:http://harpjs.com
-[has a recipe for a Sitemap]:/http://harpjs.com/recipes/blog-sitemap
+[has a recipe for a Sitemap]:http://harpjs.com/recipes/blog-sitemap
 [Sitemap Protocol]:http://www.sitemaps.org/protocol.html
 [daily, monthly...]:http://www.sitemaps.org/protocol.html#changefreqdef
 [stat]:http://linux.die.net/man/1/stat
