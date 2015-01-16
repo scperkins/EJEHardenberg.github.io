@@ -1,4 +1,10 @@
 {
+	"selma-bridge" : {
+		"title" : "Selma Bridge",
+		"date" : "2015-1-16",
+		"freq" : "monthly",
+		"poemDescription" : "Thoughts after watching the movie 'Selma' about MLK"
+	},
 	"ace" : {
 		"title" : "ace",
 		"date" : "2015-1-13",
