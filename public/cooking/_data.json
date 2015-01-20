@@ -4,13 +4,21 @@
 		"description" : "A small bundle of recipes of things I eat for dinner that are easy to make.",
 		"freq" : "daily"
 	},
+	"reduced-tomato-chicken" : {
+		"title" : "Reduced Tomato Chicken",
+		"image" : "reduced-chicken-2.jpg",
+		"description" : "Simple and tasty tomato-y chicken",
+		"freq" : "monthly",
+		"author" : "ethan",
+		"date" : "2015-1-19"
+	},
 	"panini-parm" : {
 		"title" : "Chicken Parm Panini",
 		"image" : "paniniparm.jpg",
 		"description" : "Tasty sammich without much effort!",
 		"freq" : "monthly",
 		"author" : "mike",
-		"date" : "2014-1-12"
+		"date" : "2019-1-12"
 	},
 	"pulled-pork" : {
 		"title" : "Pulled Pork",
