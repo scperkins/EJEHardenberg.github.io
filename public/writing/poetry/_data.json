@@ -1,4 +1,10 @@
 {
+	"alone" : { 	
+		"title" : "alone",
+		"date" : "2015-1-20",
+		"freq" : "monthly",
+		"poemDescription" : "Hopelessness when you realize no one can help you when you need it"
+	},
 	"selma-bridge" : {
 		"title" : "Selma Bridge",
 		"date" : "2015-1-16",
