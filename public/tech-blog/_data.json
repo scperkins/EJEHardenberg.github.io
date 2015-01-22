@@ -420,5 +420,11 @@
     "description" : "A simple script to enable stripping of exifdata from the caja file manager",
     "date" : "2015-1-14",
     "keywords" : "caja,exiftool,strip,privacy,caja-actions,context menu,right click,menu"
+  },
+  "github-awesome-autocomplete-review" : {
+    "title" : "Github Awesome Autocomplete Review",
+    "description" : "A look into how awesome the GitHub Awesome Autocomplete really is, turns out, it's pretty wizard.",
+    "date" : "2015-1-21",
+    "keywords" : "github,algolia,review,github awesome autocomplete,git,search"
   }
 }
