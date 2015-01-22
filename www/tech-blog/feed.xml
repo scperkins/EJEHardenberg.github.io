@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Wed, 14 Jan 2015 05:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Wed, 21 Jan 2015 05:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Github Awesome Autocomplete Review</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/github-awesome-autocomplete-review</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/github-awesome-autocomplete-review</guid>
+			<pubDate>Wed, 21 Jan 2015 05:00:00 GMT</pubDate>
+			<description>
+				![CDATA[A look into how awesome the GitHub Awesome Autocomplete really is, turns out, it's pretty wizard.]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Adding Right Click context actions to Caja</title>
