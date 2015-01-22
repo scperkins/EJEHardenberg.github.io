@@ -63,7 +63,7 @@ but the [FAQ] hits on any major concerns I can think of from someone using it,
 anything about public users or repo's not being found to where your private
 repository information is sent to. Thinking about privacy brings me to 
 thinking about the "right to be forgot", in which perhaps one should be 
-able to request their repositories (even their public ones) be searchable. 
+able to request their repositories (even their public ones) not be searchable. 
 Though since Algolia pulls the information from the [github archives] that
 burden falls more on github than Algolia.
 
