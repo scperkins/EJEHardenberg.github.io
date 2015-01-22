@@ -56,6 +56,31 @@ productivity.
 I'd recommend you check it out and see if you can find any interesting 
 projects on github to contribute to or use in your next project!
 
+#### Trying to nitpick
+
+I felt that I needed to come up with something bad to say about the extension,
+but the [FAQ] hits on any major concerns I can think of from someone using it,
+anything about public users or repo's not being found to where your private
+repository information is sent to. Thinking about privacy brings me to 
+thinking about the "right to be forgot", in which perhaps one should be 
+able to request their repositories (even their public ones) be searchable. 
+Though since Algolia pulls the information from the [github archives] that
+burden falls more on github than Algolia.
+
+Looking through the issue's page on the github, I can see one [enhancement]
+that I think would be helpful as it'd make it really easy to quickly find 
+a file within the repository and check it out (such as when browsing source
+code that you haven't downloaded to grep). Speaking of issues, according 
+to the current documentation in the README, after connecting with oauth, 
+the extension is supposed to add instant search and suggestion to the 
+issues page as well. I didn't see this happen, but there's also no 
+documentation on what I was supposed to see either. So this area could be 
+improved by Algolia (at least with documentation) to make their extension 
+even better. 
+
+Even with that one caveat, this is still a great extension as I've mentioned 
+and I look forward to seeing what new versions bring!
+
 
 [Source]:https://github.com/algolia/github-awesome-autocomplete
 [github]:https://github.com
@@ -64,3 +89,6 @@ projects on github to contribute to or use in your next project!
 [Github Awesome Autocomplete]:https://github.com/algolia/github-awesome-autocomplete
 [green up]:http://www.ethanjoachimeldridge.info/tech-blog/green-up-vt-app
 [api documentation]:https://github.com/EdgeCaseBerg/GreenUp/tree/master/api
+[FAQ]:https://github.com/algolia/github-awesome-autocomplete#faq
+[github archives]:http://www.githubarchive.org/
+[enhancement]:https://github.com/algolia/github-awesome-autocomplete/issues/8
