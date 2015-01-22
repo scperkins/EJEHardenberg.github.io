@@ -75,7 +75,7 @@ to the current documentation in the README, after connecting with oauth,
 the extension is supposed to add instant search and suggestion to the 
 issues page as well. I didn't see this happen, but there's also no 
 documentation on what I was supposed to see either. So this area could be 
-improved by Algolia (at least with documentation) to make their extension 
+[improved by Algolia]  (at least with documentation) to make their extension 
 even better. 
 
 Even with that one caveat, this is still a great extension as I've mentioned 
@@ -92,3 +92,4 @@ and I look forward to seeing what new versions bring!
 [FAQ]:https://github.com/algolia/github-awesome-autocomplete#faq
 [github archives]:http://www.githubarchive.org/
 [enhancement]:https://github.com/algolia/github-awesome-autocomplete/issues/8
+[improved by Algolia]:https://github.com/algolia/github-awesome-autocomplete/issues/16
