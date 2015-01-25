@@ -46,7 +46,7 @@ The music influencing and dragging his mind along between memories.
 
 Caught in the stream of consciousness, he drifts along, keeping his head
 afloat only by accepting and acknowledging each muse. Former lovers
-flicker through his mind, some staying longer than others, he dweels on
+flicker through his mind, some staying longer than others, he dwells on
 one yet the music changes pace and she is gone. Replaced now with an
 echo, the soloist's part fading away as the entire orchestra carries on.
 Their rythm never ceasing and marching on as time. A fragmented counter
