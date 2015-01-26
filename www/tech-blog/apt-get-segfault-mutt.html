@@ -2,11 +2,11 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Ethan's Tech Blog | Fixing Chromium&#39;s seccomp logging to dmesg</title>
+    <title>Ethan's Tech Blog | Segfault in apt-get while trying to install</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="If chromium is spamming seccomp error messages to your kernel log, here&#39;s how to stop and fix it" />
+    <meta name="description" content="While trying to install mutt, I ran into a segfault in apt-get, here&#39;s how I fixed it" />
     <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="chromium,seccomp,dmesg,chromium-browse,reason=&quot;seccomp&quot;"/>
+    <meta name="keywords" content="segfault,apt-get,segmentation,fault,install,clean,mutt,fix"/>
     <meta name="robots" content="index, follow"  />
       <meta name="revisit-after" content="1 month" />
       <meta name="viewport" content="width=1040">
@@ -17,19 +17,19 @@
 
         
     <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Fixing Chromium&#39;s seccomp logging to dmesg" />
+    <meta property="og:title" content="Ethan Eldridge | Segfault in apt-get while trying to install" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
     
-    <meta property="og:description" content="If chromium is spamming seccomp error messages to your kernel log, here&#39;s how to stop and fix it" />
+    <meta property="og:description" content="While trying to install mutt, I ran into a segfault in apt-get, here&#39;s how I fixed it" />
     
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Fixing Chromium&#39;s seccomp logging to dmesg" />
+    <meta name="twitter:title" content="Ethan Eldridge | Segfault in apt-get while trying to install" />
     
-    <meta name="twitter:description" content="If chromium is spamming seccomp error messages to your kernel log, here&#39;s how to stop and fix it" />
+    <meta name="twitter:description" content="While trying to install mutt, I ran into a segfault in apt-get, here&#39;s how I fixed it" />
     
     <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     	<!-- Core CSS Scripts -->
@@ -52,50 +52,37 @@
   </head>
   <body>
     <header>
-      <h1>Fixing Chromium&#39;s seccomp logging to dmesg</h1>
+      <h1>Segfault in apt-get while trying to install</h1>
     </header>
 
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Chromium dmesg full of seccomp bugs fix</h3>
-<p>I&#39;ve been getting into the habit of checking my <code>dmesg</code> log more often.
-While <a href="/tech/blog/mysql-upstart-without-purge">troubleshooting my mysql</a> errors the other week I noticed a lot 
-of IO errors from my chromium installation (Chromium 37.0.2062.120) and
-decided to look into it today.</p>
-<p>I was getting similar <a href="https://productforums.google.com/forum/#!topic/chrome/vVZYVdKgGh0">issues</a> to many others and had a log full of things
-like this:</p>
-<pre><code>[13225.732272] type=1701 audit(1421087245.965:678): auid=4294967295 uid=1000 gid=1000 ses=4294967295 pid=4664 comm=&quot;chromium-browse&quot; reason=&quot;seccomp&quot; sig=0 syscall=257 compat=0 ip=0x7f09c46f0720 code=0x50001
-[13225.732375] type=1701 audit(1421087245.965:679): auid=4294967295 uid=1000 gid=1000 ses=4294967295 pid=4664 comm=&quot;chromium-browse&quot; reason=&quot;seccomp&quot; sig=0 syscall=2 compat=0 ip=0x7f09c46f06c0 code=0x50001
-[13225.732383] type=1701 audit(1421087245.965:680): auid=4294967295 uid=1000 gid=1000 ses=4294967295 pid=4664 comm=&quot;chromium-browse&quot; reason=&quot;seccomp&quot; sig=0 syscall=2 compat=0 ip=0x7f09c46f06c0 code=0x50001
-[13225.732391] type=1701 audit(1421087245.965:681): auid=4294967295 uid=1000 gid=1000 ses=4294967295 pid=4664 comm=&quot;chromium-browse&quot; reason=&quot;seccomp&quot; sig=0 syscall=2 compat=0 ip=0x7f09c46f06c0 code=0x50001</code></pre>
-<p>After looking into it, the messages have something to do with the sandbox
-environment in chrome. If you add the flag <code>--disable-seccomp-filter-sandbox</code> 
-to the startup of chromium you&#39;ll not see the messages anymore, but you&#39;ll
-also not be running a sandbox anymore. This is a bit of security issue, 
-so you likely won&#39;t want to run without that flag. </p>
-<p>The easiest way to clean up the dmesg log is to tell the system logger to
-send the chromium messages to their own log and not into the kernels. You 
-can do this <a href="http://askubuntu.com/a/425302/254629">pretty easily</a> on systems that use the syslog service 
-accessible from <code>initctl</code>. On my system I had to restart the <code>rsyslog</code> but
-besides that the setup was the same to fix the logging issue:</p>
-<ol>
-<li>Create the file <strong>/etc/rsyslog.d/30-seccomp.conf</strong></li>
-<li>Add the code below this list to that file:</li>
-<li>Restart the syslog via <code>initctl restart rsyslog</code> or <code>initctl restart syslog</code> 
-(depending on your system)</li>
-</ol>
-<pre><code>if $msg contains &#39; reason=&quot;seccomp&quot;&#39; and $msg contains &#39; comm=&quot;chrom&#39; \
-      then -/var/log/chromium-seccomp.log
-&amp; ~</code></pre>
-<p>Then you&#39;ll have those messages being logged to another area other than 
-cluttering up your syslog!</p>
+      <h3>Apt-get not working to install mutt, segfault!</h3>
+<p>I was thinking I&#39;d try fiddling around with mutt and seeing if I liked it or not
+today. Of course, it&#39;s difficult to do that when your package manager suddenly 
+stops working. While attempting to run <code>apt-get install mutt</code> the messages showed
+the usual reading messages, but then suddenly exited with no error message. </p>
+<p>Thinking this was strange I checked the output of <code>dmesg</code></p>
+<pre><code>[ 4847.938200] apt-get[4338]: segfault at 7fa34e62c0a8 ip 00007fa318fc92d3 sp 00007fff6a66b970 error 4 in libapt-pkg.so.4.12.0[7fa318f74000+121000]
+[ 4862.992835] apt-get[4349]: segfault at 7fd57d8cb0a8 ip 00007fd5482682d3 sp 00007fffbffd9950 error 4 in libapt-pkg.so.4.12.0[7fd548213000+121000]
+[ 4876.220520] apt-get[4365]: segfault at 7f327a19e0a8 ip 00007f3244b3b2d3 sp 00007ffff5e5f0e0 error 4 in libapt-pkg.so.4.12.0[7f3244ae6000+121000]
+[ 4987.237685] apt-get[4395]: segfault at 7f14a04570a8 ip 00007f146adf42d3 sp 00007fffb319dde0 error 4 in libapt-pkg.so.4.12.0[7f146ad9f000+121000]
+[ 5301.692825] apt-get[4667]: segfault at 7feedf5270a8 ip 00007feea9ec42d3 sp 00007fff5d0c3980 error 4 in libapt-pkg.so.4.12.0[7feea9e6f000+121000]
+[ 5306.932056] apt-get[4673]: segfault at 7f61488a20a8 ip 00007f611323f2d3 sp 00007fffbff58210 error 4 in libapt-pkg.so.4.12.0[7f61131ea000+121000]
+[ 5355.102636] apt-get[4682]: segfault at 7fbf997fd0a8 ip 00007fbf6419a2d3 sp 00007fff24de0dd0 error 4 in libapt-pkg.so.4.12.0[7fbf64145000+121000]
+[ 5417.063910] apt-get[4751]: segfault at 7f875b7c90a8 ip 00007f87261662d3 sp 00007fffca9d44e0 error 4 in libapt-pkg.so.4.12.0[7f8726111000+121000]</code></pre>
+<p>Well that doesn&#39;t seem good! Segfaults are never good to see in your message log.
+So I searched <a href="http://ubuntuforums.org/showthread.php?t=2209984">online</a> and found a forum that seemed to have the issue. After 
+seeing a post mention cleaning their apt-get cache I checked the man page and 
+tried out a quick <code>apt-get clean</code> and then I was able to install again! </p>
+<p>Hope this helps someone out there!</p>
 
       
       <h3>Other Posts</h3>
       <div id="other-posts">
         <ul>
-          <li><a href=caja-exifstrip-context-action>Adding Right Click context actions to Caja</a></li><li><a href=installing-gentoo-virtualbox>Attempting to install Gentoo into VirtualBox</a></li><li><a href=github-awesome-autocomplete-review>Github Awesome Autocomplete Review</a></li><li><a href=mysql-upstart-without-purge>Stopping mysql Upstart issues without reinstalling</a></li><li><a href=apt-get-segfault-mutt>Segfault in apt-get while trying to install</a></li><li><a href=registration-denial-plugin>Plugin to Ban users and deny registration in WordPress</a></li>
+          <li><a href=github-awesome-autocomplete-review>Github Awesome Autocomplete Review</a></li><li><a href=caja-exifstrip-context-action>Adding Right Click context actions to Caja</a></li><li><a href=chromium-seccomp-dmesg-errors>Fixing Chromium&#39;s seccomp logging to dmesg</a></li><li><a href=installing-gentoo-virtualbox>Attempting to install Gentoo into VirtualBox</a></li><li><a href=mysql-upstart-without-purge>Stopping mysql Upstart issues without reinstalling</a></li><li><a href=registration-denial-plugin>Plugin to Ban users and deny registration in WordPress</a></li>
         </ul>
       </div>
       <div id="disqus_thread"></div>
