@@ -426,5 +426,11 @@
     "description" : "A look into how awesome the GitHub Awesome Autocomplete really is, turns out, it's pretty wizard.",
     "date" : "2015-1-21",
     "keywords" : "github,algolia,review,github awesome autocomplete,git,search"
+  },
+  "apt-get-segfault-mutt" : {
+    "title" : "Segfault in apt-get while trying to install",
+    "description" : "While trying to install mutt, I ran into a segfault in apt-get, here's how I fixed it",
+    "date" : "2015-1-26",
+    "keywords" : "segfault,apt-get,segmentation,fault,install,clean,mutt,fix"
   }
 }
