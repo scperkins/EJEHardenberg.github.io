@@ -6,6 +6,7 @@
     "freq" : "daily"
   },
   "feed" : {
+    "title" : "My RSS Feed",
     "layout" : false,
     "freq" : "daily"
   },
