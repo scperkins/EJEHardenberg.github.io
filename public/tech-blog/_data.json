@@ -432,5 +432,11 @@
     "description" : "While trying to install mutt, I ran into a segfault in apt-get, here's how I fixed it",
     "date" : "2015-1-26",
     "keywords" : "segfault,apt-get,segmentation,fault,install,clean,mutt,fix"
+  },
+  "mutt-vim-decryption" : {
+    "title" : "Vim pgp/gpg macros to enhance mutt",
+    "description" : "Two macros to encrypt and decrypt messages easily",
+    "date" : "2015-1-27",
+    "keywords" : "vim,gpg,pgp,macros,mutt,macros command mode,macros visual mode"
   }
 }
