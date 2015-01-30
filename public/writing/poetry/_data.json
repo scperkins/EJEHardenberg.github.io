@@ -1,4 +1,10 @@
 {
+	"historybrowser" : {
+		"title" : "History Browser",
+		"date" : "2015-1-30",
+		"poemDescription" : "Random acts of kindness or messages from friends can mean the most",
+		"freq" : "monthly"
+	},
 	"snowangel" : {
 		"title" : "Snow Angel",
 		"date" : "2015-1-30",
