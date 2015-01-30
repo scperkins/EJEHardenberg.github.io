@@ -1,4 +1,10 @@
 {
+	"snowangel" : {
+		"title" : "Snow Angel",
+		"date" : "2015-1-30",
+		"poemDescription" : "Had one come to me while I was walking, but then lost all but the first 2 lines in my head",
+		"freq" : "monthly"
+	},
 	"alone" : { 	
 		"title" : "alone",
 		"date" : "2015-1-20",
