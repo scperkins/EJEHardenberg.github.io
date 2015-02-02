@@ -6,13 +6,13 @@ information's authenticity.
 
 There's nothing. Was there something he missed? Something recent? A
 journal unread that uphold the claims? Confused, he shakes his head and
-wonders what led people to write this. Decidingly, he decides to simply
+wonders what led people to write this. Reservedly, he decides to simply
 ask. Better than being left in the dark. So he writes in and waits. 
 
 Time goes by and no response, yet the statistic he's seen is repeated
 again and again until it seems all know it, yet no one know where it
 came from. He writes in again, where did it come from? What journal?
-What is the source? This time a response assert it is common knowledge.
+What is the source? This time a response asserts it is common knowledge.
 Happy to see a response, he begins explaining that he wrote in before,
 yet a volume of vitriol is his return. 
 
