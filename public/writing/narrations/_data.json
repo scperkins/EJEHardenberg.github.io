@@ -1,4 +1,9 @@
 {
+	"lies" : {
+		"title" : "Lies",
+		"date" : "2015-2-2",
+		"freq" : "monthly"
+	},
 	"stumbling" : {
 		"title" : "Stumbling to Music",
 		"date" : "2015-1-24",
