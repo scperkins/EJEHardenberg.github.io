@@ -1,4 +1,10 @@
 {
+	"nerves" :  {
+		"title" : "Nerves",
+		"date" : "2015-2-3",
+		"poemDescription" : "When nervous, shaky, downtrodden, or low: turn to friends and love and let go",
+		"freq" : "monthly"
+	},
 	"historybrowser" : {
 		"title" : "History Browser",
 		"date" : "2015-1-30",
