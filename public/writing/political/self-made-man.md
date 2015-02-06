@@ -7,7 +7,7 @@
 - [Chapter 1: Getting Started](#chapter1)
 - [Chapter 2: Friendship](#chapter2)
 - [Chapter 3: Sex](#chapter3)
-- [Chapter 4: Love](#chapter4)
+- [Thoughts](#thoughts)
 
 
 <div id="why-this-book"></div>
@@ -28,7 +28,7 @@ problem. To sum it up in one sentence: the teacher ruined feminism for
 me. 
 
 Fast forward 2.5 years. After discovering [Christina Hoff Sommers]
-through [my support of an ethical reform in gaming journalism], I
+through [my interest in an ethical reform in gaming journalism], I
 started to pull away from my preconceived notions, watching her [videos]
 showed me a feminist I had seen little of before. While I had been exposed
 to a misandrist through the aforementioned class, here I was exposed
@@ -48,9 +48,9 @@ during halloween or conventions.
 ![Self Made Lady](/images/politics/cross-dressing.jpg "A self made lady")
 <br/>
 <small>
-	Pictured Left to Right: Fooling with makeup in general, Youmu
-crossplay I did at Pax East (before destroying noobs in Steel Battalion
-Line of Contact), Catwoman costume from last year (2013)
+	Pictured Left to Right: Fooling with makeup in general, Catwoman 
+	costume from last year (2013), Youmu crossplay I did at Pax East 
+	(before destroying noobs in Steel Battalion Line of Contact)
 </small>
 
 It's not always fun, being called rude things like "ladyman" from a
@@ -68,9 +68,11 @@ further disgressions, let's talk about how I'm going to approach this:
 
 Thoroughness is something to look for in a review of anything, so
 despite how long it may make this post, I'm going to do my best to be
-thorough. This means a mini review on each chapter of the book and my
-reactions, agreements, disagreements, and general thoughts on each. If
-you're looking for a comprehensive review then here it is:
+thorough. This means a mini review on the first 3 chapters of the book 
+and my reactions, agreements, disagreements, and general thoughts on 
+each. There are 8 total chapters, all worth reading, but I figure talking
+about 3 of them is enough. If you're looking for a decently comprehensive 
+review then here it is:
 
 
 <div id="chapter1"></div>
@@ -80,7 +82,7 @@ The start of the book is a simple introduction to why Mrs\* Vincent
 wrote the book. How her time as a child and a rough coming of age
 throughout puberty and college shaped the decisions that eventually led
 her to crossdress for a year and a half. Also, she discloses that the
-book is not a research study on gender differences, but rather one
+book is not a research study on gender differences, but rather **one**
 woman's _experience_ of a social culture of which she had never been a
 part of. 
 
@@ -95,7 +97,7 @@ else, and accept the person looking at them in the mirror as someone
 else. 
 
 One of the things that struck me, that must be talked about (especially
-since this is the politics blog on my site), is the section in the
+since this is the opinion blog on my site), is the section in the
 beginning about eye contact. From her perspectives of both male and
 female I qoute:
 
@@ -117,7 +119,7 @@ But that night in drag, we walked by those same stoops and doorways and
 bodegas. We walked by those same groups of men. Only this time they
 didn't stare. On the contrary, when they met my eyes they looked away
 immediately and concertedly and never looked back. It was astoundind,
-the difference, the respec they showed me by _not_ looking at me, by
+the difference, the respect they showed me by _not_ looking at me, by
 purposely not staring.
 
 <br>
@@ -145,7 +147,7 @@ and keeps him.
 When I first read this I found myself very conflicted. I took offense
 to her "pecking order among male animals", in it I saw a slight
 inclination to view the male as subhuman, other language in the chapter
-also made me feel that she saw herself as some some enlightened pinacle
+also made me feel that she saw herself as some sort of enlightened pinacle
 of moral superiority coming to visit the savages. 
 
 But I continued reading, and I decided to ignore anything that
@@ -289,7 +291,7 @@ this chapter, it hits on a lot of core pieces I've seen in all male events. Thou
 there were some things which I've never seen and found unsettling. And if you find
 something that disturbs you during the chapter, remember that this is a small set
 of men, and Mrs. Vincent specifically went out of her way to find areas of intense
-masculinity.
+stereotypical masculinity.
 
 <div id="chapter3"></div>
 #### Strippers, Sex, and Secrets
@@ -341,7 +343,7 @@ of what she says throughout is engaging and thought provoking.
 
 <blockquote>
 	At some point all of this ceased to be about desire, if it was ever really 
-	about desire in the firstplace, and became about somethingelse: loneliness, 
+	about desire in the firstplace, and became about something else: loneliness, 
 	or inner pain, or doing time or penance for some longago hurt that had never
 	healed but somehow found companionable misalliance here with all the other 
 	misfits and detritus. I don't think anybody in that place was really capable 
@@ -402,12 +404,34 @@ of the individuals was equal. Perhaps that was the saddest part about this chapt
 perhaps it was one of the more enlightening notes to take from it. Either way, 
 a chapter worth reading.
 
-<div id="chapter4"></div>
-#### Love and dating
+<div id="thoughts"></div>
+#### Thoughts
 
+I thought about creating a review of all the chapters in this book, many of them
+are fascinating, for example, the next chapter is about love and dating as a man.
+Where the author runs into the troubles and pressures of being, literally, in 
+the man's shoes when trying to pick girls up at a bar. There's a chapter about 
+life within an all male monesty, an all male retreat, and even a door to door 
+salesman experience (I didn't even know that was still a job). 
+
+While I think people who believe that _all_ feminists are evil man-haters might 
+get turned off by some of the language or views held by the author. I also think 
+that this book is a good stepping stone towards being open to listening to those
+types of views, even when you don't agree with them. Norah Vincent's writing is 
+approachable, and though her peanut gallery comments and side jabs at masculinity 
+can be offputting, the stories themselves are a good mix of touching, emotional, 
+and stressful lives. The mental strain she put herself through, ending up with 
+depression after experiencing what it's like to be under the day to day pressures 
+of manhood, is a testament to just how serious she was in getting what she believes
+to be the full masculine experience.
+
+If you've read this book, and disagree or agree with any of my points, or even 
+want to talk about sections of the book I didn't mention, feel free to comment
+below [after you've read the disclaimer].
 
 [recent events]:https://medium.com/@aquapendulum/my-letter-to-jason-schreier-about-gamergate-ethics-f890d357188
 [Christina Hoff Sommers]:https://twitter.com/CHSommers
 [my support of an ethical reform in gaming journalism]:https://gitgud.net/gamergate/gamergateop
 [videos]:https://www.youtube.com/playlist?list=PLytTJqkSQqtr7BqC1Jf4nv3g2yDfu7Xmd
+[after you've read the disclaimer]:/writing/political/disclaimer
 
