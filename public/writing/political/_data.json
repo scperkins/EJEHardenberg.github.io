@@ -1,4 +1,11 @@
 {
+	"self-made-man" : {
+		"title" : "Self Made Man Book Review",
+		"description" : "A look into the first 3 chapters of the book and my thoughts on it - spoiler, it's worth a read.",
+		"date" : "2015-2-5",
+		"freq" : "monthly",
+		"draft" : false
+	},
 	"sec-309" : {
 		"title" : "The issue with Section 309",
 		"description" : "Government spying? able to keep your information to break it later? Sure, why not.",
@@ -20,13 +27,6 @@
 		"date" : "2014-11-09",
 		"draft" : false
 	},
-	"self-made-man" : {
-		"title" : "Self Made Woman",
-		"description" : "Thoughts and review on the book Self Made Man",
-		"freq" : "daily",
-		"date" : "2014-11-15",
-		"draft" : true
-	}, 
 	"affirmative-consent-law" : {
 		"title" : "Thoughts on Affirmative Consent",
 		"description" : "A laymans look into the problems in the new law from california, a disection piece of each portion of the bill",
@@ -49,7 +49,7 @@
 		"keywords" : "Cronyism,Networking,legal,ethics,ethical"
 	},
 	"index" : {
-		"title" : "Free Speech on Current Events & Politics",
+		"title" : "Free Speech & Opinions",
 		"description" : "Thoughts, opinions, musings, and general feelings on opinions today",
 		"freq" : "monthly",
 		"keywords" : "opinion"
