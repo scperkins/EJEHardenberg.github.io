@@ -252,5 +252,7 @@ In our fictional scenario with products and accounts, we could use this number
 retrieved to let the user know that some data may not be correct, or log events 
 that could notify us of slowness or issues in other services. 
 
+<script src="https://gist.github.com/EdgeCaseBerg/4eecad4cf9b474a7b04c.js"></script>
+
 [ExecutorService]:http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html
 [CancellationException]:http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CancellationException.html
