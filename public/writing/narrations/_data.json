@@ -1,4 +1,9 @@
 {
+	"traveler" : {
+		"title" : "Traveler",
+		"date" : "2015-2-7",
+		"freq" : "monthly"
+	},
 	"use" : {
 		"title" : "Use",
 		"date" : "2015-2-5",
