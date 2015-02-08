@@ -4,6 +4,14 @@
 		"description" : "A small bundle of recipes of things I eat for dinner that are easy to make.",
 		"freq" : "daily"
 	},
+	"bok-choy-squash" : {
+		"title" : "Bok Choy Squash",
+		"image" : "bok-choy-squash.jpg",
+		"description" : "A healthy choice for the adventurous",
+		"freq" : "monthly",
+		"author" : "emily",
+		"date" : "2015-2-7"
+	},
 	"chicken-stuffed-pepper" : {
 		"title" : "Chicken Cheese Pepper Cocoons",
 		"image" : "chicken-stuffed-pepper.jpg",
