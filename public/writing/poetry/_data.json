@@ -1,4 +1,10 @@
 {
+	"humanity" : {
+		"title" : "Humanity",
+		"date" : "2015-2-11",
+		"poemDescription" : "People should respect others as people and talk honestly with each other, not just dismissing each other based on labels.",
+		"freq" : "monthly"
+	},
 	"regret" : {
 		"title" : "Regret",
 		"date" : "2015-2-6",
