@@ -1,4 +1,5 @@
-**Note: Listen here and follow the rhythm https://www.youtube.com/watch?v=UGh8CZsCw98#t=1925**
+**Note: Listen here and follow the rhythm https://www.youtube.com/watch?v=UGh8CZsCw98#t=1925**  
+**I might update this later with a vocaroo**
 
 Using that word again like it's some kind of insult:   
 check 'em.    
