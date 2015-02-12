@@ -451,5 +451,12 @@
 	"description" : "A highly customizable and user focused application. Meant to help support administrations at events track lost items and assist the people who need them found",
 	"date" : "2015-2-10",
 	"keywords" : "PHP,lost,found,tools,event tools,planning,administration"
+  },
+  "scala-first-look" : {
+	"title" : "",
+	"description" : "",
+	"date" : "",
+	"keywords" : "",
+	"draft" : true
   }
 }

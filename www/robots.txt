@@ -1,2 +1,5 @@
 User-agent: LinkWalker/3.0 (http://www.brandprotect.com)
 Disallow: /
+
+User-agent: MJ12bot
+Crawl-Delay: 5
