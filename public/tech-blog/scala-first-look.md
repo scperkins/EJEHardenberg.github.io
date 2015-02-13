@@ -222,6 +222,10 @@ in the hello project. Why? Because it doesn't depend on it, and aggregate
 just means we're going to compile/package all these things at once, not 
 that they depend on each other. That's what dependOn is for.
 
+When you have a large number of projects, it also helps to organize 
+dependencies. [There's good documentation on how to make reusable dependencies] 
+that I won't bother repeating here.
+
 
 #### Getting to some code
 
@@ -235,3 +239,4 @@ that they depend on each other. That's what dependOn is for.
 [sbt's website]:http://www.scala-sbt.org/release/tutorial/Basic-Def.html
 [file]:http://www.scala-sbt.org/0.12.1/sxr/Keys.scala.html#324085
 [files to be cleaned]:http://www.scala-sbt.org/release/tutorial/More-About-Settings.html
+[There's good documentation on how to make reusable dependencies]:http://www.scala-sbt.org/release/tutorial/Organizing-Build.html
