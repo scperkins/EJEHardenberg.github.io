@@ -229,7 +229,49 @@ that I won't bother repeating here.
 
 #### Getting to some code
 
-...
+Now that we have an idea of how to organize our code and projects, let's 
+actually get to some code. If you run the scala console, or sbt's console 
+command you'll drop into a shell that can be used to test out some 
+expressions:
+
+	Welcome to Scala version 2.10.4 (OpenJDK 64-Bit Server VM, Java 1.7.0_55).
+	Type in expressions to have them evaluated.
+	Type :help for more information.
+
+	scala> 1 + 2
+	res0: Int = 3
+	
+	scala> res0 + 4
+	res1: Int = 7
+	
+	scala> 
+
+One of the nice things about the scala console that I haven't seen before 
+is the `res0` `res1` variables that are auto populated when you do 
+computations. Which you can then use. You'll find your typical primitive 
+types in scala, `Int`'s, `Boolean`'s, `Double`'s, and `String` to name a 
+few. 
+
+In addition, you can also define anonymous functions, similar to 
+javascript. This is helpful when you're testing things out in the shell 
+and don't want to write a full blown class and compile to test things. 
+
+	scala> val f = (x: Int) => { x + 2 }
+	f: Int => Int = <function1>
+	
+	scala> f(3)
+	res12: Int = 5
+
+And here we burst into a few things. 
+
+1. `val` to define a value, AKA, something which doesn't change. 
+2. `(x: Int)` the way to define arguments and their types in a function definition 
+3. ` => ` seperates signature from the anonymous function body
+4. `{ ... }` how to define the body of an anonymous function
+
+And of course calling the function is exactly what'd you find in any other 
+language `f(argument)`.
+
 
 
 
