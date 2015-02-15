@@ -270,7 +270,53 @@ And here we burst into a few things.
 4. `{ ... }` how to define the body of an anonymous function
 
 And of course calling the function is exactly what'd you find in any other 
-language `f(argument)`.
+language `f(argument)`. Well, sometimes, Let's take a look at a bit of a 
+weird call:
+
+	scala> (1 to 5).toList.foldLeft(0)((a: Int, b) => { a + b})
+	res9: Int = 15
+
+Saying `(1 to 5).toList) is the same as saying `List(1,2,3,4,5)` but it's 
+a bit less wordy and more flexible. `foldLeft` is a concept that is likely 
+familiar to people who have been introduced to functional programming before. 
+Folding is when you aply an operation across an iterable and accumulate the 
+results. `foldLeft` is a function, but it takes **two** sets of parenthesis. 
+Seem weird? Well, it's syntactic sugaring for being able to pass an anonymous 
+function as an argument to the `foldLeft` function. It could also be written 
+as ` (1 to 5).toList.foldLeft(0) { (a: Int, b) => a + b }`. 
+
+One of the strengths of functional programming is matching. This is similar 
+to switch statements but much much more powerful. Here's a toy example:
+
+	val g = (n: AnyVal) => { 
+		n match { 
+			case i:Int => println("int")
+			case d:Double => println("double")
+			case _ => println("lol wut")
+		} 
+	}
+
+	g(1) //-> int
+	g(2.0) //-> double
+	g("hi") //-> lol wut
+
+This function can literally handle any type of input, if it doesn't know 
+how to handle it, it will print the obligatory "lol wut" and end. When 
+applied to more complex scenarios this can provide simple ways to branch 
+a program based on inputs. If you really wanted to, you could probably 
+avoid if statements to some degree since they're the same as something 
+like this:
+
+	2 < 4 match { case true => 1; case false => 2 }
+
+Though why you'd want to do this I'm not sure quite yet, esoteric reasons 
+perhaps. 
+
+A more realistic example is dealing with XML files. While most of the 
+web world is __slowly__ moving to JSON. Much of it still exists within 
+XML. Which is fine as far as scala is concerned because it provides a 
+degree of native support for it. In the scala interpretter you can 
+write out XML freely and then do some basic [xpath] querying on it.
 
 
 
@@ -282,3 +328,4 @@ language `f(argument)`.
 [file]:http://www.scala-sbt.org/0.12.1/sxr/Keys.scala.html#324085
 [files to be cleaned]:http://www.scala-sbt.org/release/tutorial/More-About-Settings.html
 [There's good documentation on how to make reusable dependencies]:http://www.scala-sbt.org/release/tutorial/Organizing-Build.html
+[xpath]:https://en.wikipedia.org/wiki/XPath
