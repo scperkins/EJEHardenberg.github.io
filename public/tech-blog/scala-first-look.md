@@ -318,7 +318,52 @@ XML. Which is fine as far as scala is concerned because it provides a
 degree of native support for it. In the scala interpretter you can 
 write out XML freely and then do some basic [xpath] querying on it.
 
+Let's say we have a configuration file that looks something like this:
 
+	<config>
+		<database environment="local">
+			<password>foo</password>
+			<username>bar</username>
+			<name>baz</name>
+			<host>boz</host>
+		</database>
+		<database environment="dev">
+			<password>foo2</password>
+			<username>bar2</username>
+			<name>baz2</name>
+			<host>boz2</host>
+		</database>
+		<database environment="production">
+			<password>foo3</password>
+			<username>bar3</username>
+			<name>baz3</name>
+			<host>boz3</host>
+		</database>
+	</config>
+
+Then in scala we can either have this be a variable like so: 
+
+	val conf = <config><database //omitting the rest but you get the idea
+	//or load it using the XML library:
+	scala.xml.XML.loadFile("conf.xml")
+
+We can then grab all the database nodes via xpath: `conf \\ "database"` 
+which will give us a `NodeSeq` type back. Which we can filter on the 
+environmental attribute with `.filter`. here's an example: 
+
+
+	scala> var datasource = (conf \\ "database").filter(dNode => dNode.attribute("environment").exists(env => env.text == "dev"))
+	datasource: scala.xml.NodeSeq = 
+	NodeSeq(<database environment="dev">
+				<password>foo2</password>
+				<username>bar2</username>
+				<name>baz2</name>
+				<host>boz2</host>
+			</database>)
+	(datasource \ "host").text // gives back boz2
+
+It's pretty easy to see how this could then be used to easily parse out and use 
+for custom configuratons of your own system.
 
 
 
