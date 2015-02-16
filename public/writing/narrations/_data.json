@@ -1,4 +1,9 @@
 {
+	"time" : {
+		"title" : "Time",
+		"date" : "2015-2-16",
+		"freq" : "monthly"
+	},
 	"response" : {
 		"title" : "Pride",
 		"date" : "2015-2-13",
