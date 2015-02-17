@@ -1,4 +1,10 @@
 {
+	"changes" : {
+		"title" : "Changes",
+		"date" : "2015-2-17",
+		"poemDescription" : "Things cannot stay the same, circumstance pulls us all away from our comfort zone",
+		"freq" : "monthly"
+	},
 	"humanity" : {
 		"title" : "Humanity",
 		"date" : "2015-2-11",
