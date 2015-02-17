@@ -11,3 +11,9 @@ And a handle asked for keeping online
 The sky outside grey and dismal in air  
 but the heedy sense of freedom with which none despair  
 
+
+<img src="/images/poetry/leaving-sky.jpg" title="Leaving Sky - By Ethan Joachim Eldridge"/><br/>
+<small>Leaving Sky - By Ethan Joachim Eldridge. Drawn in [Gimp] on a very bump
+bus</small>
+
+[Gimp]:http://www.gimp.org/
