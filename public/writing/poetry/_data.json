@@ -1,4 +1,10 @@
 {
+	"leaving" : {
+		"title" : "Leaving",
+		"date" : "2015-2-17",
+		"poemDescription" : "Leaving behind friends for something new",
+		"freq" : "monthly"
+	},
 	"changes" : {
 		"title" : "Changes",
 		"date" : "2015-2-17",
