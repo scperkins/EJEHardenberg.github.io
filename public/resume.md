@@ -63,10 +63,11 @@ speaking skills. Quick learner.
 
 - Developer / Co-Founder Xenon Apps 10/13 - Present
 	- Burlington, VT
-	- Co-founder of [Xenon Apps], creating RESTful API services in C and system
-	  administration of company servers. Created company Website with [Sean Perkins].
+	- [Co]-founder of [Xenon Apps], creating RESTful API services in C and system
+	  administration of app servers. Created company Website with [Sean Perkins]. 
+	  
 
-- [Bear Code] Junior Developer 9/13 - Present
+- [Bear Code] Junior Developer 9/13 - 2/15
 	- Montpelier, VT
 	- Full time programmer, designing and implementing Ruby on Rails/Java Spring 
 	  projects. Working in Test Driven Environment and non-hierarchical agile teams.
@@ -121,3 +122,4 @@ speaking skills. Quick learner.
 [Brandthropology]:http://www.brandthropology.com
 [VHFA]:http://www.vhfa.org/
 [CS Crew]:http://uvm.edu/~cscrew
+[Co]:http://joshuajdickerson.wordpress.com
