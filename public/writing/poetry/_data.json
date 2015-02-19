@@ -1,4 +1,10 @@
 {
+	"haiku" : {
+		"title" : "Haiku",
+		"date" : "2015-2-19",
+		"poemDescription" : "Looking out the window and watching Nichijo. So many random poems.",
+		"freq" : "monthly"
+	},
 	"leaving" : {
 		"title" : "Leaving",
 		"date" : "2015-2-17",
