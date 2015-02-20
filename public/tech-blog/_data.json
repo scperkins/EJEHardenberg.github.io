@@ -453,10 +453,9 @@
 	"keywords" : "PHP,lost,found,tools,event tools,planning,administration"
   },
   "scala-first-look" : {
-	"title" : "",
-	"description" : "",
-	"date" : "",
-	"keywords" : "",
-	"draft" : true
+	"title" : "A brief look into Scala",
+	"description" : "A random post about some parts of scala I found interesting",
+	"date" : "2015-2-20",
+	"keywords" : "scala,first,look,casbah,xml"
   }
 }
