@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Tue, 10 Feb 2015 05:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Fri, 20 Feb 2015 05:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>A brief look into Scala</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/scala-first-look</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/scala-first-look</guid>
+			<pubDate>Fri, 20 Feb 2015 05:00:00 GMT</pubDate>
+			<description>
+				![CDATA[A random post about some parts of scala I found interesting]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Lost and Found Application</title>
