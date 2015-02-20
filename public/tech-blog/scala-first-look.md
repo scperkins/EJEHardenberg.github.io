@@ -365,8 +365,12 @@ environmental attribute with `.filter`. here's an example:
 It's pretty easy to see how this could then be used to easily parse out and use 
 for custom configuratons of your own system.
 
-
-
+Overall, so far what I've seen of scala is interesting. The syntax is enjoyable 
+and the community seems interesting and intelligent. I've picked up some books 
+and plan on creating a few projects using scala soon. This post has gotten a bit 
+long and didn't have much of a point but to chronologue some of the things I was 
+playing with. So perhaps this will inspire you to pick up scala! A really good 
+post to read if you're interested in learning more is [this one], good luck!
 
 
 [sbt's website]:http://www.scala-sbt.org/release/tutorial/Basic-Def.html
@@ -374,3 +378,4 @@ for custom configuratons of your own system.
 [files to be cleaned]:http://www.scala-sbt.org/release/tutorial/More-About-Settings.html
 [There's good documentation on how to make reusable dependencies]:http://www.scala-sbt.org/release/tutorial/Organizing-Build.html
 [xpath]:https://en.wikipedia.org/wiki/XPath
+[this one]:http://www.vasinov.com/blog/16-months-of-functional-programming/
