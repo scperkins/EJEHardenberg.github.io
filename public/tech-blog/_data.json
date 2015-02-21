@@ -457,5 +457,11 @@
 	"description" : "A random post about some parts of scala I found interesting",
 	"date" : "2015-2-20",
 	"keywords" : "scala,first,look,casbah,xml"
+  },
+  "mcabber-gmail-and-gpg" : {
+	"title" : "Encrypting your chat with mcabber",
+	"description" : "How to use mcabber and gpg to easily establish a secure and private way of talking to loved ones",
+	"date" : "2015-2-21",
+	"keywords" : "privacy,mcabber,gtalk,gmail,gchat,encryption,gpg,security,pgp"
   }
 }
