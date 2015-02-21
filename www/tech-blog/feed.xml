@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Fri, 20 Feb 2015 05:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Sat, 21 Feb 2015 05:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Encrypting your chat with mcabber</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/mcabber-gmail-and-gpg</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/mcabber-gmail-and-gpg</guid>
+			<pubDate>Sat, 21 Feb 2015 05:00:00 GMT</pubDate>
+			<description>
+				![CDATA[How to use mcabber and gpg to easily establish a secure and private way of talking to loved ones]]
+			</description>
+		</item>
 		
 		<item>
 			<title>A brief look into Scala</title>
