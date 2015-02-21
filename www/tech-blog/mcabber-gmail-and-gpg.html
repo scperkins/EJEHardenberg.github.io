@@ -85,13 +85,13 @@ set ssl = 1
 set ssl_verify = 1
 set logging = 0
 set pgp =1 
-set pgp_private_key = &lt;use gpg --list-keys --keyid-format long to find this&gt;
+set pgp_private_key = &lt;use gpg --fingerprint --list-secret-keys&gt;
 set beep_on_message = 1</code></pre>
 <p>You can find more configuration options online with google or looking
 through documentation. One that I found which had a lot of good comments
 can be read <a href="http://pastebin.com/wP9PJLq9">here</a>. As noted above, you&#39;ll want to put your own email
 address for the <code>jid</code> and the <code>username</code>. Then use the long form of your
-private key from <code>gpg --list-keys --keyid-format long</code>. </p>
+private key from <code>gpg --fingerprint --list-secret-keys</code>. </p>
 <p>Once this is done you&#39;re pretty much there but getting used to mcabber
 can be improved by mastering a few simple commands. </p>
 <ul>
