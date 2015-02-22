@@ -1,4 +1,9 @@
 {
+	"the-nose" : {
+		"title" : "The Nose",
+		"date" : "2015-2-22",
+		"freq" : "monthly"
+	},
 	"time" : {
 		"title" : "Time",
 		"date" : "2015-2-16",
