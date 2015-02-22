@@ -1,4 +1,11 @@
 {
+	"ecotopia" : { 
+		"title" : "Ecotopia Book Review",
+		"description" : "",
+		"date" : "",
+		"freq" : "monthly",
+		"draft" : true
+	},
 	"self-made-man" : {
 		"title" : "Self Made Man Book Review",
 		"description" : "A look into the first 3 chapters of the book and my thoughts on it - spoiler, it's worth a read.",
