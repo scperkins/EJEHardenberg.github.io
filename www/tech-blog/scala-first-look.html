@@ -285,14 +285,14 @@ language <code>f(argument)</code>. Well, sometimes, Let&#39;s take a look at a b
 weird call:</p>
 <pre><code>scala&gt; (1 to 5).toList.foldLeft(0)((a: Int, b) =&gt; { a + b})
 res9: Int = 15</code></pre>
-<p>Saying <code>(1 to 5).toList) is the same as saying</code>List(1,2,3,4,5)<code>but it&#39;s 
-a bit less wordy and more flexible.</code>foldLeft<code>is a concept that is likely 
+<p>Saying <code>(1 to 5).toList)</code> is the same as saying <code>List(1,2,3,4,5)</code> but it&#39;s 
+a bit less wordy and more flexible. <code>foldLeft</code> is a concept that is likely 
 familiar to people who have been introduced to functional programming before. 
 Folding is when you aply an operation across an iterable and accumulate the 
-results.</code>foldLeft<code>is a function, but it takes **two** sets of parenthesis. 
+results. <code>foldLeft</code> is a function, but it takes <strong>two</strong> sets of parenthesis. 
 Seem weird? Well, it&#39;s syntactic sugaring for being able to pass an anonymous 
-function as an argument to the</code>foldLeft<code>function. It could also be written 
-as</code> (1 to 5).toList.foldLeft(0) { (a: Int, b) =&gt; a + b }`. </p>
+function as an argument to the <code>foldLeft</code> function. It could also be written 
+as <code>(1 to 5).toList.foldLeft(0) { (a: Int, b) =&gt; a + b }</code>. </p>
 <p>One of the strengths of functional programming is matching. This is similar 
 to switch statements but much much more powerful. Here&#39;s a toy example:</p>
 <pre><code>val g = (n: AnyVal) =&gt; { 
