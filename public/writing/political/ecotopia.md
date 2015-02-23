@@ -83,7 +83,7 @@ And this is a common theme for Weston's internal monologues. He begins
 with his hard-headed American forthrightness that the savagery practiced
 by the Ethiopians is absurd. Then slowly conceeds some points to them
 when shown the related statistics, which, according to the Ecotopians,
-take **all** the costs into place, not just ones pertaining to the
+take **all** the societal costs into place, not just ones pertaining to the
 industry which is being developed in some way. 
 
 While not explicitely stated, the concept of _for the greater good_ is
@@ -93,9 +93,13 @@ _de-evolving_ their society to one closer in line to that of the Native
 American Indians is the path to sustained life for humanity. Balancing
 nature and humanity, with humanity as the care takers of the environment
 the ultimate goal in order for all to exist within their stable state.
-And this doctrine is pushed intot hem from the basemost level. Their
+And this doctrine is pushed into them from the basemost level. Their
 education system teachs skills for survival as well as types and
-differences in flora and fauna. To the point that Weston states that 6
+differences in flora and fauna, involving hiking trips lasting days with
+their communities. Constructive criticism enables complaints at
+restaurants to be met with ridiculously cheerful results. And the people
+get along so well it reminds me of the 'Bright and Shiny' cult from
+_[Bubble Boy]_. The education system is so well done that Weston states that 6
 year olds cite off most of the indigenous plants and their uses with
 ease. Weston is left looking like the uneducated American that he is
 when asked what his favorite tree is, and his response is: "Christmas
@@ -135,10 +139,22 @@ community that has become the base of all Ecotopian life. While his
 America consists of the family unit, privacy, and independence from one
 another, Ecotopia consists of the tribal commune, transparency in all
 relationships (including sexual), and dependence on each other and
-transparently, to the system in which they live in and attempt to
-balance. 
+transitively, to the system in which they live. 
+
+Despite this dependence on the ecosystem and their cult-like zeal at
+maintaining it, the people of the nation are, apparently, fiercely
+independent. Able to survive on their own, craft, and create a living
+for themselves within each niche of their communities. Population
+control has been solved, with rates declining (to cheers), by the
+solution of women having absolutely control over their bodies and
+abortion clinics being prevalent in all urban areas. This .3% decrease
+in annual population is critiqued by Weston in one chapter. Making note
+how America's population had increased by 3 _million_ during the same time
+as Ecotopia's falling 17,000 through the two decades. 
+
 
 
 
 
 [Norah Vincent's commentary on eye contact]:/writing/political/self-made-man
+[Bubble Boy]:http://lmgtfy.com/?q=Bubble%20Boy
