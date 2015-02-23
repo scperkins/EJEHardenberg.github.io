@@ -18,10 +18,10 @@ completely inept at relationships.
 
 My first taste of not liking the character was on pg 10: 
 
-<blockqoute>
+<blockquote>
 "And their manners are even more unsettling. On the streeets there are
 electrical moments when woman stare me directory in the eyes"
-</blockqoute>
+</blockquote>
 
 Which immediately made me think of [Norah Vincent's commentary on eye
 contact]. Where she describes holding the gaze to be a show of dominance
@@ -40,13 +40,13 @@ Another stereotype of American's is shown, the lack of ability to stay
 still, the need to have business, and the way that Weston reacts to
 silence:
 
-<blockqoute>
+<blockquote>
 "The drabness of the countryside was increased by its evident isolation.
 The roads were narrow and winding, with trees dangerously close to the
 pavement. No traffic at all seemed to be moving on them. There wasn't a
 billboard in sight, and not a gas station or telephone booth. It would
 not be reassuring to be caught in such a region after dark.
-</blockqoute>
+</blockquote>
 
 The Ecotopians he meet often laugh at his detachment to where his food
 comes from. When he views a hunting party bring back a deer, he is
