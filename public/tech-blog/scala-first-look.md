@@ -276,7 +276,7 @@ weird call:
 	scala> (1 to 5).toList.foldLeft(0)((a: Int, b) => { a + b})
 	res9: Int = 15
 
-Saying `(1 to 5).toList) is the same as saying `List(1,2,3,4,5)` but it's 
+Saying `(1 to 5).toList)` is the same as saying `List(1,2,3,4,5)` but it's 
 a bit less wordy and more flexible. `foldLeft` is a concept that is likely 
 familiar to people who have been introduced to functional programming before. 
 Folding is when you aply an operation across an iterable and accumulate the 
