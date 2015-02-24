@@ -1,4 +1,9 @@
 {
+	"architecture" : {
+		"title" : "Architecture",
+		"date" : "2015-2-24",
+		"freq" : "monthly"
+	},
 	"the-nose" : {
 		"title" : "The Nose",
 		"date" : "2015-2-22",
