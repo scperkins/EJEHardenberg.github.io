@@ -37,10 +37,10 @@ series. Feel free to check it out!
 
 [chat server tutorial]:http://www.ethanjoachimeldridge.info/tech-blog/cgi-c-harp-1
 
-I even started up a [political] section so I could blog about the various things that 
+I even started up a [opinion] section so I could blog about the various things that 
 go on in the world around us today. I'm no journalist, but everyone's voice matters.
 
-[political]:http://www.ethanjoachimeldridge.info/writing/political/
+[opinion]:http://www.ethanjoachimeldridge.info/writing/political/
 [view it here]:http://www.ethanjoachimeldridge.info
 [visit the site]:http://www.ethanjoachimeldridge.info
 [Harp]:http://www.harpjs.com
