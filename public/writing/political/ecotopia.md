@@ -169,7 +169,17 @@ And despite the need to satisfy and accomadate all parties, at each
 meeting the unwritten agenda is apparently met. His description is so 
 devoid of anything familiar to any governing institution that I've seen
 and expressed as so accommodating to all voices spoken that it sounds
-completely fantastical and somewhat absurd. 
+completely fantastical and impossible to implement. That is not to say 
+that a feminine government system wouldn't work of
+course!<sup id="footnote-1-return">[1](#footnote-1)</sup> 
+However the only explanation offered in why it does is that of the 
+underlying principal to re-establish a balance with nature that 
+underpins all of Ecotopian society, to me it didn't feel likely that so
+many people could express themselves and all be accomodated, and my
+feelings were validated by the chapter on race which showed a segregated
+and race-broken society instead of the multi-cultural honeypot that is
+America. In my opinion, a sad development to an otherwise lovely
+sounding system.
 
 The demolition of the state and capitalistic values happened via intense
 reform throughout various industries. First through applied consumer
@@ -240,7 +250,8 @@ unsurprisingly, declares his love of the country and desire to stay
 there. His last great American nail, uprooted by the near cultlike
 kindness and comforts of the people around him. 
 
-Upon reflection of the book, I felt like it was a very long trope. You
+Upon reflection of parts of the book, I felt like Weston's change in
+personality fell exclusively in line with one particular trope. You
 know the one, where the bumbling husband who can't do anything right is
 chatised by his wife and eventually, only through her coaxing and care, is
 able to come to the right solution. This is intwined in nearly every
@@ -251,14 +262,15 @@ story, nothing comes to mind where he _learned and changed part of
 himself_ that wasn't done to him by a woman. Even his final decision to
 leave America, headed by the cunning and politically savvy male
 president, for Ecotopia's woman led nation comes off as a final kick to
-his acceptance of the female superiority. The only reason I feel these
+his acceptance of the female supremacy. The only reason I feel these
 thoughts came to me was reflecting on what Norah Vincent wrote in her
 chapter about the Monks, where she happily describes that reforming men
 to free themselves of an oppressive patriarchical system is perhaps the
 final step for feminism. Considering the war games allowance of male
 brutality, acceptance of sexual polygamous relations with 0
 repercussions, and ecotopian men's willingness to cry and discuss their
-emotions,  it seems her dream has come true within Ecotopia. 
+emotions, it seems her dreams of masculine men with an acceptance of
+more feminized moral values has come true within Ecotopia. 
 
 That however, is just a trope, and one which is not inherently bad.
 Weston describes interactions between the sexes as "equalitarian" (was
@@ -301,7 +313,8 @@ actual secession to do so? The list of questions in order to achieve a
 peaceful distributed and community driven society is long, but what is 
 to stop us from trying? 
 
-
+<small id="footnote-1">And this is by no means saying that a masculine
+dominated society is any better. [Back to paragraph](#footnote-1-return) </small>
 
 [Norah Vincent's commentary on eye contact]:/writing/political/self-made-man
 [Bubble Boy]:http://www.imdb.com/title/tt0258470/

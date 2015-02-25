@@ -1,10 +1,10 @@
 {
 	"ecotopia" : { 
 		"title" : "Ecotopia Book Review",
-		"description" : "",
-		"date" : "",
+		"description" : "Thoughts on the book Ecotopia, a utopian novel that looks towards a broken but peaceful future",
+		"date" : "2015-2-25",
 		"freq" : "monthly",
-		"draft" : true
+		"draft" : false
 	},
 	"self-made-man" : {
 		"title" : "Self Made Man Book Review",
