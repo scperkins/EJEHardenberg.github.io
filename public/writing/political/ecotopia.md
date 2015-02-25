@@ -286,7 +286,7 @@ technology mentioned and how much could be true or is just a pipe dream.
 
 For example, how likely is it that stable state type ecological
 processes could be achieved? What about reformations of sewage disposal
-in order to create natural fertilizer? Would the restructing of power
+in order to create natural fertilizer? Would the restructuring of power
 plants and advancements described in energy technology enable wild game
 and other rejuvenating effects to occur as they did? Would it take
 longer than the 20 years of secession if it did? Is it possible to
