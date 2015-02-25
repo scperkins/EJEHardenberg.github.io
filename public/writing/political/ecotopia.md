@@ -169,7 +169,7 @@ And despite the need to satisfy and accomadate all parties, at each
 meeting the unwritten agenda is apparently met. His description is so 
 devoid of anything familiar to any governing institution that I've seen
 and expressed as so accommodating to all voices spoken that it sounds
-completely fantastical and somewhat completely absurd. 
+completely fantastical and somewhat absurd. 
 
 The demolition of the state and capitalistic values happened via intense
 reform throughout various industries. First through applied consumer
