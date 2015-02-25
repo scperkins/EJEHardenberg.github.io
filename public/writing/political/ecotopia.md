@@ -169,8 +169,9 @@ And despite the need to satisfy and accomadate all parties, at each
 meeting the unwritten agenda is apparently met. His description is so 
 devoid of anything familiar to any governing institution that I've seen
 and expressed as so accommodating to all voices spoken that it sounds
-completely fantastical and impossible to implement. That is not to say 
-that a feminine government system wouldn't work of
+completely fantastical and impossible to implement. 
+
+That is not to say that a feminine government system wouldn't work of
 course!<sup id="footnote-1-return">[1](#footnote-1)</sup> 
 However the only explanation offered in why it does is that of the 
 underlying principal to re-establish a balance with nature that 
@@ -178,8 +179,20 @@ underpins all of Ecotopian society, to me it didn't feel likely that so
 many people could express themselves and all be accomodated, and my
 feelings were validated by the chapter on race which showed a segregated
 and race-broken society instead of the multi-cultural honeypot that is
-America. In my opinion, a sad development to an otherwise lovely
-sounding system.
+America.<sup id="footnote-2-return">[2](#footnote-2)</sup> In my opinion, 
+a sad development to an otherwise decent system; and a sad world view
+from the author that the races cannot live harmoniously. Despite the
+political meetings being based heavily on emotion, it seems the people's
+acceptance of what the government decree is based on statistics. As Weston 
+observes, each citizen can cite off statistics at the drop of a hat. They 
+are _deeply_ informed and educated on what the nation's thinktanks produce 
+through research. Truly a utopian thought, as expecting people to look
+at data themselves and be able to recite it, at an entire population
+level, is naive. While this is a utopian book, I couldn't help but think of 
+an Orwellian state in which the facts are controlled being little better than 
+this on the surface. However, due to the transparency and openness
+described, I'd think that this could work in the unique circumstances
+around the founding of the nation. 
 
 The demolition of the state and capitalistic values happened via intense
 reform throughout various industries. First through applied consumer
@@ -315,6 +328,8 @@ to stop us from trying?
 
 <small id="footnote-1">And this is by no means saying that a masculine
 dominated society is any better. [Back to paragraph](#footnote-1-return) </small>
+<small id="footnote-2">Not that multiculturalism isn't without its own
+issues either [Back to paragraph](#footnote-2-return)</small>
 
 [Norah Vincent's commentary on eye contact]:/writing/political/self-made-man
 [Bubble Boy]:http://www.imdb.com/title/tt0258470/
