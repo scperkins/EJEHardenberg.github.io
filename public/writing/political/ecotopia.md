@@ -152,7 +152,8 @@ solution of women having absolutely control over their bodies and
 abortion clinics being prevalent in all urban areas. This .3% decrease
 in annual population is critiqued by Weston in one chapter. Making note
 how America's population had increased by 3 _million_ during the same time
-as Ecotopia's falling 17,000 through the two decades. 
+as Ecotopia's falling 17,000 through the two decades. <small
+id="footnote-1-return">[1](#footnote-1)</small>
 
 This absolute control over themselves seems transmitted to the system of
 government present within Ecotopia. Within the chapter about the war
@@ -169,17 +170,17 @@ And despite the need to satisfy and accomadate all parties, at each
 meeting the unwritten agenda is apparently met. His description is so 
 devoid of anything familiar to any governing institution that I've seen
 and expressed as so accommodating to all voices spoken that it sounds
-completely fantastical and impossible to implement. 
+completely fantastical and difficult in practice. 
 
 That is not to say that a feminine government system wouldn't work of
-course!<sup id="footnote-1-return">[1](#footnote-1)</sup> 
+course!<sup id="footnote-2-return">[2](#footnote-2)</sup> 
 However the only explanation offered in why it does is that of the 
 underlying principal to re-establish a balance with nature that 
 underpins all of Ecotopian society, to me it didn't feel likely that so
 many people could express themselves and all be accomodated, and my
 feelings were validated by the chapter on race which showed a segregated
 and race-broken society instead of the multi-cultural honeypot that is
-America.<sup id="footnote-2-return">[2](#footnote-2)</sup> In my opinion, 
+America.<sup id="footnote-3-return">[3](#footnote-3)</sup> In my opinion, 
 a sad development to an otherwise decent system; and a sad world view
 from the author that the races cannot live harmoniously. Despite the
 political meetings being based heavily on emotion, it seems the people's
@@ -208,7 +209,8 @@ novel could all of these different idealogies exist in the state of
 harmony described.
 
 "Victimless Crime", such as smoking marijuana, drug use, and other
-similar crimes were decriminalized, while "Gentlemen Crimes" such as
+similar crimes were decriminalized, while "Gentlemen Crimes"
+<sup id="footnote-4-return">[4](#footnote-4)</sup> such as
 collusion, corruption, or things remenescent of American buerocratic
 corporations are treated more severely. Though within the chapter on
 race, it is noted that being arrested is more like having an escort, as
@@ -216,7 +218,8 @@ you still continue to work each day, you're just under house arrest when
 not at work. The penalty of being ripped from the social collective is
 seen as harsh enough on the individual to curb the criminal's
 wrongdoings, and the ability to participate in work thought to allow
-integration into normal society upon release without issue.
+integration into normal society upon release without issue. <sup
+id="footnote-5-return">[5](#footnote-5)</sup>
 
 In his chapters on education and science, his notice of project based
 learning, privatized schooling, and the way that research and teacher
@@ -246,13 +249,13 @@ During his healing process at the hands of the nurse Linda, his inner
 musings turn towards his _culture_ and the differences between that and
 the one he is reporting on. Their effect on him and his treatment of
 those around him, specifically women, changes drastically thoughout his
-meager 7 weeks stay in the foreign land. When this time period is
-mentioned I found myself surprised, since he does _a lot_ of reporting
-on the subject and travels often to speak with interviewees. Within 7
-weeks he makes the haphazard decision to become Marissa's mate, leave
-his home country, and at the end of the book we're left with one of the
-more jarring passages as he struggles to accept his desire to abandon
-America. 
+meager 7 weeks stay in the foreign land. <sup id="footnote-6-return">[6](#footnote-6)</sup> 
+When this time period is mentioned I found myself surprised, since he does 
+_a lot_ of reporting on the subject and travels often to speak with 
+interviewees. Within 7 weeks he makes the haphazard decision to become 
+Marissa's mate, leave his home country, and at the end of the book we're 
+left with one of the more jarring passages as he struggles to accept his 
+desire to abandon America. 
 
 After his visit with the Ecotopian President, he realizes that the original goals
 given to him by the United States are trees with little chance of fruit
@@ -267,7 +270,7 @@ Upon reflection of parts of the book, I felt like Weston's change in
 personality fell exclusively in line with one particular trope. You
 know the one, where the bumbling husband who can't do anything right is
 chatised by his wife and eventually, only through her coaxing and care, is
-able to come to the right solution. This is intwined in nearly every
+able to come to the right solution. This is entwined in nearly every
 interaction with Marissa that Weston has, then once again when he is
 with Linda, and once again when he is with the President. While he talks
 to the other men in the groups he frequents, besides the Helicopter war
@@ -326,10 +329,29 @@ actual secession to do so? The list of questions in order to achieve a
 peaceful distributed and community driven society is long, but what is 
 to stop us from trying? 
 
-<small id="footnote-1">And this is by no means saying that a masculine
-dominated society is any better. [Back to paragraph](#footnote-1-return) </small>
-<small id="footnote-2">Not that multiculturalism isn't without its own
-issues either [Back to paragraph](#footnote-2-return)</small>
+#### Notes
+
+- <small id="footnote-1">I'm quite curious if any research of this nature
+has been done? Would complete choice and freedom over abortion result in
+a decline in teenage and unwanted pregnancy? [Back to
+paragraph](#footnote-1-return)</small>
+
+- <small id="footnote-2">And this is by no means saying that a masculine
+dominated society is any better. [Back to paragraph](#footnote-2-return) </small>
+
+- <small id="footnote-3">Not that multiculturalism isn't without its own
+issues either [Back to paragraph](#footnote-3-return)</small>
+
+- <small id="footnote-4">I cringed at seeing a crime gendered to be
+  honest. [Back to paragraph](#footnote-4-return)</small>
+
+- <small id="footnote-5">This is one of the biggest things that reminds 
+  me of a cult. [Back to paragraph](#footnote-5-return)</small>
+
+- <small id="footnote-6">I found it interesting how he has sex with
+  Linda due to his love for her caring for him during is treatment, and
+  how this reflects a change in his values towards sex, bringing it inline
+  moreso with Ecotopian values.  [Back to paragraph](#footnote-6-return)</small>
 
 [Norah Vincent's commentary on eye contact]:/writing/political/self-made-man
 [Bubble Boy]:http://www.imdb.com/title/tt0258470/
