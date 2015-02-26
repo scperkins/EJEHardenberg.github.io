@@ -1,4 +1,9 @@
 {
+	"blend" : {
+		"title" : "Blend",
+		"date" : "2015-2-26",
+		"freq" : "monthly" 
+	},
 	"architecture" : {
 		"title" : "Architecture",
 		"date" : "2015-2-24",
