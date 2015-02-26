@@ -1,4 +1,10 @@
 {
+	"line" : {
+		"title" : "Line",
+		"date" : "2015-2-26",
+		"poemDescription" : "Dreams of lovers, forbidden relations, unfortunate circumstances",
+		"freq" : "monthly"
+	},
 	"delayed" : {
 		"title" : "Delayed",
 		"date" : "2015-2-22",
