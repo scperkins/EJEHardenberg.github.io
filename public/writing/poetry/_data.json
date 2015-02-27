@@ -1,4 +1,10 @@
 {
+	"reality" : {
+		"title" : "Reality",
+		"date" : "2015-2-27",
+		"poemDescription" : "Weird dreams of people in the same room, which one is real?",
+		"freq" : "monthly"
+	},
 	"line" : {
 		"title" : "Line",
 		"date" : "2015-2-26",
