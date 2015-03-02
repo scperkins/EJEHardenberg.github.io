@@ -4,6 +4,11 @@
 		"date" : "2015-3-1",
 		"freq" : "monthly" 
 	},
+	"killing-time" : { 
+		"title" : "Killing Time",
+		"date" : "2015-3-1",
+		"freq" : "monthly"
+	},
 	"blend" : {
 		"title" : "Blend",
 		"date" : "2015-2-26",
