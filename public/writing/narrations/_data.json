@@ -1,4 +1,9 @@
 {
+	"appreciation" : {
+		"title" : "Appreciation",
+		"date" : "2015-3-2",
+		"freq" : "monthly"
+	},
 	"busstation"  : {
 		"title" : "Bus Station",
 		"date" : "2015-3-1",
