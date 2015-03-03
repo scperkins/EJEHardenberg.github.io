@@ -22,6 +22,12 @@
 		"staticcssurl" : "css.ethanjoachimeldridge.info",
 		"projects" : [
 			{
+				"title" : "Lost & Found",
+				"period" : "Winter 2015",
+				"description" : "A PHP application to allow for conventions to have their own lost and found kiosk",
+				"references" : "you can read more about it <a href=\"/tech-blog/lost-found\">here</a>"
+			},
+			{
 				"title" : "Shared Voice",
 				"period" : "Fall 2014",
 				"description" : "A twitter app similar to ThunderClap.it but a more homebrew approach",
