@@ -1,4 +1,10 @@
 {
+	"patience" : {
+		"title" : "Patience",
+		"date" : "2015-3-4",
+		"poemDescription" : "Just smiling about an impatient friend",
+		"freq" : "monthly"
+	},
 	"lion-turned-mouse" : {
 		"title" : "Lion turned Mouse",
 		"date" : "2015-3-3",
