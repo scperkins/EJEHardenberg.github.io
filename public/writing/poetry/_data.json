@@ -1,4 +1,10 @@
 {
+	"letters" : {
+		"title" : "Flight of Fancy",
+		"date" : "2015-3-7",
+		"poemDescription" : "Just thinking about letters, writings, and imagination",
+		"freq" : "monthly"
+	},
 	"patience" : {
 		"title" : "Patience",
 		"date" : "2015-3-4",
