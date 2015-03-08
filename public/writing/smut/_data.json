@@ -1,4 +1,9 @@
 {
+	"wait" : {
+		"title" : "Wait",
+		"date" :"2015-3-8",
+		"freq" : "yearly"
+	},
 	"touch" : {
 		"title" : "Touch",
 		"date" : "2014-10-24",
