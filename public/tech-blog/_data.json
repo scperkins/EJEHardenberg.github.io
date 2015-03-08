@@ -469,5 +469,11 @@
     "description" : "Ever wonder how to make your services restart when your server does? This is how!",
     "date" : "2015-3-6",
     "keywords" : "init,scripts,service,restart,tutorial,rc.d,init.d"
+  },
+  "green-up-2015" : {
+    "title" : "Preparing for Green Up",
+    "description" : "The configuration and setup of the API servers for this years green up vermont.",
+    "date" : "2015-3-7",
+    "keywords" : "ufw,varnish,api,green up vermont,green up vt,green,up,servers,system administration,sysadmin"
   }
 }
