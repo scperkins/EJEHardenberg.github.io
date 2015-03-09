@@ -1,4 +1,9 @@
 {
+	"discipline" : {
+		"title" : "Discipline",
+		"date" : "2015-3-9",
+		"freq" : "monthly"
+	},
 	"office" : {
 		"title" : "Office",
 		"date" : "2015-3-5",
