@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Sat, 07 Mar 2015 05:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Mon, 09 Mar 2015 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Approaching Optimizations</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/approaching-optimizations</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/approaching-optimizations</guid>
+			<pubDate>Mon, 09 Mar 2015 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[My friend requested I write about how I approached an optimization problem, so here it is!]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Preparing for Green Up</title>
