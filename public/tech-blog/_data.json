@@ -475,5 +475,11 @@
     "description" : "The configuration and setup of the API servers for this years green up vermont.",
     "date" : "2015-3-7",
     "keywords" : "ufw,varnish,api,green up vermont,green up vt,green,up,servers,system administration,sysadmin"
+  },
+  "approaching-optimizations" : {
+    "title" : "Approaching Optimizations",
+    "description" : "My friend requested I write about how I approached an optimization problem, so here it is!",
+    "date" : "2015-3-9",
+    "keywords" : "angry children,hacker rank,optimization,python,len,slice,performance"
   }
 }
