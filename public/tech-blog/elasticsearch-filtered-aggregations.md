@@ -128,8 +128,8 @@ So parsing this out with javascript is pretty easily done
 	for( agg in a.aggregations ) { 
 		var aggObject = a.aggregations[agg]; 
 		for( idx in aggObject.buckets ) {
-			var key = aggObject.buckets[idx].key
-			// do something with the key, perhaps
+			var term = aggObject.buckets[idx].key
+			// do something with the term, perhaps
 			// add it to a list keyed by the agg index (the _available key)
 		}
 	}
