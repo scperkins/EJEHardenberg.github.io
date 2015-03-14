@@ -481,5 +481,11 @@
     "description" : "My friend requested I write about how I approached an optimization problem, so here it is!",
     "date" : "2015-3-9",
     "keywords" : "angry children,hacker rank,optimization,python,len,slice,performance"
+  },
+  "elasticsearch-filtered-aggregations" : {
+	"title" : "Elastic Search filtered Aggregations",
+	"description" : "A small example of how to narrow down specificity within elastic search for search tools",
+	"date" : "2015-3-14",
+	"keywords" : "elasticsearch,aggregates,aggs,search,tool,elastic"
   }
 }
