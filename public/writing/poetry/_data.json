@@ -1,4 +1,10 @@
 {
+	"arms" : {
+		"title" : "Arms",
+		"date" : "2015-3-15",
+		"poemDescription" : "Rewatched the Madoka Movie again, noticed the cuts on the arms of madoka during one scene", 
+		"freq" : "monthly"
+	},
 	"ages" : {
 		"title" : "Ages",
 		"date" : "2015-3-11",
