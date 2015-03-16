@@ -1,4 +1,9 @@
 {
+	"stretch" : {
+		"title" : "Stretch",
+		"date" : "2015-3-16",
+		"freq" : "monthly"
+	},
 	"discipline" : {
 		"title" : "Discipline",
 		"date" : "2015-3-9",
