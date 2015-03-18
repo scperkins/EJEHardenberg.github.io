@@ -1,0 +1,334 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Ethan's Tech Blog | Watermarking Images with Scala (play)</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Delegating your assets through a Watermarking controller can easily allow one to copyright their images" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="watermark,scala,play,assets,watermarking,images"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=1040">
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Watermarking Images with Scala (play)" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Delegating your assets through a Watermarking controller can easily allow one to copyright their images" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Watermarking Images with Scala (play)" />
+    
+    <meta name="twitter:description" content="Delegating your assets through a Watermarking controller can easily allow one to copyright their images" />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Watermarking Images with Scala (play)</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Watermarking images in Scala with Play</h3>
+<p>Every now and again one finds themselves in the need to watermark image. This 
+can be for any number of reasons. Whether you&#39;re tired of not getting cited 
+by people using your content, or the boss has told you that all the images 
+need to be watermarked. Doing this is pretty easy. In fact, if you&#39;re familiar 
+with <a href="http://www.imagemagick.org">ImageMagick</a> you know that they list examples of how to watermark images 
+<a href="http://www.imagemagick.org/Usage/annotating/#wmark_text">directly on their website</a>. </p>
+<p>In Scala we can use the <a href="http://www.scala-lang.org/api/2.9.2/scala/sys/process/package.html">sys package</a> to call to a shell, and this works well 
+if you simply want to iterate over a directly and watermark each. Perhaps 
+placing the watermarked image into a watermarks folder. Once you&#39;ve done this 
+you could use <a href="http://apache.org">apache</a> to check for a file in the watermarks folder, and if it 
+doesn&#39;t exist generate it using a script or something similar. </p>
+<p>But if you&#39;re using <a href="http://www.playframework.com">Play</a>, you&#39;re probably not using apache, and instead are 
+using the assets controller <a href="https://www.playframework.com/documentation/2.0/Assets">as shown in the documentation</a>. If we wanted to 
+<em>not</em> use ImageMagick, and instead handle the watermarking on the fly from our 
+application we can use the standard Java librarys that deal with images to do 
+so. </p>
+<p>First off, we need to know how to grab the assets themselves. Looking around I 
+found <a href="http://www.jamesward.com/2014/04/29/optimizing-static-asset-loading-with-play-framework">this blog post about CDN assets</a> and adapted it into a simple controller 
+method to pull the asset up:</p>
+<p><em>conf/routes</em> </p>
+<pre><code>GET /watermarked/*file controllers.Watermark.show(path=&quot;/public&quot;, file)</code></pre>
+<p><em>app/controllers/Watermark.scala</em></p>
+<pre><code>package controllers 
+
+import play.api._
+import play.api.mvc._
+
+import java.io.File
+import java.nio.file.{Files, Paths, Path}
+
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import javax.imageio.ImageIO;
+
+import java.awt._
+import java.awt.image._
+import javax.imageio.ImageIO
+import javax.swing.ImageIcon
+import play.api.libs.iteratee._
+import scala.concurrent.ExecutionContext.Implicits.global
+
+object Watermark extends Controller {
+    private def fullPath(asset : String, trueAssetPath : String = &quot;public&quot;, aliasedAssetPath : String = &quot;/assets&quot;) : Path = {
+        Paths.get(asset            
+        .replace(aliasedAssetPath, trueAssetPath) /* replace alias from routes with public dir (relative) */
+        )
+    }
+
+    def show(assetAliasPath: String, file: String) = Action { implicit request =&gt;
+        val asset = routes.Assets.at(file).url
+
+        val fileBytes = Files.readAllBytes(fullPath(asset))
+        /* In a production system you&#39;d want to check mime types and such! */
+        val byteStream : java.io.InputStream = new ByteArrayInputStream(fileBytes)
+        val bImageFromConvert :  BufferedImage = ImageIO.read(byteStream);
+        byteStream.close
+        val photo : ImageIcon = new ImageIcon(fileBytes)
+
+        /* Bother Java to do the work for us */
+        val waterMarkedImageBytes = Watermarker.watermark(bImageFromConvert, photo)
+
+        if (waterMarkedImageBytes.length == 0) {
+            BadRequest(&quot;Could not watermark image&quot;)
+        } else {
+            /* If you don&#39;t do the heads you&#39;ll just download the image in the
+             * browser as it will be of type application/octet-stream or something
+             * similar.
+             */
+            Ok(waterMarkedImageBytes).withHeaders(&quot;Content-Type&quot;-&gt;&quot;image/jpeg&quot;)
+        }
+    }
+}</code></pre>
+<p>We&#39;ll get to the Watermarker class in a second, but first a coulple things to 
+point out if you plan on using this code for anything. </p>
+<ol>
+<li>In a real system you&#39;ll want to check the <a href="https://www.playframework.com/documentation/2.3.x/api/scala/index.html#play.api.libs.MimeTypes$">MimeType</a> of the file you&#39;re 
+reading. </li>
+<li>The content type header needs to be set on your sent image, otherwise if you 
+the file in the browser it will download it automatically. Linking via img 
+tags will show it fine though. Still, set the content type correctly.</li>
+<li>The fullPath function does a simply replacement in order to find the path to 
+the file <em>relative</em> to the application root.</li>
+</ol>
+<p>Next up, the actual watermarking code. This I found from this <a href="http://www.codebeach.com/2008/02/watermarking-images-in-java-servlet.html">codebeach 
+tutorial</a> and adapted into a simple helper class. Since <a href="http://scala-sbt.org">SBT</a> handles both java 
+and scala code within the same application, we can use the following helper 
+class to drive our watermarking:</p>
+<pre><code>package controllers; //put in this package for convenience, move in real app
+
+import java.io.*;
+import java.awt.*;
+import java.awt.image.*;
+import javax.imageio.*;
+import javax.swing.ImageIcon;
+import java.awt.geom.Rectangle2D;
+import java.io.ByteArrayOutputStream;
+import javax.imageio.ImageIO;
+
+public class Watermarker {
+    public static byte[] watermark(BufferedImage bufferedImage, ImageIcon photo) {
+        try {
+
+            Graphics2D g2d = (Graphics2D) bufferedImage.getGraphics();
+
+            g2d.drawImage(photo.getImage(), 0, 0, null);
+
+            //Create an alpha composite of 50%
+            AlphaComposite alpha = AlphaComposite.getInstance(AlphaComposite.SRC_OVER,                                                               0.5f);
+            g2d.setComposite(alpha);
+
+            g2d.setColor(Color.white);
+            g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
+                                 RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+
+            g2d.setFont(new Font(&quot;Arial&quot;, Font.BOLD, 30));
+
+            String watermark = &quot;EthanJoachimEldridge.info&quot;;
+
+            FontMetrics fontMetrics = g2d.getFontMetrics();
+            Rectangle2D rect = fontMetrics.getStringBounds(watermark, g2d);
+
+            g2d.drawString(watermark,
+                            (photo.getIconWidth() - (int) rect.getWidth()) / 2,
+                            (photo.getIconHeight() - (int) rect.getHeight()) / 2);
+
+            //Free graphic resources
+            g2d.dispose();
+
+            /* Convert your image into a byte array */
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            /* We assume we&#39;re only working with jpg&#39;s, change if otherwise and handle accordingly */
+            ImageIO.write( bufferedImage, &quot;jpg&quot;, baos );
+            baos.flush();
+            byte[] imageInByte = baos.toByteArray();
+            baos.close();
+
+            /* Return byte array since we can just write that straight out to the response */
+            return imageInByte;
+        } catch (java.io.IOException e) {
+            return new byte[0];
+        }
+    }
+}</code></pre>
+<p>This is pretty much verbatim what&#39;s available from codebeach besides changing 
+the watermark string and returning a byte array. Make sure to close any of the 
+streams you open when doing graphics code! Not doing so can cause leaks or the 
+request to hang. Neither of these things are things you want in an application. </p>
+<p>To test this code out, make a Play application and throw these classes into the 
+application in the controllers folder. Once the route is set up and you have an 
+image in the public folder, navigate to <em>localhost:9000/watermarked/filename</em> 
+and you should see the image appear with a transparent watermark of whatever 
+text you placed into the <em>watermark</em> string. </p>
+<p>When I first started in on making this project I looked into <a href="https://www.playframework.com/documentation/2.2.x/ScalaHttpFilters">filters</a>, and 
+used the Content-Type of the result to check if a watermark should be applied 
+or not. That part worked fine, however creating a new body to the Result object 
+proved a bit too much of a challenge for my current scala abilities. So I gave 
+up on that for now. Perhaps I&#39;ll look into again later, once I fully understand 
+how to manipulate <a href="http://mandubian.com/2012/08/27/understanding-play2-iteratees-for-normal-humans/">Iteratees</a>, as being able to have a filter watermark all 
+image assets without needing a new url would be a better solution then not 
+using the Assets controller at all.</p>
+
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=elasticsearch-filtered-aggregations>Elastic Search filtered Aggregations</a></li><li><a href=approaching-optimizations>Approaching Optimizations</a></li><li><a href=green-up-2015>Preparing for Green Up</a></li><li><a href=write-your-own-init-scripts>Write your own service init scripts</a></li><li><a href=mcabber-gmail-and-gpg>Encrypting your chat with mcabber</a></li><li><a href=scala-first-look>A brief look into Scala</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					-->Home
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					-->About me
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					-->Projects
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					-->Resume
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					-->Tech Blog
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					-->Cooking
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					-->Writing
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					-->Contact
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				-->Opinion
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				-->Github
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				-->@TheR3dLily
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				-->LinkIn
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
+</html>
+  	
