@@ -487,5 +487,11 @@
 	"description" : "A small example of how to narrow down specificity within elastic search for search tools",
 	"date" : "2015-3-14",
 	"keywords" : "elasticsearch,aggregates,aggs,search,tool,elastic"
+  },
+  "watermarking-images-with-scala-play" : {
+    "title" : "Watermarking Images with Scala (play)",
+    "description" : "Delegating your assets through a Watermarking controller can easily allow one to copyright their images",
+    "date" : "2015-3-18",
+    "keywords" : "watermark,scala,play,assets,watermarking,images"
   }
 }
