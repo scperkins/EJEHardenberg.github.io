@@ -1,4 +1,10 @@
 {
+	"waveform" : {
+		"title" : "Waveform",
+		"date" : "2015-3-19",
+		"poemDescription" : "Politics, like waveforms, collapse",
+		"freq" : "monthly"
+	},
 	"arms" : {
 		"title" : "Arms",
 		"date" : "2015-3-15",
