@@ -1,4 +1,9 @@
 {
+	"steady" : {
+		"title" : "Steady",
+		"date" : "2015-3-22",
+		"freq" : "monthly"
+	},
 	"friends" : {
 		"title" : "Friends",
 		"date" : "2015-3-18",
