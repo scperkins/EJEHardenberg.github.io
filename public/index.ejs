@@ -105,7 +105,15 @@ me politically, checkout <a href="/writing/political">the opinion section</a>
 					break
 				}
 				if( idx != 'index'){
-					%><li>
+					%><li <% if(shown > 15){
+						%>class="non-essential-1260"<%
+					} else if(shown > 12){ 
+						%>class="non-essential-1080"<%
+					} else if(shown > 9){
+						%>class="non-essential-920"<%
+					} else if(shown > 6){
+						%>class="non-essential-760"<%
+					}%>>
 						<a href="/writing/poetry/<%= idx %>"><%= post.title %></a>
 					</li><%
 					shown++
