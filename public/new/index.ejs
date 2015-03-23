@@ -1,6 +1,6 @@
 <%- partial('../_shared/macros') %>
 <section class="non-essential-small">
-	
+	<h1>A little introduction</h1>
 	<p>
 		You've found <a href="http://www.ethanjoachimeldridge.info">www.ethanjoachimeldridge.info</a>, 
 		the homepage of Programmer Ethan Joachim Eldridge. I'm a developer who loves making 
@@ -19,7 +19,7 @@
 
 
 	<div name="cooking">
-		<h4>Learn to Cook</h4>
+		<h3>Recipes to share and enjoy</h3>
 		<ul><% 
 			//Global toShow for this section.
 			var toShow = 2
@@ -46,7 +46,7 @@
 	</div>
 
 	<div name="posts">
-		<h4>Read my latest blog posts</h4>
+		<h3>Latest Tech Blog Posts</h3>
 		<ul>
 			<%
 			var shown = 0
@@ -72,7 +72,7 @@
 	</div>
 
 	<div name="writing">
-		<h4>Narratives and Poetry</h4>
+		<h3>Narratives and Poetry</h3>
 		<ul>
 			<%
 			var shown = 0
@@ -98,7 +98,15 @@
 					break
 				}
 				if( idx != 'index'){
-					%><li>
+					%><li <% if(shown > 15){
+						%>class="non-essential-960"<%
+					} else if(shown > 12){ 
+						%>class="non-essential-775"<%
+					} else if(shown > 9){
+						%>class="non-essential-660"<%
+					} else if(shown > 6){
+						%>class="non-essential-560"<%
+					}%>>
 						<a href="/writing/poetry/<%= idx %>"><%= post.title %></a>
 					</li><%
 					shown++
