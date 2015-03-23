@@ -1,0 +1,114 @@
+<%- partial('../_shared/macros') %>
+<section class="non-essential-small">
+	
+	<p>
+		You've found <a href="http://www.ethanjoachimeldridge.info">www.ethanjoachimeldridge.info</a>, 
+		the homepage of Programmer Ethan Joachim Eldridge. I'm a developer who loves making 
+		efficient back end systems. It goes without saying, but the stuff on this webpage 
+		is unrelated to my work and is my own thoughts and opinions.
+	</p>
+	<p>
+		If you're looking for a place to find <a href="/cooking">recipes</a> or
+		interesting and sometimes useful <a href="/tech-blog">blog posts</a> you've
+		come to the right place. And if you're interested in thoughts, musings
+		and general randomness, feel free to checkout the <a href="/writing">writing
+		section</a> If you're interested in things that engage me politically, 
+		checkout <a href="/writing/political">the opinion section</a>.
+	</p>
+	
+
+
+	<div name="cooking">
+		<h4>Learn to Cook</h4>
+		<ul><% 
+			//Global toShow for this section.
+			var toShow = 2
+			var shown = 0
+			var recipes = []
+			for(idx in public.cooking._data){
+				public.cooking._data[idx].slug = idx
+				recipes.push(public.cooking._data[idx])
+			}
+			recipes = recipes.reverse()
+
+			for(var idx = recipes.length -1;  idx >= 0; idx--){
+				if(shown > toShow){
+					break
+				}
+				if( recipes[idx].slug != 'index' ){
+					%><li>
+						<a href="/cooking/<%= recipes[idx].slug %>"><%= recipes[idx].title %></a>
+					</li><%
+					shown++
+				}
+			}
+		%></ul>
+	</div>
+
+	<div name="posts">
+		<h4>Read my latest blog posts</h4>
+		<ul>
+			<%
+			var shown = 0
+			var posts = []
+			for(idx in public['tech-blog']._data){
+				public['tech-blog']._data[idx].slug = idx
+				posts.push(public['tech-blog']._data[idx])
+			}
+
+			for(var idx = posts.length -1;  idx >= 0; idx--){
+				if(shown > toShow){
+					break
+				}
+				if( posts[idx].slug != 'index' && !posts[idx].draft ){
+					%><li>
+						<a href="/tech-blog/<%= posts[idx].slug %>"><%= posts[idx].title %></a>
+					</li><%
+					shown++
+				}
+			}
+			%>
+		</ul>
+	</div>
+
+	<div name="writing">
+		<h4>Narratives and Poetry</h4>
+		<ul>
+			<%
+			var shown = 0
+			for(idx in public.writing.narrations._data){
+				var post = public.writing.narrations._data[idx]
+				if(shown > toShow/2){
+					break
+				}
+				if( idx != 'index'){
+					%><li>
+						<a href="/writing/narrations/<%= idx %>"><%= post.title %></a>
+					</li><%
+					shown++
+				}
+				
+			}
+
+			shown = 0
+			toShow = 36
+			for(idx in public.writing.poetry._data){
+				var post = public.writing.poetry._data[idx]
+				if(shown > toShow/2){
+					break
+				}
+				if( idx != 'index'){
+					%><li>
+						<a href="/writing/poetry/<%= idx %>"><%= post.title %></a>
+					</li><%
+					shown++
+					if(shown % 3 == 1){
+						%></ul><ul><%
+					}
+				}
+			}	
+			%>
+		</ul>
+	</div>
+
+</section>
