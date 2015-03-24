@@ -1,4 +1,9 @@
 {
+	"false-confidence" : {
+		"title" : "False Confidence",
+		"date" : "2015-4-23",
+		"freq" : "monthly"
+	},
 	"waveform" : {
 		"title" : "Waveform",
 		"date" : "2015-3-19",
