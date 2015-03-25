@@ -4,6 +4,14 @@
 		"description" : "A small bundle of recipes of things I eat for dinner that are easy to make.",
 		"freq" : "daily"
 	},
+	"simple-salad" : {
+		"title" : "Simple Salad",
+		"image" : "apple-salad.jpg",
+		"description" : "A simple to make and tasty salad",
+		"author" : "ethan",
+		"date" : "2015-3-25",
+		"freq" : "monthly"
+	},
 	"potato-carrot-soup" : {
 		"title" : "Potato Carrot Soup",
 		"image" : "potato-carrot-soup.jpg",
