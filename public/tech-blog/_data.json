@@ -493,5 +493,12 @@
     "description" : "Delegating your assets through a Watermarking controller can easily allow one to copyright their images",
     "date" : "2015-3-18",
     "keywords" : "watermark,scala,play,assets,watermarking,images"
+  },
+  "thousands-separator-drupal-7-settings" : {
+	"title" : "Setting Thousands Separator in Drupal 7",
+	"description" : "How to set the thousands operator in Drupal 7 for fields retrieved through field_view_value",
+	"date" : "2015-3-25",
+	"keywords" : "drupal,fields,thousands separator,field_view_value,field_get_items,drupal 7,spaces,markup"
   }
+
 }
