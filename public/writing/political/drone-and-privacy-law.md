@@ -28,7 +28,7 @@ unlikely to pass are as follows:
 
 In my mind there's a much larger reason why the bill has such a low chance 
 to pass. The government enjoys having an unprecedented amount of ability 
-in surveillance tactics and don't want to give it up. After all, this type 
+in surveillance tactics and doesn't want to give it up. After all, this type 
 of thing can be used [for good]. However, they're not always [effective]
 
 <blockquote>
