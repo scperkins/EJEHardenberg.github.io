@@ -1,4 +1,11 @@
 {
+	"drone-and-privacy-law" : {
+		"title" : "The Proposed Drone Privacy Law",
+		"description" : "An overview of some of the highlights of the drone law for the average citizen",
+		"date" : "2015-3-26",
+		"freq" : "monthly",
+		"draft" : false
+	},
 	"ecotopia" : { 
 		"title" : "Ecotopia Book Review",
 		"description" : "Thoughts on the book Ecotopia, a utopian novel that looks towards a broken but peaceful future",
