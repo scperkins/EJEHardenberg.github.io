@@ -1,7 +1,12 @@
 {
+	"ceramic" : {
+		"title" : "Ceramic",
+		"date" : "2015-3-28",
+		"freq" : "monthly"
+	},
 	"false-confidence" : {
 		"title" : "False Confidence",
-		"date" : "2015-4-23",
+		"date" : "2015-3-23",
 		"freq" : "monthly"
 	},
 	"waveform" : {
