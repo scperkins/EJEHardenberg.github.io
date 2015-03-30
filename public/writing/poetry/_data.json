@@ -1,4 +1,9 @@
 {
+	"scales" : {
+		"title" : "Scales",
+		"date" : "2015-3-30",
+		"freq" : "monthly"
+	},
 	"ceramic" : {
 		"title" : "Ceramic",
 		"date" : "2015-3-28",
