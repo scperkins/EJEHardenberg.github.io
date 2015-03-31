@@ -1,4 +1,9 @@
 {
+	"delicate" : {
+		"title" : "Delicate",
+		"date" : "2015-3-30",
+		"freq" : "monthly"
+	},
 	"scales" : {
 		"title" : "Scales",
 		"date" : "2015-3-30",
