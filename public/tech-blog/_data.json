@@ -499,6 +499,12 @@
 	"description" : "How to set the thousands operator in Drupal 7 for fields retrieved through field_view_value",
 	"date" : "2015-3-25",
 	"keywords" : "drupal,fields,thousands separator,field_view_value,field_get_items,drupal 7,spaces,markup"
+  },
+  "xml-playframework-templates" : {
+    "title" : "PlayFramework XML Templates and Scala",
+    "description" : "XML Templates are easy to make in Play/Scala, and this is a simple tutorial on how to show that",
+    "date" : "2015-3-31",
+    "keywords" : "Scala,XML,PlayFramework,Templates,Validation"
   }
 
 }
