@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Wed, 25 Mar 2015 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Tue, 31 Mar 2015 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>PlayFramework XML Templates and Scala</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/xml-playframework-templates</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/xml-playframework-templates</guid>
+			<pubDate>Tue, 31 Mar 2015 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[XML Templates are easy to make in Play/Scala, and this is a simple tutorial on how to show that]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Setting Thousands Separator in Drupal 7</title>
