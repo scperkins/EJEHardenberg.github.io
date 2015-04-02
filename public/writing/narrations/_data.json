@@ -1,4 +1,9 @@
 {
+	"faulty-fairness" : {
+		"title": "Faulty Fairness",
+		"date" : "2015-4-1",
+		"freq" : "monthly"
+	},
 	"shell" : {
 		"title" : "Shell",
 		"date" : "2015-3-29",
