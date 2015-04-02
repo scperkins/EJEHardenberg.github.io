@@ -1,4 +1,9 @@
 {
+	"beat" : {
+		"title" : "Beat",
+		"date" : "2015-4-2",
+		"freq" : "monthly"
+	},
 	"delicate" : {
 		"title" : "Delicate",
 		"date" : "2015-3-30",
