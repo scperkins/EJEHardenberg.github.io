@@ -1,4 +1,9 @@
 {
+	"soil" : {
+		"title" : "Soil",
+		"date" : "2015-4-3",
+		"freq" : "monthly"
+	},
 	"faulty-fairness" : {
 		"title": "Faulty Fairness",
 		"date" : "2015-4-1",
