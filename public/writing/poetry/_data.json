@@ -1,4 +1,9 @@
 {
+	"saviors" : {
+		"title" : "Saviors",
+		"date" : "2015-4-4",
+		"freq" : "monthly"
+	},
 	"beat" : {
 		"title" : "Beat",
 		"date" : "2015-4-2",
