@@ -1,4 +1,9 @@
 {
+	"blame" : { 
+		"title" : "Blame",
+		"date" : "2015-4-6",
+		"freq" : "monthly" 
+	},
 	"saviors" : {
 		"title" : "Saviors",
 		"date" : "2015-4-4",
