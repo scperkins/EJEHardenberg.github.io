@@ -1,4 +1,9 @@
 {
+	"dust" : {
+		"title" : "Dust",
+		"date" : "2015-4-7",
+		"freq" : "monthly"
+	},
 	"block" : {
 		"title" : "Block",
 		"date" : "2015-4-5",
