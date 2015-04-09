@@ -1,4 +1,11 @@
 {
+	"information-mosaic" : {
+		"title" : "Information Mosaic",
+		"description" : "Why having nothing to hide means you have everything to fear, and a call to the computer science community",
+		"date" : "2015-4-9",
+		"freq" : "monthly",
+		"draft" : false
+	},
 	"drone-and-privacy-law" : {
 		"title" : "The Proposed Drone Privacy Law",
 		"description" : "An overview of some of the highlights of the drone law for the average citizen",
