@@ -1,4 +1,9 @@
 {
+	"shift" : {
+		"title" : "Shift",
+		"date" : "2015-4-10",
+		"freq" : "monthly"
+	},
 	"blame" : { 
 		"title" : "Blame",
 		"date" : "2015-4-6",
