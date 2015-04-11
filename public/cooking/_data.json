@@ -4,6 +4,14 @@
 		"description" : "A small bundle of recipes of things I eat for dinner that are easy to make.",
 		"freq" : "daily"
 	},
+	"pork-tenderloin" : {
+		"title" : "Pork Tenderloin Dinner",
+		"image" : "pork-tenderloin.jpg",
+		"description" : "A simple to make meal that tastes delicious!",
+		"author" : "ethan",
+		"freq" : "monthly",
+		"date" : "2015-4-10"
+	},
 	"simple-salad" : {
 		"title" : "Simple Salad",
 		"image" : "apple-salad.jpg",
