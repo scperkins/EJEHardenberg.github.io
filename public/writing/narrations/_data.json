@@ -1,4 +1,9 @@
 {
+	"widen" : {
+		"title" : "Widen",
+		"date" : "2015-4-11",
+		"freq" : "monthly"
+	},
 	"dust" : {
 		"title" : "Dust",
 		"date" : "2015-4-7",
