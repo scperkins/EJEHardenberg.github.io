@@ -1,4 +1,9 @@
 {
+	"private" : {
+		"title" : "Private",
+		"date" : "2015-4-12",
+		"freq" : "monthly"
+	},
 	"shift" : {
 		"title" : "Shift",
 		"date" : "2015-4-10",
