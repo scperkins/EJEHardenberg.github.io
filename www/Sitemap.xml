@@ -12,17 +12,17 @@
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/</loc>
 	<changefreq>daily</changefreq>
-	<lastmod>2015-04-11T23:09:25.747Z</lastmod>
+	<lastmod>2015-04-12T16:52:30.642Z</lastmod>
 </url>
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/projects</loc>
 	<changefreq>weekly</changefreq>
-	<lastmod>2015-04-11T23:09:25.747Z</lastmod>
+	<lastmod>2015-04-12T16:52:30.642Z</lastmod>
 </url>
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/resume</loc>
 	<changefreq>yearly</changefreq>
-	<lastmod>2015-04-11T23:09:25.747Z</lastmod>
+	<lastmod>2015-04-12T16:52:30.642Z</lastmod>
 </url>
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/cooking/7-up-chicken-marinade</loc>
@@ -117,7 +117,7 @@
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/cooking/</loc>
 	<changefreq>daily</changefreq>
-	<lastmod>2015-04-11T23:09:25.748Z</lastmod>
+	<lastmod>2015-04-12T16:52:30.643Z</lastmod>
 </url>
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/cooking/kiwi-apple-pie</loc>
@@ -217,22 +217,22 @@
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/css/</loc>
 	<changefreq>daily</changefreq>
-	<lastmod>2015-04-11T23:09:25.749Z</lastmod>
+	<lastmod>2015-04-12T16:52:30.644Z</lastmod>
 </url>
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/images/</loc>
 	<changefreq>daily</changefreq>
-	<lastmod>2015-04-11T23:09:25.749Z</lastmod>
+	<lastmod>2015-04-12T16:52:30.644Z</lastmod>
 </url>
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/javascript/</loc>
 	<changefreq>daily</changefreq>
-	<lastmod>2015-04-11T23:09:25.749Z</lastmod>
+	<lastmod>2015-04-12T16:52:30.644Z</lastmod>
 </url>
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/new/</loc>
 	<changefreq>daily</changefreq>
-	<lastmod>2015-04-11T23:09:25.749Z</lastmod>
+	<lastmod>2015-04-12T16:52:30.644Z</lastmod>
 </url>
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/tech-blog/adding-actions-to-user-lists</loc>
@@ -412,7 +412,7 @@
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/tech-blog/</loc>
 	<changefreq>daily</changefreq>
-	<lastmod>2015-04-11T23:09:25.750Z</lastmod>
+	<lastmod>2015-04-12T16:52:30.645Z</lastmod>
 </url>
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/tech-blog/installing-gentoo-virtualbox</loc>
@@ -622,7 +622,7 @@
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/writing/</loc>
 	<changefreq>daily</changefreq>
-	<lastmod>2015-04-11T23:09:25.751Z</lastmod>
+	<lastmod>2015-04-12T16:52:30.646Z</lastmod>
 </url>
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/writing/narrations/5oclock</loc>
@@ -787,7 +787,7 @@
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/writing/narrations/</loc>
 	<changefreq>daily</changefreq>
-	<lastmod>2015-04-11T23:09:25.753Z</lastmod>
+	<lastmod>2015-04-12T16:52:30.648Z</lastmod>
 </url>
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/writing/narrations/killing-time</loc>
@@ -1232,7 +1232,7 @@
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/writing/poetry/</loc>
 	<changefreq>daily</changefreq>
-	<lastmod>2015-04-11T23:09:25.756Z</lastmod>
+	<lastmod>2015-04-12T16:52:30.651Z</lastmod>
 </url>
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/writing/poetry/introspection</loc>
@@ -1353,6 +1353,11 @@
 	<loc>http://wwww.ethanjoachimeldridge.info/writing/poetry/point</loc>
 	<changefreq>monthly</changefreq>
 	<lastmod>2014-06-17T00:00:00.000Z</lastmod>
+</url>
+<url>
+	<loc>http://wwww.ethanjoachimeldridge.info/writing/poetry/private</loc>
+	<changefreq>monthly</changefreq>
+	<lastmod>2015-04-12T04:00:00.000Z</lastmod>
 </url>
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/writing/poetry/prost</loc>
@@ -1597,7 +1602,7 @@
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/writing/political/disclaimer</loc>
 	<changefreq>monthly</changefreq>
-	<lastmod>2015-04-11T23:09:25.757Z</lastmod>
+	<lastmod>2015-04-12T16:52:30.652Z</lastmod>
 </url>
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/writing/political/drone-and-privacy-law</loc>
@@ -1627,7 +1632,7 @@
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/writing/political/</loc>
 	<changefreq>daily</changefreq>
-	<lastmod>2015-04-11T23:09:25.757Z</lastmod>
+	<lastmod>2015-04-12T16:52:30.652Z</lastmod>
 </url>
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/writing/political/information-mosaic</loc>
@@ -1682,7 +1687,7 @@
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/writing/smut/</loc>
 	<changefreq>daily</changefreq>
-	<lastmod>2015-04-11T23:09:25.758Z</lastmod>
+	<lastmod>2015-04-12T16:52:30.653Z</lastmod>
 </url>
 <url>
 	<loc>http://wwww.ethanjoachimeldridge.info/writing/smut/shower</loc>
