@@ -4,6 +4,14 @@
 		"description" : "A small bundle of recipes of things I eat for dinner that are easy to make.",
 		"freq" : "daily"
 	},
+	"sauteed-zucchini" : {
+		"title" : "Sauteed Cumin Zucchini",
+		"image" : "cumin-zucchini.jpg",
+		"description" : "Quick and tasty side dish, it's good for you too!", 
+		"author" : "ethan",
+		"freq" : "monthly",
+		"date" : "2015-4-14"
+	},
 	"pork-tenderloin" : {
 		"title" : "Pork Tenderloin Dinner",
 		"image" : "pork-tenderloin.jpg",
