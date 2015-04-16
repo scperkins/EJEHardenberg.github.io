@@ -1,4 +1,9 @@
 {
+	"terra" : { 
+		"title" : "\"Terra\"",
+		"date" : "2015-4-16",
+		"freq" : "monthly"
+	},
 	"private" : {
 		"title" : "Private",
 		"date" : "2015-4-12",
