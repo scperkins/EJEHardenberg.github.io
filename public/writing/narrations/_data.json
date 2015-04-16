@@ -1,4 +1,9 @@
 {
+	"leg" : {
+		"title" : "Leg",
+		"date" : "2015-4-15",
+		"freq" : "monthly"
+	},
 	"widen" : {
 		"title" : "Widen",
 		"date" : "2015-4-11",
