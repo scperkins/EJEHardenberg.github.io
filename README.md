@@ -28,13 +28,13 @@ good macros you can use in your own. For example:
 
 I also blog about my projects that I do, you can checkout the project page on 
 the website for that. One of the ones that I like is my [chat server tutorial] 
-series. Feel free to check it out!
+series. I've also recently got into [Play!], Feel free to check it out!
 
 [CDN Recipe]:http://www.ethanjoachimeldridge.info/tech-blog/harp-macro-revisit
 [XML Sitemap]:http://www.ethanjoachimeldridge.info/tech-blog/xml-sitemap-for-harpjs
 [Javascript Inclusion]:http://www.ethanjoachimeldridge.info/tech-blog/dynamically-including-js
 [Autoload Resources]:http://www.ethanjoachimeldridge.info/tech-blog/autoload-harp-css-js
-
+[Play!]:http://www.ethanjoachimeldridge.info/tech-blog/xml-playframework-templates
 [chat server tutorial]:http://www.ethanjoachimeldridge.info/tech-blog/cgi-c-harp-1
 
 I even started up a [opinion] section so I could blog about the various things that 
