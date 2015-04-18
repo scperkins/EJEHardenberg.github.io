@@ -1,4 +1,11 @@
 {
+	"fined-for-feeding-the-homeless" : {
+		"title" : "Fined for Feeding the homeless? No.",
+		"description" : "Joan Cheever has been fined for serving food from an unapproved truck, her defense? Religious freedom.",
+		"date" : "2015-4-18",
+		"freq" : "monthly",
+		"draft" : "false"
+	},
 	"information-mosaic" : {
 		"title" : "Information Mosaic",
 		"description" : "Why having nothing to hide means you have everything to fear, and a call to the computer science community",
