@@ -1,4 +1,9 @@
 {
+	"empty-chair" : {
+		"title" : "Empty Chair",
+		"date" : "2015-4-18",
+		"freq" : "monthly"
+	},
 	"leg" : {
 		"title" : "Leg",
 		"date" : "2015-4-15",
