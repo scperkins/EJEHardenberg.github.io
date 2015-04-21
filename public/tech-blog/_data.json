@@ -505,6 +505,11 @@
     "description" : "XML Templates are easy to make in Play/Scala, and this is a simple tutorial on how to show that",
     "date" : "2015-3-31",
     "keywords" : "Scala,XML,PlayFramework,Templates,Validation"
+  },
+  "remove-google-search-history" : {
+	"title" : "How to remove your entire google search history",
+	"description" : "Google released the ability to remove your search history from their servers. This is how to do it",
+	"date" : "2015-04-21",
+	"keywords" : "remove google search history,remove entire google history, privacy, google, history"
   }
-
 }
