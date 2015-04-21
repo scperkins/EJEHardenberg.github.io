@@ -14,7 +14,7 @@ First, go to [history.google.com](history.google.com/history)
 
 Next, select the gear in the right corner
 
-<img src="/images/tech-blog/google/1.jpg"/>
+<img src="/images/tech-blog/google/1.jpg" width="800px"/>
 
 Then select the option to remove items
 
