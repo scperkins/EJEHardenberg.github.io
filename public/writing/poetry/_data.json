@@ -1,4 +1,9 @@
 {
+	"third" : {
+		"title" : "Third",
+		"date" : "2015-4-22",
+		"freq" : "monthly"
+	},
 	"rain" : {
 		"title" : "Rain",
 		"date" : "2015-4-21",
