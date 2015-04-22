@@ -4,11 +4,6 @@
 		"date" : "2015-4-22",
 		"freq" : "monthly"
 	},
-	"rain" : {
-		"title" : "Rain",
-		"date" : "2015-4-21",
-		"freq" : "monthly"
-	},
 	"terra" : { 
 		"title" : "\"Terra\"",
 		"date" : "2015-4-16",
