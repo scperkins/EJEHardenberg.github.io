@@ -511,5 +511,11 @@
 	"description" : "Google released the ability to remove your search history from their servers. This is how to do it",
 	"date" : "2015-04-21",
 	"keywords" : "remove google search history,remove entire google history, privacy, google, history"
+  },
+  "strace-adventure" : {
+	"title" : "An Adventure with strace",
+	"description" : "Troubleshooting an application running in Apache with strace",
+	"date" : "2015-4-24",
+	"keywords" : "strace,drupal,apache,httpd,mysql,private ip address,network"
   }
 }
