@@ -1,0 +1,310 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Ethan's Tech Blog | An Adventure with strace</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Troubleshooting an application running in Apache with strace" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="strace,drupal,apache,httpd,mysql,private ip address,network"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | An Adventure with strace" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Troubleshooting an application running in Apache with strace" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | An Adventure with strace" />
+    
+    <meta name="twitter:description" content="Troubleshooting an application running in Apache with strace" />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>An Adventure with strace</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>An Adventure in <code>strace</code></h3>
+<p>Troubleshooting bugs is not always as simple as reading an error log. 
+Today I ended up running end to end in order to track down a 
+relatively simple bug, which, like all bugs, was obvious and trivial 
+to fix once the logic behind the issue was understood.</p>
+<p>I started off my day thinking I&#39;d deploy some code to a staging 
+environment. Nothing too exciting about that, after all, yesterday I 
+had deployed some code and went home and left a long running process 
+on over night. In the morning I checked that my import had finished 
+and got to work. </p>
+<p>After updating the source code and deploying to the environment I ran 
+into a wall. Specifically a <a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#5xx_Server_Error">504 Error</a>. Confused about the timeout, I 
+<code>ssh</code>-ed to the server and checked the log files. This particular server 
+had an <a href="http://nginx.org/">nginx</a> server that proxied back to an <a href="http://www.apache.org">apache</a> instance. Looking 
+through the logfiles I saw a single error message:</p>
+<pre><code>client closed connection while waiting for request, client: xx.xxx.xxx.xx:8080, server: 0.0.0.0:80</code></pre>
+<p>Mildly confused, I tested the apache server in the background via <code>curl</code> 
+and found it returning the expected 401. Authenticating with the <code>--user</code> 
+flag and everything hung. No timeout (even after 5 minutes), nothing in 
+the log files for apache. Nothing. </p>
+<p>Confused, I started troubleshooting my nginx configuration, fiddling with 
+parts of it to make sure that each server was proxying back to the 
+configured instance or application. Every single virtual host on apache 
+and server configuration in nginx worked <em>except for the one I was testing</em>. </p>
+<p>After using <code>httpd -S</code> to make sure that my default virtual host wasn&#39;t 
+incorrect I quickly wrote a test script.</p>
+<pre><code>&lt;?php echo &quot;Yeah, I&#39;m working...&quot;; ?&gt;</code></pre>
+<p>And on testing it I saw that the server itself was working: </p>
+<pre><code>curl --user user:password localhost:8080/test.php
+#Yeah, I&#39;m working...</code></pre>
+<p>So then the error must be in the application. I bumping up the logging in 
+<code>curl</code> via the <code>--verbose</code> flag to see if there was an infinite redirect 
+going on, but that returned unfruitful. &quot;So the error must be in the 
+application&quot; I thought. Checking the error logs showed nothing, so I
+figured there might be an infinite loop or something of that nature. So
+I dug out the trusty tool <a href="http://sourceforge.net/projects/strace/">strace</a>.</p>
+<p><code>strace</code> allows you to view the system calls of a running application 
+by attaching to it. In order to use it one typically uses <code>ps</code> to or 
+<code>pidof</code> to determine the process id, then specifies this id in the <code>-p</code> 
+flag. When it comes to debugging a daemonized application such as httpd 
+or mysql you&#39;ll also need to use the <code>-f</code> flag to <em>follow</em> any forked 
+processes. </p>
+<p>So if the output of <code>ps aux | grep apache</code> looks like this:</p>
+<pre><code>root      2742  0.0  0.1 420428  9508 ?        Ss   Apr21   0:12 /usr/sbin/apache2 -k start
+www-data 16117  0.0  0.0 420516  7288 ?        S    Apr22   0:00 /usr/sbin/apache2 -k start
+www-data 16118  0.0  0.0 420516  7288 ?        S    Apr22   0:00 /usr/sbin/apache2 -k start
+www-data 16119  0.0  0.0 420484  7052 ?        S    Apr22   0:00 /usr/sbin/apache2 -k start
+www-data 16120  0.0  0.0 420484  7052 ?        S    Apr22   0:00 /usr/sbin/apache2 -k start
+www-data 16121  0.0  0.0 420484  7052 ?        S    Apr22   0:00 /usr/sbin/apache2 -k start</code></pre>
+<p>Then you would want to use <code>strace -f -p 2742</code> to monitor any additional 
+processes created. Or, to be sure, you could make use of the fact that 
+the <code>-p</code> flag can be used multiple times and monitor the already forked 
+processes like so: </p>
+<pre><code>strace -f -p 2742 -p 16117 -p 16118 -p 16119 -p 16120 -p 16121</code></pre>
+<p>And you&#39;ll see an output something like this:</p>
+<pre><code>Process 2742 attached - interrupt to quit
+Process 16117 attached - interrupt to quit
+Process 16118 attached - interrupt to quit
+Process 16119 attached - interrupt to quit
+Process 16120 attached - interrupt to quit
+Process 16121 attached - interrupt to quit
+[pid  2742] select(0, NULL, NULL, NULL, {0, 574545} &lt;unfinished ...&gt;
+[pid 16120] semop(131072, {{0, -1, SEM_UNDO}}, 1 &lt;unfinished ...&gt;
+[pid 16121] semop(131072, {{0, -1, SEM_UNDO}}, 1 &lt;unfinished ...&gt;
+[pid 16119] semop(131072, {{0, -1, SEM_UNDO}}, 1 &lt;unfinished ...&gt;
+[pid 16118] semop(131072, {{0, -1, SEM_UNDO}}, 1 &lt;unfinished ...&gt;
+[pid 16117] epoll_wait(47,  &lt;unfinished ...&gt;
+[pid  2742] &lt;... select resumed&gt; )      = 0 (Timeout)
+[pid  2742] wait4(-1, 0x7fff8200f2ac, WNOHANG|WSTOPPED, NULL) = 0
+[pid  2742] select(0, NULL, NULL, NULL, {1, 0}) = 0 (Timeout)
+[pid  2742] wait4(-1, 0x7fff8200f2ac, WNOHANG|WSTOPPED, NULL) = 0
+[pid  2742] select(0, NULL, NULL, NULL, {1, 0}^C &lt;unfinished ...&gt;
+Process 2742 detached
+Process 16117 detached
+Process 16118 detached
+Process 16119 detached
+Process 16120 detached
+Process 16121 detached</code></pre>
+<p>Of course this doesn&#39;t get more interesting than your regular event 
+polling loop until the server responds to something or is asked to 
+execute code by the application. In my case, the first breadcrumb 
+appeared as an error in resolving an ip address:</p>
+<pre><code>[pid   904] connect(32, {sa_family=AF_INET, sin_port=htons(3306), sin_addr=inet_addr(&quot;192.168.100.194&quot;)}, 16) = -1 EINPROGRESS (Operation now in progress)
+[pid   904] fcntl(32, F_SETFL, O_RDWR)  = 0
+[pid   904] poll([{fd=32, events=POLLIN|POLLPRI}], 1, 60000 &lt;unfinished ...&gt;
+...
+[pid   904] setsockopt(32, SOL_SOCKET, SO_SNDTIMEO, &quot;\2003\341\1\0\0\0\0\0\0\0\0\0\0\0\0&quot;, 16 &lt;unfinished ...&gt;
+...
+[pid   904] &lt;... read resumed&gt; 0x7f2bfe23c8d0, 16384) = -1 ETIMEDOUT (Connection timed out)</code></pre>
+<p>Anyone who&#39;s ever dealt with the <a href="http://beej.us/guide/bgnet/output/html/singlepage/bgnet.html#datagram">c networking apis</a> knows that the 
+<code>inet_addr</code> function is used to convert a human readable ip to a machine 
+readable form, and then this is used by the <code>connect</code> call to actually 
+perform the connection. We&#39;re lucky in this case, as we can very easily 
+see the IP address that is being attempted to resolve. </p>
+<p>Any ip address that looks like <code>192.164.x.x</code> is a <a href="http://compnetworking.about.com/od/workingwithipaddresses/f/privateipaddr.htm">private IP</a>, which 
+means that it&#39;s internal to the subnetwork of the machines. In this 
+case, the ip address couldn&#39;t be resolved. Why? Simple. The ip address 
+belonged to the production environment and not the staging one. </p>
+<p>Of course, I only realized this after I had run off to look at another 
+system first. If you note that call to <code>htons</code> is using the port 3306 it 
+should be clear which application. If you&#39;re not used to web development 
+involving <a href="https://dev.mysql.com/">mysql</a>, then that&#39;s ok, but 3306 is the standard mysql port. </p>
+<p>While <code>strace</code>ing the mysql process I saw a flurry of activity when I 
+ran up the application (A <a href="https://www.drupal.org/project/drupal">Drupal 6</a> Installation) and after the browser 
+continued spinning, I saw an insert statement fly by. Noting that it was a 
+logging query from the <a href="https://api.drupal.org/api/drupal/includes%21bootstrap.inc/function/watchdog/6">watchdog</a> function. I checked out the table in 
+the database: </p>
+<pre><code>SELECT * FROM watchdog ORDER BY timestamp DESC LIMIT 20\G
+
+| 188148200 |   0 | php  | %message in %file on line %line. | a:4:{s:6:&quot;%error&quot;;s:7:&quot;warning&quot;;s:8:&quot;%message&quot;;s:67:&quot;mysql_close(): supplied argument is not a valid MySQL-Link resource&quot;;s:5:&quot;%file&quot;;s:67:&quot;/var/www/sites/all/modules/cdn/cdn.advanced.inc&quot;;s:5:&quot;%line&quot;;i:82;}                                                                                                          |        3 |      | http://staging.example.com/ |         | 127.0.0.1 | 1429902803 |
++-----------+-----+------+---------------------------
+...</code></pre>
+<p>Aha! As <code>strace</code> had indicated, we were failing on connecting to a mysql 
+database somewhere in the code. And according to the watchdog error, it 
+was coming from the <a href="https://www.drupal.org/project/cdn">cdn module</a>. After grepping the code base I found 
+the variables used to specify the configuration of the module and noted 
+that the same mysterious IP address appeared there as well. </p>
+<p>At that point the gears clicked and the realization that the file 
+conveyer processes that migrated any uploaded images from the site 
+admins to the CDN occured. This is a process which doesn&#39;t happen on the 
+staging environment I was troubleshooting, and had slipped in from a 
+database import that I had left running over night.</p>
+<p>So the answer was pretty simple to fix the issue. <strong>Disable the CDN Module</strong>. 
+However, due to... circumstances, <a href="https://www.drupal.org/project/drush">drush</a> wasn&#39;t available to me in the<br>environment I was in. This meant I had to toggle the module the old 
+fashioned way, via SQL.</p>
+<pre><code>update system set status = 1 where name = &#39;cdn&#39;;</code></pre>
+<p>This was enough to get <em>most</em> of the application up and running and I 
+was able to see a header appear, however an error appeared in my logs 
+until I reset some of the values for the cdn in the cache:</p>
+<pre><code>update cache set data = replace(data, &#39;&quot;cdn_status&quot;;s:1:&quot;0&quot;;&#39;,&#39;&quot;cdn_status&quot;;s:1:&quot;1&quot;;&#39;) where data like &#39;%cdn_status%&#39;;
+update variable set value = &#39;s:1:&quot;0&quot;;&#39; where name like &#39;cdn_status&#39;;</code></pre>
+<p>After that the application loaded and I was able to verify, after a 
+few hours of banging my head against server configurations, system 
+logs, and network scanning, that the minute changes I had deployed 
+were working. </p>
+<h4>The take away?</h4>
+<p>When your regular application logs fail, tools like <code>strace</code> or <a href="http://www.sysdig.org/">sysdig</a> 
+can really come in handy.</p>
+
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=remove-google-search-history>How to remove your entire google search history</a></li><li><a href=xml-playframework-templates>PlayFramework XML Templates and Scala</a></li><li><a href=thousands-separator-drupal-7-settings>Setting Thousands Separator in Drupal 7</a></li><li><a href=watermarking-images-with-scala-play>Watermarking Images with Scala (play)</a></li><li><a href=elasticsearch-filtered-aggregations>Elastic Search filtered Aggregations</a></li><li><a href=approaching-optimizations>Approaching Optimizations</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
+</html>
+  	
