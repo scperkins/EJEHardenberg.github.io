@@ -519,7 +519,7 @@
 	"keywords" : "strace,drupal,apache,httpd,mysql,private ip address,network"
   },
   "targeting-java-platforms-with-sbt" : {
-	"title" : "Targetting Java Platforms with SBT",
+	"title" : "Targeting Java Platforms with SBT",
 	"description" : "How to target environments other than your own JVM for SBT. Just in case you're running a legacy environment or environments don't run the same JVMs",
 	"date" : "2015-4-25",
 	"keywords" : "sbt,build,jvm,java,target,scala,Pattern matching in val statements is not supported"
