@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Fri, 24 Apr 2015 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Sat, 25 Apr 2015 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Targeting Java Platforms with SBT</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/targeting-java-platforms-with-sbt</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/targeting-java-platforms-with-sbt</guid>
+			<pubDate>Sat, 25 Apr 2015 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[How to target environments other than your own JVM for SBT. Just in case you're running a legacy environment or environments don't run the same JVMs]]
+			</description>
+		</item>
 		
 		<item>
 			<title>An Adventure with strace</title>
