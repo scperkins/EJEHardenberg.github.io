@@ -64,12 +64,49 @@ the compiler that says:
 
 As of right now, even defining a function in Build.scala doesn't work to
 resolve the error message and allow for something like the above. There
-may be a way to do it, but as of this writing, I'm still waiting for an
+may be a way to do it, but as of this writing, <strike>I'm still waiting for an
 answer to my [StackOverFlow Question]. 
 
 Until the scala community responds, we'll be stuck specifying -D flags
 to sbt in bulk. But even with the slight inconvenience, it's not so bad,
-as we could automate such things with makefiles.
+as we could automate such things with makefiles.</strike>
+
+** Update ** 
+
+As stated by [Gabriele Petronella] in the answer to my [StackOverFlow
+Question] the SBT parser does not support assigning to tuples. But, if
+you use a [case class] then you'll be ok. This needs to be done in the
+Build.scala file like so: 
+
+	import sbt._
+	import Keys._
+	
+	case class EnvData(target: String, source: String, jvm: String)
+
+And then you can update the build.sbt file to use this new class to have
+a more informative and clear process:
+
+	
+	val env = sys.props.getOrElse("ENV", default = "local") 
+	
+	val envData = env match {
+		case "local" => EnvData("1.7","1.7","1.7")
+		case "stage" => EnvData("1.6","1.7","1.6")
+		case "production" => EnvData("1.7","1.7","1.8")
+	}
+	
+	val targetJvm = s"-target:jvm-${envData.jvm}" 
+	
+	scalacOptions := Seq(
+	  "-unchecked",
+	  "-deprecation",
+	  "-feature",
+	  "-encoding", "utf8",
+	  targetJvm
+	)
+	
+	javacOptions ++= Seq("-source", envData.source, "-target", envData.target)
+
 
 
 If you'd like to see an example Play Application using the sbt setup
@@ -80,3 +117,5 @@ described above, check out this [example repository].
 [sys.props.getOrElse]:http://www.scala-lang.org/api/current/index.html#scala.sys.SystemProperties
 [StackOverFlow Question]:https://stackoverflow.com/questions/29864732/is-there-a-way-to-use-pattern-matching-in-build-sbt
 [example repository]:https://github.com/EdgeCaseBerg/sbt-target-example
+[Gabriele Petronella]:https://stackoverflow.com/users/846273/gabriele-petronella
+[case class]:http://www.scala-lang.org/old/node/107
