@@ -107,11 +107,41 @@ the compiler that says: </p>
 <pre><code>[error]  Pattern matching in val statements is not supported</code></pre>
 <p>As of right now, even defining a function in Build.scala doesn&#39;t work to
 resolve the error message and allow for something like the above. There
-may be a way to do it, but as of this writing, I&#39;m still waiting for an
+may be a way to do it, but as of this writing, <strike>I&#39;m still waiting for an
 answer to my <a href="https://stackoverflow.com/questions/29864732/is-there-a-way-to-use-pattern-matching-in-build-sbt">StackOverFlow Question</a>. </p>
 <p>Until the scala community responds, we&#39;ll be stuck specifying -D flags
 to sbt in bulk. But even with the slight inconvenience, it&#39;s not so bad,
-as we could automate such things with makefiles.</p>
+as we could automate such things with makefiles.</strike></p>
+<p><strong> Update </strong> </p>
+<p>As stated by <a href="https://stackoverflow.com/users/846273/gabriele-petronella">Gabriele Petronella</a> in the answer to my <a href="https://stackoverflow.com/questions/29864732/is-there-a-way-to-use-pattern-matching-in-build-sbt">StackOverFlow
+Question</a> the SBT parser does not support assigning to tuples. But, if
+you use a <a href="http://www.scala-lang.org/old/node/107">case class</a> then you&#39;ll be ok. This needs to be done in the
+Build.scala file like so: </p>
+<pre><code>import sbt._
+import Keys._
+
+case class EnvData(target: String, source: String, jvm: String)</code></pre>
+<p>And then you can update the build.sbt file to use this new class to have
+a more informative and clear process:</p>
+<pre><code>val env = sys.props.getOrElse(&quot;ENV&quot;, default = &quot;local&quot;) 
+
+val envData = env match {
+    case &quot;local&quot; =&gt; EnvData(&quot;1.7&quot;,&quot;1.7&quot;,&quot;1.7&quot;)
+    case &quot;stage&quot; =&gt; EnvData(&quot;1.6&quot;,&quot;1.7&quot;,&quot;1.6&quot;)
+    case &quot;production&quot; =&gt; EnvData(&quot;1.7&quot;,&quot;1.7&quot;,&quot;1.8&quot;)
+}
+
+val targetJvm = s&quot;-target:jvm-${envData.jvm}&quot; 
+
+scalacOptions := Seq(
+  &quot;-unchecked&quot;,
+  &quot;-deprecation&quot;,
+  &quot;-feature&quot;,
+  &quot;-encoding&quot;, &quot;utf8&quot;,
+  targetJvm
+)
+
+javacOptions ++= Seq(&quot;-source&quot;, envData.source, &quot;-target&quot;, envData.target)</code></pre>
 <p>If you&#39;d like to see an example Play Application using the sbt setup
 described above, check out this <a href="https://github.com/EdgeCaseBerg/sbt-target-example">example repository</a>.</p>
 
