@@ -1,4 +1,9 @@
 {
+	"wingman" : {
+		"title" : "Wing man",
+		"date" : "2015-4-26",
+		"freq" : "monthly"
+	},
 	"painting" : {
 		"title" : "Painting",
 		"date" : "2015-4-23",
