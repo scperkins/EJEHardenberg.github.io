@@ -523,5 +523,11 @@
 	"description" : "How to target environments other than your own JVM for SBT. Just in case you're running a legacy environment or environments don't run the same JVMs",
 	"date" : "2015-4-25",
 	"keywords" : "sbt,build,jvm,java,target,scala,Pattern matching in val statements is not supported"
+  },
+  "value-raw-not-member-string-scala" : {
+	"title" : "Value Raw is not a member of String, Scala Error",
+	"description" : "Stumbled across an odd compilation and interpolation error today in my travels through scala.",
+	"date" : "2015-4-27",
+	"keywords" : "value raw is not a member of string,scala,xml,compile,error,bug"
   }
 }
