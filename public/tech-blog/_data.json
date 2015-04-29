@@ -529,5 +529,11 @@
 	"description" : "Stumbled across an odd compilation and interpolation error today in my travels through scala.",
 	"date" : "2015-4-27",
 	"keywords" : "value raw is not a member of string,scala,xml,compile,error,bug"
+  },
+  "has-many-relationships-slick" : {
+	"title" : "Handling Has-Many Relationships with Slick",
+	"description" : "An example of how to query Slick for has many relationships and map the results to case classes",
+	"date" : "2015-4-29",
+	"keywords" : "slick,hasmany,has many,relationships,relational,play,scala"
   }
 }
