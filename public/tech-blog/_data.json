@@ -535,5 +535,11 @@
 	"description" : "An example of how to query Slick for has many relationships and map the results to case classes",
 	"date" : "2015-4-29",
 	"keywords" : "slick,hasmany,has many,relationships,relational,play,scala"
+  },
+  "mongodb-install-replica-set-and-backup" : {
+	"title" : "Install and Backup a MongoDB Replica Set",
+	"description" : "How to create a development mongo replica cluster and a simple way of backing up the data.",
+	"date" : "2015-5-2",
+	"keywords" : "mongodb,replica,backup,mongo,nosql,replica set,restore"
   }
 }
