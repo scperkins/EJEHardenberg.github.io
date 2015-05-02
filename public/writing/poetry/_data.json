@@ -1,4 +1,9 @@
 {
+	"strings" : {
+		"title" : "Strings",
+		"date" : "2015-5-1",
+		"freq" : "monthly"
+	},
 	"wingman" : {
 		"title" : "Wing man",
 		"date" : "2015-4-26",
