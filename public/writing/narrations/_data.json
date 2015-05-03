@@ -1,4 +1,9 @@
 {
+	"pancakes" : {
+		"title" : "Pancakes",
+		"date" : "2015-5-3",
+		"freq" : "monthly"
+	},
 	"disgusted" : {
 		"title" : "Disgusted",
 		"date" : "2015-4-28",
