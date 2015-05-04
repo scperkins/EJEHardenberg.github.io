@@ -1,4 +1,9 @@
 {
+	"ginger-sunset" : {
+		"title" : "Ginger Sunset",
+		"date" : "2015-5-4",
+		"freq" : "monthly"
+	},
 	"strings" : {
 		"title" : "Strings",
 		"date" : "2015-5-1",
