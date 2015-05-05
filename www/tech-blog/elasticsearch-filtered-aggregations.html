@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Narrow down options with Elastic Search</h3>
-<p>We&#39;ve often seen web pages that offer an advance search feature. In a good one 
+      <h3>Narrow down options with Elastic Search</h3><p>We&#39;ve often seen web pages that offer an advance search feature. In a good one 
 we&#39;ll see that as we select types of content, other criteria will fade out or 
 fade in as neccesary. For example consider the following: </p>
 <p>Nancy logs on to awesome-articles.com <sup><a href="#footnote-1">*</a></sup> and starts looking 
@@ -115,8 +114,8 @@ elastic search queries go:</p>
       }
     }
   }
-}</code></pre>
-<p>First up, the <code>query</code> section specifies that this query should be restricted to 
+}
+</code></pre><p>First up, the <code>query</code> section specifies that this query should be restricted to 
 items whose <em>wheels</em> and <em>make</em> match 4 and toyota. Additional queries could be 
 used here, such as <a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query.html">match</a> if you wanted to widen the search. But for our car 
 example described, we want to narrow down what&#39;s left for the other categories. </p>
@@ -173,8 +172,8 @@ and we can then use those terms in a type-ahead style lookup or a dropdown. </p>
          ]
       }
    }
-}</code></pre>
-<p>So parsing this out with javascript is pretty easily done</p>
+}
+</code></pre><p>So parsing this out with javascript is pretty easily done</p>
 <pre><code>for( agg in a.aggregations ) { 
     var aggObject = a.aggregations[agg]; 
     for( idx in aggObject.buckets ) {
@@ -182,13 +181,12 @@ and we can then use those terms in a type-ahead style lookup or a dropdown. </p>
         // do something with the term, perhaps
         // add it to a list keyed by the agg index (the _available key)
     }
-}</code></pre>
-<p>If you take these pieces and combine them you can create a powerful and useful 
+}
+</code></pre><p>If you take these pieces and combine them you can create a powerful and useful 
 tool to allow users to look through and find your content. After all, that&#39;s 
 what elastic search is all about! </p>
 <p><small id="footnote-1">* I don&#39;t actually know if this is a website or not, but 
 roll with it for the example</small></p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

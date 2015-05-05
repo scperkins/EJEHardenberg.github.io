@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Added an exifstrip command to Caja</h3>
-<p>I wrote about how to use exiftools to strip image meta data from images
+      <h3>Added an exifstrip command to Caja</h3><p>I wrote about how to use exiftools to strip image meta data from images
 in nautilus <a href="http://www.ethanjoachimeldridge.info/tech-blog/exifstrip-context-nautilus">before</a>. But not everyone use&#39;s nautilus. If you happen to
 be using <a href="http://community.linuxmint.com/software/view/caja">Caja</a> then it&#39;s pretty easy to create your own context menu
 addition easily. </p>
@@ -72,13 +71,12 @@ tool to your menus, you can add the following:</p>
 for f in $CAJA_SCRIPT_SELECTED_FILE_PATHS
 do
     mimetype $f | grep &quot;image&quot; &amp;&amp; exiftool -all= $f
-done</code></pre>
-<p>Once done, a quick <code>chmod a+x ~/.config/caja/scripts/strip-exif</code> will
+done
+</code></pre><p>Once done, a quick <code>chmod a+x ~/.config/caja/scripts/strip-exif</code> will
 make it executable and you&#39;ll be off to the races. No big GUI messes
 like nautilus, just simple scripting. If you like adding context menus
 or scripting, a good list of the variables available to you is located 
 <a href="http://translate.google.com/translate?hl=en&amp;sl=zh-TW&amp;u=http://misawascriptkid.blogspot.com/2012/06/caja.html&amp;prev=search">here</a>.</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

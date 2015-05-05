@@ -136,14 +136,13 @@ var myOptions = {
 var map = new google.maps.Map($(&#39;#maparea&#39;&#39;)[0], myOptions);
 
 var overlay;
-overlay = new NumberMarker(myLatlng, map, &#39;whatever text or numbers you want here&#39;);</code></pre>
-<p>Bam. There you go. In my application I loop through a bunch of 
+overlay = new NumberMarker(myLatlng, map, &#39;whatever text or numbers you want here&#39;);
+</code></pre><p>Bam. There you go. In my application I loop through a bunch of 
 information and create a number of these markers on the map. I also use
 <a href="http://www.patrick-wied.at/static/heatmapjs/">heatmap.js</a> to create my heat maps at the same time. Overall, it works 
 pretty well. </p>
 <p>If you need any type of information positioned on a map, then just change the 
 span tag to be whatever you need it to be and create it appropriately. </p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

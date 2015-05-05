@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Handling Has Many Relationships with Slick</h3>
-<p>Relational data is a normal thing to run into in web applications. And 
+      <h3>Handling Has Many Relationships with Slick</h3><p>Relational data is a normal thing to run into in web applications. And 
 handling this data is often simple when dealing with single records or 
 lists displaying a lot of content. But sometimes it can require a bit 
 of thought to get our data in the form we want it to be. </p>
@@ -69,8 +68,8 @@ parsed in two queries:</p>
 <pre><code>SELECT id, datafield, andstuff FROM table1 WHERE id = 1;
 -- Returns one row
 SELECT id, otherdata, fId FROM table2 WHERE fId = 1;
--- Returns multiple rows</code></pre>
-<p>The above are the type of queries that would be issued if your system 
+-- Returns multiple rows
+</code></pre><p>The above are the type of queries that would be issued if your system 
 did something like the following in pseudo code:</p>
 <pre><code>function getTable1Obj(id)
     d = doDataBaseLookUp(id)
@@ -79,8 +78,8 @@ did something like the following in pseudo code:</p>
 function enrichObjectWithTable2Info(obj)
     list = doDataBaseLookUp(obj.id)
     obj.table2Stuff = list
-    return obj</code></pre>
-<p>If you&#39;re viewing a single object, then this is pretty normal and what 
+    return obj
+</code></pre><p>If you&#39;re viewing a single object, then this is pretty normal and what 
 one might expect to see in a simple application. After all, 2 queries 
 isn&#39;t that many. But what about when we want a list of the information?</p>
 <pre><code>SELECT id, datafield, andstuff FROM table1;
@@ -89,13 +88,13 @@ SELECT id, otherdata, fId from [table2 WHERE fId = 1
 SELECT id, otherdata, fId from table2 WHERE fId = 2
 SELECT id, otherdata, fId from table2 WHERE fId = 3
 SELECT id, otherdata, fId from table2 WHERE fId = 4
-...</code></pre>
-<p>The above queries would be the case if our application code was doing 
+...
+</code></pre><p>The above queries would be the case if our application code was doing 
 something like this in pseudo code:</p>
 <pre><code>for each object in table1:
     object = enrichObjectWithTable2Info(object)
-    doStuffWithObject</code></pre>
-<p>What we&#39;ve just ran into is called the <a href="http://stackoverflow.com/a/97253/1808164">N+1 problem</a>. And it&#39;s pretty 
+    doStuffWithObject
+</code></pre><p>What we&#39;ve just ran into is called the <a href="http://stackoverflow.com/a/97253/1808164">N+1 problem</a>. And it&#39;s pretty 
 easy to get around if you know your databases. Specifically, the JOIN 
 statement. We can pull back <em>all</em> the information with a single query 
 in <em>both</em> cases:</p>
@@ -106,16 +105,16 @@ FROM t1 JOIN t2 ON t1.id=t2.fId WHERE t1.id = 1
 -- Case 2
 SELECT t1.id, t1.datafield, t1.andstuff, t2.id, t2.otherdata,t2.fId 
 FROM t1 JOIN t2 ON t1.id=t2.fId
--- Returns a bunch of rows </code></pre>
-<p>This is great performance wise, but now we also need to deal with the 
+-- Returns a bunch of rows 
+</code></pre><p>This is great performance wise, but now we also need to deal with the 
 fact that our application has to handle multiple rows and not just a 
 single one anymore. For each row in t2, we&#39;ll have duplicate content 
 from t1 in the records returned:</p>
 <pre><code>| 1, &quot;foo&quot;, &quot;bar&quot;, 1, &quot;boz&quot;, 1 |
 | 1, &quot;foo&quot;, &quot;bar&quot;, 2, &quot;baz&quot;, 1 |
 | 1, &quot;foo&quot;, &quot;bar&quot;, 3, &quot;bar&quot;, 1 |
-| 2, &quot;fiz&quot;, &quot;bar&quot;, 4, &quot;boz&quot;, 2 |</code></pre>
-<p>If we&#39;re hoping to get a single Table1 object, with a field that has a 
+| 2, &quot;fiz&quot;, &quot;bar&quot;, 4, &quot;boz&quot;, 2 |
+</code></pre><p>If we&#39;re hoping to get a single Table1 object, with a field that has a 
 list of Table2 objects, we&#39;ll need to aggregate the records in our code 
 and assign them appropriately. To do this, we can turn to scala&#39;s great 
 mapping functions. Let&#39;s assume we have a couple of case classes that 
@@ -123,22 +122,22 @@ slick is mapping to:</p>
 <pre><code>case class T2(id: Int, otherdata: String, fId: Int)
 case class T1(id: Int, datafield: String, andstuff: String) {
     var t2s : Option[List[T2]] = None
-}</code></pre>
-<p>And that we&#39;re retrieving our data with a simple join like this:</p>
+}
+</code></pre><p>And that we&#39;re retrieving our data with a simple join like this:</p>
 <pre><code>/* How you might query Slick for this: */
 for {
         r &lt;- table1
         e &lt;- table2 if e.fId === r.id
-} yield (r,e)</code></pre>
-<p>Since we&#39;re using <code>yield (r,e)</code> we&#39;ll end up with tuples of data 
+} yield (r,e)
+</code></pre><p>Since we&#39;re using <code>yield (r,e)</code> we&#39;ll end up with tuples of data 
 that will look like this:</p>
 <pre><code>val results = List(
     (T1(1, &quot;foo&quot;, &quot;bar&quot;), T2(1,&quot;boz&quot;,1)),
     (T1(1, &quot;foo&quot;, &quot;bar&quot;), T2(2,&quot;baz&quot;,1)),
     (T1(1, &quot;foo&quot;, &quot;bar&quot;), T2(3,&quot;bar&quot;,1)),
     (T1(2, &quot;fiz&quot;, &quot;bar&quot;), T2(4,&quot;boz&quot;,2))
-)</code></pre>
-<p>To map these into two objects (with id&#39;s 1 and 2) that have their 
+)
+</code></pre><p>To map these into two objects (with id&#39;s 1 and 2) that have their 
 table2 rows listed in the <code>t2s</code> field, we can use a couple functions 
 from scala&#39;s collection framework. First off, we can use the convenient 
 <a href="http://www.scala-lang.org/api/2.10.3/index.html#scala.collection.immutable.List">groupBy</a> to break them down into a form like so:</p>
@@ -155,16 +154,16 @@ from scala&#39;s collection framework. First off, we can use the convenient
                 (T1(1,foo,bar),T2(3,bar,1))
             )
         )
-*/</code></pre>
-<p>This is already pretty close, all we really need to do is map over the 
+*/
+</code></pre><p>This is already pretty close, all we really need to do is map over the 
 collection and return the <code>T1</code> classes with the appropriate list: </p>
 <pre><code>results.groupBy(_._1).map {
     case (t1, tuples) =&gt; { 
         t1.t2s = Some(tuples.map(_._2))
         t1
     }
-}</code></pre>
-<p>Whose type is <code>immutable.Iterable[T1]</code>, we can convert this into a list 
+}
+</code></pre><p>Whose type is <code>immutable.Iterable[T1]</code>, we can convert this into a list 
 by calling <code>toList</code> at the end, and then we&#39;ll be able to use the single 
 object along with its children easily:</p>
 <pre><code>&gt; val t1s = results.groupBy(_._1).map {
@@ -174,8 +173,8 @@ object along with its children easily:</p>
     }
 }.toList
 &gt; t1s(1).t2s
-Option[List[T2]] = Some(List(T2(1,boz,1), T2(2,baz,1), T2(3,bar,1)))</code></pre>
-<p>There&#39;s not much to be said about this, we&#39;ve grouped by the class T1 at 
+Option[List[T2]] = Some(List(T2(1,boz,1), T2(2,baz,1), T2(3,bar,1)))
+</code></pre><p>There&#39;s not much to be said about this, we&#39;ve grouped by the class T1 at 
 first. With case classes, this means that the comparator is based on the 
 items in the constructor (so <code>t2s</code> does not affect comparing two <code>T1</code>s) 
 and we&#39;ll end up with a list of Tuples for the value and a <code>T1</code> for each 
@@ -194,8 +193,8 @@ in my own work:</p>
         }
         someChild
     }
-}</code></pre>
-<p>The benefit to this pattern is that you can retrieve a single object 
+}
+</code></pre><p>The benefit to this pattern is that you can retrieve a single object 
 from the database, then only get the children if you need them. (This 
 is the two query approach), but you can also use a join statement and 
 assign the children to the object (as we&#39;ve done above) and then still 
@@ -213,14 +212,13 @@ functions into seperate helper methods like so:</p>
     t1.t2s = Some(tuples.map(_._2))
     t1
 }
-private def aggChildrenFromJoinToParent = (_aggChildrenFromJoinToParent _).tupled</code></pre>
-<p>And then you can use it like so:</p>
-<pre><code>val t1s = results.groupBy(_._1).map(aggChildrenFromJoinToParent).toList</code></pre>
-<p>This is more readable if you have a large amount of mapping or child 
+private def aggChildrenFromJoinToParent = (_aggChildrenFromJoinToParent _).tupled
+</code></pre><p>And then you can use it like so:</p>
+<pre><code>val t1s = results.groupBy(_._1).map(aggChildrenFromJoinToParent).toList
+</code></pre><p>This is more readable if you have a large amount of mapping or child 
 objects. What&#39;s going on is you are &quot;tupling&quot; the function. Treating 
 the function as a partially applied function and then using it in place 
 of the case statement.</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

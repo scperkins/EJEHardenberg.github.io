@@ -58,9 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Listing Hours for Business&#39;s with PHP</h3>
-<h4>A fun problem</h4>
-<p>Today I was working on a website that needed to display human readable hours for
+      <h3>Listing Hours for Business&#39;s with PHP</h3><h4>A fun problem</h4><p>Today I was working on a website that needed to display human readable hours for
 businesses. In addition, I needed to make a simple administrative interface as 
 well. During this process I got to solve one of those problems you might run into
 during an interview.</p>
@@ -69,24 +67,23 @@ during an interview.</p>
 that has what I&#39;ll call a gap in it.</p>
 <p>Believe you see the solution, think about it for a minute and see if your intuition
 can find an N-time algorithm to do so. ... Ready? </p>
-<h4>Finding sequences</h4>
-<p>To find an uprun within a list it is easy enough to recognize that if you are 
+<h4>Finding sequences</h4><p>To find an uprun within a list it is easy enough to recognize that if you are 
 looking through a list of numbers, the difference between each number in a sequence
 should be 1. Using this knowledge it&#39;s rather obvious to see how we might process 
 the following list:</p>
 <pre><code>List: 1,2,3,5,6,7
 Diff: 0,1,1,2,1,1 
            or
-      0,1,2,1,1,1 </code></pre>
-<p>And note that the start of the second sequence is where the difference between 
+      0,1,2,1,1,1 
+</code></pre><p>And note that the start of the second sequence is where the difference between 
 the current number and its predecessor is greater than 1, or where the successor 
 of the current number is greater than 1.</p>
 <p>This works, but is there another way? Yes! On observation, we can also see that 
 since the list is in order, the number at the <em>i</em><sup>th</sup> place&#39;s value, 
 minus one, should be equal to the value of the previous number. Or, visually:</p>
 <pre><code>List:  1,2,3,5,6,7
-Equal: x T T F T T</code></pre>
-<p>We don&#39;t have a predecessor for the first element, so we can ignore it, but you&#39;ll
+Equal: x T T F T T
+</code></pre><p>We don&#39;t have a predecessor for the first element, so we can ignore it, but you&#39;ll
 see that when <em>2</em> is our current number, then <em>2-1=1</em> which is the value of the 
 previous list element. Moving on, you can see that at the start of the second 
 sequence <em>5-1=4</em> which is not equal to the previous element <em>3</em>.</p>
@@ -128,15 +125,14 @@ function humanDayList($daylist){
     return implode(&#39;,&#39;, $daylistStrings);
 
 }
-?&gt;</code></pre>
-<p>The input to this function is a list of numbers (0-6) seperated by
+?&gt;
+</code></pre><p>The input to this function is a list of numbers (0-6) seperated by
 periods. The output is something like: &quot;Sun-Mon,Wed,Fri-Sat&quot; depending
 on the list. Here are some example runs:</p>
 <pre><code>&#39;0.1.3.5.6&#39; =&gt; Sun-Mon,Wed,Fri-Sat
 &#39;0.1.2.3.4.5.6&#39; =&gt; Sun-Sat
-&#39;0.2.4.6&#39; =&gt; Sun,Tue,Thu,Sat</code></pre>
-<h4>But what about hours?</h4>
-<p>Using this it is not only easy to construct sequences for each schedule
+&#39;0.2.4.6&#39; =&gt; Sun,Tue,Thu,Sat
+</code></pre><h4>But what about hours?</h4><p>Using this it is not only easy to construct sequences for each schedule
 for a business, but easy to search a database field to determine if a
 business has hours on a certain day. Just by using the php function
 <code>date(&#39;G&#39;)</code> you can get the index for the day and do a simple text
@@ -169,8 +165,8 @@ function hours($stime, $etime){
     return date(&#39;g:ia&#39;,mktime($stime/60,$stime%60)) . &#39;-&#39; . date(&#39;g:ia&#39;,mktime($etime/60,$etime%60));
 }
 
-?&gt;</code></pre>
-<p>With these two functions in place we can now easily show a business&#39;s 
+?&gt;
+</code></pre><p>With these two functions in place we can now easily show a business&#39;s 
 operating hours. As far as database table structure goes:</p>
 <pre><code>+-------------+---------------------+------+-----+---------+----------------+
 | Field       | Type                | Null | Key | Default | Extra          |
@@ -180,19 +176,18 @@ operating hours. As far as database table structure goes:</p>
 | daylist     | varchar(16)         | NO   | MUL | NULL    |                |
 | stime       | int(4)              | NO   |     | NULL    |                |
 | etime       | int(4)              | NO   |     | NULL    |                |
-+-------------+---------------------+------+-----+---------+----------------+</code></pre>
-<p>I&#39;ll update this post once I figure out some good index&#39;s and querys for efficient
++-------------+---------------------+------+-----+---------+----------------+
+</code></pre><p>I&#39;ll update this post once I figure out some good index&#39;s and querys for efficient
 querying of large pieces of data. For the average use case this is perfectly fine
 though, becuase you&#39;re likely to be joining via a business id when displaying 
 hours.</p>
 <p>Searches like: </p>
 <pre><code>SELECT * FROM business_hours WHERE stime &lt; x and x &lt; etime -- where x is a number
 SELECT * FROM business_hours WHERE daylist LIKE %D% -- where D is a number for day
-SELECT * FROM business_hours WHERE daylist LIKE %D% AND stime &lt; x AND x &lt; etime</code></pre>
-<p>are going to be useful for filtering or sorting. If scaling, it might be wise to
+SELECT * FROM business_hours WHERE daylist LIKE %D% AND stime &lt; x AND x &lt; etime
+</code></pre><p>are going to be useful for filtering or sorting. If scaling, it might be wise to
 implement something more efficient than using <code>Like %%</code>though.</p>
-<h4>Why store the days like that?</h4>
-<p>You might be asking yourself, why would we store the days as <code>d.d.d.d.d</code> or something
+<h4>Why store the days like that?</h4><p>You might be asking yourself, why would we store the days as <code>d.d.d.d.d</code> or something
 similar? The answer is for interface purposes it&#39;s much easier. If you&#39;re an admin
 you don&#39;t want to select ranges from dropdowns or non-intuitive things like that.
 You&#39;re going to want to be able to click a button for each day, or drag your cursor 
@@ -200,8 +195,7 @@ over some type of range mechanism. It&#39;s extremely simple javascript to conve
 list of selected buttons to a list of numbers seperated by dots. Not too mention 
 that by representing the days in this way we can easily <code>explode</code> on the delimiters 
 and easily use the ideas of sequences for finding the appropriate text.</p>
-<h4>Update! Bisection algorithm via <a href="http://joshuadickerson.com">my friend Josh</a></h4>
-<p>After writing this blog post I shared it with a
+<h4>Update! Bisection algorithm via <a href="http://joshuadickerson.com">my friend Josh</a></h4><p>After writing this blog post I shared it with a
 <a href="http://scperkins.github.io">few</a>
 <a href="http://twitter.com/garthfritz">friends</a> who gave me some feedback.
 While I&#39;m still waiting for my database oriented friend to get back to
@@ -220,14 +214,14 @@ bisect until you find the &quot;bad&quot; sequence. Use all the cores.
 <p>And he&#39;s absolutely right that this is a shortcut, for example let&#39;s
 look at the difference in efficiency between the sequence implementation 
 above, vs a bisection algorithm approach.</p>
-<pre><code>0.1.2.3.4.5.6</code></pre>
-<p>The sequence algorithm will iterate through the full list, concluding
+<pre><code>0.1.2.3.4.5.6
+</code></pre><p>The sequence algorithm will iterate through the full list, concluding
 after N operations that this is a sequence from 0 to 6. Consider the
 following:</p>
 <pre><code>First element: 0, 
 Size of list: 7 
-Last element: 6 </code></pre>
-<p>According to Josh&#39;s shortcut: 0 + 7 -1 = 6 and therefore we have a
+Last element: 6 
+</code></pre><p>According to Josh&#39;s shortcut: 0 + 7 -1 = 6 and therefore we have a
 sequence. To do this we only needed to know the size, head, and tail of
 the list. Assuming that we use an implementation of the list that keeps
 track of the length of the list, this will be a constant operation based
@@ -242,14 +236,13 @@ Bisection algorithm:
 [4,6,7]                 4 + 2 = 6 ? false: cut the array in half
 [4] [6,7]               3/2=1 so split with a new list at index 1
 [4]                     4 + 0 = 4 ? true: save sequence
-[6,7]                   6 + 1 = 7 ? true: save sequence</code></pre>
-<p>This algorithm lends itself easy to recursion, and so long as the list
+[6,7]                   6 + 1 = 7 ? true: save sequence
+</code></pre><p>This algorithm lends itself easy to recursion, and so long as the list
 is not too large, the depth of the call stack won&#39;t be a problem. Since
 we&#39;re only dealing with a list of up to 7 elements we have no worry
 about this at all. However since we are dealing with such a small list,
 it may be possible that empirically the simpler difference algorithm
 outperforms the recursive one. </p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

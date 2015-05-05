@@ -59,15 +59,13 @@
     <div id="content">
       <a href="/tech-blog">Back</a>
       <p>Note: Before you use the TL;DR due be sure it&#39;s appropriate to do so, see <a href="http://wordpress.stackexchange.com/questions/20192/wp-function-filter-for-modifying-http-headers">here</a></p>
-<h3>The TL;DR;</h3>
-<pre><code>add_action(&#39;template_redirect&#39;, &#39;add_chunked_encoding_for_reports_page_bc_load_speed&#39;);
+<h3>The TL;DR;</h3><pre><code>add_action(&#39;template_redirect&#39;, &#39;add_chunked_encoding_for_reports_page_bc_load_speed&#39;);
 function add_chunked_encoding_for_reports_page_bc_load_speed(){
     header(&quot;Transfer-encoding: chunked&quot;);    
 }
 ...
-flush(); //whenever you want to push a chunk out for sure</code></pre>
-<h3>The Explanation</h3>
-<p>So, for work I&#39;ve written a number of adminstrative pages for a client that 
+flush(); //whenever you want to push a chunk out for sure
+</code></pre><h3>The Explanation</h3><p>So, for work I&#39;ve written a number of adminstrative pages for a client that 
 involved some kind of reporting. Most of the time, the bulk of the computation 
 could be done on the database side, which is where it should be (almost always).
 But because the lists sometimes would show large amounts of tabular data the page can take a while to load. </p>
@@ -86,7 +84,6 @@ sure to call <code>flush();</code> if you want to force out a chunk of output.</
 bytes of output to do sniffing. So even if you chunk it, if there&#39;s not
 a lot of data you might see the page load time not speed up for the
 content you can see &#39;above the fold&#39;</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Apt-get not working to install mutt, segfault!</h3>
-<p>I was thinking I&#39;d try fiddling around with mutt and seeing if I liked it or not
+      <h3>Apt-get not working to install mutt, segfault!</h3><p>I was thinking I&#39;d try fiddling around with mutt and seeing if I liked it or not
 today. Of course, it&#39;s difficult to do that when your package manager suddenly 
 stops working. While attempting to run <code>apt-get install mutt</code> the messages showed
 the usual reading messages, but then suddenly exited with no error message. </p>
@@ -71,13 +70,12 @@ the usual reading messages, but then suddenly exited with no error message. </p>
 [ 5301.692825] apt-get[4667]: segfault at 7feedf5270a8 ip 00007feea9ec42d3 sp 00007fff5d0c3980 error 4 in libapt-pkg.so.4.12.0[7feea9e6f000+121000]
 [ 5306.932056] apt-get[4673]: segfault at 7f61488a20a8 ip 00007f611323f2d3 sp 00007fffbff58210 error 4 in libapt-pkg.so.4.12.0[7f61131ea000+121000]
 [ 5355.102636] apt-get[4682]: segfault at 7fbf997fd0a8 ip 00007fbf6419a2d3 sp 00007fff24de0dd0 error 4 in libapt-pkg.so.4.12.0[7fbf64145000+121000]
-[ 5417.063910] apt-get[4751]: segfault at 7f875b7c90a8 ip 00007f87261662d3 sp 00007fffca9d44e0 error 4 in libapt-pkg.so.4.12.0[7f8726111000+121000]</code></pre>
-<p>Well that doesn&#39;t seem good! Segfaults are never good to see in your message log.
+[ 5417.063910] apt-get[4751]: segfault at 7f875b7c90a8 ip 00007f87261662d3 sp 00007fffca9d44e0 error 4 in libapt-pkg.so.4.12.0[7f8726111000+121000]
+</code></pre><p>Well that doesn&#39;t seem good! Segfaults are never good to see in your message log.
 So I searched <a href="http://ubuntuforums.org/showthread.php?t=2209984">online</a> and found a forum that seemed to have the issue. After 
 seeing a post mention cleaning their apt-get cache I checked the man page and 
 tried out a quick <code>apt-get clean</code> and then I was able to install again! </p>
 <p>Hope this helps someone out there!</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

@@ -58,13 +58,11 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Using Encrypted search in chrome.</h3>
-<p>Today, while reading <a href="https://www.imperialviolet.org/2010/06/25/overclocking-ssl.html">this post about how SSL isn&#39;t a performance
+      <h3>Using Encrypted search in chrome.</h3><p>Today, while reading <a href="https://www.imperialviolet.org/2010/06/25/overclocking-ssl.html">this post about how SSL isn&#39;t a performance
 problem anymore</a>, I discovered a new tool: <a href="https://encrypted.google.com">encrypted google search</a>.
 Thinking to myself that this was a great thing to have handy, I decided
 to go ahead and make it my default search engine. </p>
-<h4>How to do it</h4>
-<p>These instructions are for Chromium 33.0.1750.152 because that&#39;s what
+<h4>How to do it</h4><p>These instructions are for Chromium 33.0.1750.152 because that&#39;s what
 I&#39;m running, but I imagine that they&#39;re extremely similar to any other
 chrome based browser. First off, open up your settings at
 <a href="chrome://settings/">chrome://settings/</a>. If this doesn&#39;t work, look in any of the dropdown
@@ -76,12 +74,11 @@ you&#39;ll notice a huge bunch of letters and whatnot in a url-looking thing
 in the third column. This is what we&#39;re changing. Right now, all your
 information about your browser, version number, and whatever else is
 sent up to the google mothership. So change this to the following:</p>
-<pre><code>https://encrypted.google.com/#q=%s</code></pre>
-<p>Simple right? The <code>%s</code> is where your search query will be replaced. This
+<pre><code>https://encrypted.google.com/#q=%s
+</code></pre><p>Simple right? The <code>%s</code> is where your search query will be replaced. This
 is what it should look like:</p>
-<p><img src="/images/tech-blog/search-engine.png" width="716px" height="461px" /></p>
-<h4>Why is it secure?</h4>
-<p>First off, we can tell something immediatly by the URL. The use of the
+<p><img src="/images/tech-blog/search-engine.png" width="716px" height="461px"></p>
+<h4>Why is it secure?</h4><p>First off, we can tell something immediatly by the URL. The use of the
 # (which is a fragment of a url) gives us good indication about what&#39;s
 just been sent to the server. Specifically, anything after the # is
 not. Why? This is just the way URL&#39;s work, fragments are used to jump to
@@ -110,7 +107,6 @@ never know why you got to my site if you&#39;re using the encrypted google
 search. </p>
 <p>Anyway, stay safe, search secured, and never let a hacker sniff your
 packets without proper protection!</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

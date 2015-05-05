@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Dynamic Javascript Inclusion Recipe for Harp</h3>
-<p>Today I was thinking about how great it would be to include only the javascript 
+      <h3>Dynamic Javascript Inclusion Recipe for Harp</h3><p>Today I was thinking about how great it would be to include only the javascript 
 files you need on a webpage, and how best to break it up. If you have global library 
 files like <a href="http://www.jquery.com">jQuery</a> it makes sense to have them on every page. But what if you 
 have a single use case for some javascript? </p>
@@ -68,8 +67,8 @@ have a single use case for some javascript? </p>
 <pre><code>var flag = document.getElementById(&quot;someflagelement&quot;)
 if(flag){
     alert(&quot;POP UP!&quot;)
-}</code></pre>
-<p>It&#39;s not a big problem to do, but now your javascript is tied to the existence of 
+}
+</code></pre><p>It&#39;s not a big problem to do, but now your javascript is tied to the existence of 
 certain tags on your page, it&#39;s undocumented and if someone accidently names their
 element the same then a pop up is going to appear. Not good. Another scenario is
 when you have a <strong>large</strong> site and you don&#39;t want to have one giant javascript 
@@ -94,8 +93,8 @@ function findDynamicJavaScript(head, tail) {
     }
 }
 
-findDynamicJavaScript(public, &quot;/&quot;) </code></pre>
-<p>So what does this do? This function is very similar to the <a href="http://harpjs.com/recipes/blog-sitemap">Sitemap</a> recipe from 
+findDynamicJavaScript(public, &quot;/&quot;) 
+</code></pre><p>So what does this do? This function is very similar to the <a href="http://harpjs.com/recipes/blog-sitemap">Sitemap</a> recipe from 
 Harp (or to <a href="http://www.ethanjoachimeldridge.info/tech-blog/xml-sitemap-for-harpjs">my XML Sitemap</a> recipe) in that it traverses the directories harp knows
 about and uses a RegEx to check whether the file matches a pattern or not. In this 
 case, we use the current source as our query. This means that on <em>index.html</em>, if a
@@ -131,14 +130,13 @@ function findDynamicJavaScript(head, tail) {
     }
 }
 
-findDynamicJavaScript(public, &quot;/&quot;) </code></pre>
-<p>All we&#39;re doing is using the current path (joined by &quot;/&quot;) to look more specifically
+findDynamicJavaScript(public, &quot;/&quot;) 
+</code></pre><p>All we&#39;re doing is using the current path (joined by &quot;/&quot;) to look more specifically
 at the files we&#39;re testing. We need to have <code>javascriptBase</code> because we&#39;re looking
 for javascript files that match the path to our html files. </p>
 <p>This is a simple and easy recipe to handle including javascript based on the current
 file being served. It keeps your code clean, consistent, and developer friendly.
 I hope it helps someone out there!</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

@@ -58,21 +58,19 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Easy scale generation with Less CSS</h3>
-<p>Something I found myself doing for <a href="https://github.com/EdgeCaseBerg/whoseopinion.com">a side project</a> is creating <a href="http://en.wikipedia.org/wiki/Likert_scale">Likert Scales</a>. 
+      <h3>Easy scale generation with Less CSS</h3><p>Something I found myself doing for <a href="https://github.com/EdgeCaseBerg/whoseopinion.com">a side project</a> is creating <a href="http://en.wikipedia.org/wiki/Likert_scale">Likert Scales</a>. 
 One day this past week I got to thinking, Hey, I could use different colors on 
 this thing to make it not look so bland, and to give users a visual cue as well.</p>
-<p><img style="padding-left: 25%" src="/images/tech-blog/likert-scale.png" width="476px" height="56px" /></p>
-<h4>The Problem</h4>
-<p>The traditional way of doing this in pure CSS might look something like this:</p>
+<p><img style="padding-left: 25%" src="/images/tech-blog/likert-scale.png" width="476px" height="56px"></p>
+<h4>The Problem</h4><p>The traditional way of doing this in pure CSS might look something like this:</p>
 <pre><code>.strongly-disagree{
     background-color: red;
 }
 .disagree{
     background-color: orange;
 }
-/* ... */</code></pre>
-<p>Or if you like pseudo selectors and don&#39;t want to use classes, something like this:</p>
+/* ... */
+</code></pre><p>Or if you like pseudo selectors and don&#39;t want to use classes, something like this:</p>
 <pre><code>/* Provided all labels are wrapped in the same div, with radio buttons nested */
 label:nth-child(1){
     background-color: red;
@@ -80,12 +78,11 @@ label:nth-child(1){
 label:nth-child(2){
     background-color: orange;
 }
-/* ... */</code></pre>
-<p>To me. this is not very attractive. After all, you&#39;re repeating the same selector, 
+/* ... */
+</code></pre><p>To me. this is not very attractive. After all, you&#39;re repeating the same selector, 
 over and over again just because the background color changes. There must be a better
 way to do it with all of our new and fancy modern tools right? Right.</p>
-<h4>The Code</h4>
-<p>By using <a href="http://lesscss.org/">LESS</a> we can make it a lot easier to achieve the same affect without cluttering
+<h4>The Code</h4><p>By using <a href="http://lesscss.org/">LESS</a> we can make it a lot easier to achieve the same affect without cluttering
 our markup with a lot of unneccesary classes. Granted we do need to do a little bit
 of trickery with LESS mixins. Here&#39;s the code:</p>
 <pre><code>@from: 1;
@@ -106,9 +103,8 @@ of trickery with LESS mixins. Here&#39;s the code:</p>
         }
     }
     .scale(@idx + 1);
-}</code></pre>
-<h4>Explanation</h4>
-<p>This is a recursive <a href="http://lesscss.org/features/#mixins-feature">Mixin</a>, calling itself until we go from <code>@from</code> to <code>@to</code>. In
+}
+</code></pre><h4>Explanation</h4><p>This is a recursive <a href="http://lesscss.org/features/#mixins-feature">Mixin</a>, calling itself until we go from <code>@from</code> to <code>@to</code>. In
 the case of our 5 point scale, this is obviously 5. We have a list of colors we
 can want to use, and then are using the <code>extract</code> function of LESS to grab the
 colors out of our list for usage as the local variable <code>@col</code>. You&#39;ll notice at
@@ -131,8 +127,8 @@ colors, you can also use a single base color and then lighten/darken it like so:
         }
     }
     .scale(@idx + 1);
-}</code></pre>
-<p>Which uses the same technique to loop through children, but instead of a list of 
+}
+</code></pre><p>Which uses the same technique to loop through children, but instead of a list of 
 colors we use <code>lighten</code> and <code>darken</code> to automatically make a bunch of shades of a base
 background color. You might need to modify it for your own uses though, changing
 the base color can change whether you need to use the lightening features of LESS
@@ -145,10 +141,9 @@ variable, then darkening that only in the <code>:hover</code> selector.</p>
     -moz-transition:.5s;
     -webkit-transition:.5s;
     transition:.5s;
-}</code></pre>
-<p>which I include on the scale elements so that background shift is a bit cleaner
+}
+</code></pre><p>which I include on the scale elements so that background shift is a bit cleaner
 looking. I hope this helps anyone out there looking to do something similar.</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

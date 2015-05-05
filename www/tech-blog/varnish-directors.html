@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Using Directors in Varnish</h3>
-<p>Quite frankly, I love <a href="https://www.varnish-cache.org/">Varnish</a> and am quite happy with the level of control and
+      <h3>Using Directors in Varnish</h3><p>Quite frankly, I love <a href="https://www.varnish-cache.org/">Varnish</a> and am quite happy with the level of control and
 possibilities given by the VCL files. I&#39;ve <a href="http://ethanjoachimeldridge.info/tech-blog/varnish">blogged before</a> about how <a href="http://xenonapps.com">XenonApps</a>
 uses Varnish for our <a href="https://itunes.apple.com/us/app/green-up-vt/id860271437?ls=1&amp;mt=8">Green Up App</a>&#39;s API Server, but today I&#39;m going to talk 
 about how we handle crashes and making sure that the system is available even
@@ -121,16 +120,16 @@ director backup_director round-robin {
 }
 sub vcl_fetch {
     set req.backend = backup_director;
-}</code></pre>
-<p>Now, this is a pretty simple setup to understand, but let me just go over it and
+}
+</code></pre><p>Now, this is a pretty simple setup to understand, but let me just go over it and
 mention a gotcha that got me. </p>
 <p>First off, we define each backend, this is standard varnish configuration. If 
 you&#39;re doing something that&#39;s facing the web you&#39;ve likely got something like this:</p>
 <pre><code>backend default {
     .host = &quot;127.0.0.1&quot;;
     .port = &quot;8000&quot;;
-}</code></pre>
-<p>or something similar to how you&#39;ve setup your server ports. The piece you might
+}
+</code></pre><p>or something similar to how you&#39;ve setup your server ports. The piece you might
 not recognize is the <code>.probe</code> configuration. Probes are what AWS (and the rest of the world)
 call health checks. They&#39;re Varnish&#39;s way of determining if the backend is still
 running or not. The <code>interval</code> is how often Varnish will check the backend&#39;s health status.
@@ -154,12 +153,11 @@ got bit before. I did everything but this step and ran into <a href="https://www
 to make sure. If you&#39;re is working like mine, you&#39;ll see something similar to this:</p>
 <pre><code>0 Backend_health - backup2 Still healthy 4--X-RH 5 3 5 0.000639 0.000811 HTTP/1.1 200 OK
 0 Backend_health - backup Still healthy 4--X-RH 5 3 5 0.000580 0.000657 HTTP/1.1 200 OK
-0 Backend_health - default Still healthy 4--X-RH 5 3 5 0.000670 0.001173 HTTP/1.1 200 OK</code></pre>
-<p>And it&#39;s really that easy.</p>
+0 Backend_health - default Still healthy 4--X-RH 5 3 5 0.000670 0.001173 HTTP/1.1 200 OK
+</code></pre><p>And it&#39;s really that easy.</p>
 <p>Now that you&#39;ve got your backends set up to be healthy you might want to enable 
 <a href="https://www.varnish-cache.org/docs/3.0/tutorial/handling_misbehaving_servers.html#tutorial-handling-misbehaving-servers">grace and saint mode</a>. This will allow you to serve stale content while a backend
 is unhealthy. Useful! </p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>HarpJS Macros and Multiple Static Domains</h3>
-<p>I very recently bought my new domain name and redesigned my website. I&#39;m still using <a href="//harpjs.com">Harp</a> to 
+      <h3>HarpJS Macros and Multiple Static Domains</h3><p>I very recently bought my new domain name and redesigned my website. I&#39;m still using <a href="//harpjs.com">Harp</a> to 
 generate my site, and <a href="https://httpd.apache.org/">apache</a> to serve it.</p>
 <p>Any good web developer worth their salt will tell you that if you&#39;ve got static
 content, you&#39;ll do the internet and your site visitors a favor if you use the
@@ -67,7 +66,7 @@ proper cache headers. This isn&#39;t a cache header tutorial though, instead, I&
 to show you how you can create a powerful Macro on your Harp Site to enable proper
 CDN/static domain usage for any static content you might have. </p>
 <p>If you don&#39;t know what I&#39;m talking about, you&#39;ve probably seen things like 
-<a href="https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/f2IiBfPD5Mj.png"><a href="https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/f2IiBfPD5Mj.png">https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/f2IiBfPD5Mj.png</a></a>
+<a href="https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/f2IiBfPD5Mj.png">https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/f2IiBfPD5Mj.png</a>
 or things like <code>somesites.static.1.domain.com</code>. The use of static, cookieless, 
 subdomains as hosts for resources like images, javascript, or css is something
 that enables browsers to download and display a webpage faster. Your browser is
@@ -102,23 +101,22 @@ harp.json file like so:</p>
         ]
     },
 
-}</code></pre>
-<p>Each of the <code>staticimagesurl</code> will function as one of our &#39;cdn&#39; servers. If you&#39;re
+}
+</code></pre><p>Each of the <code>staticimagesurl</code> will function as one of our &#39;cdn&#39; servers. If you&#39;re
 using S3, CloudFlare, or MaxCDN then you&#39;d be replacing each of those items with 
 your corresponding urls. The <code>maxDomains</code> field could be replaced by an array length
 check during our macro, but for this case I figured it&#39;s simple enough to just count
 them myself. </p>
 <p>With our globals in place, we can write our function, to make it accessible to all
 pages, I created a partial for it that can be easily injected wherever I need it:</p>
-<h4>macros.ejs</h4>
-<pre><code>&lt;%
+<h4>macros.ejs</h4><pre><code>&lt;%
 macros.rrImageDomain = function rrImageDomain(){
     //Round robin style
     //You could also do staticimagesurl[Math.floor(Math.random() * staticimagesurl.length)]; for random urls
     return staticimagesurl[nextDomain++ % maxDomains];
 }
-%&gt;</code></pre>
-<p> Simply put, we are adding a function to the global macros object. Within this macro
+%&gt;
+</code></pre><p> Simply put, we are adding a function to the global macros object. Within this macro
  we are using our list of static content domains and whenever we call the macro
  we&#39;ll output the next item in the list (wrapping around when nextDomain is greater
  than 7). This will set us up to distribute the requests evenly over the static
@@ -132,8 +130,8 @@ macros.rrImageDomain = function rrImageDomain(){
         &lt;!-- snip --&gt;
 
         &lt;link rel=&quot;shortcut icon&quot; href=&quot;//&lt;%= macros.rrImageDomain() %&gt;//favicon.ico&quot; type=&quot;image/x-icon&quot; /&gt;
-        &lt;link rel=&quot;icon&quot; href=&quot;//&lt;%= macros.rrImageDomain() %&gt;//favicon.ico&quot; type=&quot;image/ico&quot;&gt;</code></pre>
-<p>This will result in the following markup:</p>
+        &lt;link rel=&quot;icon&quot; href=&quot;//&lt;%= macros.rrImageDomain() %&gt;//favicon.ico&quot; type=&quot;image/ico&quot;&gt;
+</code></pre><p>This will result in the following markup:</p>
 <pre><code>&lt;!DOCTYPE HTML&gt;
 &lt;html&gt;
     &lt;head&gt;
@@ -141,13 +139,12 @@ macros.rrImageDomain = function rrImageDomain(){
         &lt;!-- snip --&gt;
 
         &lt;link rel=&quot;shortcut icon&quot; href=&quot;//static6.ethanjoachimeldridge.info/favicon.ico&quot; type=&quot;image/x-icon&quot; /&gt;
-        &lt;link rel=&quot;icon&quot; href=&quot;//static7.ethanjoachimeldridge.info/favicon.ico&quot; type=&quot;image/ico&quot;&gt;</code></pre>
-<p>You can see that we simply have incrementing subdomains for our static content (in this case, domains 6 and 7)</p>
+        &lt;link rel=&quot;icon&quot; href=&quot;//static7.ethanjoachimeldridge.info/favicon.ico&quot; type=&quot;image/ico&quot;&gt;
+</code></pre><p>You can see that we simply have incrementing subdomains for our static content (in this case, domains 6 and 7)</p>
 <p>By using macros like this it is easy to generate a site that is not only fast to 
 serve (due to the static content itself), but also fast to load (due to leveraging
 the browsers ability to download images in parallel from multiple hosts). Feel free
 to leave questions or comments in the disqus thread below!</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

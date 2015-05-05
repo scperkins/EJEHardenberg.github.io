@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Adding Actions to the WordPress User Lists</h3>
-<p>Today I was working on extending the functionality of an ecommerce site
+      <h3>Adding Actions to the WordPress User Lists</h3><p>Today I was working on extending the functionality of an ecommerce site
 plugin I&#39;ve been working on. Primarily, I decided it would be a great 
 idea if an Admin could easily jump to view a users purchases. </p>
 <p>Where to do this? The WordPress Users list of course! It&#39;s the most likely
@@ -85,11 +84,10 @@ investigating that code found the more useful and informative file <code>wp-admi
     function custom_user_actions($actions, $user_object ){
         $actions[&#39;see purchases&#39;] = &quot;&lt;a class=&#39;submitdelete&#39; href=&#39;&quot; . admin_url( &#39;admin.php?page=user-purchases&amp;user=&#39;.$user_object-&gt;ID) . &quot;&#39;&gt;&quot; . __( &#39;Purchases&#39; ) . &quot;&lt;/a&gt;&quot;;
         return $actions;
-    }</code></pre>
-<p>And then my purchases link appeared on the WP Users list page in the admin view. Perfect!</p>
+    }
+</code></pre><p>And then my purchases link appeared on the WP Users list page in the admin view. Perfect!</p>
 <p>I hope that this helps someone else out there who needs to add actions to the user 
 list view. </p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

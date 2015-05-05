@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>ItemProcessorListener Example, Spring Batch</h3>
-<p>For a recent work project I&#39;ve been up to my ears in <a href="http://projects.spring.io/spring-batch/">Spring Batch</a>, and besides
+      <h3>ItemProcessorListener Example, Spring Batch</h3><p>For a recent work project I&#39;ve been up to my ears in <a href="http://projects.spring.io/spring-batch/">Spring Batch</a>, and besides
 documentation, when I am thrown into a new project I tend to use <a href="//www.mkyong.com/tutorials/spring-batch-tutorial/">good examples</a>
 of people using the library to supplement my learning. So when we decided that we
 needed finer grain tracking of each item being processed, I went in search of
@@ -102,8 +101,8 @@ public class MyExampleProcessorListener implements ItemProcessListener&lt;Baz, B
     public void onProcessError(Baz baz, Exception e){
         //..
     }
-}</code></pre>
-<p>And in your configuration you need to have your step configured with your listener
+}
+</code></pre><p>And in your configuration you need to have your step configured with your listener
 specified in the configuration of your step:</p>
 <pre><code>&lt;bean id=&quot;exampleListener&quot; class=&quot;com.example.MyExampleProcessorListener&quot;  scope=&quot;step&quot;/&gt;
 
@@ -116,14 +115,13 @@ specified in the configuration of your step:</p>
             &lt;batch:listener ref=&quot;exampleListener&quot; /&gt;
         &lt;/batch:listeners&gt;
     &lt;/batch:step&gt;
-&lt;/batch:job&gt;</code></pre>
-<p>One of the things that tripped me up for a little bit was that the <code>listeners</code> 
+&lt;/batch:job&gt;
+</code></pre><p>One of the things that tripped me up for a little bit was that the <code>listeners</code> 
 tag in your XML setup <strong>must</strong> be within the step and not inside the tasklet.
 Placing the listeners inside your chunk, tasklet, or anywhere else strange 
 will result in the code simply not executing. One of the useful things that 
 I walked away from that silly encounter was that XSD files and <a href="http://xmlsoft.org/xmllint.html">xmllint</a> can be
 very helpful when you&#39;re troubleshooting your xml configuration files.</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

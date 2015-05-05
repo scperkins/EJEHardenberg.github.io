@@ -58,29 +58,27 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Upgrading from Chromium 33 to 37</h3>
-<p>The other day I upgraded from <a href="http://www.chromium.org/">Chromium</a> version 33 to 37. Needless to say I broke a few things.</p>
+      <h3>Upgrading from Chromium 33 to 37</h3><p>The other day I upgraded from <a href="http://www.chromium.org/">Chromium</a> version 33 to 37. Needless to say I broke a few things.</p>
 <p>The flashplayer was screwed up, so I had to try to fix that. After trying some suggestions on symlinking things from /opt/chrome in and failing, then pulling down the latest stable release and manually copying out the flash player plugin and trying to use that. I did some more research and crawling of mailing lists and found a solution that worked.</p>
 <p><a href="http://www.webupd8.org/2013/04/install-pepper-flash-player-for.html">Here are the instructions I used</a> to install the ppa for chromium&#39;s pepper flash plugin. From yout terminal do the following:</p>
 <pre><code>sudo add-apt-repository ppa:skunk/pepper-flash
 sudo apt-get update
-sudo apt-get install pepflashplugin-installer</code></pre>
-<p>The instructions then tell you to edit the /etc/chromium-browser/default profile and add in the following line to the script:</p>
-<pre><code>. /usr/lib/pepflashplugin-installer/pepflashplayer.sh</code></pre>
-<p>That dot is important and supposed to be there btw. This fixed my problem until I restarted my computer. Then I had to add the line back in. At first I thought to myself, well I&#39;ll just put an echo into my <code>.bash_profile</code> and that will be that. But, since the file is owned by root it&#39;s not so simple. So I took a look at the profile itself. Upon investigation I found that in the profile it states this:</p>
-<pre><code> This file is sourced by /bin/sh from 2 # /usr/bin/chromium-browser</code></pre>
-<p>So, I hopped over to <code>/usr/bin/chromium-browser</code> and checked out the script. Around line 76 I found a call to source the file. After investigating the script a bit I decided to add the following to my bash profile:</p>
+sudo apt-get install pepflashplugin-installer
+</code></pre><p>The instructions then tell you to edit the /etc/chromium-browser/default profile and add in the following line to the script:</p>
+<pre><code>. /usr/lib/pepflashplugin-installer/pepflashplayer.sh
+</code></pre><p>That dot is important and supposed to be there btw. This fixed my problem until I restarted my computer. Then I had to add the line back in. At first I thought to myself, well I&#39;ll just put an echo into my <code>.bash_profile</code> and that will be that. But, since the file is owned by root it&#39;s not so simple. So I took a look at the profile itself. Upon investigation I found that in the profile it states this:</p>
+<pre><code> This file is sourced by /bin/sh from 2 # /usr/bin/chromium-browser
+</code></pre><p>So, I hopped over to <code>/usr/bin/chromium-browser</code> and checked out the script. Around line 76 I found a call to source the file. After investigating the script a bit I decided to add the following to my bash profile:</p>
 <pre><code>#fix chromium flash player 
 export FLASH_VERSION=15.0.0.152
-export CHROMIUM_FLAGS=&quot;${CHROMIUM_FLAGS} --ppapi-flash-path=/usr/lib/pepflashplugin-installer/libpepflashplayer.so --ppapi-flash-version=$FLASH_VERSION&quot;</code></pre>
-<p>But this is not the only way to fix it! On line 81 of the bin script it reads all the profiles in the <code>customizations</code> directory. So we could simply add the call to the pepflashplayer script in a custom profile.</p>
+export CHROMIUM_FLAGS=&quot;${CHROMIUM_FLAGS} --ppapi-flash-path=/usr/lib/pepflashplugin-installer/libpepflashplayer.so --ppapi-flash-version=$FLASH_VERSION&quot;
+</code></pre><p>But this is not the only way to fix it! On line 81 of the bin script it reads all the profiles in the <code>customizations</code> directory. So we could simply add the call to the pepflashplayer script in a custom profile.</p>
 <p>So this is <strong>/etc/chromium-browser/customizations/flash</strong>:</p>
-<pre><code>. /usr/lib/pepflashplugin-installer/pepflashplayer.sh</code></pre>
-<p>And then fix it up by running the following:</p>
+<pre><code>. /usr/lib/pepflashplugin-installer/pepflashplayer.sh
+</code></pre><p>And then fix it up by running the following:</p>
 <pre><code>$sudo chmod --reference=/etc/chromium-browser/default /etc/chromium-browser/customizations/flash 
-$ sudo chown --reference=/etc/chromium-browser/default /etc/chromium-browser/customizations/flash </code></pre>
-<p>At that point you are no longer screwing with global exported flags and instead can use your custom profile instead. Neat right?</p>
-
+$ sudo chown --reference=/etc/chromium-browser/default /etc/chromium-browser/customizations/flash 
+</code></pre><p>At that point you are no longer screwing with global exported flags and instead can use your custom profile instead. Neat right?</p>
       
       <h3>Other Posts</h3>
       <div id="other-posts">

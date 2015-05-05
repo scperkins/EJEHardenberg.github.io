@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Creating your own RSS feed with HarpJS</h3>
-<p>A lot of people use RSS feeds to aggregate content they want to know 
+      <h3>Creating your own RSS feed with HarpJS</h3><p>A lot of people use RSS feeds to aggregate content they want to know 
 about, and by offering this service from your own website or blog you 
 can help distribute your content a little bit easier to the tech-savvy 
 world. The other day one of my friends asked me if <strong>my</strong> website had an 
@@ -127,22 +126,20 @@ I have to reverset the list first before I use it:</p>
         &lt;/item&gt;
         &lt;% } %&gt;
     &lt;/channel&gt;
-&lt;/rss&gt;</code></pre>
-<p>Next, the <code>xml</code>,<code>rss</code>, and <code>channel</code> elements are part of the <a href="http://cyber.law.harvard.edu/rss/rss.html">standard</a> 
+&lt;/rss&gt;
+</code></pre><p>Next, the <code>xml</code>,<code>rss</code>, and <code>channel</code> elements are part of the <a href="http://cyber.law.harvard.edu/rss/rss.html">standard</a> 
 and easily implemented using the examples they give you. Same with the 
 feed description itself with the title, link, and editor tags. There are 
 only two items that stood out when creating this feed.</p>
-<h4>The timestamps for date.</h4>
-<p>The date&#39;s need to be valid <a href="http://www.w3.org/Protocols/rfc822/">RFC 822</a> timestamps. This means <em>GMT</em> time. 
+<h4>The timestamps for date.</h4><p>The date&#39;s need to be valid <a href="http://www.w3.org/Protocols/rfc822/">RFC 822</a> timestamps. This means <em>GMT</em> time. 
 If I were to not call the <code>toGMTString()</code> function on my dates, then I 
 would have an invalid feed because I&#39;d get things like this:</p>
-<pre><code>Fri Dec 19 2014 08:41:43 GMT-0500 (EST)</code></pre>
-<p>Instead of formats like this:</p>
-<pre><code>Fri, 19 Dec 2014 13:42:05 GMT</code></pre>
-<p>If you&#39;re using something like <a href="http://feedvalidator.org/">FeedValidator</a> to make sure your feed is 
+<pre><code>Fri Dec 19 2014 08:41:43 GMT-0500 (EST)
+</code></pre><p>Instead of formats like this:</p>
+<pre><code>Fri, 19 Dec 2014 13:42:05 GMT
+</code></pre><p>If you&#39;re using something like <a href="http://feedvalidator.org/">FeedValidator</a> to make sure your feed is 
 <a href="http://feedvalidator.org/check.cgi?url=http%3A//ethanjoachimeldridge.info/tech-blog/feed.xml">valid</a>, then it will complain unless you use the GMT versions.</p>
-<h4>Links in the Description tag</h4>
-<p>In your RSS feed, if you&#39;re going to put more than just text, you need to
+<h4>Links in the Description tag</h4><p>In your RSS feed, if you&#39;re going to put more than just text, you need to
 encode the entities of the data and put them into a <code>CDATA</code> block. The 
 spec page links to <a href="http://cyber.law.harvard.edu/rss/encodingDescriptions.html">how to format</a> your links, but to do it you need some 
 tomfoolery with javascript. Namely this:</p>
@@ -155,16 +152,15 @@ tomfoolery with javascript. Namely this:</p>
                 return &#39;&amp;#&#39;+i.charCodeAt(0)+&#39;;&#39;;
         }).replace(/&amp;/gim, &#39;&amp;amp;&#39;) 
     %&gt;]]
-&lt;/description&gt;</code></pre>
-<p>This replaces all the unicode characters (outside of 127 range) with 
+&lt;/description&gt;
+</code></pre><p>This replaces all the unicode characters (outside of 127 range) with 
 their corresponding character code, then turns them into entities. There 
 is a <a href="http://stackoverflow.com/questions/18749591/encode-html-entities-in-javascript">stackoverflow</a> post describing this in more detail. However, the 
 answer doesn&#39;t mention the <code>.replace(/&amp;/gim, &#39;&amp;amp;&#39;)</code> part, only the 
 <a href="http://jsfiddle.net/E3EqX/13/">fiddle</a> does.</p>
 <p>Once you have these two gotchas under control then you&#39;ll be happily displaying 
 your shiny valid RSS feed image in no time!</p>
-<p><a href="http://feedvalidator.org/check.cgi?url=http%3A//ethanjoachimeldridge.info/tech-blog/feed.xml"><img src="/images/tech-blog/valid-rss-rogers.png" alt="[Valid RSS]" title="Validate my RSS feed" /></a></p>
-
+<p><a href="http://feedvalidator.org/check.cgi?url=http%3A//ethanjoachimeldridge.info/tech-blog/feed.xml"><img src="/images/tech-blog/valid-rss-rogers.png" alt="[Valid RSS]" title="Validate my RSS feed"></a></p>
       
       <h3>Other Posts</h3>
       <div id="other-posts">

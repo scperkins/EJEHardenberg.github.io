@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>XML PlayFramework Templates</h3>
-<p>While <a href="http://anti-xml.org/">some people hate Scala&#39;s XML</a>, I haven&#39;t worked with it long enough 
+      <h3>XML PlayFramework Templates</h3><p>While <a href="http://anti-xml.org/">some people hate Scala&#39;s XML</a>, I haven&#39;t worked with it long enough 
 to form an opinion. So today I decided that I&#39;d dive into it by creating 
 an application that wrapped some simple data and spat out some XML.</p>
 <p>Since I&#39;m mainly focusing on the XML side of things, I&#39;d rather not deal 
@@ -76,8 +75,8 @@ mkdir conf
 touch conf/routes
 mkdir project
 touch project/plugins.sbt
-touch build.sbt</code></pre>
-<p>Next, setup the build file to name your project and enable the Play Plugin:</p>
+touch build.sbt
+</code></pre><p>Next, setup the build file to name your project and enable the Play Plugin:</p>
 <pre><code>//build.sbt
 
 lazy val root = (project in file(&quot;.&quot;)).enablePlugins(PlayScala)
@@ -86,18 +85,18 @@ name := &quot;xml-example&quot;
 
 version := &quot;1.0&quot;
 
-scalaVersion := &quot;2.10.4&quot;</code></pre>
-<p>In order for this to load when we run <code>sbt</code>, we need to specify where the 
+scalaVersion := &quot;2.10.4&quot;
+</code></pre><p>In order for this to load when we run <code>sbt</code>, we need to specify where the 
 PlayPlugin is coming from by editing the <strong>project/plugins.sbt</strong> file:</p>
 <pre><code>// The Typesafe repository
 resolvers += &quot;Typesafe repository&quot; at &quot;https://repo.typesafe.com/typesafe/releases/&quot;
 
 // Use the Play sbt plugin for Play projects
-addSbtPlugin(&quot;com.typesafe.play&quot; % &quot;sbt-plugin&quot; % &quot;2.3.8&quot;)</code></pre>
-<p>With that in place we can now run <code>sbt</code> and get a pleasant error message 
+addSbtPlugin(&quot;com.typesafe.play&quot; % &quot;sbt-plugin&quot; % &quot;2.3.8&quot;)
+</code></pre><p>With that in place we can now run <code>sbt</code> and get a pleasant error message 
 from play about having no routes setup. To remedy update your routes file:</p>
-<pre><code>GET / controllers.Example.index</code></pre>
-<p>In order for this to compile we need to have an <code>Example</code> controller. So 
+<pre><code>GET / controllers.Example.index
+</code></pre><p>In order for this to compile we need to have an <code>Example</code> controller. So 
 create one of those in <strong>controllers/Example.scala</strong>:</p>
 <pre><code>package controllers
 
@@ -110,8 +109,8 @@ object Example extends Controller {
     Ok(views.xml.index(models.TestInfo.getData))
   }
 
-}</code></pre>
-<p>Now we&#39;ll get an error about the views file not being defined, and the 
+}
+</code></pre><p>Now we&#39;ll get an error about the views file not being defined, and the 
 models not being defined either. Let&#39;s create the models file first:</p>
 <pre><code>package models
 
@@ -131,8 +130,8 @@ object TestInfo {
       TestInfo(6, &quot;First&quot;, List(&quot;Tuesday&quot;))
     )
   }
-}</code></pre>
-<p>We&#39;ve defined the <a href="http://tutorials.jenkov.com/scala/singleton-and-companion-objects.html">companion object</a> that will provide us with test data, 
+}
+</code></pre><p>We&#39;ve defined the <a href="http://tutorials.jenkov.com/scala/singleton-and-companion-objects.html">companion object</a> that will provide us with test data, 
 and a simple <a href="http://www.scala-lang.org/old/node/107">case class</a> to make doing so easier. Normally we&#39;d write up 
 something here that would provide data from a backend, such as <a href="https://www.elastic.co">elastic 
 search</a> or <a href="http://alvinalexander.com/scala/scala-jdbc-connection-mysql-sql-select-example">MySQL</a>, but today it&#39;s just test data. Using this model we 
@@ -151,8 +150,8 @@ can now write our <strong>app/views/index.scala.xml</strong> file:</p>
         &lt;/Days&gt;
     &lt;/TestInfo&gt;
     } 
-&lt;/TestInfoList&gt;</code></pre>
-<p>You&#39;ll notice there isn&#39;t anything different about this file versus a regular
+&lt;/TestInfoList&gt;
+</code></pre><p>You&#39;ll notice there isn&#39;t anything different about this file versus a regular
 xml template except that the name of the file is <strong>index.scala.xml</strong> as oppose 
 to your usual <strong>index.scala.html</strong>. However, to illustrate a point, let&#39;s 
 refactor our view to abstract the <code>TestInfo</code> view to it&#39;s own file:</p>
@@ -168,8 +167,8 @@ vi app/views/common/testinfo.scala.xml
         &lt;Day&gt;@day&lt;/Day&gt;
         }   
     &lt;/Days&gt;
-&lt;/TestInfo&gt;</code></pre>
-<p>With this in place we&#39;ll change the <strong>app/views/index.scala.xml</strong> file to 
+&lt;/TestInfo&gt;
+</code></pre><p>With this in place we&#39;ll change the <strong>app/views/index.scala.xml</strong> file to 
 call the new one:</p>
 <pre><code>@(nodeList : List[TestInfo])
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
@@ -177,8 +176,8 @@ call the new one:</p>
     @for(testInfo &lt;- nodeList){
         @common.testinfo(testInfo)
     } 
-&lt;/TestInfoList&gt;</code></pre>
-<p>Note that the directories under the <strong>views</strong> folder correspond to their 
+&lt;/TestInfoList&gt;
+</code></pre><p>Note that the directories under the <strong>views</strong> folder correspond to their 
 packages. For those in the root of views, their type (html,xml) will be the 
 package (look at the controller, see <code>views.xml.index</code>?). For templates in 
 the subdirectories, the classes become views.&lt;subdir&gt;.fileName.</p>
@@ -215,8 +214,8 @@ to understand just by reading them, here&#39;s <strong>public/testInfo.xsd</stro
   &lt;/xs:element&gt;
 
   &lt;xs:element name=&quot;Day&quot; type=&#39;xs:string&#39;/&gt;
-&lt;/xs:schema&gt;</code></pre>
-<p>This file says that the valid scheme is one which has a <code>TestInfoList</code> node 
+&lt;/xs:schema&gt;
+</code></pre><p>This file says that the valid scheme is one which has a <code>TestInfoList</code> node 
 that contains any number of <code>TestInfo</code> elements. Each of these elements are 
 then defined in terms of their pieces, namely <code>Id</code>, <code>Name</code>, and <code>Days</code>. As 
 you might expect, each of these elements are defined within the file. XSD 
@@ -233,24 +232,23 @@ of our layout:</p>
     @for(testInfo &lt;- nodeList){
         @common.testinfo(testInfo)
     }
-&lt;/TestInfoList&gt;</code></pre>
-<p>I&#39;m assuming that you&#39;re running play on the default server port of 9000 
+&lt;/TestInfoList&gt;
+</code></pre><p>I&#39;m assuming that you&#39;re running play on the default server port of 9000 
 in the example above. To make the <code>/testInfo.xsd</code> route work we need to 
 update the routes themselves in <strong>conf/routes</strong>: </p>
 <pre><code>GET /                controllers.Example.index
-GET /testInfo.xsd     controllers.Assets.at(path:String = &quot;/public/&quot;, file:String = &quot;testInfo.xsd&quot;)</code></pre>
-<p>With those two things in place, any client will be able to validate your 
+GET /testInfo.xsd     controllers.Assets.at(path:String = &quot;/public/&quot;, file:String = &quot;testInfo.xsd&quot;)
+</code></pre><p>With those two things in place, any client will be able to validate your 
 xml using the provided schema. If you want to check it out yourself, try 
 this on the command line:</p>
 <pre><code>curl http://localhost:9000/ &gt; tmp.xml
-xmllint --schema public/testInfo.xsd tmp.xml</code></pre>
-<p>And you should see a success method.</p>
+xmllint --schema public/testInfo.xsd tmp.xml
+</code></pre><p>And you should see a success method.</p>
 <p>This post went over the bare neccesities of getting a Play application up 
 from scratch and serving validatable XML. By using templates for pieces 
 of your XML you can modularize your view code and make your life easier 
 later on. Hopefully after reading this post you realize how easy it is 
 to create XML views with Play. Have fun and happy coding!</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

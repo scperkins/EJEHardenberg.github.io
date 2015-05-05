@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>An Adventure in <code>strace</code></h3>
-<p>Troubleshooting bugs is not always as simple as reading an error log. 
+      <h3>An Adventure in <code>strace</code></h3><p>Troubleshooting bugs is not always as simple as reading an error log. 
 Today I ended up running end to end in order to track down a 
 relatively simple bug, which, like all bugs, was obvious and trivial 
 to fix once the logic behind the issue was understood.</p>
@@ -73,8 +72,8 @@ into a wall. Specifically a <a href="http://en.wikipedia.org/wiki/List_of_HTTP_s
 <code>ssh</code>-ed to the server and checked the log files. This particular server 
 had an <a href="http://nginx.org/">nginx</a> server that proxied back to an <a href="http://www.apache.org">apache</a> instance. Looking 
 through the logfiles I saw a single error message:</p>
-<pre><code>client closed connection while waiting for request, client: xx.xxx.xxx.xx:8080, server: 0.0.0.0:80</code></pre>
-<p>Mildly confused, I tested the apache server in the background via <code>curl</code> 
+<pre><code>client closed connection while waiting for request, client: xx.xxx.xxx.xx:8080, server: 0.0.0.0:80
+</code></pre><p>Mildly confused, I tested the apache server in the background via <code>curl</code> 
 and found it returning the expected 401. Authenticating with the <code>--user</code> 
 flag and everything hung. No timeout (even after 5 minutes), nothing in 
 the log files for apache. Nothing. </p>
@@ -84,11 +83,11 @@ configured instance or application. Every single virtual host on apache
 and server configuration in nginx worked <em>except for the one I was testing</em>. </p>
 <p>After using <code>httpd -S</code> to make sure that my default virtual host wasn&#39;t 
 incorrect I quickly wrote a test script.</p>
-<pre><code>&lt;?php echo &quot;Yeah, I&#39;m working...&quot;; ?&gt;</code></pre>
-<p>And on testing it I saw that the server itself was working: </p>
+<pre><code>&lt;?php echo &quot;Yeah, I&#39;m working...&quot;; ?&gt;
+</code></pre><p>And on testing it I saw that the server itself was working: </p>
 <pre><code>curl --user user:password localhost:8080/test.php
-#Yeah, I&#39;m working...</code></pre>
-<p>So then the error must be in the application. I bumping up the logging in 
+#Yeah, I&#39;m working...
+</code></pre><p>So then the error must be in the application. I bumping up the logging in 
 <code>curl</code> via the <code>--verbose</code> flag to see if there was an infinite redirect 
 going on, but that returned unfruitful. &quot;So the error must be in the 
 application&quot; I thought. Checking the error logs showed nothing, so I
@@ -106,13 +105,13 @@ www-data 16117  0.0  0.0 420516  7288 ?        S    Apr22   0:00 /usr/sbin/apach
 www-data 16118  0.0  0.0 420516  7288 ?        S    Apr22   0:00 /usr/sbin/apache2 -k start
 www-data 16119  0.0  0.0 420484  7052 ?        S    Apr22   0:00 /usr/sbin/apache2 -k start
 www-data 16120  0.0  0.0 420484  7052 ?        S    Apr22   0:00 /usr/sbin/apache2 -k start
-www-data 16121  0.0  0.0 420484  7052 ?        S    Apr22   0:00 /usr/sbin/apache2 -k start</code></pre>
-<p>Then you would want to use <code>strace -f -p 2742</code> to monitor any additional 
+www-data 16121  0.0  0.0 420484  7052 ?        S    Apr22   0:00 /usr/sbin/apache2 -k start
+</code></pre><p>Then you would want to use <code>strace -f -p 2742</code> to monitor any additional 
 processes created. Or, to be sure, you could make use of the fact that 
 the <code>-p</code> flag can be used multiple times and monitor the already forked 
 processes like so: </p>
-<pre><code>strace -f -p 2742 -p 16117 -p 16118 -p 16119 -p 16120 -p 16121</code></pre>
-<p>And you&#39;ll see an output something like this:</p>
+<pre><code>strace -f -p 2742 -p 16117 -p 16118 -p 16119 -p 16120 -p 16121
+</code></pre><p>And you&#39;ll see an output something like this:</p>
 <pre><code>Process 2742 attached - interrupt to quit
 Process 16117 attached - interrupt to quit
 Process 16118 attached - interrupt to quit
@@ -135,8 +134,8 @@ Process 16117 detached
 Process 16118 detached
 Process 16119 detached
 Process 16120 detached
-Process 16121 detached</code></pre>
-<p>Of course this doesn&#39;t get more interesting than your regular event 
+Process 16121 detached
+</code></pre><p>Of course this doesn&#39;t get more interesting than your regular event 
 polling loop until the server responds to something or is asked to 
 execute code by the application. In my case, the first breadcrumb 
 appeared as an error in resolving an ip address:</p>
@@ -146,8 +145,8 @@ appeared as an error in resolving an ip address:</p>
 ...
 [pid   904] setsockopt(32, SOL_SOCKET, SO_SNDTIMEO, &quot;\2003\341\1\0\0\0\0\0\0\0\0\0\0\0\0&quot;, 16 &lt;unfinished ...&gt;
 ...
-[pid   904] &lt;... read resumed&gt; 0x7f2bfe23c8d0, 16384) = -1 ETIMEDOUT (Connection timed out)</code></pre>
-<p>Anyone who&#39;s ever dealt with the <a href="http://beej.us/guide/bgnet/output/html/singlepage/bgnet.html#datagram">c networking apis</a> knows that the 
+[pid   904] &lt;... read resumed&gt; 0x7f2bfe23c8d0, 16384) = -1 ETIMEDOUT (Connection timed out)
+</code></pre><p>Anyone who&#39;s ever dealt with the <a href="http://beej.us/guide/bgnet/output/html/singlepage/bgnet.html#datagram">c networking apis</a> knows that the 
 <code>inet_addr</code> function is used to convert a human readable ip to a machine 
 readable form, and then this is used by the <code>connect</code> call to actually 
 perform the connection. We&#39;re lucky in this case, as we can very easily 
@@ -169,8 +168,8 @@ the database: </p>
 
 | 188148200 |   0 | php  | %message in %file on line %line. | a:4:{s:6:&quot;%error&quot;;s:7:&quot;warning&quot;;s:8:&quot;%message&quot;;s:67:&quot;mysql_close(): supplied argument is not a valid MySQL-Link resource&quot;;s:5:&quot;%file&quot;;s:67:&quot;/var/www/sites/all/modules/cdn/cdn.advanced.inc&quot;;s:5:&quot;%line&quot;;i:82;}                                                                                                          |        3 |      | http://staging.example.com/ |         | 127.0.0.1 | 1429902803 |
 +-----------+-----+------+---------------------------
-...</code></pre>
-<p>Aha! As <code>strace</code> had indicated, we were failing on connecting to a mysql 
+...
+</code></pre><p>Aha! As <code>strace</code> had indicated, we were failing on connecting to a mysql 
 database somewhere in the code. And according to the watchdog error, it 
 was coming from the <a href="https://www.drupal.org/project/cdn">cdn module</a>. After grepping the code base I found 
 the variables used to specify the configuration of the module and noted 
@@ -183,20 +182,18 @@ database import that I had left running over night.</p>
 <p>So the answer was pretty simple to fix the issue. <strong>Disable the CDN Module</strong>. 
 However, due to... circumstances, <a href="https://www.drupal.org/project/drush">drush</a> wasn&#39;t available to me in the<br>environment I was in. This meant I had to toggle the module the old 
 fashioned way, via SQL.</p>
-<pre><code>update system set status = 1 where name = &#39;cdn&#39;;</code></pre>
-<p>This was enough to get <em>most</em> of the application up and running and I 
+<pre><code>update system set status = 1 where name = &#39;cdn&#39;;
+</code></pre><p>This was enough to get <em>most</em> of the application up and running and I 
 was able to see a header appear, however an error appeared in my logs 
 until I reset some of the values for the cdn in the cache:</p>
 <pre><code>update cache set data = replace(data, &#39;&quot;cdn_status&quot;;s:1:&quot;0&quot;;&#39;,&#39;&quot;cdn_status&quot;;s:1:&quot;1&quot;;&#39;) where data like &#39;%cdn_status%&#39;;
-update variable set value = &#39;s:1:&quot;0&quot;;&#39; where name like &#39;cdn_status&#39;;</code></pre>
-<p>After that the application loaded and I was able to verify, after a 
+update variable set value = &#39;s:1:&quot;0&quot;;&#39; where name like &#39;cdn_status&#39;;
+</code></pre><p>After that the application loaded and I was able to verify, after a 
 few hours of banging my head against server configurations, system 
 logs, and network scanning, that the minute changes I had deployed 
 were working. </p>
-<h4>The take away?</h4>
-<p>When your regular application logs fail, tools like <code>strace</code> or <a href="http://www.sysdig.org/">sysdig</a> 
+<h4>The take away?</h4><p>When your regular application logs fail, tools like <code>strace</code> or <a href="http://www.sysdig.org/">sysdig</a> 
 can really come in handy.</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

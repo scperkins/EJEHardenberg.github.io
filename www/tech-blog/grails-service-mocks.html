@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Mocking a service method within another service in Grails 2.3.4</h3>
-<p>I&#39;ve been working with <a href="http://grails.org/doc/2.3.4/guide/">Grails</a> recently. And one of the biggest wastes of time
+      <h3>Mocking a service method within another service in Grails 2.3.4</h3><p>I&#39;ve been working with <a href="http://grails.org/doc/2.3.4/guide/">Grails</a> recently. And one of the biggest wastes of time
 I deal with is Unit and Integration testing. Now, I&#39;m not saying Tests are a 
 waste of time: If you&#39;re creating useful and meaningful tests, then you&#39;re doing
 it right. If you&#39;re testing accessors and mutators... well, there&#39;s a special 
@@ -89,8 +88,8 @@ public class SomeServiceTests{
         someService.wiredService = mock
         //... continue on happily
     }
-    ...</code></pre>
-<p>And that&#39;s it. No strange <code>MockFor(ClassName)</code> or wondering whether or not you&#39;ve
+    ...
+</code></pre><p>And that&#39;s it. No strange <code>MockFor(ClassName)</code> or wondering whether or not you&#39;ve
 restored a services <code>metaClass</code> to it&#39;s original state or anything of that nature.
 To me, this is the way that makes sense to mock during an integration test. This
 might not fit into your scenario, as really the reason why I&#39;m doing this is 
@@ -100,7 +99,6 @@ a lot of other things (like sending emails for example), and I don&#39;t really 
 to verify or wait for those processes to complete<sup>2</sup>, I just stub it out.</p>
 <p><sup>1 Ok maybe you can use it sometimes usefully, but you shouldn&#39;t be using Mocks in integration tests most of the time. The use case here is that you need to just stub out a service call during a test.</sup>
 <sup>2 And the other service has it&#39;s own test that handles all of it&#39;s testing</sup></p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

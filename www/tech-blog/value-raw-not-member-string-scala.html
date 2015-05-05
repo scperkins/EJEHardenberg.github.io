@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Value Raw is not a member of String (weird error in scala)</h3>
-<p>Today I was working on a pretty simple system, it involved using the 
+      <h3>Value Raw is not a member of String (weird error in scala)</h3><p>Today I was working on a pretty simple system, it involved using the 
 routes of a <a href="https://www.playframework.com/documentation/2.3.x/Home">PlayFramework</a> application to decide the format of the view. 
 Specifically, visiting a resource with a url ending in <code>.html</code> would 
 result in an HTML page being rendered, and similarly with XML.</p>
@@ -75,16 +74,16 @@ error message:</p>
 [error]     &lt;Message&gt;The template or the format does exist&lt;/Message&gt;
 [error]                           ^
 [error] one error found
-[error] (compile:compile) Compilation failed</code></pre>
-<p>The offending code was this rather innocuous view:</p>
+[error] (compile:compile) Compilation failed
+</code></pre><p>The offending code was this rather innocuous view:</p>
 <pre><code>@(template: String, format: String) 
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;ViewError&gt;
     &lt;Message&gt;The template or the format does exist&lt;/Message&gt;
     &lt;Template&gt;@template&lt;/Template&gt;
     &lt;Format&gt;@format&lt;/Format&gt;
-&lt;/ViewError&gt;</code></pre>
-<p>Nothing about this code immediately jumped out to me as horribly 
+&lt;/ViewError&gt;
+</code></pre><p>Nothing about this code immediately jumped out to me as horribly 
 incorrect, and I confused myself some more by removing parts, 
 seeing the same error message, placing them back in, changing the 
 file name, turning sbt on and off. And in general, scratching my head. </p>
@@ -99,12 +98,11 @@ interpolated or resolved in an odd way. I made the slight change: </p>
     &lt;Message&gt;The template or the format does exist&lt;/Message&gt;
     &lt;Template&gt;@badTemplate&lt;/Template&gt;
     &lt;Format&gt;@badFormat&lt;/Format&gt;
-&lt;/ViewError&gt;</code></pre>
-<p>Saved the file and let <code>sbt ~compile</code> catch it and sure enough:</p>
+&lt;/ViewError&gt;
+</code></pre><p>Saved the file and let <code>sbt ~compile</code> catch it and sure enough:</p>
 <pre><code>[info] Compiling 1 Scala source to /path/target/scala-2.10/classes...
-[success] Total time: 14 s, completed Apr 27, 2015 11:45:50 PM</code></pre>
-<p>Hope this helps someone out there!</p>
-
+[success] Total time: 14 s, completed Apr 27, 2015 11:45:50 PM
+</code></pre><p>Hope this helps someone out there!</p>
       
       <h3>Other Posts</h3>
       <div id="other-posts">

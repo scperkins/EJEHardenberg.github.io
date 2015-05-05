@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Form with name=&quot;name&quot; causes 404 in WordPress</h3>
-<p>While I haven&#39;t tracked down the source of the problem within WordPress itself,
+      <h3>Form with name=&quot;name&quot; causes 404 in WordPress</h3><p>While I haven&#39;t tracked down the source of the problem within WordPress itself,
 I was having some trouble with a form on a custom template on a WordPress site.</p>
 <p>I had made my form, was hitting submit then promptly seeing a 404 page. </p>
 <p>Confusing? I&#39;ll say, especially considering the form was submitting to itself. 
@@ -77,14 +76,14 @@ Wordpress Core. Here&#39;s the snippet that is causing the slightly unexpected b
 2338            $q[&#39;name&#39;] = sanitize_title_for_query( $q[&#39;name&#39;] );
 2339            $where .= &quot; AND $wpdb-&gt;posts.post_name = &#39;&quot; . $q[&#39;name&#39;] . &quot;&#39;&quot;;
 2340        } elseif ( &#39;&#39; != $q[&#39;pagename&#39;] ) {
-2341            if ( isset($this-&gt;queried_object_id) ) {</code></pre>
-<p>The <code>$q</code> variable is the query variables which are retrieved like this:</p>
+2341            if ( isset($this-&gt;queried_object_id) ) {
+</code></pre><p>The <code>$q</code> variable is the query variables which are retrieved like this:</p>
 <pre><code>wp-includes/class-wp.php (WordPress Version 3.7.1)
 2142        $q = &amp;$this-&gt;query_vars;
 2143
 2144        // Fill again in case pre_get_posts unset some vars.
-2145        $q = $this-&gt;fill_query_vars($q);</code></pre>
-<p>In other words, the <code>$_POST</code> and <code>$_GET</code> variables seem to be merged into a single
+2145        $q = $this-&gt;fill_query_vars($q);
+</code></pre><p>In other words, the <code>$_POST</code> and <code>$_GET</code> variables seem to be merged into a single
 <code>query_vars</code> propertie and then used from there. <code>wp_parse_args</code> is used during
 part of the merging (from a brief look into the <code>fill_query_vars</code> function) and
 so we end up looking for a post with the name of whatever we submitted in the form.
@@ -92,8 +91,8 @@ Which is, not what we wanted to do. You could use it to create a custom search
 form for looking for exact matches on post names, but that&#39;d be a little silly. </p>
 <p>Regardless, I wonder if this is the intended behavior of WordPress or just a result
 of lots of code making the assumptions that no user will ever try to use</p>
-<pre><code>&lt;input type=&quot;text&quot; name=&quot;name&quot; /&gt;</code></pre>
-
+<pre><code>&lt;input type=&quot;text&quot; name=&quot;name&quot; /&gt;
+</code></pre>
       
       <h3>Other Posts</h3>
       <div id="other-posts">

@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Auto loading resource files in Harp</h3>
-<p><strong>An example Harp site using this technique can be found <a href="https://github.com/EdgeCaseBerg/harp-autoload">here</a></strong></p>
+      <h3>Auto loading resource files in Harp</h3><p><strong>An example Harp site using this technique can be found <a href="https://github.com/EdgeCaseBerg/harp-autoload">here</a></strong></p>
 <p>In my <a href="http://www.ethanjoachimeldridge.info/tech-blog/dynamically-including-js">previous post</a> I talked about loading javascript based on filenames or the
 current path + filename. But today I was thinking to myself, why stop there? After
 all, a bigger concern than javascript when you&#39;re trying to have a fast rendering
@@ -115,19 +114,18 @@ if( resourceExists(cssBase,&quot;CSS&quot;) ){
 if( resourceExists(javascriptBase,&quot;js&quot;) ){
     %&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;/&lt;%= javascriptBase + &quot;/&quot; + current.path.join(&quot;/&quot;) + &quot;.js&quot; %&gt;&quot;&gt;&lt;/script&gt;&lt;%
 }    
-%&gt;</code></pre>
-<p>The code works in the same way that the <a href="http://www.ethanjoachimeldridge.info/tech-blog/xml-sitemap-for-harpjs">XML Sitemap</a> does, it traverses the tree
+%&gt;
+</code></pre><p>The code works in the same way that the <a href="http://www.ethanjoachimeldridge.info/tech-blog/xml-sitemap-for-harpjs">XML Sitemap</a> does, it traverses the tree
 structure of the <code>public</code> variable and tests each file against a regular expression.
 It&#39;s crazy how much use you can get out of this simple technique. Sitemaps, dynamic
 inclusion, analytics (an upcoming post perhaps), you can get it all just by recycling, 
 all you have to do is throw this in a partial called <code>_autoload.ejs</code> and include it 
 like so:</p>
 <p>in Jade:</p>
-<pre><code>!= partial(&quot;_autoload&quot;)</code></pre>
-<p>or EJS:</p>
-<pre><code>&lt;%- partial(&quot;_autoload&quot;) %&gt;</code></pre>
-<p><strong>An example Harp site using this technique can be found <a href="https://github.com/EdgeCaseBerg/harp-autoload">here</a></strong></p>
-
+<pre><code>!= partial(&quot;_autoload&quot;)
+</code></pre><p>or EJS:</p>
+<pre><code>&lt;%- partial(&quot;_autoload&quot;) %&gt;
+</code></pre><p><strong>An example Harp site using this technique can be found <a href="https://github.com/EdgeCaseBerg/harp-autoload">here</a></strong></p>
       
       <h3>Other Posts</h3>
       <div id="other-posts">

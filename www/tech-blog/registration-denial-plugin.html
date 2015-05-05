@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Simple Email Filter and Banning Plugin for WordPress</h3>
-<p>In my <a href="registration-denial-wordpress">last post</a> I showed you how to make a really simple, programmatically 
+      <h3>Simple Email Filter and Banning Plugin for WordPress</h3><p>In my <a href="registration-denial-wordpress">last post</a> I showed you how to make a really simple, programmatically 
 maintained filter to deny registration on your WordPress sites. But, if you&#39;re 
 the average user, you probably don&#39;t want to dive into source code when you&#39;re 
 updating a list of spam mails, especially since they might change often or you
@@ -68,36 +67,32 @@ just like a graphical interface for your administrative work. </p>
 Email Filter &amp; User Ban </strong>, a lengthy, but correct name.</p>
 <p>Here&#39;s how it works, first up you install and activate the plugin like you do 
 any other WordPress plugin. Then you&#39;ll notice a couple of new things.</p>
-<h4>In the <strong>Users</strong> listing you&#39;ll have a new column and new actions</h4>
-<p>You&#39;ll be able to see the last known IP Address of a user who has logged into 
+<h4>In the <strong>Users</strong> listing you&#39;ll have a new column and new actions</h4><p>You&#39;ll be able to see the last known IP Address of a user who has logged into 
 your site. This is useful for using <a href="http://www.cyberciti.biz/faq/linux-howto-check-ip-blocked-against-iptables/">iptables</a> to drop packets from malicious 
 users who don&#39;t know how to evade those types of things.</p>
-<p><img src="/images/tech-blog/sef/ipaddr.png" width="700px"/></p>
+<p><img src="/images/tech-blog/sef/ipaddr.png" width="700px"></p>
 <p>You&#39;ll also notice that when you hover over a user you&#39;ll be able to click an 
 action button to ban or unban that user.</p>
-<p><img src="/images/tech-blog/sef/unban.png" />
-<img src="/images/tech-blog/sef/ban.png" /></p>
+<p><img src="/images/tech-blog/sef/unban.png">
+<img src="/images/tech-blog/sef/ban.png"></p>
 <p>Once banned, whenever they try to log in they&#39;ll get a nice message that you can 
 set in your <strong>wp-config</strong> file like this:</p>
-<pre><code>define(&#39;SEF_BAN_MESSAGE&#39;, &#39;It seem\&#39;s you\&#39;ve messed up and are banned, contact the site owner&#39;);</code></pre>
-<p>And it will look something like this on their site:</p>
-<p><img src="/images/tech-blog/sef/banned.jpg" /></p>
-<h4>A new options page is available for you!</h4>
-<p>In the Registration Denial&#39;s setting page, you&#39;ll be able to manage the list of 
+<pre><code>define(&#39;SEF_BAN_MESSAGE&#39;, &#39;It seem\&#39;s you\&#39;ve messed up and are banned, contact the site owner&#39;);
+</code></pre><p>And it will look something like this on their site:</p>
+<p><img src="/images/tech-blog/sef/banned.jpg"></p>
+<h4>A new options page is available for you!</h4><p>In the Registration Denial&#39;s setting page, you&#39;ll be able to manage the list of 
 domain and strings that you won&#39;t accept registrations from. This means no more 
 managing the programmatic list and using a simple list interface instead</p>
-<p><img src="/images/tech-blog/sef/settings.png" /></p>
+<p><img src="/images/tech-blog/sef/settings.png"></p>
 <p>Once you&#39;ve listed the domains you count as spam, you&#39;ll be able to live in 
 moderate peace while the spam users will only see messages like this:</p>
-<p><img src="/images/tech-blog/sef/denied.png" /></p>
+<p><img src="/images/tech-blog/sef/denied.png"></p>
 <p>As with the ban message, you can set the denial message from <strong>wp-config</strong> as well:</p>
-<pre><code>define(&#39;SEF_DENY_MESSAGE&#39;, &#39;Registration halted, please contact support.&#39;);</code></pre>
-<h4>And that&#39;s it!</h4>
-<p>Enjoy! If you have ideas or enhancements feel free to send me a pull request on 
+<pre><code>define(&#39;SEF_DENY_MESSAGE&#39;, &#39;Registration halted, please contact support.&#39;);
+</code></pre><h4>And that&#39;s it!</h4><p>Enjoy! If you have ideas or enhancements feel free to send me a pull request on 
 <a href="https://github.com/EdgeCaseBerg/simple-email-filter">github</a>, and if you have any problems you can open an issue there. The source 
 code is Open and freely available for modification, though I of course appreciate 
 a backlink and a mention if you use my code.</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

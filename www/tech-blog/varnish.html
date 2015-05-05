@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Caching with Varnish for Api Servers.</h3>
-<p>I&#39;ve been working on creating a JSON API Server for Vermont&#39;s Green Up day for 
+      <h3>Caching with Varnish for Api Servers.</h3><p>I&#39;ve been working on creating a JSON API Server for Vermont&#39;s Green Up day for 
 a while with some friends. We&#39;ve managed to make a native iOS application as 
 well as a web application for the client side, and the back end been a labor of
 love for me: creating a JSON C API to service the various endpoints. </p>
@@ -108,8 +107,8 @@ support exactly this. Here&#39;s the configuration:</p>
         #Don&#39;t cache POST or PUT (no sense in doing so)
         return(pass);
     }
-}</code></pre>
-<p>I&#39;ve already explained what is being accomplished by this code, but let me just
+}
+</code></pre><p>I&#39;ve already explained what is being accomplished by this code, but let me just
 say a little more: The <code>sub vcl_recv</code> is the procedure for when varnish recieves
 a request. There&#39;s a <a href="https://www.varnish-cache.org/docs/3.0/reference/vcl.html#subroutines">full list of vcl</a> configuration and procedures within varnish&#39;s
 documentation. Next, if we are dealing with a <a href="http://en.wikipedia.org/wiki/Representational_state_transfer">REST</a>ful update request (<code>POST</code> or <code>PUT</code>)
@@ -127,7 +126,6 @@ comment above it details sensibly enough. </p>
 <p>Varnish is a <em>very</em> powerful tool and for read intensive systems such as API servers
 whose primary purpose is to provide abstraction on a database it can be used to 
 mitigate the load experienced by a server itself. </p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

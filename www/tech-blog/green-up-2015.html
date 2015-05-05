@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Green Up 2015</h3>
-<p>Last year I <a href="/tech-blog/green-up-vt-app">wrote about Green Up</a> and my use of <a href="https://www.varnish-cache.org">varnish</a> to cache the 
+      <h3>Green Up 2015</h3><p>Last year I <a href="/tech-blog/green-up-vt-app">wrote about Green Up</a> and my use of <a href="https://www.varnish-cache.org">varnish</a> to cache the 
 <a href="https://github.com/EdgeCaseBerg/green-serv">API server</a> that was created to service the various applications <a href="http://www.greenupvermont.org/?page_id=788">Xenon Apps</a> 
 created for the <a href="http://greenupvermont.org">Green Up Vermont NPO</a>. </p>
 <p>This year we&#39;re running the same setup for them, and this past weekend I 
@@ -73,8 +72,7 @@ API. It&#39;s running a pretty small stack:</p>
 <p>And that&#39;s it. The machine is <em>small</em>, running with only 256MB of RAM. 
 It might surprise you that this is the same machine that serviced the 
 300 or so users of the application last year. </p>
-<h4>Varnish</h4>
-<p>Varnish is performing the same duties as last year, acting as <a href="https://www.varnish-cache.org/docs/3.0/tutorial/advanced_backend_servers.html#directors">backend 
+<h4>Varnish</h4><p>Varnish is performing the same duties as last year, acting as <a href="https://www.varnish-cache.org/docs/3.0/tutorial/advanced_backend_servers.html#directors">backend 
 director</a> and load balancer for the running instances of the C APIs. 
 The full configuration file uses 2 backends right now and also enables 
 the CORS headers for varnish during the delivery phase. Here&#39;s the full 
@@ -151,12 +149,11 @@ sub vcl_deliver {
     {
         set resp.http.X-Cache = &quot;MISS&quot;;
     }
-}</code></pre>
-<p>You&#39;ll notice the invalidation on the POST requests is exactly the same 
+}
+</code></pre><p>You&#39;ll notice the invalidation on the POST requests is exactly the same 
 as it was <a href="http://www.ethanjoachimeldridge.info/tech-blog/varnish">last year</a>. And also the header X-Cache is handy for debugging 
 if you&#39;re recieving a cached result or not.</p>
-<h4>API Servers</h4>
-<p>Something that is a little bit different this year is the way which the 
+<h4>API Servers</h4><p>Something that is a little bit different this year is the way which the 
 API servers are setup. Last year my system admin hat wasn&#39;t quite so 
 feathered, this year, I&#39;ve got a new set of tools to apply. Specifically, 
 <a href="http://www.ethanjoachimeldridge.info/tech-blog/write-your-own-init-scripts">subsystem scripts</a>.</p>
@@ -165,8 +162,8 @@ inside <em>/var/run/</em> directory. I created a green-serv folder, and then
 for each instance of the API running I created a folder based on the 
 port it would listen in on. So in the end I had 3 folders setup:</p>
 <pre><code>user@server:/var/run/green-serv# ls
-31337  31338  80  </code></pre>
-<p>This was done to make it easier to start up multiple instances of the 
+31337  31338  80  
+</code></pre><p>This was done to make it easier to start up multiple instances of the 
 server itself. If we take a look at the script I wrote for the service:</p>
 <pre><code>#!/bin/sh
 #
@@ -223,8 +220,8 @@ case &quot;$1&quot; in
         echo $&quot;Usage: $0 {start [port]|stop [port]|restart}&quot;
         RETVAL=1
 esac
-exit $RETVAL</code></pre>
-<p>You might notice that unlike your common service file such as apache or 
+exit $RETVAL
+</code></pre><p>You might notice that unlike your common service file such as apache or 
 mysql, this one can take an additional argument! Specifically, doing 
 something like this: <code>service green-serv start 3000</code> would start up a 
 server instance on port 3000 (as long as that directory exists and has 
@@ -241,16 +238,15 @@ make deploying any changes out to the various run folders easy:</p>
         cp green-serv $$portdir;\
     done
     chmod +x green-serv.d
-    cp green-serv.d /etc/init.d/green-serv</code></pre>
-<p>This is pretty standard, and only handles just an 80 port as far as 
+    cp green-serv.d /etc/init.d/green-serv
+</code></pre><p>This is pretty standard, and only handles just an 80 port as far as 
 creating goes, but it does support updating the binaries for any directory 
 in the green-serv run folder. The only thing to make note of is the weird 
 <code>$$portdir</code> -- which if you&#39;re familiar with bash will make you assume that 
 I had a typo and wrote 2 dollar signs instead of one. Nope, within a Makefile 
 you need two dollar signs in order to differentiate the make and bash variables 
 from one another.</p>
-<h4>UFW</h4>
-<p>The last thing to setup was a firewall. The uncomplicated firewall (ufw) 
+<h4>UFW</h4><p>The last thing to setup was a firewall. The uncomplicated firewall (ufw) 
 is, as its name implies, uncomplicated. A few simple commands are all you 
 really need:</p>
 <pre><code>cat /etc/ufw/applications.d/varnish
@@ -262,8 +258,8 @@ ports=80/tcp
 sudo ufw allow OpenSSH
 sudo ufw allow Varnish
 sudo ufw default deny
-sudo ufw enable</code></pre>
-<p>And you&#39;re pretty much all set. Ports that aren&#39;t used by the applications 
+sudo ufw enable
+</code></pre><p>And you&#39;re pretty much all set. Ports that aren&#39;t used by the applications 
 listed in <em>/etc/ufw/applications.d</em> will be denied by default. Note that 
 you probably want to triple check that you&#39;ve allowed SSH through so you 
 don&#39;t kill your connection to your server. A good rule of thumb is to 
@@ -274,10 +270,8 @@ disable the firewall and try again with different settings.</p>
 accessed through Varnish and not from the outside world. This enables us 
 to be sure that varnish will handle all the load and we won&#39;t tax our 
 servers from the outside world by anything.</p>
-<h4>Summary</h4>
-<p>In conclusion, the API server is ready to go for round two of Green Up 
+<h4>Summary</h4><p>In conclusion, the API server is ready to go for round two of Green Up 
 day and we&#39;re all hoping that it will go as smoothly as it did last year!</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

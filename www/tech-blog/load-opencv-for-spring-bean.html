@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Use OpenCV Classes in Spring Bean XML Configuration</h3>
-<p>Today I ran into an infuriating issue that lasted for several hours. Here&#39;s the 
+      <h3>Use OpenCV Classes in Spring Bean XML Configuration</h3><p>Today I ran into an infuriating issue that lasted for several hours. Here&#39;s the 
 stack trace I was given when trying to run <code>mvn tomcat:run</code>:</p>
 <pre><code>Caused by: org.springframework.beans.BeanInstantiationException: Could not instantiate bean class [org.opencv.ml.CvSVM]: Constructor threw exception; nested exception is java.lang.UnsatisfiedLinkError: org.opencv.ml.CvSVM.CvSVM_0()J
         at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:162)
@@ -74,8 +73,8 @@ Caused by: java.lang.UnsatisfiedLinkError: org.opencv.ml.CvSVM.CvSVM_0()J
     at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
     at java.lang.reflect.Constructor.newInstance(Constructor.java:534)
     at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:147)
-    ... 58 more</code></pre>
-<p>Linker errors are normally because you failed to call <code>System.loadLibrary</code> and
+    ... 58 more
+</code></pre><p>Linker errors are normally because you failed to call <code>System.loadLibrary</code> and
 then your JNI fails since it knows about your classes via the Jar wrappers around
 the native code (and will compile) but at runtime you&#39;re out of luck. My problem 
 was doubly more confusing because at runtime my <a href="http://docs.opencv.org/">OpenCV</a> code worked fine, but 
@@ -89,8 +88,8 @@ public class SomethingThatNeedsNativeSupport {
     static {
         System.loadLibrary(NATIVE_LIBRARY_NAME);
     }
-}</code></pre>
-<p>But for XML configuration? It&#39;s surprisingly difficult to google for, and it wasn&#39;t
+}
+</code></pre><p>But for XML configuration? It&#39;s surprisingly difficult to google for, and it wasn&#39;t
 until I talked to one of my coworkers about the issue that he told me the obvious
 answer: The <a href="http://docs.spring.io/spring/docs/2.5.3/reference/beans.html">depends-on property</a> pointed at a loader class. </p>
 <p>I had already thought to box the classes that were failing as beans in my own 
@@ -105,15 +104,14 @@ public class OpenCVLoader {
      static {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
     }
-}</code></pre>
-<p>Throw that into your package and then do something like the following in your XML:</p>
+}
+</code></pre><p>Throw that into your package and then do something like the following in your XML:</p>
 <pre><code>&lt;bean id=&quot;cvLibLoader&quot; class=&quot;info.ethanjoachimeldridge.cv.OpenCVLoader&quot; /&gt;
-&lt;bean id=&quot;svm&quot; class=&quot;org.opencv.ml.CvSVM&quot; depends-on=&quot;cvLibLoader&quot;/&gt;</code></pre>
-<p>The <code>depends-on</code> property of the bean will force that bean to be initialized before
+&lt;bean id=&quot;svm&quot; class=&quot;org.opencv.ml.CvSVM&quot; depends-on=&quot;cvLibLoader&quot;/&gt;
+</code></pre><p>The <code>depends-on</code> property of the bean will force that bean to be initialized before
 the other, and therefore the library will be loaded when Spring gets around to 
 loading the class.</p>
 <p>Hope this helps anyone else out there who&#39;s using <a href="http://projects.spring.io/spring-batch/">Spring Batch</a> and <a href="http://docs.opencv.org/">OpenCV</a> together.</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Mutt, Vim, and a win!</h3>
-<p>Today, <a href="http://www.ethanjoachimeldridge.info/tech-blog/apt-get-segfault-mutt">after dealing with a segfault</a>, I started playing with <a href="http://www.mutt.org/">mutt</a> and
+      <h3>Mutt, Vim, and a win!</h3><p>Today, <a href="http://www.ethanjoachimeldridge.info/tech-blog/apt-get-segfault-mutt">after dealing with a segfault</a>, I started playing with <a href="http://www.mutt.org/">mutt</a> and
 so far I&#39;m really liking it. For example, if you have a gmail account 
 there exists <a href="http://askubuntu.com/questions/122480/how-to-manage-multiple-imap-accounts-with-mutt">a LOT</a> of different <a href="https://www.bartbania.com/raspberry_pi/consolify-your-gmail-with-mutt/">tutorials</a> on the web about connecting,
 and if you use another service, there&#39;s a high chance that google or <a href="https://duckduckgo.com/">duckduckgo</a> 
@@ -123,8 +122,8 @@ we want to pass to gpg.</p>
 <li>you can now press <code>@e</code> at any time to open up the prompt to enter recipients and encrypt the whole file.</li>
 </ol>
 <p>Or, the TL;DR version, add this to your <em>.vimrc</em> file:</p>
-<pre><code>let @e=&#39;:0^MVG:!gpg --encrypt --armor -r &#39;</code></pre>
-<p>Note that when you enter the ^M, you&#39;ll want to use <code>Ctrl+v</code> then press the enter
+<pre><code>let @e=&#39;:0^MVG:!gpg --encrypt --armor -r &#39;
+</code></pre><p>Note that when you enter the ^M, you&#39;ll want to use <code>Ctrl+v</code> then press the enter
 key otherwise the command will <strong>not</strong> work!</p>
 <p>So now we have a method to easily encrypt the body of an email message. What about
 decrypting? If you&#39;d like to record this one yourself, you can do the following 
@@ -137,13 +136,12 @@ steps or skip down to the <em>.vimrc</em> command:</p>
 <li><code>:!gpg --decrypt</code> his enter to decrypt, then <code>ESC</code> and <code>d</code> to end the recording</li>
 </ol>
 <p>All in all, add this to the <em>.vimrc</em> file</p>
-<pre><code>let @d=&#39;/-----BEGIN PGP MESSAGE^MV/END PGP MESSAGE-----^M:!gpg --decrypt^M&#39;</code></pre>
-<p>again, making sure to use <code>ctrl+v</code> then the enter key to add the <code>^M</code> parts.</p>
+<pre><code>let @d=&#39;/-----BEGIN PGP MESSAGE^MV/END PGP MESSAGE-----^M:!gpg --decrypt^M&#39;
+</code></pre><p>again, making sure to use <code>ctrl+v</code> then the enter key to add the <code>^M</code> parts.</p>
 <p>Now you can encrypt and decrypt extremely easily! If you&#39;re interested in reading
 more about vim&#39;s commands, I&#39;d recommend the <a href="http://vimdoc.sourceforge.net/htmldoc/map.html">documentation</a>. It&#39;s quite easy to 
 follow, and if you want to know specifically about macros, you should read the 
 <a href="http://vim.wikia.com/wiki/Macros">wiki</a> page on it, it&#39;s got a lot of good information.</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Watermarking images in Scala with Play</h3>
-<p>Every now and again one finds themselves in the need to watermark image. This 
+      <h3>Watermarking images in Scala with Play</h3><p>Every now and again one finds themselves in the need to watermark image. This 
 can be for any number of reasons. Whether you&#39;re tired of not getting cited 
 by people using your content, or the boss has told you that all the images 
 need to be watermarked. Doing this is pretty easy. In fact, if you&#39;re familiar 
@@ -79,8 +78,8 @@ so. </p>
 found <a href="http://www.jamesward.com/2014/04/29/optimizing-static-asset-loading-with-play-framework">this blog post about CDN assets</a> and adapted it into a simple controller 
 method to pull the asset up:</p>
 <p><em>conf/routes</em> </p>
-<pre><code>GET /watermarked/*file controllers.Watermark.show(path=&quot;/public&quot;, file)</code></pre>
-<p><em>app/controllers/Watermark.scala</em></p>
+<pre><code>GET /watermarked/*file controllers.Watermark.show(path=&quot;/public&quot;, file)
+</code></pre><p><em>app/controllers/Watermark.scala</em></p>
 <pre><code>package controllers 
 
 import play.api._
@@ -131,8 +130,8 @@ object Watermark extends Controller {
             Ok(waterMarkedImageBytes).withHeaders(&quot;Content-Type&quot;-&gt;&quot;image/jpeg&quot;)
         }
     }
-}</code></pre>
-<p>We&#39;ll get to the Watermarker class in a second, but first a coulple things to 
+}
+</code></pre><p>We&#39;ll get to the Watermarker class in a second, but first a coulple things to 
 point out if you plan on using this code for anything. </p>
 <ol>
 <li>In a real system you&#39;ll want to check the <a href="https://www.playframework.com/documentation/2.3.x/api/scala/index.html#play.api.libs.MimeTypes$">MimeType</a> of the file you&#39;re 
@@ -202,8 +201,8 @@ public class Watermarker {
             return new byte[0];
         }
     }
-}</code></pre>
-<p>This is pretty much verbatim what&#39;s available from codebeach besides changing 
+}
+</code></pre><p>This is pretty much verbatim what&#39;s available from codebeach besides changing 
 the watermark string and returning a byte array. Make sure to close any of the 
 streams you open when doing graphics code! Not doing so can cause leaks or the 
 request to hang. Neither of these things are things you want in an application. </p>
@@ -220,7 +219,6 @@ up on that for now. Perhaps I&#39;ll look into again later, once I fully underst
 how to manipulate <a href="http://mandubian.com/2012/08/27/understanding-play2-iteratees-for-normal-humans/">Iteratees</a>, as being able to have a filter watermark all 
 image assets without needing a new url would be a better solution then not 
 using the Assets controller at all.</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

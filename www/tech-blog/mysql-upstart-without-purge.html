@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Fixing mysql Upstart problems without purging your system</h3>
-<p>A few months ago I installed the newest version of mysql, at the same 
+      <h3>Fixing mysql Upstart problems without purging your system</h3><p>A few months ago I installed the newest version of mysql, at the same 
 time, I foobarred half my system and then had to uninstall my old version 
 to get anything done. At the end of a long debugging session I had two 
 versions of mysql working under different services. All was good.</p>
@@ -85,8 +84,8 @@ signal sender=:1.0 -&gt; dest=(null destination) serial=4661 path=/com/ubuntu/Up
 signal sender=:1.0 -&gt; dest=(null destination) serial=4662 path=/com/ubuntu/Upstart/jobs/mysql/_; interface=com.ubuntu.Upstart0_6.Instance; member=StateChanged
    string &quot;spawned&quot;
 signal sender=:1.0 -&gt; dest=(null destination) serial=4663 path=/com/ubuntu/Upstart/jobs/mysql/_; interface=com.ubuntu.Upstart0_6.Instance; member=StateChanged
-   string &quot;post-start&quot;</code></pre>
-<p>Well, that doesn&#39;t look good. And When I looked around on the internet for a 
+   string &quot;post-start&quot;
+</code></pre><p>Well, that doesn&#39;t look good. And When I looked around on the internet for a 
 solution I ran into <a href="http://askubuntu.com/a/296973/254629">this post</a> which said to just purge everything and start 
 over. To me, that seems a bit silly, especially when I have so much data stored 
 on my system and don&#39;t feel like waiting to re-import everything.</p>
@@ -94,8 +93,8 @@ on my system and don&#39;t feel like waiting to re-import everything.</p>
 <pre><code>$sudo sysdig -c fdcount_by proc.name &quot;fd.type=file&quot;
 mysqld    814
 BrowserBlocking    413
-irqbalance    30</code></pre>
-<p>I ran the above chisel for about 10 seconds or so, so pretty bad. Tailing 
+irqbalance    30
+</code></pre><p>I ran the above chisel for about 10 seconds or so, so pretty bad. Tailing 
 the mysql error log gives me a continous stream of mysql&#39;s service trying 
 to start and stop over and over again, seemingly hung up on InnoDb issues.</p>
 <p>Of course, my browser rules the I/O errors here, a quick run of <code>sysdig -c topprocs_errors</code> 
@@ -108,34 +107,34 @@ a good place to look around for bad configurations. The man page from <code>man 
 recommends looking into the 5(init) man page for details, so a quick <code>man 5 init</code> 
 brings us to more documentation. </p>
 <p>One line in particular,  </p>
-<pre><code>Users are able to manage their jobs using the standard initctl(8) facility.</code></pre>
-<p>stood out, and a quick look through there showed me the mysql process id changing 
+<pre><code>Users are able to manage their jobs using the standard initctl(8) facility.
+</code></pre><p>stood out, and a quick look through there showed me the mysql process id changing 
 rapidly when I ran <code>initctl status mysql</code>, having found the right daemon controlling
 mysql, I checked the configuration:</p>
 <pre><code>$initctl show-config mysql
 mysql
   start on runlevel [2345]
-  stop on starting rc RUNLEVEL=[016]</code></pre>
-<p>Wondering what runlevel I was currently in led me to: </p>
+  stop on starting rc RUNLEVEL=[016]
+</code></pre><p>Wondering what runlevel I was currently in led me to: </p>
 <pre><code>$ who -r
-         run-level 2  2015-01-06 17:32</code></pre>
-<p>Well, this certainly explained why it kept restarting. I don&#39;t actually want 
+         run-level 2  2015-01-06 17:32
+</code></pre><p>Well, this certainly explained why it kept restarting. I don&#39;t actually want 
 mysql running on start up (and had disabled my other version&#39;s start up service 
 a few weeks ago), so it was off to edit the run levels for me.</p>
 <p>The /etc/rcn.d directories specify which scripts in /etc/init.d are enabled for 
 run level n. So I checked it out and sure enough there was my disabled service
 for my other mysql install:</p>
 <pre><code>ls /etc/rc2.d/
-K80mysql.server</code></pre>
-<p>But there wasn&#39;t anything else in there for the mysql service (note, not mysql.server!).
+K80mysql.server
+</code></pre><p>But there wasn&#39;t anything else in there for the mysql service (note, not mysql.server!).
 I checked the other /etc/rcN.d/ directories but couldn&#39;t find anything. Weird.
 So I ran a quick service check:</p>
 <pre><code>ethan@Turing ~ $ sudo service mysql status
 mysql start/post-start, process 6958
     post-start process 6959
 ethan@Turing ~ $ sudo service mysql stop
-mysql stop/waiting</code></pre>
-<p>Well now that&#39;s just bizarre, and after calling service stop the logs stopped 
+mysql stop/waiting
+</code></pre><p>Well now that&#39;s just bizarre, and after calling service stop the logs stopped 
 coming, and the <code>sudo sysdig -c fdcount_by proc.name &quot;fd.type=file&quot;</code> file to 0
 for mysql. So I had stopped the issue, but I hadn&#39;t figured out what had caused
 the problem. Why was the system trying to start mysql as a service on start up 
@@ -157,20 +156,19 @@ ethan@Turing ~ $ sudo service mysql status
 mysql start/post-start, process 8192
     post-start process 8193
 ethan@Turing ~ $ sudo service mysql stop
-mysql stop/waiting</code></pre>
-<p>yup.</p>
+mysql stop/waiting
+</code></pre><p>yup.</p>
 <p>At this point, I thought about adding <code>service mysql stop</code> to my /etc/rc.local 
 file to just stop the issue from happening. But that didn&#39;t seem like a good
 way to fix the problem, so I pressed on and <a href="http://upstart.ubuntu.com/cookbook/#disabling-a-job-from-automatically-starting">found this</a> and followed through
 with updating my overrides:</p>
 <pre><code>echo &quot;manual&quot; &gt;&gt; /etc/init/mysql.override
-sudo reboot</code></pre>
-<p>And after my system booted back up?</p>
+sudo reboot
+</code></pre><p>And after my system booted back up?</p>
 <pre><code>ethan@Turing ~ $ sudo service mysql status
-mysql stop/waiting</code></pre>
-<p>And my horrible broken mysql installation was fixed and no longer starting up at
+mysql stop/waiting
+</code></pre><p>And my horrible broken mysql installation was fixed and no longer starting up at
 runtime anymore! Amazing what reading the documentation can do for one&#39;s problems.</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

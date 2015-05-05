@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Chromium dmesg full of seccomp bugs fix</h3>
-<p>I&#39;ve been getting into the habit of checking my <code>dmesg</code> log more often.
+      <h3>Chromium dmesg full of seccomp bugs fix</h3><p>I&#39;ve been getting into the habit of checking my <code>dmesg</code> log more often.
 While <a href="/tech/blog/mysql-upstart-without-purge">troubleshooting my mysql</a> errors the other week I noticed a lot 
 of IO errors from my chromium installation (Chromium 37.0.2062.120) and
 decided to look into it today.</p>
@@ -68,8 +67,8 @@ like this:</p>
 <pre><code>[13225.732272] type=1701 audit(1421087245.965:678): auid=4294967295 uid=1000 gid=1000 ses=4294967295 pid=4664 comm=&quot;chromium-browse&quot; reason=&quot;seccomp&quot; sig=0 syscall=257 compat=0 ip=0x7f09c46f0720 code=0x50001
 [13225.732375] type=1701 audit(1421087245.965:679): auid=4294967295 uid=1000 gid=1000 ses=4294967295 pid=4664 comm=&quot;chromium-browse&quot; reason=&quot;seccomp&quot; sig=0 syscall=2 compat=0 ip=0x7f09c46f06c0 code=0x50001
 [13225.732383] type=1701 audit(1421087245.965:680): auid=4294967295 uid=1000 gid=1000 ses=4294967295 pid=4664 comm=&quot;chromium-browse&quot; reason=&quot;seccomp&quot; sig=0 syscall=2 compat=0 ip=0x7f09c46f06c0 code=0x50001
-[13225.732391] type=1701 audit(1421087245.965:681): auid=4294967295 uid=1000 gid=1000 ses=4294967295 pid=4664 comm=&quot;chromium-browse&quot; reason=&quot;seccomp&quot; sig=0 syscall=2 compat=0 ip=0x7f09c46f06c0 code=0x50001</code></pre>
-<p>After looking into it, the messages have something to do with the sandbox
+[13225.732391] type=1701 audit(1421087245.965:681): auid=4294967295 uid=1000 gid=1000 ses=4294967295 pid=4664 comm=&quot;chromium-browse&quot; reason=&quot;seccomp&quot; sig=0 syscall=2 compat=0 ip=0x7f09c46f06c0 code=0x50001
+</code></pre><p>After looking into it, the messages have something to do with the sandbox
 environment in chrome. If you add the flag <code>--disable-seccomp-filter-sandbox</code> 
 to the startup of chromium you&#39;ll not see the messages anymore, but you&#39;ll
 also not be running a sandbox anymore. This is a bit of security issue, 
@@ -87,10 +86,9 @@ besides that the setup was the same to fix the logging issue:</p>
 </ol>
 <pre><code>if $msg contains &#39; reason=&quot;seccomp&quot;&#39; and $msg contains &#39; comm=&quot;chrom&#39; \
       then -/var/log/chromium-seccomp.log
-&amp; ~</code></pre>
-<p>Then you&#39;ll have those messages being logged to another area other than 
+&amp; ~
+</code></pre><p>Then you&#39;ll have those messages being logged to another area other than 
 cluttering up your syslog!</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

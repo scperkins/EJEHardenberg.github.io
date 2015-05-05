@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Harp Image Macros Revisited</h3>
-<p>A while ago I <a href="http://www.ethanjoachimeldridge.info/tech-blog/harpjs-macros">wrote a blog post on using a CDN and Harp together</a> and gave out
+      <h3>Harp Image Macros Revisited</h3><p>A while ago I <a href="http://www.ethanjoachimeldridge.info/tech-blog/harpjs-macros">wrote a blog post on using a CDN and Harp together</a> and gave out
 this piece of code</p>
 <pre><code>&lt;%
 macros.rrImageDomain = function rrImageDomain(){
@@ -67,8 +66,8 @@ macros.rrImageDomain = function rrImageDomain(){
     return staticimagesurl[nextDomain++ % maxDomains];
 }
 
-%&gt;</code></pre>
-<p>The code, combined with a few harp globals, allows you to set a dynamic image
+%&gt;
+</code></pre><p>The code, combined with a few harp globals, allows you to set a dynamic image
 domain for images. This allowed you to serve images from multiple domains and
 specifically, leverage CDN for your site. Something I noticed after starting to
 do this, is that a speed calculator, such as <a href="http://gtmetrix.com/">GTmetrix</a> will give you warnings
@@ -91,10 +90,10 @@ and then open it:</p>
         &lt;img src=&quot;http://static2.ethanjoachimeldridge.info/ethan.jpeg&quot;&gt;
         &lt;img src=&quot;http://www.ethanjoachimeldridge.info/images/ethan.jpeg&quot; &gt;
     &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-<p>And now open <code>about:cache</code> (or chrome://cache if you&#39;re on chrome) and you&#39;ll see something
+&lt;/html&gt;
+</code></pre><p>And now open <code>about:cache</code> (or chrome://cache if you&#39;re on chrome) and you&#39;ll see something
 like this:</p>
-<p><img src="/images/tech-blog/aboutcache.png" width="362px" height="134px" /> </p>
+<p><img src="/images/tech-blog/aboutcache.png" width="362px" height="134px"> </p>
 <p>Clicking on one of them will give you bunches of useful information about the server
 headers and the content of the image itself. Obviously, besides the domain and maybe
 some headers, all of this is the same. Now why is this bad exactly? Because the
@@ -112,14 +111,13 @@ images.</p>
     imagecache[filePath] = src
     return src
 }
-%&gt;</code></pre>
-<p>And call it like so:</p>
-<pre><code>&lt;%= macros.imgSrc(&quot;/images/nice.jpg&quot;) %&gt;</code></pre>
-<p>This allows Harp to have a sort of object cache for every image you&#39;re asking it
+%&gt;
+</code></pre><p>And call it like so:</p>
+<pre><code>&lt;%= macros.imgSrc(&quot;/images/nice.jpg&quot;) %&gt;
+</code></pre><p>This allows Harp to have a sort of object cache for every image you&#39;re asking it
 to make. And we key the cache by the image path. So long as the image path is the
 same, then we&#39;ll always get the same domain out. It&#39;s a pretty handy macro to have
 and I hope it helps someone out there!</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

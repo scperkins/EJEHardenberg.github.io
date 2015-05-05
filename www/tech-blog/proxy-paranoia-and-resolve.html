@@ -58,9 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h2>Proxies, Paranoia, and resolv.conf</h2>
-<h3>Having some weird issues...</h3>
-<p>I&#39;ve been having this weird issue lately, well, actually a couple of 
+      <h2>Proxies, Paranoia, and resolv.conf</h2><h3>Having some weird issues...</h3><p>I&#39;ve been having this weird issue lately, well, actually a couple of 
 weird issues. Mainly the following for the last few months or so:</p>
 <ul>
 <li>instead of 404&#39;s I get a weird not available page </li>
@@ -69,11 +67,10 @@ weird issues. Mainly the following for the last few months or so:</p>
 </ul>
 <p>So, if I lost connection and tried to go anywhere over HTTPS, I&#39;d see this 
 lovely image:</p>
-<p><img src="/images/tech-blog/sec.se.jpg" width="600px" /></p>
+<p><img src="/images/tech-blog/sec.se.jpg" width="600px"></p>
 <p>And if I tried over regular HTTP I&#39;d see:</p>
-<p><img src="/images/tech-blog/sec.se.404.jpg" width="600px" /></p>
-<h3>Enough is enough</h3>
-<p>So the other day I was looking at some funny pictures on the internet and 
+<p><img src="/images/tech-blog/sec.se.404.jpg" width="600px"></p>
+<h3>Enough is enough</h3><p>So the other day I was looking at some funny pictures on the internet and 
 happened to lose connection. This was when I discovered that my HTTPS 
 connections were routing themselves, on 404&#39;s, to a certificate claiming 
 to be from <a href="http://hackvt.com">hackvt.com</a>. Finding this rather odd, I inspected the certificate 
@@ -97,13 +94,13 @@ ERROR: cannot verify sec.se&#39;s certificate, issued by `/C=US/ST=Arizona/L=Sco
   Unable to locally verify the issuer&#39;s authority.
 ERROR: no certificate subject alternative name matches
     requested host name `sec.se&#39;.
-To connect to sec.se insecurely, use `--no-check-certificate&#39;.</code></pre>
-<p>After checking the IP address a few times and convincing myself that it was 
+To connect to sec.se insecurely, use `--no-check-certificate&#39;.
+</code></pre><p>After checking the IP address a few times and convincing myself that it was 
 the real <a href="http://hackvt.com">hackvt.com</a> server. It finally occured to me.</p>
 <p>&quot;Oh, it&#39;s RESOLVING the address from that ip.&quot;</p>
 <p>And from there it was one step into <code>/etc/resolv.conf</code> to find my issue:</p>
-<pre><code>search hackvt.com</code></pre>
-<p><small>In the picture I&#39;ve already commented out the two offending lines</small>
+<pre><code>search hackvt.com
+</code></pre><p><small>In the picture I&#39;ve already commented out the two offending lines</small>
 <img src="/images/tech-blog/sec.se.derp.png" width="600px"></p>
 <p>This was when my memory came in, and I recalled that at the first hackvt event I 
 had gone to, we had needed to add the resolv to get <em>something</em> to work. I don&#39;t
@@ -113,9 +110,8 @@ the best 404 of my life:</p>
 <pre><code>$ wget https://sec.se
 --2014-12-12 15:42:58--  https://sec.se/
 Resolving sec.se (sec.se)... failed: Name or service not known.
-wget: unable to resolve host address `sec.se&#39;</code></pre>
-<h3>Two birds with one stone</h3>
-<p>Thinking about how my internet sometimes kicked itself when I had a lot of tabs 
+wget: unable to resolve host address `sec.se&#39;
+</code></pre><h3>Two birds with one stone</h3><p>Thinking about how my internet sometimes kicked itself when I had a lot of tabs 
 open and then got a 404, I opened up the <a href="http://linux.die.net/man/5/resolv.conf">documentation on resolv.conf</a> out of 
 curiousity and found a nice surprise in the search section:</p>
 <blockquote>
@@ -128,7 +124,6 @@ out if no server is available for one of the domains.&quot;
 sorry internet, I was likely a bad netizen for a few years and I bet there&#39;s a 
 sysadmin out there who is <strong>really</strong> confused why someone was trying to use his 
 web server as a DNS.</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

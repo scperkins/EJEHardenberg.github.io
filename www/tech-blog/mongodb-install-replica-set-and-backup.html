@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Installing a MongoDB replica set and backup script</h3>
-<p>While I generally stick to Relational databases such as mySQL, there 
+      <h3>Installing a MongoDB replica set and backup script</h3><p>While I generally stick to Relational databases such as mySQL, there 
 are times when you really only need a document store and the right tool 
 for the job is something else. In this case, I needed to install and 
 configure a mac machine for a development environment that replicated 
@@ -67,10 +66,9 @@ the production one. A small replica set of 3 nodes all running MongoDB. </p>
 <p>In addition to installation and configuring, it&#39;s also prudent to set up 
 how to backup and restore your data. So this post will cover that as 
 well:</p>
-<h4>Installing MongoDB on Mac</h4>
-<p>First off, we have to download mongodb:</p>
-<pre><code>curl -O http://downloads.mongodb.org/osx/mongodb-osx-x86_64-3.0.2.tgz</code></pre>
-<p>And being security conscious, we&#39;ll check that the download is valid 
+<h4>Installing MongoDB on Mac</h4><p>First off, we have to download mongodb:</p>
+<pre><code>curl -O http://downloads.mongodb.org/osx/mongodb-osx-x86_64-3.0.2.tgz
+</code></pre><p>And being security conscious, we&#39;ll check that the download is valid 
 by computing it&#39;s SHA hashes:</p>
 <pre><code>curl -LO http://downloads.mongodb.org/osx/mongodb-osx-x86_64-3.0.2.tgz.sha1
 curl -LO http://downloads.mongodb.org/osx/mongodb-osx-x86_64-3.0.2.tgz.sha256
@@ -85,34 +83,33 @@ shasum -a 256 mongodb-osx-x86_64-3.0.2.tgz
 6d435f66cc25a888ab263be27106abe7ef8067189199869f3e7e8126757f5286  mongodb-osx-x86_64-3.0.2.tgz
 
 cat mongodb-osx-x86_64-3.0.2.tgz.sha256 
-6d435f66cc25a888ab263be27106abe7ef8067189199869f3e7e8126757f5286  mongodb-osx-x86_64-3.0.2.tgz</code></pre>
-<p>Convinced in the authenticity of the files we can move onto installing:</p>
+6d435f66cc25a888ab263be27106abe7ef8067189199869f3e7e8126757f5286  mongodb-osx-x86_64-3.0.2.tgz
+</code></pre><p>Convinced in the authenticity of the files we can move onto installing:</p>
 <pre><code>tar -zxvf mongodb-osx-x86_64-3.0.2.tgz
 mkdir /opt/local/mongodb
 sudo cp -R -n mongodb-osx-x86_64-3.0.2/ /opt/local/mongodb
 echo &#39;export PATH=/opt/local/mongodb/bin:$PATH&#39; &gt;&gt; ~/.profile
 source ~/.profile
-mkdir -p /opt/local/mongodb/data/db</code></pre>
-<p>At this point you&#39;re almost ready, you just need to set the permissions 
+mkdir -p /opt/local/mongodb/data/db
+</code></pre><p>At this point you&#39;re almost ready, you just need to set the permissions 
 correctly. Namely that whoever is starting the mongo process can read 
 and write to the data directory. </p>
-<pre><code>sudo chown -R user:group /opt/local/mongodb</code></pre>
-<p>And now it will run when you run mongo via the mongod command:</p>
-<pre><code>mongod --dbpath /opt/local/mongodb/data/db</code></pre>
-<h4>Setting up a local Replica Set</h4>
-<p>With the basics done and ready, we can now configure and create a 3 
+<pre><code>sudo chown -R user:group /opt/local/mongodb
+</code></pre><p>And now it will run when you run mongo via the mongod command:</p>
+<pre><code>mongod --dbpath /opt/local/mongodb/data/db
+</code></pre><h4>Setting up a local Replica Set</h4><p>With the basics done and ready, we can now configure and create a 3 
 node replica set. Mongodb&#39;s website provides <a href="http://docs.mongodb.org/manual/tutorial/deploy-replica-set-for-testing/">documentation on this</a> 
 but for completeness, I&#39;ll reproduce it here specifically to the setup 
 described above:</p>
 <p>First, the data directories for each replica:</p>
-<pre><code>mkdir -p /opt/local/mongodb/data/srv/mongodb/rs0-{0,1,2}</code></pre>
-<p>Next, we&#39;ll make it easier to start up our local cluster:</p>
+<pre><code>mkdir -p /opt/local/mongodb/data/srv/mongodb/rs0-{0,1,2}
+</code></pre><p>Next, we&#39;ll make it easier to start up our local cluster:</p>
 <pre><code>osascript -e &#39;tell app &quot;Terminal&quot;
     do script &quot;mongod --port 27017 --dbpath /opt/local/mongodb/data/srv/mongodb/rs0-0 --replSet rs0 --smallfiles --oplogSize 128&quot;
     do script &quot;mongod --port 27018 --dbpath /opt/local/mongodb/data/srv/mongodb/rs0-1 --replSet rs0 --smallfiles --oplogSize 128&quot;
     do script &quot;mongod --port 27019 --dbpath /opt/local/mongodb/data/srv/mongodb/rs0-2 --replSet rs0 --smallfiles --oplogSize 128&quot;
-end tell&#39;</code></pre>
-<p>Place this code into a script, called: &#39;startmongo.sh&#39; and <code>chmod +x</code> 
+end tell&#39;
+</code></pre><p>Place this code into a script, called: &#39;startmongo.sh&#39; and <code>chmod +x</code> 
 the file. Run it from your command line <code>./startmongo.sh</code> and you&#39;ll 
 see three windows appear, each running an instance of mongod.</p>
 <p>The arguments to each mongod instance are pretty regular, the only 
@@ -124,8 +121,8 @@ ones which may be out of the ordinary are <code>--smallfiles</code> and
 <p>Running 3 instances of mongo does not give us a replica set quite yet. 
 We need to tell the servers to <em>be</em> one first, so connect to one of 
 them:</p>
-<pre><code>mongo --port 27017</code></pre>
-<p>Then create the configuration object:</p>
+<pre><code>mongo --port 27017
+</code></pre><p>Then create the configuration object:</p>
 <pre><code>rsconf = {
        _id: &quot;rs0&quot;,
        members: [
@@ -138,8 +135,8 @@ them:</p>
 rs.initiate(rsconf)
 rs.add(&quot;localhost:27018&quot;)
 rs.add(&quot;localhost:27019&quot;)
-rs.status()</code></pre>
-<p>and the last command should display something like so:</p>
+rs.status()
+</code></pre><p>and the last command should display something like so:</p>
 <pre><code>{
     &quot;set&quot; : &quot;rs0&quot;,
     &quot;date&quot; : ISODate(&quot;2015-05-01T17:26:11.546Z&quot;),
@@ -190,14 +187,13 @@ rs.status()</code></pre>
         }
     ],
     &quot;ok&quot; : 1
-}</code></pre>
-<h4>Backing up your data</h4>
-<p>First we&#39;ll make a little bit of test data. From within the mongo 
+}
+</code></pre><h4>Backing up your data</h4><p>First we&#39;ll make a little bit of test data. From within the mongo 
 console you&#39;re running:</p>
 <pre><code>use site
 db.Site.insert( { page: &quot;home&quot;, &quot;url&quot; : &quot;/&quot; } )
-db.Site.insert( { page: &quot;contact&quot; , url : &quot;/contact&quot;})</code></pre>
-<p>We <em>could</em> use the <code>mongodump</code> and <code>mongorestore</code> tools to do out 
+db.Site.insert( { page: &quot;contact&quot; , url : &quot;/contact&quot;})
+</code></pre><p>We <em>could</em> use the <code>mongodump</code> and <code>mongorestore</code> tools to do out 
 backup. But, these tools take a while if you&#39;ve got a lot of data. 
 While in our example we obviously don&#39;t, an example is only as useful 
 as it is scalable. Plus, the two tools don&#39;t lock the writes to the 
@@ -207,23 +203,23 @@ we&#39;re taking. </p>
 <p>Since that&#39;s somewhat counter to the point of making a backup. We&#39;ll 
 elect a file system snapshot instead. First we&#39;ll lock the database 
 from writes:</p>
-<pre><code>db.fsyncLock()</code></pre>
-<p>Once the database is locked, you can perform a snapshot of the data 
+<pre><code>db.fsyncLock()
+</code></pre><p>Once the database is locked, you can perform a snapshot of the data 
 directory itself easily:</p>
 <pre><code>cd /opt/local/mongodb/
-tar -czf data.bak.tar.gz data</code></pre>
-<p>Note that the back up will have a <code>mongod.lock</code> file in each directory 
+tar -czf data.bak.tar.gz data
+</code></pre><p>Note that the back up will have a <code>mongod.lock</code> file in each directory 
 so you&#39;ll have to remove that before you restore from the backup.  </p>
 <p>Once you&#39;ve saved a copy of the data directory you can unlock the database:</p>
-<pre><code>db.fsyncUnlock()</code></pre>
-<p>This does have some caveats of course. When done on a local machine 
+<pre><code>db.fsyncUnlock()
+</code></pre><p>This does have some caveats of course. When done on a local machine 
 such as what we&#39;ve configured, it&#39;s easy to get a snapshot of each 
 replica all in one go. On an actual production setup, each instance 
 would likely be on a different server. So you&#39;d need to <code>ssh</code> to the 
 servers. To determine which node is the primary you can ask any of the 
 servers:</p>
-<pre><code>db.serverStatus().repl.primary</code></pre>
-<p>Then go from there. Here&#39;s a full cli session pretending to have a 
+<pre><code>db.serverStatus().repl.primary
+</code></pre><p>Then go from there. Here&#39;s a full cli session pretending to have a 
 hemoraging database:</p>
 <pre><code># start up the mongo cluster
 ./start-mongodb.sh
@@ -282,13 +278,12 @@ db.Site.find()
 { &quot;_id&quot; : ObjectId(&quot;55453e54eb69b58f76c761f7&quot;), &quot;page&quot; : &quot;home&quot;, &quot;url&quot; : &quot;/&quot; }
 { &quot;_id&quot; : ObjectId(&quot;55453e66eb69b58f76c761f8&quot;), &quot;page&quot; : &quot;contact&quot;, &quot;url&quot; : &quot;/contact&quot; }
 
-# Phew we&#39;re safe!</code></pre>
-<p>In general, snapshotting the file system is the safest and best way to 
+# Phew we&#39;re safe!
+</code></pre><p>In general, snapshotting the file system is the safest and best way to 
 preserve all your data. Using the mongo dump and restore tools is ok if 
 you don&#39;t have much data, or if your data isn&#39;t complex enough to need 
 its entire BSON data saved. The best part is you can take the zipped 
 files and save them to a backup server for safety or local use!</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

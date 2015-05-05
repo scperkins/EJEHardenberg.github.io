@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>A First Foray into Chome Extensions</h3>
-<p>Yesterday I created <a href="https://chrome.google.com/webstore/detail/arc-one-click-archiving/hmbmdbfkpgemaefgbinhcfodneaocfeg">*arc</a> a simple productivity tool for chome. It lets people archive websites a little bit easier. My main use case is
+      <h3>A First Foray into Chome Extensions</h3><p>Yesterday I created <a href="https://chrome.google.com/webstore/detail/arc-one-click-archiving/hmbmdbfkpgemaefgbinhcfodneaocfeg">*arc</a> a simple productivity tool for chome. It lets people archive websites a little bit easier. My main use case is
 just saving information that someone might choose to delete later. </p>
 <ul>
 <li>Politicians who need to be held accountable for things they say online</li>
@@ -100,15 +99,15 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function () {
       var url = tab.url;
       arcGenerator.genArc(url);
     });
-});</code></pre>
-<p>And that&#39;s it, there&#39;s the <em>manifest.json</em> file as well, and a popup.html to call the code above, which you can find in the <a href="https://github.com/EdgeCaseBerg/arcsave">repository</a>. 
+});
+</code></pre><p>And that&#39;s it, there&#39;s the <em>manifest.json</em> file as well, and a popup.html to call the code above, which you can find in the <a href="https://github.com/EdgeCaseBerg/arcsave">repository</a>. 
 The only issue I ran into was getting the current tab from the extension.</p>
 <p>The code above will work with the latest chromium and chrome, In chromium
 you can use either:</p>
-<pre><code>chrome.tabs.query({&#39;active&#39; : true, &#39;windowId&#39; : chrome.windows.WINDOW_ID_CURRENT})</code></pre>
-<p>or</p>
-<pre><code>chrome.tabs.query({active: true, lastFocusedWindow: true})</code></pre>
-<p>But the latest stable build of chrome (38.0.2125.111) will give you a bad
+<pre><code>chrome.tabs.query({&#39;active&#39; : true, &#39;windowId&#39; : chrome.windows.WINDOW_ID_CURRENT})
+</code></pre><p>or</p>
+<pre><code>chrome.tabs.query({active: true, lastFocusedWindow: true})
+</code></pre><p>But the latest stable build of chrome (38.0.2125.111) will give you a bad
 result from the second. The only caveat I can say to that is that when 
 the second option wasn&#39;t working, I didn&#39;t have the <code>&quot;tabs&quot;</code> permission 
 in my manifest file. So it may just have been that issue and both work.</p>
@@ -128,7 +127,6 @@ a faster way to share the url of your own plugins.</p>
 <p><strong>Edit:</strong> The owner of TweetSave contacted me and suggested to narrow
 the TweetSave archiving link to just statuses since TweetSave only
 archives status updates. Version 1.2.1 in the store handles this. </p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

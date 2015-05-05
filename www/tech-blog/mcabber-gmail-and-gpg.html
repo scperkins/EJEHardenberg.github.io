@@ -58,9 +58,8 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Mcabber and PGP</h3>
-<p>Today I decided to play with a number of new things. One was conky: </p>
-<p><img src="/images/tech-blog/conky.png" /></p>
+      <h3>Mcabber and PGP</h3><p>Today I decided to play with a number of new things. One was conky: </p>
+<p><img src="/images/tech-blog/conky.png"></p>
 <p>And the other was <a href="http://mcabber.com">mcabber</a>. A simple chat client that uses the <a href="http://www.jabber.org/">jabber
 protocol</a>. Those of you who are used to using Facebook Chat, GChat, and
 other website specific chat application might wonder why you&#39;d ever want
@@ -86,8 +85,8 @@ set ssl_verify = 1
 set logging = 0
 set pgp =1 
 set pgp_private_key = &lt;use gpg --list-keys --keyid-format long&gt;
-set beep_on_message = 1</code></pre>
-<p>You can find more configuration options online with google or looking
+set beep_on_message = 1
+</code></pre><p>You can find more configuration options online with google or looking
 through documentation. One that I found which had a lot of good comments
 can be read <a href="http://pastebin.com/wP9PJLq9">here</a>. As noted above, you&#39;ll want to put your own email
 address for the <code>jid</code> and the <code>username</code>. Then use the long form of your
@@ -107,7 +106,7 @@ roster so you can chat with them. (much faster than pgDown)</li>
 <li><code>/roster alternate</code>: Switches between the current and last used chat
 session.</li>
 <li><code>/pgp setkey &lt;email&gt; &lt;longid&gt;</code> sets the pgp key to use when talking to
-the user who&#39;s email address is <email>. </li>
+the user who&#39;s email address is <email>. </email></li>
 <li><code>/quit</code> how to close mcabber! </li>
 </ul>
 <p>mcabber does have tab complete, so you can quickly do these commands
@@ -116,8 +115,8 @@ file you can do things like this: </p>
 <pre><code>bind 17 = quit #q for quit
 bind 24 = roster unread_first #x for jumping to next message
 bind 26 = roster toggle_offline #z for toggling offline people 
-alias me = say /me </code></pre>
-<p>When experimenting with the pgp encypted chatting, it&#39;s a good idea to
+alias me = say /me 
+</code></pre><p>When experimenting with the pgp encypted chatting, it&#39;s a good idea to
 use the <code>/info</code> and <code>/pgp info</code> commands to determine if you have
 another user&#39;s keys or not and to verify that the key is the same one
 you have stored in your gpg chain (use <code>gpg --list-keys</code> to check). Once
@@ -156,7 +155,6 @@ developer talking to another and exchanging passwords for a database or
 web server? There are plenty of reasons to want to encrypt your chat 
 that aren&#39;t nefarious. And mcabber and gpg make it very simple to have 
 automatic encryption right away. </p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

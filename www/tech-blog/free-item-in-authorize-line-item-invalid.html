@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Unit Price of 0 causing problems in Authorize.net CIM lineitem</h3>
-<p>Today at work I ran into an interesting problem. The problem was this: </p>
+      <h3>Unit Price of 0 causing problems in Authorize.net CIM lineitem</h3><p>Today at work I ran into an interesting problem. The problem was this: </p>
 <p>One of our clients has an ecommerce platform we built for them, as part of its
 backend, it uses Authorize.net&#39;s <a href="http://developer.authorize.net/api/cim/">CIM service</a>. Today and yesterday they happened
 to be running a free item. Besides the obvious server load funtimes to be troubleshot,
@@ -69,8 +68,8 @@ any other non-free item, the Authorize.net API would return this error message:<
 AnetApi/xml/v1/schema/AnetApiSchema.xsd&#39; has invalid child element
 taxable&#39; in namespace &#39;AnetApi/xml/v1/schema/AnetApiSchema.xsd&#39;. List
 of possible elements expected: &#39;unitPrice&#39; in namespace
-AnetApi/xml/v1/schema/AnetApiSchema.xsd&#39;.</code></pre>
-<p>Which seemed a bit odd. Why would the taxable element be messed up? It&#39;s simply set
+AnetApi/xml/v1/schema/AnetApiSchema.xsd&#39;.
+</code></pre><p>Which seemed a bit odd. Why would the taxable element be messed up? It&#39;s simply set
 to false all the time. User&#39;s were checking out with the free item fine, and with
 paid items fine, but when combined into multiple line items this message appeared.</p>
 <p>Troubleshooting involved playing around locally with removing the unit price and
@@ -81,20 +80,19 @@ the message, so it seemed the problem lay in the unitPrice being 0.</p>
 <pre><code>&lt;xs:restriction base=&quot;xs:decimal&quot;&gt;
     &lt;xs:minInclusive value=&quot;0.00&quot;/&gt;
     &lt;xs:fractionDigits value=&quot;4&quot;/&gt;
-&lt;/xs:restriction&gt;</code></pre>
-<p>Well, I wondered, could it be that it is seeing 0 as a false value or something
+&lt;/xs:restriction&gt;
+</code></pre><p>Well, I wondered, could it be that it is seeing 0 as a false value or something
 other than an integer? In <a href="http://stackoverflow.com/a/14720793/1808164">this SO post</a> someone noted that qoutes are a good idea,
 to which I tried and recieved a message about the format being invalid. So that
 was out. </p>
 <p>Instead, I used <code>sprintf</code> to format the number into a decimal form so that Authorize&#39;s
 API wouldn&#39;t treat it as whatever it had been.</p>
 <p>Old:</p>
-<pre><code>$lineItem-&gt;unitPrice = $item-&gt;price // is 0</code></pre>
-<p>Fixed:</p>
-<pre><code>$lineItem-&gt;unitPrice   = sprintf(&quot;%.2f&quot;, $item-&gt;price);</code></pre>
-<p>And lo&#39; and behold. The transaction with a mixed set of items was processed succesfully!</p>
+<pre><code>$lineItem-&gt;unitPrice = $item-&gt;price // is 0
+</code></pre><p>Fixed:</p>
+<pre><code>$lineItem-&gt;unitPrice   = sprintf(&quot;%.2f&quot;, $item-&gt;price);
+</code></pre><p>And lo&#39; and behold. The transaction with a mixed set of items was processed succesfully!</p>
 <p>Hope this helps anyone out there who runs into the same problem I did. </p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

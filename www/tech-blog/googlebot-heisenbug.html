@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>The Invisible Hand of Google</h3>
-<p>Today I ran into one of the more interesting bugs I&#39;ve seen recently. The problem
+      <h3>The Invisible Hand of Google</h3><p>Today I ran into one of the more interesting bugs I&#39;ve seen recently. The problem
 started occuring when a work client&#39;s site started seeming to misbehave. Namely,
 their voucher system was redeeming themselves it seemed. </p>
 <p>So we started looking at it and noticed that the redemptions were occuring pretty 
@@ -75,8 +74,8 @@ going on.</p>
 <p>I checked the cron logs for anything suspicious, then moved to triggering the jobs
 themselves to look for anything strange. Finally, I threw the sledge hammer at it
 and threw in this gem:</p>
-<pre><code>hs_log(&quot;FROM UPDATE: $id &quot; .(&#39;server::&#39; . print_r($_SERVER,1)) . (&#39;GETS::&#39; . print_r($_GET,1)) . (&#39;POST::&#39; . print_r($_POST,1)), 1 );</code></pre>
-<p>And had our tester run through the bug producing sequence one more time. Then I 
+<pre><code>hs_log(&quot;FROM UPDATE: $id &quot; .(&#39;server::&#39; . print_r($_SERVER,1)) . (&#39;GETS::&#39; . print_r($_GET,1)) . (&#39;POST::&#39; . print_r($_POST,1)), 1 );
+</code></pre><p>And had our tester run through the bug producing sequence one more time. Then I 
 waited for the large amount of arrays to fly by my screen. Stopped it, snagged it,
 and copy pasted it to my text editor for inspection.</p>
 <p>I burst out laughing when I saw it -- <code>[HTTP_FROM] =&gt; googlebot(at)googlebot.com\n</code>
@@ -93,12 +92,11 @@ index the website. The fix of course was simple:</p>
         hs_log(&quot;PROTECTED FROM GOOGLE SPIDERS&quot;,1);
         return;
     }
-}</code></pre>
-<p>Within the code that decides to redeem the voucher form the QR code or not. It 
+}
+</code></pre><p>Within the code that decides to redeem the voucher form the QR code or not. It 
 was an interesting bug to find, and thankfully an easy one to fix. The php check
 is there as a safeguard and a robots.txt will follow to tell the spiders to lay 
 off.</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Denying known spam accounts on WordPress</h3>
-<p>Let&#39;s say you&#39;ve made a WordPress site, you&#39;re pretty happy about it, and you&#39;ve 
+      <h3>Denying known spam accounts on WordPress</h3><p>Let&#39;s say you&#39;ve made a WordPress site, you&#39;re pretty happy about it, and you&#39;ve 
 decided you want to talk to your readership via comments. But you don&#39;t want any 
 anonymous comments or to use disqus, and instead you want people to register on 
 your website. So you enable registration for everyone and write your posts. </p>
@@ -89,8 +88,8 @@ an implementation is rather simple:</p>
     return $errors;
 }
 
-add_filter(&#39;registration_errors&#39;, &#39;my_simple_domain_check&#39;, 10, 3);</code></pre>
-<p>Simply add problematic domain names into the <code>$spamdomains</code> variable and users 
+add_filter(&#39;registration_errors&#39;, &#39;my_simple_domain_check&#39;, 10, 3);
+</code></pre><p>Simply add problematic domain names into the <code>$spamdomains</code> variable and users 
 will not be able to register from those names. If you notice that a lot of those 
 spam users are coming from a single IP address, than you can use something like 
 <a href="http://www.cyberciti.biz/faq/linux-howto-check-ip-blocked-against-iptables/">iptables</a> to drop their packets. The <code>X-Forwarded-For</code> header is checked first 
@@ -100,7 +99,6 @@ that!)</p>
 <p>I might create a simple plugin that creates a friendlier interface to non-programmers 
 that logs the information to a database instead of the error log. Having a relatively 
 clean error log can be important. After all, exceptions should be exceptional.</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

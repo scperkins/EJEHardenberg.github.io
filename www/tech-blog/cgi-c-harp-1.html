@@ -58,15 +58,14 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>CGI with Harp and C - Flat File and Architecture</h3>
-<p>In a previous blog post I talked about <a href="http://www.ethanjoachimeldridge.info/tech-blog/privateTalk">creating a chat server</a> and today I&#39;m going
+      <h3>CGI with Harp and C - Flat File and Architecture</h3><p>In a previous blog post I talked about <a href="http://www.ethanjoachimeldridge.info/tech-blog/privateTalk">creating a chat server</a> and today I&#39;m going
 to talk about the overall plan for these tutorials. It&#39;s pretty simple, we&#39;ll start
 by creating a simple flat file database library to store our data. The next tutorial
 will focus on using <a href="http://www.qdecoder.org/wiki/qdecoder">qdecoder</a> to create CGI scripts to wrap the code in this tutorial 
 and tie it to the web. Finally, we&#39;ll create the HTML,Basic CSS, and Javascript to 
 tie our new code to our CGI and we&#39;ll suddenly have a proof of concept chat server.</p>
-<p><img src="/images/tech-blog/harp-apache-flatfile.png" width="400px" height="300px" style="padding-left: 25%;"/></p>
-<p><b style="padding-left: 25%;">The full source code for this tutorial is located <a href="https://github.com/EdgeCaseBerg/chat-tutorial">here on github</a></b></p>
+<p><img src="/images/tech-blog/harp-apache-flatfile.png" width="400px" height="300px" style="padding-left: 25%"></p>
+<p><b style="padding-left: 25%">The full source code for this tutorial is located <a href="https://github.com/EdgeCaseBerg/chat-tutorial">here on github</a></b></p>
 <p>So without further ado, let&#39;s talk about what we need for a Chat Server from the
 backend perspective: </p>
 <ul>
@@ -87,8 +86,8 @@ the commands below to get the right structure.</p>
 mkdir src/internal
 mkdir obj 
 mkdir bin 
-mkdir headers </code></pre>
-<p>Now we need to create our makefile to speed up our process, this tutorial is not an 
+mkdir headers 
+</code></pre><p>Now we need to create our makefile to speed up our process, this tutorial is not an 
 example of how to make Makefiles, so I&#39;m not going to explain that much about what
 this file is doing. We&#39;ll need to update it in our next tutorial to handle generating
 our CGI scripts and linking against the <a href="http://www.qdecoder.org/wiki/qdecoder">qdecoder</a> library, but for now it just 
@@ -120,8 +119,8 @@ clean: ./headers/config.h
     rm -f obj/*.o ${TARGETS}
 
 $(OBJECTS): obj/%.o : src/%.c ./headers/config.h
-    ${CC} ${CFLAGS} -c -o $@ $&lt; </code></pre>
-<p>We&#39;ll be placing any cgi files into the <strong>src</strong> directory, and any private code into
+    ${CC} ${CFLAGS} -c -o $@ $&lt; 
+</code></pre><p>We&#39;ll be placing any cgi files into the <strong>src</strong> directory, and any private code into
 the <strong>internal</strong> directory. This will allow us to easily test our components later.</p>
 <p>The first thing we need to do is handle configuration details. Where will we store
 our data files? We&#39;ll define this in a header file:</p>
@@ -133,8 +132,8 @@ our data files? We&#39;ll define this in a header file:</p>
 #define DATA_FILE &quot;/tmp/chat.txt&quot;
 #define BUFFER_LENGTH 32
 
-#endif</code></pre>
-<p>It&#39;s your average header file, guard includes and a few constants. The <code>DATA_FILE</code> is
+#endif
+</code></pre><p>It&#39;s your average header file, guard includes and a few constants. The <code>DATA_FILE</code> is
 where we&#39;ll store our chat history and the BUFFER_LENGTH is our base size for any string
 buffer&#39;s we&#39;ll make that don&#39;t need to be dynamic.</p>
 <p>Next we need to create some utility functions to handle talking to and writing to our
@@ -173,8 +172,8 @@ int updateConversation(const char * user, const char * addendum);
 /* Initialization of chat, simply ensures the chat file exists */
 int chatInit();
 
-#endif</code></pre>
-<p>Once again, standard fair for a header file: include guard, the neccesary libraries
+#endif
+</code></pre><p>Once again, standard fair for a header file: include guard, the neccesary libraries
 we&#39;ll need for the various files we&#39;ll implement, and the signatures of the methods
 that will be exposed to outside sources.</p>
 <p>We&#39;ll use <strong>fileLastModifiedAfter</strong> later to tell if a user needs to update their local chat
@@ -207,8 +206,8 @@ static int create_chat_file(){
         }
     }
     return chatFileExists;
-}</code></pre>
-<p><strong>Note:</strong> <small>The security concern I note in the <strong>file_exists</strong> function is a footnote that a
+}
+</code></pre><p><strong>Note:</strong> <small>The security concern I note in the <strong>file_exists</strong> function is a footnote that a
 normal server shouldn&#39;t have to worry about. And if you do have to worry about it,
 then that means someones on your server already and that&#39;s a bigger problem.</small></p>
 <p>The <strong>file_exists</strong> function will return 1 or 0 on if the file actually exists or not
@@ -234,8 +233,8 @@ FILE * getChatFile(){
 }
 int chatInit(){
     return create_chat_file();
-}</code></pre>
-<p>The <strong>fileLastModifiedAfter</strong> function uses the operating system&#39;s <a href="http://linux.die.net/man/2/stat">stat command</a>
+}
+</code></pre><p>The <strong>fileLastModifiedAfter</strong> function uses the operating system&#39;s <a href="http://linux.die.net/man/2/stat">stat command</a>
 to find the <code>.st_mtime</code> field, which conains the last modification time, this compared
 to the argument <code>lastCheckedTime</code> results in doing exactly what we specified in 
 the header file.</p>
@@ -271,8 +270,8 @@ but is really quite simple:</p>
     fflush(fp);
     fclose(fp);
     return 1;
-}</code></pre>
-<p>We open the history file in appending mode so that we always add new messages to
+}
+</code></pre><p>We open the history file in appending mode so that we always add new messages to
 the end of our file. This not only saves us code, but results in an easier to understand
 logic than trying to append new lines to the first line of the file for reading. 
 We then determine the current time according to the server and use it in our message
@@ -285,8 +284,8 @@ this stuff works, how can I be sure Ethan&#39;s not pulling a fast one on me?</p
 <p>Well, you can&#39;t ;) except that we&#39;re going to add a test directory and write a 
 couple tests:</p>
 <pre><code>mkdir test
-touch test/test-chat.c</code></pre>
-<p>Next we&#39;ll update our <strong>Makefile</strong> to compile our test for us and then use asserts
+touch test/test-chat.c
+</code></pre><p>Next we&#39;ll update our <strong>Makefile</strong> to compile our test for us and then use asserts
 to guarantee that our code works as expected:</p>
 <p><em>Makefile</em></p>
 <pre><code>#Configurations and setup
@@ -318,11 +317,11 @@ $(OBJECTS): obj/%.o : src/%.c ./headers/config.h
     ${CC} ${CFLAGS} -c -o $@ $&lt; 
 
 test-internal:
-    ${CC} ${LINKFLAGS} test/test-chat.c obj/chatfile.o -o bin/test-chat.out</code></pre>
-<p>The addition to the file is:</p>
+    ${CC} ${LINKFLAGS} test/test-chat.c obj/chatfile.o -o bin/test-chat.out
+</code></pre><p>The addition to the file is:</p>
 <pre><code>test-internal:
-    ${CC} ${LINKFLAGS} test/test-chat.c obj/chatfile.o -o bin/test-chat.out</code></pre>
-<p>This will compile our test file into a binary we can run by executing <code>./bin/test-chat.out</code>
+    ${CC} ${LINKFLAGS} test/test-chat.c obj/chatfile.o -o bin/test-chat.out
+</code></pre><p>This will compile our test file into a binary we can run by executing <code>./bin/test-chat.out</code>
 The test itself will do the following:</p>
 <ul>
 <li>initialize the chat internals with <strong>chatInit</strong></li>
@@ -362,15 +361,15 @@ int main(){
     assert( strstr(buffer, &quot;I AM GROOT&quot;) != NULL);
 
     return 0;
-}</code></pre>
-<p>This test simply calls each of our methods and <code>assert</code>s that they work as we
+}
+</code></pre><p>This test simply calls each of our methods and <code>assert</code>s that they work as we
 expect them to. Assert&#39;s are a great way to guarantee a contract with your code.
 They&#39;re good for some development processes (not all) and can be used to make
 sure your code is error free. To test your own implementation use the following 
 commands:</p>
 <pre><code>make test-internal 
-./bin/test-chat.out</code></pre>
-<p>If you don&#39;t get any errors, then you&#39;re good to go! You can also check out the
+./bin/test-chat.out
+</code></pre><p>If you don&#39;t get any errors, then you&#39;re good to go! You can also check out the
 <code>DATA_DIR</code> file and see that things are being written to it. </p>
 <p>This wraps up the tutorial, stay tuned for the next installment for how to expose
 these internal functions to the web using CGI and <a href="http://www.qdecoder.org/wiki/qdecoder">qdecoder</a>! Believe it or not,
@@ -380,7 +379,6 @@ made a simple API for our other code to talk to when we implement it. In the nex
 tutorial not only will we add qdecoder and learn how to write basic CGI, but we&#39;ll
 create an API that will expose our resources to the web.</p>
 <p>See you next time!</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

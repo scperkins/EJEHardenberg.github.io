@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Draft and Scheduled Posts in Harp</h3>
-<p>If you use <a href="http://harpjs.com">Harp</a>, you&#39;ve probably checked out their recipes before. And if you&#39;ve
+      <h3>Draft and Scheduled Posts in Harp</h3><p>If you use <a href="http://harpjs.com">Harp</a>, you&#39;ve probably checked out their recipes before. And if you&#39;ve
 looked at those recipes you&#39;ve probably seen the <a href="http://kennethormandy.com/journal/static-draft-posts-with-harp">great draft recipe</a> about draft
 posts. I&#39;m not going to try to do a better job than Kenneth Ormandy on drafts so
 you can read that post there if you&#39;d like. What I am going to show you in this
@@ -79,18 +78,16 @@ and then use that to decide when the post will be available on your blog. The co
 to support this is pretty simple. We&#39;ll then update the Sitemap to filter out any
 posts that shouldn&#39;t be available yet. After all, you don&#39;t want those search 
 engines reading content they shouldn&#39;t yet!</p>
-<h4>Step one - Make a site</h4>
-<pre><code>mkdir yoursite
+<h4>Step one - Make a site</h4><pre><code>mkdir yoursite
 cd yoursite
 harp init
 touch example.md &amp;&amp; echo &quot;1&quot; &gt;&gt; example.md
 touch in-the-past.md &amp;&amp; echo &quot;2&quot; &gt;&gt; in-the-past.md
-touch in-the-future.md &amp;&amp; echo &quot;3&quot; &gt;&gt; in-the-future.md</code></pre>
-<p>Running the above steps will make the default harp project structure, as well as
+touch in-the-future.md &amp;&amp; echo &quot;3&quot; &gt;&gt; in-the-future.md
+</code></pre><p>Running the above steps will make the default harp project structure, as well as
 a few example blog posts to illustrate the scheduling. We&#39;ll modify those in a 
 moment, but first:</p>
-<h4>Step two - Create _data.json</h4>
-<pre><code>{
+<h4>Step two - Create _data.json</h4><pre><code>{
     &quot;example&quot; : {
             &quot;title&quot; : &quot;Blog Post 1&quot;,
             &quot;date&quot;  : &quot;2014-08-13&quot;
@@ -103,15 +100,12 @@ moment, but first:</p>
             &quot;title&quot; : &quot;Future Post!&quot;,
             &quot;date&quot; : &quot;2015-09-14&quot;
     }
-}</code></pre>
-<p>We&#39;ve defined our blog posts to have a title and a date. You can probably already 
+}
+</code></pre><p>We&#39;ve defined our blog posts to have a title and a date. You can probably already 
 see where this is going, but let&#39;s go ahead and modify the index file appropriately
 to handle these posts:</p>
-<h4>Step Three - Your index page</h4>
-<h5>Change index.jade into index.ejs</h5>
-<pre><code>mv index.jade index.ejs</code></pre>
-<h5>Change the contents of index.ejs</h5>
-<pre><code>&lt;h1&gt; Welcome to Harp.
+<h4>Step Three - Your index page</h4><h5>Change index.jade into index.ejs</h5><pre><code>mv index.jade index.ejs
+</code></pre><h5>Change the contents of index.ejs</h5><pre><code>&lt;h1&gt; Welcome to Harp.
 &lt;h3&gt; This is yours to own. Enjoy.
 
 &lt;%
@@ -123,12 +117,11 @@ for(idx in public._data){
     &lt;%
     }
 }
-%&gt;</code></pre>
-<p>This code simply makes a list of links to the blog posts if their publish date is 
+%&gt;
+</code></pre><p>This code simply makes a list of links to the blog posts if their publish date is 
 in the future. Note that this doesn&#39;t stop your layout from rendering the items, 
 so someone can still access a future post by going to /in-the-future right now.</p>
-<h4>Step Four - Protect the Future</h4>
-<p>In order to not have the above happen, you need to modify your layout file to go
+<h4>Step Four - Protect the Future</h4><p>In order to not have the above happen, you need to modify your layout file to go
 from this:</p>
 <p><em>_layout.jade</em></p>
 <pre><code>doctype
@@ -136,8 +129,8 @@ html
   head
     link(rel=&quot;stylesheet&quot; href=&quot;/main.css&quot;)
   body
-    != yield</code></pre>
-<p>To this:</p>
+    != yield
+</code></pre><p>To this:</p>
 <p><em>_layout.ejs</em></p>
 <pre><code>&lt;DOCTYPE html&gt;
   &lt;head&gt;
@@ -150,23 +143,22 @@ html
     &lt;%- yield %&gt;
     &lt;% } else { %&gt;
     &lt;%- partial(&quot;404&quot;) %&gt;
-    &lt;% } %&gt;</code></pre>
-<p>We loop through our meta data, and if we don&#39;t have any object defined, we know
+    &lt;% } %&gt;
+</code></pre><p>We loop through our meta data, and if we don&#39;t have any object defined, we know
 that that&#39;s our index file, so we should display it. If we do have some data 
 defined, then we check if it should be published or not. Lastly, when you&#39;re
 working on something locally, you&#39;ll likely want to view it before it goes live.
 This is why we specify that it&#39;s ok to show the content if the <code>environment == &quot;development&quot;</code></p>
 <p>If you want, right now you can modify index.ejs&#39;s</p>
-<pre><code>if(new Date(post.date) &lt;= new Date()){</code></pre>
-<p>line to </p>
-<pre><code> if(new Date(post.date) &lt;= new Date() || environment == &quot;development&quot;){</code></pre>
-<p>to let your future blog posts show on the index page if you&#39;re working locally 
+<pre><code>if(new Date(post.date) &lt;= new Date()){
+</code></pre><p>line to </p>
+<pre><code> if(new Date(post.date) &lt;= new Date() || environment == &quot;development&quot;){
+</code></pre><p>to let your future blog posts show on the index page if you&#39;re working locally 
 as well.</p>
 <p>I use <code>.ejs</code> files due to personal preference, but it&#39;s possible to do the same
 thing as I did above with jade if you want to, though that&#39;s an exercise for the
 reader. ;)</p>
-<h4>Step 5 - Protect your SEO! (Sitemap update)</h4>
-<p>If you don&#39;t have a sitemap you can <a href="http://www.ethanjoachimeldridge.info/tech-blog/xml-sitemap-for-harpjs">make yourself one</a> and then come back, or 
+<h4>Step 5 - Protect your SEO! (Sitemap update)</h4><p>If you don&#39;t have a sitemap you can <a href="http://www.ethanjoachimeldridge.info/tech-blog/xml-sitemap-for-harpjs">make yourself one</a> and then come back, or 
 you can skip this section. The sitemap code is simple and we only need to change
 one part. Find the code that looks like this:</p>
 <pre><code>if(head[&#39;_data&#39;]){
@@ -174,8 +166,8 @@ one part. Find the code that looks like this:</p>
     if(obj &amp;&amp; obj.date){
         date = new Date(Date.parse(obj.date)).toISOString()
     }
-}</code></pre>
-<p>and add a small conditional to skip over any posts that are drafts or shouldn&#39;t be
+}
+</code></pre><p>and add a small conditional to skip over any posts that are drafts or shouldn&#39;t be
 displayed:</p>
 <pre><code>if(head[&#39;_data&#39;]){
        obj = head[&#39;_data&#39;][file]
@@ -185,27 +177,25 @@ displayed:</p>
            }
            date = new Date(Date.parse(obj.date)).toISOString()
        }
-}</code></pre>
-<p>Also, you&#39;ll want to make sure the <code>_data.json</code> file has the following added to it:</p>
+}
+</code></pre><p>Also, you&#39;ll want to make sure the <code>_data.json</code> file has the following added to it:</p>
 <pre><code>&quot;Sitemap&quot; : {
     &quot;layout&quot; : false
-}</code></pre>
-<p>Otherwise you&#39;ll get XML format issues due to the html layout.</p>
-<h4>Final Step - Miscellaneous auto-building</h4>
-<p>If you&#39;re deployed your site to <a href="https://www.harp.io/">the harp platform</a> then you&#39;re done. If you&#39;re
+}
+</code></pre><p>Otherwise you&#39;ll get XML format issues due to the html layout.</p>
+<h4>Final Step - Miscellaneous auto-building</h4><p>If you&#39;re deployed your site to <a href="https://www.harp.io/">the harp platform</a> then you&#39;re done. If you&#39;re
 deploying just your static files to something like <a href="https://pages.github.com/">gh-pages</a> or Apache you&#39;ll 
 need some type of automatic build process to keep your site&#39;s pages publishing
 on schedule. For that I recommend something like</p>
-<pre><code>5 0 * * * * /path/to/your/directory/publish.sh</code></pre>
-<p>Where publish.sh is:</p>
+<pre><code>5 0 * * * * /path/to/your/directory/publish.sh
+</code></pre><p>Where publish.sh is:</p>
 <pre><code>#/bin/sh
 cd /path/to/your/directory/
-harp compile</code></pre>
-<p>And then you&#39;ll be compiling harp every day at 5 minutes after midnight. If you use
+harp compile
+</code></pre><p>And then you&#39;ll be compiling harp every day at 5 minutes after midnight. If you use
 gh-pages you&#39;ll probably want to add this cron task locally, if it&#39;s on a server
 then you&#39;ll want to do it up there. All in all it&#39;s pretty simple to add scheduled
 posts to your blog or site! </p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

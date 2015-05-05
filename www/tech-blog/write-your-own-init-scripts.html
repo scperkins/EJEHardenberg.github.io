@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Write your own init script</h3>
-<p>Most developers who&#39;ve written web software know that when they install 
+      <h3>Write your own init script</h3><p>Most developers who&#39;ve written web software know that when they install 
 something like <a href="https://httpd.apache.org/">httpd</a> they can typically call <code>service httpd restart</code> 
 and they&#39;ll restart their server. Similarly, they could call 
 <code>/etc/init.d/httpd start</code> to start, or change start to <code>stop</code> and they&#39;ll
@@ -122,8 +121,8 @@ case &quot;$1&quot; in
         echo $&quot;Usage: $0 {start|stop|restart}&quot;
         RETVAL=1
 esac
-exit $RETVAL</code></pre>
-<p>The first part of this script consists of a large block of comments. These 
+exit $RETVAL
+</code></pre><p>The first part of this script consists of a large block of comments. These 
 are known as <em>tags</em> for the init system to read. The <code>chkconfig:</code> and 
 <code>description:</code> tags are the only required ones and have an important role 
 to play. The description tag tells you what this script is all about 
@@ -136,8 +135,8 @@ I&#39;ve chosen run levels 0,3 and 6 so that the service is called whenever the
 machine is stopped or rebooted, and when we&#39;ve acquired networking capabilities.</p>
 <p>The one fancy trick here is the following:</p>
 <pre><code>nohup MyServer &amp;
-echo $! &gt; /var/run/MyServer.pid</code></pre>
-<p>The <code>$!</code> (dollarsign bang), within a bash shell, recieves the process id of the 
+echo $! &gt; /var/run/MyServer.pid
+</code></pre><p>The <code>$!</code> (dollarsign bang), within a bash shell, recieves the process id of the 
 program which was pushed to the background last. Don&#39;t ask me how to google for 
 that symbol (it&#39;s hard), but that&#39;s what it does, and when combined with the 
 <a href="http://linux.die.net/man/1/nohup">nohup</a> command, it makes for an easy way to grab the process ID of your new 
@@ -151,11 +150,10 @@ for what you can use in the case statement, you can read more <a href="http://ww
 in the init.d directory like so:</p>
 <pre><code>chkconfig --add myservice
 chkconfig --list myservice
-myservice   0:on   1:off   2:off   3:on    4:off   5:off    6:on</code></pre>
-<p>And that&#39;s it! If you change the runlevels in the tags of the script you&#39;ll want 
+myservice   0:on   1:off   2:off   3:on    4:off   5:off    6:on
+</code></pre><p>And that&#39;s it! If you change the runlevels in the tags of the script you&#39;ll want 
 to do a quick <code>chkconfig --del myservice &amp;&amp; chkconfig --add myservice</code> to update
 the run levels. Now go forth! Write your own services!</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

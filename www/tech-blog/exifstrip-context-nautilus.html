@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Adding Exif Stripping to your Context menu</h3>
-<p>When you take pictures using your smartphone, camera, or anything like that. Do 
+      <h3>Adding Exif Stripping to your Context menu</h3><p>When you take pictures using your smartphone, camera, or anything like that. Do 
 you ever notice that social media giants like Google or Facebook are able to attach 
 a location and time to the pictures without any prompting from you? Or ever wonder 
 how someone on a forum where you&#39;ve shared work is able to know your shutter 
@@ -72,22 +71,17 @@ running: <code>exiftool -all= &lt;filename&gt;</code></p>
 <p>This is fine, but what if you want to be able to right click an image and quickly 
 strip the data? Well, here&#39;s how you do that if you&#39;re using the <a href="http://en.wikipedia.org/wiki/GNOME_Files">Nautilus</a> file 
 browser (Assuming you&#39;ve already installed exiftools).</p>
-<h4>First install nautilus actions</h4>
-<pre><code>sudo apt-get install nautilus-actions </code></pre>
-<h4>Open the configuration for commands</h4>
-<pre><code>nautilus-actions-config-tool </code></pre>
-<h4>Create and define the command</h4>
-<p><img src="/images/tech-blog/exifcontext-action.png" />
-<img src="/images/tech-blog/exifcontext-command.png" />
-<img src="/images/tech-blog/exifcontext-execution.png" />
-<img src="/images/tech-blog/exifcontext-mime.png" /></p>
-<h4>Restart nautilus if you need to with <code>nautilus -q</code> then right click an image</h4>
-<p><img src="/images/tech-blog/exifcontext-menu.png" /></p>
+<h4>First install nautilus actions</h4><pre><code>sudo apt-get install nautilus-actions 
+</code></pre><h4>Open the configuration for commands</h4><pre><code>nautilus-actions-config-tool 
+</code></pre><h4>Create and define the command</h4><p><img src="/images/tech-blog/exifcontext-action.png">
+<img src="/images/tech-blog/exifcontext-command.png">
+<img src="/images/tech-blog/exifcontext-execution.png">
+<img src="/images/tech-blog/exifcontext-mime.png"></p>
+<h4>Restart nautilus if you need to with <code>nautilus -q</code> then right click an image</h4><p><img src="/images/tech-blog/exifcontext-menu.png"></p>
 <p>Hopefully this makes removing metadata easier for linux users out there using 
 nautilus. I&#39;m sure that for other window managers there are similar methods. If 
 you have any other tips or useful commands to add to the context menu feel free 
 to drop them in the comments section.</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

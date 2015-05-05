@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Simple Binary Hill Climber in GoLang</h3>
-<p>I&#39;ve been playing with <a href="http://golang.org">Go</a> recently and really enjoying it. But one of my problems
+      <h3>Simple Binary Hill Climber in GoLang</h3><p>I&#39;ve been playing with <a href="http://golang.org">Go</a> recently and really enjoying it. But one of my problems
 was that I couldn&#39;t think of what to do with all that great concurrent power. Web 
 applications and servers are of course  one of the things I first thought of, but
 that&#39;s basically the Hello World of Go. </p>
@@ -101,8 +100,8 @@ do this in such a small example, but it&#39;s quite fun nonetheless.</p>
     for i := 0; i &lt; genomeSize; i++ {
         c.fitness += &lt;- initilizeChannel
     }
-}</code></pre>
-<p>The Mutate function represents our variation in the population, for this example
+}
+</code></pre><p>The Mutate function represents our variation in the population, for this example
 we&#39;re merely flipping a coin to decide whether or not we should allow a single
 portion of the genomic string to change. One again, we fan out for the calculation
 and send the fitness back to the owning struct in parts. The most important part
@@ -125,8 +124,8 @@ variable in the <code>Child</code> to send the fitness result to whoever is list
     }
     //Send fitness out
     c.resultChan &lt;- c.fitness
-}</code></pre>
-<p>Where does resultChan go? To the channel we opened in the <code>main</code> function called
+}
+</code></pre><p>Where does resultChan go? To the channel we opened in the <code>main</code> function called
 <code>resultsChan</code> (name makes sense? imagine that). This channel is responsible for
 figuring out which of the population is the best candidate for reproduction to
 help shape the next generation of candidates. At the end each generation we mutate
@@ -135,7 +134,6 @@ the best <code>Child</code> and replace a small subset of the population with th
 helps inspire some ideas for people to start using Go as a language to express
 inheritly concurrent operations such as genetic algorithms and other evolutionary
 methods.</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

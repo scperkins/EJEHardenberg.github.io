@@ -58,31 +58,30 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Ambiguous Columns with Java NamedParameterJdbcTemplate and Order By Clauses</h3>
-<p>Sometime you have queries that Join two tables together that share a column name. When selecting an <code>ORDER BY</code> clause for your statement, in order to use the shared column name you must specify which of the two table&#39;s column will be used. For example:</p>
+      <h3>Ambiguous Columns with Java NamedParameterJdbcTemplate and Order By Clauses</h3><p>Sometime you have queries that Join two tables together that share a column name. When selecting an <code>ORDER BY</code> clause for your statement, in order to use the shared column name you must specify which of the two table&#39;s column will be used. For example:</p>
 <p><strong>Table A</strong></p>
-<pre><code>id | foo | bar | baz</code></pre>
-<p><strong>Table B</strong></p>
-<pre><code>id | bar | baz | boz</code></pre>
-<p><strong>Query</strong></p>
-<pre><code>SELECT * FROM A a JOIN B b ON a.id = b.id ORDER BY a.bar</code></pre>
-<p>Note how we must say <code>a.bar</code>, otherwise mySQL will complain about the column being ambiguous since it is. In our application let&#39;s say that the user can filter results from A and B and arrange things by any column. So using a <a href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/namedparam/NamedParameterJdbcTemplate.html">NamedParameterJdbcTemplate</a> we&#39;ll have a query like so:</p>
+<pre><code>id | foo | bar | baz
+</code></pre><p><strong>Table B</strong></p>
+<pre><code>id | bar | baz | boz
+</code></pre><p><strong>Query</strong></p>
+<pre><code>SELECT * FROM A a JOIN B b ON a.id = b.id ORDER BY a.bar
+</code></pre><p>Note how we must say <code>a.bar</code>, otherwise mySQL will complain about the column being ambiguous since it is. In our application let&#39;s say that the user can filter results from A and B and arrange things by any column. So using a <a href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/namedparam/NamedParameterJdbcTemplate.html">NamedParameterJdbcTemplate</a> we&#39;ll have a query like so:</p>
 <p><strong>Parameterized Query</strong></p>
-<pre><code>SELECT * FROM A a JOIN Bb ON a.id = b.id ORDER BY :order</code></pre>
-<p>Attempts to set up your parameter map like so will fail:</p>
+<pre><code>SELECT * FROM A a JOIN Bb ON a.id = b.id ORDER BY :order
+</code></pre><p>Attempts to set up your parameter map like so will fail:</p>
 <pre><code>Map&lt;String, Object&gt; parameters = new HashMap&lt;String, Object&gt;();
 String order = //set to baz,boz,foo,bar, or id
 parameters.put(&quot;order&quot;, order);
 
-namedParameterJdbcTemplate.query( query, parameters, ...); //fail</code></pre>
-<p>Because if you pass in baz or bar for <code>:order</code> then you&#39;ll end up with an
+namedParameterJdbcTemplate.query( query, parameters, ...); //fail
+</code></pre><p>Because if you pass in baz or bar for <code>:order</code> then you&#39;ll end up with an
 ambiguous column error. So you might try to change it up by doing this:</p>
 <p><strong>Still the wrong Query</strong></p>
-<pre><code>SELECT * FROM A a JOIN Bb ON a.id = b.id ORDER BY a.:order    </code></pre>
-<p>Which will fail again with an error implying you need to qoute the value.</p>
+<pre><code>SELECT * FROM A a JOIN Bb ON a.id = b.id ORDER BY a.:order    
+</code></pre><p>Which will fail again with an error implying you need to qoute the value.</p>
 <p><strong><em>Still</em> the wrong Query</strong></p>
-<pre><code>SELECT * FROM A a JOIN Bb ON a.id = b.id ORDER BY `a`.`:order`</code></pre>
-<p>only now it will fail because the parameter `order`` doesn&#39;t exist. </p>
+<pre><code>SELECT * FROM A a JOIN Bb ON a.id = b.id ORDER BY `a`.`:order`
+</code></pre><p>only now it will fail because the parameter `order`` doesn&#39;t exist. </p>
 <p>So what do you do? Simple, use our original query and pass the tablename to
 disambiguate the clause:</p>
 <p><strong>The right way</strong></p>
@@ -90,9 +89,8 @@ disambiguate the clause:</p>
 Map&lt;String, Object&gt; parameters = new HashMap&lt;String, Object&gt;();
 String order = //set to baz,boz,foo,bar, or id
 parameters.put(&quot;order&quot;, &quot;a.&quot; + order); //note table name addition
-namedParameterJdbcTemplate.query( query, parameters, ...); //success!</code></pre>
-<p>Hope this helps someone else out there.</p>
-
+namedParameterJdbcTemplate.query( query, parameters, ...); //success!
+</code></pre><p>Hope this helps someone else out there.</p>
       
       <h3>Other Posts</h3>
       <div id="other-posts">

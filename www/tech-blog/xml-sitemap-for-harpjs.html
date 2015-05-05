@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Generating an XML Sitemap For HarpJS</h3>
-<p>So, quite frankly, I really enjoy using <a href="http://harpjs.com">Harp</a> to manage my website. I love 
+      <h3>Generating an XML Sitemap For HarpJS</h3><p>So, quite frankly, I really enjoy using <a href="http://harpjs.com">Harp</a> to manage my website. I love 
 markdown, I love simple and easy conventions for site compilation. Heck, I
 think the file.datatype.ejs is extremely clever and very useful. Here&#39;s one
 of the reasons why:</p>
@@ -116,8 +115,8 @@ function tree(head, tail) {
 }
 
 tree(public, &quot;/&quot;) 
-%&gt;&lt;/urlset&gt; </code></pre>
-<p>If you&#39;ve looked at Harp&#39;s recipe you&#39;ll notice that the tree function is nearly
+%&gt;&lt;/urlset&gt; 
+</code></pre><p>If you&#39;ve looked at Harp&#39;s recipe you&#39;ll notice that the tree function is nearly
 word for word the same. That&#39;s because I adapted Harp&#39;s recipe for my own. What
 changed? </p>
 <ol>
@@ -139,7 +138,6 @@ and do that so you don&#39;t spam my server with 404&#39;s ;)    </p>
 <p><strong>Update: August 18th, 2014</strong></p>
 <p>We can set the <code>freq</code> tag for the XML to whatever we want from the metadata for
 any page by specifying: <code>&quot;freq&quot; : &quot;&lt;freq&gt;&quot;</code>, simply replace <code>&lt;freq&gt;</code> with <a href="http://www.sitemaps.org/protocol.html#changefreqdef">daily, monthly...</a></p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

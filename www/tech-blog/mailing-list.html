@@ -58,9 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Your own Mailing List</h3>
-<h4>Quick why and what</h4>
-<p>If you&#39;re like me, your email inbox is like a second home. Information about 
+      <h3>Your own Mailing List</h3><h4>Quick why and what</h4><p>If you&#39;re like me, your email inbox is like a second home. Information about 
 friends, events, and all sorts of things come filtering through. A lot of the 
 time you might have a designated group of friends whom you share a lot of links 
 with. If you use <a href="http://mail.google.com">gmail</a> or any decent webmail client you&#39;re likely familiar 
@@ -75,29 +73,25 @@ coming your way. </p>
 everyone can email the one address and instantly everyone who cares to be on 
 the mailing list is enjoying it. In this blog post, I&#39;m going to show you how to 
 set up your own mailing list. </p>
-<h4>What you&#39;ll need</h4>
-<ul>
+<h4>What you&#39;ll need</h4><ul>
 <li>A server open to the web</li>
 <li>Linux running on said webserver (debian is what these instructions will be for)</li>
 <li>about 15 minutes or so and some patience</li>
 </ul>
-<h4>Postfix? Sendmail? What do I use?!</h4>
-<p>When setting up an <a href="http://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">SMTP</a> typically one uses <a href="http://www.sendmail.com/sm/open_source/">sendmail</a> or <a href="http://www.postfix.org/">postfix</a> and if you&#39;re
+<h4>Postfix? Sendmail? What do I use?!</h4><p>When setting up an <a href="http://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">SMTP</a> typically one uses <a href="http://www.sendmail.com/sm/open_source/">sendmail</a> or <a href="http://www.postfix.org/">postfix</a> and if you&#39;re
 lucky, one might even come preinstalled on your distro. For me, I wanted a mail 
 server that could use a whitelist and blacklist without too much of a hassle. 
 Since sendmail <a href="http://forums.fedoraforum.org/showthread.php?t=72511">doesn&#39;t really support that</a>, I installed postfix instead since 
 <a href="http://www.linuxlasse.net/linux/howtos/Blacklist_and_Whitelist_with_Postfix">it does</a>.</p>
-<h4>Install postfix</h4>
-<p>Installing postfix is easy, on debian just use <code>apt</code>:</p>
+<h4>Install postfix</h4><p>Installing postfix is easy, on debian just use <code>apt</code>:</p>
 <pre><code>sudo su
-aptitude install postfix</code></pre>
-<p>It will ask you a few questions during the configuration, one of the important 
+aptitude install postfix
+</code></pre><p>It will ask you a few questions during the configuration, one of the important 
 ones to note is when you&#39;re setting up your FQDN (Fully Qualified Domain Name). 
 It should be set to the output of <code>hostname --fqdn</code> on your machine. Also, when 
 asked which configuration option you&#39;d like, set it to &quot;Internet Site&quot; as you&#39;ll 
 be wanting to recieve and sendmail from your machine to facilate the mailing list.</p>
-<h4>Configuring postfix</h4>
-<p>Next, you need to configure. This can be done by checking out two files: </p>
+<h4>Configuring postfix</h4><p>Next, you need to configure. This can be done by checking out two files: </p>
 <ol>
 <li>/etc/postfix/main.cf</li>
 <li>/etc/postfix/master.cf</li>
@@ -110,23 +104,22 @@ that I changed was as follows: </p>
 mydestination = your.domain.here.com, $myhostname, localhost.info, localhost, mail.your.domain.here.com, mail.$hostname
 mynetworks_style = host
 notify_classes = bounce, resource, software
-smtpd_recipient_restrictions = check_client_access hash:/etc/postfix/client_checks, check_sender_access hash:/etc/postfix/sender_checks, reject_unauth_destination</code></pre>
-<p>The last line of the configuration is to setup <a href="http://www.linuxlasse.net/linux/howtos/Blacklist_and_Whitelist_with_Postfix">a whitelist</a>. Note that the linked 
+smtpd_recipient_restrictions = check_client_access hash:/etc/postfix/client_checks, check_sender_access hash:/etc/postfix/sender_checks, reject_unauth_destination
+</code></pre><p>The last line of the configuration is to setup <a href="http://www.linuxlasse.net/linux/howtos/Blacklist_and_Whitelist_with_Postfix">a whitelist</a>. Note that the linked 
 blogpost does not include the <code>reject_unauth_destination</code>, this was neccesary because 
 otherwise you&#39;re going to get a lot of errors like this in your log:</p>
-<pre><code>postfix/smtpd[1435]: fatal: parameter &quot;smtpd_recipient_restrictions&quot;: specify at least one working instance of: check_relay_domains, reject_unauth_destination, reject, defer or defer_if_permit</code></pre>
-<p>Taking note of <code>/etc/syslog.conf</code> you&#39;ll want to be sure where your mail server 
+<pre><code>postfix/smtpd[1435]: fatal: parameter &quot;smtpd_recipient_restrictions&quot;: specify at least one working instance of: check_relay_domains, reject_unauth_destination, reject, defer or defer_if_permit
+</code></pre><p>Taking note of <code>/etc/syslog.conf</code> you&#39;ll want to be sure where your mail server 
 is logging to. Then the handy dandy: <code>tail -n 20 /var/log/mail.*</code> can help you 
 figure out what&#39;s going wrong if anything does.</p>
-<h4>Setting up the mailing list</h4>
-<p>First, make a username for the alias you&#39;ll use. Let&#39;s pretend you&#39;re setting up 
+<h4>Setting up the mailing list</h4><p>First, make a username for the alias you&#39;ll use. Let&#39;s pretend you&#39;re setting up 
 a mailing list for your family to share vacation pictures and have decided that 
 your mailing list will be called &quot;vacations&quot; (creative I know).</p>
 <pre><code>useradd vacations
 passwd vacations #enter a password
 
-vi /etc/aliases #if you&#39;re using vim, use nano if you&#39;d like, or emacs or whatever</code></pre>
-<p>Once the aliases file is open simply add in a section like this near the bottom:</p>
+vi /etc/aliases #if you&#39;re using vim, use nano if you&#39;d like, or emacs or whatever
+</code></pre><p>Once the aliases file is open simply add in a section like this near the bottom:</p>
 <pre><code>#/etc/aliases
 
 #... bunch of stuff
@@ -137,18 +130,18 @@ vacations:
   brother@domain.com
   sister@domain.com
   #etc etc list all the email addresses you want in here
-  #Note, if you&#39;re using a whitelist then make sure they&#39;re included</code></pre>
-<p>Then run the command to refresh your aliases:</p>
+  #Note, if you&#39;re using a whitelist then make sure they&#39;re included
+</code></pre><p>Then run the command to refresh your aliases:</p>
 <pre><code>newaliases
 postalias /etc/aliases #important!
-/etc/init.d/postfix reload</code></pre>
-<p>If you&#39;re using <a href="http://www.linuxlasse.net/linux/howtos/Blacklist_and_Whitelist_with_Postfix">a whitelist</a> make sure to create the databases for your mail 
+/etc/init.d/postfix reload
+</code></pre><p>If you&#39;re using <a href="http://www.linuxlasse.net/linux/howtos/Blacklist_and_Whitelist_with_Postfix">a whitelist</a> make sure to create the databases for your mail 
 server by running the following:</p>
 <pre><code>#You&#39;ll need to make the *_checks files first obviously, see the link above
 postmap /etc/postfix/client_checks
 postmap /etc/postfix/sender_checks
-/etc/init.d/postfix reload</code></pre>
-<p>Once this is all setup it&#39;s time to setup your DNS records. Go into your providers 
+/etc/init.d/postfix reload
+</code></pre><p>Once this is all setup it&#39;s time to setup your DNS records. Go into your providers 
 configuration and look for MX records. For some providers they may already have 
 FAQ&#39;s or tutorials on setting up your mailserver to relay to theirs. But a quick 
 and dirty approach is to simply edit the MX record to point directly to your 
@@ -168,8 +161,8 @@ To                         Action      From
 22                         ALLOW       Anywhere (v6)
 80                         ALLOW       Anywhere (v6)
 443/tcp                    ALLOW       Anywhere (v6)
-25/tcp                     ALLOW       Anywhere (v6)</code></pre>
-<p>Once this is done, you&#39;ll want to test the mailing list. Go back to your aliases 
+25/tcp                     ALLOW       Anywhere (v6)
+</code></pre><p>Once this is done, you&#39;ll want to test the mailing list. Go back to your aliases 
 file and comment out (use a #) everyone but you and a <a href="https://www.guerrillamail.com">test email</a> and write an 
 email to your new alias: &quot;vacations@domain.com&quot;. Before you send it, tail the 
 log on your server with: <code>tail -f /var/log/mail.info</code></p>
@@ -186,54 +179,45 @@ postfix/qmgr[1460]: 640932615C2: removed
 postfix/smtpd[1520]: disconnect from unknown[x.x.x.x]
 postfix/smtp[1526]: 7EDEB2615C3: to=&lt;test@cock.li&gt;, orig_to=&lt;vacations@yourdomain.com&gt;, relay=mail.cock.li[x.x.x.x]:25, delay=0.15, delays=0/0.01/0.07/0.07, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as 97A5B26116B)
 postfix/smtp[1527]: 7EDEB2615C3: to=&lt;youremail@domain.com&gt;, orig_to=&lt;vacations@yourdomain.com&gt;, relay=gmail-smtp-in.l.google.com[x.x.x.x]:25, delay=0.43, delays=0/0.02/0.06/0.35, dsn=2.0.0, status=sent (250 2.0.0 OK 1418057717 n77si43908260q1d.64 - gsmtp)
-postfix/qmgr[1460]: 7EDEB2615C3: removed</code></pre>
-<p>then you&#39;ll want to check your .err,.info, and .warn logs, a quick way to do so 
+postfix/qmgr[1460]: 7EDEB2615C3: removed
+</code></pre><p>then you&#39;ll want to check your .err,.info, and .warn logs, a quick way to do so 
 is to run <code>tail /var/log/mail.*</code> and look at the timestamps to determine where 
 the mail you sent was.</p>
 <p>Once you&#39;ve got test emails working you&#39;ll want to uncomment the real email 
 addresses you&#39;d like to use and remove the test ones. After this, it&#39;s happy 
 emailing and your friends and you should be able to share information with 
 everyone at once with a single address.</p>
-<h4>A few gotchas</h4>
-<p>Mail server&#39;s can suck to debug sometimes, this is mainly because they&#39;re out in 
+<h4>A few gotchas</h4><p>Mail server&#39;s can suck to debug sometimes, this is mainly because they&#39;re out in 
 the wild wild west (www) and lots can go wrong. Here&#39;s a few issues you might 
 run into and their fixes:</p>
-<h5>My email keeps getting sent back to me!</h5>
-<p>If you&#39;re getting emails with something like: &quot;<a href="https://www.penpublishing.com/Support/EmailErrors/UnderstandingEmailErrors/#554">Relay access denied</a>&quot; then you 
+<h5>My email keeps getting sent back to me!</h5><p>If you&#39;re getting emails with something like: &quot;<a href="https://www.penpublishing.com/Support/EmailErrors/UnderstandingEmailErrors/#554">Relay access denied</a>&quot; then you 
 need to take a look at your DNS settings and make sure they&#39;re pointing to your 
 server. If they are, try asking your DNS provider about MX records and the error.</p>
-<h5>I send the email, it hits a test address, but doesn&#39;t show up in my own inbox on gmail</h5>
-<p>In this case, you might be hitting <a href="http://serverfault.com/a/255564/220819">this problem with postfix</a>, in which case 
+<h5>I send the email, it hits a test address, but doesn&#39;t show up in my own inbox on gmail</h5><p>In this case, you might be hitting <a href="http://serverfault.com/a/255564/220819">this problem with postfix</a>, in which case 
 there&#39;s not much to be done, but trust that your email is being delivered. On 
 the bright side, you&#39;ll see the email if someone replies back to your list. So 
 all is well.</p>
-<h5>Problems installing postfix with apt-get?</h5>
-<p>If you&#39;re using <code>apt-get</code> and have funny repositories you might run into some weird 
+<h5>Problems installing postfix with apt-get?</h5><p>If you&#39;re using <code>apt-get</code> and have funny repositories you might run into some weird 
 glitches where the the machine yells about not being able to do anything, just try
 out <code>aptitude</code> and say no to the first option then agree to one that downgrades 
 incompatible versions of other software.</p>
-<h5>aliases.db is older than source file?</h5>
-<pre><code>postfix/smtpd[1307]: warning: database /etc/aliases.db is older than source file /etc/aliases</code></pre>
-<p>If you get the above error, just run <code>newaliases</code> and you should be all set</p>
-<h5>No client.db or sender_check.db ?</h5>
-<pre><code>postfix/smtpd[1311]: fatal: open database /etc/postfix/client_checks.db: No such file or directory
-postfix/smtpd[1352]: fatal: open database /etc/postfix/sender_checks.db: No such file or directory</code></pre>
-<p>You&#39;ll get this error if you specify <code>check_client_access hash:/etc/postfix/client_checks</code> 
+<h5>aliases.db is older than source file?</h5><pre><code>postfix/smtpd[1307]: warning: database /etc/aliases.db is older than source file /etc/aliases
+</code></pre><p>If you get the above error, just run <code>newaliases</code> and you should be all set</p>
+<h5>No client.db or sender_check.db ?</h5><pre><code>postfix/smtpd[1311]: fatal: open database /etc/postfix/client_checks.db: No such file or directory
+postfix/smtpd[1352]: fatal: open database /etc/postfix/sender_checks.db: No such file or directory
+</code></pre><p>You&#39;ll get this error if you specify <code>check_client_access hash:/etc/postfix/client_checks</code> 
 in the <code>smtpd_recipient_restrictions</code> block and haven&#39;t ran the <code>postmap /etc/postfix/client_checks</code> 
 command yet. You&#39;ll get a similar one for the sender_checks if you don&#39;t follow 
 the full instructions in the <a href="http://www.linuxlasse.net/linux/howtos/Blacklist_and_Whitelist_with_Postfix">whitelist blogpost</a>.</p>
-<h5>smtpd check_relay_domains not set in smtpd_recipient restrictions</h5>
-<pre><code>postfix/smtpd[1386]: fatal: parameter &quot;smtpd_recipient_restrictions&quot;: specify at least one working instance of: check_relay_domains, reject_unauth_destination, reject, defer or defer_if_permit</code></pre>
-<p>If you get this error message, all you need to do is read it and follow what it tells 
+<h5>smtpd check_relay_domains not set in smtpd_recipient restrictions</h5><pre><code>postfix/smtpd[1386]: fatal: parameter &quot;smtpd_recipient_restrictions&quot;: specify at least one working instance of: check_relay_domains, reject_unauth_destination, reject, defer or defer_if_permit
+</code></pre><p>If you get this error message, all you need to do is read it and follow what it tells 
 you to do (add <code>reject_unauth_destination</code> to the <code>smtpd_recipient_restrictions</code> list) in 
 /etc/postfix/main.cf. I&#39;d recommend using &quot;reject_unauth_destination&quot; since you&#39;ll
 get the following warning if you use &quot;check_relay_domains&quot;:</p>
-<pre><code>postfix/smtpd[1505]: warning: support for restriction &quot;check_relay_domains&quot; will be removed from Postfix; use &quot;reject_unauth_destination&quot; instead</code></pre>
-<h5>Credit where credit is due!</h5>
-<p>This blogpost drew heavily from the <a href="http://www.postfix.org/BASIC_CONFIGURATION_README.html">documentation</a> as well as the new tutorial 
+<pre><code>postfix/smtpd[1505]: warning: support for restriction &quot;check_relay_domains&quot; will be removed from Postfix; use &quot;reject_unauth_destination&quot; instead
+</code></pre><h5>Credit where credit is due!</h5><p>This blogpost drew heavily from the <a href="http://www.postfix.org/BASIC_CONFIGURATION_README.html">documentation</a> as well as the new tutorial 
 on creating a mailing list <a href="http://www.tldp.org/LDP/LGNET/issue72/teo.html">here</a> which provides a quick reference point for the 
 gist of setting up aliases within your system.</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

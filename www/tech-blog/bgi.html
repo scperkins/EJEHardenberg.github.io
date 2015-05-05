@@ -58,13 +58,11 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>A look into Budget Gateway Interface (BGI).</h3>
-<p>There are times in life when you write Java, PHP, or Ruby to build out your web
+      <h3>A look into Budget Gateway Interface (BGI).</h3><p>There are times in life when you write Java, PHP, or Ruby to build out your web
 applications. Then there are times when you really just want to write in a language
 you love. Don&#39;t get me wrong, I enjoy writing all the mentioned languages to some
 extent. But my true love, as I&#39;ve said on other parts of my website, is C. </p>
-<h4>So you want to write a web application in C</h4>
-<p>I&#39;ve created a <a href="https://github.com/EdgeCaseBerg/green-serv">custom server before</a>, but this time I wanted to spend more time
+<h4>So you want to write a web application in C</h4><p>I&#39;ve created a <a href="https://github.com/EdgeCaseBerg/green-serv">custom server before</a>, but this time I wanted to spend more time
 on the application layer. So I decided to try to learn something new. Specifically,
 CGI scripting. After a quick google search and reading a little bit about CGI I 
 found out that CGI scripting is actually pretty simple. </p>
@@ -83,8 +81,8 @@ the interesting lines in it:</p>
 TARGETS := $(patsubst src/%.c,bin/%.cgi,$(wildcard src/*.c))
 
 $(TARGETS): $(OBJECTS) $(UTIL)
-    ${CC} ${LINKFLAGS} -o $@ $(patsubst bin/%.cgi, obj/%.o, $@ ) $(patsubst %, obj/%.o, $(UTIL)) ${LIBS}</code></pre>
-<p>While not everything shown here is defined (if you really want you can look at the 
+    ${CC} ${LINKFLAGS} -o $@ $(patsubst bin/%.cgi, obj/%.o, $@ ) $(patsubst %, obj/%.o, $(UTIL)) ${LIBS}
+</code></pre><p>While not everything shown here is defined (if you really want you can look at the 
 <a href="https://github.com/EdgeCaseBerg/BGI/blob/master/Makefile">Makefile source here</a> ), the cool part is that the targets and the objects are
 being created based on the source filenames. The line <code>$(patsubst src/%.c,obj/%.o,$(wildcard src/*.c))</code>
 takes all the C files in the src directory, captures their names, then creates a
@@ -101,13 +99,11 @@ for each target being created.</p>
 <a href="http://www.qdecoder.org/releases/current/examples/">examples</a> of qdecoder to determine how I would write my programs. I came to the
 logic that each of my CGI scripts should be as simple as possible, doing a single
 job, and that I had everything I needed. Well, except a database.</p>
-<h5>The Index Page</h5>
-<p><img src="/images/tech-blog/index.png" style="max-width: 778px" /><br/>
+<h5>The Index Page</h5><p><img src="/images/tech-blog/index.png" style="max-width: 778px"><br>
 <small>It was simple to create a login and registration form and wire them into
     CGI. The forms were simple and so was the data validation.
 </small></p>
-<h4>Storing the data</h4>
-<p>I initially thought about using mySQL as my database backend. I used it in <a href="https://github.com/EdgeCaseBerg/green-serv">green-serv</a>
+<h4>Storing the data</h4><p>I initially thought about using mySQL as my database backend. I used it in <a href="https://github.com/EdgeCaseBerg/green-serv">green-serv</a>
 and am familiar with the C API for it. But, something I didn&#39;t like about using
 mySQL is that my current system&#39;s has 2 versions of mySQL installed (5.5 and the bleeding 5.6)
 and that had foobarred my Makefile in green-serv a bit and I wanted to avoid that.
@@ -122,44 +118,38 @@ So I decided that it would be fun to roll my own (I know, reinventing the wheel,
         ...
     &lt;username 2&gt;/
         accounts
-        ...</code></pre>
-<p>The data directory consists of a single index file to store the users and a hash
+        ...
+</code></pre><p>The data directory consists of a single index file to store the users and a hash
 of their password (yes, no salt, I know it&#39;s not secure, this is a play project).
 Once a user exists, they are given their own directory with an accounts file inside.
 This accounts file acts as an index for the balances and names of a users accounts.
 And then the line items stored for each account are placed into a file named after
 that account.</p>
 <p>Here&#39;s an example of what some of that data looks like:</p>
-<h5>.users</h5>
-<pre><code>admin 63876434</code></pre>
-<h5>admin/accounts</h5>
-<pre><code>1 checkings 7.000000
+<h5>.users</h5><pre><code>admin 63876434
+</code></pre><h5>admin/accounts</h5><pre><code>1 checkings 7.000000
 2 food 14.000000
-3 Home Supplies 10.000000</code></pre>
-<h5>admin/checkings</h5>
-<pre><code>1404876690 test 1.500000 44.475800 -73.211900
+3 Home Supplies 10.000000
+</code></pre><h5>admin/checkings</h5><pre><code>1404876690 test 1.500000 44.475800 -73.211900
 1405386959 Something 1.00 44.486497 -73.212105
-1405477153 test 4.50 44.486567 -73.212207</code></pre>
-<p>The data being stored in the account file itself is simple:</p>
-<pre><code>&lt;epoch time&gt; &lt;item name&gt; &lt;spent&gt; &lt;latitude&gt; &lt;longitude&gt;</code></pre>
-<p>You might be wondering why there&#39;s latitude and longitude built into this. The answer
+1405477153 test 4.50 44.486567 -73.212207
+</code></pre><p>The data being stored in the account file itself is simple:</p>
+<pre><code>&lt;epoch time&gt; &lt;item name&gt; &lt;spent&gt; &lt;latitude&gt; &lt;longitude&gt;
+</code></pre><p>You might be wondering why there&#39;s latitude and longitude built into this. The answer
 is that when I had the initial idea for this appplication, I wanted to access it
 from a phone, right after I bought something, and then be able to track where I 
 was spending most of my money (hint, buying lunch everyday is expensive).</p>
-<h4>Visualizing the Data and the display itself</h4>
-<p>To show the information I turned to my goto for static websites, <a href="http://harpjs.com">Harp</a>. It was
+<h4>Visualizing the Data and the display itself</h4><p>To show the information I turned to my goto for static websites, <a href="http://harpjs.com">Harp</a>. It was
 easy to create a <em>very</em> simple website with minimal styling that functioned as
 the interface to my budget tracking habits. It doesn&#39;t look that good, but it
 does look like this:</p>
-<h5>The Application Page</h5>
-<p><img src="/images/tech-blog/welcome.png" style="max-width: 778px" /></p>
+<h5>The Application Page</h5><p><img src="/images/tech-blog/welcome.png" style="max-width: 778px"></p>
 <p>The main application page (after the login pictured above) consists of a simple
 lists of your accounts and their balances. By clicking on the View button for 
 each account, you can see a list of line items spent. Because of the way the
 data is appended to the end of the datastore files, they are naturally ordered
 by date and so displaying them in order is merely a matter of output.</p>
-<h5>The Metrics Page</h5>
-<p><img src="/images/tech-blog/metrics.png" style="max-width: 778px" /></p>
+<h5>The Metrics Page</h5><p><img src="/images/tech-blog/metrics.png" style="max-width: 778px"></p>
 <p>One of the most important parts of any data is displaying it in a form that is
 easily digestable. When you&#39;re trying to track your spending habits there are a
 lot of ways you can do it. I&#39;ve elected for 4 simple charts. </p>
@@ -184,16 +174,14 @@ lot of ways you can do it. I&#39;ve elected for 4 simple charts. </p>
  you&#39;re curious on the actual implementation, checkout <a href="https://github.com/EdgeCaseBerg/BGI/blob/master/public/js/timeline.js">timeline.js</a> around lines 104 
  and on.</p>
 <p> *<sup>By partying I mean coding late into the night and eating pizza of course.</sup></p>
-<h5>And the map Page</h5>
-<p><img src="/images/tech-blog/map.png" style="max-width: 778px" /></p>
+<h5>And the map Page</h5><p><img src="/images/tech-blog/map.png" style="max-width: 778px"></p>
 <p>And lastly, to try to figure out where I&#39;m spending too much money, I need to know
 where I&#39;m spending it! A map is the best way to view geographically oriented data,
 so I used <a href="http://Leafletjs.com">Leaflet.js</a> to create a simple and easily marked up map. I personally
 prefer Leaflet over Google Maps, not just because it supports tons of tilesets,
 but because I had a <a href="http://www.xenonapps.com/greenupvisualization.html">great success in using it to display a lot of data</a> for my
 work on <a href="http://www.ethanjoachimeldridge.info/tech-blog/green-up-vt-app.html">Green Up</a>.</p>
-<h4>Some final thoughts</h4>
-<p>Overall this project was tons of fun. Using CGI really forces you to think about
+<h4>Some final thoughts</h4><p>Overall this project was tons of fun. Using CGI really forces you to think about
 HTML as being stateless (which it is). And to construct easily usable API&#39;s to 
 talk to for the data you need. I&#39;m lucky I was using <a href="http://harpjs.com">Harp</a> since the
 use of partials really assists with creating error pages to respond to badly formed
@@ -211,7 +199,6 @@ as the vcl file was setup to properly invalidate the cache.</p>
 also work on creating a nicer looking front end. My skills are primarily in backend
 work or hooking up the front end to the backend. Not in making a shiny Web 2.0
 website that bedazzles all who gaze upon it. Still, I&#39;ll probably try.</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

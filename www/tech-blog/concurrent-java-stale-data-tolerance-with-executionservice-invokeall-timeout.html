@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Concurrent Java - Partial Processing of Web Services</h3>
-<p>In a web world, we often pull data from multiple services and other API
+      <h3>Concurrent Java - Partial Processing of Web Services</h3><p>In a web world, we often pull data from multiple services and other API
 servers. So you might pull a list of accounts from billing&#39;s services, 
 then check in with what the accountant&#39;s are saying, and have some type 
 of reporting system that is verifying all the information and finding 
@@ -103,15 +102,15 @@ for(Future&lt;Product&gt; product : futures) {
     products.add(product.get());
 }
 
-//carry on and error handling as neccesary</code></pre>
-<p>Assuming that the service returning the products is fast,this code will work just 
+//carry on and error handling as neccesary
+</code></pre><p>Assuming that the service returning the products is fast,this code will work just 
 fine. But what if it get&#39;s slow? Well, we could add timeout&#39;s to the call to 
 <code>product.get()</code> like this:</p>
 <pre><code>List&lt;Product&gt; products = ...
 for(Future&lt;Product&gt; product : futures) {
     product.add(product.get(4L, TimeUnit.SECONDS));
-}</code></pre>
-<p>Once we do this, we&#39;ll only wait 4 seconds for each product, but that means that 
+}
+</code></pre><p>Once we do this, we&#39;ll only wait 4 seconds for each product, but that means that 
 for a list of products of size N, we might end up waiting N*4 seconds. This could 
 get large fast and cause problems for the user looking at these reports. So the 
 alternative is that instead of having each HTTP Request thread have it&#39;s own timeout, 
@@ -186,8 +185,8 @@ public class TimeoutExample {
         ct.doStuff();
     }
 
-}</code></pre>
-<p>When you run this, you&#39;ll get an output somewhat like this:</p>
+}
+</code></pre><p>When you run this, you&#39;ll get an output somewhat like this:</p>
 <pre><code>Starting task that will take  0 milliSecs!
 Starting task that will take  1500 milliSecs!
 Starting task that will take  900 milliSecs!
@@ -213,8 +212,8 @@ CancellationException!
 1200
 1500
 1800
-Retrieved [7/10]</code></pre>
-<p>As you can see, we hit the <a href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CancellationException.html">CancellationException</a> when we tried to <code>get</code> one of 
+Retrieved [7/10]
+</code></pre><p>As you can see, we hit the <a href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CancellationException.html">CancellationException</a> when we tried to <code>get</code> one of 
 the tasks that took longer than the <code>2L</code> timeout we set in the <code>invokeAll</code> call. 
 Of course, this code works because we have an increasing number in order for each
 of our sleeping threads called in that order. If we mixed it up though, such as 
@@ -230,8 +229,8 @@ for (int i =0; i &lt; sizeOfList ; i++) {
             return getThingThatTakesAWhile(randomNum);
         }
     });
-}</code></pre>
-<p>Then we are not guaranteed to hit the canceled task last! In fact, if we were to 
+}
+</code></pre><p>Then we are not guaranteed to hit the canceled task last! In fact, if we were to 
 only replace the relevant part with the above code, we might get an output like 
 this from the program:</p>
 <pre><code>Starting task that will take  2798 milliSecs!
@@ -252,16 +251,16 @@ Done task that took 1115 milliSecs!
 Done task that took 1318 milliSecs!
 Done task that took 1408 milliSecs!
 CancellationException!
-Retrieved [0/10]</code></pre>
-<p>Notice how we didn&#39;t get anything in our retrieved list even though we know some 
+Retrieved [0/10]
+</code></pre><p>Notice how we didn&#39;t get anything in our retrieved list even though we know some 
 tasks were finished? We can get these if we check if a task was cancelled first:</p>
 <pre><code>for (final Future res : returnedResults) {
     if (!res.isCancelled()) {
         final Long cal = (Long)res.get(0,TimeUnit.SECONDS);
         valuesReturned.add(cal);
     }
-}</code></pre>
-<p>Then the results of our program can come out like this: </p>
+}
+</code></pre><p>Then the results of our program can come out like this: </p>
 <pre><code>Starting task that will take  2010 milliSecs!
 Starting task that will take  2886 milliSecs!
 Starting task that will take  2944 milliSecs!
@@ -278,8 +277,8 @@ Done task that took 936 milliSecs!
 936
 512
 803
-Retrieved [3/10]</code></pre>
-<p>And now no matter what order the tasks start, we&#39;ll get back the ones that 
+Retrieved [3/10]
+</code></pre><p>And now no matter what order the tasks start, we&#39;ll get back the ones that 
 finish within the time limit. One of the key things to note here that may 
 not be immediately obvious is the call to <code>pool.shutdown()</code>. This is <strong>very</strong> 
 important. If you don&#39;t call <code>shutdown</code> then you might have tasks hanging out 
@@ -290,8 +289,6 @@ technique! </p>
 retrieved to let the user know that some data may not be correct, or log events 
 that could notify us of slowness or issues in other services. </p>
 <script src="https://gist.github.com/EdgeCaseBerg/4eecad4cf9b474a7b04c.js"></script>
-
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">

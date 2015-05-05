@@ -58,8 +58,7 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Custom Permalinks for WordPress Custom Template Page or Custom Tables</h3>
-<p>I&#39;ve blogged <a href="http://www.ethanjoachimeldridge.info/tech-blog/shortcodes-routing-wordpress">before</a> about custom routing in WordPress, but today I faced a more
+      <h3>Custom Permalinks for WordPress Custom Template Page or Custom Tables</h3><p>I&#39;ve blogged <a href="http://www.ethanjoachimeldridge.info/tech-blog/shortcodes-routing-wordpress">before</a> about custom routing in WordPress, but today I faced a more
 practical problem. Let&#39;s say you&#39;ve create a page template and are displaying
 some information on it based on the query parameters. For example:</p>
 <p><code>http://www.example.com/?page_id=47&amp;recipe_id=1231</code></p>
@@ -78,8 +77,8 @@ $schema = &quot;CREATE TABLE {$wpdb-&gt;prefix}recipes(
         description TEXT
         ) $charset_collate;&quot;;
 require_once( ABSPATH . &#39;wp-admin/includes/upgrade.php&#39; );
-dbDelta( $schema );</code></pre>
-<p>And you&#39;ve gone through all the effort to display the description and a bunch of
+dbDelta( $schema );
+</code></pre><p>And you&#39;ve gone through all the effort to display the description and a bunch of
 other information linked from other tables, but now you&#39;re stuck with URLs that 
 look like the above, and you&#39;ve decided they&#39;re ugly and you&#39;d rather have a nice
 structure like this:</p>
@@ -130,8 +129,8 @@ function vanity_permalink($query) {
                 break;
             }        
     }
-}</code></pre>
-<p>Alright, so let&#39;s examine the code! 
+}
+</code></pre><p>Alright, so let&#39;s examine the code! 
 First off, we create our rewrite rule, this <strong>must</strong> be setup in or before the init 
 action. Because we know our page id then you can go ahead and use your knowledge
 to set which page we&#39;ll actually load (since we need it&#39;s template). Next, we
@@ -151,7 +150,6 @@ function.</p>
 <p>Note that once you use something like this you will have to save your permalinks
 everytime you make a change to the rule in the <code>add_rewrite_rule</code>.</p>
 <p>Hope this helps someone!</p>
-
       
       <h3>Other Posts</h3>
       <div id="other-posts">
