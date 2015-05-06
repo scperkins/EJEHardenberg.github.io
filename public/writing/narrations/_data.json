@@ -1,4 +1,9 @@
 {
+	"blurry" : {
+		"title" : "Blurry",
+		"date" : "2015-5-6",
+		"freq" : "monthly"
+	},
 	"pancakes" : {
 		"title" : "Pancakes",
 		"date" : "2015-5-3",
