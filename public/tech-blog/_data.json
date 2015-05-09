@@ -547,5 +547,11 @@
     "description" : "An error I ran into while setting up a project that had an unintuitive solution",
     "date" : "2015-5-9",
     "keywords" : "sbt,scala,playframework,EnablePlugins is not a member of sbt.Project,error"
+  },
+  "dot-paths-harpjs-0-17-0" : {
+    "title" : "Dot Paths in Harp? Unexpected Behavior!",
+    "description" : "Truncation of keys in _data.json results in 404s if you have dots in your url paths when you use HarpJS",
+    "date" : "2015-5-9",
+    "keywords" : "HarpJS,url,routing,schema,dots in urls,dots in path,bug,error,harp"
   }
 }
