@@ -2,11 +2,11 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Ethan's Tech Blog | Value Raw is not a member of String, Scala Error</title>
+    <title>Ethan's Tech Blog | Value EnablePlugins is not a member of sbt.Project error</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Stumbled across an odd compilation and interpolation error today in my travels through scala." />
+    <meta name="description" content="An error I ran into while setting up a project that had an unintuitive solution" />
     <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="value raw is not a member of string,scala,xml,compile,error,bug"/>
+    <meta name="keywords" content="sbt,scala,playframework,EnablePlugins is not a member of sbt.Project,error"/>
     <meta name="robots" content="index, follow"  />
       <meta name="revisit-after" content="1 month" />
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
@@ -17,19 +17,19 @@
 
         
     <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Value Raw is not a member of String, Scala Error" />
+    <meta property="og:title" content="Ethan Eldridge | Value EnablePlugins is not a member of sbt.Project error" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
     
-    <meta property="og:description" content="Stumbled across an odd compilation and interpolation error today in my travels through scala." />
+    <meta property="og:description" content="An error I ran into while setting up a project that had an unintuitive solution" />
     
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Value Raw is not a member of String, Scala Error" />
+    <meta name="twitter:title" content="Ethan Eldridge | Value EnablePlugins is not a member of sbt.Project error" />
     
-    <meta name="twitter:description" content="Stumbled across an odd compilation and interpolation error today in my travels through scala." />
+    <meta name="twitter:description" content="An error I ran into while setting up a project that had an unintuitive solution" />
     
     <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     	<!-- Core CSS Scripts -->
@@ -52,62 +52,42 @@
   </head>
   <body>
     <header>
-      <h1>Value Raw is not a member of String, Scala Error</h1>
+      <h1>Value EnablePlugins is not a member of sbt.Project error</h1>
     </header>
 
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Value Raw is not a member of String (weird error in scala)</h3><p>Today I was working on a pretty simple system, it involved using the 
-routes of a <a href="https://www.playframework.com/documentation/2.3.x/Home">PlayFramework</a> application to decide the format of the view. 
-Specifically, visiting a resource with a url ending in <code>.html</code> would 
-result in an HTML page being rendered, and similarly with XML.</p>
-<p>In addition to the type of data being display, the way it was displayed, 
-or its template, also could change according to a url. For example, 
-displaying a mobile view vs a desktop view, a table vs a list view, a 
-view without any images or style, one with bootstrap... (you get the 
-picture). </p>
-<p>But while writing up some error handling code I ran into a really odd 
-error message:</p>
-<p>&quot;value raw is not a member of a String&quot;</p>
-<pre><code>[error] /path/app/views/common/templateNotFound.scala.xml:4: value raw is not a member of String
-[error]     &lt;Message&gt;The template or the format does exist&lt;/Message&gt;
-[error]                           ^
-[error] one error found
+      <h3>value enablePlugins is not a member of sbt.Project</h3><p>Today I was setting up a couple of projects. One was a simple model library, the 
+next an <a href="http://akka.io/">Akka</a> application, and the last a <a href="https://www.playframework.com">Play</a> app that started spitting up 
+errors after I had finished setting up the initial project structure. </p>
+<pre><code>[info] Loading project definition from /path/project
+[info] Compiling 1 Scala source to /path/project/target/scala-2.10/sbt-0.13/classes...
+[error] bad symbolic reference. A signature in Play.class refers to type AutoPlugin
+[error] in package sbt which is not available.
+[error] It may be completely missing from the current classpath, or the version on
+[error] the classpath might be incompatible with the version used when compiling Play.class.
+[error] /path/project/Build.scala:21: value enablePlugins is not a member of sbt.Project
+[error] possible cause: maybe a semicolon is missing before `value enablePlugins&#39;?
+[error]     .enablePlugins(play.PlayScala)
+[error]      ^
+[error] two errors found
 [error] (compile:compile) Compilation failed
-</code></pre><p>The offending code was this rather innocuous view:</p>
-<pre><code>@(template: String, format: String) 
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;ViewError&gt;
-    &lt;Message&gt;The template or the format does exist&lt;/Message&gt;
-    &lt;Template&gt;@template&lt;/Template&gt;
-    &lt;Format&gt;@format&lt;/Format&gt;
-&lt;/ViewError&gt;
-</code></pre><p>Nothing about this code immediately jumped out to me as horribly 
-incorrect, and I confused myself some more by removing parts, 
-seeing the same error message, placing them back in, changing the 
-file name, turning sbt on and off. And in general, scratching my head. </p>
-<p>After about 5 or so minutes of this, I became suspicious of my variable 
-names. Having read the book <a href="http://scalapuzzlers.com/">Scala Puzzlers</a>, I knew that sometimes the 
-compiler can do <em>some really funny stuff</em>. Since my view is essentially 
-one giant XML literal, I guessed that maybe something was being 
-interpolated or resolved in an odd way. I made the slight change: </p>
-<pre><code>@(badTemplate: String, badFormat: String) 
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;ViewError&gt;
-    &lt;Message&gt;The template or the format does exist&lt;/Message&gt;
-    &lt;Template&gt;@badTemplate&lt;/Template&gt;
-    &lt;Format&gt;@badFormat&lt;/Format&gt;
-&lt;/ViewError&gt;
-</code></pre><p>Saved the file and let <code>sbt ~compile</code> catch it and sure enough:</p>
-<pre><code>[info] Compiling 1 Scala source to /path/target/scala-2.10/classes...
-[success] Total time: 14 s, completed Apr 27, 2015 11:45:50 PM
-</code></pre><p>Hope this helps someone out there!</p>
+Project loading failed: (r)etry, (q)uit, (l)ast, or (i)gnore? q
+</code></pre><p>I did a little searching only but couldn&#39;t find anything that seemed to match my 
+case. After meticulously comparing the few files in the project to the examples 
+on in the documentation, I found the <a href="https://www.playframework.com/documentation/2.3.x/Migration23">upgrade guide</a>, and noticed that the sbt 
+version was different than what my build.properties file stated.</p>
+<p>So I opened up build.properties and noted the version I originally had</p>
+<pre><code>sbt-version=0.13.0
+</code></pre><p>and replaced it with the one in the migration docs:</p>
+<pre><code>sbt.version=0.13.5 
+</code></pre><p>Hopefully this helps anyone else running into similar issues. </p>
       
       <h3>Other Posts</h3>
       <div id="other-posts">
         <ul>
-          <li><a href=has-many-relationships-slick>Handling Has-Many Relationships with Slick</a></li><li><a href=targeting-java-platforms-with-sbt>Targeting Java Platforms with SBT</a></li><li><a href=mongodb-install-replica-set-and-backup>Install and Backup a MongoDB Replica Set</a></li><li><a href=strace-adventure>An Adventure with strace</a></li><li><a href=value-enablePlugins-is-not-a-member-of-sbt-Project>Value EnablePlugins is not a member of sbt.Project error</a></li><li><a href=remove-google-search-history>How to remove your entire google search history</a></li>
+          <li><a href=mongodb-install-replica-set-and-backup>Install and Backup a MongoDB Replica Set</a></li><li><a href=has-many-relationships-slick>Handling Has-Many Relationships with Slick</a></li><li><a href=value-raw-not-member-string-scala>Value Raw is not a member of String, Scala Error</a></li><li><a href=targeting-java-platforms-with-sbt>Targeting Java Platforms with SBT</a></li><li><a href=strace-adventure>An Adventure with strace</a></li><li><a href=remove-google-search-history>How to remove your entire google search history</a></li>
         </ul>
       </div>
       <div id="disqus_thread"></div>

@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Sat, 02 May 2015 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Sat, 09 May 2015 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Value EnablePlugins is not a member of sbt.Project error</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/value-enablePlugins-is-not-a-member-of-sbt-Project</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/value-enablePlugins-is-not-a-member-of-sbt-Project</guid>
+			<pubDate>Sat, 09 May 2015 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[An error I ran into while setting up a project that had an unintuitive solution]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Install and Backup a MongoDB Replica Set</title>
