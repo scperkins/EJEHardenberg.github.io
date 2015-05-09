@@ -14,6 +14,16 @@
 
 		
 		<item>
+			<title>Dot Paths in Harp? Unexpected Behavior!</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/dot-paths-harpjs-0-17-0</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/dot-paths-harpjs-0-17-0</guid>
+			<pubDate>Sat, 09 May 2015 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[Truncation of keys in _data.json results in 404s if you have dots in your url paths when you use HarpJS]]
+			</description>
+		</item>
+		
+		<item>
 			<title>Value EnablePlugins is not a member of sbt.Project error</title>
 			<link>http://ethanjoachimeldridge.info/tech-blog/value-enablePlugins-is-not-a-member-of-sbt-Project</link>
 			<guid>http://ethanjoachimeldridge.info/tech-blog/value-enablePlugins-is-not-a-member-of-sbt-Project</guid>
