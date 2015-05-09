@@ -542,7 +542,7 @@
 	"date" : "2015-5-2",
 	"keywords" : "mongodb,replica,backup,mongo,nosql,replica set,restore"
   },
-  "value-enablePlugins-is-not-a-member-of-sbt.Project": {
+  "value-enablePlugins-is-not-a-member-of-sbt-Project": {
     "title" : "Value EnablePlugins is not a member of sbt.Project error",
     "description" : "An error I ran into while setting up a project that had an unintuitive solution",
     "date" : "2015-5-9",
