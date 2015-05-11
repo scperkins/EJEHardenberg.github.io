@@ -4,6 +4,14 @@
 		"description" : "A small bundle of recipes of things I eat for dinner that are easy to make.",
 		"freq" : "daily"
 	},
+	"soy-sauteed-chicken-sprouts" : {
+		"title" : "Soy Sauteed Chicken with Sprouts",
+		"image" : "soy-chicken-sprouts.jpg",
+		"description" : "A healthy-ish take on a simple rice dish",
+		"author" : "ethan",
+		"freq" : "monthly",
+		"date" : "2015-5-10"
+	},
 	"sauteed-zucchini" : {
 		"title" : "Sauteed Cumin Zucchini",
 		"image" : "cumin-zucchini.jpg",
