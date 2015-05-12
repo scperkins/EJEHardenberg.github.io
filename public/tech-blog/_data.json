@@ -553,5 +553,11 @@
     "description" : "Truncation of keys in _data.json results in 404s if you have dots in your url paths when you use HarpJS",
     "date" : "2015-5-9",
     "keywords" : "HarpJS,url,routing,schema,dots in urls,dots in path,bug,error,harp"
+  },
+  "string-interpolation-vs-addition-performance" : {
+    "title" : "Which is faster, string interpolation or addition in python?",
+	"description" : "Ever wonder if string addition is faster than interpolation? Or if it's the other way around? In this post I show you just how to find out for yourself, and of course, which is faster",
+    "date" : "2015-5-11",
+	"keywords" : "python,performance,string interpolation,addition,optimization,strings"
   }
 }

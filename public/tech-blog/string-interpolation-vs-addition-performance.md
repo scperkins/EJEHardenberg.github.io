@@ -117,9 +117,10 @@ interpolation.
 	Total Operations
 	-----------------
 	Add 	Interpolate
-	6 		4
-	10 		5
-	14  	6 
+	6       4
+	10      5
+	14      6 
+	18      8
 
 This does not neccesary mean that interpolation is faster though! The
 number of operations doesn't matter if one of those is a blocking or
@@ -139,7 +140,8 @@ this with an AND gate and an XOR gate for each bit. While there are
 likely plenty of optimizations and clever tricks used in today's
 computers, it's semi-safe to assume that the `BINARY_ADD` will hit each
 group of bytes with a few operations per bit to add the two areas of
-memory together. 
+memory together. Of course, that's with numbers and we're working with
+strings so we'll need to come back to this.
 
 So, what about `BINARY_MODULO`? Well, [the documentation doesn't say
 much] besides it performing the operation on the tops of the stack, so
@@ -268,7 +270,8 @@ Finally, for completeness, let's look at `BINARY_MODULO`.
         if (x != NULL) continue;
         break;
 
-Surprised that it's shorter than the add function? Don't be! In our
+Surprised that it's shorter than the add function? Don't be! The code is
+a deceptive beast! In our
 case, the `PyString_CheckExact` returns true (this is the same type of
 check as the Integer type check as before) and we run the
 `PyString_Format` function on our two variables. This function is nearly
