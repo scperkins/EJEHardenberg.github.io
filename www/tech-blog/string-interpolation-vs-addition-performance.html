@@ -1,0 +1,460 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Ethan's Tech Blog | Which is faster, string interpolation or addition in python?</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Ever wonder if string addition is faster than interpolation? Or if it&#39;s the other way around? In this post I show you just how to find out for yourself, and of course, which is faster" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="python,performance,string interpolation,addition,optimization,strings"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Which is faster, string interpolation or addition in python?" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Ever wonder if string addition is faster than interpolation? Or if it&#39;s the other way around? In this post I show you just how to find out for yourself, and of course, which is faster" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Which is faster, string interpolation or addition in python?" />
+    
+    <meta name="twitter:description" content="Ever wonder if string addition is faster than interpolation? Or if it&#39;s the other way around? In this post I show you just how to find out for yourself, and of course, which is faster" />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Which is faster, string interpolation or addition in python?</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Which is faster? String Interpolation or Addition (in Python)?</h3><p>There comes a time in every young girls life where she asks the age old
+question: &quot;Which one of these methods of doing string operations is
+more performant?&quot; </p>
+<p>Okay, so maybe not every child in the world is asking these questions,
+but I am. And after briefly critiquing a <a href="https://github.com/kiripaul/CS_125/blob/master/UTM/utm.py">friend&#39;s code</a> and hearing
+about the performance issues he had fixed and worked with I got to
+thinking. Well, actually it was a different friend jokingly calling the
+code academic and not enterprise that made me look twice. </p>
+<p>For whatever reason, I honed in on the use of string addition, namely:</p>
+<pre><code>print(&quot;          &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; Start String: &quot;+self.final_tape+&quot; &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;)
+</code></pre><p>Where I was left wondering if the use of two strings and a variable
+would be very different from the use of a single string and an
+<em>interpolation of a variable</em>. My intuition told me interpolation would
+be faster. </p>
+<p>Hoping to prove this to myself, I asked my friend to change his code
+(and trust me he was so pleased to touch month old code again -- not) to
+use string interpolation to find out. His <a href="https://en.wikipedia.org/wiki/Busy_beaver">busy beaver</a> code was a good
+way to see if there was a performance difference. His results? </p>
+<p>Interpolation: 1 minute 8 seconds<br>Addition: 1 minute 11 seconds</p>
+<p>So not much of a difference really, but a difference. So the next
+question is why? The best way to find out is to ask the code! </p>
+<script src="https://gist.github.com/EdgeCaseBerg/fc93d67b9279402c7211.js"></script>
+
+<p>As you can see in the gist, the addition function has 3 loads, 2 adds
+and then the return. While the interpolation method has 2 loads, 1
+module and 1 return. While it&#39;s only 2 operations difference, it does
+make a difference if the code is in a critical path. It also makes a
+difference depending on how many strings we are stringing together
+(excuse the pun). </p>
+<pre><code>&gt;&gt;&gt; def addStr3(s,s2):
+...     return &quot;&gt;&quot; + s + &quot;:&quot; + s2 + &quot;&lt;&quot;
+... 
+&gt;&gt;&gt; def addStr4(s,s2):
+...     return &quot;&gt;%s:%s&lt;&quot; % (s,s2)
+... 
+
+&gt;&gt;&gt; dis.dis(addStr3)
+  2           0 LOAD_CONST               1 (&#39;&gt;&#39;)
+              3 LOAD_FAST                0 (s)
+              6 BINARY_ADD          
+              7 LOAD_CONST               2 (&#39;:&#39;)
+             10 BINARY_ADD          
+             11 LOAD_FAST                1 (s2)
+             14 BINARY_ADD          
+             15 LOAD_CONST               3 (&#39;&lt;&#39;)
+             18 BINARY_ADD          
+             19 RETURN_VALUE        
+&gt;&gt;&gt; dis.dis(addStr4)
+  2           0 LOAD_CONST               1 (&#39;&gt;%s:%s&lt;&#39;)
+              3 LOAD_FAST                0 (s)
+              6 LOAD_FAST                1 (s2)
+              9 BUILD_TUPLE              2
+             12 BINARY_MODULO       
+             13 RETURN_VALUE        
+</code></pre><p>As you can see, If we are trying to put in 2 variable strings with text
+inbetween we&#39;ll end up with 5 loads, 4 adds, and 1 return in the
+addition case. But the interpolation case, with 3 loads, 1 tuple build,
+and 1 modulo and return has increased only by 2 operations. Compared to
+the increase from 6 to 10 operations, this is a big deal for micro
+optimizations. </p>
+<p>Continuing further, the question begs to be asked, is it a sequence?
+After all, computers do things by the book and we can expect
+instructions to be compiled down to op codes consistently. So adding yet
+another variable in should result in similar results:</p>
+<pre><code>&gt;&gt;&gt; def addStr5(s,s2,s3):
+...     return &quot;&gt;&quot;+s+&quot;:&quot;+s2+&quot;:&quot;+s3+&quot;&lt;&quot;
+... 
+&gt;&gt;&gt; def addStr6(s,s2,s3):
+...     return &quot;&gt;%s:%s:%s&lt;&quot; % (s,s2,s3)
+... 
+&gt;&gt;&gt; dis.dis(addStr5)
+  2           0 LOAD_CONST               1 (&#39;&gt;&#39;)
+              3 LOAD_FAST                0 (s)
+              6 BINARY_ADD          
+              7 LOAD_CONST               2 (&#39;:&#39;)
+             10 BINARY_ADD          
+             11 LOAD_FAST                1 (s2)
+             14 BINARY_ADD          
+             15 LOAD_CONST               2 (&#39;:&#39;)
+             18 BINARY_ADD          
+             19 LOAD_FAST                2 (s3)
+             22 BINARY_ADD          
+             23 LOAD_CONST               3 (&#39;&lt;&#39;)
+             26 BINARY_ADD          
+             27 RETURN_VALUE        
+&gt;&gt;&gt; dis.dis(addStr6)
+  2           0 LOAD_CONST               1 (&#39;&gt;%s:%s:%s&lt;&#39;)
+              3 LOAD_FAST                0 (s)
+              6 LOAD_FAST                1 (s2)
+              9 LOAD_FAST                2 (s3)
+             12 BUILD_TUPLE              3
+             15 BINARY_MODULO       
+             16 RETURN_VALUE        
+</code></pre><p>This time, the addition function uses 7 loads, 6 adds, and 1 return and
+the interpolation functions uses 4 loads, 1 tuple build, 1 modulo, and 1
+return. It should be fairly obvious at this point that each additional
+string, if continued in the way we&#39;re adding the string in, will result
+in 4 additional operations for the addition case, and 1 for the
+interpolation. </p>
+<pre><code>Total Operations
+-----------------
+Add     Interpolate
+6       4
+10      5
+14      6 
+18      8
+</code></pre><p>This does not neccesary mean that interpolation is faster though! The
+number of operations doesn&#39;t matter if one of those is a blocking or
+long process. So what we really need to do is compare similarities and
+diffferences between the operations. How many <code>LOAD_CONST</code>? <code>LOAD_FAST</code>?
+What&#39;s the difference between <code>BINARY_ADD</code> vs <code>BINARY_MODULO</code>? How long
+does it take to <code>BUILD_TUPLE</code>?</p>
+<p>Unfortunately, I&#39;m not as familiar with Python OpCodes as <a href="http://legacy.python.org/workshops/1998-11/proceedings/papers/montanaro/montanaro.html">some people
+are</a>. I can see that a peephole optimizer might be able to make the
+interpolated code even faster by replacing the <code>LOAD_FAST</code> in a row with
+<code>LOAD_TWO_FAST</code> to load the variables faster. The key questions of
+comparing Binary Add to Binary Modulo is a bigger issue though. So let
+us consider how the two are implemented. Binary Add is <a href="http://www.electronics-tutorials.ws/combination/comb_7.html">simple enough</a>,
+simply add each bit, then possibly carry a 1 over. The computer does
+this with an AND gate and an XOR gate for each bit. While there are
+likely plenty of optimizations and clever tricks used in today&#39;s
+computers, it&#39;s semi-safe to assume that the <code>BINARY_ADD</code> will hit each
+group of bytes with a few operations per bit to add the two areas of
+memory together. Of course, that&#39;s with numbers and we&#39;re working with
+strings so we&#39;ll need to come back to this.</p>
+<p>So, what about <code>BINARY_MODULO</code>? Well, <a href="https://docs.python.org/2/library/dis.html#opcode-BINARY_MODULO">the documentation doesn&#39;t say
+much</a> besides it performing the operation on the tops of the stack, so
+our only real option is to look into the <a href="https://www.python.org/ftp/python/2.7.3/Python-2.7.3.tgz">source code</a>. Looking at
+ceval.c (In the Python folder) we can find the C code that will execute
+when we reach any op code. For example, here&#39;s <code>BUILD_TUPLE</code> </p>
+<pre><code>case BUILD_TUPLE:
+    x = PyTuple_New(oparg);
+    if (x != NULL) {
+        for (; --oparg &gt;= 0;) {
+            w = POP();
+            PyTuple_SET_ITEM(x, oparg, w);
+        }
+        PUSH(x);
+        continue;
+    }
+    break;
+</code></pre><p>The PyTuple_* functions are defined in the Objects folder, in
+tupleobject.c and the tuples themselves are implemented as simple lists.
+The performance of which is determined by the size of the list itself.
+In the case of addStr4, N=2 in what is likely to be an O(N) operation
+(If I&#39;m reading tupleobject.c correctly). The <code>PyTuple_New</code> function is
+swiftly followed by the items on the stack (from <code>LOAD_FAST</code>) being
+placed into the tuple by <code>PyTuple_SET_ITEM</code>, this being a constant time
+operation as it is simply pointer arithmetic under the hood:</p>
+<pre><code>int
+PyTuple_SetItem(register PyObject *op, register Py_ssize_t i, PyObject
+*newitem)
+{
+    register PyObject *olditem;
+    register PyObject **p;
+    if (!PyTuple_Check(op) || op-&gt;ob_refcnt != 1) {
+        Py_XDECREF(newitem);
+        PyErr_BadInternalCall();
+        return -1;
+    }
+    if (i &lt; 0 || i &gt;= Py_SIZE(op)) {
+        Py_XDECREF(newitem);
+        PyErr_SetString(PyExc_IndexError,
+                        &quot;tuple assignment index out of range&quot;);
+        return -1;
+    }
+    p = ((PyTupleObject *)op) -&gt; ob_item + i;
+    olditem = *p;
+    *p = newitem;
+    Py_XDECREF(olditem);
+    return 0;
+}
+</code></pre><p>Overall the build tuple function is, roughly, 2*O(N) or simply O(N)
+where N is the size of the tuple. </p>
+<p>What about some other operations? Let&#39;s look at <code>BINARY_ADD</code>: </p>
+<pre><code>case BINARY_ADD:
+    w = POP();
+    v = TOP();
+    if (PyInt_CheckExact(v) &amp;&amp; PyInt_CheckExact(w)) {
+        /* INLINE: int + int */
+        register long a, b, i;
+        a = PyInt_AS_LONG(v);
+        b = PyInt_AS_LONG(w);
+        /* cast to avoid undefined behaviour
+           on overflow */
+        i = (long)((unsigned long)a + b);
+        if ((i^a) &lt; 0 &amp;&amp; (i^b) &lt; 0)
+            goto slow_add;
+        x = PyInt_FromLong(i);
+    }
+    else if (PyString_CheckExact(v) &amp;&amp;
+             PyString_CheckExact(w)) {
+        x = string_concatenate(v, w, f, next_instr);
+        /* string_concatenate consumed the ref to v */
+        goto skip_decref_vx;
+    }
+    else {
+      slow_add:
+        x = PyNumber_Add(v, w);
+    }
+    Py_DECREF(v);
+  skip_decref_vx:
+    Py_DECREF(w);
+    SET_TOP(x);
+    if (x != NULL) continue;
+    break;
+</code></pre><p>Ok, so let&#39;s attempt to break this down a bit and understand it! The
+<code>PyInt_CheckExact</code> is a simple macro defined in Include/intobject.h
+which compares the object type to a reference of the <code>PyInt_Type</code>, so
+nothing crazy or time consuming there. The code does basic arithmetic on
+longs unless it&#39;s adding two strings or non-integers. The
+<code>string_concatenate</code> function does different work depending on the next
+instruction, fortunately in our case we&#39;re not doing any <code>STORE_</code>
+operations, so we don&#39;t fall into any of the special cases defined
+around line 4811 in ceval.c and the function does a small amount of
+processing in order to add the two strings together. Taking the size of
+the two strings and then using <a href="http://linux.die.net/man/3/memcpy">memcpy</a> to quickly move the text over.
+In other words, we&#39;ll count the string size (2 O(N) operations), then
+copy the text into the newly allocated memory (another 2 O(N)
+operations). </p>
+<p>Intuitively, we can now understand why multiple additions of strings
+together might have a performance issue now. In the same way that java
+allocates a new String object to do string concatenation (if you&#39;re
+doing &quot;&quot; + &quot;&quot; in Java), Python has to move the strings into a new zone
+of memory and copy them each time. Essentially the same way. In java, we
+get around this issue (and in fact the JVM optimizes to this case:) by
+using a <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html">StringBuilder</a>. Which uses a list, much like our Tuple
+Interpolation does. </p>
+<p>Finally, for completeness, let&#39;s look at <code>BINARY_MODULO</code>. </p>
+<pre><code>case BINARY_MODULO:
+    w = POP();
+    v = TOP();
+    if (PyString_CheckExact(v))
+        x = PyString_Format(v, w);
+    else
+        x = PyNumber_Remainder(v, w);
+    Py_DECREF(v);
+    Py_DECREF(w);
+    SET_TOP(x);
+    if (x != NULL) continue;
+    break;
+</code></pre><p>Surprised that it&#39;s shorter than the add function? Don&#39;t be! The code is
+a deceptive beast! In our
+case, the <code>PyString_CheckExact</code> returns true (this is the same type of
+check as the Integer type check as before) and we run the
+<code>PyString_Format</code> function on our two variables. This function is nearly
+500 lines long and defined in Objects/stringobject.c on line 4226.
+Despite it&#39;s length it&#39;s not actually <em>that</em> complicated. It steps
+through the string looking for a format specifier. In our case, we&#39;ll
+skip the first 146 lines or so through if statements and end up at line
+4440 where the <code>case &#39;s&#39;:</code> is defined. </p>
+<p>Within this case (and falling through to the <code>r</code> case as well) we&#39;ll do
+a few type checks before retrieving the variable as a string through the
+<code>PyString_AS_STRING</code> macro. This macro does no error checking and is
+quite fast. As noted by its definition in Include/stringobject.h:</p>
+<pre><code>/* Macro, trading safety for speed */
+#define PyString_AS_STRING(op) (((PyStringObject *)(op))-&gt;ob_sval)
+</code></pre><p>So long as our string isn&#39;t unicode, we&#39;ll use this fast version.
+Otherwise we&#39;ll drop into the last 44 lines of the function and have to
+do a bit of decoding and argument shifting with Tuples. Since we&#39;re just
+talking about normal use cases with typical strings, we won&#39;t get into
+this. And in short can say that we&#39;ll take one pass through the string
+(with possible, but unlikely resizing), and have a constant time
+operation to retrieve the string values of our values. </p>
+<p>A side note: The reason I sing unlikely resizing is because the length
+of the initial buffer is:</p>
+<pre><code>fmtcnt = PyString_GET_SIZE(format);
+reslen = rescnt = fmtcnt + 100;
+</code></pre><p>Which will be 100 characters greater than whatever we&#39;ve already put
+into the formatter. If you&#39;re working with numbers or small strings,
+then it&#39;s unlikely you&#39;d hit this length. Even if you do, the
+<code>_PyString_Resize</code> function (defined in Object/stringobject.c) uses
+<a href="http://linux.die.net/man/3/realloc">realloc</a> under the hood so we don&#39;t need to copy the old string since
+we&#39;re extending the memory to fit the requested size. In other words,
+this method is going to be more efficient than the <code>BINARY_ADD</code> pretty
+much always unless your machine has very little memory.</p>
+<p>In conclusion, interpolating strings is faster than adding them
+together. There is a caveat to this of course, in the case of a single
+string adding to a single string, it wouldn&#39;t surprise me to see the
+normal addition do better than the interpolation. This thought being
+based off of the logic surrounding the formatting code being a bit
+slower than a single copy from one call to <code>BINARY_ADD</code>. You can affirm
+this behavior yourself by noting how as the number of arguments to
+process increases, the better the interpolation code does versus the
+addition. </p>
+<p>Feel free to clone <a href="https://github.com/EdgeCaseBerg/python-str-playtime">my example repository</a> and run the makefile to view
+how the interpolation fairs on your machine compared to my results! It
+would be interesting to see if different OS&#39;s or versions show
+difference in this micro optimization.</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=dot-paths-harpjs-0-17-0>Dot Paths in Harp? Unexpected Behavior!</a></li><li><a href=value-enablePlugins-is-not-a-member-of-sbt-Project>Value EnablePlugins is not a member of sbt.Project error</a></li><li><a href=mongodb-install-replica-set-and-backup>Install and Backup a MongoDB Replica Set</a></li><li><a href=has-many-relationships-slick>Handling Has-Many Relationships with Slick</a></li><li><a href=value-raw-not-member-string-scala>Value Raw is not a member of String, Scala Error</a></li><li><a href=targeting-java-platforms-with-sbt>Targeting Java Platforms with SBT</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
+</html>
+  	
