@@ -1,4 +1,9 @@
 {
+	"grand-ol-time" : {
+		"title" : "Grand Ol' Time",
+		"date" : "2015-5-13",
+		"freq" : "monthly"
+	},
 	"roots" : {
 		"title" : "Roots",
 		"date" : "2015-5-7",
