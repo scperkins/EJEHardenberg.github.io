@@ -559,5 +559,11 @@
 	"description" : "Ever wonder if string addition is faster than interpolation? Or if it's the other way around? In this post I show you just how to find out for yourself, and of course, which is faster",
     "date" : "2015-5-11",
 	"keywords" : "python,performance,string interpolation,addition,optimization,strings"
+  },
+  "akka-dsl-spray-routing-cake-pattern" : {
+    "title" : "Akka DSL's and Routing In Play with Cake Pattern",
+	"description" : "A look at a basic Akka program, then into how to setup multiple routes using the Cake Pattern in Spray",
+	"date" : "2015-5-12",
+	"keywords": "scala,akka,spray,cake pattern,routing,controller,spray-can"
   }
 }
