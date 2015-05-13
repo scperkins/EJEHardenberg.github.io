@@ -565,5 +565,11 @@
 	"description" : "A look at a basic Akka program, then into how to setup multiple routes using the Cake Pattern in Spray",
 	"date" : "2015-5-12",
 	"keywords": "scala,akka,spray,cake pattern,routing,controller,spray-can"
+  },
+  "using-sassc-with-sbt-sass" : {
+	"title" : "Using sassc with play-sass plugin",
+	"description" : "How to use the c sass compiler sassc with play-sass",
+	"date" : "2015-5-13",
+	"keywords" : "scala,play-sass,sass,sassc,plugin"
   }
 }
