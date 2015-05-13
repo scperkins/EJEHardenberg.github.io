@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Tue, 12 May 2015 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Wed, 13 May 2015 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Using sassc with play-sass plugin</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/using-sassc-with-sbt-sass</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/using-sassc-with-sbt-sass</guid>
+			<pubDate>Wed, 13 May 2015 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[How to use the c sass compiler sassc with play-sass]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Akka DSL's and Routing In Play with Cake Pattern</title>
