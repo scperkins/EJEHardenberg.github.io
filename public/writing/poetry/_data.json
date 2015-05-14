@@ -1,4 +1,9 @@
 {
+	"blanket" : { 
+		"title" : "Blanket",
+		"date" : "2015-5-14",
+		"freq" : "monthly"
+	},
 	"grand-ol-time" : {
 		"title" : "Grand Ol' Time",
 		"date" : "2015-5-13",
