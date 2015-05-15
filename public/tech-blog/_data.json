@@ -571,5 +571,11 @@
 	"description" : "How to use the c sass compiler sassc with play-sass",
 	"date" : "2015-5-13",
 	"keywords" : "scala,play-sass,sass,sassc,plugin"
+  },
+  "shell_exec-sudo-php-apache" : {
+    "title" : "shell_exec with sudo in php",
+	"description" : "How to setup your system to run shell_exec from a web server that needs root privilege.",
+	"date" : "2015-5-15",
+	"keywords" : "shell_exec,privilege,php,shell,apache,sudo"
   }
 }
