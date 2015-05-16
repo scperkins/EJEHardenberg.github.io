@@ -1,4 +1,4 @@
-I don't know how long it's been like this. My nurturer group said that
+I don't know how long it's been like this. My Nurturer group said that
 it's been a long time since anyone elected to take the history track. It
 even took a few days to bring in someone to educate me, on account of
 them having to be flown in from another community. But once they arrived
@@ -7,7 +7,7 @@ I started learning right away—I've learned so much already.
 The first thing he told me, his green eyes seemingly on fire as he
 talked and scribbled on the teaching pad furiously, was that The Cradle
 hadn't always existed. When I probed for more, he also told me that 
-there weren't always nurturers either. I was in shock. How could society
+there weren't always Nurturers either. I was in shock. How could society
 even function without them? Who would raise the children? Teach them?
 Educate them in the disciplines they showed interest in? I had so many
 questions all at once. He had smiled.
@@ -16,7 +16,7 @@ The more he told me of the past, the larger my curiousity grew—and my
 confusion. Perhaps it isn't right to compare now to back then, it was so
 long ago after all. The people sound so barbaric. Instead of the
 education system we have now (where you learn with a core group of
-educators and until you finish your track you're with them) everyone was
+educators until you finish your educational track) everyone was
 put into _the same rooms_! With a single teacher who taught many
 subjects! It sounds so absurd. No wonder the wars of that time were so
 frequent and the people so unhappy, how could anyone learn at all like
@@ -27,7 +27,7 @@ The strangest thing was how it ended, when they became age 18 they were
 tells me that some went on to what they called "higher education", but
 that it was still less successful then our current system. Compared to
 the Cradle, where you are educated and taught until you are a master, no
-longer how long it takes, it sounds amazing they produced enough
+mater how long it takes, it sounds amazing they produced enough
 Thinkers to arrive at the present day! 
 
 But it wasn't just the schooling systems he talked about. In fact, can
@@ -57,9 +57,9 @@ there are still some bonds, but most people don't bother. Since
 offspring are removed to cradles as soon as they're born, neither party
 has any interest in meeting the other besides curiousity. 
 
-A few of the other kids who are studying to be Thinkers told me about
+A few of the other Learners who are studying to be Thinkers told me about
 the debates that go on about the morals of the practice. Apparently they
-last for hours, sometimes, days between highly accomplished masters of
+last for hours, sometimes days between highly accomplished masters of
 the craft. I think it's only a thought experiment for them though;
 after all, if it wasn't for the Cradle and the system, they wouldn't be
 able to debate for days on end! From the few weeks I've spent learning
