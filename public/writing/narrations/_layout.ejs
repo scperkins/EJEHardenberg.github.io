@@ -4,7 +4,11 @@
   <head>
     <title>Ethan's Narrations | <%= title %></title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="A short story by Ethan J. Eldridge" />
+    <% if (typeof desc == "undefined") { %>
+    <meta name="description" content="<%= yield.replace(/<\/?[^>]+(>|$)/g,"").slice(0,140) %>" />
+    <% } else { %>
+    <meta name="description" content="<%= desc.slice(0,140) %>" />
+    <% } %>
     <meta name="author" content="Ethan Eldridge">
     <meta name="keywords" content="Ethan,Eldridge,Joachim,Narrations,Short,Story,Stories,writing"/>
     <meta name="robots" content="index, follow"  />
