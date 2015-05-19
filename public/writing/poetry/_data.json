@@ -1,4 +1,10 @@
 {
+	"ringing" : {
+		"title" : "Ringing",
+		"date" : "2015-5-18",
+		"freq" : "monthly",
+		"poemDescription" : "Ear infections suck"
+	},
 	"blanket" : { 
 		"title" : "Blanket",
 		"date" : "2015-5-14",
