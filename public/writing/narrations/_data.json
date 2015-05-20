@@ -1,4 +1,10 @@
 {
+	"tea-rain" : {
+		"title" : "Tea in the Rain",
+		"date" : "2015-5-19",
+		"freq" : "monthly",
+		"desc" : "Relaxing on the couch, dreaming a dream of tea"
+	},
 	"the-cradle" : {
 		"title" : "The Cradle",
 		"date" : "2015-5-16",
