@@ -577,5 +577,11 @@
 	"description" : "How to setup your system to run shell_exec from a web server that needs root privilege.",
 	"date" : "2015-5-15",
 	"keywords" : "shell_exec,privilege,php,shell,apache,sudo"
+  },
+  "dear-god-why" : {
+	"title" : "PHP Snippet",
+	"description" : "A snippet of code displaying the elegance and usefulness of PHP",
+	"date" : "2015-5-21",
+	"keywords" : "php,code,example,horror"
   }
 }
