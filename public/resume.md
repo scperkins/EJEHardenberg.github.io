@@ -6,7 +6,7 @@ Things I've done
 
 I've worked at a number of places, my professional experience includes
 web development, server maintenance and automated backups, back end
-systems with Java and Ruby on Rails, front end web site creation and
+systems with Java and Scala, front end web site creation and
 maintenance with PHP and mySQL, as well as exposure to creating Wordpress
 and Drupal modules. I've used git version control at all of my jobs and 
 am skilled in managing repositories and my command line fu grows daily.
@@ -45,6 +45,7 @@ My true love is C. But sadly I don't get to use it on the job much.
 - C
 - C++
 - C#
+- Scala
 - Java
 - Python
 - Matlab
