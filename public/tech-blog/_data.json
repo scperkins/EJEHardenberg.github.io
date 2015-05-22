@@ -583,5 +583,11 @@
 	"description" : "A snippet of code displaying the elegance and usefulness of PHP",
 	"date" : "2015-5-21",
 	"keywords" : "php,code,example,horror"
+  },
+  "non-empty-lists-validation-in-playframework" : {
+	"title" : "Non Empty List Form Validation in Play",
+	"description" : "How to use Play's form validation package to create non-empty constraints when binding forms",
+	"date" : "2015-5-22",
+	"keywords" : "empty list,play,validation,scala,form,forms,nonempty,constraint"
   }
 }
