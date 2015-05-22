@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Thu, 21 May 2015 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Fri, 22 May 2015 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Non Empty List Form Validation in Play</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/non-empty-lists-validation-in-playframework</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/non-empty-lists-validation-in-playframework</guid>
+			<pubDate>Fri, 22 May 2015 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[How to use Play's form validation package to create non-empty constraints when binding forms]]
+			</description>
+		</item>
 		
 		<item>
 			<title>PHP Snippet</title>

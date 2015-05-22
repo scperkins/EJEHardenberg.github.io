@@ -2,11 +2,11 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Ethan's Tech Blog | PHP Snippet</title>
+    <title>Ethan's Tech Blog | Non Empty List Form Validation in Play</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="A snippet of code displaying the elegance and usefulness of PHP" />
+    <meta name="description" content="How to use Play&#39;s form validation package to create non-empty constraints when binding forms" />
     <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="php,code,example,horror"/>
+    <meta name="keywords" content="empty list,play,validation,scala,form,forms,nonempty,constraint"/>
     <meta name="robots" content="index, follow"  />
       <meta name="revisit-after" content="1 month" />
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
@@ -17,19 +17,19 @@
 
         
     <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | PHP Snippet" />
+    <meta property="og:title" content="Ethan Eldridge | Non Empty List Form Validation in Play" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
     
-    <meta property="og:description" content="A snippet of code displaying the elegance and usefulness of PHP" />
+    <meta property="og:description" content="How to use Play&#39;s form validation package to create non-empty constraints when binding forms" />
     
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | PHP Snippet" />
+    <meta name="twitter:title" content="Ethan Eldridge | Non Empty List Form Validation in Play" />
     
-    <meta name="twitter:description" content="A snippet of code displaying the elegance and usefulness of PHP" />
+    <meta name="twitter:description" content="How to use Play&#39;s form validation package to create non-empty constraints when binding forms" />
     
     <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     	<!-- Core CSS Scripts -->
@@ -52,23 +52,83 @@
   </head>
   <body>
     <header>
-      <h1>PHP Snippet</h1>
+      <h1>Non Empty List Form Validation in Play</h1>
     </header>
 
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>An interesting case of php</h3><pre><code>php -a
-Interactive shell
+      <h3>Non Empty lists validation in PlayFramework 2.3</h3><p><a href="http://playframework.com">Play</a> has a lot of nice features built into it. One of them is form 
+validation. It does this by letting you define mappings for forms:</p>
+<pre><code>val myForm = Form(
+    mapping(
+        &quot;somefield&quot; -&gt; someDataType
+    )
+)(CaseClass.apply)(CaseClass.unapply _)
+</code></pre><p>There&#39;s <a href="https://www.playframework.com/documentation/2.3.x/ScalaForms">documentation</a> on the basic use cases, such as making sure 
+text fields aren&#39;t empty when submitted, or that integer values are 
+within the proper range. One thing that isn&#39;t in the provided 
+constraint validations is the ability to check if a list is empty or 
+not. </p>
+<p>It&#39;s not too difficult to define your own constraints, you simply need 
+to create a <a href="https://www.playframework.com/documentation/2.3.x/api/scala/index.html#play.api.data.validation.Constraint">Constraint</a> of the appropriate type which has an appropriate 
+method for determining whether the constraint is valid or not. The code 
+performing the verification should return a <code>ValidationResult</code>,
+(specifically <code>Valid</code> or <code>Invalid</code> from the <code>play.api.data.validation</code> 
+package). In code:</p>
+<pre><code>def nonEmptyList[T]: Constraint[List[T]] = Constraint[List[T]](&quot;constraint.required&quot;) { list =&gt;
+    if (list.nonEmpty) Valid else Invalid(ValidationError(&quot;error.required&quot;))
+  }
+</code></pre><p>Once you&#39;ve defined your validation function it is easy to use it in 
+your <code>.verifying</code> clauses in form mappings:</p>
+<pre><code>val myFormWitList = Form(
+    mapping(
+          &quot;listItems&quot; -&gt; list(nonEmptyText).verifying(nonEmptyList)
+    )(CaseClassFormData.apply)(CaseClassFormData.unapply _)
+  )
+</code></pre><p>The above would give us a form validating that the form we submitted 
+looked something like this:</p>
+<pre><code>&lt;form&gt;
+    &lt;input type=&quot;text&quot; name=&quot;listItems[]&quot; /&gt;
+    &lt;input type=&quot;text&quot; name=&quot;listItems[]&quot; /&gt;
+    &lt;input type=&quot;text&quot; name=&quot;listItems[]&quot; /&gt;
+    &lt;!-- etc... --&gt;
+&lt;/form&gt;
+</code></pre><p>Note that you <strong>do</strong> need the name for a repeated form element to have 
+the <code>[]</code> at the end or <em>Play won&#39;t recognize or bind it</em>. Putting these 
+all together we have: </p>
+<pre><code>package validations.forms
 
-php &gt; if ((true == &quot;foo&quot;) &amp;&amp; (&quot;foo&quot; == 0) &amp;&amp; (0 == false)) echo &quot;yay!&quot;;
-yay!
-</code></pre>
+import play.api.data.Form
+import play.api.data.Forms._
+import play.api.data.format.Formats._
+import play.api.data.validation.{Constraint,ValidationError,Valid,Invalid}
+
+
+case class MyFormData(paths: List[String])
+
+object ExampleForm {
+
+  def nonEmptyList[T]: Constraint[List[T]] = Constraint[List[T]](&quot;constraint.required&quot;) { o =&gt;
+    if (o.nonEmpty) Valid else Invalid(ValidationError(&quot;error.required&quot;))
+  }
+
+  val exampleForm = Form(
+    mapping(
+      &quot;items&quot; -&gt; list(nonEmptyText).verifying(nonEmptyList)
+    )(MyFormData.apply)(MyFormData.unapply _)
+  )
+}
+</code></pre><p>Pretty simple right? We can easily right custom constraints to support 
+any logic our forms might need, verifying Enumerated values, making sure 
+that we&#39;ve actually submitted multiple elements to an endpoint, checking 
+that the username matches some custom validation. You name it, you can 
+validate it. </p>
       
       <h3>Other Posts</h3>
       <div id="other-posts">
         <ul>
-          <li><a href=non-empty-lists-validation-in-playframework>Non Empty List Form Validation in Play</a></li><li><a href=shell_exec-sudo-php-apache>shell_exec with sudo in php</a></li><li><a href=using-sassc-with-sbt-sass>Using sassc with play-sass plugin</a></li><li><a href=akka-dsl-spray-routing-cake-pattern>Akka DSL&#39;s and Routing In Play with Cake Pattern</a></li><li><a href=string-interpolation-vs-addition-performance>Which is faster, string interpolation or addition in python?</a></li><li><a href=dot-paths-harpjs-0-17-0>Dot Paths in Harp? Unexpected Behavior!</a></li>
+          <li><a href=dear-god-why>PHP Snippet</a></li><li><a href=shell_exec-sudo-php-apache>shell_exec with sudo in php</a></li><li><a href=using-sassc-with-sbt-sass>Using sassc with play-sass plugin</a></li><li><a href=akka-dsl-spray-routing-cake-pattern>Akka DSL&#39;s and Routing In Play with Cake Pattern</a></li><li><a href=string-interpolation-vs-addition-performance>Which is faster, string interpolation or addition in python?</a></li><li><a href=dot-paths-harpjs-0-17-0>Dot Paths in Harp? Unexpected Behavior!</a></li>
         </ul>
       </div>
       <div id="disqus_thread"></div>
