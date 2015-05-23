@@ -1,4 +1,10 @@
 {
+	"burst" : {
+		"title" : "Burst",
+		"date" : "2015-5-23",
+		"freq" : "monthly",
+		"poemDescription" : "Tea shared amongst anonymous brothers"
+	},
 	"dialated" : {
 		"title" : "Dialated",
 		"date" : "2015-5-21",
