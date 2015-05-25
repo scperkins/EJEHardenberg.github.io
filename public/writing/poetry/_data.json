@@ -1,4 +1,10 @@
 {
+	"tomorrow" : {
+		"title" : "Tomorrow",
+		"date" : "2015-5-25",
+		"freq" : "monthly",
+		"poemDescription" : "Mindsets are the most important thing to change for the better"
+	},
 	"burst" : {
 		"title" : "Burst",
 		"date" : "2015-5-23",
