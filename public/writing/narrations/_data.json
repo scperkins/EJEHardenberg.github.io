@@ -1,4 +1,10 @@
 {
+	"oats" : {
+		"title" : "Oats",
+		"date" : "2015-5-26",
+		"freq" : "monthly",
+		"desc" : "Cuddling"
+	},
 	"tea-rain" : {
 		"title" : "Tea in the Rain",
 		"date" : "2015-5-19",
