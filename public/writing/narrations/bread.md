@@ -12,4 +12,7 @@ dough out over pan before beginning to fold it. Contorting each fold
 into a simple braided pattern, he smiled and brushed oil onto the top
 before settling the bread inside of the heated oven nearby. 
 
-Inhaling deeply, 
+The scent of fresh bread filled the room over the hours and soon enough
+a rich golden brown loaf emerged from the oven. Wrapping the bread in a
+air-tight container, he wobbled out of the kitchen and placed the bread
+on a shelf, ready for purchase.

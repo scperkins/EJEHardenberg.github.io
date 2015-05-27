@@ -1,4 +1,10 @@
 {
+	"bread" : {
+		"title" : "Bread",
+		"date" : "2015-5-27",
+		"freq" : "monthly",
+		"desc" : "King Arthurs Flour!"
+	},
 	"oats" : {
 		"title" : "Oats",
 		"date" : "2015-5-26",
