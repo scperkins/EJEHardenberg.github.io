@@ -1,4 +1,9 @@
 {
+	"rise" : {
+		"title" : "Rise",
+		"date" : "2015-5-30",
+		"freq" : "monthly"
+	},
 	"drive" : {
 		"title" : "Drive",
 		"date" : "2015-5-29",
