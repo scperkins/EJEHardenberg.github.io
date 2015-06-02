@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Fri, 22 May 2015 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Tue, 02 Jun 2015 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Trigger Asynchronous Jobs in Play 2.3</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/triggering-asynchronous-jobs-play-2-3</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/triggering-asynchronous-jobs-play-2-3</guid>
+			<pubDate>Tue, 02 Jun 2015 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[Since version 2 of the PlayFramework deprecated the jobs package, you need to create jobs in a different way. This is how to use the Akka System embedded in play to do so]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Non Empty List Form Validation in Play</title>
