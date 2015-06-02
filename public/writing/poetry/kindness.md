@@ -7,7 +7,7 @@ just by myself, a single seat to sooth
 with device on hand, a single numbers game  
 absorbed from the world, mind away from the pain  
 A moment too soon and suddenly relaxed  
-when memory hits and breaks the camels back  
+when memory hits and breaks the camel's back  
 A light downward tune plays through the air  
 arpeggio's running with mind ensnared  
 As she hands over the check eyes flash to mine  
