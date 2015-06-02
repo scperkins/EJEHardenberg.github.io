@@ -589,5 +589,11 @@
 	"description" : "How to use Play's form validation package to create non-empty constraints when binding forms",
 	"date" : "2015-5-22",
 	"keywords" : "empty list,play,validation,scala,form,forms,nonempty,constraint"
+  },
+  "triggering-asynchronous-jobs-play-2-3" : {
+	"title" : "Trigger Asynchronous Jobs in Play 2.3",
+	"description" : "Since version 2 of the PlayFramework deprecated the jobs package, you need to create jobs in a different way. This is how to use the Akka System embedded in play to do so",
+	"date" : "2015-6-2",
+	"keywords" : "playframework,jobs,2.3,asynchronous,actor,akka"
   }
 }
