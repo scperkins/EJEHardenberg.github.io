@@ -1,4 +1,10 @@
 {
+	"vitality" : {
+		"title" : "Vitality",
+		"date" : "2015-6-4",
+		"freq" : "monthly",
+		"desc" : "What powerful people envision themselves as embodying."
+	},
 	"bread" : {
 		"title" : "Bread",
 		"date" : "2015-5-27",
