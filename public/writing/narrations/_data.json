@@ -1,4 +1,10 @@
 {
+	"stage" : {
+		"title" : "Stage",
+		"date" : "2015-6-7",
+		"freq" : "monthly",
+		"desc" : "Going away party with 0 cares"
+	},
 	"vitality" : {
 		"title" : "Vitality",
 		"date" : "2015-6-4",
