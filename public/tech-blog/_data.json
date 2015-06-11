@@ -595,5 +595,11 @@
 	"description" : "Since version 2 of the PlayFramework deprecated the jobs package, you need to create jobs in a different way. This is how to use the Akka System embedded in play to do so",
 	"date" : "2015-6-2",
 	"keywords" : "playframework,jobs,2.3,asynchronous,actor,akka"
+  },
+  "reverse-routing-package-controller" : {
+	"title" : "Reverse routing with non-standard controller packages in Play",
+	"description" : "Having a different package hierarchy than that shown in the play documentation can make one wonder how to link to actions in templates. This is how you do it!",
+	"date" : "2015-7-11",
+	"keywords" : "playframework,routing,template links,controller actions,reverse routing,template,nonstandard,package"
   }
 }
