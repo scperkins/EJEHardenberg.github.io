@@ -1,4 +1,10 @@
 {
+	"start-again" : {
+		"title" : "Start Again",
+		"date" : "2015-6-15",
+		"desc" : "Starting things for yourself can be as invigorating as doing them",
+		"freq" : "monthly"
+	},
 	"queen" : {
 		"title" : "Queen",
 		"date" : "2015-6-11",
