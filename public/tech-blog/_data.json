@@ -599,7 +599,13 @@
   "reverse-routing-package-controller" : {
 	"title" : "Reverse routing with non-standard controller packages in Play",
 	"description" : "Having a different package hierarchy than that shown in the play documentation can make one wonder how to link to actions in templates. This is how you do it!",
-	"date" : "2015-7-11",
+	"date" : "2015-6-11",
 	"keywords" : "playframework,routing,template links,controller actions,reverse routing,template,nonstandard,package"
+  },
+  "generate-conditonal-policy-awscala" : {
+    "title" : "Generate Conditional AWS Group Policies with AWScala",
+    "description" : "How to programmatically generate a policy containing conditionals for AWS group S3 access with AWScala",
+	"date" : "2015-7-15",
+	"keywords" : "awscala, condition, policy, scala, aws, amazon"
   }
 }
