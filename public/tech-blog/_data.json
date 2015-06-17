@@ -607,5 +607,11 @@
     "description" : "How to programmatically generate a policy containing conditionals for AWS group S3 access with AWScala",
 	"date" : "2015-7-15",
 	"keywords" : "awscala, condition, policy, scala, aws, amazon"
+  },
+  "manipulating-XML-with-PHP" : {
+    "title" : "Manipulating XML with PHP",
+    "description" : "A few ways to add, remove, and update XML node values with PHP's DOM libraries",
+    "date" : "2015-7-17",
+    "keywords" : "PHP,DOM,XML,remove,add,update,value,node,DomElement,DomNodeList"
   }
 }
