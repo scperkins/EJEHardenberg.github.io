@@ -1,0 +1,293 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Ethan's Tech Blog | Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Ran into an error about not being able to find the SVGImageReader class with a root cause of TranscoderException, this is how to fix it" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="scrimage,the org.apache.batik.transcoder.TranscoderException,com.twelvemonkeys.imageio.plugins.svg.SVGImageReaderSpi,java.lang.NoClassDefFoundError: org/apache/batik/transcoder/TranscoderException,scala,scrimage,baltik,error,solution"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Ran into an error about not being able to find the SVGImageReader class with a root cause of TranscoderException, this is how to fix it" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException" />
+    
+    <meta name="twitter:description" content="Ran into an error about not being able to find the SVGImageReader class with a root cause of TranscoderException, this is how to fix it" />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Could not instantiate SVGImageReader in Scrimage</h3><p>Today I was testing out the scala library <a href="https://github.com/sksamuel/scrimage">scrimage</a>. I wrote a pretty 
+simple sbt script:</p>
+<p><em>Main.scala</em>:</p>
+<pre><code>package ee.test
+
+import java.io.File
+import com.sksamuel.scrimage._
+
+object Main {
+    def main(args: Array[String]): Unit = {
+      val image = Image.fromFile(new File(&quot;./testimage.jpg&quot;))
+
+      val scaled50 = TestOps.resize50(image)
+      val scaled300 = TestOps.resize300(image)
+      val crop = TestOps.crop(image, (420, 420), 500, 500)
+
+      scaled50.output(new File(&quot;./50.jpg&quot;))
+      scaled300.output(new File(&quot;./300.jpg&quot;))
+      crop.output(new File(&quot;./crop.jpg&quot;))
+    }
+}
+</code></pre><p><em>TestOps.scala</em>:</p>
+<pre><code>package ee.test
+
+import com.sksamuel.scrimage._
+
+object TestOps {
+    def resize50(image: Image) : Image = {
+        image.fit(50,50)
+    }
+
+    def resize300(image: Image) : Image = {
+        image.fit(300,300)
+    }
+
+    def crop(image: Image, center: (Int, Int), widthOfCrop: Int, heightOfCrop: Int) : Image = {
+        /* trim left top right bottom */
+        image.trim(
+            center._1 - (widthOfCrop/2), 
+            center._2 - (heightOfCrop/2), 
+            image.width - (center._1 + widthOfCrop/2), 
+            image.height - (center._2 + (heightOfCrop/2))
+        )
+    }
+}
+</code></pre><p>And lastly, <em>build.sbt</em></p>
+<pre><code>name := &quot;scrimage-test&quot;
+
+version := &quot;0.1&quot;
+
+scalaVersion := &quot;2.10.4&quot;
+
+libraryDependencies += &quot;com.sksamuel.scrimage&quot; %% &quot;scrimage-core&quot; % &quot;2.0.0&quot;
+
+libraryDependencies += &quot;com.sksamuel.scrimage&quot; %% &quot;scrimage-io&quot; % &quot;2.0.0&quot;
+</code></pre><p>I was testing out my script when all of a sudden a giant error message 
+spewed itself across my console:</p>
+<pre><code>Could not instantiate SVGImageReader (missing support classes).
+java.lang.NoClassDefFoundError: org/apache/batik/transcoder/TranscoderException
+    at com.twelvemonkeys.imageio.plugins.svg.SVGImageReaderSpi.onRegistration(Unknown Source)
+    at javax.imageio.spi.SubRegistry.registerServiceProvider(ServiceRegistry.java:715)
+    at javax.imageio.spi.ServiceRegistry.registerServiceProvider(ServiceRegistry.java:302)
+    at javax.imageio.spi.IIORegistry.registerApplicationClasspathSpis(IIORegistry.java:211)
+    at javax.imageio.ImageIO.scanForPlugins(ImageIO.java:110)
+    at com.sksamuel.scrimage.Image$.&lt;init&gt;(Image.scala:718)
+    at com.sksamuel.scrimage.Image$.&lt;clinit&gt;(Image.scala)
+    at ee.test.Main$.main(Main.scala:8)
+    at ee.test.Main.main(Main.scala)
+    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke(Method.java:606)
+    at sbt.Run.invokeMain(Run.scala:67)
+    at sbt.Run.run0(Run.scala:61)
+    at sbt.Run.sbt$Run$$execute$1(Run.scala:51)
+    at sbt.Run$$anonfun$run$1.apply$mcV$sp(Run.scala:55)
+    at sbt.Run$$anonfun$run$1.apply(Run.scala:55)
+    at sbt.Run$$anonfun$run$1.apply(Run.scala:55)
+    at sbt.Logger$$anon$4.apply(Logger.scala:85)
+    at sbt.TrapExit$App.run(TrapExit.scala:248)
+    at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassNotFoundException: org.apache.batik.transcoder.TranscoderException
+    at java.net.URLClassLoader$1.run(URLClassLoader.java:366)
+    at java.net.URLClassLoader$1.run(URLClassLoader.java:355)
+    at java.security.AccessController.doPrivileged(Native Method)
+    at java.net.URLClassLoader.findClass(URLClassLoader.java:354)
+    at java.lang.ClassLoader.loadClass(ClassLoader.java:425)
+    at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+    ... 22 more
+[success] Total time: 3 s, completed Jun 24, 2015 4:03:35 PM
+</code></pre><p>While it didn&#39;t actually cause any errors in my script and the image 
+operations were successful, I don&#39;t like seeing warnings like this when 
+I&#39;m working. So I started looking around. After a little bit of looking 
+I found one of the forementioned errors in <a href="https://github.com/haraldk/TwelveMonkeys/issues/54">this issue</a>, but the answer 
+there didn&#39;t make much sense to me. I didn&#39;t <em>have</em> any SVG plugins 
+attempting to register to TwelveMonkeys that I knew of. My class path 
+didn&#39;t show much to help from first glance: </p>
+<pre><code>ls ~/.ivy2/cache/com.twelvemonkeys.imageio/imageio
+imageio/          imageio-iff/      imageio-pict/     imageio-thumbsdb/
+imageio-batik/    imageio-jpeg/     imageio-pnm/      imageio-tiff/
+imageio-bmp/      imageio-metadata/ imageio-psd/      
+imageio-core/     imageio-pcx/      imageio-sgi/      
+imageio-icns/     imageio-pdf/      imageio-tga/    
+</code></pre><p>Looking at the root cause, <code>the org.apache.batik.transcoder.TranscoderException</code> 
+I looked around some more on the internet and found this <a href="http://thinktibits.blogspot.com/2012/12/apache-batik-common-runtime-exceptions.html">useful list of common
+exceptions from batik</a>. A quick glance at the mvn repositorie&#39;s and I updated 
+my build file:</p>
+<pre><code>name := &quot;scrimage-test&quot;
+
+version := &quot;0.1&quot;
+
+scalaVersion := &quot;2.10.5&quot;
+
+libraryDependencies += &quot;com.sksamuel.scrimage&quot; %% &quot;scrimage-core&quot; % &quot;2.0.0&quot;
+
+libraryDependencies += &quot;com.sksamuel.scrimage&quot; %% &quot;scrimage-io&quot; % &quot;2.0.0&quot;
+
+libraryDependencies += &quot;org.apache.xmlgraphics&quot; % &quot;batik-codec&quot; % &quot;1.7&quot;
+</code></pre><p>Then the error message disappeared. Note that when I reloaded my sbt console 
+it seems the new dependency issued a warning about updating to scalaVersion 
+2.10.5 for some reason. I hope this helps anyone else out there who runs into 
+the issue! </p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=manipulating-XML-with-PHP>Manipulating XML with PHP</a></li><li><a href=generate-conditonal-policy-awscala>Generate Conditional AWS Group Policies with AWScala</a></li><li><a href=reverse-routing-package-controller>Reverse routing with non-standard controller packages in Play</a></li><li><a href=triggering-asynchronous-jobs-play-2-3>Trigger Asynchronous Jobs in Play 2.3</a></li><li><a href=non-empty-lists-validation-in-playframework>Non Empty List Form Validation in Play</a></li><li><a href=dear-god-why>PHP Snippet</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
+</html>
+  	

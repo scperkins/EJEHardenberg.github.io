@@ -8,16 +8,26 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Fri, 17 Jul 2015 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Wed, 24 Jun 2015 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
 		<item>
+			<title>Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/could-not-instantiate-SVGImageReader-Scrimage</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/could-not-instantiate-SVGImageReader-Scrimage</guid>
+			<pubDate>Wed, 24 Jun 2015 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[Ran into an error about not being able to find the SVGImageReader class with a root cause of TranscoderException, this is how to fix it]]
+			</description>
+		</item>
+		
+		<item>
 			<title>Manipulating XML with PHP</title>
 			<link>http://ethanjoachimeldridge.info/tech-blog/manipulating-XML-with-PHP</link>
 			<guid>http://ethanjoachimeldridge.info/tech-blog/manipulating-XML-with-PHP</guid>
-			<pubDate>Fri, 17 Jul 2015 04:00:00 GMT</pubDate>
+			<pubDate>Wed, 17 Jun 2015 04:00:00 GMT</pubDate>
 			<description>
 				![CDATA[A few ways to add, remove, and update XML node values with PHP's DOM libraries]]
 			</description>
@@ -27,7 +37,7 @@
 			<title>Generate Conditional AWS Group Policies with AWScala</title>
 			<link>http://ethanjoachimeldridge.info/tech-blog/generate-conditonal-policy-awscala</link>
 			<guid>http://ethanjoachimeldridge.info/tech-blog/generate-conditonal-policy-awscala</guid>
-			<pubDate>Wed, 15 Jul 2015 04:00:00 GMT</pubDate>
+			<pubDate>Mon, 15 Jun 2015 04:00:00 GMT</pubDate>
 			<description>
 				![CDATA[How to programmatically generate a policy containing conditionals for AWS group S3 access with AWScala]]
 			</description>
