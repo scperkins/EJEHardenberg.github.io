@@ -605,13 +605,19 @@
   "generate-conditonal-policy-awscala" : {
     "title" : "Generate Conditional AWS Group Policies with AWScala",
     "description" : "How to programmatically generate a policy containing conditionals for AWS group S3 access with AWScala",
-	"date" : "2015-7-15",
+	"date" : "2015-6-15",
 	"keywords" : "awscala, condition, policy, scala, aws, amazon"
   },
   "manipulating-XML-with-PHP" : {
     "title" : "Manipulating XML with PHP",
     "description" : "A few ways to add, remove, and update XML node values with PHP's DOM libraries",
-    "date" : "2015-7-17",
+    "date" : "2015-6-17",
     "keywords" : "PHP,DOM,XML,remove,add,update,value,node,DomElement,DomNodeList"
+  },
+  "could-not-instantiate-SVGImageReader-Scrimage" : {
+    "title" : "Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException",
+    "description" : "Ran into an error about not being able to find the SVGImageReader class with a root cause of TranscoderException, this is how to fix it",
+    "date" : "2015-6-24",
+    "keywords" :"scrimage,the org.apache.batik.transcoder.TranscoderException,com.twelvemonkeys.imageio.plugins.svg.SVGImageReaderSpi,java.lang.NoClassDefFoundError: org/apache/batik/transcoder/TranscoderException,scala,scrimage,baltik,error,solution"
   }
 }
