@@ -1,4 +1,9 @@
 {
+	"fork" : {
+		"title" : "Fork",
+		"date" : "2015-6-25",
+		"freq" : "monthly"
+	},
 	"sink-or-swim" : {
 		"title" : "Sink or Swim",
 		"date" : "2015-6-24",
