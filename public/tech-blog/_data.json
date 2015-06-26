@@ -619,5 +619,11 @@
     "description" : "Ran into an error about not being able to find the SVGImageReader class with a root cause of TranscoderException, this is how to fix it",
     "date" : "2015-6-24",
     "keywords" :"scrimage,the org.apache.batik.transcoder.TranscoderException,com.twelvemonkeys.imageio.plugins.svg.SVGImageReaderSpi,java.lang.NoClassDefFoundError: org/apache/batik/transcoder/TranscoderException,scala,scrimage,baltik,error,solution"
+  },
+  "none-in-default-fold-and-type-erasure" : {
+    "title" : "Type Error when using None as a default to Option.fold",
+	"description" : "Using fold on option is a considered more functional, using None as a default will cause a compilation error because None doesn't share a common ancestor with the other result, this is how to get around that.",
+	"date" : "2015-6-25",
+	"keywords" : "error: type mismatch  required: None.type, required: None.type, type mismatch, option.fold,fold,None,Option,scala,compile failure"
   }
 }
