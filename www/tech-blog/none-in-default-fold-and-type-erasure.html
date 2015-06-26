@@ -1,0 +1,276 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Ethan's Tech Blog | Type Error when using None as a default to Option.fold</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Using fold on option is a considered more functional, using None as a default will cause a compilation error because None doesn&#39;t share a common ancestor with the other result, this is how to get around that." />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="error: type mismatch  required: None.type, required: None.type, type mismatch, option.fold,fold,None,Option,scala,compile failure"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Type Error when using None as a default to Option.fold" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Using fold on option is a considered more functional, using None as a default will cause a compilation error because None doesn&#39;t share a common ancestor with the other result, this is how to get around that." />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Type Error when using None as a default to Option.fold" />
+    
+    <meta name="twitter:description" content="Using fold on option is a considered more functional, using None as a default will cause a compilation error because None doesn&#39;t share a common ancestor with the other result, this is how to get around that." />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Type Error when using None as a default to Option.fold</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Type Erasure, Option, and Folding</h3><h4>The Tl;dr</h4><p>If you get <code>error: type mismatch;</code> while specifying <code>None</code> as the
+default in a <code>.fold</code> on an <code>Option</code>. Use a closure in your default case
+and specify the type like so: <code>option.fold { val thing = Option[MyType]
+= None; thing } { ... }</code></p>
+<h4>Long Story:</h4><p>Everyone likes type inference. It saves a lot of writing on a
+programmers part when instead of writing a behemoth of some kind like
+this: </p>
+<pre><code>val i : Future[Option[my.package.model.ObjectThing]] = someMethod
+</code></pre><p>and can instead just write:</p>
+<pre><code>val i = someMethod
+</code></pre><p>And the compiler keeps track of your type for you. It&#39;s handy, and
+something Haskell, OCaml, and Scala (among others) enjoy. However, type
+inference isn&#39;t always as easy as reading a method&#39;s return type. Take
+this example: </p>
+<pre><code>val s : Option[Int] = someMethod()
+val r = s.fold( 0 ) { x =&gt;
+    x +  1
+}
+</code></pre><p>What&#39;s the type of <code>r</code> in this case? Easy! It&#39;s an Integer! I only
+recently discovered the idiom of folding on options, so let me describe
+what&#39;s going on here. First, <code>fold</code> is often seen as a way to implement
+a reducing operation on a list: </p>
+<pre><code>val myList = List(1,2,3)
+val q = myList.fold(0) { (l, r) =&gt; l + r } 
+// q is 6
+</code></pre><p><code>q</code> is 6 in this case because we <em>start</em> at 0, and then take our current
+left value (which is 0 at first) and then add it to the next element in
+our list, 1. On the next iteration the <code>l</code> will be the result of our
+previous computation (1), and we&#39;ll add 2. The result being 3, we&#39;ll
+then have 3 as our <code>l</code> value and the last element in the list (3) as
+<code>r</code>. Lastly, we&#39;ll do our add again and <code>q</code> will be the result of 3 + 3. </p>
+<p>So what&#39;s up with that <code>fold</code> on the <code>Option</code> class then? Well, besides
+that the community in scala in split between <a href="http://kwangyulseo.com/2014/05/21/scala-option-fold-vs-option-mapgetorelse/">sticking to getOrElse</a> and 
+<a href="https://groups.google.com/forum/#%21topic/scala-language/35EcioxSQ50">using fold on option</a>, it&#39;s a handy and <em>type safe</em> way of dealing with
+options. A complaint levied against using <code>fold</code> is that the order isn&#39;t
+the same as <code>getOrElse</code>:</p>
+<pre><code>val o = Option[Int] = None
+o.getOrElse(2) // yields 2 
+o.fold(2)( x =&gt; x) // yields 2
+</code></pre><p>Having the default first seems to throw people off. But here&#39;s why I
+think it makes sense. In the case of our reduce example, we <em>seeded</em> the
+left hand side of our function with the <em>first</em> set of parameters. In
+the case of folding our option, we <em>seeded</em> our result, if it didn&#39;t
+have a value already. When I think of it this way, it&#39;s easy to get into
+the habit of staying consistent with our folds. </p>
+<p>Moving back to our point about type inference, can you tell me what the
+type of <code>s</code> is? </p>
+<pre><code>val o = Option[Int] = None
+val s = o.getOrElse(&quot;hi&quot;)
+</code></pre><p>If you said: <code>String</code> congratulations! <strong>You&#39;re wrong</strong>. The correct
+type is <code>Any</code>. Why? Because o would give us an Int if it had a value,
+and <code>String</code> if it didn&#39;t, but since we don&#39;t know (assume <code>o</code> came from
+<code>someMethod</code>) until runtime, the compiler has to default to the common
+base type, which in the case of <code>Int</code> and <code>String</code> is <code>Any</code>. But Ethan,
+you say, you said <code>fold</code> is safer? Yup. Let&#39;s try the same with fold: </p>
+<pre><code>val o = Option[Int] = None
+val s = o.fold(&quot;hi&quot;) { x =&gt; x }
+
+&lt;console&gt;:8: error: type mismatch;
+found   : Int
+required: String
+     val s = o.fold(&quot;hi&quot;) { x =&gt; x }
+</code></pre><p>So now instead of having to deal with <code>Any</code> and losing our type, we get
+a compiler level error that tells us that we might want to be more
+careful and return the same type so we can reason about it easier. In
+the case of <code>Option.fold</code>, the default will determine which type the
+compiler requires. </p>
+<p>Now to the reason I&#39;m writing this blog post: What do you about type
+erasure when dealing with a class wrapped in Option? To make what I&#39;m
+asking clear, let&#39;s say you have this:</p>
+<pre><code>val o = Option[Int] = ??? //pick Some(1) or None
+o.fold(None) { x =&gt; Some(x) }
+</code></pre><p>The above will not compile. In fact, you&#39;ll get the following error
+message:</p>
+<pre><code>error: type mismatch;
+  found   : Some[Int]
+  required: None.type
+</code></pre><p>Confused? After all, you can assign none to an <code>Option[Int]</code>, so why is
+the compiler so strict and how do you get around it? You might think
+specificying the result of <code>o.fold</code> would help. Nope. Here&#39;s a hack
+around it: </p>
+<pre><code>val o = Option[Int] = ???
+o.fold { 
+    val tmp : Option[Int] = None
+    tmp
+} { x =&gt; Some(x) } 
+</code></pre><p>By doing the above, we let the compiler figure out that yes, the two
+types in both closures of the fold match. And they match because we now
+have a common ancestor type:</p>
+<pre><code>scala&gt; val o : Option[Int] = None
+scala&gt; o.getClass()
+scala&gt; res6: Class[_ &lt;: Option[Int]] = class scala.None$
+
+scala&gt; val o : Option[Int] = Some(1)
+scala&gt; o.getClass()
+res7: Class[_ &lt;: Option[Int]] = class scala.Some
+</code></pre><p>Notice the <code>Class[_ &lt;: Option[Int]]</code>? That&#39;s how you can tell that they
+both are descendents of <code>Option[Int]</code>. If you check the class of None:</p>
+<pre><code>scala&gt; val x =None    
+scala&gt; x.getClass()
+res8: Class[_ &lt;: None.type] = class scala.None$
+</code></pre><p>you&#39;ll see what should be obvious by now, that they don&#39;t share the same
+common base. </p>
+<p>I hope this helps anyone else who runs into type mismatch errors from
+the None.type while folding Option instances! </p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=could-not-instantiate-SVGImageReader-Scrimage>Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException</a></li><li><a href=manipulating-XML-with-PHP>Manipulating XML with PHP</a></li><li><a href=generate-conditonal-policy-awscala>Generate Conditional AWS Group Policies with AWScala</a></li><li><a href=reverse-routing-package-controller>Reverse routing with non-standard controller packages in Play</a></li><li><a href=triggering-asynchronous-jobs-play-2-3>Trigger Asynchronous Jobs in Play 2.3</a></li><li><a href=non-empty-lists-validation-in-playframework>Non Empty List Form Validation in Play</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
+</html>
+  	

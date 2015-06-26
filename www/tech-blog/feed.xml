@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Wed, 24 Jun 2015 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Thu, 25 Jun 2015 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Type Error when using None as a default to Option.fold</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/none-in-default-fold-and-type-erasure</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/none-in-default-fold-and-type-erasure</guid>
+			<pubDate>Thu, 25 Jun 2015 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[Using fold on option is a considered more functional, using None as a default will cause a compilation error because None doesn't share a common ancestor with the other result, this is how to get around that.]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException</title>
