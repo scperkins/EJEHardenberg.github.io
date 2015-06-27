@@ -31,10 +31,10 @@ landed an internship at [Bear Code] working on Java 2EE and Rails
 projects. I spent the summer working on the back end system for
 [YouDilligence] and after a few months began designing and implementing
 a system for [localvore]. Bear Code hired me after my internship was
-over and I currently work as a Junior Developer there; though I also do
-contract work on the side sometimes. At Bear Code I work in PHP, Java, and
-any other language to get the job done, and also research and study applied
-computer vision.
+over and I worked as a Junior Developer there; though I also do
+contract work on the side sometimes. At Bear Code I worked in PHP, Java, and
+any other language to get the job done, and also did a small amount of
+research and study on applied computer vision. I've since changed jobs.
 
 In my spare time, I like to work on my personal projects as well as 
 contribute to Open Source ones. You can check out my [Github] for a 
