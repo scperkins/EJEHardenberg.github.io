@@ -1,4 +1,10 @@
 {
+	"the-painter" : {
+		"title" : "The Painter",
+		"date" : "2015-6-30",
+		"desc" : "In the woods overlooking a countryside view, a painter copies reality to a page",
+		"freq" : "monthly"
+	},
 	"wet-seat" : {
 		"title" : "Wet Seat",
 		"date" : "2015-6-29",
