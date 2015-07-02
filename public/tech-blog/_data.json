@@ -625,5 +625,11 @@
 	"description" : "Using fold on option is a considered more functional, using None as a default will cause a compilation error because None doesn't share a common ancestor with the other result, this is how to get around that.",
 	"date" : "2015-6-25",
 	"keywords" : "error: type mismatch  required: None.type, required: None.type, type mismatch, option.fold,fold,None,Option,scala,compile failure"
+  },
+  "401-unauthorized-400-bad-request-sonatype-nexus" : {
+     "title" : "401 Unauthorized and 400 Bad Request from Sonatype Nexus in SBT",
+	"description" : "How to fix SBT and Nexus sonatype when you're just starting out and making mistakes. A few cautionary points",
+	"date" : "2015-7-2",
+	"keywords": "sonatype nexus,sbt,scala,unauthorized,bad request,artifact repository"
   }
 }
