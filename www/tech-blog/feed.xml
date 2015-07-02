@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Thu, 25 Jun 2015 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Thu, 02 Jul 2015 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>401 Unauthorized and 400 Bad Request from Sonatype Nexus in SBT</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/401-unauthorized-400-bad-request-sonatype-nexus</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/401-unauthorized-400-bad-request-sonatype-nexus</guid>
+			<pubDate>Thu, 02 Jul 2015 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[How to fix SBT and Nexus sonatype when you're just starting out and making mistakes. A few cautionary points]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Type Error when using None as a default to Option.fold</title>
