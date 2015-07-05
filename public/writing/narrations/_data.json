@@ -1,4 +1,10 @@
 {
+	"ice" : {
+		"title" : "Ice",
+		"date" : "2015-7-5",
+		"desc" : "A couple spend the summer together",
+		"freq" : "monthly"
+	},
 	"the-painter" : {
 		"title" : "The Painter",
 		"date" : "2015-6-30",
