@@ -1,4 +1,10 @@
 {
+	"sand" : {
+		"title" : "Sand",
+		"date" : "2015-7-7",
+		"desc" : "A soldier on the battlefield",
+		"freq" : "monthly"
+	},
 	"ice" : {
 		"title" : "Ice",
 		"date" : "2015-7-5",
