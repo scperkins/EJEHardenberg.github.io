@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Thu, 02 Jul 2015 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Tue, 07 Jul 2015 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Aspect Ratios, Math, and Scala</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/aspect-ratios-and-math</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/aspect-ratios-and-math</guid>
+			<pubDate>Tue, 07 Jul 2015 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[A post about implementing AspectRatio Enums and some helpful conversion implicits]]
+			</description>
+		</item>
 		
 		<item>
 			<title>401 Unauthorized and 400 Bad Request from Sonatype Nexus in SBT</title>

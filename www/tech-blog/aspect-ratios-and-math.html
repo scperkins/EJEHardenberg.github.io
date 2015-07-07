@@ -1,0 +1,314 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Ethan's Tech Blog | Aspect Ratios, Math, and Scala</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="A post about implementing AspectRatio Enums and some helpful conversion implicits" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="scala,aspectratio,ratio,math,image,service"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Aspect Ratios, Math, and Scala" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="A post about implementing AspectRatio Enums and some helpful conversion implicits" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Aspect Ratios, Math, and Scala" />
+    
+    <meta name="twitter:description" content="A post about implementing AspectRatio Enums and some helpful conversion implicits" />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Aspect Ratios, Math, and Scala</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Aspect Ratios and Math</h3><p>The web needs images of all sizes to work. For example, when you load 
+a gallery view of images you&#39;re served thumbnail sized images, when 
+you click through to view those you get to see the full sized image. 
+A lot of work goes into cropping, resizing, and generating all of 
+these images. Sometimes it&#39;s some poor intern sitting at Photoshop 
+or Gimp, other times it&#39;s an editor of some kind. And occasionally 
+us <a href="https://codeascraft.com/2010/07/09/batch-processing-millions-of-images/">tech workers get to throw our scripting skills at it</a>.</p>
+<p>While there are some image services out there (such as CDN integrated 
+ones like <a href="https://www.akamai.com/us/en/solutions/intelligent-platform/cloudlets/image-converter.jsp">Akamai</a>), or services you can <a href="https://github.com/beetlebugorg/mod_dims">run inside apache</a>, if you 
+want to keep custom tracking you often need to do a good amount of work
+yourself. Allowing a user to index metadata against a master image then 
+generate more images is just one place where most image services often 
+fall short of meeting the needs of specialized workplaces. </p>
+<p>So what do you do? Well, besides build your own image service, there&#39;s 
+not too much you can do! So let&#39;s say you decide to setup a really basic 
+service for yourself. Something simple like: allow a user to upload a 
+master record then retrieve a few predefined presets of crops? Or what 
+about something even simpler, resizing the image to presets? When it comes 
+to the content, you often need differing <em>aspect ratios</em> of images in 
+order to maximize your page space. Portrait, landscape, wide angle. You 
+name it, there&#39;s a proper aspect ratio to be displaying this stuff at. </p>
+<p>It&#39;s taken a bit to get to the code, but I&#39;d like to share a building 
+block with you. First, let&#39;s assume three simple ratios. 1:1, 4:9, and 
+16:9. Or, Square, Portrait, and Landscape. In scala we could define 
+these as an enumeration like so:</p>
+<pre><code>object AspectRatio extends Enumeration {
+    type Ratio = Value
+    val OneToOne, FourToNine, SixteenToNine = Value
+}
+</code></pre><p>Which is a good start, but that doesn&#39;t help us much. After all, if I&#39;m 
+working with an aspect ratio and resizing an image down, I probably want 
+to work with <em>numbers</em>. So let&#39;s add in an implicit class that will give 
+us a way to get back something useful: </p>
+<pre><code>object AspectRatio extends Enumeration { 
+    ...
+    implicit class AspectRatioToRuple(ratio: AspectRatio.Ratio) {
+        def asTuple : Tuple2[Int,Int] = ratio match {
+            case OneToOne =&gt; (1,1)
+            case FourToNine =&gt; (4,9)
+            case SixteenToNine =&gt; (16,9)
+        }
+    }
+}
+</code></pre><p>Great! So now we can do things like this in the console: </p>
+<pre><code>import AspectRatio._
+OneToOne.asTuple // =&gt; (1,1)
+</code></pre><p>Which is great for any math we might need to do with the actual numeric 
+values associated with our ratios. What about the other way? Going from 
+a tuple <code>(1,1)</code> to the <code>OneToOne</code> ratio? We&#39;ll need another implicit 
+class:</p>
+<pre><code>import java.lang.IllegalArgumentException
+object AspectRatio extends Enumeration {
+    ...
+    implicit class Tuple2ToAspectRatio(tuple: Tuple2[Int,Int]) {
+        def asAspectRatio : AspectRatio.Ratio = tuple match {
+            case (1,1) =&gt; OneToOne
+            case (4,9) =&gt; FourToNine
+            case (16,9) =&gt; SixteenToNine
+            case _ =&gt; throw new IllegalArgumentException(s&quot;Could not find matching aspect ratio for tuple ${tuple}&quot;)
+        }
+    }
+}
+</code></pre><p>Great you say! Now you can convert back and forth between numeric and symbolic 
+representations of your aspect ratios. But wait, what if you&#39;re trying to tell 
+what aspect ratio a given picture is? Let&#39;s pretend we have some simple <code>Image</code> 
+class that has both width and height defined, if we simply do this:</p>
+<pre><code>case class Image(width: Int, height: Int)
+val i = Image(250,250)
+(i.width,i.height).asAspectRatio
+</code></pre><p>We&#39;ll be greeted by our <code>IllegalArgumentException</code>. Even though we as humans know 
+that it&#39;s a 1:1 ratio here. This is a problem anyone who&#39;s gone through a discrete 
+mathematics course knows how to solve though. What we&#39;re really looking for is the 
+<a href="https://en.wikipedia.org/wiki/Greatest_common_divisor">Greatest Common Denominator</a>, or GCD. Luckily for me I stumbled across a rather 
+nice <a href="http://andreinc.net/2010/12/28/fraction-reduction-in-scala/">blog post about a Fraction class</a> by <a href="http://andreinc.net/about-me/">Andrei N. Ciobanu</a> and this provides us 
+a really nice way to normalize the width and height of our image. The only issue of 
+course is that the Fraction class isn&#39;t a case class so it doesn&#39;t have an <a href="danielwestheide.com/blog/2012/11/21/the-neophytes-guide-to-scala-part-1-extractors.html">extractor</a> 
+defined. But of course we can update the code to allow this like so: </p>
+<pre><code>/** Private Class to represent a simple fraction in simplest form
+ * 
+ * @note Fraction class attribution: Andrei N. Ciobanu 
+ *
+ * @param n The numerator of the fraction 
+ * @param d The denominator of the fraction
+ */
+class Fraction(n: Int, d: Int) {
+    // It makes no sense to have the denominator 0
+    require(d != 0)
+
+    private val g = gcd(n, d)
+    val numerator : Int = n / g
+    val denominator : Int = d / g
+
+    // Determines the greatest common divisor of two numbers
+    private def gcd(a: Int, b: Int) : Int =
+        if (b == 0) a else gcd(b, a % b)
+
+    override def toString =
+        numerator + &quot;/&quot; + denominator
+}
+
+/* Our enhancement to the class to support pattern matching */
+object Fraction {
+    def apply(tuple2: Tuple2[Int,Int]): Fraction = new Fraction(tuple2._1,tuple2._2)
+    def unapply(obj: Fraction): Option[Tuple2[Int,Int]] = Some((obj.numerator, obj.denominator))
+}
+</code></pre><p>With this in place we can rewrite <code>asAspectRatio</code> to handle arbitrary image 
+sizes:</p>
+<pre><code>object AspectRatio extends Enumeration {
+    ...
+    implicit class Tuple2ToAspectRatio(tuple: Tuple2[Int,Int]) {
+        def asAspectRatio : AspectRatio.Ratio = Fraction(tuple) match {
+            case Fraction(1,1) =&gt; OneToOne
+            case Fraction(4,9) =&gt; FourToNine
+            case Fraction(16,9) =&gt; SixteenToNine
+            case _ =&gt; throw new IllegalArgumentException(s&quot;Could not find matching aspect ratio for tuple ${tuple}&quot;)
+        }
+    }
+}
+</code></pre><p>And now we can see that <code>(250,250).asAspectRatio</code> returns <code>OneToOne</code> as aspected. </p>
+<p>You might be asking yourself, Ok, so how does this help me with making an Image 
+Service for the boss learing down my neck? Simple. If you&#39;re designing your system 
+to <em>cache</em> the generated images, you&#39;ll want to keep track of that. By using some 
+of the above code you could easily check to see if a requested image can be cropped 
+or sized to your predefined aspect ratios. If not you can deny the request, if so, 
+you could key your database on which aspect ratios you support and retrieve a url 
+to the cached content, or generate it and store the content, then mark it in the 
+database. Something like this: </p>
+<ol>
+<li>Request for 4:9 of image X </li>
+<li>Database lookup to see if cache url exists</li>
+<li>If cache exists, direct the user there. Otherwise:</li>
+<li>Retrieve the master image and use the numeric versions of the crop to manipulate the image</li>
+<li>Deny the request if you can&#39;t manipulate the image to the right size</li>
+<li>Cache the generated content onto a CDN</li>
+<li>Store a record keyed by the image&#39;s ID and aspect ratio with the url to your database for later</li>
+</ol>
+<p>A workflow something like this would probably work. There&#39;s obvious more details 
+to go in there of course, but defining a way to switch between symbolically and 
+mathematically manipulating aspect ratios can help out when you start doing more 
+complicated things. </p>
+<p><strong>Note:</strong> euclids GCD algorithm is good but it isn&#39;t the fastest, so if you&#39;re 
+concerned for performance, feel free to look up more performant versions. Such as 
+Stein’s Algorithm.</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=401-unauthorized-400-bad-request-sonatype-nexus>401 Unauthorized and 400 Bad Request from Sonatype Nexus in SBT</a></li><li><a href=none-in-default-fold-and-type-erasure>Type Error when using None as a default to Option.fold</a></li><li><a href=could-not-instantiate-SVGImageReader-Scrimage>Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException</a></li><li><a href=manipulating-XML-with-PHP>Manipulating XML with PHP</a></li><li><a href=generate-conditonal-policy-awscala>Generate Conditional AWS Group Policies with AWScala</a></li><li><a href=reverse-routing-package-controller>Reverse routing with non-standard controller packages in Play</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
+</html>
+  	
