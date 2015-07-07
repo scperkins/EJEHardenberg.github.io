@@ -1,4 +1,9 @@
 {
+	"meeting" : {
+		"title" : "Meeting",
+		"date" : "2015-7-7",
+		"freq" : "monthly"
+	},
 	"desensitized" : {
 		"title" : "Desensitized",
 		"date" : "2015-7-2",
