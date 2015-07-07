@@ -631,5 +631,11 @@
 	"description" : "How to fix SBT and Nexus sonatype when you're just starting out and making mistakes. A few cautionary points",
 	"date" : "2015-7-2",
 	"keywords": "sonatype nexus,sbt,scala,unauthorized,bad request,artifact repository"
+  },
+  "aspect-ratios-and-math" : {
+    "title" : "Aspect Ratios, Math, and Scala",
+    "description" : "A post about implementing AspectRatio Enums and some helpful conversion implicits",
+	"date" : "2015-7-7",
+	"keywords" : "scala,aspectratio,ratio,math,image,service"
   }
 }
