@@ -1,4 +1,9 @@
 {
+	"memory" : {
+		"title" : "Memory",
+		"date" : "2015-7-8",
+		"freq" : "monthly"
+	},
 	"meeting" : {
 		"title" : "Meeting",
 		"date" : "2015-7-7",
