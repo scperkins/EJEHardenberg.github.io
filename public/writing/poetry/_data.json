@@ -1,4 +1,9 @@
 {
+	"rivest" : {
+		"title" : "Rivest",
+		"date" : "2015-7-11",
+		"freq" : "monthly"
+	},
 	"memory" : {
 		"title" : "Memory",
 		"date" : "2015-7-8",
