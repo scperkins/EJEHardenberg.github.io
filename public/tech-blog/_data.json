@@ -637,5 +637,11 @@
     "description" : "A post about implementing AspectRatio Enums and some helpful conversion implicits",
 	"date" : "2015-7-7",
 	"keywords" : "scala,aspectratio,ratio,math,image,service"
+  },
+  "github-streak" : {
+    "title" : "A Year of committing to Github",
+	"description" : "I decided to challenge myself to commit every day for a year to github, so I did. And this is some reflection on what doing that has done for me",
+	"date" : "2015-7-14",
+	"keywords" : "github,streak,reflection,ethan,eldridge"
   }
 }
