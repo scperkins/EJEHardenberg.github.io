@@ -1,4 +1,9 @@
 {
+	"labor" : {
+		"title" : "Labor",
+		"date" : "2015-7-15",
+		"freq" : "monthly"
+	},
 	"endgame" : {
 		"title" : "End Game",
 		"date" : "2015-7-14",
