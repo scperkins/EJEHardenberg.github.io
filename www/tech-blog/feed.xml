@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Tue, 07 Jul 2015 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Tue, 14 Jul 2015 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>A Year of committing to Github</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/github-streak</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/github-streak</guid>
+			<pubDate>Tue, 14 Jul 2015 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[I decided to challenge myself to commit every day for a year to github, so I did. And this is some reflection on what doing that has done for me]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Aspect Ratios, Math, and Scala</title>
