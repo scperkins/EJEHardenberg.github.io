@@ -1,6 +1,12 @@
 {
+	"dignity" : {
+		"title" : "Dignity",
+		"date" : "2015-7-18",
+		"desc" : "An older man and his home.",
+		"freq" : "monthly"
+	},
 	"performance" : {
-		"title" : "2015-7-17",
+		"title" : "The Performance",
 		"date" : "2015-7-17",
 		"desc" : "A performance by a band and their embarassed singer",
 		"freq" : "monthly"
