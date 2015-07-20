@@ -1,4 +1,9 @@
 {
+	"hook" : {
+		"title" : "Hook & Sinker",
+		"date" : "2015-7-19",
+		"freq" : "monthly"
+	},
 	"labor" : {
 		"title" : "Labor",
 		"date" : "2015-7-15",
