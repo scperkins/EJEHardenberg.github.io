@@ -1,4 +1,9 @@
 {
+	"mood" : {
+		"title" : "Mood",
+		"date" : "2015-7-21",
+		"freq" : "monthly"
+	},
 	"hook" : {
 		"title" : "Hook & Sinker",
 		"date" : "2015-7-19",
