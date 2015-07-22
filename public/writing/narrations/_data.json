@@ -1,4 +1,10 @@
 {
+	"chinese" : {
+		"title" : "Chinese",
+		"date" : "2015-7-22",
+		"desc" : "A restaurant and its customers",
+		"freq" : "monthly"
+	},
 	"dignity" : {
 		"title" : "Dignity",
 		"date" : "2015-7-18",
