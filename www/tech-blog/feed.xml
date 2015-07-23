@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Tue, 14 Jul 2015 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Wed, 22 Jul 2015 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Serializing java.util.Locale with Spray JSON library</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/serializing-java-util-locale-with-spray-json</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/serializing-java-util-locale-with-spray-json</guid>
+			<pubDate>Wed, 22 Jul 2015 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[An example of how to serialize and deserialize the Locale class using the spray-json library]]
+			</description>
+		</item>
 		
 		<item>
 			<title>A Year of committing to Github</title>
