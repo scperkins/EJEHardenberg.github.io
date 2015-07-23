@@ -90,7 +90,7 @@ Whether you choose to use a class and explicitly define a converter for your
 usage, or you create an implicit object to import, you can now handle Locale 
 classes in your code! 
 
-[You can find an example project to run yourself here]
+[You can find an example project to run yourself here showing the above code in use]
 
 
 
@@ -99,6 +99,6 @@ classes in your code!
 [Locale]:https://docs.oracle.com/javase/7/docs/api/java/util/Locale.html
 [language constructor]:https://docs.oracle.com/javase/7/docs/api/java/util/Locale.html#Locale(java.lang.String)
 [read here]:https://github.com/spray/spray-json#jsonformat-vs-rootjsonformat
-[You can find an example project to run yourself here]:https://github.com/EdgeCaseBerg/spray-json-locale-example
+[You can find an example project to run yourself here showing the above code in use]:https://github.com/EdgeCaseBerg/spray-json-locale-example
 
  
