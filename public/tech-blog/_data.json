@@ -649,5 +649,11 @@
 		"description" : "An example of how to serialize and deserialize the Locale class using the spray-json library",
 		"date" : "2015-7-22",
 		"keywords" : "java.util.Locale,spray-json,json,spray,locale,deserialize,serializeser"
+	},
+	"serializing-json-generic-classes-spray-json" : {
+		"title" : "Serializing Generic Types with Spray JSON Library",
+		"description" : "Continuing from the last post, this is how you can take generic base classes and allow the serialization code to convert them to the appropriate subclass.",
+		"date" : "2015-7-24",
+		"keywords" : "spray-json,generics,type hierarchy,spray,json,serialize,generic,base class"
 	}
 }
