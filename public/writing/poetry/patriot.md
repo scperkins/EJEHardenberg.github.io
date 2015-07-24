@@ -18,3 +18,9 @@ Hurt, torn, so battle worn
 An old man wakes to the bugles horn  
 Smiling, dying, his eyes unlit  
 The dead man dies a patriot  
+
+<audio src="/music/patriot.mp3" controls></audio>
+
+_Note: At least part of melody here is from another poem, but I can't remember the
+name of it but it had something to do with patriots as well. If you know
+it please let me know_
