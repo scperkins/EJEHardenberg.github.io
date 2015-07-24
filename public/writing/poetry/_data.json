@@ -1,4 +1,9 @@
 {
+	"butterfly" : {
+		"title" : "Butterfly",
+		"date" : "2015-7-24",
+		"freq" : "monthly"
+	},
 	"mood" : {
 		"title" : "Mood",
 		"date" : "2015-7-21",
