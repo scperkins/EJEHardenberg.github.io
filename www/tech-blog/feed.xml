@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Wed, 22 Jul 2015 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Fri, 24 Jul 2015 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Serializing Generic Types with Spray JSON Library</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/serializing-json-generic-classes-spray-json</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/serializing-json-generic-classes-spray-json</guid>
+			<pubDate>Fri, 24 Jul 2015 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[Continuing from the last post, this is how you can take generic base classes and allow the serialization code to convert them to the appropriate subclass.]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Serializing java.util.Locale with Spray JSON library</title>
