@@ -97,12 +97,74 @@ on each of our subclasses:
 
 We still need to work a bit of voodoo on the `read` function in order to discriminate 
 between the two different types, but so long as we always have a unique field to 
-go by, we'll be ok.
+go by, we'll be ok. The nice thing is that this works with Traits as well as classes. 
+Here's a full example I submitted to the spray user group mailing list:
+
+	package example
+
+	import spray.json._
+	import spray.json.DefaultJsonProtocol._
+
+	sealed trait MyTrait 
+
+	case class Class1(someField: String) extends MyTrait
+
+	case class Class2(someOtherField: Int) extends MyTrait
+
+	case class Class3(yetAnotherField: String) extends MyTrait
+
+	case class TestCase(works: Boolean, myClassWithTrait: MyTrait)
+
+	object ImplicitConversions extends DefaultJsonProtocol {
+		implicit val c1Conv = jsonFormat1(Class1)
+		implicit val c2Conv = jsonFormat1(Class2)
+		implicit val c3Conv = jsonFormat1(Class3)
+
+		class MyTraitConversion extends RootJsonFormat[MyTrait] {
+			def write(obj: MyTrait) = obj match {
+				case c : Class1 => c.toJson
+				case c : Class2 => c.toJson
+				case c : Class3 => c.toJson
+				case _ => serializationError(s"Could not write object $obj")
+			}
+			
+			/* Read is kind of frustrating as we need to use the fields to determine which type to turn it into */
+			def read(json: JsValue) = {
+				val discrimator = List(
+					"someField",
+					"someOtherField",
+					"yetAnotherField"
+				).map( d => json.asJsObject.fields.contains(d) )
+				discrimator.indexOf(true) match {
+					case 0 	=> json.convertTo[Class1]
+					case 1 	=> json.convertTo[Class2]
+					case 2  => json.convertTo[Class3]
+					case _ => deserializationError("MyTrait expected")
+				}
+			}
+		}
+	}
+
+	import spray.json._
 
 
+	object Example{
+		def main(args: Array[String]): Unit = {
+			import ImplicitConversions._
+			implicit val mtc =new  MyTraitConversion()
+			implicit val tc = jsonFormat2(TestCase)
+
+		  	val result = """{"works": true, "myClassWithTrait" : {"someOtherField" : 2}}""".parseJson.convertTo[TestCase]
+		  	println(result) //example.TestCase = TestCase(true,Class2(2))
+		}
+	}
+
+Hopefully this gives you some more insight in how use spray's json library. Happy 
+serializing! You can see all this code [here on github]
 
 
 [the last post]:/tech-blog/serializing-java-util-locale-with-spray-json
 [pattern match against a Map]:https://stackoverflow.com/questions/13536619/pattern-matching-against-scala-map-type
+[here on github]:https://github.com/EdgeCaseBerg/spray-json-locale-example
 
 java.lang.RuntimeException: Cannot automatically determine case class field names and order for 'example.Thing1', please use the 'jsonFormat' overload with explicit field name specification
