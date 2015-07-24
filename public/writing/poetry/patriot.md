@@ -9,7 +9,7 @@ Patriot abroad is a man forlorn
 Love, lost, his romance: lust  
 Taking his fill, of the world he trusts  
 Smiling, dying, an act of war  
-Board that ferry, into the sky drones soar  
+Board that boat, in the sky drones soar  
 Friends, foes, his gun doesn't know  
 Just point to shoot, and the hole will show  
 Years, tears, the terror feels  
