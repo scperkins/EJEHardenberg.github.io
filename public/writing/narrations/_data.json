@@ -1,4 +1,10 @@
 {
+	"grind" : {
+		"title" : "Grind",
+		"date": "2015-7-27",
+		"desc": "A friend who keeps spinning gears",
+		"freq" : "monthly"
+	},
 	"funeral" : {
 		"title" : "Funeral",
 		"date" : "2015-7-26",
