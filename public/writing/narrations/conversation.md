@@ -4,9 +4,9 @@ looked outside one last time before closing the door and  accelerating
 out from under the overhang. With nothing but brick burnt out buildings
 to see, the passenger shifted his eyes to his book and began reading.
 
-His body lurched back and forth as the drivers clumsy driving slammed
+His body lurched back and forth as the driver's clumsy driving slammed
 the bus to a stop at each signpost. Absorbed in his book he hardly
-noticed it, just as he hardly noticed the woman sit next to him. It
+noticed it, just as he hardly noticed the woman sit down next to him. It
 wasn't until the shine of her bracelets reflected into his peripheral
 vision that he glanced up.
 
@@ -23,14 +23,15 @@ on the bus unless it was full. Leaning back at the next stop he stole a
 glance around and at the profile of her face. The bus was a little
 crowded, but there were a few seats next to others farther back. The
 vast majority of seating seemed taken by a camp group of children and
-counselors.
+counselors. He figured the seat next to his must have been the closest
+non-empty one.
 
 Looking down past his book he noted her shoes. White and black striped
-and tied with small bows. The color scheme was becoming apparent, and he
+and tied with small bows. Her color scheme was becoming apparent, and he
 mused to himself about what label might apply: emo, scene, goth, just
 tired? Her pale face was angled and enhanced with lines of liquid night
 that popped the blue of her eyes noticeably even from the brief profile
-view he saw. The only other color was the dusty pink of her lips.
+view he had seen. The only other color was the dusty pink of her lips.
 
 Satisfied with his overview, he decided that if he could figure out
 something to say to her, he would, but until then he'd enjoy his book.
@@ -39,17 +40,19 @@ them having anything in common was more so. Better to just read and
 relax he thought to himself.
 
 After a few more stops he paused to look out the window. Then he heard a
-light bell-like voice. "Excuse me, is that a book about biology?"
+light bell-like voice. "Excuse me, is that a book about programming?"
 
 Caught off guard he turned and answered, giving her his full attention.
 No longer viewing a side profile, he noticed the inside of her hair was
 coloured a vivid deep ocean blue. Her gaze, wide eyed and fixed to his
 own, held him captive as he tried to talk with her and appreciate her
 beauty at the same time. Their conversation amiable and interesting, the
-man smiled as he went into details about the books materials.
+man smiled as he went into details about the book's materials.
 
 The woman nodded and asked about other books the authors had written,
-discussing her own work and how it related to the field. She asked if he
+discussing her own work and how it related. While data entry wasn't
+quite programming, the amount of HTML markup she had learned during
+editorial work had peaked her interest. She asked if he
 took this bus often and they shared a mutual surprise to find out they
 both took it regularly. White teeth flashing happily, she pushed her
 purse straps onto her shoulder and grinned at him. Letting him know that
