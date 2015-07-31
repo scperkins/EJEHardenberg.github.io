@@ -1,4 +1,10 @@
 {
+	"conversation" : {
+		"title" : "Conversation",
+		"date" : "2015-7-31",
+		"desc" : "A pair meet and talk on the bus",
+		"freq" : "monthly"
+	},
 	"grind" : {
 		"title" : "Grind",
 		"date": "2015-7-27",
