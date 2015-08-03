@@ -18,7 +18,7 @@ on. A black cardigan wrapped itself around her and covered half of her
 forearms.
 
 Having studied his companion, he shrugged slightly and began reading
-again. His interest was peaked, normally people didn't sit next to him
+again. His interest was piqued, normally people didn't sit next to him
 on the bus unless it was full. Leaning back at the next stop he stole a
 glance around and at the profile of her face. The bus was a little
 crowded, but there were a few seats next to others farther back. The
