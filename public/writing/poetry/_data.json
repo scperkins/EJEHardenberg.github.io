@@ -1,4 +1,9 @@
 {
+	"frameworks" : {
+		"title" : "Frameworks",
+		"date" : "2015-8-4",
+		"freq" : "monthly"
+	},
 	"small-minded" : {
 		"title" : "Small Minded",
 		"date" : "2015-7-30",
