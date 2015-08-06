@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Fri, 24 Jul 2015 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Thu, 06 Aug 2015 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Logging to a File in Spray</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/logging-to-a-file-spray-async</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/logging-to-a-file-spray-async</guid>
+			<pubDate>Thu, 06 Aug 2015 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[Setting up logback files with AsyncAppenders for Spray]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Serializing Generic Types with Spray JSON Library</title>
