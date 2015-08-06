@@ -655,5 +655,11 @@
 		"description" : "Continuing from the last post, this is how you can take generic base classes and allow the serialization code to convert them to the appropriate subclass.",
 		"date" : "2015-7-24",
 		"keywords" : "spray-json,generics,type hierarchy,spray,json,serialize,generic,base class"
+	},
+	"logging-to-a-file-spray-async" : {
+		"title" : "Logging to a File in Spray",
+		"description" : "Setting up logback files with AsyncAppenders for Spray",
+		"date" : "2015-8-6",
+		"keywords" : "spray,spray-can,logback,logging,file,AsyncAppender,FileAppender,log,scala"
 	}
 }
