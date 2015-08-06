@@ -1,4 +1,10 @@
 {
+	"crowd" : {
+		"title" : "4 Perspectives",
+		"date" : "2015-8-5",
+		"desc" : "A set of viewpoints at a show",
+		"freq" : "monthly"
+	},
 	"monday" : {
 		"title" : "Monday",
 		"date" : "2015-8-3",
