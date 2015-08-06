@@ -27,7 +27,7 @@ Alone in solitude. The single sad individual looked around him.
 Observing each, from the band to the Bartender, his bitterness doubled.
 The nature of each person he saw, engaged in their frivolous lustings
 and shortsightedness, disturbed him. His dreams of humanities
-achievements lay in ash his feet, scattered by those he felt foolish.
+achievements lay in ash by his feet, scattered by those he felt foolish.
 What little he wanted felt unattainable. So he stood. Surrounded by the
 crowd, but not bobbing to music or taking part in some sexual scheme, he
 quietly drank. Then walked away.
