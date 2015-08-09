@@ -1,4 +1,10 @@
 {
+	"meteors" : {
+		"title" : "Meteor Shower",
+		"date" : "2015-8-9",
+		"desc" : "A pair of people out in the woods for a show",
+		"freq" : "monthly"
+	},
 	"crowd" : {
 		"title" : "4 Perspectives",
 		"date" : "2015-8-5",
