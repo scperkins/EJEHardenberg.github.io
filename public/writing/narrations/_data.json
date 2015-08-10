@@ -1,4 +1,10 @@
 {
+	"rest" : {
+		"title" : "Rest",
+		"date" : "2015-8-10",
+		"desc" : "Two lovers sleep",
+		"freq" : "monthly"
+	},
 	"meteors" : {
 		"title" : "Meteor Shower",
 		"date" : "2015-8-9",
