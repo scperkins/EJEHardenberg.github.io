@@ -1,4 +1,10 @@
 {
+	"steam" : {
+		"title" : "Steam",
+		"date" : "2015-8-12",
+		"desc" : "After run shower",
+		"freq" : "monthly"
+	},
 	"rest" : {
 		"title" : "Rest",
 		"date" : "2015-8-10",
