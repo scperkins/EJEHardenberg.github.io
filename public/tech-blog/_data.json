@@ -661,5 +661,11 @@
 		"description" : "Setting up logback files with AsyncAppenders for Spray",
 		"date" : "2015-8-6",
 		"keywords" : "spray,spray-can,logback,logging,file,AsyncAppender,FileAppender,log,scala"
+	},
+	"spray-transparent-head-requests-testing": {
+		"title" : "Spray's Transparent Head Requests and Testing",
+		"description" : "It is not possible to fully test HEAD-only routes in spray, and this can lead to unexpected behaviors in production system. This post is about a gotcha to be wary of",
+		"date" : "2015-7-11",
+		"keywords" : "spray,head,transparent head request,requests,testing,error,bug"
 	}
 }
