@@ -14,6 +14,16 @@
 
 		
 		<item>
+			<title>Spray's Transparent Head Requests and Testing</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/spray-transparent-head-requests-testing</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/spray-transparent-head-requests-testing</guid>
+			<pubDate>Sat, 11 Jul 2015 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[It is not possible to fully test HEAD-only routes in spray, and this can lead to unexpected behaviors in production system. This post is about a gotcha to be wary of]]
+			</description>
+		</item>
+		
+		<item>
 			<title>Logging to a File in Spray</title>
 			<link>http://ethanjoachimeldridge.info/tech-blog/logging-to-a-file-spray-async</link>
 			<guid>http://ethanjoachimeldridge.info/tech-blog/logging-to-a-file-spray-async</guid>
