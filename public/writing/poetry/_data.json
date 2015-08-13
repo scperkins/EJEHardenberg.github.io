@@ -1,4 +1,9 @@
 {
+	"trophy" : {
+		"title" : "Trophy",
+		"date" : "2015-8-13",
+		"freq" : "monthly"
+	},
 	"frameworks" : {
 		"title" : "Frameworks",
 		"date" : "2015-8-4",
