@@ -23,11 +23,11 @@ this:
 	</Location>
 
 Which is great. Now only people who have already compromised your box, or you, 
-can get information about your server. This is a good thing (unless your 
-compromised). But something which people love to do is use nginx to proxy.
+can get information about your server. This is a good thing (unless
+you're compromised). But something which people love to do is use nginx to proxy.
 After all, it's [recommended in the top hit for nginx vs apache in the 
 "Using Nginx and Apache both" section] for pretty good reasons. But something 
-which else which people do (which makes less sense), is to have both nginx 
+else people do (which makes less sense), is to have both nginx 
 _and_ apache running _on the same machine_. If your argument for using both 
 systems is that nginx is better at static content, and apache better at heavy
 processing, then you should probably understand that _if apache is taking all
@@ -37,7 +37,9 @@ you just [shut off AllowOverride] and only use apache?_\*\*\*
 Why am I mentioning this and the `server-status` handler above? Let me guide you
 down the right path: What IP Address will nginx provide to apache when proxying?
 If you answered **The ip of the client duh!** I would suggest you do two things.
-1. [Click here], 2. Keep reading. 
+
+1. [Click here](http://foaas.com/madison/dear reader/Ethan)
+2. Keep reading. 
 
 The correct answer is of course, `127.0.0.1` because nginx is running on your local 
 system. And apache will see that local ip and correctly take the localhost as the 
@@ -51,7 +53,6 @@ you'll need [mod_rpaf] (or an [alternative]). Installing this is easy.
 3. Open the tar file, or change into the root directory and run `apxs -i -c -n mod_rpaf-2.0.so mod_rpaf-2.0.c`
 4. Create the configuration file <pre>#/etc/httpd/conf.d/mod_rpaf-2.0.so
 LoadModule rpaf_module modules/mod_rpaf-2.0.so
-
 RPAFenable On
 RPAFsethostname On
 RPAFproxy_ips 127.0.0.1
@@ -62,7 +63,7 @@ Now apache will understand when someone sends headers along with `X-Forwarded-Fo
 and `X-Host` that it's really supposed to be pretending that it got the request
 for that IP and host directly and and not from whatever locally just came to it. 
 This is all well and good, but you do need to update your nginx configuration to 
-_set the headers in the first place_. As it's not going to do it by yourself:
+_set the headers in the first place_. As it's not going to do it by itself:
 
 1. Open your nginx configuration and add in a couple lines to your proxying location:<pre>...
 	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -83,15 +84,18 @@ While you're in your configuration, you may also consider shutting off your
 re-run isn't calling you.
 
 
-<small>\* For the love of god, read a man page or some documentation before you put something in production</small>
-<small>\*\* Really. Check your log files when you turn something on</small>
-<small>\*\*\* Pretty sure I saw a benchmark a while ago showing that Apache performed just as well as nginx when AllowOverride was off</small>
+<small>\* For the love of god, read a man page or some documentation
+before you put something in production</small><br/>
+<small>\*\* Really. Check your log files when you turn something
+on</small><br/>
+<small>\*\*\* Pretty sure I saw a benchmark a while ago showing that
+Apache performed just as well as nginx when AllowOverride was
+off</small><br/>
 <small>\*\*\*\* If you want to get hit by exploits specific to your server version</small>
 
 [Everyone]:http://foaas.com/everyone/Anyone%20who%20reads%20manpages
 [recommended in the top hit for nginx vs apache in the "Using Nginx and Apache both" section]:https://anturis.com/blog/nginx-vs-apache/
 [shut off AllowOverride]:http://www.eschrade.com/page/why-you-should-not-use-htaccess-allowoverride-all-in-production/
-[Click here]:http://foaas.com/madison/dear reader/Ethan
 [mod_rpaf]:https://github.com/gnif/mod_rpaf
 [alternative]:http://massivescale.blogspot.com/2013/10/alternatives-to-modrpaf.html
 [here]:http://drupion.com/sites/default/files/mod_rpaf-0.6.tar_.gz
