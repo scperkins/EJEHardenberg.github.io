@@ -1,4 +1,10 @@
 {
+	"the-interview" : {
+		"title" : "The Interview",
+		"date" : "2015-8-16",
+		"desc" : "A murderer's motives are questioned, and the investigation of who's responsible is looked at",
+		"freq" : "monthly"
+	},
 	"steam" : {
 		"title" : "Steam",
 		"date" : "2015-8-12",
