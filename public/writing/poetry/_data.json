@@ -1,4 +1,9 @@
 {
+	"empathy" : {
+		"title" : "Empathy",
+		"date" : "2015-8-17",
+		"freq" : "monthly"
+	},
 	"trophy" : {
 		"title" : "Trophy",
 		"date" : "2015-8-13",
