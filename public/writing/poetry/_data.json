@@ -4,6 +4,11 @@
 		"date" : "2015-8-17",
 		"freq" : "monthly"
 	},
+	"gamble" : {
+		"title" : "Gamble",
+		"date" : "2015-8-16",
+		"freq" : "monthly"
+	},
 	"trophy" : {
 		"title" : "Trophy",
 		"date" : "2015-8-13",
