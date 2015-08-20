@@ -1,4 +1,10 @@
 {
+	"waltz" : {
+		"title" : "Waltz",
+		"date" : "2015-08-20",
+		"desc" : "A couple dance together",
+		"freq" : "monthly"
+	},
 	"cement" : {
 		"title" : "Cement",
 		"date" :"2015-08-18",
