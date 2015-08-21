@@ -673,5 +673,11 @@
 		"description" : "Attempts at security don't matter if people don't test things or understand the full configuration of a system",
 		"date" : "2015-8-14",
 		"keywords" : "proxy,nginx,apache,security"
+	},
+	"jenkins-multiple-deploy-keys-and-github" : {
+		"title" : "Multiple Deploy Keys and Jenkins",
+		"description" : "Setting up multiply deploy keys and continous integration in jenkins with github.",
+		"date" : "2015-8-21",
+		"keywords" : "jenkins,git,deploy keys,multiple,continous,integration"
 	}
 }
