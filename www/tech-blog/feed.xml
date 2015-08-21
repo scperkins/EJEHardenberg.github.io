@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Fri, 14 Aug 2015 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Fri, 21 Aug 2015 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Multiple Deploy Keys and Jenkins</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/jenkins-multiple-deploy-keys-and-github</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/jenkins-multiple-deploy-keys-and-github</guid>
+			<pubDate>Fri, 21 Aug 2015 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[Setting up multiply deploy keys and continous integration in jenkins with github.]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Administrative Gotcha when doing local proxying</title>
