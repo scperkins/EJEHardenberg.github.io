@@ -679,5 +679,11 @@
 		"description" : "Setting up multiply deploy keys and continous integration in jenkins with github.",
 		"date" : "2015-8-21",
 		"keywords" : "jenkins,git,deploy keys,multiple,continous,integration"
+	},
+	"compromising-wordpress" : {
+		"title" : "WordPress 4.2 Exploit, SQL Injection Edition",
+		"description" : "While looking through my email I saw CVE-2015-2213 and decided to try to exploit it on my local machine to compromise a wordpress site. Script Kiddies don't try this at home! (Post for educational purposes only)",
+		"date" : "2015-8-23",
+		"keywords" : "wordpress,security,exploit,sql injection,4.2.3,compromise,denial of service,DoS"
 	}
 }
