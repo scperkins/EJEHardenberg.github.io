@@ -1,4 +1,10 @@
 {
+	"prepared" : {
+		"title" : "Prepared",
+		"date" : "2015-08-24",
+		"desc" : "A person prepares to speak to a crowd",
+		"freq" : "monthly"
+	},
 	"waltz" : {
 		"title" : "Waltz",
 		"date" : "2015-08-20",
