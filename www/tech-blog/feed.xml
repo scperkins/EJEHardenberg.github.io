@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Fri, 21 Aug 2015 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Sun, 23 Aug 2015 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>WordPress 4.2 Exploit, SQL Injection Edition</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/compromising-wordpress</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/compromising-wordpress</guid>
+			<pubDate>Sun, 23 Aug 2015 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[While looking through my email I saw CVE-2015-2213 and decided to try to exploit it on my local machine to compromise a wordpress site. Script Kiddies don't try this at home! (Post for educational purposes only)]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Multiple Deploy Keys and Jenkins</title>

