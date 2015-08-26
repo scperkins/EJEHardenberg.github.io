@@ -1,4 +1,9 @@
 {
+	"80s" : {
+		"title" : "80's",
+		"date" : "2015-8-25",
+		"freq" : "monthly"
+	},
 	"empathy" : {
 		"title" : "Empathy",
 		"date" : "2015-8-17",
