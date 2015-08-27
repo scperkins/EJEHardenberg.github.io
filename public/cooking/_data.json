@@ -4,6 +4,14 @@
 		"description" : "A small bundle of recipes of things I eat for dinner that are easy to make.",
 		"freq" : "daily"
 	},
+	"3-vegi-soup" : {
+		"title" : "3 Vegetable Soup",
+		"image" : "3vegisoup.jpg",
+		"description" : "An easy to make meal for one",
+		"author" : "ethan",
+		"freq" : "monthly",
+		"date" : "2015-8-27"
+	},
 	"spiced-tomato-noodles" : {
 		"title" : "Spiced Tomato Noodles",
 		"image" : "spiced-tomato-noodles.JPG",
