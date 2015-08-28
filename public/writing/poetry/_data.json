@@ -1,4 +1,9 @@
 {
+	"stereotype" : {
+		"title" : "Stereotype",
+		"date" : "2015-8-28",
+		"freq" : "monthly"
+	},
 	"80s" : {
 		"title" : "80's",
 		"date" : "2015-8-25",
