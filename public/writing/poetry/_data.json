@@ -1,4 +1,9 @@
 {
+	"rainbow" : {
+		"title" : "Rainbow",
+		"date" : "2015-8-31",
+		"freq" : "monthly"
+	},
 	"stereotype" : {
 		"title" : "Stereotype",
 		"date" : "2015-8-28",
