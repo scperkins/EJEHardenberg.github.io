@@ -1,4 +1,9 @@
 {
+	"goosestep" : {
+		"title" : "Goose Step",
+		"date" : "2015-9-7",
+		"freq" : "monthly"
+	},
 	"rainbow" : {
 		"title" : "Rainbow",
 		"date" : "2015-8-31",
