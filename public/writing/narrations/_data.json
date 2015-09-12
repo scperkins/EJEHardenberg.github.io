@@ -1,4 +1,10 @@
 {
+	"trivial" : {
+		"title" : "Trivial",
+		"date" : "2015-9-12",
+		"desc" : "A winner of a trivia game walks by a homeless man",
+		"freq" : "monthly"
+	},
 	"greens" : {
 		"title" : "Greens",
 		"date" : "2015-9-9",
