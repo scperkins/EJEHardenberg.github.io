@@ -1,4 +1,9 @@
 {
+	"soured" : {
+		"title" : "Soured",
+		"date" : "2015-9-16",
+		"freq" : "monthly"
+	},
 	"champ" : {
 		"title" : "Champ",
 		"date" : "2015-9-11",
