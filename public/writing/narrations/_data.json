@@ -1,4 +1,10 @@
 {
+	"fashionshow" : {
+		"title" : "Fashion Show",
+		"date" : "2015-9-18",
+		"desc" : "Behind the stage of a show",
+		"freq" : "monthly"
+	},
 	"trivial" : {
 		"title" : "Trivial",
 		"date" : "2015-9-12",
