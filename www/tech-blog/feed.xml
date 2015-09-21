@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Sun, 23 Aug 2015 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Mon, 21 Sep 2015 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>NewRelic, Scala, and XML Instrumentation</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/newrelic-xml-scala-instrumentation</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/newrelic-xml-scala-instrumentation</guid>
+			<pubDate>Mon, 21 Sep 2015 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[The XML Instrumentation of New Relic allows you to monitor your code without modifying the source itself. In order to do so you need to know classnames, and this post talks about finding out what classes those are.]]
+			</description>
+		</item>
 		
 		<item>
 			<title>WordPress 4.2 Exploit, SQL Injection Edition</title>
