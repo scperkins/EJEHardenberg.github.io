@@ -685,5 +685,11 @@
 		"description" : "While looking through my email I saw CVE-2015-2213 and decided to try to exploit it on my local machine to compromise a wordpress site. Script Kiddies don't try this at home! (Post for educational purposes only)",
 		"date" : "2015-8-23",
 		"keywords" : "wordpress,security,exploit,sql injection,4.2.3,compromise,denial of service,DoS"
+	},
+	"newrelic-xml-scala-instrumentation" : {
+		"title" : "NewRelic, Scala, and XML Instrumentation",
+		"description" : "The XML Instrumentation of New Relic allows you to monitor your code without modifying the source itself. In order to do so you need to know classnames, and this post talks about finding out what classes those are.",
+		"date" : "2015-9-21",
+		"keywords" : "newrelic,scala,instrumentation,xml,objects,javap,monitoring"
 	}
 }
