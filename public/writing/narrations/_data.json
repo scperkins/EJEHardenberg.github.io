@@ -1,4 +1,10 @@
 {
+	"owl" : {
+		"title" : "Owl",
+		"date" : "2015-9-22",
+		"desc" : "A dead animal and the people around it",
+		"freq" : "monthly"
+	},
 	"fashionshow" : {
 		"title" : "Fashion Show",
 		"date" : "2015-9-18",
