@@ -4,6 +4,14 @@
 		"description" : "A small bundle of recipes of things I eat for dinner that are easy to make.",
 		"freq" : "daily"
 	},
+	"beef-stew" : {
+		"title" : "Slow cooked Beef Stew",
+		"image" : "beefstew.jpg",
+		"description" : "Slow cooked delicious meal",
+		"author" : "ethan",
+		"freq" : "monthly",
+		"date" : "2015-9-27"
+	},
 	"spicy-potato-fry" : {
 		"title" : "Spicy Potato Stir Fry",
 		"image" : "spicy-potato-fry.jpg",
