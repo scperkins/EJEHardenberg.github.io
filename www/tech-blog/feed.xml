@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Mon, 21 Sep 2015 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Fri, 02 Oct 2015 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Spray ToResponseMarshallable "Too Many Arguments" error</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/spray-ToResponseMarshallable-too-many-arguments-error</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/spray-ToResponseMarshallable-too-many-arguments-error</guid>
+			<pubDate>Fri, 02 Oct 2015 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[An error with a non-helpful error message and its solution.]]
+			</description>
+		</item>
 		
 		<item>
 			<title>NewRelic, Scala, and XML Instrumentation</title>
