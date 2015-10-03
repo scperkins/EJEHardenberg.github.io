@@ -1,4 +1,9 @@
 {
+	"flood" : {
+		"title" : "Flood",
+		"date" : "2015-10-3",
+		"freq" : "monthly"
+	},
 	"soured" : {
 		"title" : "Soured",
 		"date" : "2015-9-16",
