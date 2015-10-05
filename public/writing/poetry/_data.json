@@ -1,4 +1,9 @@
 {
+	"decadence" : {
+		"title" : "Decadence",
+		"date" : "2015-10-5",
+		"freq" : "monthly"
+	},
 	"flood" : {
 		"title" : "Flood",
 		"date" : "2015-10-3",
