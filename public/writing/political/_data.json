@@ -1,4 +1,11 @@
 {
+	"ads-less-more" : {
+		"title" : "Ads, is less more?",
+		"description" : "Which generates more revenue? Small tasteful ads that don't slow a page, or lots of intrusive and flashy ads that suck up your bandwidth?",
+		"date" : "2015-10-5",
+		"freq" : "monthly",
+		"draft" : true
+	},
 	"fined-for-feeding-the-homeless" : {
 		"title" : "Fined for Feeding the homeless? No.",
 		"description" : "Joan Cheever has been fined for serving food from an unapproved truck, her defense? Religious freedom.",
