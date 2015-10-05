@@ -1,0 +1,9 @@
+The dogs eyes were brown, a shade lighter than its coat and much darker than the neon tennis ball she held in her mouth. Tail waggling, the animal lay in the grass and lazily watched the day drift by. Occasionally rolling, she amused herself with clouds of grass. Tearing up clumps as she dashed around the freshly mowed yard.
+
+A short distance away, a red shirted man dozed against a tree. A few papers, each full of writing and indistinct from each other, lay in binders. The crack of the documents flapping in the wind caused the silver haired head to turn up each time it happened, but he never fully woke up.
+
+At least not until his dog trotted over, tongue lolling out from behind the ball and bouncing against the side of her face. Prodding her owner gently with her nose, she haltingly nuzzled her way underneath one of his arms. Paws carefully placed between his crossed legs, she lifted her nose and pushed her face under his.
+
+Starting from the sudden cold and wet spot on his neck, the man's eyes opened and his arms lifted as he took stock of what was going on. Before he could lower his arm around the warm companion, she had stiffened and lovingly fallen against him. Turning onto her back as she fell into his lap and stretched out her legs. A soft paw lightly rested against his chest while the other hung bent on the air.
+
+His snooze over, he brook into a grin and began petting his dog. Affectionately rubbing her belly and scratching behind her ears, he cooed gently. Reminding his best friend that she was exactly that. Unable to resist, the animal twisted and turned upwards and began licking his face. Falling sideways away from the tree, the dog followed him and continued its puppy love. The tennis ball laying on the grass forgotten.

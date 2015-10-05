@@ -1,4 +1,10 @@
 {
+	"puppy-love" : {
+		"title" : "Puppy love",
+		"date" : "2015-10-5",
+		"desc" : "A man sleeps under the tree while his dog plays and seeks his affection",
+		"freq" : "monthly"
+	},
 	"owl" : {
 		"title" : "Owl",
 		"date" : "2015-9-22",
