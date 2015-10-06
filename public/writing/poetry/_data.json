@@ -1,4 +1,9 @@
 {
+	"house-of-cards" : {
+		"title" : "House of Cards",
+		"date" : "2015-10-6",
+		"freq" : "monthly"
+	},
 	"decadence" : {
 		"title" : "Decadence",
 		"date" : "2015-10-5",
