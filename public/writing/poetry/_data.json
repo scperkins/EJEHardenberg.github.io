@@ -1,4 +1,9 @@
 {
+	"across-pond" : {
+		"title" : "Across the pond",
+		"date" : "2015-10-7",
+		"freq" : "monthly"
+	},
 	"house-of-cards" : {
 		"title" : "House of Cards",
 		"date" : "2015-10-6",
