@@ -1,4 +1,9 @@
 {
+	"cozy" : {
+		"title" : "Cozy",
+		"date" : "2015-10-12",
+		"freq" : "monthly"
+	},	
 	"elder" : {
 		"title" : "Elder",
 		"date" : "2015-10-8",
