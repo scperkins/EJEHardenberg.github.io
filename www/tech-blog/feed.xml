@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Fri, 02 Oct 2015 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Thu, 15 Oct 2015 00:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Scala, XML, and XSD Validation</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/scala-xml-xsd-validation</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/scala-xml-xsd-validation</guid>
+			<pubDate>Thu, 15 Oct 2015 00:00:00 GMT</pubDate>
+			<description>
+				![CDATA[Loading XML in scala is easy, but you can only gain a sense of type safety if your XML is loaded and validated against a schema. Here's how to do that]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Spray ToResponseMarshallable "Too Many Arguments" error</title>

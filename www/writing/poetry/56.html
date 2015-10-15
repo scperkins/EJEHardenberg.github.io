@@ -2,11 +2,13 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Ethan's Tech Blog | Spray ToResponseMarshallable &quot;Too Many Arguments&quot; error</title>
+    <title>Ethan's Writing | 56</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="An error with a non-helpful error message and its solution." />
+    
+    <meta name="description" content="56 dollars a day and that&#39;s tightGiven that check but no right to lifeCan&#39;t work, no stamps, just in limbo stayHow you going to pay " />
+    
     <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="spray,scala,error,ToResponseMarshallable,too many arguments"/>
+    <meta name="keywords" content="Ethan,Eldridge,Joachim,Poetry,poems,writing"/>
     <meta name="robots" content="index, follow"  />
       <meta name="revisit-after" content="1 month" />
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
@@ -17,19 +19,19 @@
 
         
     <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Spray ToResponseMarshallable &quot;Too Many Arguments&quot; error" />
+    <meta property="og:title" content="Ethan Eldridge | 56" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
     
-    <meta property="og:description" content="An error with a non-helpful error message and its solution." />
+    <meta property="og:description" content="The website of Ethan Joachim Eldridge, code tutorials, poetry, narratives, recipes, and information about the Programmer Ethan." />
     
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Spray ToResponseMarshallable &quot;Too Many Arguments&quot; error" />
+    <meta name="twitter:title" content="Ethan Eldridge | 56" />
     
-    <meta name="twitter:description" content="An error with a non-helpful error message and its solution." />
+    <meta name="twitter:description" content="The website of Ethan Joachim Eldridge, code tutorials, poetry, narratives, recipes, and information about the Programmer Ethan." />
     
     <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     	<!-- Core CSS Scripts -->
@@ -52,44 +54,18 @@
   </head>
   <body>
     <header>
-      <h1>Spray ToResponseMarshallable &quot;Too Many Arguments&quot; error</h1>
+      <h1>56</h1>
     </header>
 
-
     <div id="content">
-      <a href="/tech-blog">Back</a>
-      <h3>Spray ToResponseMarshallable &quot;too many arguments&quot; Error</h3><p>So you&#39;ve setup a <a href="http://spray.io/">Spray</a> API of some kind. You&#39;ve got controllers, 
-JSON, all sorts of goodies. You&#39;re working happily away when a co-worker 
-wants to write some tests for improper behavior. Sure! You say, and 
-watch them send a request with malformed content and improper urls. </p>
-<p>You&#39;re suddenly looking at a <em>very</em> plaintext output from spray that says:</p>
-<pre><code>The requested resource could not be found.
-</code></pre><p>Oops. Looks like you forgot to add a rejection handler! Luckily, <a href="https://gist.github.com/jrudolph/9387700">Johannes</a>
-has your back, providing a useful gist. You use it as an example and write
-your own, returning your own response message with a <code>BadRequest</code> status 
-code.</p>
-<pre><code>case MalformedRequestContentRejection(message, _) :: _ =&gt; {                     
-    complete(StatusCodes.BadRequest, AwesomeResponseObject(400, RequestFailed(message)))
-}
-</code></pre><p>And then your compile fails:</p>
-<pre><code>[error] src/main/scala/com/example/routing/MyRoutes.scala:48: too many arguments for method apply: (v1: =&gt; spray.httpx.marshalling.ToResponseMarshallable)spray.routing.StandardRoute in trait Function1
-[error]                     complete(StatusCodes.BadRequest, AwesomeResponseObject(400, RequestFailed(msg)))
-</code></pre><p>What? This rather unhelpful message is complaining because the neccesary 
-magnets you need to have imported to handle the <code>complete</code> method aren&#39;t
-in place. How do you get them? Simple:</p>
-<pre><code>import spray.http._
-</code></pre><p>I found this through some trial and error and intuition. But I&#39;m not sure 
-where in the <a href="https://github.com/spray/spray/tree/master/spray-http/src/main/scala/spray/http">package</a> the neccesary information is defined. So I&#39;m not sure 
-how to make this import be only what is neccesary. Still, hope this helps, as
-the only other person I&#39;ve seen with this error did not link a solution 
-but rather just <a href="https://gist.github.com/gkossakowski/10277880">cluttered up github</a>.</p>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=scala-xml-xsd-validation>Scala, XML, and XSD Validation</a></li><li><a href=newrelic-xml-scala-instrumentation>NewRelic, Scala, and XML Instrumentation</a></li><li><a href=compromising-wordpress>WordPress 4.2 Exploit, SQL Injection Edition</a></li><li><a href=jenkins-multiple-deploy-keys-and-github>Multiple Deploy Keys and Jenkins</a></li><li><a href=protecting-proxied-servers>Administrative Gotcha when doing local proxying</a></li><li><a href=spray-transparent-head-requests-testing>Spray&#39;s Transparent Head Requests and Testing</a></li>
-        </ul>
-      </div>
+      <a href="/writing">Back</a>
+      <h2>56</h2>
+      <em>
+      	<p>56 dollars a day and that&#39;s tight<br>Given that check but no right to life<br>Can&#39;t work, no stamps, just in limbo stay<br>How you going to pay the bills piled each day<br>When you&#39;re ran down, beat down, sitting poor<br>On the street with no chance of having more<br>No arm around you now for 2 months<br>Just the cops in the park, ready to pounce<br>Should you fall asleep and fall down in it<br>That&#39;ll be 5 oh ma&#39;am, here&#39;s your bum tax ticket<br>Down to six dollars and now you&#39;re looking round<br>Told to eat healthy, can only afford that quarter pound<br>Lift up the spirits, trying to make amends<br>Hard to chin up when you&#39;ve got no friends<br>Even that best-y you&#39;ve known since you were five<br>Won&#39;t help now, don&#39;t want none of that drug life<br>Argue and anger on the side of the streets<br>Altercation spilling until you&#39;re in a court seat<br>Convicted and sentenced, cavity checked and spread<br>Brighten up buddy, 3 meals and a bed  </p>
+      </em>
+      <p>
+        Last updated: 2015-10-13
+      </p>
       <div id="disqus_thread"></div>
     <script type="text/javascript">
         var disqus_shortname = 'ejehardenberg';
