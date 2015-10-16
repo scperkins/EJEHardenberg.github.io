@@ -361,7 +361,7 @@ parser handles sets the default. Let's say that the default is for dead trees
 
 Easy enough right? The only other thing about the code above is that we're
 pulling the leaf color from the attribute of the node via `@color` in our 
-xpath. Fun right?
+xpath.
 
 Hopefully this helps anyone dealing with XML out there to get a handle on
 their models and be a bit safer in parsing their XML into data that they 
