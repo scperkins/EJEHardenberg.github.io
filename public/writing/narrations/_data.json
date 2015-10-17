@@ -1,4 +1,9 @@
 {
+	"forward" : {
+		"title" : "Forward",
+		"date" : "2015-10-17",
+		"freq" : "monthly"
+	},
 	"cozy" : {
 		"title" : "Cozy",
 		"date" : "2015-10-12",
