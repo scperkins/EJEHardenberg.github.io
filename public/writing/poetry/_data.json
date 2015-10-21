@@ -1,4 +1,9 @@
 {
+	"assets" : {
+		"title" : "Assets",
+		"date" : "2015-10-20",
+		"freq" : "monthly"
+	},
 	"56" : {
 		"title" : "56",
 		"date" : "2015-10-13",
