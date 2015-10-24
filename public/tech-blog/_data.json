@@ -703,5 +703,11 @@
 		"description" : "Loading XML in scala is easy, but you can only gain a sense of type safety if your XML is loaded and validated against a schema. Here's how to do that",
 		"date" : "2015-10-15",
 		"keywords" : "scala,xml,xsd,validation,SAXParser,InputStream"
+	},
+	"combine-xml-files" : {
+		"title" : "Combine XML files with Bash",
+		"description" : "How to handle simple XML with the built in CLI tools",
+		"date" : "2015-10-23",
+		"keywords" : "xml,combine,bash,head,tail"
 	}
 }
