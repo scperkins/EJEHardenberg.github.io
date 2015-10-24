@@ -52,7 +52,7 @@ last `n` lines of a file. We can then translate our above process to:
 1. Take the head of the file, up to the number of lines in the file -1
 2. Take the tail of the second file, up to the number of lines in the file -2
 
-Assuming that there isn't any new lines at the end of the file, this will work 
+Assuming that there aren't any new lines at the end of the file, this will work 
 fine. 
 
 #### head, tail, and bash
@@ -145,7 +145,7 @@ of the element list). These two things stay constant.
 
 Header:
 
-	head -n 3 file
+	head -n 2 file
 
 Footer:
 	
