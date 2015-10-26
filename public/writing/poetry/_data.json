@@ -1,4 +1,9 @@
 {
+	"wwww" : {
+		"title" : "W.W.W.W.",
+		"date" : "2015-10-25",
+		"freq" : "monthly"
+	},
 	"assets" : {
 		"title" : "Assets",
 		"date" : "2015-10-20",
