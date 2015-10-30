@@ -1,4 +1,9 @@
 {
+	"tent" : {
+		"title" : "Tent",
+		"date" : "2015-10-30",
+		"freq" : "monthly"
+	},
 	"halloween" : {
 		"title" : "Halloween",
 		"date" : "2015-10-22",
