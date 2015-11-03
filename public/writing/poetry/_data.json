@@ -1,4 +1,9 @@
 {
+	"fried-chicken" : {
+		"title" : "Fried Chicken",
+		"date" : "2015-11-2",
+		"freq" : "monthly"
+	},
 	"elect-the-homeless" : {
 		"title" : "Elect the Homeless",
 		"date" : "2015-10-28",
