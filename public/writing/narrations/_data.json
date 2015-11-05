@@ -1,4 +1,9 @@
 {
+	"dark-sky" : {
+		"title" : "Dark Sky",
+		"date" : "2015-11-4",
+		"freq" : "monthly"
+	},
 	"tent" : {
 		"title" : "Tent",
 		"date" : "2015-10-30",
