@@ -40,9 +40,9 @@ does not provide shell access." So you're halfway there. The next thing you
 should do is go to your Jenkins server, the job configuration you're working 
 on, and update the github urls to use your new host. For example, if you're 
 using the [Github Plugin for jenkins] you'll update the **Github project** area to
-say: `myrepo/username/repository/. And if you're using the [Git plugin] you'll
-update the **Source Code Management -> Repository URL** area to say: `myrepo/username/repo.git`
-and set the **credentials** area to use the ssh file you just made. 
+say: `myrepo/username/repository/`. And if you're using the [Git plugin] you'll
+update the **Source Code Management -> Repository URL** area to say:
+`myrepo/username/repo.git` and set the **credentials** area to use the ssh file you just made. 
 
 Once you do that and add the SSH key as a deploy key to github, you're done if you
 just want to have the one jenkins server talk to multiple github projects. But wait,
