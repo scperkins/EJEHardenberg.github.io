@@ -59,7 +59,21 @@ myTask <<= myTask.dependsOn(dist in Universal)
 6. Run `sbt` and `myTask <environment>` where `environment` is staging, 
 integration or production.
 
-And that's the step by step process. 
+And that's the step by step process. I find myself learning from simple 
+examples like these much better than other ways. The documentation on 
+[combining parsers] states you can do things like
+
+	val color: Parser[String] = "blue" | "green"
+
+But I found that sbt complained when doing so. The other thing to notice 
+here is that I `trim`ed the output of the parsed environment. Why? Because 
+it has an extra space in the parser see? The trick with the regular 
+`Parser[String]` is that it takes the literal string. 
+
+This is all I wanted to cover in this blog post, but depending on interest, 
+I might write up a small series on going from small examples to bigger 
+ones with SBT, or just provide some simple templates or examples of SBT 
+usage that I've seen come in handy.
 
 [builds on Jenkin's servers and deploy key's on github]:/tech-blog/jenkins-multiple-deploy-keys-and-github
 [SBT]:http://www.scala-sbt.org/
@@ -69,3 +83,4 @@ And that's the step by step process.
 [dist task]:https://www.playframework.com/documentation/2.3.x/ProductionDist
 [documentation on SBT]:http://www.scala-sbt.org/release/docs/Input-Tasks.html
 [Parsers]:http://www.scala-sbt.org/release/docs/Parsing-Input.html
+[combining parsers]:http://www.scala-sbt.org/release/docs/Parsing-Input.html#Combining+parsers
