@@ -709,5 +709,11 @@
 		"description" : "How to handle simple XML with the built in CLI tools",
 		"date" : "2015-10-23",
 		"keywords" : "xml,combine,bash,head,tail"
+	},
+	"how-to-create-sbt-task-that-takes-an-argument" : {
+		"title" : "How to create an SBT task that takes an argument",
+		"description" : "If a task only differs by a parameter, then use a parameter! How to do this in SBT isn't too hard, but SBT's documentation can be thick. This post will help.",
+		"date" : "2015-11-14",
+		"keywords" : "sbt,scala,task,parameter,argument,how to"
 	}
 }
