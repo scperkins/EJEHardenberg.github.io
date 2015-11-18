@@ -1,4 +1,9 @@
 {
+	"2nd-floor" : {
+		"title" : "2nd Floor",
+		"date" : "2015-11-17",
+		"freq" : "monthly"
+	},
 	"still" : {
 		"title" : "Still",
 		"date" : "2015-11-16",
