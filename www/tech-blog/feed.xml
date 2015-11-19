@@ -8,10 +8,30 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Sat, 14 Nov 2015 00:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Thu, 19 Nov 2015 00:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>How to set Netty options in Playframework</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/netty-timeouts-and-playframework</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/netty-timeouts-and-playframework</guid>
+			<pubDate>Thu, 19 Nov 2015 00:00:00 GMT</pubDate>
+			<description>
+				![CDATA[Setting netty options like timeouts or backlog's is easy if you know how. This is how to do it with play]]
+			</description>
+		</item>
+		
+		<item>
+			<title>How to connect VisualVM to Docker</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/connect-visualvm-docker</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/connect-visualvm-docker</guid>
+			<pubDate>Wed, 18 Nov 2015 00:00:00 GMT</pubDate>
+			<description>
+				![CDATA[Connecting to a JVM is easy with VisualVM, butwhen it's a remote machine you need to add a few parameters. Dockers no different.]]
+			</description>
+		</item>
 		
 		<item>
 			<title>How to create an SBT task that takes an argument</title>
