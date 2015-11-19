@@ -715,5 +715,17 @@
 		"description" : "If a task only differs by a parameter, then use a parameter! How to do this in SBT isn't too hard, but SBT's documentation can be thick. This post will help.",
 		"date" : "2015-11-14",
 		"keywords" : "sbt,scala,task,parameter,argument,how to"
+	},
+	"connect-visualvm-docker" : {
+		"title" : "How to connect VisualVM to Docker",
+		"description" : "Connecting to a JVM is easy with VisualVM, butwhen it's a remote machine you need to add a few parameters. Dockers no different.",
+		"date" : "2015-11-18",
+		"keywords" : "docker,visualvm,java,javac,container,debug"
+	},
+	"netty-timeouts-and-playframework" : {
+		"title" : "How to set Netty options in Playframework",
+		"description" : "Setting netty options like timeouts or backlog's is easy if you know how. This is how to do it with play",
+		"date" : "2015-11-19",
+		"keywords" : "netty,play,playframework,server,options,timeout"
 	}
 }
