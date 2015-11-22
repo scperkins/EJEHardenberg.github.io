@@ -727,5 +727,12 @@
 		"description" : "Setting netty options like timeouts or backlog's is easy if you know how. This is how to do it with play",
 		"date" : "2015-11-19",
 		"keywords" : "netty,play,playframework,server,options,timeout"
+	},
+	"building-state-from-scala-workflows" : {
+		"title" : "Building Content State from Workflow and Audit Logs",
+		"description" : "Workflows are integral to any business, and keeping track of changes is as well. There are many systems out there that do this, but what are some basics? This post explores some.",
+		"date" : "2015-11-22",
+		"keywords" : "workflow,scala,state,action,logs,audit,building state",
+		"draft" : true
 	}
 }

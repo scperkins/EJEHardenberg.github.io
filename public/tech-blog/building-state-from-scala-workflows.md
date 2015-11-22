@@ -1,0 +1,125 @@
+### Building Content State from Workflow and Audit Logs
+
+#### Background
+
+For a little while I've been milling over the idea that the state of an object 
+is a result of the history it's been through. For example, you could say that 
+a blog post is the result of multiple iterations of thought, writing, and 
+revising. In order to create something like that, you have a single piece 
+of content having actions applied to it, and this ultimately changes its 
+state. So you think of the following _actions_ that go into making a blog 
+post:
+
+1. Have idea for blog post 
+2. Write down thoughts
+3. Edit and correct typos
+4. Read again and look for improvements
+5. Improve with more links, references and better wording
+6. Publish blog post
+
+This sequence of events could be captured by a few states:
+
+<table>
+	<thead>
+		<th>State</th>
+		<th>Description</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Start State</td>
+			<td>Nothing is done yet</td>
+		</tr>
+		<tr>
+			<td>Brainstorming Phase</td>
+			<td>Coming up with an idea for a post</td>
+		</tr>
+		<tr>
+			<td>Writing</td>
+			<td>The post is being written</td>
+		</tr>
+		<tr>
+			<td>Editorial</td>
+			<td>The post is being reviewed and suggestions made for improving</td>
+		</tr>
+		<tr>
+			<td>Published</td>
+			<td>The blog post is done being improved and is out for reading</td>
+		</tr>
+	</tbody>
+</table>
+
+We always have a start state of some kind as a starting point that says 
+that nothing has been done yet for whatever content is being created. Then 
+we move between three main phases: thinking, writing, and reviewing. For 
+a one person team there isn't really a well-defined progression here, but 
+for a team working on a single product there might be very well defined 
+roles for each member. A producer might do most of the brain storming, 
+then pass along their notes to a writer during a meeting. Once the writer 
+has a rough draft, they'll send it to an editorial team. At this point 
+we might loop back saying there needs to be more done before it's ready, 
+which could end up back in either the producer or the writer's court. 
+Either way, it will go through the same set of actions over and over until 
+it finally reaches the published state:
+
+<table>
+	<thead>
+		<th>Action</th>
+		<th>Description</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Brainstorming</td>
+			<td>Coming up with an idea for a post</td>
+		</tr>
+		<tr>
+			<td>Start Writing</td>
+			<td>Someone will start writing</td>
+		</tr>
+		<tr>
+			<td>Start Editing</td>
+			<td>Someone will start editing</td>
+		</tr>
+		<tr>
+			<td>Submit Corrections</td>
+			<td>Send piece back to writer or producer for more work</td>
+		</tr>
+		<tr>
+			<td>Publish</td>
+			<td>The blog post is put out for reading</td>
+		</tr>
+	</tbody>
+</table>
+
+As we write out the state's and action's that can be applied to something 
+it is notable that you can begin to see a _workflow_ emerge from this. 
+This leads us to believe that a workflow is the set of actions and states 
+in which content can transition through before it is published. Or generally 
+speaking, before an object has reached an end state with no further actions.
+
+Now let's say that you're not just writing one blog post. But a bunch of 
+them, and your team isn't able to always walk over to each other to check 
+how something is going. At that point, you'll probably end up with something 
+in place to keep track of these things. Maybe basecamp, maybe Jira, maybe 
+something like Salesforce. No matter what you get, you're now in the business 
+of keeping track of not just the content, but what its current state is 
+and where it's supposed to go next. Depending on what you use, you might 
+have a history of events that happened, or you might just have a whole 
+bunch of notes attached to a single object. So long as the management of
+the content can tell you where to send it next, or why someone added a 
+long essay about some unrelated topic, you're good!
+
+#### Codifying State
+
+The idea of State is pretty easy to put into code, after all it's just a 
+label right? One thing that helps to know in a workflow is _when_ you 
+can move into a new state. After all, we don't move directly from 
+brainstorming to published! So the idea of a state also includes the idea 
+of a _prerequisite_. That one state must come before another. The 
+enforcement of this idea is entirely up to the implementation though. 
+For reason's you'll see soon, we'll just leave our model of state simple:
+
+	case class State(name: String)
+
+#### Codifying Action
+
+Action is a little more complicated
