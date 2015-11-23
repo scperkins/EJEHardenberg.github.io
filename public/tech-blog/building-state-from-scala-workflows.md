@@ -120,6 +120,60 @@ For reason's you'll see soon, we'll just leave our model of state simple:
 
 	case class State(name: String)
 
-#### Codifying Action
+#### Codifying Action and Workflow
 
-Action is a little more complicated
+Action is a little more complicated but not by much. An action allows an 
+object to transition from one state to another, so we'll need a `from` 
+and a `to` field of some kind. On top of that, if we consider actions to 
+be the _links_ in a directed graph, then they also possess a `direction`. 
+For UI purposes, and for our own sanity, we'll also want to include some 
+human readable information like a `name` within the model so we can make 
+sense of any output we're debugging or that we need to show to a user.
+
+
+	sealed trait Direction
+	case object Forward extends Direction
+	case object Backward extends Direction
+
+	case class Action(from: State, to: State, flow: Direction, name: String)
+
+Using a [sealed trait] we can ensure that the compiler will know when 
+we've created an exhaustive match against classes of type `Direction`. 
+And we can rest assured that the "direction" of an action will be 
+represented correctly. Now that we have both `State`s and `Action`s we 
+can consider how to model something like the following:
+
+<img src="/images/tech-blog/workflow-1.png" style="max-width:100%;"/>
+
+This sums up the scenario we were discussing earlier. In code we might 
+create a list of State's like so:
+
+	val start = State("Start")
+	val brainstorming = State("brainstorming")
+	val writing = State("writing")
+	val editorial = State("editorial")
+	val approved = State("approved")
+	val published = State("published")
+
+and a set of actions:
+
+	val startBrainstorming = Action(start, brainstorming, Forward, "start brainstorming")
+	val startWriting = Action(brainstorming, writing, Forward, "start writing")
+	val getMoreInfo = Action(writing, brainstorming, Backward, "get more information from producer")
+	val sendToEditor = Action(writing, editorial, Forward, "submit for editing")
+	val sendBackToWriter = Action(editorial, writing, Backward, "send back to writer")
+	val backToDrawingBoard = Action(editorial, brainstorming, Backward, "back to the drawing board")
+	val approvePost = Action(editorial, approved, Forward, "approve post")
+	val publishPost = Action(approved, published, Forward, "publish post")
+
+These would become characteristic of our own workflow:
+
+	case class Workflow(states: List[State], actions: List[Action])
+
+#### Tracking content
+
+So now that we have our definition of Workflow as a collection of states 
+and actions, we can move onto how to actually keep track of what state 
+something is in!
+
+[sealed trait]:http://www.scala-lang.org/old/node/6568
