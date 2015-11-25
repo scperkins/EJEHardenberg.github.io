@@ -174,6 +174,13 @@ These would become characteristic of our own workflow:
 
 So now that we have our definition of Workflow as a collection of states 
 and actions, we can move onto how to actually keep track of what state 
-something is in!
+something is in! Essentially, all we need to do is keep track of the actions
+themselves, allong with any notes about the transition. A _log entry_ than 
+is something like the following:
+
+	case class LogEntry(startState: State, endState: State, note: String, flowTaken: Direction, actionTaken: Action)
+
+once we have a list like this, taken _in sequential order_, we can come 
+up with an algorithm to determine an end state.
 
 [sealed trait]:http://www.scala-lang.org/old/node/6568
