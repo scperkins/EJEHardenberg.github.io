@@ -1,4 +1,9 @@
 {
+	"bass" : {
+		"title" : "Bass",
+		"date" : "2015-11-26",
+		"freq" : "monthly"
+	},	
 	"ingroup-outgroup": {
 		"title" : "In group, out group",
 		"date" : "2015-11-18",
