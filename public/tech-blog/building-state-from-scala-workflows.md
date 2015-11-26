@@ -181,6 +181,8 @@ is something like the following:
 	case class LogEntry(startState: State, endState: State, note: String, flowTaken: Direction, actionTaken: Action)
 
 once we have a list like this, taken _in sequential order_, we can come 
-up with an algorithm to determine an end state.
+up with an algorithm to determine an end state. The algorithm isn't that 
+hard if we have a single chain of events, after all, the last one in the 
+sequence is the last state we were in.
 
 [sealed trait]:http://www.scala-lang.org/old/node/6568
