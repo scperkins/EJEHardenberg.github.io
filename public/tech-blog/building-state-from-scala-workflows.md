@@ -185,4 +185,20 @@ up with an algorithm to determine an end state. The algorithm isn't that
 hard if we have a single chain of events, after all, the last one in the 
 sequence is the last state we were in.
 
+	val log: Seq[LogEntry] = ...
+	log.last
+
+But what if your workflow is more complicated and doesn't simply end in an
+published state, but also has multiple approval processes and conditions 
+that need to be satisfied before it's ready? In that case, our log, even 
+when ordered, will not be as simple as a `log.last` line of code. Rather, 
+we'll need to keep track of each "path" through the log to some extent. 
+Or at least be able to connect entries together and build up a history 
+of events for each "path". 
+
+This isn't too hard considering each `LogEntry` has both start and end 
+state. We simply need to compare Entry's against the previous and track 
+all of the last states. This can be done easily with stacks.
+
+
 [sealed trait]:http://www.scala-lang.org/old/node/6568
