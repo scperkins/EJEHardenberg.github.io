@@ -184,9 +184,9 @@ once we have a list like this, taken _in sequential order_, we can come
 up with an algorithm to determine an end state. The algorithm isn't that 
 hard if we have a single chain of events, after all, the last one in the 
 sequence is the last state we were in.
-
-	val log: Seq[LogEntry] = ...
-	log.last
+val
+	 log: Seq[LogEntry] = ...
+	log.last-p
 
 But what if your workflow is more complicated and doesn't simply end in an
 published state, but also has multiple approval processes and conditions 
@@ -198,7 +198,14 @@ of events for each "path".
 
 This isn't too hard considering each `LogEntry` has both start and end 
 state. We simply need to compare Entry's against the previous and track 
-all of the last states. This can be done easily with stacks.
+all of the last states. This can be done easily with a list of stacks. A 
+stack is the perfect choice for this since a _first in, last out_ strategy 
+will allow us to push down as many states as we need, but also get an 
+answer to what the last state is quickly. A list of stack's allows us to 
+maintain multiple "paths" in the log by comparing the start state of the 
+current state to the end state of each element on the top of the stack. 
+Once the top is figure'd out, we simply push down the element and continue 
+on from there.
 
 
 [sealed trait]:http://www.scala-lang.org/old/node/6568
