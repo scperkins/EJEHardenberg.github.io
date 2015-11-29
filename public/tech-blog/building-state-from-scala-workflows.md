@@ -205,7 +205,46 @@ answer to what the last state is quickly. A list of stack's allows us to
 maintain multiple "paths" in the log by comparing the start state of the 
 current state to the end state of each element on the top of the stack. 
 Once the top is figure'd out, we simply push down the element and continue 
-on from there.
+on from there, the only limitation is that we it's first come first serve
+for which stack the new entry will be added to should two stacks have 
+the same end state that matches the new state's beginning. 
+
+	def determineCurrentState(log: Seq[LogEntry], workflow: Workflow): Set[State] = {
+		var sequences = List[Stack[LogEntry]](
+			Stack[LogEntry]()
+		)
+		if (log.isEmpty) {
+			Set[State]()
+		} else {
+			for (entry <- log) {
+				var pushed = false
+				entry.flowTaken match {
+					case Forward =>
+						sequences.map { stack =>
+							if (stack.isEmpty ||
+								stack.headOption.map(_.endState) == Some(entry.startState)) {
+								stack.push(entry)
+								pushed = true
+							}
+						}
+						if (!pushed) {
+							val newStack = Stack[LogEntry](entry)
+							sequences = sequences :+ newStack
+						}
+					case Backward =>
+						sequences.map { stack =>
+							stack.headOption.map { topEntry =>
+								if (topEntry.endState == entry.startState && !pushed) {
+									stack.push(entry)
+									pushed = true
+								}
+							}
+						}
+				}
+			}
+		}
+		sequences.map(_.headOption).filter(_.isDefined).map(_.get.endState).toSet
+	}
 
 
 [sealed trait]:http://www.scala-lang.org/old/node/6568
