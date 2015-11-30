@@ -1,4 +1,9 @@
 {
+	"scraping" : {
+		"title" : "Scraping",
+		"date" : "2015-11-30",
+		"freq" : "monthly"
+	},
 	"cold" : {
 		"title" : "Cold",
 		"date" : "2015-11-20",
