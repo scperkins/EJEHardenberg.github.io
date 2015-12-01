@@ -48,7 +48,7 @@ This sequence of events could be captured by a few states:
 	</tbody>
 </table>
 
-We always have a start state of some kind as a starting point that says 
+We always have a start state or some kind as a starting point that says 
 that nothing has been done yet for whatever content is being created. Then 
 we move between three main phases: thinking, writing, and reviewing. For 
 a one person team there isn't really a well-defined progression here, but 
@@ -184,9 +184,9 @@ once we have a list like this, taken _in sequential order_, we can come
 up with an algorithm to determine an end state. The algorithm isn't that 
 hard if we have a single chain of events, after all, the last one in the 
 sequence is the last state we were in.
-val
-	 log: Seq[LogEntry] = ...
-	log.last-p
+
+	val log: Seq[LogEntry] = ...
+	log.last
 
 But what if your workflow is more complicated and doesn't simply end in an
 published state, but also has multiple approval processes and conditions 
@@ -196,7 +196,7 @@ we'll need to keep track of each "path" through the log to some extent.
 Or at least be able to connect entries together and build up a history 
 of events for each "path". 
 
-This isn't too hard considering each `LogEntry` has both start and end 
+This isn't too hard considering each `LogEntry` has both a start and an end 
 state. We simply need to compare Entry's against the previous and track 
 all of the last states. This can be done easily with a list of stacks. A 
 stack is the perfect choice for this since a _first in, last out_ strategy 
@@ -205,7 +205,7 @@ answer to what the last state is quickly. A list of stack's allows us to
 maintain multiple "paths" in the log by comparing the start state of the 
 current state to the end state of each element on the top of the stack. 
 Once the top is figure'd out, we simply push down the element and continue 
-on from there, the only limitation is that we it's first come first serve
+on from there, the only limitation is that it's first come first serve
 for which stack the new entry will be added to should two stacks have 
 the same end state that matches the new state's beginning. 
 
@@ -246,5 +246,63 @@ the same end state that matches the new state's beginning.
 		sequences.map(_.headOption).filter(_.isDefined).map(_.get.endState).toSet
 	}
 
+The input to the above function is an ordered list, probably pulled from a 
+database somewhere ordered by timestamp or some type of sequencing number. 
+The workflow is passed as a parameter because we could add checks against 
+the workflow to verify that all the state's we're pushing down onto the stacks 
+are allowed to be in that order; but for simplicity the above code doesn't do 
+that. If it did, it'd replace
 
+	stack.headOption.map(_.endState) == Some(entry.startState))
+
+with something like:
+
+	transitionPermissibleByWorkflow(stach.headOption, entry.startState)
+
+where the flow, start, and end state would all be checked by a helper 
+function.
+
+Once we have the above algorithm we can retrieve a set of States back in 
+a set. This tells us _all_ of the current states for an item and allows 
+us to handle content that has multiple end states. To prove that the code 
+works to yourself, you can checkout the [repositories tests here]. Of 
+course, knowing a State is handy, but this doesn't tell a user much. After 
+all, someone keeping tabs on an item wants to not only know the state, but 
+also _what actions can be taken_. This is simple:
+
+	def possibleActionsForState(state: State, workflow: Workflow): List[Action] = {
+		workflow.actions.filter(_.from == state)
+	}
+
+And if we combine this with our other function:
+
+	def possibleActionsForLog(log: Seq[LogEntry], workflow: Workflow): Map[State, List[Action]] = {
+		determineCurrentState(log, workflow).map(state => state -> possibleActionsForState(state, workflow)).toMap
+	}
+
+we can now retrieve which actions an item can have performed given a workflow 
+and a log file!
+
+#### What next?
+
+The next thing to do would be to create some type of simple system or API that 
+allowed this general model to work with your own content. A few ideas pop up to 
+me:
+
+1. Allow input of a workflow via [dotfiles] or a simplification of
+2. Concept of major and minor states, so that the branching that results in multiple 
+end states for a piece of content could be controlled better (branching allowed while
+in transition from a major to another major). 
+3. Build a friendly UI to do all the hard work for you! (Building workflows, 
+moving items along, etc).
+
+I know there are systems out there like [jBPM, Enhydra, and many more] but this 
+is mostly a thought exercise to get the juices flowing. If you implement any 
+workflow structures using this as a base, I want to know! Not just that the code 
+was useful, but also where you had to make updates or changes and why. Happy 
+coding!
+
+[repositories tests here]:https://github.com/EdgeCaseBerg/scala-workflow/blob/master/src/test/scala/com.github.edgecaseberg/workflow/WorkflowTest.scala
 [sealed trait]:http://www.scala-lang.org/old/node/6568
+[dotfiles]:https://en.wikipedia.org/wiki/DOT_(graph_description_language)
+[jBPM, Enhydra, and many more]:http://java-source.net/open-source/workflow-engines
