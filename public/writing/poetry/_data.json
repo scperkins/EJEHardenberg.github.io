@@ -1,4 +1,9 @@
 {
+	"face-value" : {
+		"title" : "Face Value",
+		"date" : "2015-12-1",
+		"freq" : "monthly"
+	},
 	"bass" : {
 		"title" : "Bass",
 		"date" : "2015-11-26",
