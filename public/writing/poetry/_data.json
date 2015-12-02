@@ -1,4 +1,9 @@
 {
+	"martyr" : {
+		"title" : "Martyr",
+		"date" : "2015-12-2",
+		"freq" : "monthly"
+	},
 	"face-value" : {
 		"title" : "Face Value",
 		"date" : "2015-12-1",
