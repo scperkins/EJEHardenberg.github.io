@@ -50,4 +50,5 @@ exit. If she could feel the dispassionate and irritated stare from the
 clerks she didn't show it; casually waving goodbye to them just so could
 get a last glimpse of the dresses in the glass window. Her grand tour
 done, she zipped up her coat and pulled on a ragged yarn hat. The next
-race from the warmth inside to her next destination.
+race from the warm corridors of the mall to the frigid concrete streets
+had just begun.
