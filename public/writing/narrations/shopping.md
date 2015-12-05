@@ -8,11 +8,11 @@ shop.
 In the pajama section, the soft cotton and fuzzily trimmed pants and
 robes bounced under hand. Plush pillows lay across rickety and cheap
 plastic shelves, their furry coatings smooth to her touch. The coziness
-drew her in, stopping frequently to sit or feel a display bed. To the
+drew her in to stopping frequently to sit or feel a display bed. To the
 store clerks she was one of those touch everything and buy nothing
 customers; to herself, a kid in a candy store.
 
-Her sweet tooth wasn't satisfied with just one department. She continued
+Her sweet tooth wasn't satisfied with just one department though. She continued
 her winding path into the hanging gardens of underwear. Silk, lace, and
 cotton arches hung from the racks. With a variety of colors and styles
 to choose from, she began prodded each one as she passed by. Running her
@@ -20,7 +20,7 @@ hand along the straps she gauged her interest on wiring and shelving.
 Only the most comfortable of each section slowed her step.
 
 The matching sets behind her, the akimbo postured mannequins loomed
-above her. Their empty faces half covered by hats or missing entirely,
+above. Their empty faces half covered by hats or missing entirely,
 she ignored their mimicry of life and focused on their outfits. The lean
 and tight jeans, the flares bells of retro chiq, each garment draped
 perfectly across the plastic. Experience gave her the edge, noting the
@@ -39,7 +39,7 @@ dancing across decorations, their last stop always the price tag. It's
 small and neatly printed horror the only thing preventing her from
 expanding her collection. Her typically frugal purse felt heavy the
 longer she looked. Lip bitten, she anxiously paced between her
-favorites. The blue A-line? The red sweater dress? She lingered, hands
+favorites. The blue A-line? The wine sweater dress? She lingered, hands
 feeling the fabric on a grey asymmetrical   gown. It's silken material
 flowing like water over her hands. The long cut out came up to her
 mid-thigh, its risque appeal keeping her eyes dazed as she imagined
