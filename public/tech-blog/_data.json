@@ -732,7 +732,13 @@
 		"title" : "Building Content State from Workflow and Audit Logs",
 		"description" : "Workflows are integral to any business, and keeping track of changes is as well. There are many systems out there that do this, but what are some basics? This post explores some.",
 		"date" : "2015-11-22",
-		"keywords" : "workflow,scala,state,action,logs,audit,building state",
+		"keywords" : "workflow,scala,state,action,logs,audit,building state"
+	},
+	"how-to-test-playframework-mailer" : {
+		"title" : "How to test the PlayFramework Mailer",
+		"description" : "SMTP Servers can be a pain to setup, but if you're using a JVM based language you're in luck! This post shows how to integrate GreenMail with Play!",
+		"date" : "2015-12-8",
+		"keywords" : "greenmail,play,smtp,test,testing,mail,mailer,MailerPlugin,PlayFramework,email",
 		"draft" : true
 	}
 }
