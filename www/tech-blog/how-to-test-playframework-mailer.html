@@ -2,11 +2,11 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Ethan's Tech Blog | How to connect VisualVM to Docker</title>
+    <title>Ethan's Tech Blog | How to test the PlayFramework Mailer</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Connecting to a JVM is easy with VisualVM, butwhen it&#39;s a remote machine you need to add a few parameters. Dockers no different." />
+    <meta name="description" content="SMTP Servers can be a pain to setup, but if you&#39;re using a JVM based language you&#39;re in luck! This post shows how to integrate GreenMail with Play!" />
     <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="docker,visualvm,java,javac,container,debug"/>
+    <meta name="keywords" content="greenmail,play,smtp,test,testing,mail,mailer,MailerPlugin,PlayFramework,email"/>
     <meta name="robots" content="index, follow"  />
       <meta name="revisit-after" content="1 month" />
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
@@ -17,19 +17,19 @@
 
         
     <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | How to connect VisualVM to Docker" />
+    <meta property="og:title" content="Ethan Eldridge | How to test the PlayFramework Mailer" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
     
-    <meta property="og:description" content="Connecting to a JVM is easy with VisualVM, butwhen it&#39;s a remote machine you need to add a few parameters. Dockers no different." />
+    <meta property="og:description" content="SMTP Servers can be a pain to setup, but if you&#39;re using a JVM based language you&#39;re in luck! This post shows how to integrate GreenMail with Play!" />
     
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | How to connect VisualVM to Docker" />
+    <meta name="twitter:title" content="Ethan Eldridge | How to test the PlayFramework Mailer" />
     
-    <meta name="twitter:description" content="Connecting to a JVM is easy with VisualVM, butwhen it&#39;s a remote machine you need to add a few parameters. Dockers no different." />
+    <meta name="twitter:description" content="SMTP Servers can be a pain to setup, but if you&#39;re using a JVM based language you&#39;re in luck! This post shows how to integrate GreenMail with Play!" />
     
     <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
     	<!-- Core CSS Scripts -->
@@ -52,39 +52,23 @@
   </head>
   <body>
     <header>
-      <h1>How to connect VisualVM to Docker</h1>
+      <h1>How to test the PlayFramework Mailer</h1>
     </header>
 
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      <h3>Connect Visual VM to a docker container</h3><p>In order to connect Visual VM to Docker you need to open the ports 
-between the host and the container as well as specify the jmxremote
-port because the container, from the local perspective, is a remote 
-JVM. You need to start java with a few extra parameters, so your 
-Dockerfile might end with something like this:</p>
-<pre><code>ENTRYPOINT [&quot;java -jar&quot;, &quot;myjar.jar&quot; &quot;-Dcom.sun.management.jmxremote.port=&lt;port&gt;&quot;,&quot;-Dcom.sun.management.jmxremote.authenticate=false&quot;,&quot;-Dcom.sun.management.jmxremote.ssl=false&quot;,&quot;-Dcom.sun.management.jmxremote.rmi.port=&lt;port&gt;&quot;,&quot;-Djava.rmi.server.hostname=&lt;docker ip&gt;&quot;]
-</code></pre><p>Where <code>&lt;port&gt;</code> is something like 8000 throughout, and the <code>&lt;docker ip&gt;</code> 
-is the IP address that you can get from your boot2docker or docker machine
-configuration. If you&#39;re using docker machine you can use: </p>
-<pre><code>docker-machine ls # find your machine name
-docker-machine env &lt;machine name&gt;
-</code></pre><p>Then you want to run your container with the port open and specified: </p>
-<pre><code>docker run -p 80:80 --expose &lt;port&gt; -p &lt;port&gt;:&lt;port&gt; t test 
-</code></pre><p>And then in VisualVM you can click &quot;Add JMX Connection&quot; and specify 
-the same <code>&lt;docker ip</code>&gt; and the port you&#39;ve opened. Once you&#39;ve done 
-that you should have the connection open. If you perform heap dumps 
-you&#39;ll need to copy the file from the docker container. You can copy 
-a file from docker like so:</p>
-<pre><code>docker ps #get your container id
-docker cp &lt;container id&gt;:/tmp/heapdump-1447875373977.hprof ~/Desktop/dump
-</code></pre><p>Don&#39;t forget to copy the filename that VisualVM tells you when you 
-click heap dump.</p>
+      
+        <br/>
+        <h3>
+          You've stumbled onto a post that is coming soon! But for now you can't see it. Sorry. 
+        </h3>
+        <p> For now why don't you checkout the other posts?</p>
       
       <h3>Other Posts</h3>
       <div id="other-posts">
         <ul>
-          <li><a href=netty-timeouts-and-playframework>How to set Netty options in Playframework</a></li><li><a href=how-to-create-sbt-task-that-takes-an-argument>How to create an SBT task that takes an argument</a></li><li><a href=building-state-from-scala-workflows>Building Content State from Workflow and Audit Logs</a></li><li><a href=combine-xml-files>Combine XML files with Bash</a></li><li><a href=scala-xml-xsd-validation>Scala, XML, and XSD Validation</a></li><li><a href=spray-ToResponseMarshallable-too-many-arguments-error>Spray ToResponseMarshallable &quot;Too Many Arguments&quot; error</a></li>
+          <li><a href=building-state-from-scala-workflows>Building Content State from Workflow and Audit Logs</a></li><li><a href=netty-timeouts-and-playframework>How to set Netty options in Playframework</a></li><li><a href=connect-visualvm-docker>How to connect VisualVM to Docker</a></li><li><a href=how-to-create-sbt-task-that-takes-an-argument>How to create an SBT task that takes an argument</a></li><li><a href=combine-xml-files>Combine XML files with Bash</a></li><li><a href=scala-xml-xsd-validation>Scala, XML, and XSD Validation</a></li>
         </ul>
       </div>
       <div id="disqus_thread"></div>
