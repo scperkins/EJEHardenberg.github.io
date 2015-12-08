@@ -47,6 +47,8 @@ The first two of these are easily addressed when you create a test:
 `FakeApplication` creation into a helper function and calling that.
 </small>
 
+The second is more troublesome.
+
 
 
 
