@@ -12,11 +12,10 @@ you? Worse! So what can you do? Well, say hello to [GreenMail].
 
 >GreenMail is an open source, intuitive and easy-to-use test suite of email servers for testing purposes. Supports SMTP, POP3, IMAP with SSL socket support. GreenMail also provides a JBoss GreenMail Service. GreenMail is the first and only library that offers a test framework for both receiving and retrieving emails from Java.
 
-In other words. It's your testing dream. There's already a [great blog
+In other words. It's your testing dream. There's already a [great blog 
 post on using it with JUnit], but what if you're using scala? What if 
-you're using the [Play Mailer Plugin]? Well it's still pretty simple 
-to get an SMTP server up and listening though there are some things to 
-keep in mind.
+you're using the [Play Mailer Plugin]? Well thats just fine, since it's 
+all SMTP or POP anyway. Though there are some things to keep in mind:
 
 1. Set `smtp.ssl` in your **test** configuration to `false`
 2. Make sure to set `smtp.port` to the same as GreenMail
@@ -52,6 +51,6 @@ The first two of these are easily addressed when you create a test:
 
 
 [GreenMail]:https://github.com/greenmail-mail-test/greenmail
-[[great blog post on using it with JUnit]:http://developer.vz.net/2011/11/08/unit-testing-java-mail-code/
+[great blog post on using it with JUnit]:http://developer.vz.net/2011/11/08/unit-testing-java-mail-code/
 [Play Mailer Plugin]:https://github.com/playframework/play-mailer
 [MimeMessage]:https://javamail.java.net/nonav/docs/api/javax/mail/internet/MimeMessage.html
