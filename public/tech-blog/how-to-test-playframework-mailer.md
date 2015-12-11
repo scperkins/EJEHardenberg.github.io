@@ -47,7 +47,15 @@ The first two of these are easily addressed when you create a test:
 `FakeApplication` creation into a helper function and calling that.
 </small>
 
-The second is more troublesome.
+The second is more troublesome. While you might think that the text of 
+an email is just that, you'd be wrong. An email, at least in MIME style,
+can have multiple parts. Each of which might have different MIME types 
+and dispositions. MIME types are your normal things like `text/html`, 
+`text/plain`, and etc. Disposition defines whether or not the content 
+of the message should be shown to the user as an attachment or inline 
+with the body of the email. 
+
+Another MIME type to be wary of in emails is the `multipart/*` set.
 
 
 
