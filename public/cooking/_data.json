@@ -4,6 +4,14 @@
 		"description" : "A small bundle of recipes of things I eat for dinner that are easy to make.",
 		"freq" : "daily"
 	},
+	"nachonachos" : {
+		"title" : "Na'cho Average Nachos!",
+		"image" : "nachonachos.jpg",
+		"description" : "These aren't your average nachos!",
+		"author" : "ethan",
+		"freq" : "monthly",
+		"date" : "2015-12-13"
+	},
 	"bacon-pork-tenderloin" : {
 		"title" : "Bacon Roasted Pork Tenderloin",
 		"image" : "pork-tenderloin.jpg",
