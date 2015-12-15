@@ -298,7 +298,7 @@ this. And in short can say that we'll take one pass through the string
 (with possible, but unlikely resizing), and have a constant time
 operation to retrieve the string values of our values. 
 
-A side note: The reason I sing unlikely resizing is because the length
+A side note: The reason I say "unlikely resizing" is because the length
 of the initial buffer is:
 
 	fmtcnt = PyString_GET_SIZE(format);
