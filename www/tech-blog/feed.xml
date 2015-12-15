@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Sun, 22 Nov 2015 00:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Tue, 15 Dec 2015 00:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Bashing Logs</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/bashing-logs</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/bashing-logs</guid>
+			<pubDate>Tue, 15 Dec 2015 00:00:00 GMT</pubDate>
+			<description>
+				![CDATA[Monitoring log files and performing an action once the file is silent for a period]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Building Content State from Workflow and Audit Logs</title>

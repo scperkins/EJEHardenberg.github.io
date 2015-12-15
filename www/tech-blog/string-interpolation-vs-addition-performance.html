@@ -322,7 +322,7 @@ talking about normal use cases with typical strings, we won&#39;t get into
 this. And in short can say that we&#39;ll take one pass through the string
 (with possible, but unlikely resizing), and have a constant time
 operation to retrieve the string values of our values. </p>
-<p>A side note: The reason I sing unlikely resizing is because the length
+<p>A side note: The reason I say &quot;unlikely resizing&quot; is because the length
 of the initial buffer is:</p>
 <pre><code>fmtcnt = PyString_GET_SIZE(format);
 reslen = rescnt = fmtcnt + 100;
