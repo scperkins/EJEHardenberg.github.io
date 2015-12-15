@@ -734,6 +734,12 @@
 		"date" : "2015-11-22",
 		"keywords" : "workflow,scala,state,action,logs,audit,building state"
 	},
+	"bashing-logs" : {
+		"title" : "Bashing Logs",
+		"description" : "Monitoring log files and performing an action once the file is silent for a period",
+		"date" : "2015-12-15",
+		"keywords" : "bash,logs,logging,difference"
+	},
 	"how-to-test-playframework-mailer" : {
 		"title" : "How to test the PlayFramework Mailer",
 		"description" : "SMTP Servers can be a pain to setup, but if you're using a JVM based language you're in luck! This post shows how to integrate GreenMail with Play!",
