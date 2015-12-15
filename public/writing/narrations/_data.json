@@ -1,4 +1,9 @@
 {
+	"buttons" : {
+		"title" : "Buttons",
+		"date" : "2015-12-14",
+		"freq" : "monthly"
+	},
 	"shopping" : {
 		"title" : "Shopping",
 		"date" : "2015-12-4",

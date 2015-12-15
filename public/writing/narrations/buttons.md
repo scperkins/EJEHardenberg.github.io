@@ -1,8 +1,8 @@
 The shiny buttons caught her eye. Silver and reflective, they stood out
 against the red coat wrapping the slim man in front of her. The light,
 orange and white with morning, played over the right side of his face
-and along the metal running down his front. Sitting on a dark wood
-bench, dangling his feet, something seemed off.
+and along the metal running down his front that hung toward that side. 
+Sitting on a dark wood bench, dangling his feet, something seemed off.
 
 Was it the way his hair fell in frayed curls around his face? Framing
 the strong features of a sharp nose and bushy eyebrows? Maybe the scarf
@@ -26,7 +26,7 @@ head fully turned and with a coy smile leaned in.
 
 "I know"
 
-He stiffened and turned slightly towards her. "Excuse me?"
+He stiffened and turned slightly towards and away from her. "Excuse me?"
 
 Her smile reached her eyes and she put an arm around him and lightly
 touched his shoulder, "You know what I'm talking about."
