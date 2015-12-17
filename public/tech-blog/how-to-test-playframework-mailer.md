@@ -125,8 +125,166 @@ Here is a "simple" case of parsing a mimeMessage that _mostly_ works:
 	}
 
 The above code is an adaptation on some I found on [coderanch] that 
-provided some insight. Unfortunately, this code has a flaw.
+provided some insight. Unfortunately, this code has a flaw. Namely that 
+we're not dealing with SMTP replacing our newlines with carriage returns 
+and newlines. If you print out the above and compare it to the original 
+text directly, you'll see something a bit funny show up. In vector form:
 
+	//Plain Text From original
+	Vector(10, 87, 101, 108, 99, 111, 109, 101, 32, 110, 97, 109, 101, 33, 32, 10, 10, 72, 111, 112, 101, 32, 121, 111, 117, 32, 108, 105, 107, 101, 100, 32, 116, 104, 105, 115, 32, 116, 117, 116, 111, 114, 105, 97, 108, 33, 10, 10, 45, 32, 116, 101, 115, 116, 101, 114, 64, 100, 111, 109, 97, 105, 110, 46, 99, 111, 109)
+	
+	//Plain text parsed by the above
+	Vector(13, 10, 87, 101, 108, 99, 111, 109, 101, 32, 110, 97, 109, 101, 33, 32, 13, 10, 13, 10, 72, 111, 112, 101, 32, 121, 111, 117, 32, 108, 105, 107, 101, 100, 32, 116, 104, 105, 115, 32, 116, 117, 116, 111, 114, 105, 97, 108, 33, 13, 10, 13, 10, 45, 32, 116, 101, 115, 116, 101, 114, 64, 100, 111, 109, 97, 105, 110, 46, 99, 111, 109)
+
+See how before every newline (ASCII 10) we now have a carriage return (
+ASCII 13?). This is a problem, we can easily solve this though by one 
+quick fix:
+
+	
+	def getTextFromBodyPart(p: javax.mail.Part): Option[String] = {
+		if (p.isMimeType("text/*")) {
+			Some(p.getContent().asInstanceOf[String].replaceAll("\r\n","\n"))
+		} else {
+			None
+		}
+	}
+
+And we're good. But parsing all this code by ourselves seems like we're 
+doing a lot of hard work that someone else has done before. And you'd 
+be right! [The fine folks at Apache Commons have an email library]. So 
+we can reduce our parsing code to something way simpler like this:
+
+	def mimeMessageToSimpleEmail(mimeMsg: MimeMessage): SimpleEmail = {
+		val subject = mimeMsg.getSubject()
+		val senders = arr2List(mimeMsg.getReplyTo()).map(_.toString())
+		val recipients = arr2List(mimeMsg.getAllRecipients()).map(_.toString())
+
+		val parser = new org.apache.commons.mail.util.MimeMessageParser(mimeMsg)
+		parser.parse()
+		val plainText = Option(parser.getPlainContent())
+		val htmlText = Option(parser.getHtmlContent())
+
+		SimpleEmail(recipients, senders, subject, plainText, htmlText)
+	}
+
+But then we run into a similar issue as before:
+
+	Vector(10, 87, 101, 108, 99, 111, 109, 101, 32, 110, 97, 109, 101, 33, 32, 10, 10, 72, 111, 112, 101, 32, 121, 111, 117, 32, 108, 105, 107, 101, 100, 32, 116, 104, 105, 115, 32, 116, 117, 116, 111, 114, 105, 97, 108, 33, 10, 10, 45, 32, 116, 101, 115, 116, 101, 114, 64, 100, 111, 109, 97, 105, 110, 46, 99, 111, 109)
+
+	Vector(13, 10, 87, 101, 108, 99, 111, 109, 101, 32, 110, 97, 109, 101, 33, 32, 13, 10, 13, 10, 72, 111, 112, 101, 32, 121, 111, 117, 32, 108, 105, 107, 101, 100, 32, 116, 104, 105, 115, 32, 116, 117, 116, 111, 114, 105, 97, 108, 33, 13, 10, 13, 10, 45, 32, 116, 101, 115, 116, 101, 114, 64, 100, 111, 109, 97, 105, 110, 46, 99, 111, 109)
+
+But we can fix this like before too:
+
+	val plainText = Option(parser.getPlainContent().replaceAll("\r\n", "\n"))
+	val htmlText = Option(parser.getHtmlContent().replaceAll("\r\n", "\n"))
+
+And then we're good. Now that we can parse an email, we can test that we 
+can send one. To make this easy, we can create a simple trait to mix 
+into our test classes using what we've covered:
+
+	package test
+
+	import org.scalatest._
+	import com.icegreen.greenmail.util.{ GreenMail, ServerSetup }
+	import scala.collection.JavaConverters._
+
+	import javax.mail.internet.MimeMessage
+	import javax.mail._
+
+	case class SimpleEmail(to: List[String], from: List[String], subject: String, plain: Option[String], html: Option[String])
+
+	/** Specification for Testing an SMTP Server.
+	 *
+	 *  @note Should be mixed in last since it extends BeforeAndAfterAll
+	 */
+	trait MailSpec extends FlatSpec with Matchers with BeforeAndAfterEach with BeforeAndAfterAll {
+		/** The current mailPort for this test
+		 *
+		 *  @note A def so that it can be overridden by users of the test
+		 */
+		def mailPort = {
+			9001
+		}
+
+		val greenMail = new GreenMail(new ServerSetup(mailPort, null, "smtp"));
+
+		override def beforeAll() {
+			super.beforeAll()
+			greenMail.start()
+		}
+
+		override def afterAll() {
+			super.afterAll()
+			greenMail.stop();
+		}
+
+		override def beforeEach() {
+			clearMailboxes
+			super.beforeEach()
+		}
+
+		def clearMailboxes = {
+			val managers = greenMail.getManagers()
+			val users = managers.getUserManager().listUser().asScala
+			val imapManager = managers.getImapHostManager()
+			users.map(imapManager.getInbox(_)).map(_.deleteAllMessages())
+		}
+
+		def waitForInbox(milliseconds: Long) {
+			greenMail.waitForIncomingEmail(milliseconds, 1)
+		}
+
+		def getMessageForEmail(email: String): List[SimpleEmail] = {
+			val user = greenMail.setUser(email, null)
+			val inbox = greenMail.getManagers().getImapHostManager().getInbox(user)
+			inbox.getMessages().asScala.sortWith(
+				(l, r) => l.getReceivedDate().after(r.getReceivedDate())
+			).map(msg => mimeMessageToSimpleEmail(msg.getMimeMessage())).toList
+		}
+
+		def arr2List[T](arr: Array[T]): List[T] = {
+			arr.toList
+		}
+
+		def mimeMessageToSimpleEmail(mimeMsg: MimeMessage): SimpleEmail = {
+			val subject = mimeMsg.getSubject()
+			val senders = arr2List(mimeMsg.getReplyTo()).map(_.toString())
+			val recipients = arr2List(mimeMsg.getAllRecipients()).map(_.toString())
+
+			val parser = new org.apache.commons.mail.util.MimeMessageParser(mimeMsg)
+			parser.parse()
+			val plainText = Option(parser.getPlainContent().replaceAll("\r\n", "\n"))
+			val htmlText = Option(parser.getHtmlContent().replaceAll("\r\n", "\n"))
+
+			SimpleEmail(recipients, senders, subject, plainText, htmlText)
+		}
+
+	}
+
+If you use the above, you can create tests like this:
+
+	class MailServiceTests extends test.MailSpec {
+		def fakeApp = {
+			FakeApplication(
+				additionalConfiguration = Map(
+					"smtp.host" -> "localhost",
+					"smtp.port" -> mailPort,
+					"smtp.ssl" -> false
+				)
+			)
+		}
+
+		"The MailService" should "send mail!" in running(fakeApp) {
+			... Send an email ...
+
+			val emails = getMessageForEmail("user@localhost")
+			assertResult(1)(emails.size)
+
+			... Perform Assertions on content ...
+		}
+	}
+
+And you'll be up and running to the races in no time!
 
 [GreenMail]:https://github.com/greenmail-mail-test/greenmail
 [great blog post on using it with JUnit]:http://developer.vz.net/2011/11/08/unit-testing-java-mail-code/
@@ -136,3 +294,4 @@ provided some insight. Unfortunately, this code has a flaw.
 [RFC 1521]:http://www.freesoft.org/CIE/RFC/1521/18.htm
 [MultiPart]:https://javamail.java.net/nonav/docs/api/javax/mail/Multipart.html
 [coderanch]:http://www.coderanch.com/t/597373/java/java/Body-text-javamail-retrieve-email
+[The fine folks at Apache Commons have an email library]:https://commons.apache.org/proper/commons-email/userguide.html
