@@ -740,6 +740,12 @@
 		"date" : "2015-12-15",
 		"keywords" : "bash,logs,logging,difference"
 	},
+	"upload-binary-data-play-exif" : {
+		"title" : "Upload binary data in play",
+		"description" : "How to upload binary data in play and parse the bytes. Also shows how to grab EXIF data from an image as an example of the upload.",
+		"data" :"2015-12-18",
+		"keywords" : "binary,upload,playframework,exif,image,data"
+	},
 	"how-to-test-playframework-mailer" : {
 		"title" : "How to test the PlayFramework Mailer",
 		"description" : "SMTP Servers can be a pain to setup, but if you're using a JVM based language you're in luck! This post shows how to integrate GreenMail with Play!",
