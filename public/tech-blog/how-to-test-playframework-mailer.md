@@ -152,7 +152,7 @@ quick fix:
 And we're good. But parsing all this code by ourselves seems like we're 
 doing a lot of hard work that someone else has done before. And you'd 
 be right! [The fine folks at Apache Commons have an email library]. So 
-we can reduce our parsing code to something way simpler like this:
+we can reduce our parsing code to something way simpler like this: 
 
 	def mimeMessageToSimpleEmail(mimeMsg: MimeMessage): SimpleEmail = {
 		val subject = mimeMsg.getSubject()
