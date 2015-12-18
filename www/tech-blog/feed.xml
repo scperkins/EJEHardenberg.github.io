@@ -14,6 +14,16 @@
 
 		
 		<item>
+			<title>Upload binary data in play</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/upload-binary-data-play-exif</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/upload-binary-data-play-exif</guid>
+			<pubDate>Invalid Date</pubDate>
+			<description>
+				![CDATA[How to upload binary data in play and parse the bytes. Also shows how to grab EXIF data from an image as an example of the upload.]]
+			</description>
+		</item>
+		
+		<item>
 			<title>Bashing Logs</title>
 			<link>http://ethanjoachimeldridge.info/tech-blog/bashing-logs</link>
 			<guid>http://ethanjoachimeldridge.info/tech-blog/bashing-logs</guid>
