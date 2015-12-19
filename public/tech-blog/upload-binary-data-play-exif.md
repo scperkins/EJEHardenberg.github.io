@@ -96,7 +96,7 @@ And then we can create an instance of the [Metadata] class:
 
 	val metadata = ImageMetadataReader.readMetadata(bufferedInputStream)
 
-and then follow the the [general idea the guardian uses] to create a 
+and then follow the [general idea the guardian uses] to create a 
 simple String to String Map.
 
 	import scala.collection.JavaConversions._
