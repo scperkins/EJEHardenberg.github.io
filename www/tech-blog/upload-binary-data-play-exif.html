@@ -138,7 +138,7 @@ by using <a href="https://docs.oracle.com/javase/7/docs/api/java/io/ByteArrayInp
 val bufferedInputStream = new java.io.BufferedInputStream(byteArrayInputStream)
 </code></pre><p>And then we can create an instance of the <a href="http://metadata-extractor.googlecode.com/svn/trunk/Javadoc/com/drew/metadata/Metadata.html">Metadata</a> class:</p>
 <pre><code>val metadata = ImageMetadataReader.readMetadata(bufferedInputStream)
-</code></pre><p>and then follow the the <a href="https://github.com/guardian/grid/blob/master/image-loader/app/lib/imaging/FileMetadataReader.scala#L43">general idea the guardian uses</a> to create a 
+</code></pre><p>and then follow the <a href="https://github.com/guardian/grid/blob/master/image-loader/app/lib/imaging/FileMetadataReader.scala#L43">general idea the guardian uses</a> to create a 
 simple String to String Map.</p>
 <pre><code>import scala.collection.JavaConversions._
 
