@@ -284,7 +284,11 @@ If you use the above, you can create tests like this:
 		}
 	}
 
-And you'll be up and running to the races in no time!
+And you'll be up and running to the races in no time! The other thing 
+that you can do, if you're using the play mailer and you're testing code
+that sends an email, but you don't need to check the email itself, is to 
+set the `play.mailer.mock` property in a test.conf file to `true` so that 
+it logs the emails and doesn't actually send them.
 
 [GreenMail]:https://github.com/greenmail-mail-test/greenmail
 [great blog post on using it with JUnit]:http://developer.vz.net/2011/11/08/unit-testing-java-mail-code/
