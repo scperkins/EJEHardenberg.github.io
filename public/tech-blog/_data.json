@@ -750,7 +750,6 @@
 		"title" : "How to test the PlayFramework Mailer",
 		"description" : "SMTP Servers can be a pain to setup, but if you're using a JVM based language you're in luck! This post shows how to integrate GreenMail with Play!",
 		"date" : "2015-12-8",
-		"keywords" : "greenmail,play,smtp,test,testing,mail,mailer,MailerPlugin,PlayFramework,email",
-		"draft" : true
+		"keywords" : "greenmail,play,smtp,test,testing,mail,mailer,MailerPlugin,PlayFramework,email"
 	}
 }
