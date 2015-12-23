@@ -290,6 +290,10 @@ that sends an email, but you don't need to check the email itself, is to
 set the `play.mailer.mock` property in a test.conf file to `true` so that 
 it logs the emails and doesn't actually send them.
 
+You can find a full project showing the tests as well as some tests themselves
+[here on github]. It includes not just the MailSpec trait but also some 
+simple models and services designed to integrate into general applications.
+
 [GreenMail]:https://github.com/greenmail-mail-test/greenmail
 [great blog post on using it with JUnit]:http://developer.vz.net/2011/11/08/unit-testing-java-mail-code/
 [Play Mailer Plugin]:https://github.com/playframework/play-mailer
@@ -299,3 +303,4 @@ it logs the emails and doesn't actually send them.
 [MultiPart]:https://javamail.java.net/nonav/docs/api/javax/mail/Multipart.html
 [coderanch]:http://www.coderanch.com/t/597373/java/java/Body-text-javamail-retrieve-email
 [The fine folks at Apache Commons have an email library]:https://commons.apache.org/proper/commons-email/userguide.html
+[here on github]:https://github.com/EdgeCaseBerg/testing-play-mailer
