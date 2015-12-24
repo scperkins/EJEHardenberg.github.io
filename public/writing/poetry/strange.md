@@ -37,13 +37,13 @@ for just being you, but your eyes are tired and dried.
 Isn't it strange?  
 How we all fall in love,  
 looking for connections we could have never dreamed of.  
-Isn't it strange?
+Isn't it strange?  
 When you think you're well,  
 But it was you all along, dragging them down to hell.  
-Isn't it strange?
+Isn't it strange?  
 That you shoulder the blame,  
 only on yourself, when it's not all your shame.  
-Isn't it strange?
+Isn't it strange?  
 How you need to forgive,  
 yourself more than all the harm the others did?  
 Isn't it strange?  
