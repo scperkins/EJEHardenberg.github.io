@@ -14,6 +14,16 @@
 
 		
 		<item>
+			<title>How to test the PlayFramework Mailer</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/how-to-test-playframework-mailer</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/how-to-test-playframework-mailer</guid>
+			<pubDate>Tue, 08 Dec 2015 05:00:00 GMT</pubDate>
+			<description>
+				![CDATA[SMTP Servers can be a pain to setup, but if you're using a JVM based language you're in luck! This post shows how to integrate GreenMail with Play!]]
+			</description>
+		</item>
+		
+		<item>
 			<title>Upload binary data in play</title>
 			<link>http://ethanjoachimeldridge.info/tech-blog/upload-binary-data-play-exif</link>
 			<guid>http://ethanjoachimeldridge.info/tech-blog/upload-binary-data-play-exif</guid>
