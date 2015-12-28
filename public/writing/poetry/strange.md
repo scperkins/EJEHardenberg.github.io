@@ -55,4 +55,3 @@ And the thoughts go down, tumbling viral.
 Isn't it strange?  
 How at the end of the day,  
 You can still love yourself, no matter what's played.
-
