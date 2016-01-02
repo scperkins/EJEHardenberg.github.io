@@ -1,4 +1,9 @@
 {
+	"ache" : {
+		"title" : "Ache",
+		"date" : "2016-1-2",
+		"freq" : "monthly"
+	},
 	"strange" : {
 		"title" : "Strange",
 		"date" : "2015-12-24",
