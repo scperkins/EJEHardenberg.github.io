@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Bashing Logs
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="Monitoring log files and performing an action once the file is silent for a period" name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="bash,logs,logging,difference" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Bashing Logs" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="Monitoring log files and performing an action once the file is silent for a period" property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Bashing Logs" name="twitter:title"/>
-  <meta content="Monitoring log files and performing an action once the file is silent for a period" name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Bashing Logs</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Monitoring log files and performing an action once the file is silent for a period" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="bash,logs,logging,difference"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Bashing Logs" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Monitoring log files and performing an action once the file is silent for a period" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Bashing Logs" />
+    
+    <meta name="twitter:description" content="Monitoring log files and performing an action once the file is silent for a period" />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,164 +46,86 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Bashing Logs
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Watching logs, an adventure in bashing
-   </h3>
-   <p>
-    A few of my friends have said they enjoy blog posts that go into the 
-thought process behind code. Like when looking at
-    <a href="/tech-blog/string-interpolation-vs-addition-performance">
-     string performance 
-in python
-    </a>
-    or
-    <a href="/tech-blog/strace-adventure">
-     troubleshooting a weird bug with strace
-    </a>
-    . So today I 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Bashing Logs</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Watching logs, an adventure in bashing</h3><p>A few of my friends have said they enjoy blog posts that go into the 
+thought process behind code. Like when looking at <a href="/tech-blog/string-interpolation-vs-addition-performance">string performance 
+in python</a> or <a href="/tech-blog/strace-adventure">troubleshooting a weird bug with strace</a>. So today I 
 want to walk through a really simple bash script that was fun to make 
-and interesting to think about.
-   </p>
-   <p>
-    In the usual course of any programmers life, if they take a project 
-from start to finish, there'll be a lot of log files. Whether for 
+and interesting to think about.</p>
+<p>In the usual course of any programmers life, if they take a project 
+from start to finish, there&#39;ll be a lot of log files. Whether for 
 monitoring, or for checking progress of batch updates and other 
 similar tasks. The typical command every developer keeps in their 
-pocket is this one:
-   </p>
-   <pre><code>tail -f /var/log/myapplog.log
-</code></pre>
-   <p>
-    And this does the job for when you're monitoring some weird bug 
-locally and have increased your logging. If you're running some batch 
-process that logs to a file you might feel your eyes glaze over as you
-    <code>
-     tail
-    </code>
-    and see your 359th line of
-   </p>
-   <pre><code>[INFO] Random Batch Process X Done, Starting Process Y!" 
-</code></pre>
-   <p>
-    You might even start working on something else while you wait if 
-you're a productive person. But chances are that once you do it won't 
+pocket is this one:</p>
+<pre><code>tail -f /var/log/myapplog.log
+</code></pre><p>And this does the job for when you&#39;re monitoring some weird bug 
+locally and have increased your logging. If you&#39;re running some batch 
+process that logs to a file you might feel your eyes glaze over as you 
+<code>tail</code> and see your 359th line of</p>
+<pre><code>[INFO] Random Batch Process X Done, Starting Process Y!&quot; 
+</code></pre><p>You might even start working on something else while you wait if 
+you&#39;re a productive person. But chances are that once you do it won&#39;t 
 be until you flip to your terminal a while later that you realize you 
 can get on with whatever other process was blocked by your batch 
-process.
-   </p>
-   <p>
-    The obvious solution is to monitor your log and notify yourself 
+process.</p>
+<p>The obvious solution is to monitor your log and notify yourself 
 somehow when the log file has stopped updating. So, how do you do 
-this? I'll cover two approaches, the first uses
-    <code>
-     diff
-    </code>
-    the other uses
-    <code>
-     tail
-    </code>
-    . I first used
-    <code>
-     diff
-    </code>
-    because I thought of the process as 
+this? I&#39;ll cover two approaches, the first uses <code>diff</code> the other uses 
+<code>tail</code>. I first used <code>diff</code> because I thought of the process as 
 checking the difference between the state of the log at different 
 points in time. The first thing we need to do to build our state then 
-is to capture the log file at time T! This is easy to do with bash:
-   </p>
-   <pre><code>tail mylog.log &gt; capture.1
+is to capture the log file at time T! This is easy to do with bash:</p>
+<pre><code>tail mylog.log &gt; capture.1
 sleep 1
 tail mylog.log &gt; capture.2
-</code></pre>
-   <p>
-    The above will grab the log file's last 10 lines of code (the default 
-for
-    <code>
-     tail
-    </code>
-    ) and place them into our two capture files. Waiting a 
-second inbetween captures. Now that we have two files we can simply
-    <code>
-     diff
-    </code>
-    them:
-   </p>
-   <pre><code>diff capture.1 capture.2 
+</code></pre><p>The above will grab the log file&#39;s last 10 lines of code (the default 
+for <code>tail</code>) and place them into our two capture files. Waiting a 
+second inbetween captures. Now that we have two files we can simply 
+<code>diff</code> them:</p>
+<pre><code>diff capture.1 capture.2 
 # or diff capture.*
-</code></pre>
-   <p>
-    and we'll get a bunch of lines of output showing us the difference in 
-the two files. This is nice and all, but a bunch of lines isn't the 
+</code></pre><p>and we&#39;ll get a bunch of lines of output showing us the difference in 
+the two files. This is nice and all, but a bunch of lines isn&#39;t the 
 easiest thing to deal with in bash. So instead we can check the manual 
-for diff and see that there is an option to get a much simpler output,
-    <code>
-     -q
-    </code>
-    , or
-    <code>
-     --brief
-    </code>
-    , which only outputs if the two files are different 
-and not their actual differences.
-   </p>
-   <pre><code>&gt; diff -q capture.*
+for diff and see that there is an option to get a much simpler output, 
+<code>-q</code>, or <code>--brief</code>, which only outputs if the two files are different 
+and not their actual differences. </p>
+<pre><code>&gt; diff -q capture.*
 Files capture.1 and capture.2 differ #or nothing if they do not
-</code></pre>
-   <p>
-    Using this we can simply check the output of diff as a string and act 
-on this in bash using a simple
-    <code>
-     if
-    </code>
-    :
-   </p>
-   <pre><code>DIFFCMD=`diff -q capture.1 capture.2`
-if [[ "Files capture.1 and capture.2 differ" == "$DIFFCMD" ]]; then
+</code></pre><p>Using this we can simply check the output of diff as a string and act 
+on this in bash using a simple <code>if</code>:</p>
+<pre><code>DIFFCMD=`diff -q capture.1 capture.2`
+if [[ &quot;Files capture.1 and capture.2 differ&quot; == &quot;$DIFFCMD&quot; ]]; then
     #do something when they differ
 else 
-    #do something when they don't
+    #do something when they don&#39;t
 fi
-</code></pre>
-   <p>
-    Of course, to
-    <em>
-     watch
-    </em>
-    a log implies that we're keeping an eye on it, 
-and so we need to loop our
-    <code>
-     diff
-    </code>
-    ing of the file. This is pretty easy 
-to do in bash, we simply need a sentinal and a loop:
-   </p>
-   <pre><code>KEEPDIFFING=1
+</code></pre><p>Of course, to <em>watch</em> a log implies that we&#39;re keeping an eye on it, 
+and so we need to loop our <code>diff</code>ing of the file. This is pretty easy 
+to do in bash, we simply need a sentinal and a loop:</p>
+<pre><code>KEEPDIFFING=1
 while [[ $KEEPDIFFING -eq 1]]; do 
     # If statement and updates to KEEPDIFFING
 done
-</code></pre>
-   <p>
-    With these pieces, we can easily make a generalized bash script that 
-can monitor any of our logs:
-   </p>
-   <pre><code>#!/bin/sh
+</code></pre><p>With these pieces, we can easily make a generalized bash script that 
+can monitor any of our logs:</p>
+<pre><code>#!/bin/sh
 
 if [ $# -eq 0 ]; then
-    echo "Usage: ./monitor.sh /my/log/file.log [sleep time (s)]"
-    echo "Will output a dot for each second monitored that there are no changes"
-    echo "Will stop script once no changes are detected to log file"
+    echo &quot;Usage: ./monitor.sh /my/log/file.log [sleep time (s)]&quot;
+    echo &quot;Will output a dot for each second monitored that there are no changes&quot;
+    echo &quot;Will stop script once no changes are detected to log file&quot;
 fi
 
 if [ $# -eq 1 ]; then
@@ -205,129 +138,92 @@ if [ $# -eq 2 ]; then
     SLEEPTIME=$2
 fi
 
-echo "Monitoring $LOGFILE"
+echo &quot;Monitoring $LOGFILE&quot;
 
-AFILE="/tmp/monitor.log.a"
-BFILE="/tmp/monitor.log.b"
+AFILE=&quot;/tmp/monitor.log.a&quot;
+BFILE=&quot;/tmp/monitor.log.b&quot;
 KEEPDIFFING=1
 
-echo "Please wait, setting up monitoring"
+echo &quot;Please wait, setting up monitoring&quot;
 tail $LOGFILE &gt; $AFILE
 sleep 1
 tail $LOGFILE &gt; $BFILE
-echo "Monitor files ready"
-echo "Checking logfile differences every $SLEEPTIME second(s), will stop script once no changes are detected"
-echo -n "Start at: " &amp;&amp; date
+echo &quot;Monitor files ready&quot;
+echo &quot;Checking logfile differences every $SLEEPTIME second(s), will stop script once no changes are detected&quot;
+echo -n &quot;Start at: &quot; &amp;&amp; date
 
 while [[ $KEEPDIFFING -eq 1 ]]; do
     DIFFCMD=`diff -q $AFILE $BFILE`
-    if [[ "Files $AFILE and $BFILE differ" == "$DIFFCMD" ]]; then
-        echo -n "." #Progress indicator that the script is running.
+    if [[ &quot;Files $AFILE and $BFILE differ&quot; == &quot;$DIFFCMD&quot; ]]; then
+        echo -n &quot;.&quot; #Progress indicator that the script is running.
          KEEPDIFFING=1;
          tail $LOGFILE &gt; $AFILE
          sleep $SLEEPTIME;
          tail $LOGFILE &gt; $BFILE
     else
-        echo "No update to log file in last $SLEEPTIME second(s), stopping script"
-        echo -n "Stopped at: "
+        echo &quot;No update to log file in last $SLEEPTIME second(s), stopping script&quot;
+        echo -n &quot;Stopped at: &quot;
         date
         KEEPDIFFING=0
     fi 
 done
-</code></pre>
-   <p>
-    Now this will work fine for monitoring a
-    <em>
-     single
-    </em>
-    logfile. But what 
+</code></pre><p>Now this will work fine for monitoring a <em>single</em> logfile. But what 
 about if we need to monitor more than one at a time? Or if multiple 
 users on a server are all trying to keep an eye on it? Well, we could 
-use random or dated filenames. But eventually we'll hit that one edge 
+use random or dated filenames. But eventually we&#39;ll hit that one edge 
 case where we accidently overwrite someone elses temporary capture 
 file. So we need to switch to a different method, and this is the 
-second approach I mentioned above, using
-    <code>
-     tail
-    </code>
-    .
-   </p>
-   <p>
-    Our initial reason for not using tail was because logically, using the
-    <code>
-     diff
-    </code>
-    tool to find
-    <em>
-     diff_erences just makes sense. But if we think of 
-the last _n
-    </em>
-    lines of a log file as being just a string, than we can 
+second approach I mentioned above, using <code>tail</code>.</p>
+<p>Our initial reason for not using tail was because logically, using the 
+<code>diff</code> tool to find <em>diff_erences just makes sense. But if we think of 
+the last _n</em> lines of a log file as being just a string, than we can 
 see that we can compare a string just as easily (more so even) than a 
 file capturing the state. Instead of capturing the differences in a 
-temporary file, we can assign them to string variables:
-   </p>
-   <pre><code>CAPTURE1=`tail mylog.log`
+temporary file, we can assign them to string variables:</p>
+<pre><code>CAPTURE1=`tail mylog.log`
 sleep 1
 CAPTURE2=`tail mylog.log`
-</code></pre>
-   <p>
-    Then compare them with bash like any other string:
-   </p>
-   <pre><code>if [[ "$CAPTURE1" == "$CAPTURE2" ]]; then 
+</code></pre><p>Then compare them with bash like any other string:</p>
+<pre><code>if [[ &quot;$CAPTURE1&quot; == &quot;$CAPTURE2&quot; ]]; then 
     #Do something if they match
 else 
-    #Do something if they don't
+    #Do something if they don&#39;t
 fi
-</code></pre>
-   <p>
-    We can therefore modify our script to not use any temporary files and 
-be concurrently available for all users:
-   </p>
-   <pre><code>echo "Please wait, setting up monitoring"
+</code></pre><p>We can therefore modify our script to not use any temporary files and 
+be concurrently available for all users:</p>
+<pre><code>echo &quot;Please wait, setting up monitoring&quot;
 ACAPTURE=`tail $LOGFILE`
 sleep 1
 BCAPTURE=`tail $LOGFILE`
-echo "Monitor files ready"
-echo "Checking logfile differences every $SLEEPTIME second(s), will stop script once no changes are detected"
-echo -n "Start at: " &amp;&amp; date
+echo &quot;Monitor files ready&quot;
+echo &quot;Checking logfile differences every $SLEEPTIME second(s), will stop script once no changes are detected&quot;
+echo -n &quot;Start at: &quot; &amp;&amp; date
 
 while [[ $KEEPDIFFING -eq 1 ]]; do
-    if [[ "$ACAPTURE" != "$BCAPTURE" ]]; then
-        echo -n "." #Progress indicator that the script is running.
+    if [[ &quot;$ACAPTURE&quot; != &quot;$BCAPTURE&quot; ]]; then
+        echo -n &quot;.&quot; #Progress indicator that the script is running.
          KEEPDIFFING=1;
          ACAPTURE=`tail $LOGFILE`
          sleep $SLEEPTIME;
          BCAPTURE=`tail $LOGFILE`
     else
-        echo "No update to log file in last $SLEEPTIME second(s), stopping script"
-        echo -n "Stopped at: "
+        echo &quot;No update to log file in last $SLEEPTIME second(s), stopping script&quot;
+        echo -n &quot;Stopped at: &quot;
         date
         KEEPDIFFING=0
     fi 
 done
-</code></pre>
-   <p>
-    The above update will work, but you may have already noticed that we 
-are now using both a sentinel with
-    <code>
-     KEEPDIFFING
-    </code>
-    and a conditional. We 
+</code></pre><p>The above update will work, but you may have already noticed that we 
+are now using both a sentinel with <code>KEEPDIFFING</code> and a conditional. We 
 can simplify the code a little bit and remove the sentinel since we 
-only want to run the
-    <code>
-     else
-    </code>
-    branch once we're ready to exit the loop 
-anyway. So we can simplify the code down to:
-   </p>
-   <pre><code>#!/bin/sh
+only want to run the <code>else</code> branch once we&#39;re ready to exit the loop 
+anyway. So we can simplify the code down to:</p>
+<pre><code>#!/bin/sh
 
 if [ $# -eq 0 ]; then
-    echo "Usage: ./monitor.sh /my/log/file.log [sleep time (s)]"
-    echo "Will output a dot for each second monitored that there are no changes"
-    echo "Will stop script once no changes are detected to log file"
+    echo &quot;Usage: ./monitor.sh /my/log/file.log [sleep time (s)]&quot;
+    echo &quot;Will output a dot for each second monitored that there are no changes&quot;
+    echo &quot;Will stop script once no changes are detected to log file&quot;
 fi
 
 if [ $# -eq 1 ]; then
@@ -340,242 +236,144 @@ if [ $# -eq 2 ]; then
     SLEEPTIME=$2
 fi
 
-echo "Monitoring $LOGFILE"
+echo &quot;Monitoring $LOGFILE&quot;
 
-ACAPTURE="A"
-BCAPTURE="B"
-echo "Checking logfile differences every $SLEEPTIME second(s), will stop script once no changes are detected"
-echo -n "Start at: " &amp;&amp; date
+ACAPTURE=&quot;A&quot;
+BCAPTURE=&quot;B&quot;
+echo &quot;Checking logfile differences every $SLEEPTIME second(s), will stop script once no changes are detected&quot;
+echo -n &quot;Start at: &quot; &amp;&amp; date
 
-while [[ "$ACAPTURE" != "$BCAPTURE" ]]; do
-    echo -n "." #Progress indicator that the script is running.
+while [[ &quot;$ACAPTURE&quot; != &quot;$BCAPTURE&quot; ]]; do
+    echo -n &quot;.&quot; #Progress indicator that the script is running.
     ACAPTURE=`tail $LOGFILE`
     sleep $SLEEPTIME;
     BCAPTURE=`tail $LOGFILE`
 done
 
-echo "" #move down from the dots
-echo "No update to log file in last $SLEEPTIME second(s), stopping script"
-echo -n "Stopped at: "
+echo &quot;&quot; #move down from the dots
+echo &quot;No update to log file in last $SLEEPTIME second(s), stopping script&quot;
+echo -n &quot;Stopped at: &quot;
 date
-</code></pre>
-   <p>
-    Which is easy to read and understand. In the above script we're just 
-spitting out the
-    <code>
-     date
-    </code>
-    that the script stopped running at. But if 
-you wanted to be notified, you could use something like
-   </p>
-   <pre><code>notify-send "System Alert" "The process you were waiting for is done!"
-</code></pre>
-   <p>
-    If you're running this on your local machine and have
-    <code>
-     notify-send
-    </code>
-    installed. If this is a remote machine that has an SMTP program 
-installed you could send an email with the
-    <code>
-     mail
-    </code>
-    command:
-   </p>
-   <pre><code>echo "The process is done" | mail -s "System Alert" user@myhost.com
-</code></pre>
-   <p>
-    just place this at the end of the script and you'll be all set! It's 
+</code></pre><p>Which is easy to read and understand. In the above script we&#39;re just 
+spitting out the <code>date</code> that the script stopped running at. But if 
+you wanted to be notified, you could use something like </p>
+<pre><code>notify-send &quot;System Alert&quot; &quot;The process you were waiting for is done!&quot;
+</code></pre><p>If you&#39;re running this on your local machine and have <code>notify-send</code> 
+installed. If this is a remote machine that has an SMTP program 
+installed you could send an email with the <code>mail</code> command:</p>
+<pre><code>echo &quot;The process is done&quot; | mail -s &quot;System Alert&quot; user@myhost.com
+</code></pre><p>just place this at the end of the script and you&#39;ll be all set! It&#39;s 
 easy and simple to combine the tools that the linux command line gives 
 you to create useful scripts that can help you in your every day life 
-as a developer.
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="upload-binary-data-play-exif">
-       Upload binary data in play
-      </a>
-     </li>
-     <li>
-      <a href="building-state-from-scala-workflows">
-       Building Content State from Workflow and Audit Logs
-      </a>
-     </li>
-     <li>
-      <a href="how-to-test-playframework-mailer">
-       How to test the PlayFramework Mailer
-      </a>
-     </li>
-     <li>
-      <a href="netty-timeouts-and-playframework">
-       How to set Netty options in Playframework
-      </a>
-     </li>
-     <li>
-      <a href="connect-visualvm-docker">
-       How to connect VisualVM to Docker
-      </a>
-     </li>
-     <li>
-      <a href="how-to-create-sbt-task-that-takes-an-argument">
-       How to create an SBT task that takes an argument
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+as a developer. </p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=upload-binary-data-play-exif>Upload binary data in play</a></li><li><a href=building-state-from-scala-workflows>Building Content State from Workflow and Audit Logs</a></li><li><a href=how-to-test-playframework-mailer>How to test the PlayFramework Mailer</a></li><li><a href=netty-timeouts-and-playframework>How to set Netty options in Playframework</a></li><li><a href=connect-visualvm-docker>How to connect VisualVM to Docker</a></li><li><a href=how-to-create-sbt-task-that-takes-an-argument>How to create an SBT task that takes an argument</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

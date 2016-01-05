@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Context Menu Button to remove Exif Metadata
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="Make removing metadata from images easier by creating a context menu command to do it for you" name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="exif,exiftool,remove,metadata,nautilus,privacy,security,context,right click,strip" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Context Menu Button to remove Exif Metadata" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="Make removing metadata from images easier by creating a context menu command to do it for you" property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Context Menu Button to remove Exif Metadata" name="twitter:title"/>
-  <meta content="Make removing metadata from images easier by creating a context menu command to do it for you" name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Context Menu Button to remove Exif Metadata</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Make removing metadata from images easier by creating a context menu command to do it for you" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="exif,exiftool,remove,metadata,nautilus,privacy,security,context,right click,strip"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Context Menu Button to remove Exif Metadata" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Make removing metadata from images easier by creating a context menu command to do it for you" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Context Menu Button to remove Exif Metadata" />
+    
+    <meta name="twitter:description" content="Make removing metadata from images easier by creating a context menu command to do it for you" />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,274 +46,150 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Context Menu Button to remove Exif Metadata
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Adding Exif Stripping to your Context menu
-   </h3>
-   <p>
-    When you take pictures using your smartphone, camera, or anything like that. Do 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Context Menu Button to remove Exif Metadata</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Adding Exif Stripping to your Context menu</h3><p>When you take pictures using your smartphone, camera, or anything like that. Do 
 you ever notice that social media giants like Google or Facebook are able to attach 
 a location and time to the pictures without any prompting from you? Or ever wonder 
-how someone on a forum where you've shared work is able to know your shutter 
-settings and what kind of camera you used?
-   </p>
-   <p>
-    The answer, is [Exif Meta-data]
-   </p>
-   <p>
-    If you don't want to be sharing this type of information, but you still want to 
-share your imagery, you might have learned about
-    <a href="http://www.sno.phy.queensu.ca/~phil/exiftool/">
-     exiftool
-    </a>
-    . And if you've already 
+how someone on a forum where you&#39;ve shared work is able to know your shutter 
+settings and what kind of camera you used?</p>
+<p>The answer, is [Exif Meta-data]</p>
+<p>If you don&#39;t want to be sharing this type of information, but you still want to 
+share your imagery, you might have learned about <a href="http://www.sno.phy.queensu.ca/~phil/exiftool/">exiftool</a>. And if you&#39;ve already 
 got it installed, then removing meta-data is as simple as opening a terminal and 
-running:
-    <code>
-     exiftool -all= &lt;filename&gt;
-    </code>
-   </p>
-   <p>
-    This is fine, but what if you want to be able to right click an image and quickly 
-strip the data? Well, here's how you do that if you're using the
-    <a href="http://en.wikipedia.org/wiki/GNOME_Files">
-     Nautilus
-    </a>
-    file 
-browser (Assuming you've already installed exiftools).
-   </p>
-   <h4>
-    First install nautilus actions
-   </h4>
-   <pre><code>sudo apt-get install nautilus-actions 
-</code></pre>
-   <h4>
-    Open the configuration for commands
-   </h4>
-   <pre><code>nautilus-actions-config-tool 
-</code></pre>
-   <h4>
-    Create and define the command
-   </h4>
-   <p>
-    <img src="/images/tech-blog/exifcontext-action.png"/>
-    <img src="/images/tech-blog/exifcontext-command.png"/>
-    <img src="/images/tech-blog/exifcontext-execution.png"/>
-    <img src="/images/tech-blog/exifcontext-mime.png"/>
-   </p>
-   <h4>
-    Restart nautilus if you need to with
-    <code>
-     nautilus -q
-    </code>
-    then right click an image
-   </h4>
-   <p>
-    <img src="/images/tech-blog/exifcontext-menu.png"/>
-   </p>
-   <p>
-    Hopefully this makes removing metadata easier for linux users out there using 
-nautilus. I'm sure that for other window managers there are similar methods. If 
+running: <code>exiftool -all= &lt;filename&gt;</code></p>
+<p>This is fine, but what if you want to be able to right click an image and quickly 
+strip the data? Well, here&#39;s how you do that if you&#39;re using the <a href="http://en.wikipedia.org/wiki/GNOME_Files">Nautilus</a> file 
+browser (Assuming you&#39;ve already installed exiftools).</p>
+<h4>First install nautilus actions</h4><pre><code>sudo apt-get install nautilus-actions 
+</code></pre><h4>Open the configuration for commands</h4><pre><code>nautilus-actions-config-tool 
+</code></pre><h4>Create and define the command</h4><p><img src="/images/tech-blog/exifcontext-action.png">
+<img src="/images/tech-blog/exifcontext-command.png">
+<img src="/images/tech-blog/exifcontext-execution.png">
+<img src="/images/tech-blog/exifcontext-mime.png"></p>
+<h4>Restart nautilus if you need to with <code>nautilus -q</code> then right click an image</h4><p><img src="/images/tech-blog/exifcontext-menu.png"></p>
+<p>Hopefully this makes removing metadata easier for linux users out there using 
+nautilus. I&#39;m sure that for other window managers there are similar methods. If 
 you have any other tips or useful commands to add to the context menu feel free 
-to drop them in the comments section.
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="registration-denial-wordpress">
-       Deny spam emails from registering in WordPress
-      </a>
-     </li>
-     <li>
-      <a href="change-wp-login-wp">
-       Change Wordpress login URL
-      </a>
-     </li>
-     <li>
-      <a href="registration-denial-plugin">
-       Plugin to Ban users and deny registration in WordPress
-      </a>
-     </li>
-     <li>
-      <a href="rss-feed-with-harp">
-       Create an RSS feed with Harp
-      </a>
-     </li>
-     <li>
-      <a href="mysql-upstart-without-purge">
-       Stopping mysql Upstart issues without reinstalling
-      </a>
-     </li>
-     <li>
-      <a href="gotodocumentation-sublime-chromium-default">
-       Setting Chromium as the default browser for GotoDocumentation in Sublime Text 2
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+to drop them in the comments section.</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=registration-denial-wordpress>Deny spam emails from registering in WordPress</a></li><li><a href=change-wp-login-wp>Change Wordpress login URL</a></li><li><a href=registration-denial-plugin>Plugin to Ban users and deny registration in WordPress</a></li><li><a href=rss-feed-with-harp>Create an RSS feed with Harp</a></li><li><a href=mysql-upstart-without-purge>Stopping mysql Upstart issues without reinstalling</a></li><li><a href=gotodocumentation-sublime-chromium-default>Setting Chromium as the default browser for GotoDocumentation in Sublime Text 2</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

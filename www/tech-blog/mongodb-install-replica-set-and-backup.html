@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Install and Backup a MongoDB Replica Set
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="How to create a development mongo replica cluster and a simple way of backing up the data." name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="mongodb,replica,backup,mongo,nosql,replica set,restore" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Install and Backup a MongoDB Replica Set" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="How to create a development mongo replica cluster and a simple way of backing up the data." property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Install and Backup a MongoDB Replica Set" name="twitter:title"/>
-  <meta content="How to create a development mongo replica cluster and a simple way of backing up the data." name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Install and Backup a MongoDB Replica Set</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="How to create a development mongo replica cluster and a simple way of backing up the data." />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="mongodb,replica,backup,mongo,nosql,replica set,restore"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Install and Backup a MongoDB Replica Set" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="How to create a development mongo replica cluster and a simple way of backing up the data." />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Install and Backup a MongoDB Replica Set" />
+    
+    <meta name="twitter:description" content="How to create a development mongo replica cluster and a simple way of backing up the data." />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,46 +46,31 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Install and Backup a MongoDB Replica Set
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Installing a MongoDB replica set and backup script
-   </h3>
-   <p>
-    While I generally stick to Relational databases such as mySQL, there 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Install and Backup a MongoDB Replica Set</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Installing a MongoDB replica set and backup script</h3><p>While I generally stick to Relational databases such as mySQL, there 
 are times when you really only need a document store and the right tool 
 for the job is something else. In this case, I needed to install and 
 configure a mac machine for a development environment that replicated 
-the production one. A small replica set of 3 nodes all running MongoDB.
-   </p>
-   <p>
-    In addition to installation and configuring, it's also prudent to set up 
+the production one. A small replica set of 3 nodes all running MongoDB. </p>
+<p>In addition to installation and configuring, it&#39;s also prudent to set up 
 how to backup and restore your data. So this post will cover that as 
-well:
-   </p>
-   <h4>
-    Installing MongoDB on Mac
-   </h4>
-   <p>
-    First off, we have to download mongodb:
-   </p>
-   <pre><code>curl -O http://downloads.mongodb.org/osx/mongodb-osx-x86_64-3.0.2.tgz
-</code></pre>
-   <p>
-    And being security conscious, we'll check that the download is valid 
-by computing it's SHA hashes:
-   </p>
-   <pre><code>curl -LO http://downloads.mongodb.org/osx/mongodb-osx-x86_64-3.0.2.tgz.sha1
+well:</p>
+<h4>Installing MongoDB on Mac</h4><p>First off, we have to download mongodb:</p>
+<pre><code>curl -O http://downloads.mongodb.org/osx/mongodb-osx-x86_64-3.0.2.tgz
+</code></pre><p>And being security conscious, we&#39;ll check that the download is valid 
+by computing it&#39;s SHA hashes:</p>
+<pre><code>curl -LO http://downloads.mongodb.org/osx/mongodb-osx-x86_64-3.0.2.tgz.sha1
 curl -LO http://downloads.mongodb.org/osx/mongodb-osx-x86_64-3.0.2.tgz.sha256
 
 shasum mongodb-osx-x86_64-3.0.2.tgz
@@ -88,260 +84,159 @@ shasum -a 256 mongodb-osx-x86_64-3.0.2.tgz
 
 cat mongodb-osx-x86_64-3.0.2.tgz.sha256 
 6d435f66cc25a888ab263be27106abe7ef8067189199869f3e7e8126757f5286  mongodb-osx-x86_64-3.0.2.tgz
-</code></pre>
-   <p>
-    Convinced in the authenticity of the files we can move onto installing:
-   </p>
-   <pre><code>tar -zxvf mongodb-osx-x86_64-3.0.2.tgz
+</code></pre><p>Convinced in the authenticity of the files we can move onto installing:</p>
+<pre><code>tar -zxvf mongodb-osx-x86_64-3.0.2.tgz
 mkdir /opt/local/mongodb
 sudo cp -R -n mongodb-osx-x86_64-3.0.2/ /opt/local/mongodb
-echo 'export PATH=/opt/local/mongodb/bin:$PATH' &gt;&gt; ~/.profile
+echo &#39;export PATH=/opt/local/mongodb/bin:$PATH&#39; &gt;&gt; ~/.profile
 source ~/.profile
 mkdir -p /opt/local/mongodb/data/db
-</code></pre>
-   <p>
-    At this point you're almost ready, you just need to set the permissions 
+</code></pre><p>At this point you&#39;re almost ready, you just need to set the permissions 
 correctly. Namely that whoever is starting the mongo process can read 
-and write to the data directory.
-   </p>
-   <pre><code>sudo chown -R user:group /opt/local/mongodb
-</code></pre>
-   <p>
-    And now it will run when you run mongo via the mongod command:
-   </p>
-   <pre><code>mongod --dbpath /opt/local/mongodb/data/db
-</code></pre>
-   <h4>
-    Setting up a local Replica Set
-   </h4>
-   <p>
-    With the basics done and ready, we can now configure and create a 3 
-node replica set. Mongodb's website provides
-    <a href="http://docs.mongodb.org/manual/tutorial/deploy-replica-set-for-testing/">
-     documentation on this
-    </a>
-    but for completeness, I'll reproduce it here specifically to the setup 
-described above:
-   </p>
-   <p>
-    First, the data directories for each replica:
-   </p>
-   <pre><code>mkdir -p /opt/local/mongodb/data/srv/mongodb/rs0-{0,1,2}
-</code></pre>
-   <p>
-    Next, we'll make it easier to start up our local cluster:
-   </p>
-   <pre><code>osascript -e 'tell app "Terminal"
-    do script "mongod --port 27017 --dbpath /opt/local/mongodb/data/srv/mongodb/rs0-0 --replSet rs0 --smallfiles --oplogSize 128"
-    do script "mongod --port 27018 --dbpath /opt/local/mongodb/data/srv/mongodb/rs0-1 --replSet rs0 --smallfiles --oplogSize 128"
-    do script "mongod --port 27019 --dbpath /opt/local/mongodb/data/srv/mongodb/rs0-2 --replSet rs0 --smallfiles --oplogSize 128"
-end tell'
-</code></pre>
-   <p>
-    Place this code into a script, called: 'startmongo.sh' and
-    <code>
-     chmod +x
-    </code>
-    the file. Run it from your command line
-    <code>
-     ./startmongo.sh
-    </code>
-    and you'll 
-see three windows appear, each running an instance of mongod.
-   </p>
-   <p>
-    The arguments to each mongod instance are pretty regular, the only 
-ones which may be out of the ordinary are
-    <code>
-     --smallfiles
-    </code>
-    and
-    <code>
-     --oplogSize
-    </code>
-    , which the documentation says:
-   </p>
-   <blockquote>
-    <p>
-     The --smallfiles and --oplogSize settings reduce the disk space that each mongod instance uses. This is ideal for testing and development deployments as it prevents overloading your machine. For more information on these and other configuration options, see Configuration File Options.
-    </p>
-   </blockquote>
-   <p>
-    Running 3 instances of mongo does not give us a replica set quite yet. 
-We need to tell the servers to
-    <em>
-     be
-    </em>
-    one first, so connect to one of 
-them:
-   </p>
-   <pre><code>mongo --port 27017
-</code></pre>
-   <p>
-    Then create the configuration object:
-   </p>
-   <pre><code>rsconf = {
-       _id: "rs0",
+and write to the data directory. </p>
+<pre><code>sudo chown -R user:group /opt/local/mongodb
+</code></pre><p>And now it will run when you run mongo via the mongod command:</p>
+<pre><code>mongod --dbpath /opt/local/mongodb/data/db
+</code></pre><h4>Setting up a local Replica Set</h4><p>With the basics done and ready, we can now configure and create a 3 
+node replica set. Mongodb&#39;s website provides <a href="http://docs.mongodb.org/manual/tutorial/deploy-replica-set-for-testing/">documentation on this</a> 
+but for completeness, I&#39;ll reproduce it here specifically to the setup 
+described above:</p>
+<p>First, the data directories for each replica:</p>
+<pre><code>mkdir -p /opt/local/mongodb/data/srv/mongodb/rs0-{0,1,2}
+</code></pre><p>Next, we&#39;ll make it easier to start up our local cluster:</p>
+<pre><code>osascript -e &#39;tell app &quot;Terminal&quot;
+    do script &quot;mongod --port 27017 --dbpath /opt/local/mongodb/data/srv/mongodb/rs0-0 --replSet rs0 --smallfiles --oplogSize 128&quot;
+    do script &quot;mongod --port 27018 --dbpath /opt/local/mongodb/data/srv/mongodb/rs0-1 --replSet rs0 --smallfiles --oplogSize 128&quot;
+    do script &quot;mongod --port 27019 --dbpath /opt/local/mongodb/data/srv/mongodb/rs0-2 --replSet rs0 --smallfiles --oplogSize 128&quot;
+end tell&#39;
+</code></pre><p>Place this code into a script, called: &#39;startmongo.sh&#39; and <code>chmod +x</code> 
+the file. Run it from your command line <code>./startmongo.sh</code> and you&#39;ll 
+see three windows appear, each running an instance of mongod.</p>
+<p>The arguments to each mongod instance are pretty regular, the only 
+ones which may be out of the ordinary are <code>--smallfiles</code> and 
+<code>--oplogSize</code>, which the documentation says:</p>
+<blockquote>
+<p>The --smallfiles and --oplogSize settings reduce the disk space that each mongod instance uses. This is ideal for testing and development deployments as it prevents overloading your machine. For more information on these and other configuration options, see Configuration File Options.</p>
+</blockquote>
+<p>Running 3 instances of mongo does not give us a replica set quite yet. 
+We need to tell the servers to <em>be</em> one first, so connect to one of 
+them:</p>
+<pre><code>mongo --port 27017
+</code></pre><p>Then create the configuration object:</p>
+<pre><code>rsconf = {
+       _id: &quot;rs0&quot;,
        members: [
                   {
                    _id: 0,
-                   host: "localhost:27017"
+                   host: &quot;localhost:27017&quot;
                   }
                 ]
      }
 rs.initiate(rsconf)
-rs.add("localhost:27018")
-rs.add("localhost:27019")
+rs.add(&quot;localhost:27018&quot;)
+rs.add(&quot;localhost:27019&quot;)
 rs.status()
-</code></pre>
-   <p>
-    and the last command should display something like so:
-   </p>
-   <pre><code>{
-    "set" : "rs0",
-    "date" : ISODate("2015-05-01T17:26:11.546Z"),
-    "myState" : 1,
-    "members" : [
+</code></pre><p>and the last command should display something like so:</p>
+<pre><code>{
+    &quot;set&quot; : &quot;rs0&quot;,
+    &quot;date&quot; : ISODate(&quot;2015-05-01T17:26:11.546Z&quot;),
+    &quot;myState&quot; : 1,
+    &quot;members&quot; : [
         {
-            "_id" : 0,
-            "name" : "localhost:27017",
-            "health" : 1,
-            "state" : 1,
-            "stateStr" : "PRIMARY",
-            "uptime" : 4607,
-            "optime" : Timestamp(1430501157, 1),
-            "optimeDate" : ISODate("2015-05-01T17:25:57Z"),
-            "electionTime" : Timestamp(1430501100, 2),
-            "electionDate" : ISODate("2015-05-01T17:25:00Z"),
-            "configVersion" : 3,
-            "self" : true
+            &quot;_id&quot; : 0,
+            &quot;name&quot; : &quot;localhost:27017&quot;,
+            &quot;health&quot; : 1,
+            &quot;state&quot; : 1,
+            &quot;stateStr&quot; : &quot;PRIMARY&quot;,
+            &quot;uptime&quot; : 4607,
+            &quot;optime&quot; : Timestamp(1430501157, 1),
+            &quot;optimeDate&quot; : ISODate(&quot;2015-05-01T17:25:57Z&quot;),
+            &quot;electionTime&quot; : Timestamp(1430501100, 2),
+            &quot;electionDate&quot; : ISODate(&quot;2015-05-01T17:25:00Z&quot;),
+            &quot;configVersion&quot; : 3,
+            &quot;self&quot; : true
         },
         {
-            "_id" : 1,
-            "name" : "localhost:27018",
-            "health" : 1,
-            "state" : 2,
-            "stateStr" : "SECONDARY",
-            "uptime" : 18,
-            "optime" : Timestamp(1430501157, 1),
-            "optimeDate" : ISODate("2015-05-01T17:25:57Z"),
-            "lastHeartbeat" : ISODate("2015-05-01T17:26:09.903Z"),
-            "lastHeartbeatRecv" : ISODate("2015-05-01T17:26:11.430Z"),
-            "pingMs" : 0,
-            "lastHeartbeatMessage" : "could not find member to sync from",
-            "configVersion" : 3
+            &quot;_id&quot; : 1,
+            &quot;name&quot; : &quot;localhost:27018&quot;,
+            &quot;health&quot; : 1,
+            &quot;state&quot; : 2,
+            &quot;stateStr&quot; : &quot;SECONDARY&quot;,
+            &quot;uptime&quot; : 18,
+            &quot;optime&quot; : Timestamp(1430501157, 1),
+            &quot;optimeDate&quot; : ISODate(&quot;2015-05-01T17:25:57Z&quot;),
+            &quot;lastHeartbeat&quot; : ISODate(&quot;2015-05-01T17:26:09.903Z&quot;),
+            &quot;lastHeartbeatRecv&quot; : ISODate(&quot;2015-05-01T17:26:11.430Z&quot;),
+            &quot;pingMs&quot; : 0,
+            &quot;lastHeartbeatMessage&quot; : &quot;could not find member to sync from&quot;,
+            &quot;configVersion&quot; : 3
         },
         {
-            "_id" : 2,
-            "name" : "localhost:27019",
-            "health" : 1,
-            "state" : 2,
-            "stateStr" : "SECONDARY",
-            "uptime" : 13,
-            "optime" : Timestamp(1430501157, 1),
-            "optimeDate" : ISODate("2015-05-01T17:25:57Z"),
-            "lastHeartbeat" : ISODate("2015-05-01T17:26:09.903Z"),
-            "lastHeartbeatRecv" : ISODate("2015-05-01T17:26:10.027Z"),
-            "pingMs" : 0,
-            "configVersion" : 3
+            &quot;_id&quot; : 2,
+            &quot;name&quot; : &quot;localhost:27019&quot;,
+            &quot;health&quot; : 1,
+            &quot;state&quot; : 2,
+            &quot;stateStr&quot; : &quot;SECONDARY&quot;,
+            &quot;uptime&quot; : 13,
+            &quot;optime&quot; : Timestamp(1430501157, 1),
+            &quot;optimeDate&quot; : ISODate(&quot;2015-05-01T17:25:57Z&quot;),
+            &quot;lastHeartbeat&quot; : ISODate(&quot;2015-05-01T17:26:09.903Z&quot;),
+            &quot;lastHeartbeatRecv&quot; : ISODate(&quot;2015-05-01T17:26:10.027Z&quot;),
+            &quot;pingMs&quot; : 0,
+            &quot;configVersion&quot; : 3
         }
     ],
-    "ok" : 1
+    &quot;ok&quot; : 1
 }
-</code></pre>
-   <h4>
-    Backing up your data
-   </h4>
-   <p>
-    First we'll make a little bit of test data. From within the mongo 
-console you're running:
-   </p>
-   <pre><code>use site
-db.Site.insert( { page: "home", "url" : "/" } )
-db.Site.insert( { page: "contact" , url : "/contact"})
-</code></pre>
-   <p>
-    We
-    <em>
-     could
-    </em>
-    use the
-    <code>
-     mongodump
-    </code>
-    and
-    <code>
-     mongorestore
-    </code>
-    tools to do out 
-backup. But, these tools take a while if you've got a lot of data. 
-While in our example we obviously don't, an example is only as useful 
-as it is scalable. Plus, the two tools don't lock the writes to the 
+</code></pre><h4>Backing up your data</h4><p>First we&#39;ll make a little bit of test data. From within the mongo 
+console you&#39;re running:</p>
+<pre><code>use site
+db.Site.insert( { page: &quot;home&quot;, &quot;url&quot; : &quot;/&quot; } )
+db.Site.insert( { page: &quot;contact&quot; , url : &quot;/contact&quot;})
+</code></pre><p>We <em>could</em> use the <code>mongodump</code> and <code>mongorestore</code> tools to do out 
+backup. But, these tools take a while if you&#39;ve got a lot of data. 
+While in our example we obviously don&#39;t, an example is only as useful 
+as it is scalable. Plus, the two tools don&#39;t lock the writes to the 
 database, and therefore during the long period of time a backup or 
 restore can take, the data may become inconsistent with the snapshot 
-we're taking.
-   </p>
-   <p>
-    Since that's somewhat counter to the point of making a backup. We'll 
-elect a file system snapshot instead. First we'll lock the database 
-from writes:
-   </p>
-   <pre><code>db.fsyncLock()
-</code></pre>
-   <p>
-    Once the database is locked, you can perform a snapshot of the data 
-directory itself easily:
-   </p>
-   <pre><code>cd /opt/local/mongodb/
+we&#39;re taking. </p>
+<p>Since that&#39;s somewhat counter to the point of making a backup. We&#39;ll 
+elect a file system snapshot instead. First we&#39;ll lock the database 
+from writes:</p>
+<pre><code>db.fsyncLock()
+</code></pre><p>Once the database is locked, you can perform a snapshot of the data 
+directory itself easily:</p>
+<pre><code>cd /opt/local/mongodb/
 tar -czf data.bak.tar.gz data
-</code></pre>
-   <p>
-    Note that the back up will have a
-    <code>
-     mongod.lock
-    </code>
-    file in each directory 
-so you'll have to remove that before you restore from the backup.
-   </p>
-   <p>
-    Once you've saved a copy of the data directory you can unlock the database:
-   </p>
-   <pre><code>db.fsyncUnlock()
-</code></pre>
-   <p>
-    This does have some caveats of course. When done on a local machine 
-such as what we've configured, it's easy to get a snapshot of each 
+</code></pre><p>Note that the back up will have a <code>mongod.lock</code> file in each directory 
+so you&#39;ll have to remove that before you restore from the backup.  </p>
+<p>Once you&#39;ve saved a copy of the data directory you can unlock the database:</p>
+<pre><code>db.fsyncUnlock()
+</code></pre><p>This does have some caveats of course. When done on a local machine 
+such as what we&#39;ve configured, it&#39;s easy to get a snapshot of each 
 replica all in one go. On an actual production setup, each instance 
-would likely be on a different server. So you'd need to
-    <code>
-     ssh
-    </code>
-    to the 
+would likely be on a different server. So you&#39;d need to <code>ssh</code> to the 
 servers. To determine which node is the primary you can ask any of the 
-servers:
-   </p>
-   <pre><code>db.serverStatus().repl.primary
-</code></pre>
-   <p>
-    Then go from there. Here's a full cli session pretending to have a 
-hemoraging database:
-   </p>
-   <pre><code># start up the mongo cluster
+servers:</p>
+<pre><code>db.serverStatus().repl.primary
+</code></pre><p>Then go from there. Here&#39;s a full cli session pretending to have a 
+hemoraging database:</p>
+<pre><code># start up the mongo cluster
 ./start-mongodb.sh
 
-# 3 terminals should appear and we'll see our data if we ask for it:
+# 3 terminals should appear and we&#39;ll see our data if we ask for it:
 mongo --port 27017
 use site
 db.Site.find()
-{ "_id" : ObjectId("5543b9ac53eeee01a167b662"), "page" : "home", "url" : "/" }
-{ "_id" : ObjectId("5543c6ea53eeee01a167b663"), "page" : "contact", "url" : "/contact" }
+{ &quot;_id&quot; : ObjectId(&quot;5543b9ac53eeee01a167b662&quot;), &quot;page&quot; : &quot;home&quot;, &quot;url&quot; : &quot;/&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5543c6ea53eeee01a167b663&quot;), &quot;page&quot; : &quot;contact&quot;, &quot;url&quot; : &quot;/contact&quot; }
 
 # Now we backup our data:
 db.fsyncLock()
 {
-    "info" : "now locked against writes, use db.fsyncUnlock() to unlock",
-    "seeAlso" : "http://dochub.mongodb.org/core/fsynccommand",
-    "ok" : 1
+    &quot;info&quot; : &quot;now locked against writes, use db.fsyncUnlock() to unlock&quot;,
+    &quot;seeAlso&quot; : &quot;http://dochub.mongodb.org/core/fsynccommand&quot;,
+    &quot;ok&quot; : 1
 }
 
 exit
@@ -352,9 +247,9 @@ tar -czf data.bak.tar.gz data
 
 mongo --port 27017
 db.fsyncUnlock()
-{ "ok" : 1, "info" : "unlock completed" }
+{ &quot;ok&quot; : 1, &quot;info&quot; : &quot;unlock completed&quot; }
 
-# And now let's screw up our data and such
+# And now let&#39;s screw up our data and such
 exit
 mv data data.corrupt
 killall mongod # you will see errors here
@@ -380,204 +275,123 @@ rm data/srv/mongodb/rs0-0/mongod.lock
 mongo --port 27017
 use site
 db.Site.find()
-{ "_id" : ObjectId("55453e54eb69b58f76c761f7"), "page" : "home", "url" : "/" }
-{ "_id" : ObjectId("55453e66eb69b58f76c761f8"), "page" : "contact", "url" : "/contact" }
+{ &quot;_id&quot; : ObjectId(&quot;55453e54eb69b58f76c761f7&quot;), &quot;page&quot; : &quot;home&quot;, &quot;url&quot; : &quot;/&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;55453e66eb69b58f76c761f8&quot;), &quot;page&quot; : &quot;contact&quot;, &quot;url&quot; : &quot;/contact&quot; }
 
-# Phew we're safe!
-</code></pre>
-   <p>
-    In general, snapshotting the file system is the safest and best way to 
+# Phew we&#39;re safe!
+</code></pre><p>In general, snapshotting the file system is the safest and best way to 
 preserve all your data. Using the mongo dump and restore tools is ok if 
-you don't have much data, or if your data isn't complex enough to need 
+you don&#39;t have much data, or if your data isn&#39;t complex enough to need 
 its entire BSON data saved. The best part is you can take the zipped 
-files and save them to a backup server for safety or local use!
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="value-enablePlugins-is-not-a-member-of-sbt-Project">
-       Value EnablePlugins is not a member of sbt.Project error
-      </a>
-     </li>
-     <li>
-      <a href="has-many-relationships-slick">
-       Handling Has-Many Relationships with Slick
-      </a>
-     </li>
-     <li>
-      <a href="dot-paths-harpjs-0-17-0">
-       Dot Paths in Harp? Unexpected Behavior!
-      </a>
-     </li>
-     <li>
-      <a href="value-raw-not-member-string-scala">
-       Value Raw is not a member of String, Scala Error
-      </a>
-     </li>
-     <li>
-      <a href="string-interpolation-vs-addition-performance">
-       Which is faster, string interpolation or addition in python?
-      </a>
-     </li>
-     <li>
-      <a href="targeting-java-platforms-with-sbt">
-       Targeting Java Platforms with SBT
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+files and save them to a backup server for safety or local use!</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=value-enablePlugins-is-not-a-member-of-sbt-Project>Value EnablePlugins is not a member of sbt.Project error</a></li><li><a href=has-many-relationships-slick>Handling Has-Many Relationships with Slick</a></li><li><a href=dot-paths-harpjs-0-17-0>Dot Paths in Harp? Unexpected Behavior!</a></li><li><a href=value-raw-not-member-string-scala>Value Raw is not a member of String, Scala Error</a></li><li><a href=string-interpolation-vs-addition-performance>Which is faster, string interpolation or addition in python?</a></li><li><a href=targeting-java-platforms-with-sbt>Targeting Java Platforms with SBT</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Adding Actions to the WordPress User Lists
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="How to add links and actions to the 'users.php' page of WordPress via filters." name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="WordPress,Actions,Users,users.php,filters,Programming,Web" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Adding Actions to the WordPress User Lists" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="How to add links and actions to the 'users.php' page of WordPress via filters." property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Adding Actions to the WordPress User Lists" name="twitter:title"/>
-  <meta content="How to add links and actions to the 'users.php' page of WordPress via filters." name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Adding Actions to the WordPress User Lists</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="How to add links and actions to the &#39;users.php&#39; page of WordPress via filters." />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="WordPress,Actions,Users,users.php,filters,Programming,Web"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Adding Actions to the WordPress User Lists" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="How to add links and actions to the &#39;users.php&#39; page of WordPress via filters." />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Adding Actions to the WordPress User Lists" />
+    
+    <meta name="twitter:description" content="How to add links and actions to the &#39;users.php&#39; page of WordPress via filters." />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,303 +46,156 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Adding Actions to the WordPress User Lists
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Adding Actions to the WordPress User Lists
-   </h3>
-   <p>
-    Today I was working on extending the functionality of an ecommerce site
-plugin I've been working on. Primarily, I decided it would be a great 
-idea if an Admin could easily jump to view a users purchases.
-   </p>
-   <p>
-    Where to do this? The WordPress Users list of course! It's the most likely
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Adding Actions to the WordPress User Lists</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Adding Actions to the WordPress User Lists</h3><p>Today I was working on extending the functionality of an ecommerce site
+plugin I&#39;ve been working on. Primarily, I decided it would be a great 
+idea if an Admin could easily jump to view a users purchases. </p>
+<p>Where to do this? The WordPress Users list of course! It&#39;s the most likely
 place an admin would goto checkout their customers. So I jumped in and 
-looked around and ended up finding the action and filter:
-    <code>
-     manage_users_custom_column
-    </code>
-    ,
-and
-    <code>
-     manage_users_columns
-    </code>
-    . As well as
-    <a href="http://wordpress.stackexchange.com/questions/3233/showing-users-post-counts-by-custom-post-type-in-the-admins-user-list">
-     a whole
-    </a>
-    ,
-    <a href="http://themeforest.net/forums/thread/help-with-manage_users_columns-in-wordpress/50906">
-     bunch
-    </a>
-    ,
-    <a href="http://pippinsplugins.com/add-user-id-column-to-the-wordpress-users-table/">
-     of great links
-    </a>
-    detailing how
-to add your own columns to the user list screen.
-   </p>
-   <p>
-    Those were all great, and I had even used one already to add in a column for store
-credit. But, I wanted to modify the existing columns. Trying out
-    <code>
-     unset
-    </code>
-    ing a default
-field and adding in my own, then trying to throw in my custom code didn't work.
-   </p>
-   <p>
-    Investigating WordPress core I soon found out why. It took a few
-    <code>
-     grep
-    </code>
-    s and
-    <code>
-     ctrl+
-shift+F
-    </code>
-    's but I found the file
-    <code>
-     wp-admin/includes/list-table.php
-    </code>
-    at last and after
-investigating that code found the more useful and informative file
-    <code>
-     wp-admin/includes/class-wp-users-list-table.php
-    </code>
-    where hidden away inside the function
-    <code>
-     single_row
-    </code>
-    was an easy to see reason why
- the custom filtering on the default fields hadn't worked. They're hardcoded for
- all the columns besides the first one.
-   </p>
-   <p>
-    The first column happened to echo out the contents of the
-    <code>
-     $edit
-    </code>
-    variable, which
+looked around and ended up finding the action and filter: <code>manage_users_custom_column</code>,
+and <code>manage_users_columns</code>. As well as <a href="http://wordpress.stackexchange.com/questions/3233/showing-users-post-counts-by-custom-post-type-in-the-admins-user-list">a whole</a>, <a href="http://themeforest.net/forums/thread/help-with-manage_users_columns-in-wordpress/50906">bunch</a>, <a href="http://pippinsplugins.com/add-user-id-column-to-the-wordpress-users-table/">of great links</a> detailing how
+to add your own columns to the user list screen. </p>
+<p>Those were all great, and I had even used one already to add in a column for store
+credit. But, I wanted to modify the existing columns. Trying out <code>unset</code>ing a default
+field and adding in my own, then trying to throw in my custom code didn&#39;t work. </p>
+<p>Investigating WordPress core I soon found out why. It took a few <code>grep</code>s and <code>ctrl+
+shift+F</code>&#39;s but I found the file <code>wp-admin/includes/list-table.php</code> at last and after
+investigating that code found the more useful and informative file <code>wp-admin/includes/class-wp-users-list-table.php</code>
+ where hidden away inside the function <code>single_row</code> was an easy to see reason why
+ the custom filtering on the default fields hadn&#39;t worked. They&#39;re hardcoded for
+ all the columns besides the first one. </p>
+<p> The first column happened to echo out the contents of the <code>$edit</code> variable, which
  is created from a list of actions that can be done for that row. And here I found
- the filter:
-    <code>
-     user_row_actions
-    </code>
-    which passes 2 arguments, the actions array and the
+ the filter: <code>user_row_actions</code> which passes 2 arguments, the actions array and the
  user object. This is exactly what I needed as after that, it was easy enough to 
- simply do the following:
-   </p>
-   <pre><code>    add_filter('user_row_actions', 'custom_user_actions',10, 2);
+ simply do the following:</p>
+<pre><code>    add_filter(&#39;user_row_actions&#39;, &#39;custom_user_actions&#39;,10, 2);
     function custom_user_actions($actions, $user_object ){
-        $actions['see purchases'] = "&lt;a class='submitdelete' href='" . admin_url( 'admin.php?page=user-purchases&amp;user='.$user_object-&gt;ID) . "'&gt;" . __( 'Purchases' ) . "&lt;/a&gt;";
+        $actions[&#39;see purchases&#39;] = &quot;&lt;a class=&#39;submitdelete&#39; href=&#39;&quot; . admin_url( &#39;admin.php?page=user-purchases&amp;user=&#39;.$user_object-&gt;ID) . &quot;&#39;&gt;&quot; . __( &#39;Purchases&#39; ) . &quot;&lt;/a&gt;&quot;;
         return $actions;
     }
-</code></pre>
-   <p>
-    And then my purchases link appeared on the WP Users list page in the admin view. Perfect!
-   </p>
-   <p>
-    I hope that this helps someone else out there who needs to add actions to the user 
-list view.
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="varnish-directors">
-       Varnish Directors and API Caching
-      </a>
-     </li>
-     <li>
-      <a href="wordpress-form-name-error">
-       404 Error from WordPress Form Submit with an input named 'name'
-      </a>
-     </li>
-     <li>
-      <a href="green-up-vt-app">
-       Green Up Vermont
-      </a>
-     </li>
-     <li>
-      <a href="grails-service-mocks">
-       Grails Service Mocks
-      </a>
-     </li>
-     <li>
-      <a href="serial-hill-climber-golang">
-       Serial Hill Climber in GoLang
-      </a>
-     </li>
-     <li>
-      <a href="resource-replace">
-       Resource Replace, update js and css domain links
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+</code></pre><p>And then my purchases link appeared on the WP Users list page in the admin view. Perfect!</p>
+<p>I hope that this helps someone else out there who needs to add actions to the user 
+list view. </p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=varnish-directors>Varnish Directors and API Caching</a></li><li><a href=wordpress-form-name-error>404 Error from WordPress Form Submit with an input named &#39;name&#39;</a></li><li><a href=green-up-vt-app>Green Up Vermont</a></li><li><a href=grails-service-mocks>Grails Service Mocks</a></li><li><a href=serial-hill-climber-golang>Serial Hill Climber in GoLang</a></li><li><a href=resource-replace>Resource Replace, update js and css domain links</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | BGI, a way to track your spending
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="Playing around with C CGI scripting in order to track spending habits is fun! A look into a side project." name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="C,CGI,BGI,Budgeting,Spending" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | BGI, a way to track your spending" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="Playing around with C CGI scripting in order to track spending habits is fun! A look into a side project." property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | BGI, a way to track your spending" name="twitter:title"/>
-  <meta content="Playing around with C CGI scripting in order to track spending habits is fun! A look into a side project." name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | BGI, a way to track your spending</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Playing around with C CGI scripting in order to track spending habits is fun! A look into a side project." />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="C,CGI,BGI,Budgeting,Spending"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | BGI, a way to track your spending" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Playing around with C CGI scripting in order to track spending habits is fun! A look into a side project." />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | BGI, a way to track your spending" />
+    
+    <meta name="twitter:description" content="Playing around with C CGI scripting in order to track spending habits is fun! A look into a side project." />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,182 +46,70 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    BGI, a way to track your spending
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    A look into Budget Gateway Interface (BGI).
-   </h3>
-   <p>
-    There are times in life when you write Java, PHP, or Ruby to build out your web
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>BGI, a way to track your spending</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>A look into Budget Gateway Interface (BGI).</h3><p>There are times in life when you write Java, PHP, or Ruby to build out your web
 applications. Then there are times when you really just want to write in a language
-you love. Don't get me wrong, I enjoy writing all the mentioned languages to some
-extent. But my true love, as I've said on other parts of my website, is C.
-   </p>
-   <h4>
-    So you want to write a web application in C
-   </h4>
-   <p>
-    I've created a
-    <a href="https://github.com/EdgeCaseBerg/green-serv">
-     custom server before
-    </a>
-    , but this time I wanted to spend more time
+you love. Don&#39;t get me wrong, I enjoy writing all the mentioned languages to some
+extent. But my true love, as I&#39;ve said on other parts of my website, is C. </p>
+<h4>So you want to write a web application in C</h4><p>I&#39;ve created a <a href="https://github.com/EdgeCaseBerg/green-serv">custom server before</a>, but this time I wanted to spend more time
 on the application layer. So I decided to try to learn something new. Specifically,
 CGI scripting. After a quick google search and reading a little bit about CGI I 
-found out that CGI scripting is actually pretty simple.
-   </p>
-   <p>
-    The gist of CGI is that the web server places your query parameters into an
+found out that CGI scripting is actually pretty simple. </p>
+<p>The gist of CGI is that the web server places your query parameters into an
 environmental variable, and you read and parse that information for the URL and
-parameters in the request. If it's a
-    <strong>
-     POST
-    </strong>
-    or
-    <strong>
-     PUT
-    </strong>
-    request, then the incoming
-data comes in on
-    <code>
-     stdin
-    </code>
-    . Which I personally thought was quite cool and makes a 
-lot of sense.
-   </p>
-   <p>
-    Parsing query variables isn't hard, but as I said above, I wanted to spend time
-on the application layer. So I checked out the
-    <a href="http://cgi.resourceindex.com/programs_and_scripts/c_and_c++/libraries_and_classes/">
-     libraries listed here
-    </a>
-    and chose
-to use
-    <a href="http://www.qdecoder.org/wiki/qdecoder">
-     qdecoder
-    </a>
-    . Once that was in place I created my Makefile, and I happened
+parameters in the request. If it&#39;s a <strong>POST</strong> or <strong>PUT</strong> request, then the incoming
+data comes in on <code>stdin</code>. Which I personally thought was quite cool and makes a 
+lot of sense.</p>
+<p>Parsing query variables isn&#39;t hard, but as I said above, I wanted to spend time
+on the application layer. So I checked out the <a href="http://cgi.resourceindex.com/programs_and_scripts/c_and_c++/libraries_and_classes/">libraries listed here</a> and chose
+to use <a href="http://www.qdecoder.org/wiki/qdecoder">qdecoder</a>. Once that was in place I created my Makefile, and I happened
 to stumble onto a few good blog posts and examples on making Makefiles to deal
-with a typical project structure (src,obj, and bin directories). Here's one of
-the interesting lines in it:
-   </p>
-   <pre><code>OBJECTS := $(patsubst src/%.c,obj/%.o,$(wildcard src/*.c))
+with a typical project structure (src,obj, and bin directories). Here&#39;s one of
+the interesting lines in it:</p>
+<pre><code>OBJECTS := $(patsubst src/%.c,obj/%.o,$(wildcard src/*.c))
 TARGETS := $(patsubst src/%.c,bin/%.cgi,$(wildcard src/*.c))
 
 $(TARGETS): $(OBJECTS) $(UTIL)
     ${CC} ${LINKFLAGS} -o $@ $(patsubst bin/%.cgi, obj/%.o, $@ ) $(patsubst %, obj/%.o, $(UTIL)) ${LIBS}
-</code></pre>
-   <p>
-    While not everything shown here is defined (if you really want you can look at the
-    <a href="https://github.com/EdgeCaseBerg/BGI/blob/master/Makefile">
-     Makefile source here
-    </a>
-    ), the cool part is that the targets and the objects are
-being created based on the source filenames. The line
-    <code>
-     $(patsubst src/%.c,obj/%.o,$(wildcard src/*.c))
-    </code>
-    takes all the C files in the src directory, captures their names, then creates a
+</code></pre><p>While not everything shown here is defined (if you really want you can look at the 
+<a href="https://github.com/EdgeCaseBerg/BGI/blob/master/Makefile">Makefile source here</a> ), the cool part is that the targets and the objects are
+being created based on the source filenames. The line <code>$(patsubst src/%.c,obj/%.o,$(wildcard src/*.c))</code>
+takes all the C files in the src directory, captures their names, then creates a
 string pointing into the object directory with the same name. For example, a file
-called
-    <code>
-     heartbeat.c
-    </code>
-    stored in the src directory, would be picked up by this, and the
-    <code>
-     src
-    </code>
-    and
-    <code>
-     .c
-    </code>
-    portions of the string replaced with
-    <code>
-     obj
-    </code>
-    and
-    <code>
-     .o
-    </code>
-    . The same logic
-is then applied to the
-    <code>
-     TARGETS
-    </code>
-    which all end in
-    <code>
-     .cgi
-    </code>
-    and live in the
-    <code>
-     bin
-    </code>
-    folder.
-   </p>
-   <p>
-    The actual make targets are created from the last two lines that specify that all
-    <code>
-     TARGETS
-    </code>
-    depend on all the objects (as well as some utility classes) and then we 
-use the
-    <code>
-     $@
-    </code>
-    and
-    <code>
-     $&lt;
-    </code>
-    operators in Make to retrieve the target and dependencies
-for each target being created.
-   </p>
-   <p>
-    After I had my project structure setup, I started in by looking at the excellent
-    <a href="http://www.qdecoder.org/releases/current/examples/">
-     examples
-    </a>
-    of qdecoder to determine how I would write my programs. I came to the
+called <code>heartbeat.c</code> stored in the src directory, would be picked up by this, and the
+<code>src</code> and <code>.c</code> portions of the string replaced with <code>obj</code> and <code>.o</code>. The same logic
+is then applied to the <code>TARGETS</code> which all end in <code>.cgi</code> and live in the <code>bin</code> 
+folder.</p>
+<p>The actual make targets are created from the last two lines that specify that all
+<code>TARGETS</code> depend on all the objects (as well as some utility classes) and then we 
+use the <code>$@</code> and <code>$&lt;</code> operators in Make to retrieve the target and dependencies
+for each target being created.</p>
+<p>After I had my project structure setup, I started in by looking at the excellent
+<a href="http://www.qdecoder.org/releases/current/examples/">examples</a> of qdecoder to determine how I would write my programs. I came to the
 logic that each of my CGI scripts should be as simple as possible, doing a single
-job, and that I had everything I needed. Well, except a database.
-   </p>
-   <h5>
-    The Index Page
-   </h5>
-   <p>
-    <img src="/images/tech-blog/index.png" style="max-width: 778px"/>
-    <br/>
-    <small>
-     It was simple to create a login and registration form and wire them into
+job, and that I had everything I needed. Well, except a database.</p>
+<h5>The Index Page</h5><p><img src="/images/tech-blog/index.png" style="max-width: 778px"><br>
+<small>It was simple to create a login and registration form and wire them into
     CGI. The forms were simple and so was the data validation.
-    </small>
-   </p>
-   <h4>
-    Storing the data
-   </h4>
-   <p>
-    I initially thought about using mySQL as my database backend. I used it in
-    <a href="https://github.com/EdgeCaseBerg/green-serv">
-     green-serv
-    </a>
-    and am familiar with the C API for it. But, something I didn't like about using
-mySQL is that my current system's has 2 versions of mySQL installed (5.5 and the bleeding 5.6)
+</small></p>
+<h4>Storing the data</h4><p>I initially thought about using mySQL as my database backend. I used it in <a href="https://github.com/EdgeCaseBerg/green-serv">green-serv</a>
+and am familiar with the C API for it. But, something I didn&#39;t like about using
+mySQL is that my current system&#39;s has 2 versions of mySQL installed (5.5 and the bleeding 5.6)
 and that had foobarred my Makefile in green-serv a bit and I wanted to avoid that.
-So I decided that it would be fun to roll my own (I know, reinventing the wheel, shame shame).
-   </p>
-   <p>
-    As such I defined an exceptionally simple format for storing the data:
-   </p>
-   <pre><code>data/
+So I decided that it would be fun to roll my own (I know, reinventing the wheel, shame shame).</p>
+<p>As such I defined an exceptionally simple format for storing the data:</p>
+<pre><code>data/
     .users
     &lt;username&gt;/
         accounts
@@ -220,381 +119,194 @@ So I decided that it would be fun to roll my own (I know, reinventing the wheel,
     &lt;username 2&gt;/
         accounts
         ...
-</code></pre>
-   <p>
-    The data directory consists of a single index file to store the users and a hash
-of their password (yes, no salt, I know it's not secure, this is a play project).
+</code></pre><p>The data directory consists of a single index file to store the users and a hash
+of their password (yes, no salt, I know it&#39;s not secure, this is a play project).
 Once a user exists, they are given their own directory with an accounts file inside.
 This accounts file acts as an index for the balances and names of a users accounts.
 And then the line items stored for each account are placed into a file named after
-that account.
-   </p>
-   <p>
-    Here's an example of what some of that data looks like:
-   </p>
-   <h5>
-    .users
-   </h5>
-   <pre><code>admin 63876434
-</code></pre>
-   <h5>
-    admin/accounts
-   </h5>
-   <pre><code>1 checkings 7.000000
+that account.</p>
+<p>Here&#39;s an example of what some of that data looks like:</p>
+<h5>.users</h5><pre><code>admin 63876434
+</code></pre><h5>admin/accounts</h5><pre><code>1 checkings 7.000000
 2 food 14.000000
 3 Home Supplies 10.000000
-</code></pre>
-   <h5>
-    admin/checkings
-   </h5>
-   <pre><code>1404876690 test 1.500000 44.475800 -73.211900
+</code></pre><h5>admin/checkings</h5><pre><code>1404876690 test 1.500000 44.475800 -73.211900
 1405386959 Something 1.00 44.486497 -73.212105
 1405477153 test 4.50 44.486567 -73.212207
-</code></pre>
-   <p>
-    The data being stored in the account file itself is simple:
-   </p>
-   <pre><code>&lt;epoch time&gt; &lt;item name&gt; &lt;spent&gt; &lt;latitude&gt; &lt;longitude&gt;
-</code></pre>
-   <p>
-    You might be wondering why there's latitude and longitude built into this. The answer
+</code></pre><p>The data being stored in the account file itself is simple:</p>
+<pre><code>&lt;epoch time&gt; &lt;item name&gt; &lt;spent&gt; &lt;latitude&gt; &lt;longitude&gt;
+</code></pre><p>You might be wondering why there&#39;s latitude and longitude built into this. The answer
 is that when I had the initial idea for this appplication, I wanted to access it
 from a phone, right after I bought something, and then be able to track where I 
-was spending most of my money (hint, buying lunch everyday is expensive).
-   </p>
-   <h4>
-    Visualizing the Data and the display itself
-   </h4>
-   <p>
-    To show the information I turned to my goto for static websites,
-    <a href="http://harpjs.com">
-     Harp
-    </a>
-    . It was
-easy to create a
-    <em>
-     very
-    </em>
-    simple website with minimal styling that functioned as
-the interface to my budget tracking habits. It doesn't look that good, but it
-does look like this:
-   </p>
-   <h5>
-    The Application Page
-   </h5>
-   <p>
-    <img src="/images/tech-blog/welcome.png" style="max-width: 778px"/>
-   </p>
-   <p>
-    The main application page (after the login pictured above) consists of a simple
+was spending most of my money (hint, buying lunch everyday is expensive).</p>
+<h4>Visualizing the Data and the display itself</h4><p>To show the information I turned to my goto for static websites, <a href="http://harpjs.com">Harp</a>. It was
+easy to create a <em>very</em> simple website with minimal styling that functioned as
+the interface to my budget tracking habits. It doesn&#39;t look that good, but it
+does look like this:</p>
+<h5>The Application Page</h5><p><img src="/images/tech-blog/welcome.png" style="max-width: 778px"></p>
+<p>The main application page (after the login pictured above) consists of a simple
 lists of your accounts and their balances. By clicking on the View button for 
 each account, you can see a list of line items spent. Because of the way the
 data is appended to the end of the datastore files, they are naturally ordered
-by date and so displaying them in order is merely a matter of output.
-   </p>
-   <h5>
-    The Metrics Page
-   </h5>
-   <p>
-    <img src="/images/tech-blog/metrics.png" style="max-width: 778px"/>
-   </p>
-   <p>
-    One of the most important parts of any data is displaying it in a form that is
-easily digestable. When you're trying to track your spending habits there are a
-lot of ways you can do it. I've elected for 4 simple charts.
-   </p>
-   <ul>
-    <li>
-     Pie Chart of account balances.
-    </li>
-    <li>
-     Timeline of spending per day (total, not by account)
-    </li>
-    <li>
-     Spending by Month (do you spend more in the summer? winter?)
-    </li>
-    <li>
-     Spending by day of the week (should you stop partying
-     <sup>
-      *
-     </sup>
-     on friday?)
-    </li>
-   </ul>
-   <p>
-    The most interesting to code of these graphs was the timeline. I used
-    <a href="https://github.com/nnnick/Chart.js">
-     Chart.js
-    </a>
-    for each of the graphs, all of which were straightforward since they had obvious
+by date and so displaying them in order is merely a matter of output.</p>
+<h5>The Metrics Page</h5><p><img src="/images/tech-blog/metrics.png" style="max-width: 778px"></p>
+<p>One of the most important parts of any data is displaying it in a form that is
+easily digestable. When you&#39;re trying to track your spending habits there are a
+lot of ways you can do it. I&#39;ve elected for 4 simple charts. </p>
+<ul>
+<li>Pie Chart of account balances.</li>
+<li>Timeline of spending per day (total, not by account)</li>
+<li>Spending by Month (do you spend more in the summer? winter?)</li>
+<li>Spending by day of the week (should you stop partying<sup>*</sup> on friday?)</li>
+</ul>
+<p> The most interesting to code of these graphs was the timeline. I used <a href="https://github.com/nnnick/Chart.js">Chart.js</a>
+ for each of the graphs, all of which were straightforward since they had obvious
  labels (months and days), but when you construct a line graph you need to have
  all of your labels, and then the indices of the data for the label must match the
  indicies of the labels. (The label for the first data point must be the first label and etc)
- This is slightly problematic when you don't actually know the days that the user
- has bought things on. Furthermore, if the user didn't buy something one day, then
- you still need to reflect that 0 point even though you don't have any data for it.
-   </p>
-   <p>
-    This isn't that hard to figure out if you give it a moment's thought, but it was
+ This is slightly problematic when you don&#39;t actually know the days that the user
+ has bought things on. Furthermore, if the user didn&#39;t buy something one day, then
+ you still need to reflect that 0 point even though you don&#39;t have any data for it.</p>
+<p> This isn&#39;t that hard to figure out if you give it a moment&#39;s thought, but it was
  fun to implement. Essentially, you need to determine the minimum and maximum times
  over your dataset, then create all the labels and buckets for all the data points.
  Once you have that, you need to map your data points into the right buckets. If 
- you're curious on the actual implementation, checkout
-    <a href="https://github.com/EdgeCaseBerg/BGI/blob/master/public/js/timeline.js">
-     timeline.js
-    </a>
-    around lines 104 
- and on.
-   </p>
-   <p>
-    *
-    <sup>
-     By partying I mean coding late into the night and eating pizza of course.
-    </sup>
-   </p>
-   <h5>
-    And the map Page
-   </h5>
-   <p>
-    <img src="/images/tech-blog/map.png" style="max-width: 778px"/>
-   </p>
-   <p>
-    And lastly, to try to figure out where I'm spending too much money, I need to know
-where I'm spending it! A map is the best way to view geographically oriented data,
-so I used
-    <a href="http://Leafletjs.com">
-     Leaflet.js
-    </a>
-    to create a simple and easily marked up map. I personally
+ you&#39;re curious on the actual implementation, checkout <a href="https://github.com/EdgeCaseBerg/BGI/blob/master/public/js/timeline.js">timeline.js</a> around lines 104 
+ and on.</p>
+<p> *<sup>By partying I mean coding late into the night and eating pizza of course.</sup></p>
+<h5>And the map Page</h5><p><img src="/images/tech-blog/map.png" style="max-width: 778px"></p>
+<p>And lastly, to try to figure out where I&#39;m spending too much money, I need to know
+where I&#39;m spending it! A map is the best way to view geographically oriented data,
+so I used <a href="http://Leafletjs.com">Leaflet.js</a> to create a simple and easily marked up map. I personally
 prefer Leaflet over Google Maps, not just because it supports tons of tilesets,
-but because I had a
-    <a href="http://www.xenonapps.com/greenupvisualization.html">
-     great success in using it to display a lot of data
-    </a>
-    for my
-work on
-    <a href="http://www.ethanjoachimeldridge.info/tech-blog/green-up-vt-app.html">
-     Green Up
-    </a>
-    .
-   </p>
-   <h4>
-    Some final thoughts
-   </h4>
-   <p>
-    Overall this project was tons of fun. Using CGI really forces you to think about
-HTML as being stateless (which it is). And to construct easily usable API's to 
-talk to for the data you need. I'm lucky I was using
-    <a href="http://harpjs.com">
-     Harp
-    </a>
-    since the
+but because I had a <a href="http://www.xenonapps.com/greenupvisualization.html">great success in using it to display a lot of data</a> for my
+work on <a href="http://www.ethanjoachimeldridge.info/tech-blog/green-up-vt-app.html">Green Up</a>.</p>
+<h4>Some final thoughts</h4><p>Overall this project was tons of fun. Using CGI really forces you to think about
+HTML as being stateless (which it is). And to construct easily usable API&#39;s to 
+talk to for the data you need. I&#39;m lucky I was using <a href="http://harpjs.com">Harp</a> since the
 use of partials really assists with creating error pages to respond to badly formed
-requests to the CGI (As oppose to creating a whole seperate HTML page to do so).
-   </p>
-   <p>
-    CGI is fast. The queries to retrieve information for the javascript happen in
+requests to the CGI (As oppose to creating a whole seperate HTML page to do so). </p>
+<p>CGI is fast. The queries to retrieve information for the javascript happen in
 about 23-30ms almost always. The power of a compiled binary executing on a server
 is obvious when you compare it to php scripts that would be doing the same thing.
 The only overhead I really have is the process for the CGI starting up itself, 
 which I could easily fix by using FastCGI. I imagine that if I continued to expand
 this application, the File IO would probably end up being the biggest performance
-problem, as opening the user's files would result in a lot of File handles on the
+problem, as opening the user&#39;s files would result in a lot of File handles on the
 server. To mitigate, something like varnish would easily solve the problem so long
-as the vcl file was setup to properly invalidate the cache.
-   </p>
-   <p>
-    While I think up my next side project, I'll probably continue to tweak BGI and 
+as the vcl file was setup to properly invalidate the cache.</p>
+<p>While I think up my next side project, I&#39;ll probably continue to tweak BGI and 
 also work on creating a nicer looking front end. My skills are primarily in backend
 work or hooking up the front end to the backend. Not in making a shiny Web 2.0
-website that bedazzles all who gaze upon it. Still, I'll probably try.
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="harp-macro-revisit">
-       Harp CDN Macro Revisited
-      </a>
-     </li>
-     <li>
-      <a href="xml-sitemap-for-harpjs">
-       XML Sitemap for Harp JS
-      </a>
-     </li>
-     <li>
-      <a href="privateTalk">
-       Private Talk and plans for some tutorials
-      </a>
-     </li>
-     <li>
-      <a href="custom-permalinks-for-custom-templates">
-       Custom Permalinks for Custom Tables and Pages
-      </a>
-     </li>
-     <li>
-      <a href="free-item-in-authorize-line-item-invalid">
-       Authorize LineItem's, mixed free and paid for causes error
-      </a>
-     </li>
-     <li>
-      <a href="googlebot-heisenbug">
-       'Caught in the Spiders Web' -- A googlebot Heisenbug
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+website that bedazzles all who gaze upon it. Still, I&#39;ll probably try.</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=harp-macro-revisit>Harp CDN Macro Revisited</a></li><li><a href=xml-sitemap-for-harpjs>XML Sitemap for Harp JS</a></li><li><a href=privateTalk>Private Talk and plans for some tutorials</a></li><li><a href=custom-permalinks-for-custom-templates>Custom Permalinks for Custom Tables and Pages</a></li><li><a href=free-item-in-authorize-line-item-invalid>Authorize LineItem&#39;s, mixed free and paid for causes error</a></li><li><a href=googlebot-heisenbug>&#39;Caught in the Spiders Web&#39; -- A googlebot Heisenbug</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

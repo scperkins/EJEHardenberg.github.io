@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Coloring Likert Scales with LESS CSS
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="Showing how to use a recursive mixin in LESS CSS to create easily coloured likert scales." name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="likert,scale,LESS,css,color,design,tip,mixin,recursion,recursive" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Coloring Likert Scales with LESS CSS" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="Showing how to use a recursive mixin in LESS CSS to create easily coloured likert scales." property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Coloring Likert Scales with LESS CSS" name="twitter:title"/>
-  <meta content="Showing how to use a recursive mixin in LESS CSS to create easily coloured likert scales." name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Coloring Likert Scales with LESS CSS</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Showing how to use a recursive mixin in LESS CSS to create easily coloured likert scales." />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="likert,scale,LESS,css,color,design,tip,mixin,recursion,recursive"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Coloring Likert Scales with LESS CSS" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Showing how to use a recursive mixin in LESS CSS to create easily coloured likert scales." />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Coloring Likert Scales with LESS CSS" />
+    
+    <meta name="twitter:description" content="Showing how to use a recursive mixin in LESS CSS to create easily coloured likert scales." />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,55 +46,32 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Coloring Likert Scales with LESS CSS
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Easy scale generation with Less CSS
-   </h3>
-   <p>
-    Something I found myself doing for
-    <a href="https://github.com/EdgeCaseBerg/whoseopinion.com">
-     a side project
-    </a>
-    is creating
-    <a href="http://en.wikipedia.org/wiki/Likert_scale">
-     Likert Scales
-    </a>
-    . 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Coloring Likert Scales with LESS CSS</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Easy scale generation with Less CSS</h3><p>Something I found myself doing for <a href="https://github.com/EdgeCaseBerg/whoseopinion.com">a side project</a> is creating <a href="http://en.wikipedia.org/wiki/Likert_scale">Likert Scales</a>. 
 One day this past week I got to thinking, Hey, I could use different colors on 
-this thing to make it not look so bland, and to give users a visual cue as well.
-   </p>
-   <p>
-    <img height="56px" src="/images/tech-blog/likert-scale.png" style="padding-left: 25%" width="476px"/>
-   </p>
-   <h4>
-    The Problem
-   </h4>
-   <p>
-    The traditional way of doing this in pure CSS might look something like this:
-   </p>
-   <pre><code>.strongly-disagree{
+this thing to make it not look so bland, and to give users a visual cue as well.</p>
+<p><img style="padding-left: 25%" src="/images/tech-blog/likert-scale.png" width="476px" height="56px"></p>
+<h4>The Problem</h4><p>The traditional way of doing this in pure CSS might look something like this:</p>
+<pre><code>.strongly-disagree{
     background-color: red;
 }
 .disagree{
     background-color: orange;
 }
 /* ... */
-</code></pre>
-   <p>
-    Or if you like pseudo selectors and don't want to use classes, something like this:
-   </p>
-   <pre><code>/* Provided all labels are wrapped in the same div, with radio buttons nested */
+</code></pre><p>Or if you like pseudo selectors and don&#39;t want to use classes, something like this:</p>
+<pre><code>/* Provided all labels are wrapped in the same div, with radio buttons nested */
 label:nth-child(1){
     background-color: red;
 }
@@ -91,25 +79,13 @@ label:nth-child(2){
     background-color: orange;
 }
 /* ... */
-</code></pre>
-   <p>
-    To me. this is not very attractive. After all, you're repeating the same selector, 
+</code></pre><p>To me. this is not very attractive. After all, you&#39;re repeating the same selector, 
 over and over again just because the background color changes. There must be a better
-way to do it with all of our new and fancy modern tools right? Right.
-   </p>
-   <h4>
-    The Code
-   </h4>
-   <p>
-    By using
-    <a href="http://lesscss.org/">
-     LESS
-    </a>
-    we can make it a lot easier to achieve the same affect without cluttering
+way to do it with all of our new and fancy modern tools right? Right.</p>
+<h4>The Code</h4><p>By using <a href="http://lesscss.org/">LESS</a> we can make it a lot easier to achieve the same affect without cluttering
 our markup with a lot of unneccesary classes. Granted we do need to do a little bit
-of trickery with LESS mixins. Here's the code:
-   </p>
-   <pre><code>@from: 1;
+of trickery with LESS mixins. Here&#39;s the code:</p>
+<pre><code>@from: 1;
 @to: 5;
 @scaleColors: red, orange, yellow, lime, green;
 .scale(@idx) when(@idx =&lt; @to){
@@ -128,56 +104,16 @@ of trickery with LESS mixins. Here's the code:
     }
     .scale(@idx + 1);
 }
-</code></pre>
-   <h4>
-    Explanation
-   </h4>
-   <p>
-    This is a recursive
-    <a href="http://lesscss.org/features/#mixins-feature">
-     Mixin
-    </a>
-    , calling itself until we go from
-    <code>
-     @from
-    </code>
-    to
-    <code>
-     @to
-    </code>
-    . In
+</code></pre><h4>Explanation</h4><p>This is a recursive <a href="http://lesscss.org/features/#mixins-feature">Mixin</a>, calling itself until we go from <code>@from</code> to <code>@to</code>. In
 the case of our 5 point scale, this is obviously 5. We have a list of colors we
-can want to use, and then are using the
-    <code>
-     extract
-    </code>
-    function of LESS to grab the
-colors out of our list for usage as the local variable
-    <code>
-     @col
-    </code>
-    . You'll notice at
-the bottom of our Mixin that we call it again
-    <code>
-     .scale(@idx + 1)
-    </code>
-    with an increment
-to the passed in
-    <code>
-     idx
-    </code>
-    value. This causes our function to count up for each element.
-   </p>
-   <p>
-    You could use
-    <a href="http://lesscss.org/features/#loops-feature">
-     a loop
-    </a>
-    as well to get the same effect if you dislike the recursion.
+can want to use, and then are using the <code>extract</code> function of LESS to grab the
+colors out of our list for usage as the local variable <code>@col</code>. You&#39;ll notice at
+the bottom of our Mixin that we call it again <code>.scale(@idx + 1)</code> with an increment
+to the passed in <code>idx</code> value. This causes our function to count up for each element.</p>
+<p>You could use <a href="http://lesscss.org/features/#loops-feature">a loop</a> as well to get the same effect if you dislike the recursion.
 The rest of the code is regular CSS styling each element. Besides using a list of 
-colors, you can also use a single base color and then lighten/darken it like so:
-   </p>
-   <pre><code>@scaleColor: #000;
+colors, you can also use a single base color and then lighten/darken it like so:</p>
+<pre><code>@scaleColor: #000;
 @from: 1;
 @to: 5;
 .scale(@idx) when(@idx =&lt; @to){
@@ -192,236 +128,130 @@ colors, you can also use a single base color and then lighten/darken it like so:
     }
     .scale(@idx + 1);
 }
-</code></pre>
-   <p>
-    Which uses the same technique to loop through children, but instead of a list of 
-colors we use
-    <code>
-     lighten
-    </code>
-    and
-    <code>
-     darken
-    </code>
-    to automatically make a bunch of shades of a base
+</code></pre><p>Which uses the same technique to loop through children, but instead of a list of 
+colors we use <code>lighten</code> and <code>darken</code> to automatically make a bunch of shades of a base
 background color. You might need to modify it for your own uses though, changing
 the base color can change whether you need to use the lightening features of LESS
-or the darkening. Also the code above could be cleaned up by placing
-    <code>
-     lighten(...)
-    </code>
-    into a local 
-variable, then darkening that only in the
-    <code>
-     :hover
-    </code>
-    selector.
-   </p>
-   <p>
-    Another Mixin that I find rather useful is my
-    <code>
-     .Transition
-    </code>
-    mixin shown below:
-   </p>
-   <pre><code>.Transition{
+or the darkening. Also the code above could be cleaned up by placing <code>lighten(...)</code> into a local 
+variable, then darkening that only in the <code>:hover</code> selector.</p>
+<p>Another Mixin that I find rather useful is my <code>.Transition</code> mixin shown below:</p>
+<pre><code>.Transition{
     -o-transition:.5s;
     -ms-transition:.5s;
     -moz-transition:.5s;
     -webkit-transition:.5s;
     transition:.5s;
 }
-</code></pre>
-   <p>
-    which I include on the scale elements so that background shift is a bit cleaner
-looking. I hope this helps anyone out there looking to do something similar.
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="using-encrypted-search-in-chromium">
-       Using Encrypted Search in Chrome
-      </a>
-     </li>
-     <li>
-      <a href="autoload-harp-css-js">
-       Autoload your CSS and Javascript in Harp
-      </a>
-     </li>
-     <li>
-      <a href="upgrading-chromium-33-to-37">
-       Fixing the flash player in Chromium Version 37
-      </a>
-     </li>
-     <li>
-      <a href="dynamically-including-js">
-       Loading JS dynamically in Harp
-      </a>
-     </li>
-     <li>
-      <a href="today-we-learned-through-games">
-       Teaching Through Games
-      </a>
-     </li>
-     <li>
-      <a href="cgi-c-harp-3">
-       Let's make a chat server, Part 3
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+</code></pre><p>which I include on the scale elements so that background shift is a bit cleaner
+looking. I hope this helps anyone out there looking to do something similar.</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=using-encrypted-search-in-chromium>Using Encrypted Search in Chrome</a></li><li><a href=autoload-harp-css-js>Autoload your CSS and Javascript in Harp</a></li><li><a href=upgrading-chromium-33-to-37>Fixing the flash player in Chromium Version 37</a></li><li><a href=dynamically-including-js>Loading JS dynamically in Harp</a></li><li><a href=today-we-learned-through-games>Teaching Through Games</a></li><li><a href=cgi-c-harp-3>Let&#39;s make a chat server, Part 3</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

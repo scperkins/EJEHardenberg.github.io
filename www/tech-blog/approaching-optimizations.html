@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Approaching Optimizations
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="My friend requested I write about how I approached an optimization problem, so here it is!" name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="angry children,hacker rank,optimization,python,len,slice,performance" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Approaching Optimizations" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="My friend requested I write about how I approached an optimization problem, so here it is!" property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Approaching Optimizations" name="twitter:title"/>
-  <meta content="My friend requested I write about how I approached an optimization problem, so here it is!" name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Approaching Optimizations</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="My friend requested I write about how I approached an optimization problem, so here it is!" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="angry children,hacker rank,optimization,python,len,slice,performance"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Approaching Optimizations" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="My friend requested I write about how I approached an optimization problem, so here it is!" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Approaching Optimizations" />
+    
+    <meta name="twitter:description" content="My friend requested I write about how I approached an optimization problem, so here it is!" />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,55 +46,32 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Approaching Optimizations
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Approaching Optimizations
-   </h3>
-   <p>
-    About a week ago
-    <a href="https://github.com/the-hobbes">
-     my friend Phelan
-    </a>
-    sent me an email where he asked me to 
-look at some code he had been working on. Specifically, a
-    <a href="https://www.hackerrank.com/challenges/angry-children">
-     Hacker Rank 
-challenge about unfairness
-    </a>
-    . He told me that he had a solution to 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Approaching Optimizations</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Approaching Optimizations</h3><p>About a week ago <a href="https://github.com/the-hobbes">my friend Phelan</a> sent me an email where he asked me to 
+look at some code he had been working on. Specifically, a <a href="https://www.hackerrank.com/challenges/angry-children">Hacker Rank 
+challenge about unfairness</a>. He told me that he had a solution to 
 the problem, but it ran in about 30 seconds instead of 10 as the 
-challenge required.
-   </p>
-   <p>
-    Before he emailed me, he had thought he
-    <a href="https://github.com/the-hobbes/misc/commit/30180c42fbef4fbd4673dcdd530696682c86052f">
-     already optimized
-    </a>
-    the code a 
-little bit by removing a call to the
-    <code>
-     len
-    </code>
-    function and had presented 
-me with the code below:
-   </p>
-   <pre><code>def compute_min_diff(n, k, candies):
-    '''
+challenge required. </p>
+<p>Before he emailed me, he had thought he <a href="https://github.com/the-hobbes/misc/commit/30180c42fbef4fbd4673dcdd530696682c86052f">already optimized</a> the code a 
+little bit by removing a call to the <code>len</code> function and had presented 
+me with the code below: </p>
+<pre><code>def compute_min_diff(n, k, candies):
+    &#39;&#39;&#39;
         You can profile your program by doing something like this:
             cat sample_input | python -m cProfile max_min.py
         to identify the bottlenecks.
-    '''
+    &#39;&#39;&#39;
     min_diff = None
 
     for i in range(n): 
@@ -94,83 +82,41 @@ me with the code below:
                 min_diff = diff
 
     return min_diff
-</code></pre>
-   <p>
-    Take a moment and see if you can spot a few places where one could improve 
+</code></pre><p>Take a moment and see if you can spot a few places where one could improve 
 the code to be more inefficient (or wait a moment and keep reading). After 
 I had sent back my thoughts to him and he whittled the time down to 10 
-seconds, he sent me a follow up email:
-   </p>
-   <blockquote>
-    "I have a blog request for you to write! something along the lines of algorithm optimization, 
+seconds, he sent me a follow up email:</p>
+<blockquote>
+    &quot;I have a blog request for you to write! something along the lines of algorithm optimization, 
     like what you did to help me solve that hackerrank puzzle 
     (reasoning behind the steps you took, your thought process, etc...)
 
-    just a thought!""
-   </blockquote>
-   <p>
-    While I normally write up small posts about little code problems I'm solving 
-or projects I'm working on, it seems like a good change of pace to talk about 
+    just a thought!&quot;&quot;
+</blockquote>
+
+<p>While I normally write up small posts about little code problems I&#39;m solving 
+or projects I&#39;m working on, it seems like a good change of pace to talk about 
 how one approaches a problem like this. After all, people love things that 
-go fast (and marketing says faster = $$$), so here we go:
-   </p>
-   <h4>
-    Lists? SubGroups?
-   </h4>
-   <p>
-    The first thing that pops out to me is the fact that we're considering 
+go fast (and marketing says faster = $$$), so here we go:</p>
+<h4>Lists? SubGroups?</h4><p>The first thing that pops out to me is the fact that we&#39;re considering 
 subgroups of a list. If you put your computer hat on for a second and 
-consider the first few lines you might notice something:
-   </p>
-   <pre><code>for i in range(n): 
+consider the first few lines you might notice something:</p>
+<pre><code>for i in range(n): 
     subgroup = candies[i: i + k] 
     if len(subgroup) ==  k: #...
-</code></pre>
-   <p>
-    Specifically that we don't have to loop over the
-    <em>
-     entire
-    </em>
-    list. A small 
-micro optimization we can realize is that since each subgroup is of size
-    <code>
-     k
-    </code>
-    and we create these groups from
-    <code>
-     i
-    </code>
-    , eventually we'll hit the case where the 
-are less than
-    <code>
-     k
-    </code>
-    elements left in the list, at which the
-    <code>
-     len(subgroup) == k
-    </code>
-    will always be false. This is a
-    <em>
-     very
-    </em>
-    small optimization if
-    <code>
-     k
-    </code>
-    is small, 
+</code></pre><p>Specifically that we don&#39;t have to loop over the <em>entire</em> list. A small 
+micro optimization we can realize is that since each subgroup is of size <code>k</code>
+and we create these groups from <code>i</code>, eventually we&#39;ll hit the case where the 
+are less than <code>k</code> elements left in the list, at which the <code>len(subgroup) == k</code> 
+will always be false. This is a <em>very</em> small optimization if <code>k</code> is small, 
 but still, it adds to performance since we loop over less, and we remove 
-the
-    <code>
-     if
-    </code>
-    check entirely:
-   </p>
-   <pre><code>def compute_min_diff(n, k, candies):
-    '''
+the <code>if</code> check entirely:</p>
+<pre><code>def compute_min_diff(n, k, candies):
+    &#39;&#39;&#39;
         You can profile your program by doing something like this:
             cat sample_input | python -m cProfile max_min.py
         to identify the bottlenecks.
-    '''
+    &#39;&#39;&#39;
     min_diff = None
 
     for i in range(n - k): 
@@ -180,19 +126,9 @@ the
             min_diff = diff
 
     return min_diff
-</code></pre>
-   <h4>
-    Faster! Faster!
-   </h4>
-   <p>
-    So the code is now a faster, but it can still be made better. This is 
-done by an observation of the
-    <code>
-     main
-    </code>
-    function of the program:
-   </p>
-   <pre><code>def main():
+</code></pre><h4>Faster! Faster!</h4><p>So the code is now a faster, but it can still be made better. This is 
+done by an observation of the <code>main</code> function of the program:</p>
+<pre><code>def main():
     n = input() # the number of items in the list, passed in on stdin
     k = input() # the number of integers from the list we want to select
 
@@ -202,79 +138,32 @@ done by an observation of the
     min_diff = compute_min_diff(n, k, candies)
 
     print min_diff
-</code></pre>
-   <p>
-    Notice the
-    <code>
-     candies.sort()
-    </code>
-    ? That means our list is sorted when it comes 
-into the
-    <code>
-     compute_min_diff
-    </code>
-    function. That means more optimizations! Next 
-up, the subgroups, consider these two lines for a moment:
-   </p>
-   <pre><code>subgroup = candies[i: i + k] 
+</code></pre><p>Notice the <code>candies.sort()</code>? That means our list is sorted when it comes 
+into the <code>compute_min_diff</code> function. That means more optimizations! Next 
+up, the subgroups, consider these two lines for a moment:</p>
+<pre><code>subgroup = candies[i: i + k] 
 diff = subgroup[-1] - subgroup[0] # since list is sorted, max is last element and min is first
-</code></pre>
-   <p>
-    Any ideas? Remember that the elements are
-    <em>
-     sorted
-    </em>
-    . Oh, and Phelans comment 
-is really the key here. Notice that we're taking a
-    <a href="http://www.dotnetperls.com/slice">
-     slice
-    </a>
-    of the list. 
-In other words, we're creating an object of just the subgroup we're looking 
-at, that is, the subgroup from
-    <code>
-     i
-    </code>
-    to
-    <code>
-     i + k
-    </code>
-    . But, if the list is sorted 
-and the max and min are the last and first elements at
-    <code>
-     i
-    </code>
-    and
-    <code>
-     i + k
-    </code>
-    , 
-why should we bother storing the data structure in the first place?
-   </p>
-   <p>
-    The answer of course, is that it's easier for a programmer to read, but 
+</code></pre><p>Any ideas? Remember that the elements are <em>sorted</em>. Oh, and Phelans comment 
+is really the key here. Notice that we&#39;re taking a <a href="http://www.dotnetperls.com/slice">slice</a> of the list. 
+In other words, we&#39;re creating an object of just the subgroup we&#39;re looking 
+at, that is, the subgroup from <code>i</code> to <code>i + k</code>. But, if the list is sorted 
+and the max and min are the last and first elements at <code>i</code> and  <code>i + k</code>, 
+why should we bother storing the data structure in the first place? </p>
+<p>The answer of course, is that it&#39;s easier for a programmer to read, but 
 when it comes to optimizing, readability sometimes goes out the window. 
 But by doing so, we free ourselves of the computations to slice the list 
 and also the space to store it, replacing it with two simple numbers. Thus 
-our two lines of code become one more efficient one:
-   </p>
-   <pre><code>diff = candies[(i+k)-1] - candies[i]
-</code></pre>
-   <p>
-    Replacing objects that take up space and the computations needed to create 
-them with two constant time operations is
-    <em>
-     much
-    </em>
-    better for performance. 
-So at the end, Phelan had the following solution for the problem:
-   </p>
-   <pre><code>def compute_min_diff(n, k, candies):
-    '''
+our two lines of code become one more efficient one:</p>
+<pre><code>diff = candies[(i+k)-1] - candies[i]
+</code></pre><p>Replacing objects that take up space and the computations needed to create 
+them with two constant time operations is <em>much</em> better for performance. 
+So at the end, Phelan had the following solution for the problem: </p>
+<pre><code>def compute_min_diff(n, k, candies):
+    &#39;&#39;&#39;
         You can profile your program by doing something like this:
             cat sample_input | python -m cProfile max_min.py
         to identify the bottlenecks.
-    '''
+    &#39;&#39;&#39;
     min_diff = None
 
     for i in range(n - k):
@@ -283,353 +172,163 @@ So at the end, Phelan had the following solution for the problem:
             min_diff = diff
 
     return min_diff
-</code></pre>
-   <h4>
-    What was the biggest change?
-   </h4>
-   <p>
-    With these small changes, the 30 second script drops to a 10 second one. 
-The most time saving operation? Removing
-    <code>
-     len(subgroup)
-    </code>
-    in our first 
-step. If you're wondering why this has such a dramatic effect, I want you 
-to think of what
-    <code>
-     len
-    </code>
-    has to do.
-   </p>
-   <p>
-    In order to tell how many items are in a list you need to count them. For 
-a c programmer iterating over a linked list one might find code like this:
-   </p>
-   <pre><code>int length = 0;
+</code></pre><h4>What was the biggest change?</h4><p>With these small changes, the 30 second script drops to a 10 second one. 
+The most time saving operation? Removing <code>len(subgroup)</code> in our first 
+step. If you&#39;re wondering why this has such a dramatic effect, I want you 
+to think of what <code>len</code> has to do.</p>
+<p>In order to tell how many items are in a list you need to count them. For 
+a c programmer iterating over a linked list one might find code like this:</p>
+<pre><code>int length = 0;
 for (Node * node = head; node != null; node = node-&gt;next)
     length++;
-</code></pre>
-   <p>
-    In python, you might find something similar:
-   </p>
-   <pre><code>length = 0
+</code></pre><p>In python, you might find something similar:</p>
+<pre><code>length = 0
 for x in list:
     length = length + 1
-</code></pre>
-   <p>
-    We of course already know that a single for loop will run in
-    <strong>
-     O(N)
-    </strong>
-    time, 
-and even
-    <strong>
-     O(N-k)
-    </strong>
-    is still
-    <strong>
-     O(N)
-    </strong>
-    as far as Big O notation is concerned. But 
-when you consider that the
-    <code>
-     len
-    </code>
-    function effectively adds a small loop
-inside, then you can see that we're doing
-    <code>
-     k
-    </code>
-    small loops
-    <code>
-     N
-    </code>
-    times. In other 
-words:
-    <strong>
-     O(Nk)
-    </strong>
-   </p>
-   <p>
-    If you consider numbers, it's a decent different between 1000*3 and 1000, 
-especially if you're taking sometime from 30 seconds down under 10. So really, 
-the key to this optimization is the knowledge that
-    <code>
-     len
-    </code>
-    is going to add 
+</code></pre><p>We of course already know that a single for loop will run in <strong>O(N)</strong> time, 
+and even <strong>O(N-k)</strong> is still <strong>O(N)</strong> as far as Big O notation is concerned. But 
+when you consider that the <code>len</code> function effectively adds a small loop
+inside, then you can see that we&#39;re doing <code>k</code> small loops <code>N</code> times. In other 
+words: <strong>O(Nk)</strong></p>
+<p>If you consider numbers, it&#39;s a decent different between 1000*3 and 1000, 
+especially if you&#39;re taking sometime from 30 seconds down under 10. So really, 
+the key to this optimization is the knowledge that <code>len</code> is going to add 
 a very small loop to your code. And the intuition that slices act in a 
 similar way, as they must iterate over a part of a loop to build a data 
-structure.
-   </p>
-   <p>
-    A slice from
-    <code>
-     i
-    </code>
-    to
-    <code>
-     i + k
-    </code>
-    is going to add another small loop
-within our for loop:
-    <strong>
-     O(Nk)
-    </strong>
-    * 2, if you will. Granted the 2 is a constant 
-and drops out. But it's still worth noting when you're in a performance 
-contest, especially if you're dealing with actual imperical evidence of 
+structure. </p>
+<p>A slice from <code>i</code> to <code>i + k</code> is going to add another small loop
+within our for loop: <strong>O(Nk)</strong> * 2, if you will. Granted the 2 is a constant 
+and drops out. But it&#39;s still worth noting when you&#39;re in a performance 
+contest, especially if you&#39;re dealing with actual imperical evidence of 
 it slowing you down, and not just working within the theoretical Big O 
-framework.
-   </p>
-   <h4>
-    I'm a liar 😉
-   </h4>
-   <p>
-    All of that said, I'd like to point out that the
-    <code>
-     len
-    </code>
-    function, despite 
-what I just said, is
-    <a href="https://wiki.python.org/moin/TimeComplexity">
-     actually an O(1) operation
-    </a>
-    . But it's easier 
+framework.</p>
+<h4>I&#39;m a liar 😉</h4><p>All of that said, I&#39;d like to point out that the <code>len</code> function, despite 
+what I just said, is <a href="https://wiki.python.org/moin/TimeComplexity">actually an O(1) operation</a>. But it&#39;s easier 
 to reason and show a code example of how one would compute the length of 
-a list then create a
-    <code>
-     slice
-    </code>
-    of a list. In this particular case, the real 
-culprit of the O(Nk) time is the slice operation. As you can see in the
-    <a href="https://wiki.python.org/moin/TimeComplexity">
-     Time Complexity for lists
-    </a>
-    , the slicing operation takes
-    <strong>
-     O(k)
-    </strong>
-    time 
-for
-    <code>
-     k
-    </code>
-    elements. The reasons why this is the most expensive operation 
-should be obvious to you after our discussion of
-    <code>
-     len
-    </code>
-    .
-   </p>
-   <h4>
-    Did that answer your email Phelan?
-   </h4>
-   <p>
-    I hope that my musings and ramblings about lists and optimizations will 
+a list then create a <code>slice</code> of a list. In this particular case, the real 
+culprit of the O(Nk) time is the slice operation. As you can see in the 
+<a href="https://wiki.python.org/moin/TimeComplexity">Time Complexity for lists</a>, the slicing operation takes <strong>O(k)</strong> time 
+for <code>k</code> elements. The reasons why this is the most expensive operation 
+should be obvious to you after our discussion of <code>len</code>.</p>
+<h4>Did that answer your email Phelan?</h4><p>I hope that my musings and ramblings about lists and optimizations will 
 help you in some way. The best advice I can give to anyone hoping to 
-optimize their code is the following:
-    <em>
-     You need to understand what goes on 
-under the hood before you can optimize
-    </em>
-    . It might be something obvious, a 
+optimize their code is the following: <em>You need to understand what goes on 
+under the hood before you can optimize</em>. It might be something obvious, a 
 function you wrote that you knew was bad, or that a profiler has flagged 
 for you. Or it might be something as simple as list slices, which 
-you might forget actually has to do some work to compute a result! It's 
+you might forget actually has to do some work to compute a result! It&#39;s 
 really all about understanding your code from the highest to the lowest 
-levels, that's the only thing that can build a sense of intuition about 
-where to look and what to change in order to optimize.
-   </p>
-   <p>
-    Oh, and documentation about performance of common functions always helps!
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="elasticsearch-filtered-aggregations">
-       Elastic Search filtered Aggregations
-      </a>
-     </li>
-     <li>
-      <a href="green-up-2015">
-       Preparing for Green Up
-      </a>
-     </li>
-     <li>
-      <a href="watermarking-images-with-scala-play">
-       Watermarking Images with Scala (play)
-      </a>
-     </li>
-     <li>
-      <a href="write-your-own-init-scripts">
-       Write your own service init scripts
-      </a>
-     </li>
-     <li>
-      <a href="thousands-separator-drupal-7-settings">
-       Setting Thousands Separator in Drupal 7
-      </a>
-     </li>
-     <li>
-      <a href="mcabber-gmail-and-gpg">
-       Encrypting your chat with mcabber
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+levels, that&#39;s the only thing that can build a sense of intuition about 
+where to look and what to change in order to optimize. </p>
+<p>Oh, and documentation about performance of common functions always helps!</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=elasticsearch-filtered-aggregations>Elastic Search filtered Aggregations</a></li><li><a href=green-up-2015>Preparing for Green Up</a></li><li><a href=watermarking-images-with-scala-play>Watermarking Images with Scala (play)</a></li><li><a href=write-your-own-init-scripts>Write your own service init scripts</a></li><li><a href=thousands-separator-drupal-7-settings>Setting Thousands Separator in Drupal 7</a></li><li><a href=mcabber-gmail-and-gpg>Encrypting your chat with mcabber</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

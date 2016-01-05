@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | NewRelic, Scala, and XML Instrumentation
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="The XML Instrumentation of New Relic allows you to monitor your code without modifying the source itself. In order to do so you need to know classnames, and this post talks about finding out what classes those are." name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="newrelic,scala,instrumentation,xml,objects,javap,monitoring" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | NewRelic, Scala, and XML Instrumentation" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="The XML Instrumentation of New Relic allows you to monitor your code without modifying the source itself. In order to do so you need to know classnames, and this post talks about finding out what classes those are." property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | NewRelic, Scala, and XML Instrumentation" name="twitter:title"/>
-  <meta content="The XML Instrumentation of New Relic allows you to monitor your code without modifying the source itself. In order to do so you need to know classnames, and this post talks about finding out what classes those are." name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | NewRelic, Scala, and XML Instrumentation</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="The XML Instrumentation of New Relic allows you to monitor your code without modifying the source itself. In order to do so you need to know classnames, and this post talks about finding out what classes those are." />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="newrelic,scala,instrumentation,xml,objects,javap,monitoring"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | NewRelic, Scala, and XML Instrumentation" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="The XML Instrumentation of New Relic allows you to monitor your code without modifying the source itself. In order to do so you need to know classnames, and this post talks about finding out what classes those are." />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | NewRelic, Scala, and XML Instrumentation" />
+    
+    <meta name="twitter:description" content="The XML Instrumentation of New Relic allows you to monitor your code without modifying the source itself. In order to do so you need to know classnames, and this post talks about finding out what classes those are." />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,67 +46,31 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    NewRelic, Scala, and XML Instrumentation
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    New Relic XML and Scala Objects
-   </h3>
-   <p>
-    Recently, I've been getting into monitoring applications. There's a lot of 
-different options out there to choose from. But I've recently got into
-    <a href="http://newrelic.com/">
-     New Relic
-    </a>
-    . New Relic is useful for monitoring and profiling because if 
-you choose to use the
-    <a href="https://docs.newrelic.com/docs/agents/java-agent/frameworks/scala-installation-java">
-     XML Instrumentation
-    </a>
-    you
-    <em>
-     don't have to change the 
-source code of your program.
-    </em>
-    Which is a really useful thing.
-   </p>
-   <p>
-    However, the instrumentation takes place
-    <em>
-     in java
-    </em>
-    , which means that if 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>NewRelic, Scala, and XML Instrumentation</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>New Relic XML and Scala Objects</h3><p>Recently, I&#39;ve been getting into monitoring applications. There&#39;s a lot of 
+different options out there to choose from. But I&#39;ve recently got into 
+<a href="http://newrelic.com/">New Relic</a>. New Relic is useful for monitoring and profiling because if 
+you choose to use the <a href="https://docs.newrelic.com/docs/agents/java-agent/frameworks/scala-installation-java">XML Instrumentation</a> you <em>don&#39;t have to change the 
+source code of your program.</em> Which is a really useful thing. </p>
+<p>However, the instrumentation takes place <em>in java</em>, which means that if 
 your scala code compiles down to a different name than you expect, it can 
 be troublesome to inspect it. Thankfully, we have tools for this. Namely, 
-the tool
-    <a href="http://www.scala-lang.org/api/2.11.1/scala-compiler/index.html#scala.tools.util.Javap">
-     javap
-    </a>
-    , which we can run on
-    <code>
-     .class
-    </code>
-    files and see the generated
-methods and names.
-   </p>
-   <p>
-    So first off, here's an example of a singleton object in scala. This code is 
-roughly based on
-    <a href="https://github.com/guardian/frontend/blob/4bca926fa2affa2e62966e3f97ed854ad299aac8/png-resizer/app/lib/Im4Java.scala">
-     the guardian's
-    </a>
-    .
-   </p>
-   <pre><code>package com.example 
+the tool <a href="http://www.scala-lang.org/api/2.11.1/scala-compiler/index.html#scala.tools.util.Javap">javap</a>, which we can run on <code>.class</code> files and see the generated
+methods and names. </p>
+<p>So first off, here&#39;s an example of a singleton object in scala. This code is 
+roughly based on <a href="https://github.com/guardian/frontend/blob/4bca926fa2affa2e62966e3f97ed854ad299aac8/png-resizer/app/lib/Im4Java.scala">the guardian&#39;s</a>.</p>
+<pre><code>package com.example 
 
 import java.io.{ByteArrayInputStream, ByteArrayOutputStream}
 
@@ -136,61 +111,37 @@ object Im4Java {
   def resizeBufferedImage(width: Int)(imageBytes: Array[Byte]) = future {
     val operation = new IMOperation
 
-    operation.addImage("-")
+    operation.addImage(&quot;-&quot;)
     operation.resize(width)
     operation.sharpen(1.0)
     operation.quality(0)
-    operation.addImage("jpg:-")
+    operation.addImage(&quot;jpg:-&quot;)
 
     apply(operation)(imageBytes)
   }
 }
-</code></pre>
-   <p>
-    When this code compiles, we actually end up with
-    <em>
-     a lot
-    </em>
-    of little classes:
-   </p>
-   <pre><code>$ ls com/example/
+</code></pre><p>When this code compiles, we actually end up with <em>a lot</em> of little classes:</p>
+<pre><code>$ ls com/example/
 Im4Java$$anonfun$apply$1.class
 Im4Java$$anonfun$resizeBufferedImage$1.class
 Im4Java$.class
 Im4Java.class
-</code></pre>
-   <p>
-    One for each function actually. This is likely due to the currying (or at 
-least that's my intuitive guess, correct me if I'm wrong dear reader). You
-can inspect these on the command line with
-    <code>
-     javap
-    </code>
-    :
-   </p>
-   <pre><code>javap com/example/Im4Java\$.class 
-Compiled from "Im4Java.scala"
+</code></pre><p>One for each function actually. This is likely due to the currying (or at 
+least that&#39;s my intuitive guess, correct me if I&#39;m wrong dear reader). You
+can inspect these on the command line with <code>javap</code>:</p>
+<pre><code>javap com/example/Im4Java\$.class 
+Compiled from &quot;Im4Java.scala&quot;
 public final class com.example.Im4Java$ {
   public static final com.example.Im4Java$ MODULE$;
   public static {};
   public byte[] apply(org.im4java.core.IMOperation, byte[]);
   public scala.concurrent.Future&lt;byte[]&gt; resizeBufferedImage(int, byte[]);
 }
-</code></pre>
-   <p>
-    So, when you're doing a
-    <a href="http://blog.espenberntsen.net/tag/pointcut/">
-     pointcut
-    </a>
-    for New Relic's instrumentation, you need
-to choose the right class to instrument. Which in this case, is
-    <code>
-     Im4Java$
-    </code>
-    (I found this through trial and error):
-   </p>
-   <pre><code>&lt;pointcut excludeFromTransactionTrace="false" ignoreTransaction="false" transactionType="web"&gt;
-    &lt;className includeSubclasses="true"&gt;com.example.Im4Java$&lt;/className&gt;
+</code></pre><p>So, when you&#39;re doing a <a href="http://blog.espenberntsen.net/tag/pointcut/">pointcut</a> for New Relic&#39;s instrumentation, you need
+to choose the right class to instrument. Which in this case, is <code>Im4Java$</code> 
+(I found this through trial and error):</p>
+<pre><code>&lt;pointcut excludeFromTransactionTrace=&quot;false&quot; ignoreTransaction=&quot;false&quot; transactionType=&quot;web&quot;&gt;
+    &lt;className includeSubclasses=&quot;true&quot;&gt;com.example.Im4Java$&lt;/className&gt;
     &lt;method&gt;
         &lt;name&gt;apply&lt;/name&gt;
     &lt;/method&gt;
@@ -198,14 +149,11 @@ to choose the right class to instrument. Which in this case, is
         &lt;name&gt;resizeBufferedImage&lt;/name&gt;
     &lt;/method&gt;
 &lt;/pointcut&gt;
-</code></pre>
-   <p>
-    Doing something like the above in your xml extension will produce something 
-like the following log output if you've done it right:
-   </p>
-   <pre><code>Sep 21, 2015 13:31:13 -0400 [12585 35] com.newrelic FINE: create Transaction com.newrelic.agent.Transaction@2cd14001
+</code></pre><p>Doing something like the above in your xml extension will produce something 
+like the following log output if you&#39;ve done it right:</p>
+<pre><code>Sep 21, 2015 13:31:13 -0400 [12585 35] com.newrelic FINE: create Transaction com.newrelic.agent.Transaction@2cd14001
 Sep 21, 2015 13:31:13 -0400 [12585 35] com.newrelic FINE: created com.newrelic.agent.TransactionActivity@0 for com.newrelic.agent.Transaction@2cd14001
-Sep 21, 2015 13:31:13 -0400 [12585 39] com.newrelic FINEST: Instrumentation skipped by 'no source' rule: sun/reflect/GeneratedConstructorAccessor33
+Sep 21, 2015 13:31:13 -0400 [12585 39] com.newrelic FINEST: Instrumentation skipped by &#39;no source&#39; rule: sun/reflect/GeneratedConstructorAccessor33
 Sep 21, 2015 13:31:14 -0400 [12585 39] com.newrelic FINER: Matched method apply(Lorg/im4java/core/IMOperation;[B)[B for instrumentation.
 Sep 21, 2015 13:31:14 -0400 [12585 39] com.newrelic FINER: Matched method resizeBufferedImage(I[B)Lscala/concurrent/Future; for instrumentation.
 Sep 21, 2015 13:31:14 -0400 [12585 39] com.newrelic DEBUG: Instrumenting class com/example/Im4Java$
@@ -213,216 +161,121 @@ Sep 21, 2015 13:31:14 -0400 [12585 39] com.newrelic FINER: Traced com/example/Im
 Sep 21, 2015 13:31:14 -0400 [12585 39] com.newrelic FINE: Instrumented com.example.Im4Java$.apply(Lorg/im4java/core/IMOperation;[B)[B, [LocalCustomXml], [libim-extension]
 Sep 21, 2015 13:31:14 -0400 [12585 39] com.newrelic FINE: Instrumented com.example.Im4Java$.resizeBufferedImage(I[B)Lscala/concurrent/Future;, [LocalCustomXml], [libim-extension]
 Sep 21, 2015 13:31:14 -0400 [12585 39] com.newrelic FINER: Final transformation of class com/example/Im4Java$
-</code></pre>
-   <p>
-    Some notes about creating new relic extensions:
-   </p>
-   <ol>
-    <li>
-     They go into an
-     <code>
-      extensions
-     </code>
-     directory within the unzipped newrelic package 
-for your respective language
-    </li>
-    <li>
-     The name of the file and the name attribute of the
-     <code>
-      extension
-     </code>
-     tag should be the same
-    </li>
-    <li>
-     Setting the transactionType of the pointcut to web will allow it to show up in the overview page, rather than have to drill down to transaction.
-    </li>
-   </ol>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="spray-ToResponseMarshallable-too-many-arguments-error">
-       Spray ToResponseMarshallable "Too Many Arguments" error
-      </a>
-     </li>
-     <li>
-      <a href="compromising-wordpress">
-       WordPress 4.2 Exploit, SQL Injection Edition
-      </a>
-     </li>
-     <li>
-      <a href="scala-xml-xsd-validation">
-       Scala, XML, and XSD Validation
-      </a>
-     </li>
-     <li>
-      <a href="jenkins-multiple-deploy-keys-and-github">
-       Multiple Deploy Keys and Jenkins
-      </a>
-     </li>
-     <li>
-      <a href="combine-xml-files">
-       Combine XML files with Bash
-      </a>
-     </li>
-     <li>
-      <a href="protecting-proxied-servers">
-       Administrative Gotcha when doing local proxying
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+</code></pre><p>Some notes about creating new relic extensions:</p>
+<ol>
+<li>They go into an <code>extensions</code> directory within the unzipped newrelic package 
+for your respective language</li>
+<li>The name of the file and the name attribute of the <code>extension</code> tag should be the same</li>
+<li>Setting the transactionType of the pointcut to web will allow it to show up in the overview page, rather than have to drill down to transaction.</li>
+</ol>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=spray-ToResponseMarshallable-too-many-arguments-error>Spray ToResponseMarshallable &quot;Too Many Arguments&quot; error</a></li><li><a href=compromising-wordpress>WordPress 4.2 Exploit, SQL Injection Edition</a></li><li><a href=scala-xml-xsd-validation>Scala, XML, and XSD Validation</a></li><li><a href=jenkins-multiple-deploy-keys-and-github>Multiple Deploy Keys and Jenkins</a></li><li><a href=combine-xml-files>Combine XML files with Bash</a></li><li><a href=protecting-proxied-servers>Administrative Gotcha when doing local proxying</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

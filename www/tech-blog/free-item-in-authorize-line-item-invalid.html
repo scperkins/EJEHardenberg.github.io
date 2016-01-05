@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Authorize LineItem's, mixed free and paid for causes error
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="Ran into a problem where Authorize.net's API wasn't accepting 0 as a unit price because it wasn't formatted as 0.00, but only when a free and non free item were in the line items." name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="PHP,Authorize.net,CIM,LineItems,ecommerce,error,debugging" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Authorize LineItem's, mixed free and paid for causes error" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="Ran into a problem where Authorize.net's API wasn't accepting 0 as a unit price because it wasn't formatted as 0.00, but only when a free and non free item were in the line items." property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Authorize LineItem's, mixed free and paid for causes error" name="twitter:title"/>
-  <meta content="Ran into a problem where Authorize.net's API wasn't accepting 0 as a unit price because it wasn't formatted as 0.00, but only when a free and non free item were in the line items." name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Authorize LineItem&#39;s, mixed free and paid for causes error</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Ran into a problem where Authorize.net&#39;s API wasn&#39;t accepting 0 as a unit price because it wasn&#39;t formatted as 0.00, but only when a free and non free item were in the line items." />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="PHP,Authorize.net,CIM,LineItems,ecommerce,error,debugging"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Authorize LineItem&#39;s, mixed free and paid for causes error" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Ran into a problem where Authorize.net&#39;s API wasn&#39;t accepting 0 as a unit price because it wasn&#39;t formatted as 0.00, but only when a free and non free item were in the line items." />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Authorize LineItem&#39;s, mixed free and paid for causes error" />
+    
+    <meta name="twitter:description" content="Ran into a problem where Authorize.net&#39;s API wasn&#39;t accepting 0 as a unit price because it wasn&#39;t formatted as 0.00, but only when a free and non free item were in the line items." />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,284 +46,161 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Authorize LineItem's, mixed free and paid for causes error
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Unit Price of 0 causing problems in Authorize.net CIM lineitem
-   </h3>
-   <p>
-    Today at work I ran into an interesting problem. The problem was this:
-   </p>
-   <p>
-    One of our clients has an ecommerce platform we built for them, as part of its
-backend, it uses Authorize.net's
-    <a href="http://developer.authorize.net/api/cim/">
-     CIM service
-    </a>
-    . Today and yesterday they happened
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Authorize LineItem&#39;s, mixed free and paid for causes error</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Unit Price of 0 causing problems in Authorize.net CIM lineitem</h3><p>Today at work I ran into an interesting problem. The problem was this: </p>
+<p>One of our clients has an ecommerce platform we built for them, as part of its
+backend, it uses Authorize.net&#39;s <a href="http://developer.authorize.net/api/cim/">CIM service</a>. Today and yesterday they happened
 to be running a free item. Besides the obvious server load funtimes to be troubleshot,
 there was a peculiar problem popping up. If someone tried to buy the free item and
-any other non-free item, the Authorize.net API would return this error message:
-   </p>
-   <pre><code>The element 'lineItems' in namespace
-AnetApi/xml/v1/schema/AnetApiSchema.xsd' has invalid child element
-taxable' in namespace 'AnetApi/xml/v1/schema/AnetApiSchema.xsd'. List
-of possible elements expected: 'unitPrice' in namespace
-AnetApi/xml/v1/schema/AnetApiSchema.xsd'.
-</code></pre>
-   <p>
-    Which seemed a bit odd. Why would the taxable element be messed up? It's simply set
-to false all the time. User's were checking out with the free item fine, and with
-paid items fine, but when combined into multiple line items this message appeared.
-   </p>
-   <p>
-    Troubleshooting involved playing around locally with removing the unit price and
+any other non-free item, the Authorize.net API would return this error message:</p>
+<pre><code>The element &#39;lineItems&#39; in namespace
+AnetApi/xml/v1/schema/AnetApiSchema.xsd&#39; has invalid child element
+taxable&#39; in namespace &#39;AnetApi/xml/v1/schema/AnetApiSchema.xsd&#39;. List
+of possible elements expected: &#39;unitPrice&#39; in namespace
+AnetApi/xml/v1/schema/AnetApiSchema.xsd&#39;.
+</code></pre><p>Which seemed a bit odd. Why would the taxable element be messed up? It&#39;s simply set
+to false all the time. User&#39;s were checking out with the free item fine, and with
+paid items fine, but when combined into multiple line items this message appeared.</p>
+<p>Troubleshooting involved playing around locally with removing the unit price and
 taxable fields entirely, getting a different error message. Good! This means that
-the problem does involve those two fields. Removing the taxable field didn't change
-the message, so it seemed the problem lay in the unitPrice being 0.
-   </p>
-   <p>
-    I checked out the
-    <a href="https://api.authorize.net/xml/v1/schema/AnetApiSchema.xsd">
-     schema
-    </a>
-    from authorize and noted the following area:
-   </p>
-   <pre><code>&lt;xs:restriction base="xs:decimal"&gt;
-    &lt;xs:minInclusive value="0.00"/&gt;
-    &lt;xs:fractionDigits value="4"/&gt;
+the problem does involve those two fields. Removing the taxable field didn&#39;t change
+the message, so it seemed the problem lay in the unitPrice being 0.</p>
+<p>I checked out the <a href="https://api.authorize.net/xml/v1/schema/AnetApiSchema.xsd">schema</a> from authorize and noted the following area:</p>
+<pre><code>&lt;xs:restriction base=&quot;xs:decimal&quot;&gt;
+    &lt;xs:minInclusive value=&quot;0.00&quot;/&gt;
+    &lt;xs:fractionDigits value=&quot;4&quot;/&gt;
 &lt;/xs:restriction&gt;
-</code></pre>
-   <p>
-    Well, I wondered, could it be that it is seeing 0 as a false value or something
-other than an integer? In
-    <a href="http://stackoverflow.com/a/14720793/1808164">
-     this SO post
-    </a>
-    someone noted that qoutes are a good idea,
+</code></pre><p>Well, I wondered, could it be that it is seeing 0 as a false value or something
+other than an integer? In <a href="http://stackoverflow.com/a/14720793/1808164">this SO post</a> someone noted that qoutes are a good idea,
 to which I tried and recieved a message about the format being invalid. So that
-was out.
-   </p>
-   <p>
-    Instead, I used
-    <code>
-     sprintf
-    </code>
-    to format the number into a decimal form so that Authorize's
-API wouldn't treat it as whatever it had been.
-   </p>
-   <p>
-    Old:
-   </p>
-   <pre><code>$lineItem-&gt;unitPrice = $item-&gt;price // is 0
-</code></pre>
-   <p>
-    Fixed:
-   </p>
-   <pre><code>$lineItem-&gt;unitPrice   = sprintf("%.2f", $item-&gt;price);
-</code></pre>
-   <p>
-    And lo' and behold. The transaction with a mixed set of items was processed succesfully!
-   </p>
-   <p>
-    Hope this helps anyone out there who runs into the same problem I did.
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="adding-scheduled-posts">
-       Adding Scheduled Posts to your Harp Site
-      </a>
-     </li>
-     <li>
-      <a href="privateTalk">
-       Private Talk and plans for some tutorials
-      </a>
-     </li>
-     <li>
-      <a href="cgi-c-harp-1">
-       Let's make a chat server, Part 1
-      </a>
-     </li>
-     <li>
-      <a href="harp-macro-revisit">
-       Harp CDN Macro Revisited
-      </a>
-     </li>
-     <li>
-      <a href="cgi-c-harp-2">
-       Let's make a chat server, Part 2
-      </a>
-     </li>
-     <li>
-      <a href="bgi">
-       BGI, a way to track your spending
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+was out. </p>
+<p>Instead, I used <code>sprintf</code> to format the number into a decimal form so that Authorize&#39;s
+API wouldn&#39;t treat it as whatever it had been.</p>
+<p>Old:</p>
+<pre><code>$lineItem-&gt;unitPrice = $item-&gt;price // is 0
+</code></pre><p>Fixed:</p>
+<pre><code>$lineItem-&gt;unitPrice   = sprintf(&quot;%.2f&quot;, $item-&gt;price);
+</code></pre><p>And lo&#39; and behold. The transaction with a mixed set of items was processed succesfully!</p>
+<p>Hope this helps anyone out there who runs into the same problem I did. </p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=adding-scheduled-posts>Adding Scheduled Posts to your Harp Site</a></li><li><a href=privateTalk>Private Talk and plans for some tutorials</a></li><li><a href=cgi-c-harp-1>Let&#39;s make a chat server, Part 1</a></li><li><a href=harp-macro-revisit>Harp CDN Macro Revisited</a></li><li><a href=cgi-c-harp-2>Let&#39;s make a chat server, Part 2</a></li><li><a href=bgi>BGI, a way to track your spending</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | shell_exec with sudo in php
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="How to setup your system to run shell_exec from a web server that needs root privilege." name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="shell_exec,privilege,php,shell,apache,sudo" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | shell_exec with sudo in php" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="How to setup your system to run shell_exec from a web server that needs root privilege." property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | shell_exec with sudo in php" name="twitter:title"/>
-  <meta content="How to setup your system to run shell_exec from a web server that needs root privilege." name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | shell_exec with sudo in php</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="How to setup your system to run shell_exec from a web server that needs root privilege." />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="shell_exec,privilege,php,shell,apache,sudo"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | shell_exec with sudo in php" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="How to setup your system to run shell_exec from a web server that needs root privilege." />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | shell_exec with sudo in php" />
+    
+    <meta name="twitter:description" content="How to setup your system to run shell_exec from a web server that needs root privilege." />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,396 +46,216 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    shell_exec with sudo in php
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    PHP shell_exec, sudo, and remote servers
-   </h3>
-   <p>
-    When working with legacy, or even current software, it's not unusual to 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>shell_exec with sudo in php</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>PHP shell_exec, sudo, and remote servers</h3><p>When working with legacy, or even current software, it&#39;s not unusual to 
 have a few scripts dedicated to accomplishing tasks. Often these can be 
 things that simply rsync resources across nodes of a server, help 
 migrate data between different data sources, back up code or data, or 
-really anything you can think of.
-   </p>
-   <p>
-    It's easy enough for a developer to get onto a machine and run their 
-tools from a command line interface (CLI), but sometimes you don't want 
-to be bothered by emails during the day when you're coding. For example 
-let's say you've got a few scripts that connects to multiple servers 
-and runs a command on each. It's easy to run a bash script from the 
-CLI, but you'd save yourself grief if you exposed the tool to whoever 
-is always emailing you asking for the task to be done!
-   </p>
-   <p>
-    So, you think to yourself, Ah! I can write a quick script in PHP to do 
-this! And you'd be right. Imagine something like this:
-   </p>
-   <pre><code>&lt;?php
-$logfile = '/tmp/util.log';
-$scriptpath = dirname(__FILE__) . '/script';
-if ($_SERVER['REQUEST_METHOD'] == 'POST'):
+really anything you can think of. </p>
+<p>It&#39;s easy enough for a developer to get onto a machine and run their 
+tools from a command line interface (CLI), but sometimes you don&#39;t want 
+to be bothered by emails during the day when you&#39;re coding. For example 
+let&#39;s say you&#39;ve got a few scripts that connects to multiple servers 
+and runs a command on each. It&#39;s easy to run a bash script from the 
+CLI, but you&#39;d save yourself grief if you exposed the tool to whoever 
+is always emailing you asking for the task to be done! </p>
+<p>So, you think to yourself, Ah! I can write a quick script in PHP to do 
+this! And you&#39;d be right. Imagine something like this:</p>
+<pre><code>&lt;?php
+$logfile = &#39;/tmp/util.log&#39;;
+$scriptpath = dirname(__FILE__) . &#39;/script&#39;;
+if ($_SERVER[&#39;REQUEST_METHOD&#39;] == &#39;POST&#39;):
     //code to do param checking and such
-    $exe = $scriptpath . $someparameters . ' &gt;&gt; ' . $logfile . ' 2&gt;&amp;1';
+    $exe = $scriptpath . $someparameters . &#39; &gt;&gt; &#39; . $logfile . &#39; 2&gt;&amp;1&#39;;
     $result = shell_exec($exe)
     if (is_null(result)): 
         //handle bad result
 else: 
     //display HTML form and such
-</code></pre>
-   <p>
-    And you've got a simple shell script that does something like this:
-   </p>
-   <pre><code>#!/bin/bash
+</code></pre><p>And you&#39;ve got a simple shell script that does something like this:</p>
+<pre><code>#!/bin/bash
 source /some/path/to/a/listof/servers/to/connnect/to.sh
 for host in $SERVERS
 do
-    ssh $host "cmd to do for a param $1"
-    echo "Done! $1"
+    ssh $host &quot;cmd to do for a param $1&quot;
+    echo &quot;Done! $1&quot;
 done
-</code></pre>
-   <p>
-    While running the above script from the CLI will work, but should you 
-attempt to run it from a server like apache or nginx, then you're going 
-to hit error:
-   </p>
-   <pre><code>Could not create directory '/var/www/.ssh'.
+</code></pre><p>While running the above script from the CLI will work, but should you 
+attempt to run it from a server like apache or nginx, then you&#39;re going 
+to hit error: </p>
+<pre><code>Could not create directory &#39;/var/www/.ssh&#39;.
 Host key verification failed.
 Done! &lt;Whatever Params&gt;
-</code></pre>
-   <p>
-    Being the good developer that you are, you realize that of course the 
-web server can't ssh! It doesn't have an ssh folder or keys like your 
-user. Let's assume you run as the root user when you do your CLI work 
-(
-    <a href="http://askubuntu.com/a/16179">
-     though you shouldn't
-    </a>
-    ) so you decide that to run your script you 
-simply need to sudo. Okay...
-   </p>
-   <pre><code>$scriptpath = 'sudo sh ' . dirname(__FILE__) . '/script'; 
-</code></pre>
-   <p>
-    And when you go back to refresh the page what happens?
-   </p>
-   <pre><code>sudo: sorry, you must have a tty to run sudo
-</code></pre>
-   <p>
-    Well darn. So now you think back to yourself and realize that the 
-server doesn't really have a shell to work with. And sudo wants one 
+</code></pre><p>Being the good developer that you are, you realize that of course the 
+web server can&#39;t ssh! It doesn&#39;t have an ssh folder or keys like your 
+user. Let&#39;s assume you run as the root user when you do your CLI work 
+(<a href="http://askubuntu.com/a/16179">though you shouldn&#39;t</a>) so you decide that to run your script you 
+simply need to sudo. Okay...</p>
+<pre><code>$scriptpath = &#39;sudo sh &#39; . dirname(__FILE__) . &#39;/script&#39;; 
+</code></pre><p>And when you go back to refresh the page what happens?</p>
+<pre><code>sudo: sorry, you must have a tty to run sudo
+</code></pre><p>Well darn. So now you think back to yourself and realize that the 
+server doesn&#39;t really have a shell to work with. And sudo wants one 
 of those. The simplest way around this is to disable the requiretty 
-for the user. This is easily done via
-    <code>
-     visudo
-    </code>
-    and updating your web 
-user's permissions:
-   </p>
-   <pre><code>#Give permission to apache to run sh as root
+for the user. This is easily done via <code>visudo</code> and updating your web 
+user&#39;s permissions:</p>
+<pre><code>#Give permission to apache to run sh as root
 apache ALL=NOPASSWD: /bin/sh
 
-#Don't require a tty for apache
+#Don&#39;t require a tty for apache
 Defaults:apache !requiretty
-</code></pre>
-   <p>
-    Once you've done this, then you'll be able to run your shell script. 
-Here are some caveats to this though.
-   </p>
-   <ol>
-    <li>
-     You've given permission to apache to run a shell as root without 
-restriction
-    </li>
-    <li>
-     apache no longer needs a terminal
-    </li>
-   </ol>
-   <p>
-    This is
-    <em>
-     bad
-    </em>
-    . However, being the moderately inteligent developer you 
-are, you know that you can
-    <a href="http://www.sudo.ws/man/sudoers.man.html">
-     restrict the allowed commands
-    </a>
-    . So you 
-update the sudoers file again with a quick
-    <code>
-     visudo
-    </code>
-    :
-   </p>
-   <pre><code>apache ALL=NOPASSWD: /path/to/your/script
-</code></pre>
-   <p>
-    But until you update your PHP code you'll get the
-    <code>
-     sudo: no tty present and no askpass program specified
-    </code>
-    error message. Why? Because you're calling
-    <code>
-     sh
-    </code>
-    !
-   </p>
-   <pre><code>//no sh!
-$scriptpath = 'sudo ' . dirname(__FILE__) . '/script'; 
-</code></pre>
-   <p>
-    Make sure that your script file is
-    <code>
-     chmod +x
-    </code>
-    executable, then you're 
+</code></pre><p>Once you&#39;ve done this, then you&#39;ll be able to run your shell script. 
+Here are some caveats to this though. </p>
+<ol>
+<li>You&#39;ve given permission to apache to run a shell as root without 
+restriction </li>
+<li>apache no longer needs a terminal</li>
+</ol>
+<p>This is <em>bad</em>. However, being the moderately inteligent developer you 
+are, you know that you can <a href="http://www.sudo.ws/man/sudoers.man.html">restrict the allowed commands</a>. So you 
+update the sudoers file again with a quick <code>visudo</code>:</p>
+<pre><code>apache ALL=NOPASSWD: /path/to/your/script
+</code></pre><p>But until you update your PHP code you&#39;ll get the <code>sudo: no tty present and no askpass program specified</code> 
+error message. Why? Because you&#39;re calling <code>sh</code>! </p>
+<pre><code>//no sh!
+$scriptpath = &#39;sudo &#39; . dirname(__FILE__) . &#39;/script&#39;; 
+</code></pre><p>Make sure that your script file is <code>chmod +x</code> executable, then you&#39;re 
 much safer. In addition, if you use safe_mode in php, you should 
-set the
-    <code>
-     safe_mode_exec_dir
-    </code>
-    in your .ini file appropriately.
-   </p>
-   <p>
-    Depending on your script, you may have a limited set of parameters. For 
-example, say you're talking to
-    <code>
-     /etc/init.d/nginx
-    </code>
-    and you want to be 
+set the <code>safe_mode_exec_dir</code> in your .ini file appropriately. </p>
+<p>Depending on your script, you may have a limited set of parameters. For 
+example, say you&#39;re talking to <code>/etc/init.d/nginx</code> and you want to be 
 able to restart the service from a form you built. So your form submits 
-arguments like:
-    <code>
-     restart
-    </code>
-    ,
-    <code>
-     stop
-    </code>
-    ,
-    <code>
-     status
-    </code>
-    , or
-    <code>
-     start
-    </code>
-    . If that's the 
+arguments like: <code>restart</code>, <code>stop</code>, <code>status</code>, or <code>start</code>. If that&#39;s the 
 case, you can lock things down a bit more by using the wildcards found 
-in the
-    <a href="http://www.sudo.ws/man/sudoers.man.html#x57696c646361726473">
-     sudo manual
-    </a>
-    or you can simply list each command individually.
-   </p>
-   <p>
-    Also, if you do open up your scripts as utilities, be mindful of who can 
+in the <a href="http://www.sudo.ws/man/sudoers.man.html#x57696c646361726473">sudo manual</a> or you can simply list each command individually.</p>
+<p>Also, if you do open up your scripts as utilities, be mindful of who can 
 access the pages. Lock them down with at least basic HTTP authentication, 
 if possible, only expose such scripts to roles in the company that need 
 that usage. Always follow the principle of least privilege and audit 
 your systems regularly! When you grant a user the power to use your CLI 
 tools, you give them a piece of your responsibility and take on more at 
 the same time. Developers should strive to be lazy (in this case, 
-reducing your effort in dealing with emails and distractions), but it's 
-important to keep in mind that security and safety come first.
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="dear-god-why">
-       PHP Snippet
-      </a>
-     </li>
-     <li>
-      <a href="using-sassc-with-sbt-sass">
-       Using sassc with play-sass plugin
-      </a>
-     </li>
-     <li>
-      <a href="non-empty-lists-validation-in-playframework">
-       Non Empty List Form Validation in Play
-      </a>
-     </li>
-     <li>
-      <a href="akka-dsl-spray-routing-cake-pattern">
-       Akka DSL's and Routing In Play with Cake Pattern
-      </a>
-     </li>
-     <li>
-      <a href="triggering-asynchronous-jobs-play-2-3">
-       Trigger Asynchronous Jobs in Play 2.3
-      </a>
-     </li>
-     <li>
-      <a href="string-interpolation-vs-addition-performance">
-       Which is faster, string interpolation or addition in python?
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+reducing your effort in dealing with emails and distractions), but it&#39;s 
+important to keep in mind that security and safety come first. </p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=dear-god-why>PHP Snippet</a></li><li><a href=using-sassc-with-sbt-sass>Using sassc with play-sass plugin</a></li><li><a href=non-empty-lists-validation-in-playframework>Non Empty List Form Validation in Play</a></li><li><a href=akka-dsl-spray-routing-cake-pattern>Akka DSL&#39;s and Routing In Play with Cake Pattern</a></li><li><a href=triggering-asynchronous-jobs-play-2-3>Trigger Asynchronous Jobs in Play 2.3</a></li><li><a href=string-interpolation-vs-addition-performance>Which is faster, string interpolation or addition in python?</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

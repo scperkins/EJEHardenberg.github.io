@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Scala, XML, and XSD Validation
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="Loading XML in scala is easy, but you can only gain a sense of type safety if your XML is loaded and validated against a schema. Here's how to do that" name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="scala,xml,xsd,validation,SAXParser,InputStream" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Scala, XML, and XSD Validation" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="Loading XML in scala is easy, but you can only gain a sense of type safety if your XML is loaded and validated against a schema. Here's how to do that" property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Scala, XML, and XSD Validation" name="twitter:title"/>
-  <meta content="Loading XML in scala is easy, but you can only gain a sense of type safety if your XML is loaded and validated against a schema. Here's how to do that" name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Scala, XML, and XSD Validation</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Loading XML in scala is easy, but you can only gain a sense of type safety if your XML is loaded and validated against a schema. Here&#39;s how to do that" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="scala,xml,xsd,validation,SAXParser,InputStream"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Scala, XML, and XSD Validation" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Loading XML in scala is easy, but you can only gain a sense of type safety if your XML is loaded and validated against a schema. Here&#39;s how to do that" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Scala, XML, and XSD Validation" />
+    
+    <meta name="twitter:description" content="Loading XML in scala is easy, but you can only gain a sense of type safety if your XML is loaded and validated against a schema. Here&#39;s how to do that" />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,88 +46,41 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Scala, XML, and XSD Validation
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Scala 2.11.7 and XML XSD Validation
-   </h3>
-   <p>
-    I've posted about some features of Scala's XML library that I like
-    <a href="/tech-blog/scala-first-look">
-     before
-    </a>
-    . And 
-even showed a simple CLI example of
-    <a href="/tech-blog/xml-playframework-templates">
-     validating XML generated by play
-    </a>
-    . But if 
-you're writing scripts to parse and convert XML to other forms of data. It's 
-always a good idea to check that XML is valid
-    <em>
-     before
-    </em>
-    you do so.
-   </p>
-   <p>
-    As you know, XML has a method for this via Schemas. And schema checking like 
-the handy
-    <a href="http://xmlsoft.org/xmllint.html">
-     xmllint
-    </a>
-    . But asking someone to read a man page, or even a README 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Scala, XML, and XSD Validation</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Scala 2.11.7 and XML XSD Validation</h3><p>I&#39;ve posted about some features of Scala&#39;s XML library that I like <a href="/tech-blog/scala-first-look">before</a>. And 
+even showed a simple CLI example of <a href="/tech-blog/xml-playframework-templates">validating XML generated by play</a>. But if 
+you&#39;re writing scripts to parse and convert XML to other forms of data. It&#39;s 
+always a good idea to check that XML is valid <em>before</em> you do so. </p>
+<p>As you know, XML has a method for this via Schemas. And schema checking like 
+the handy <a href="http://xmlsoft.org/xmllint.html">xmllint</a>. But asking someone to read a man page, or even a README 
 can sometimes be like pulling teeth. So to protect yourself from your own 
-users, I'd like to show you how to load XML in scala,
-    <strong>
-     and
-    </strong>
-    validate it 
+users, I&#39;d like to show you how to load XML in scala, <strong>and</strong> validate it 
 on load. This will allow you to gracefully stop a program if the XML being 
-handled is invalid. It's better than a
-    <a href="https://docs.oracle.com/javase/7/docs/api/java/util/NoSuchElementException.html">
-     NoSuchElementException
-    </a>
-    from trying 
-to get an item in a list that isn't there!
-   </p>
-   <p>
-    Luckily for the internet at large, there's already a
-    <a href="http://sean8223.blogspot.com/2009/09/xsd-validation-in-scala.html">
-     decent blog post
-    </a>
-    about 
-what I'm talking about in this one. I say decent because it's well written, 
+handled is invalid. It&#39;s better than a <a href="https://docs.oracle.com/javase/7/docs/api/java/util/NoSuchElementException.html">NoSuchElementException</a> from trying 
+to get an item in a list that isn&#39;t there!</p>
+<p>Luckily for the internet at large, there&#39;s already a <a href="http://sean8223.blogspot.com/2009/09/xsd-validation-in-scala.html">decent blog post</a> about 
+what I&#39;m talking about in this one. I say decent because it&#39;s well written, 
 has a lot of information, and was useful to me. However, the code posted 
-doesn't work. Which inspired this post. Because I believe that code examples
-that work are a beautiful thing. Which is why you can find this code
-    <a href="https://github.com/EdgeCaseBerg/scala-xsd-validation">
-     on github
-    </a>
-    , 
-with tests and the ability to run it yourself if you've got sbt installed.
-   </p>
-   <p>
-    For our example we'll be loading xml that I used in my
-    <a href="/tech-blog/xml-playframework-templates">
-     previous post
-    </a>
-    . The 
-sample xml looks like this:
-   </p>
-   <pre><code>    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+doesn&#39;t work. Which inspired this post. Because I believe that code examples
+that work are a beautiful thing. Which is why you can find this code <a href="https://github.com/EdgeCaseBerg/scala-xsd-validation">on github</a>, 
+with tests and the ability to run it yourself if you&#39;ve got sbt installed.</p>
+<p>For our example we&#39;ll be loading xml that I used in my <a href="/tech-blog/xml-playframework-templates">previous post</a>. The 
+sample xml looks like this:</p>
+<pre><code>    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
     &lt;TestInfoList 
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:noNamespaceSchemaLocation="http://localhost:9000/testInfo.xsd"
+            xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+            xsi:noNamespaceSchemaLocation=&quot;http://localhost:9000/testInfo.xsd&quot;
     &gt;
             &lt;TestInfo&gt;
                     &lt;Id&gt;1&lt;/Id&gt;
@@ -126,12 +90,9 @@ sample xml looks like this:
                     &lt;/Days&gt;
             &lt;/TestInfo&gt;
     &lt;/TestInfoList&gt;
-</code></pre>
-   <p>
-    This follows our schema and will validate. So loading this won't be a problem. 
-For example, in scala we could do the following:
-   </p>
-   <pre><code>    $ sbt
+</code></pre><p>This follows our schema and will validate. So loading this won&#39;t be a problem. 
+For example, in scala we could do the following: </p>
+<pre><code>    $ sbt
     &gt; console
     [info] Starting scala interpreter...
     [info] 
@@ -142,9 +103,9 @@ For example, in scala we could do the following:
     scala&gt; import scala.xml._
     import scala.xml._
 
-    scala&gt; val myXML = XML.loadFile("src/test/resources/sample.xml")
+    scala&gt; val myXML = XML.loadFile(&quot;src/test/resources/sample.xml&quot;)
     myXML: scala.xml.Elem =
-    &lt;TestInfoList xsi:noNamespaceSchemaLocation="http://localhost:9000/testInfo.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+    &lt;TestInfoList xsi:noNamespaceSchemaLocation=&quot;http://localhost:9000/testInfo.xsd&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
             &lt;TestInfo&gt;
                     &lt;Id&gt;1&lt;/Id&gt;
                     &lt;Name&gt;Name&lt;/Name&gt;
@@ -155,32 +116,19 @@ For example, in scala we could do the following:
     &lt;/TestInfoList&gt;
 
     scala&gt; 
-</code></pre>
-   <p>
-    This is great, using Scala's built in XML parsing results in us using the 
-data. Say we had some function to retrieve the
-    <code>
-     Day
-    </code>
-    elements in the
-    <code>
-     Days
-    </code>
-    element of our XML:
-   </p>
-   <pre><code>    scala&gt; def getDays(x: scala.xml.Elem) = { (x \ "TestInfo" \ "Days" \\ "Day").map(_.text).toList }
+</code></pre><p>This is great, using Scala&#39;s built in XML parsing results in us using the 
+data. Say we had some function to retrieve the <code>Day</code> elements in the <code>Days</code>
+element of our XML:</p>
+<pre><code>    scala&gt; def getDays(x: scala.xml.Elem) = { (x \ &quot;TestInfo&quot; \ &quot;Days&quot; \\ &quot;Day&quot;).map(_.text).toList }
     getDays: (x: scala.xml.Elem)List[String]
 
     scala&gt; getDays(myXML)
     res3: List[String] = List(Monday)
-</code></pre>
-   <p>
-    This is great, however there's one problem. Take for example what happens 
-when we load the invalid xml:
-   </p>
-   <pre><code>    scala&gt; val badXml = XML.loadFile("src/test/resources/invalid-sample.xml")
+</code></pre><p>This is great, however there&#39;s one problem. Take for example what happens 
+when we load the invalid xml:</p>
+<pre><code>    scala&gt; val badXml = XML.loadFile(&quot;src/test/resources/invalid-sample.xml&quot;)
     badXml: scala.xml.Elem =
-    &lt;TestInfoList xsi:noNamespaceSchemaLocation="http://localhost:9000/testInfo.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+    &lt;TestInfoList xsi:noNamespaceSchemaLocation=&quot;http://localhost:9000/testInfo.xsd&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
             &lt;TestInfoIncorrectElement&gt;
                     &lt;Id&gt;1&lt;/Id&gt;
                     &lt;Name&gt;Name&lt;/Name&gt;
@@ -192,26 +140,15 @@ when we load the invalid xml:
 
     scala&gt; getDays(badXml)
     res5: List[String] = List()
-</code></pre>
-   <p>
-    Now this
-    <em>
-     is
-    </em>
-    correct behavior as far as the function is concerned. But 
-definitely not what we'd like in the best case. The main issue is that 
+</code></pre><p>Now this <em>is</em> correct behavior as far as the function is concerned. But 
+definitely not what we&#39;d like in the best case. The main issue is that 
 when we deal with XML, we lose all type safety that we could expect if 
 we had passed a case class or well defined model to our function instead. 
-However, by not using the default
-    <code>
-     scala.xml.XML.loadFile
-    </code>
-    but our own 
+However, by not using the default <code>scala.xml.XML.loadFile</code> but our own 
 implementation that validates XML with a schema we can ensure that if we
-create a function to handle a specific type of XML we'll only be passing 
-in that XML to it:
-   </p>
-   <pre><code>    import java.io._
+create a function to handle a specific type of XML we&#39;ll only be passing 
+in that XML to it:</p>
+<pre><code>    import java.io._
     import javax.xml.XMLConstants
     import javax.xml.transform.stream.StreamSource
     import javax.xml.validation.SchemaFactory
@@ -229,66 +166,21 @@ in that XML to it:
                     new SchemaAwareFactoryAdapter(s).loadXML(is)
             }
     }
-</code></pre>
-   <p>
-    The
-    <a href="https://github.com/EdgeCaseBerg/scala-xsd-validation/blob/master/src/main/scala/SchemaAwareFactoryAdapter.scala">
-     SchemaAwareFactoryAdapter
-    </a>
-    is the main piece of code taken from the 
+</code></pre><p>The <a href="https://github.com/EdgeCaseBerg/scala-xsd-validation/blob/master/src/main/scala/SchemaAwareFactoryAdapter.scala">SchemaAwareFactoryAdapter</a> is the main piece of code taken from the 
 blog post I mentioned. But the above code is what was neccesary to get off
-the ground. While the other post mentions the creation of the
-    <code>
-     SchemaFactory
-    </code>
-    it must be using a different version of Java as
-    <a href="http://docs.oracle.com/javase/7/docs/api/org/xml/sax/InputSource.html">
-     InputSource
-    </a>
-    does not
-take a
-    <code>
-     File
-    </code>
-    as depicted. The above code handles this by creating an
-    <code>
-     InputStreamReader
-    </code>
-    from the
-    <code>
-     FileInputStream
-    </code>
-    and passing that to the
-    <code>
-     InputSource
-    </code>
-    .
-   </p>
-   <p>
-    Since we're dealing with Files and StreamReaders you might think that you need 
-to call
-    <code>
-     .close
-    </code>
-    on the opened streams. Namely the
-    <code>
-     FileInputStream
-    </code>
-    and
-    <code>
-     InputStreamReader
-    </code>
-    . However, the JavaDocs for InputSource say:
-   </p>
-   <blockquote>
-    <p>
-     An InputSource object belongs to the application: the SAX parser shall never modify it in any way (it may modify a copy if necessary). However, standard processing of both byte and character streams is to close them on as part of end-of-parse cleanup, so applications should not attempt to re-use such streams after they have been handed to a parser.
-    </p>
-   </blockquote>
-   <p>
-    But hey, better safe than sorry:
-   </p>
-   <pre><code>    def ... {
+the ground. While the other post mentions the creation of the <code>SchemaFactory</code> 
+it must be using a different version of Java as <a href="http://docs.oracle.com/javase/7/docs/api/org/xml/sax/InputSource.html">InputSource</a> does not
+take a <code>File</code> as depicted. The above code handles this by creating an 
+<code>InputStreamReader</code> from the <code>FileInputStream</code> and passing that to the 
+<code>InputSource</code>. </p>
+<p>Since we&#39;re dealing with Files and StreamReaders you might think that you need 
+to call <code>.close</code> on the opened streams. Namely the <code>FileInputStream</code> 
+and <code>InputStreamReader</code>. However, the JavaDocs for InputSource say:</p>
+<blockquote>
+<p>An InputSource object belongs to the application: the SAX parser shall never modify it in any way (it may modify a copy if necessary). However, standard processing of both byte and character streams is to close them on as part of end-of-parse cleanup, so applications should not attempt to re-use such streams after they have been handed to a parser.</p>
+</blockquote>
+<p>But hey, better safe than sorry:</p>
+<pre><code>    def ... {
             // ...
             val isr = new InputStreamReader(in)
             val is = new InputSource(isr);
@@ -299,68 +191,35 @@ to call
                     in.close()
             }
     }
-</code></pre>
-   <p>
-    This nice trick is fairly common for resource management. A
-    <code>
-     try
-    </code>
-    <code>
-     finally
-    </code>
-    without 
-a catch can be used to ensure that some code is always executed. Even
-    <em>
-     after
-    </em>
-    a 
-return statement has happened. Loading this up we can try out our examples again:
-   </p>
-   <pre><code>    &gt; console
+</code></pre><p>This nice trick is fairly common for resource management. A <code>try</code> <code>finally</code> without 
+a catch can be used to ensure that some code is always executed. Even <em>after</em> a 
+return statement has happened. Loading this up we can try out our examples again:</p>
+<pre><code>    &gt; console
     [info] Starting scala interpreter...
     [info] 
     Welcome to Scala version 2.11.7 (OpenJDK 64-Bit Server VM, Java 1.7.0_55).
     Type in expressions to have them evaluated.
     Type :help for more information.
 
-    scala&gt; def getDays(x: scala.xml.Elem) = { (x \ "TestInfo" \ "Days" \\ "Day").map(_.text).toList }
+    scala&gt; def getDays(x: scala.xml.Elem) = { (x \ &quot;TestInfo&quot; \ &quot;Days&quot; \\ &quot;Day&quot;).map(_.text).toList }
     getDays: (x: scala.xml.Elem)List[String]
 
-    scala&gt; val myXml = com.github.edgecaseberg.LoadXmlWithSchema("src/test/resources/sample.xml","sample.xsd")
-    myXml: scala.xml.Elem = &lt;TestInfoList xsi:noNamespaceSchemaLocation="http://localhost:9000/testInfo.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;&lt;TestInfo&gt;&lt;Id&gt;1&lt;/Id&gt;&lt;Name&gt;Name&lt;/Name&gt;&lt;Days&gt;&lt;Day&gt;Monday&lt;/Day&gt;&lt;/Days&gt;&lt;/TestInfo&gt;&lt;/TestInfoList&gt;
-</code></pre>
-   <p>
-    All's good so far. Now what if we try to load the invalid XML?
-   </p>
-   <pre><code>    scala&gt; val myXml = com.github.edgecaseberg.LoadXmlWithSchema("src/test/resources/invalid-sample.xml","sample.xsd")
-    org.xml.sax.SAXParseException: cvc-complex-type.2.4.a: Invalid content was found starting with element 'TestInfoIncorrectElement'. One of '{TestInfo}' is expected.
+    scala&gt; val myXml = com.github.edgecaseberg.LoadXmlWithSchema(&quot;src/test/resources/sample.xml&quot;,&quot;sample.xsd&quot;)
+    myXml: scala.xml.Elem = &lt;TestInfoList xsi:noNamespaceSchemaLocation=&quot;http://localhost:9000/testInfo.xsd&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;&lt;TestInfo&gt;&lt;Id&gt;1&lt;/Id&gt;&lt;Name&gt;Name&lt;/Name&gt;&lt;Days&gt;&lt;Day&gt;Monday&lt;/Day&gt;&lt;/Days&gt;&lt;/TestInfo&gt;&lt;/TestInfoList&gt;
+</code></pre><p>All&#39;s good so far. Now what if we try to load the invalid XML?</p>
+<pre><code>    scala&gt; val myXml = com.github.edgecaseberg.LoadXmlWithSchema(&quot;src/test/resources/invalid-sample.xml&quot;,&quot;sample.xsd&quot;)
+    org.xml.sax.SAXParseException: cvc-complex-type.2.4.a: Invalid content was found starting with element &#39;TestInfoIncorrectElement&#39;. One of &#39;{TestInfo}&#39; is expected.
         at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:198)
         at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:134)
         ...
-</code></pre>
-   <p>
-    Perfect! Now we can check for exceptions or use the
-    <code>
-     Try
-    </code>
-    method from
-    <code>
-     scala.util
-    </code>
-    to easily handle cases where we want to have error handling around improper XML!
-   </p>
-   <p>
-    <strong>
-     Note:
-    </strong>
-   </p>
-   <p>
-    If you want to run the above console session you'll need to copy the 
+</code></pre><p>Perfect! Now we can check for exceptions or use the <code>Try</code> method from <code>scala.util</code>
+to easily handle cases where we want to have error handling around improper XML!</p>
+<p><strong>Note:</strong> </p>
+<p>If you want to run the above console session you&#39;ll need to copy the 
 xsd file to the resources folder in the main directory from the test directory. 
-Otherwise:
-   </p>
-   <pre><code>    scala&gt; val myXml = com.github.edgecaseberg.LoadXmlWithSchema("src/test/resources/sample.xml","src/main/resources/sample.xsd")
-    org.xml.sax.SAXParseException: schema_reference.4: Failed to read schema document 'null', because 1) could not find the document; 2) the document could not be read; 3) the root element of the document is not &lt;xsd:schema&gt;.
+Otherwise:</p>
+<pre><code>    scala&gt; val myXml = com.github.edgecaseberg.LoadXmlWithSchema(&quot;src/test/resources/sample.xml&quot;,&quot;src/main/resources/sample.xsd&quot;)
+    org.xml.sax.SAXParseException: schema_reference.4: Failed to read schema document &#39;null&#39;, because 1) could not find the document; 2) the document could not be read; 3) the root element of the document is not &lt;xsd:schema&gt;.
         at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:198)
         at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:134)
         at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:437)
@@ -377,41 +236,26 @@ Otherwise:
         at javax.xml.validation.SchemaFactory.newSchema(SchemaFactory.java:627)
         at com.github.edgecaseberg.LoadXmlWithSchema$.apply(LoadXmlWithSchema.scala:16)
         ... 43 elided
-</code></pre>
-   <p>
-    Will occur because the test directory isn't on the classpath unless you're running
+</code></pre><p>Will occur because the test directory isn&#39;t on the classpath unless you&#39;re running
 tests! So the classloader will fail. You could adopt the LoadXmlWithSchema to use 
 a regular File or path, but I prefer the classloader since we should be keeping XSD
 files that pertain to XML used by the application in the resources for the project
-itself.
-   </p>
-   <p>
-    <strong>
-     Taking it further:
-    </strong>
-   </p>
-   <p>
-    So we can load XML, but it's doubtful we want to always specify a Schema whenever
+itself. </p>
+<p><strong>Taking it further:</strong></p>
+<p>So we can load XML, but it&#39;s doubtful we want to always specify a Schema whenever
 we want to load XML of a certain type. Rather we should be specifying the schema 
-along with our own models. So let's do that:
-   </p>
-   <pre><code>    case class Box(id: Int, name: String, items: List[String]) 
+along with our own models. So let&#39;s do that:</p>
+<pre><code>    case class Box(id: Int, name: String, items: List[String]) 
 
     object BoxXmlLoader {
-            def apply(filePath: String) = LoadXmlWithSchema(filePath, schemaResource = "box.xsd")   
+            def apply(filePath: String) = LoadXmlWithSchema(filePath, schemaResource = &quot;box.xsd&quot;)   
     }
-</code></pre>
-   <p>
-    Then in the REPL we can use use this to load up a file:
-   </p>
-   <pre><code>    scala&gt; com.github.edgecaseberg.BoxXmlLoader("src/test/resources/box-sample.xml")
-    res0: scala.xml.Elem = &lt;Boxes xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/EdgeCaseBerg/scala-xsd-validation/master/src/main/resources/box.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;&lt;Box&gt;&lt;Id&gt;0&lt;/Id&gt;&lt;Name&gt;First Box&lt;/Name&gt;&lt;Contains&gt;&lt;BoxedItem&gt;Thing 1&lt;/BoxedItem&gt;&lt;BoxedItem&gt;Thing 2&lt;/BoxedItem&gt;&lt;/Contains&gt;&lt;/Box&gt;&lt;Box&gt;&lt;Id&gt;2&lt;/Id&gt;&lt;Name&gt;Second Box&lt;/Name&gt;&lt;Contains&gt;&lt;BoxedItem&gt;Second Thing 1&lt;/BoxedItem&gt;&lt;BoxedItem&gt;Second Thing 2&lt;/BoxedItem&gt;&lt;/Contains&gt;&lt;/Box&gt;&lt;/Boxes&gt;
-</code></pre>
-   <p>
-    And as expected it will fail on Non-Box XML files.
-   </p>
-   <pre><code>    scala&gt; com.github.edgecaseberg.BoxXmlLoader("src/test/resources/sample.xml")
-    org.xml.sax.SAXParseException: cvc-elt.1: Cannot find the declaration of element 'TestInfoList'.
+</code></pre><p>Then in the REPL we can use use this to load up a file:</p>
+<pre><code>    scala&gt; com.github.edgecaseberg.BoxXmlLoader(&quot;src/test/resources/box-sample.xml&quot;)
+    res0: scala.xml.Elem = &lt;Boxes xsi:noNamespaceSchemaLocation=&quot;https://raw.githubusercontent.com/EdgeCaseBerg/scala-xsd-validation/master/src/main/resources/box.xsd&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;&lt;Box&gt;&lt;Id&gt;0&lt;/Id&gt;&lt;Name&gt;First Box&lt;/Name&gt;&lt;Contains&gt;&lt;BoxedItem&gt;Thing 1&lt;/BoxedItem&gt;&lt;BoxedItem&gt;Thing 2&lt;/BoxedItem&gt;&lt;/Contains&gt;&lt;/Box&gt;&lt;Box&gt;&lt;Id&gt;2&lt;/Id&gt;&lt;Name&gt;Second Box&lt;/Name&gt;&lt;Contains&gt;&lt;BoxedItem&gt;Second Thing 1&lt;/BoxedItem&gt;&lt;BoxedItem&gt;Second Thing 2&lt;/BoxedItem&gt;&lt;/Contains&gt;&lt;/Box&gt;&lt;/Boxes&gt;
+</code></pre><p>And as expected it will fail on Non-Box XML files.</p>
+<pre><code>    scala&gt; com.github.edgecaseberg.BoxXmlLoader(&quot;src/test/resources/sample.xml&quot;)
+    org.xml.sax.SAXParseException: cvc-elt.1: Cannot find the declaration of element &#39;TestInfoList&#39;.
         at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:198)
         at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:134)
         at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:437)
@@ -437,345 +281,216 @@ along with our own models. So let's do that:
         at com.github.edgecaseberg.LoadXmlWithSchema$.apply(LoadXmlWithSchema.scala:21)
         at com.github.edgecaseberg.BoxXmlLoader$.apply(Models.scala:7)
         ... 43 elided
-</code></pre>
-   <p>
-    But doing this isn't that helpful as far as getting more typesafe. It'd be better 
-to convert the XML File to models that the rest of our code can then use:
-   </p>
-   <pre><code>    object BoxXmlLoader {
+</code></pre><p>But doing this isn&#39;t that helpful as far as getting more typesafe. It&#39;d be better 
+to convert the XML File to models that the rest of our code can then use:</p>
+<pre><code>    object BoxXmlLoader {
             def apply(filePath: String) = {
-                    val loadedXml = LoadXmlWithSchema(filePath, "box.xsd")
-                    (loadedXml \\ "Box").map { boxNode =&gt;
+                    val loadedXml = LoadXmlWithSchema(filePath, &quot;box.xsd&quot;)
+                    (loadedXml \\ &quot;Box&quot;).map { boxNode =&gt;
                             Box(
-                                    (boxNode \ "Id").text.toInt,
-                                    (boxNode \ "Name").text,
-                                    (boxNode \ "Contains" \\ "BoxedItem").map(_.text).toList
+                                    (boxNode \ &quot;Id&quot;).text.toInt,
+                                    (boxNode \ &quot;Name&quot;).text,
+                                    (boxNode \ &quot;Contains&quot; \\ &quot;BoxedItem&quot;).map(_.text).toList
                             )
                     }
             }
     }
-</code></pre>
-   <p>
-    Because we've validated the XML with our schema, we can be sure that our
-    <code>
-     toInt
-    </code>
-    call won't fail and that we'll be able to transform the XML to a 
-model without any odd things happening:
-   </p>
-   <pre><code>    scala&gt; com.github.edgecaseberg.BoxXmlLoader("src/test/resources/box-sample.xml")
+</code></pre><p>Because we&#39;ve validated the XML with our schema, we can be sure that our 
+<code>toInt</code> call won&#39;t fail and that we&#39;ll be able to transform the XML to a 
+model without any odd things happening:</p>
+<pre><code>    scala&gt; com.github.edgecaseberg.BoxXmlLoader(&quot;src/test/resources/box-sample.xml&quot;)
     res0: scala.collection.immutable.Seq[com.github.edgecaseberg.Box] = List(Box(0,First Box,List(Thing 1, Thing 2)), Box(2,Second Box,List(Second Thing 1, Second Thing 2)))
-</code></pre>
-   <p>
-    Since every element of the
-    <code>
-     Box
-    </code>
-    element was required, the above has no example 
+</code></pre><p>Since every element of the <code>Box</code> element was required, the above has no example 
 of dealing with elements that might not exist or elements that would have default 
-values. Let's get an example of that for completeness, take the following schema:
-   </p>
-   <pre><code>&lt;xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'&gt;
-    &lt;xs:element name="Forest"&gt;
+values. Let&#39;s get an example of that for completeness, take the following schema:</p>
+<pre><code>&lt;xs:schema xmlns:xs=&#39;http://www.w3.org/2001/XMLSchema&#39;&gt;
+    &lt;xs:element name=&quot;Forest&quot;&gt;
         &lt;xs:complexType&gt;
             &lt;xs:sequence&gt;
-                &lt;xs:element ref="Tree" minOccurs='0' maxOccurs='unbounded'/&gt;
+                &lt;xs:element ref=&quot;Tree&quot; minOccurs=&#39;0&#39; maxOccurs=&#39;unbounded&#39;/&gt;
             &lt;/xs:sequence&gt;
         &lt;/xs:complexType&gt;
     &lt;/xs:element&gt;
 
-    &lt;xs:element name="Tree"&gt;
+    &lt;xs:element name=&quot;Tree&quot;&gt;
         &lt;xs:complexType&gt;
             &lt;xs:sequence&gt;
-                &lt;xs:element ref="State" minOccurs='0' maxOccurs='1'/&gt;
-                &lt;xs:element ref="Leaves" minOccurs='1' maxOccurs='1'/&gt;
+                &lt;xs:element ref=&quot;State&quot; minOccurs=&#39;0&#39; maxOccurs=&#39;1&#39;/&gt;
+                &lt;xs:element ref=&quot;Leaves&quot; minOccurs=&#39;1&#39; maxOccurs=&#39;1&#39;/&gt;
             &lt;/xs:sequence&gt;
         &lt;/xs:complexType&gt;
     &lt;/xs:element&gt;
 
-    &lt;xs:simpleType name="TreeState" final="restriction" &gt;
-        &lt;xs:restriction base="xs:string"&gt;
-                &lt;xs:enumeration value="ALIVE" /&gt;
-                &lt;xs:enumeration value="DEAD" /&gt;
+    &lt;xs:simpleType name=&quot;TreeState&quot; final=&quot;restriction&quot; &gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+                &lt;xs:enumeration value=&quot;ALIVE&quot; /&gt;
+                &lt;xs:enumeration value=&quot;DEAD&quot; /&gt;
         &lt;/xs:restriction&gt;
     &lt;/xs:simpleType&gt;
 
-    &lt;xs:element name="State" type='TreeState'/&gt;
-    &lt;xs:element name="Leaves"&gt;
+    &lt;xs:element name=&quot;State&quot; type=&#39;TreeState&#39;/&gt;
+    &lt;xs:element name=&quot;Leaves&quot;&gt;
         &lt;xs:complexType&gt;
             &lt;xs:sequence&gt;
-                &lt;xs:element ref="Leaf" minOccurs='0' maxOccurs='unbounded'/&gt;
+                &lt;xs:element ref=&quot;Leaf&quot; minOccurs=&#39;0&#39; maxOccurs=&#39;unbounded&#39;/&gt;
             &lt;/xs:sequence&gt;
         &lt;/xs:complexType&gt;
     &lt;/xs:element&gt;
 
-    &lt;xs:element name="Leaf"&gt;
+    &lt;xs:element name=&quot;Leaf&quot;&gt;
         &lt;xs:complexType&gt;
-            &lt;xs:attribute name="color" type="xs:string"/&gt;
+            &lt;xs:attribute name=&quot;color&quot; type=&quot;xs:string&quot;/&gt;
         &lt;/xs:complexType&gt;
     &lt;/xs:element&gt;
 &lt;/xs:schema&gt;
-</code></pre>
-   <p>
-    The key point here is that the
-    <code>
-     State
-    </code>
-    element has a
-    <code>
-     minOccurs
-    </code>
-    value of 0 and 
-therefore is an optional element when it's inside a
-    <code>
-     Tree
-    </code>
-    . It's up to our 
+</code></pre><p>The key point here is that the <code>State</code> element has a <code>minOccurs</code> value of 0 and 
+therefore is an optional element when it&#39;s inside a <code>Tree</code>. It&#39;s up to our 
 application to make the decision of what the default should be. So converting 
-our XSD file into a model:
-   </p>
-   <pre><code>object TreeState extends Enumeration {
+our XSD file into a model:</p>
+<pre><code>object TreeState extends Enumeration {
     type TreeState = Value
-    val ALIVE = Value("ALIVE")
-    val DEAD = Value("DEAD")
+    val ALIVE = Value(&quot;ALIVE&quot;)
+    val DEAD = Value(&quot;DEAD&quot;)
 }
 
 case class Tree(state: TreeState.Value, leaves: List[String])
-</code></pre>
-   <p>
-    Note that
-    <code>
-     Value("ALIVE")
-    </code>
-    is just a way to declare how an enumeration should
-print, otherwise we'd get a simple index like normal enumeration. Since the
-model does not have the state as
-    <code>
-     Option
-    </code>
-    al, we need to be sure that our 
-parser handles sets the default. Let's say that the default is for dead trees
-(being pessimistic here), so our parsing code could look like this:
-   </p>
-   <pre><code>object TreeXmlLoader {
+</code></pre><p>Note that <code>Value(&quot;ALIVE&quot;)</code> is just a way to declare how an enumeration should
+print, otherwise we&#39;d get a simple index like normal enumeration. Since the
+model does not have the state as <code>Option</code>al, we need to be sure that our 
+parser handles sets the default. Let&#39;s say that the default is for dead trees
+(being pessimistic here), so our parsing code could look like this:</p>
+<pre><code>object TreeXmlLoader {
     def apply(filePath: String) = {
-        val loadedXml = LoadXmlWithSchema(filePath, "tree.xsd")
-        (loadedXml \\ "Tree").map { treeNode =&gt; 
+        val loadedXml = LoadXmlWithSchema(filePath, &quot;tree.xsd&quot;)
+        (loadedXml \\ &quot;Tree&quot;).map { treeNode =&gt; 
             Tree(
-                (treeNode \ "State").map { optionalStateNode =&gt;
+                (treeNode \ &quot;State&quot;).map { optionalStateNode =&gt;
                     optionalStateNode.text match {
                         case ts:String =&gt; TreeState.withName(ts)
                         case _ =&gt; TreeState.DEAD
                     }
                 }.headOption.getOrElse(TreeState.DEAD),
-                (treeNode \ "Leaves" \\ "Leaf" \\ "@color").map(_.text).toList
+                (treeNode \ &quot;Leaves&quot; \\ &quot;Leaf&quot; \\ &quot;@color&quot;).map(_.text).toList
             )
         }
     }
 }
-</code></pre>
-   <p>
-    Easy enough right? The only other thing about the code above is that we're
-pulling the leaf color from the attribute of the node via
-    <code>
-     @color
-    </code>
-    in our 
-xpath.
-   </p>
-   <p>
-    Hopefully this helps anyone dealing with XML out there to get a handle on
+</code></pre><p>Easy enough right? The only other thing about the code above is that we&#39;re
+pulling the leaf color from the attribute of the node via <code>@color</code> in our 
+xpath.</p>
+<p>Hopefully this helps anyone dealing with XML out there to get a handle on
 their models and be a bit safer in parsing their XML into data that they 
-can be sure of. If you're not validating, you'll never know when a runtime 
+can be sure of. If you&#39;re not validating, you&#39;ll never know when a runtime 
 error might blow up on you and bring down part of your application. Better 
-safe than sorry!
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="combine-xml-files">
-       Combine XML files with Bash
-      </a>
-     </li>
-     <li>
-      <a href="spray-ToResponseMarshallable-too-many-arguments-error">
-       Spray ToResponseMarshallable "Too Many Arguments" error
-      </a>
-     </li>
-     <li>
-      <a href="how-to-create-sbt-task-that-takes-an-argument">
-       How to create an SBT task that takes an argument
-      </a>
-     </li>
-     <li>
-      <a href="newrelic-xml-scala-instrumentation">
-       NewRelic, Scala, and XML Instrumentation
-      </a>
-     </li>
-     <li>
-      <a href="connect-visualvm-docker">
-       How to connect VisualVM to Docker
-      </a>
-     </li>
-     <li>
-      <a href="compromising-wordpress">
-       WordPress 4.2 Exploit, SQL Injection Edition
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+safe than sorry!</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=combine-xml-files>Combine XML files with Bash</a></li><li><a href=spray-ToResponseMarshallable-too-many-arguments-error>Spray ToResponseMarshallable &quot;Too Many Arguments&quot; error</a></li><li><a href=how-to-create-sbt-task-that-takes-an-argument>How to create an SBT task that takes an argument</a></li><li><a href=newrelic-xml-scala-instrumentation>NewRelic, Scala, and XML Instrumentation</a></li><li><a href=connect-visualvm-docker>How to connect VisualVM to Docker</a></li><li><a href=compromising-wordpress>WordPress 4.2 Exploit, SQL Injection Edition</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	
