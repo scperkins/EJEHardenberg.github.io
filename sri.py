@@ -1,8 +1,10 @@
 from bs4 import BeautifulSoup
 from hashlib import sha384
 from base64 import encodestring
-
+import os
 import json
+
+print "Loading SRI configuration"
 with open('sri.conf') as f:
 	conf = json.load(f)
 
@@ -21,7 +23,7 @@ def sriOfFile(filepath):
 	sha = sha384OfFile(filepath)
 	return 'sha384-' + encodestring(sha)[:-1] #drop newline added by b64
 
-import os
+
 
 # http://stackoverflow.com/a/19308592/1808164
 def get_filepaths(directory):
@@ -53,14 +55,15 @@ for scriptArray in conf['scripts']:
 	sri = sriOfFile(scriptArray[0])
 	searchScripts.append( [scriptArray[1] , sri])
 
-print searchLinks
-print searchScripts
+print "SRI computed for configured files"
 
 def isCssLink(tag):
 	return tag.has_attr('rel') and tag.has_attr('href') and 'stylesheet' in tag['rel']
 
 def isScriptLink(tag):
 	return tag.has_attr('src') and tag.has_attr('type') and 'text/javascript' in tag['type']
+
+print "Updating www directory..."
 
 allFiles = get_filepaths("www/")
 for f in allFiles:
@@ -82,3 +85,5 @@ for f in allFiles:
 			data = soup.prettify()
 		with open(f, 'w') as openedFile:
 			openedFile.write(data.encode('utf-8'))
+
+print "Done!"
