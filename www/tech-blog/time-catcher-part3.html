@@ -1,44 +1,33 @@
-
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Ethan's Tech Blog | Time Catcher Part 3</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="The third part of the TimeCatcher program series, discussion on implementation of pausing and deleting tasks within the program." />
-    <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="timecatcher,time,tracking,program,Ethan Eldridge,C"/>
-    <meta name="robots" content="index, follow"  />
-      <meta name="revisit-after" content="1 month" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-      
-    
-	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
-
-        
-    <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Time Catcher Part 3" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
-    
-    <meta property="og:description" content="The third part of the TimeCatcher program series, discussion on implementation of pausing and deleting tasks within the program." />
-    
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Time Catcher Part 3" />
-    
-    <meta name="twitter:description" content="The third part of the TimeCatcher program series, discussion on implementation of pausing and deleting tasks within the program." />
-    
-    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
-
-
-	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ <head>
+  <title>
+   Ethan's Tech Blog | Time Catcher Part 3
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="The third part of the TimeCatcher program series, discussion on implementation of pausing and deleting tasks within the program." name="description"/>
+  <meta content="Ethan Eldridge" name="author"/>
+  <meta content="timecatcher,time,tracking,program,Ethan Eldridge,C" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="1 month" name="revisit-after"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
+  <!-- Facebook Open Graph Tags -->
+  <meta content="Ethan Eldridge | Time Catcher Part 3" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
+  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
+  <meta content="The third part of the TimeCatcher program series, discussion on implementation of pausing and deleting tasks within the program." property="og:description"/>
+  <!-- Twitter Card Tags -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="Ethan Eldridge | Time Catcher Part 3" name="twitter:title"/>
+  <meta content="The third part of the TimeCatcher program series, discussion on implementation of pausing and deleting tasks within the program." name="twitter:description"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
+  <!-- Core CSS Scripts -->
+  <link href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -46,186 +35,313 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-
-</script>
-
-  </head>
-  <body>
-    <header>
-      <h1>Time Catcher Part 3</h1>
-    </header>
-
-
-    <div id="content">
-      <a href="/tech-blog">Back</a>
-      <p>Well, I&#39;ve been using <a href="https://github.com/EdgeCaseBerg/timecatcher">my program</a> to keep track of my time on a few projects 
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    Time Catcher Part 3
+   </h1>
+  </header>
+  <div id="content">
+   <a href="/tech-blog">
+    Back
+   </a>
+   <p>
+    Well, I've been using
+    <a href="https://github.com/EdgeCaseBerg/timecatcher">
+     my program
+    </a>
+    to keep track of my time on a few projects 
 and have made a few additions since the alpha release I talked about in my last
-post. Just taking a quick look through my gitk for the repository and I&#39;m seeing
-a few noticable improvements:</p>
-<ul>
-<li>Pause command</li>
-<li>Fix to finished tasks</li>
-<li>Info file fix</li>
-<li>Delete command</li>
-<li>Proper task name resolution for view -a </li>
-<li>A fix for a warning for ARMx86 architectures.</li>
-</ul>
-<p>The pause command is essentially the same as the start command with the switch 
-flag, except that you don&#39;t have to be switching to a task ( you can actually 
-take a break from tasks! ). It&#39;s quickly becoming a fast favorite of mine.</p>
-<p>The delete command was born out of my scrolling through the view -a output and
+post. Just taking a quick look through my gitk for the repository and I'm seeing
+a few noticable improvements:
+   </p>
+   <ul>
+    <li>
+     Pause command
+    </li>
+    <li>
+     Fix to finished tasks
+    </li>
+    <li>
+     Info file fix
+    </li>
+    <li>
+     Delete command
+    </li>
+    <li>
+     Proper task name resolution for view -a
+    </li>
+    <li>
+     A fix for a warning for ARMx86 architectures.
+    </li>
+   </ul>
+   <p>
+    The pause command is essentially the same as the start command with the switch 
+flag, except that you don't have to be switching to a task ( you can actually 
+take a break from tasks! ). It's quickly becoming a fast favorite of mine.
+   </p>
+   <p>
+    The delete command was born out of my scrolling through the view -a output and
 wanting to have a better way of deleting the tasks then manually removing the
 sequence and information files from the .tc directory. I use it everynow and 
-then, although out of habit I write rm sometimes, it&#39;s starting to make me think
-I should shortcut rm to be delete. </p>
-<p>The fixes in the list are minor things, the task state being wrong when finishing
+then, although out of habit I write rm sometimes, it's starting to make me think
+I should shortcut rm to be delete.
+   </p>
+   <p>
+    The fixes in the list are minor things, the task state being wrong when finishing
 a task (it would show in progress until I fixed it), mind you it was only wrong 
-during the finishing of the task&#39;s final output, not when it was viewed later. </p>
-<p>The info file fix was something a bit silly where I forgot to not write out the
+during the finishing of the task's final output, not when it was viewed later.
+   </p>
+   <p>
+    The info file fix was something a bit silly where I forgot to not write out the
 taskInfo field of the struct that I was using to store the name of the info file
 itself. This caused the info file to end up with a bunch of filepaths at the end
 of the file. Not particularly harmful to the file, and useful sometimes, but not
-desired behavior. </p>
-<p>The task resolution name fix is to handle task names with spaces in them to be 
+desired behavior.
+   </p>
+   <p>
+    The task resolution name fix is to handle task names with spaces in them to be 
 shown correctly when using the view --all command. Before I was only reading out
 one string from the line to use as the name, and this was causing some minor
-annoyances when I was trying to delete a task and wasn&#39;t using it&#39;s full name. </p>
-<p>Finally, I was surprised all the warning flags and pedantry passed in my makefile
-didn&#39;t catch this, but within the delete command I do ask for user confirmation. 
+annoyances when I was trying to delete a task and wasn't using it's full name.
+   </p>
+   <p>
+    Finally, I was surprised all the warning flags and pedantry passed in my makefile
+didn't catch this, but within the delete command I do ask for user confirmation. 
 Out of sleep-deprived silliness I used char instead of int for the result of 
-getc(stdin) and anyone whose read <a href="http://en.wikipedia.org/wiki/The_C_Programming_Language">K &amp; R</a> will tell you that EOF is an int
-because it simply has to be. So I wasn&#39;t actually able to check the value of the
-user input again the EOF properly. Luckily, <a href="https://github.com/primehunter326">my friend</a> happened to be compiling
-timecatcher on his raspberry pi and caught the warning for me. </p>
-<p>That last warning catch is only on the develop branch of the repository as I 
-didn&#39;t have time to do a hotfix or release yet. But it will be included in my
-next release, which should have a feature I&#39;ve been wanting to implement:</p>
-<pre>
+getc(stdin) and anyone whose read
+    <a href="http://en.wikipedia.org/wiki/The_C_Programming_Language">
+     K &amp; R
+    </a>
+    will tell you that EOF is an int
+because it simply has to be. So I wasn't actually able to check the value of the
+user input again the EOF properly. Luckily,
+    <a href="https://github.com/primehunter326">
+     my friend
+    </a>
+    happened to be compiling
+timecatcher on his raspberry pi and caught the warning for me.
+   </p>
+   <p>
+    That last warning catch is only on the develop branch of the repository as I 
+didn't have time to do a hotfix or release yet. But it will be included in my
+next release, which should have a feature I've been wanting to implement:
+   </p>
+   <pre>
     tcatch resume
 </pre>
-
-<p>In the same way that pause pauses the current task, I want to be able to resume
+   <p>
+    In the same way that pause pauses the current task, I want to be able to resume
 the most recent task that was paused or finished. Why? Because I start up a task
 and work on it, then get distracted for a moment and pause my task, but then 
 after responding to an email or whatever got in the way of coding, I start up 
 the task I was previously working on. In fact, I do this so often I think a 
-command would be a great idea for this. </p>
-<p>The other feature I want to implement is using gnuplot and the sequence files of
+command would be a great idea for this.
+   </p>
+   <p>
+    The other feature I want to implement is using gnuplot and the sequence files of
 all tasks to plot some typeo of time spent on different tasks over the course
 of some time, and see how much time you spent on each one. These types of small
 statistics are useful for someone like me who wants to know what bogs them down
-the most so they can focus on getting better at it. </p>
-<p>The only other addition to timecatcher is that my other friend <a href="https://github.com/gfritz/">Garth</a> has 
+the most so they can focus on getting better at it.
+   </p>
+   <p>
+    The only other addition to timecatcher is that my other friend
+    <a href="https://github.com/gfritz/">
+     Garth
+    </a>
+    has 
 expressed some interest in collaborating in it with me, so who knows maybe it 
-won&#39;t just be my name on the commit log soon! </p>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=stack-smashing>Stack Smashing</a></li><li><a href=time-catcher-part2>Time Catcher Part 2! (Alpha)</a></li><li><a href=shortcodes-routing-wordpress>Short Codes and Routing in WordPress</a></li><li><a href=time-catcher-part1>Time Catcher Part 1</a></li><li><a href=numbers-as-markers-google-maps>Numbers as Markers on Google Maps</a></li><li><a href=how-this-site-was-made>How this site was made</a></li>
-        </ul>
-      </div>
-      <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'ejehardenberg';
+won't just be my name on the commit log soon!
+   </p>
+   <h3>
+    Other Posts
+   </h3>
+   <div id="other-posts">
+    <ul>
+     <li>
+      <a href="stack-smashing">
+       Stack Smashing
+      </a>
+     </li>
+     <li>
+      <a href="time-catcher-part2">
+       Time Catcher Part 2! (Alpha)
+      </a>
+     </li>
+     <li>
+      <a href="shortcodes-routing-wordpress">
+       Short Codes and Routing in WordPress
+      </a>
+     </li>
+     <li>
+      <a href="time-catcher-part1">
+       Time Catcher Part 1
+      </a>
+     </li>
+     <li>
+      <a href="numbers-as-markers-google-maps">
+       Numbers as Markers on Google Maps
+      </a>
+     </li>
+     <li>
+      <a href="how-this-site-was-made">
+       How this site was made
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div id="disqus_thread">
+   </div>
+   <script type="text/javascript">
+    var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink"><!--
-    -->comments powered by <span class="logo-disqus">Disqus</span>
-</a>   
-    </div>
-    <nav>
-	<ul>
-		
-			<li>
-				<a href="/index">
-					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
-					--><span>Home</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/about">
-					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
-					--><span>About me</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/projects">
-					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
-					--><span>Projects</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/resume">
-					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
-					--><span>Resume</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/tech-blog">
-					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
-					--><span>Tech Blog</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/cooking">
-					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
-					--><span>Cooking</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/writing">
-					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
-					--><span>Writing</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/contact">
-					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
-					--><span>Contact</span>
-				</a>
-			</li>
-		
-		<li>
-			<a href="/writing/political">
-				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
-				--><span>Github</span>
-			</a>
-		</li>
-		<li> 
-			<a href="https://twitter.com/TheR3dLily">
-				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
-			</a>
-		</li>
-		<li>
-			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-  </body>
+   </script>
+   <noscript>
+    Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">
+     comments powered by Disqus.
+    </a>
+   </noscript>
+   <a class="dsq-brlink" href="http://disqus.com">
+    <!--
+-->
+    comments powered by
+    <span class="logo-disqus">
+     Disqus
+    </span>
+   </a>
+  </div>
+  <nav>
+   <ul>
+    <li>
+     <a href="/index">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/about">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
+      <!--
+-->
+      <span>
+       About me
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/projects">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Projects
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/resume">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Resume
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tech-blog">
+      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Tech Blog
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/cooking">
+      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Cooking
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing">
+      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Writing
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/contact">
+      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Contact
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing/political">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Opinion
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/EdgeCaseBerg">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Github
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://twitter.com/TheR3dLily">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
+      <!--
+-->
+      <span>
+       @TheR3dLily
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://www.linkedin.com/profile/view?id=151414806">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
+      <!--
+-->
+      <span>
+       LinkedIn
+      </span>
+     </a>
+    </li>
+   </ul>
+  </nav>
+ </body>
 </html>
-  	

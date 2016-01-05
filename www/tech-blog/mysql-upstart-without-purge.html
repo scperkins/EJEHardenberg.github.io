@@ -1,44 +1,33 @@
-
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Ethan's Tech Blog | Stopping mysql Upstart issues without reinstalling</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Troubleshooting a broken mysql installation without apt-purging" />
-    <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="mysql,upstart,purge,troubleshooting,etc,init.d,rc.d,apt-purge,fixes,ubuntu"/>
-    <meta name="robots" content="index, follow"  />
-      <meta name="revisit-after" content="1 month" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-      
-    
-	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
-
-        
-    <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Stopping mysql Upstart issues without reinstalling" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
-    
-    <meta property="og:description" content="Troubleshooting a broken mysql installation without apt-purging" />
-    
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Stopping mysql Upstart issues without reinstalling" />
-    
-    <meta name="twitter:description" content="Troubleshooting a broken mysql installation without apt-purging" />
-    
-    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
-
-
-	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ <head>
+  <title>
+   Ethan's Tech Blog | Stopping mysql Upstart issues without reinstalling
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="Troubleshooting a broken mysql installation without apt-purging" name="description"/>
+  <meta content="Ethan Eldridge" name="author"/>
+  <meta content="mysql,upstart,purge,troubleshooting,etc,init.d,rc.d,apt-purge,fixes,ubuntu" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="1 month" name="revisit-after"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
+  <!-- Facebook Open Graph Tags -->
+  <meta content="Ethan Eldridge | Stopping mysql Upstart issues without reinstalling" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
+  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
+  <meta content="Troubleshooting a broken mysql installation without apt-purging" property="og:description"/>
+  <!-- Twitter Card Tags -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="Ethan Eldridge | Stopping mysql Upstart issues without reinstalling" name="twitter:title"/>
+  <meta content="Troubleshooting a broken mysql installation without apt-purging" name="twitter:description"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
+  <!-- Core CSS Scripts -->
+  <link href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -46,103 +35,168 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-
-</script>
-
-  </head>
-  <body>
-    <header>
-      <h1>Stopping mysql Upstart issues without reinstalling</h1>
-    </header>
-
-
-    <div id="content">
-      <a href="/tech-blog">Back</a>
-      <h3>Fixing mysql Upstart problems without purging your system</h3><p>A few months ago I installed the newest version of mysql, at the same 
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    Stopping mysql Upstart issues without reinstalling
+   </h1>
+  </header>
+  <div id="content">
+   <a href="/tech-blog">
+    Back
+   </a>
+   <h3>
+    Fixing mysql Upstart problems without purging your system
+   </h3>
+   <p>
+    A few months ago I installed the newest version of mysql, at the same 
 time, I foobarred half my system and then had to uninstall my old version 
 to get anything done. At the end of a long debugging session I had two 
-versions of mysql working under different services. All was good.</p>
-<p>Or at least that&#39;s what I thought. Today I was looking through my logs 
+versions of mysql working under different services. All was good.
+   </p>
+   <p>
+    Or at least that's what I thought. Today I was looking through my logs 
 wondering why the crash report log (apport) was so huge. When nothing particularly 
 interesting appeared in those logs, I decided to take a peak into the dbus 
-log.</p>
-<pre><code>$ dbus-monitor --system
+log.
+   </p>
+   <pre><code>$ dbus-monitor --system
 signal sender=:1.0 -&gt; dest=(null destination) serial=4655 path=/com/ubuntu/Upstart/jobs/mysql/_; interface=com.ubuntu.Upstart0_6.Instance; member=GoalChanged
-   string &quot;respawn&quot;
+   string "respawn"
 signal sender=:1.0 -&gt; dest=(null destination) serial=4656 path=/com/ubuntu/Upstart/jobs/mysql/_; interface=com.ubuntu.Upstart0_6.Instance; member=GoalChanged
-   string &quot;start&quot;
+   string "start"
 signal sender=:1.0 -&gt; dest=(null destination) serial=4657 path=/com/ubuntu/Upstart/jobs/mysql/_; interface=com.ubuntu.Upstart0_6.Instance; member=StateChanged
-   string &quot;stopping&quot;
+   string "stopping"
 signal sender=:1.0 -&gt; dest=(null destination) serial=4658 path=/com/ubuntu/Upstart/jobs/mysql/_; interface=com.ubuntu.Upstart0_6.Instance; member=StateChanged
-   string &quot;killed&quot;
+   string "killed"
 signal sender=:1.0 -&gt; dest=(null destination) serial=4659 path=/com/ubuntu/Upstart/jobs/mysql/_; interface=com.ubuntu.Upstart0_6.Instance; member=StateChanged
-   string &quot;post-stop&quot;
+   string "post-stop"
 signal sender=:1.0 -&gt; dest=(null destination) serial=4660 path=/com/ubuntu/Upstart/jobs/mysql/_; interface=com.ubuntu.Upstart0_6.Instance; member=StateChanged
-   string &quot;starting&quot;
+   string "starting"
 signal sender=:1.0 -&gt; dest=(null destination) serial=4661 path=/com/ubuntu/Upstart/jobs/mysql/_; interface=com.ubuntu.Upstart0_6.Instance; member=StateChanged
-   string &quot;pre-start&quot;
+   string "pre-start"
 signal sender=:1.0 -&gt; dest=(null destination) serial=4662 path=/com/ubuntu/Upstart/jobs/mysql/_; interface=com.ubuntu.Upstart0_6.Instance; member=StateChanged
-   string &quot;spawned&quot;
+   string "spawned"
 signal sender=:1.0 -&gt; dest=(null destination) serial=4663 path=/com/ubuntu/Upstart/jobs/mysql/_; interface=com.ubuntu.Upstart0_6.Instance; member=StateChanged
-   string &quot;post-start&quot;
-</code></pre><p>Well, that doesn&#39;t look good. And When I looked around on the internet for a 
-solution I ran into <a href="http://askubuntu.com/a/296973/254629">this post</a> which said to just purge everything and start 
+   string "post-start"
+</code></pre>
+   <p>
+    Well, that doesn't look good. And When I looked around on the internet for a 
+solution I ran into
+    <a href="http://askubuntu.com/a/296973/254629">
+     this post
+    </a>
+    which said to just purge everything and start 
 over. To me, that seems a bit silly, especially when I have so much data stored 
-on my system and don&#39;t feel like waiting to re-import everything.</p>
-<p>So I asked myself how bad was it?</p>
-<pre><code>$sudo sysdig -c fdcount_by proc.name &quot;fd.type=file&quot;
+on my system and don't feel like waiting to re-import everything.
+   </p>
+   <p>
+    So I asked myself how bad was it?
+   </p>
+   <pre><code>$sudo sysdig -c fdcount_by proc.name "fd.type=file"
 mysqld    814
 BrowserBlocking    413
 irqbalance    30
-</code></pre><p>I ran the above chisel for about 10 seconds or so, so pretty bad. Tailing 
-the mysql error log gives me a continous stream of mysql&#39;s service trying 
-to start and stop over and over again, seemingly hung up on InnoDb issues.</p>
-<p>Of course, my browser rules the I/O errors here, a quick run of <code>sysdig -c topprocs_errors</code> 
-shows me that I&#39;ve got 200+ errors on each refresh (once per second or so). So 
+</code></pre>
+   <p>
+    I ran the above chisel for about 10 seconds or so, so pretty bad. Tailing 
+the mysql error log gives me a continous stream of mysql's service trying 
+to start and stop over and over again, seemingly hung up on InnoDb issues.
+   </p>
+   <p>
+    Of course, my browser rules the I/O errors here, a quick run of
+    <code>
+     sysdig -c topprocs_errors
+    </code>
+    shows me that I've got 200+ errors on each refresh (once per second or so). So 
 maybe there will be another blog post troubleshooting the newest version of 
-chromium later on, but first, fixing mysql.</p>
-<p>Browsering the man page for Upstart, we can see it&#39;s the init daemon and 
-reads its configuration from the <strong>/etc/init</strong> directory. So that seems like 
-a good place to look around for bad configurations. The man page from <code>man upstart</code> 
-recommends looking into the 5(init) man page for details, so a quick <code>man 5 init</code> 
-brings us to more documentation. </p>
-<p>One line in particular,  </p>
-<pre><code>Users are able to manage their jobs using the standard initctl(8) facility.
-</code></pre><p>stood out, and a quick look through there showed me the mysql process id changing 
-rapidly when I ran <code>initctl status mysql</code>, having found the right daemon controlling
-mysql, I checked the configuration:</p>
-<pre><code>$initctl show-config mysql
+chromium later on, but first, fixing mysql.
+   </p>
+   <p>
+    Browsering the man page for Upstart, we can see it's the init daemon and 
+reads its configuration from the
+    <strong>
+     /etc/init
+    </strong>
+    directory. So that seems like 
+a good place to look around for bad configurations. The man page from
+    <code>
+     man upstart
+    </code>
+    recommends looking into the 5(init) man page for details, so a quick
+    <code>
+     man 5 init
+    </code>
+    brings us to more documentation.
+   </p>
+   <p>
+    One line in particular,
+   </p>
+   <pre><code>Users are able to manage their jobs using the standard initctl(8) facility.
+</code></pre>
+   <p>
+    stood out, and a quick look through there showed me the mysql process id changing 
+rapidly when I ran
+    <code>
+     initctl status mysql
+    </code>
+    , having found the right daemon controlling
+mysql, I checked the configuration:
+   </p>
+   <pre><code>$initctl show-config mysql
 mysql
   start on runlevel [2345]
   stop on starting rc RUNLEVEL=[016]
-</code></pre><p>Wondering what runlevel I was currently in led me to: </p>
-<pre><code>$ who -r
+</code></pre>
+   <p>
+    Wondering what runlevel I was currently in led me to:
+   </p>
+   <pre><code>$ who -r
          run-level 2  2015-01-06 17:32
-</code></pre><p>Well, this certainly explained why it kept restarting. I don&#39;t actually want 
-mysql running on start up (and had disabled my other version&#39;s start up service 
-a few weeks ago), so it was off to edit the run levels for me.</p>
-<p>The /etc/rcn.d directories specify which scripts in /etc/init.d are enabled for 
+</code></pre>
+   <p>
+    Well, this certainly explained why it kept restarting. I don't actually want 
+mysql running on start up (and had disabled my other version's start up service 
+a few weeks ago), so it was off to edit the run levels for me.
+   </p>
+   <p>
+    The /etc/rcn.d directories specify which scripts in /etc/init.d are enabled for 
 run level n. So I checked it out and sure enough there was my disabled service
-for my other mysql install:</p>
-<pre><code>ls /etc/rc2.d/
+for my other mysql install:
+   </p>
+   <pre><code>ls /etc/rc2.d/
 K80mysql.server
-</code></pre><p>But there wasn&#39;t anything else in there for the mysql service (note, not mysql.server!).
-I checked the other /etc/rcN.d/ directories but couldn&#39;t find anything. Weird.
-So I ran a quick service check:</p>
-<pre><code>ethan@Turing ~ $ sudo service mysql status
+</code></pre>
+   <p>
+    But there wasn't anything else in there for the mysql service (note, not mysql.server!).
+I checked the other /etc/rcN.d/ directories but couldn't find anything. Weird.
+So I ran a quick service check:
+   </p>
+   <pre><code>ethan@Turing ~ $ sudo service mysql status
 mysql start/post-start, process 6958
     post-start process 6959
 ethan@Turing ~ $ sudo service mysql stop
 mysql stop/waiting
-</code></pre><p>Well now that&#39;s just bizarre, and after calling service stop the logs stopped 
-coming, and the <code>sudo sysdig -c fdcount_by proc.name &quot;fd.type=file&quot;</code> file to 0
-for mysql. So I had stopped the issue, but I hadn&#39;t figured out what had caused
+</code></pre>
+   <p>
+    Well now that's just bizarre, and after calling service stop the logs stopped 
+coming, and the
+    <code>
+     sudo sysdig -c fdcount_by proc.name "fd.type=file"
+    </code>
+    file to 0
+for mysql. So I had stopped the issue, but I hadn't figured out what had caused
 the problem. Why was the system trying to start mysql as a service on start up 
-anyway? Especially if there wasn&#39;t anything in the /etc/rcN.d directory for it?</p>
-<p>Well, the init scripts that run on startup and shutdown of the machine are actually
+anyway? Especially if there wasn't anything in the /etc/rcN.d directory for it?
+   </p>
+   <p>
+    Well, the init scripts that run on startup and shutdown of the machine are actually
 located in the /etc/init.d directory, so something had to have gone wrong here. 
-I quickly checked to see if I could reproduce my log errors:</p>
-<pre><code>ethan@Turing ~ $ sudo service mysql start
+I quickly checked to see if I could reproduce my log errors:
+   </p>
+   <pre><code>ethan@Turing ~ $ sudo service mysql start
 ethan@Turing ~ $ sudo service mysql status
 mysql start/post-start, process 8047
     post-start process 8048
@@ -157,126 +211,223 @@ mysql start/post-start, process 8192
     post-start process 8193
 ethan@Turing ~ $ sudo service mysql stop
 mysql stop/waiting
-</code></pre><p>yup.</p>
-<p>At this point, I thought about adding <code>service mysql stop</code> to my /etc/rc.local 
-file to just stop the issue from happening. But that didn&#39;t seem like a good
-way to fix the problem, so I pressed on and <a href="http://upstart.ubuntu.com/cookbook/#disabling-a-job-from-automatically-starting">found this</a> and followed through
-with updating my overrides:</p>
-<pre><code>echo &quot;manual&quot; &gt;&gt; /etc/init/mysql.override
+</code></pre>
+   <p>
+    yup.
+   </p>
+   <p>
+    At this point, I thought about adding
+    <code>
+     service mysql stop
+    </code>
+    to my /etc/rc.local 
+file to just stop the issue from happening. But that didn't seem like a good
+way to fix the problem, so I pressed on and
+    <a href="http://upstart.ubuntu.com/cookbook/#disabling-a-job-from-automatically-starting">
+     found this
+    </a>
+    and followed through
+with updating my overrides:
+   </p>
+   <pre><code>echo "manual" &gt;&gt; /etc/init/mysql.override
 sudo reboot
-</code></pre><p>And after my system booted back up?</p>
-<pre><code>ethan@Turing ~ $ sudo service mysql status
+</code></pre>
+   <p>
+    And after my system booted back up?
+   </p>
+   <pre><code>ethan@Turing ~ $ sudo service mysql status
 mysql stop/waiting
-</code></pre><p>And my horrible broken mysql installation was fixed and no longer starting up at
-runtime anymore! Amazing what reading the documentation can do for one&#39;s problems.</p>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=installing-gentoo-virtualbox>Attempting to install Gentoo into VirtualBox</a></li><li><a href=registration-denial-plugin>Plugin to Ban users and deny registration in WordPress</a></li><li><a href=chromium-seccomp-dmesg-errors>Fixing Chromium&#39;s seccomp logging to dmesg</a></li><li><a href=registration-denial-wordpress>Deny spam emails from registering in WordPress</a></li><li><a href=caja-exifstrip-context-action>Adding Right Click context actions to Caja</a></li><li><a href=exifstrip-context-nautilus>Context Menu Button to remove Exif Metadata</a></li>
-        </ul>
-      </div>
-      <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'ejehardenberg';
+</code></pre>
+   <p>
+    And my horrible broken mysql installation was fixed and no longer starting up at
+runtime anymore! Amazing what reading the documentation can do for one's problems.
+   </p>
+   <h3>
+    Other Posts
+   </h3>
+   <div id="other-posts">
+    <ul>
+     <li>
+      <a href="installing-gentoo-virtualbox">
+       Attempting to install Gentoo into VirtualBox
+      </a>
+     </li>
+     <li>
+      <a href="registration-denial-plugin">
+       Plugin to Ban users and deny registration in WordPress
+      </a>
+     </li>
+     <li>
+      <a href="chromium-seccomp-dmesg-errors">
+       Fixing Chromium's seccomp logging to dmesg
+      </a>
+     </li>
+     <li>
+      <a href="registration-denial-wordpress">
+       Deny spam emails from registering in WordPress
+      </a>
+     </li>
+     <li>
+      <a href="caja-exifstrip-context-action">
+       Adding Right Click context actions to Caja
+      </a>
+     </li>
+     <li>
+      <a href="exifstrip-context-nautilus">
+       Context Menu Button to remove Exif Metadata
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div id="disqus_thread">
+   </div>
+   <script type="text/javascript">
+    var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink"><!--
-    -->comments powered by <span class="logo-disqus">Disqus</span>
-</a>   
-    </div>
-    <nav>
-	<ul>
-		
-			<li>
-				<a href="/index">
-					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
-					--><span>Home</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/about">
-					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
-					--><span>About me</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/projects">
-					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
-					--><span>Projects</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/resume">
-					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
-					--><span>Resume</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/tech-blog">
-					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
-					--><span>Tech Blog</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/cooking">
-					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
-					--><span>Cooking</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/writing">
-					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
-					--><span>Writing</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/contact">
-					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
-					--><span>Contact</span>
-				</a>
-			</li>
-		
-		<li>
-			<a href="/writing/political">
-				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
-				--><span>Github</span>
-			</a>
-		</li>
-		<li> 
-			<a href="https://twitter.com/TheR3dLily">
-				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
-			</a>
-		</li>
-		<li>
-			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-  </body>
+   </script>
+   <noscript>
+    Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">
+     comments powered by Disqus.
+    </a>
+   </noscript>
+   <a class="dsq-brlink" href="http://disqus.com">
+    <!--
+-->
+    comments powered by
+    <span class="logo-disqus">
+     Disqus
+    </span>
+   </a>
+  </div>
+  <nav>
+   <ul>
+    <li>
+     <a href="/index">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/about">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
+      <!--
+-->
+      <span>
+       About me
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/projects">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Projects
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/resume">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Resume
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tech-blog">
+      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Tech Blog
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/cooking">
+      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Cooking
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing">
+      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Writing
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/contact">
+      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Contact
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing/political">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Opinion
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/EdgeCaseBerg">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Github
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://twitter.com/TheR3dLily">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
+      <!--
+-->
+      <span>
+       @TheR3dLily
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://www.linkedin.com/profile/view?id=151414806">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
+      <!--
+-->
+      <span>
+       LinkedIn
+      </span>
+     </a>
+    </li>
+   </ul>
+  </nav>
+ </body>
 </html>
-  	

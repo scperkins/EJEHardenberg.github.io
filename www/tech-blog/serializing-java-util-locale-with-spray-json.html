@@ -1,44 +1,33 @@
-
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Ethan's Tech Blog | Serializing java.util.Locale with Spray JSON library</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="An example of how to serialize and deserialize the Locale class using the spray-json library" />
-    <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="java.util.Locale,spray-json,json,spray,locale,deserialize,serializeser"/>
-    <meta name="robots" content="index, follow"  />
-      <meta name="revisit-after" content="1 month" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-      
-    
-	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
-
-        
-    <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Serializing java.util.Locale with Spray JSON library" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
-    
-    <meta property="og:description" content="An example of how to serialize and deserialize the Locale class using the spray-json library" />
-    
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Serializing java.util.Locale with Spray JSON library" />
-    
-    <meta name="twitter:description" content="An example of how to serialize and deserialize the Locale class using the spray-json library" />
-    
-    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
-
-
-	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ <head>
+  <title>
+   Ethan's Tech Blog | Serializing java.util.Locale with Spray JSON library
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="An example of how to serialize and deserialize the Locale class using the spray-json library" name="description"/>
+  <meta content="Ethan Eldridge" name="author"/>
+  <meta content="java.util.Locale,spray-json,json,spray,locale,deserialize,serializeser" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="1 month" name="revisit-after"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
+  <!-- Facebook Open Graph Tags -->
+  <meta content="Ethan Eldridge | Serializing java.util.Locale with Spray JSON library" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
+  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
+  <meta content="An example of how to serialize and deserialize the Locale class using the spray-json library" property="og:description"/>
+  <!-- Twitter Card Tags -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="Ethan Eldridge | Serializing java.util.Locale with Spray JSON library" name="twitter:title"/>
+  <meta content="An example of how to serialize and deserialize the Locale class using the spray-json library" name="twitter:description"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
+  <!-- Core CSS Scripts -->
+  <link href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -46,37 +35,59 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-
-</script>
-
-  </head>
-  <body>
-    <header>
-      <h1>Serializing java.util.Locale with Spray JSON library</h1>
-    </header>
-
-
-    <div id="content">
-      <a href="/tech-blog">Back</a>
-      <h3>Serializing java.util.Locale with spray-json</h3><p>When dealing with internationalized content, a common pattern is to store 
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    Serializing java.util.Locale with Spray JSON library
+   </h1>
+  </header>
+  <div id="content">
+   <a href="/tech-blog">
+    Back
+   </a>
+   <h3>
+    Serializing java.util.Locale with spray-json
+   </h3>
+   <p>
+    When dealing with internationalized content, a common pattern is to store 
 textual information in seperate tables from the parent object. This text 
-has a primary composite key of (id, lang). For example, in scala:</p>
-<pre><code>case class BlogPost(id: Int, createdTimeEpoch: Long, published: Boolean)
+has a primary composite key of (id, lang). For example, in scala:
+   </p>
+   <pre><code>case class BlogPost(id: Int, createdTimeEpoch: Long, published: Boolean)
 
 case class BlogPostText(blogId: Int, lang: java.util.Locale, postText: String)
-</code></pre><p>And this will work just fine, as when you need to get a spanish, french, or 
-english copy of your blog post you can just use a SQL <code>JOIN</code> statement and 
-specify whichever language you need. Easy right? Right. What about when you&#39;re 
+</code></pre>
+   <p>
+    And this will work just fine, as when you need to get a spanish, french, or 
+english copy of your blog post you can just use a SQL
+    <code>
+     JOIN
+    </code>
+    statement and 
+specify whichever language you need. Easy right? Right. What about when you're 
 dealing with your data and need to serialize it over the wire? For example, 
-let&#39;s say your blogPosts are sent out in some form of JSON feed that is 
-consumed by an app for your site? </p>
-<p>There are a lot of serialization libraries, but one that caught my eye 
-recently is <a href="https://github.com/spray/spray-json">Spray-json</a>. A useful and handy library that is quite easy 
+let's say your blogPosts are sent out in some form of JSON feed that is 
+consumed by an app for your site?
+   </p>
+   <p>
+    There are a lot of serialization libraries, but one that caught my eye 
+recently is
+    <a href="https://github.com/spray/spray-json">
+     Spray-json
+    </a>
+    . A useful and handy library that is quite easy 
 to use when it comes to standard types or case classes. The one place it 
 does tend to hiccup on is when dealing with enumerations and classes which 
-aren&#39;t <code>case</code>. Enumerations are easy to deal with. They can be handled 
-like so:</p>
-<pre><code>/** SprayJSON reader/writer for enumerated types
+aren't
+    <code>
+     case
+    </code>
+    . Enumerations are easy to deal with. They can be handled 
+like so:
+   </p>
+   <pre><code>/** SprayJSON reader/writer for enumerated types
  * @see https://groups.google.com/forum/#!topic/spray-user/RkIwRIXzDDc 
  */
 def jsonEnum[T &lt;: Enumeration](enu: T) = new JsonFormat[T#Value] {
@@ -84,40 +95,89 @@ def jsonEnum[T &lt;: Enumeration](enu: T) = new JsonFormat[T#Value] {
 
     def read(json: JsValue) = json match {
         case JsString(txt) =&gt; enu.withName(txt)
-        case something =&gt; throw new DeserializationException(s&quot;Expected a value from enum $enu instead of $something&quot;)
+        case something =&gt; throw new DeserializationException(s"Expected a value from enum $enu instead of $something")
     }
 }
 
 implicit val enumConversion =jsonEnum(YourEnumeratedTypeHere)
-</code></pre><p>As referenced in the code, the above code is <a href="https://groups.google.com/forum/#!topic/spray-user/RkIwRIXzDDc">courtesy of a David Perez</a>. However 
-this is not going to help you in the case of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Locale.html">Locale</a> class. So how do you 
+</code></pre>
+   <p>
+    As referenced in the code, the above code is
+    <a href="https://groups.google.com/forum/#!topic/spray-user/RkIwRIXzDDc">
+     courtesy of a David Perez
+    </a>
+    . However 
+this is not going to help you in the case of the
+    <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Locale.html">
+     Locale
+    </a>
+    class. So how do you 
 do it? The defaults do not provide a formatter for this and if you attempt to 
-serialize an object like <code>BlogPostText</code> above, you&#39;ll run into the error:</p>
-<pre><code>could not find implicit value for evidence parameter of type spray.json.DefaultJsonProtocol.JF[java.util.Locale]
-</code></pre><p>It&#39;s pretty simple to get around this though:</p>
-<pre><code>implicit object LocaleFormat extends JsonFormat[java.util.Locale] {
+serialize an object like
+    <code>
+     BlogPostText
+    </code>
+    above, you'll run into the error:
+   </p>
+   <pre><code>could not find implicit value for evidence parameter of type spray.json.DefaultJsonProtocol.JF[java.util.Locale]
+</code></pre>
+   <p>
+    It's pretty simple to get around this though:
+   </p>
+   <pre><code>implicit object LocaleFormat extends JsonFormat[java.util.Locale] {
     def write(obj: java.util.Locale) = JsString(obj.toString)
     def read(json: JsValue) : java.util.Locale = json match {
         case JsString(langString) =&gt; new java.util.Locale(langString)
-        case _ =&gt; deserializationError(&quot;Locale Language String Expected&quot;)
+        case _ =&gt; deserializationError("Locale Language String Expected")
     }
 }
-</code></pre><p>The above code provides an implicit object to serialize and deserialize Locale 
-objects based on the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Locale.html#Locale(java.lang.String)">language constructor</a>. We implement <code>JsonFormat</code> instead of 
-the <code>RootJsonFormat</code> trait because we&#39;re not expecting to use Locale&#39;s as root 
-objects in JSON trees. If your use case is otherwise you would simply switch out 
-<code>JsonFormat</code> for <code>RootJsonFormat</code>.  For more detail on the difference <a href="https://github.com/spray/spray-json#jsonformat-vs-rootjsonformat">read here</a>.</p>
-<p>But this isn&#39;t the only way. An implicit object is fine, but we can also make due 
-with a class:</p>
-<pre><code>class JsonLocaleFormatClass extends JsonFormat[java.util.Locale] {
+</code></pre>
+   <p>
+    The above code provides an implicit object to serialize and deserialize Locale 
+objects based on the
+    <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Locale.html#Locale(java.lang.String)">
+     language constructor
+    </a>
+    . We implement
+    <code>
+     JsonFormat
+    </code>
+    instead of 
+the
+    <code>
+     RootJsonFormat
+    </code>
+    trait because we're not expecting to use Locale's as root 
+objects in JSON trees. If your use case is otherwise you would simply switch out
+    <code>
+     JsonFormat
+    </code>
+    for
+    <code>
+     RootJsonFormat
+    </code>
+    .  For more detail on the difference
+    <a href="https://github.com/spray/spray-json#jsonformat-vs-rootjsonformat">
+     read here
+    </a>
+    .
+   </p>
+   <p>
+    But this isn't the only way. An implicit object is fine, but we can also make due 
+with a class:
+   </p>
+   <pre><code>class JsonLocaleFormatClass extends JsonFormat[java.util.Locale] {
     def write(obj: java.util.Locale) = JsString(obj.toString)
     def read(json: JsValue) : java.util.Locale = json match {
         case JsString(langString) =&gt; new java.util.Locale(langString)
-        case _ =&gt; deserializationError(&quot;Locale Language String Expected&quot;)
+        case _ =&gt; deserializationError("Locale Language String Expected")
     }
 }
-</code></pre><p>Then use it like so:</p>
-<pre><code>import spray.json._
+</code></pre>
+   <p>
+    Then use it like so:
+   </p>
+   <pre><code>import spray.json._
 import DefaultJsonProtocol._
 
 implicit val formatter = new JsonLocaleFormatClass()
@@ -125,123 +185,208 @@ implicit val formatter = new JsonLocaleFormatClass()
 
 case class BlogPostText(blogId: Int, lang: java.util.Locale, postText: String)
 
-val blogpostgerman = BlogPostText(0, new java.util.Locale(&quot;de&quot;), &quot;Ich kann nicht versteht!&quot;)
+val blogpostgerman = BlogPostText(0, new java.util.Locale("de"), "Ich kann nicht versteht!")
 
-blogpostgerman.toJson // {&quot;blogId&quot;:0,&quot;lang&quot;:&quot;de&quot;,&quot;postText&quot;:&quot;Ich kann nicht versteht!&quot;}
+blogpostgerman.toJson // {"blogId":0,"lang":"de","postText":"Ich kann nicht versteht!"}
 
-&quot;&quot;&quot;{&quot;blogId&quot;:0,&quot;lang&quot;:&quot;de&quot;,&quot;postText&quot;:&quot;Ich kann nicht versteht!&quot;}&quot;&quot;&quot;.parseJson.convertTo[BlogPostText] // BlogPostText(0,de,Ich kann nicht versteht!)
-</code></pre><p>Whether you choose to use a class and explicitly define a converter for your 
+"""{"blogId":0,"lang":"de","postText":"Ich kann nicht versteht!"}""".parseJson.convertTo[BlogPostText] // BlogPostText(0,de,Ich kann nicht versteht!)
+</code></pre>
+   <p>
+    Whether you choose to use a class and explicitly define a converter for your 
 usage, or you create an implicit object to import, you can now handle Locale 
-classes in your code! </p>
-<p><a href="https://github.com/EdgeCaseBerg/spray-json-locale-example">You can find an example project to run yourself here showing the above code in use</a></p>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=serializing-json-generic-classes-spray-json>Serializing Generic Types with Spray JSON Library</a></li><li><a href=github-streak>A Year of committing to Github</a></li><li><a href=logging-to-a-file-spray-async>Logging to a File in Spray</a></li><li><a href=aspect-ratios-and-math>Aspect Ratios, Math, and Scala</a></li><li><a href=spray-transparent-head-requests-testing>Spray&#39;s Transparent Head Requests and Testing</a></li><li><a href=401-unauthorized-400-bad-request-sonatype-nexus>401 Unauthorized and 400 Bad Request from Sonatype Nexus in SBT</a></li>
-        </ul>
-      </div>
-      <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'ejehardenberg';
+classes in your code!
+   </p>
+   <p>
+    <a href="https://github.com/EdgeCaseBerg/spray-json-locale-example">
+     You can find an example project to run yourself here showing the above code in use
+    </a>
+   </p>
+   <h3>
+    Other Posts
+   </h3>
+   <div id="other-posts">
+    <ul>
+     <li>
+      <a href="serializing-json-generic-classes-spray-json">
+       Serializing Generic Types with Spray JSON Library
+      </a>
+     </li>
+     <li>
+      <a href="github-streak">
+       A Year of committing to Github
+      </a>
+     </li>
+     <li>
+      <a href="logging-to-a-file-spray-async">
+       Logging to a File in Spray
+      </a>
+     </li>
+     <li>
+      <a href="aspect-ratios-and-math">
+       Aspect Ratios, Math, and Scala
+      </a>
+     </li>
+     <li>
+      <a href="spray-transparent-head-requests-testing">
+       Spray's Transparent Head Requests and Testing
+      </a>
+     </li>
+     <li>
+      <a href="401-unauthorized-400-bad-request-sonatype-nexus">
+       401 Unauthorized and 400 Bad Request from Sonatype Nexus in SBT
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div id="disqus_thread">
+   </div>
+   <script type="text/javascript">
+    var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink"><!--
-    -->comments powered by <span class="logo-disqus">Disqus</span>
-</a>   
-    </div>
-    <nav>
-	<ul>
-		
-			<li>
-				<a href="/index">
-					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
-					--><span>Home</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/about">
-					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
-					--><span>About me</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/projects">
-					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
-					--><span>Projects</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/resume">
-					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
-					--><span>Resume</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/tech-blog">
-					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
-					--><span>Tech Blog</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/cooking">
-					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
-					--><span>Cooking</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/writing">
-					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
-					--><span>Writing</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/contact">
-					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
-					--><span>Contact</span>
-				</a>
-			</li>
-		
-		<li>
-			<a href="/writing/political">
-				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
-				--><span>Github</span>
-			</a>
-		</li>
-		<li> 
-			<a href="https://twitter.com/TheR3dLily">
-				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
-			</a>
-		</li>
-		<li>
-			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-  </body>
+   </script>
+   <noscript>
+    Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">
+     comments powered by Disqus.
+    </a>
+   </noscript>
+   <a class="dsq-brlink" href="http://disqus.com">
+    <!--
+-->
+    comments powered by
+    <span class="logo-disqus">
+     Disqus
+    </span>
+   </a>
+  </div>
+  <nav>
+   <ul>
+    <li>
+     <a href="/index">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/about">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
+      <!--
+-->
+      <span>
+       About me
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/projects">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Projects
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/resume">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Resume
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tech-blog">
+      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Tech Blog
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/cooking">
+      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Cooking
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing">
+      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Writing
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/contact">
+      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Contact
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing/political">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Opinion
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/EdgeCaseBerg">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Github
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://twitter.com/TheR3dLily">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
+      <!--
+-->
+      <span>
+       @TheR3dLily
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://www.linkedin.com/profile/view?id=151414806">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
+      <!--
+-->
+      <span>
+       LinkedIn
+      </span>
+     </a>
+    </li>
+   </ul>
+  </nav>
+ </body>
 </html>
-  	

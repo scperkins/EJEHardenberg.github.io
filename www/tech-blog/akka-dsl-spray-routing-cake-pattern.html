@@ -1,44 +1,33 @@
-
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Ethan's Tech Blog | Akka DSL&#39;s and Routing In Play with Cake Pattern</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="A look at a basic Akka program, then into how to setup multiple routes using the Cake Pattern in Spray" />
-    <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="scala,akka,spray,cake pattern,routing,controller,spray-can"/>
-    <meta name="robots" content="index, follow"  />
-      <meta name="revisit-after" content="1 month" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-      
-    
-	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
-
-        
-    <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Akka DSL&#39;s and Routing In Play with Cake Pattern" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
-    
-    <meta property="og:description" content="A look at a basic Akka program, then into how to setup multiple routes using the Cake Pattern in Spray" />
-    
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Akka DSL&#39;s and Routing In Play with Cake Pattern" />
-    
-    <meta name="twitter:description" content="A look at a basic Akka program, then into how to setup multiple routes using the Cake Pattern in Spray" />
-    
-    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
-
-
-	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ <head>
+  <title>
+   Ethan's Tech Blog | Akka DSL's and Routing In Play with Cake Pattern
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="A look at a basic Akka program, then into how to setup multiple routes using the Cake Pattern in Spray" name="description"/>
+  <meta content="Ethan Eldridge" name="author"/>
+  <meta content="scala,akka,spray,cake pattern,routing,controller,spray-can" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="1 month" name="revisit-after"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
+  <!-- Facebook Open Graph Tags -->
+  <meta content="Ethan Eldridge | Akka DSL's and Routing In Play with Cake Pattern" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
+  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
+  <meta content="A look at a basic Akka program, then into how to setup multiple routes using the Cake Pattern in Spray" property="og:description"/>
+  <!-- Twitter Card Tags -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="Ethan Eldridge | Akka DSL's and Routing In Play with Cake Pattern" name="twitter:title"/>
+  <meta content="A look at a basic Akka program, then into how to setup multiple routes using the Cake Pattern in Spray" name="twitter:description"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
+  <!-- Core CSS Scripts -->
+  <link href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -46,26 +35,44 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-
-</script>
-
-  </head>
-  <body>
-    <header>
-      <h1>Akka DSL&#39;s and Routing In Play with Cake Pattern</h1>
-    </header>
-
-
-    <div id="content">
-      <a href="/tech-blog">Back</a>
-      <h3>Akka DSL and Spray Routing with Cake Pattern</h3><p>Today I was working my way through some <a href="http://doc.akka.io/docs/akka/2.0/intro/getting-started-first-scala.html">Akka tutorials</a> and was 
-thinking to myself: <em>man, I wish I knew what they called each symbol!</em> 
-So I got to thinking, well, I&#39;m sure others are thinking the same 
-thing, why not write a quick post about it? </p>
-<p>One of the first things I found myself wondering when dealing with Akka 
-was: <em>What the heck is Props?</em> It wasn&#39;t until I saw this that it made 
-any sense to me: </p>
-<pre><code>class Worker extends Actor {
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    Akka DSL's and Routing In Play with Cake Pattern
+   </h1>
+  </header>
+  <div id="content">
+   <a href="/tech-blog">
+    Back
+   </a>
+   <h3>
+    Akka DSL and Spray Routing with Cake Pattern
+   </h3>
+   <p>
+    Today I was working my way through some
+    <a href="http://doc.akka.io/docs/akka/2.0/intro/getting-started-first-scala.html">
+     Akka tutorials
+    </a>
+    and was 
+thinking to myself:
+    <em>
+     man, I wish I knew what they called each symbol!
+    </em>
+    So I got to thinking, well, I'm sure others are thinking the same 
+thing, why not write a quick post about it?
+   </p>
+   <p>
+    One of the first things I found myself wondering when dealing with Akka 
+was:
+    <em>
+     What the heck is Props?
+    </em>
+    It wasn't until I saw this that it made 
+any sense to me:
+   </p>
+   <pre><code>class Worker extends Actor {
     ...
 }
 
@@ -75,51 +82,138 @@ class Master(nrOfWorkers: Int, nrOfMessages: Int, nrOfElements: Int, listener: A
 
 ...
 
-val listener = system.actorOf(Props[Listener], name = &quot;listener&quot;)
+val listener = system.actorOf(Props[Listener], name = "listener")
 val master = system.actorOf(Props(new Master(
     nrOfWorkers, nrOfMessages, nrOfElements, listener
-)), name = &quot;master&quot;)
-</code></pre><p>Specifically, the way that we can do both <code>Props[ActorClass]</code> and 
-<code>Props(new ActorClassWithConstructorArgs(a,b,c))</code> made me realize that 
-the role of <code>Props</code> was to provide a factory to create Actors. And on 
-wising up and reading the <a href="http://doc.akka.io/api/akka/2.3.1/index.html#akka.actor.Props">scala doc</a>, it was pretty obvious that when 
-you see <code>Props</code> you&#39;re seeing the preferred way to create Actors. </p>
-<p>If you look at the <a href="http://doc.akka.io/api/akka/2.3.1/index.html#akka.actor.Props">scala doc</a> you&#39;ll see that Props takes a <a href="http://doc.akka.io/api/akka/2.3.1/index.html#akka.actor.Deploy">Deploy</a> 
-object which can be configured from a conf file. Of course, you won&#39;t 
+)), name = "master")
+</code></pre>
+   <p>
+    Specifically, the way that we can do both
+    <code>
+     Props[ActorClass]
+    </code>
+    and
+    <code>
+     Props(new ActorClassWithConstructorArgs(a,b,c))
+    </code>
+    made me realize that 
+the role of
+    <code>
+     Props
+    </code>
+    was to provide a factory to create Actors. And on 
+wising up and reading the
+    <a href="http://doc.akka.io/api/akka/2.3.1/index.html#akka.actor.Props">
+     scala doc
+    </a>
+    , it was pretty obvious that when 
+you see
+    <code>
+     Props
+    </code>
+    you're seeing the preferred way to create Actors.
+   </p>
+   <p>
+    If you look at the
+    <a href="http://doc.akka.io/api/akka/2.3.1/index.html#akka.actor.Props">
+     scala doc
+    </a>
+    you'll see that Props takes a
+    <a href="http://doc.akka.io/api/akka/2.3.1/index.html#akka.actor.Deploy">
+     Deploy
+    </a>
+    object which can be configured from a conf file. Of course, you won't 
 often find a Props object being created without use of the factory. 
-Something like this: </p>
-<pre><code>val d = Deploy(path = &quot;/tmp/test.conf&quot;)
+Something like this:
+   </p>
+   <pre><code>val d = Deploy(path = "/tmp/test.conf")
 val p = new Props(deploy = d, classOf[Listener], scala.collection.immutable.Seq.empty[Any])
 val s = ActorSystem()
 val a = s.actorOf(p)
-</code></pre><p>Is less desireable than:</p>
-<pre><code>val s = ActorSystem()
-s.actorOf(Props[Listener].withDeploy(Deploy(path=&quot;/tmp/test.conf&quot;)))
-</code></pre><p>Because it&#39;s a bit easier to read and understand the factory methods.</p>
-<p>So what&#39;s this <code>!</code> function? It&#39;s defined in the <a href="http://doc.akka.io/api/akka/2.3.1/index.html#akka.actor.ActorRef">ActorRef docs</a>, and 
-does the same thing as the <code>tell</code> function, but with an implicit 
-sender instead of an explicit: </p>
-<pre><code>a ! PiApproxiation(1, Duration(&quot;1 second&quot;)
-</code></pre><p>is the same as </p>
-<pre><code>a tell (PiApproxiation(1, Duration(&quot;1 second&quot;)), a)
-</code></pre><p>The same can be said of the <code>?</code> function, which corresponds to the 
-<code>ask</code> function. Defined in <a href="http://doc.akka.io/api/akka/2.3.1/index.html#akka.pattern.AskableActorRef">AskableActorRef</a>. The example code from 
-the <a href="http://doc.akka.io/docs/akka/2.0/intro/getting-started-first-scala.html">Akka tutorials</a> was simple enough to understand once the symbols 
-were resolved. While I like scala&#39;s ability to provide very unique 
+</code></pre>
+   <p>
+    Is less desireable than:
+   </p>
+   <pre><code>val s = ActorSystem()
+s.actorOf(Props[Listener].withDeploy(Deploy(path="/tmp/test.conf")))
+</code></pre>
+   <p>
+    Because it's a bit easier to read and understand the factory methods.
+   </p>
+   <p>
+    So what's this
+    <code>
+     !
+    </code>
+    function? It's defined in the
+    <a href="http://doc.akka.io/api/akka/2.3.1/index.html#akka.actor.ActorRef">
+     ActorRef docs
+    </a>
+    , and 
+does the same thing as the
+    <code>
+     tell
+    </code>
+    function, but with an implicit 
+sender instead of an explicit:
+   </p>
+   <pre><code>a ! PiApproxiation(1, Duration("1 second")
+</code></pre>
+   <p>
+    is the same as
+   </p>
+   <pre><code>a tell (PiApproxiation(1, Duration("1 second")), a)
+</code></pre>
+   <p>
+    The same can be said of the
+    <code>
+     ?
+    </code>
+    function, which corresponds to the
+    <code>
+     ask
+    </code>
+    function. Defined in
+    <a href="http://doc.akka.io/api/akka/2.3.1/index.html#akka.pattern.AskableActorRef">
+     AskableActorRef
+    </a>
+    . The example code from 
+the
+    <a href="http://doc.akka.io/docs/akka/2.0/intro/getting-started-first-scala.html">
+     Akka tutorials
+    </a>
+    was simple enough to understand once the symbols 
+were resolved. While I like scala's ability to provide very unique 
 function names and create readable / english-like code, it does make 
-it harder to search sometimes. </p>
-<p>The <a href="http://doc.akka.io/docs/akka/2.2.0/scala/actors.html#Send%20messages">official documentation</a> is the best place to read and learn about 
-the various components that make up Akka, so it&#39;s well worth a look. The 
-other thing I noticed, is that in most tutorials involving <a href="http://spray.io/">Spray</a> and a 
-<a href="http://blog.michaelhamrah.com/2013/06/scala-web-apis-up-and-running-with-spray-and-akka/">Rest Service</a>, there is only ever a single routing trait setup, and 
+it harder to search sometimes.
+   </p>
+   <p>
+    The
+    <a href="http://doc.akka.io/docs/akka/2.2.0/scala/actors.html#Send%20messages">
+     official documentation
+    </a>
+    is the best place to read and learn about 
+the various components that make up Akka, so it's well worth a look. The 
+other thing I noticed, is that in most tutorials involving
+    <a href="http://spray.io/">
+     Spray
+    </a>
+    and a
+    <a href="http://blog.michaelhamrah.com/2013/06/scala-web-apis-up-and-running-with-spray-and-akka/">
+     Rest Service
+    </a>
+    , there is only ever a single routing trait setup, and 
 not an enterprise version that has the routes seperated by their 
-concerns and then mixed together via the Cake pattern.</p>
-<p>First off, let&#39;s create a simple Spray application to show case this 
-pattern. Let&#39;s say that we have one endpoint that responds to /beef/ 
-and another that responds to /nog/. Obviously we don&#39;t want to mix any 
+concerns and then mixed together via the Cake pattern.
+   </p>
+   <p>
+    First off, let's create a simple Spray application to show case this 
+pattern. Let's say that we have one endpoint that responds to /beef/ 
+and another that responds to /nog/. Obviously we don't want to mix any 
 routes that are specific to beef or nog, as that would be kind of 
-gross. So we&#39;ll need to create a couple things, first, a DummyActor:</p>
-<pre><code>object DummyActor {
+gross. So we'll need to create a couple things, first, a DummyActor:
+   </p>
+   <pre><code>object DummyActor {
     case class Process(s: String) 
 }
 
@@ -130,67 +224,123 @@ class DummyActor(requestContext: RequestContext) extends Actor {
             context.stop(self)
     }
 }
-</code></pre><p>This actor <em>really</em> doesn&#39;t do much besides spits back the string that 
+</code></pre>
+   <p>
+    This actor
+    <em>
+     really
+    </em>
+    doesn't do much besides spits back the string that 
 it was given, but you can imagine that in your own cases this could 
-call out to services, perform business logic, or do calculations.</p>
-<p>Next, let&#39;s talk about a simple controller for the pathing and what to 
-do when we receive a request:</p>
-<pre><code>trait Beef extends HttpService {
+call out to services, perform business logic, or do calculations.
+   </p>
+   <p>
+    Next, let's talk about a simple controller for the pathing and what to 
+do when we receive a request:
+   </p>
+   <pre><code>trait Beef extends HttpService {
 val beefRoutes = 
-    pathPrefix(&quot;beef&quot;) {
-        path(&quot;cows&quot;){
+    pathPrefix("beef") {
+        path("cows"){
             pathEnd { 
                 respondWithMediaType(`text/plain`) {
                     requestContext =&gt; {
                         val dummyService = actorRefFactory.actorOf(Props(new DummyActor(requestContext)))
-                        dummyService ! DummyActor.Process(&quot;cows&quot;)
+                        dummyService ! DummyActor.Process("cows")
                     }
                 }
             }
         } ~
-        path(&quot;bulls&quot;) {
+        path("bulls") {
             respondWithMediaType(`text/plain`) {
                 requestContext =&gt; {
                     val dummyService = actorRefFactory.actorOf(Props(new DummyActor(requestContext)))
-                    dummyService ! DummyActor.Process(&quot;bulls&quot;)
+                    dummyService ! DummyActor.Process("bulls")
                 }
             }
         }
     }  
 }
-</code></pre><p>This uses the <a href="http://spray.io/documentation/1.2.3/spray-routing/#spray-routing">spray routing</a> DSL to define the paths <em>/beef/cows</em> and 
-<em>/beef/bulls</em> which simply ask our DummyActor to process a string 
+</code></pre>
+   <p>
+    This uses the
+    <a href="http://spray.io/documentation/1.2.3/spray-routing/#spray-routing">
+     spray routing
+    </a>
+    DSL to define the paths
+    <em>
+     /beef/cows
+    </em>
+    and
+    <em>
+     /beef/bulls
+    </em>
+    which simply ask our DummyActor to process a string 
 specific to that endpoint (so we can tell things are working). The 
-tilde between the <code>path(...){</code> pieces concatenates the routes together. 
-For our second endpoint, we&#39;ll have something to do with nog: </p>
-<pre><code>trait Nog extends HttpService {
+tilde between the
+    <code>
+     path(...){
+    </code>
+    pieces concatenates the routes together. 
+For our second endpoint, we'll have something to do with nog:
+   </p>
+   <pre><code>trait Nog extends HttpService {
     val nogRoutes = 
-        pathPrefix(&quot;nog&quot;) {
-            path(&quot;egg&quot;) {
+        pathPrefix("nog") {
+            path("egg") {
                 respondWithMediaType(`text/plain`) {
                     requestContext =&gt; {
                         val dummyService = actorRefFactory.actorOf(Props(new DummyActor(requestContext)))
-                        dummyService ! DummyActor.Process(&quot;eggnog!&quot;)
+                        dummyService ! DummyActor.Process("eggnog!")
                     }
                 }
             }
         }
 }
-</code></pre><p>Similar to the beef trait, this one defines a path for <em>/nog/egg</em> 
-which will return the string <em>eggnog!</em> when matched. The next step 
-after this is to use these routes! Typically, in a <a href="http://spray.io/">Spray</a> application 
-you&#39;ll see something like this:</p>
-<pre><code>class HttpApp extends Actor with SomeTraitDefiningRoute {
+</code></pre>
+   <p>
+    Similar to the beef trait, this one defines a path for
+    <em>
+     /nog/egg
+    </em>
+    which will return the string
+    <em>
+     eggnog!
+    </em>
+    when matched. The next step 
+after this is to use these routes! Typically, in a
+    <a href="http://spray.io/">
+     Spray
+    </a>
+    application 
+you'll see something like this:
+   </p>
+   <pre><code>class HttpApp extends Actor with SomeTraitDefiningRoute {
     override val actorRefFactory: ActorRefFactory = context
     def receive = runRoute(route)
 }
-</code></pre><p>We have two different traits to be mixed in, but <code>runRoute</code> will only 
+</code></pre>
+   <p>
+    We have two different traits to be mixed in, but
+    <code>
+     runRoute
+    </code>
+    will only 
 take one route DSL! So how do we do it? Well, if you recall that we had 
-two routes in the <code>Beef</code> trait connected by <code>~</code>, it may not surprise 
-you to find out we can use this to join multiple route DSL&#39;s. To make 
-our lives easier later on and for clarity, we&#39;ll create a new trait 
-that does this:</p>
-<pre><code>trait RouteService extends HttpService 
+two routes in the
+    <code>
+     Beef
+    </code>
+    trait connected by
+    <code>
+     ~
+    </code>
+    , it may not surprise 
+you to find out we can use this to join multiple route DSL's. To make 
+our lives easier later on and for clarity, we'll create a new trait 
+that does this:
+   </p>
+   <pre><code>trait RouteService extends HttpService 
 with Beef
 with Nog
 { 
@@ -199,181 +349,290 @@ with Nog
         nogRoutes
     }
 }
-</code></pre><p>Then all we have to do to have an actor run both beef and nog routes 
-is: </p>
-<pre><code>class HttpApp extends Actor with RouteService {
+</code></pre>
+   <p>
+    Then all we have to do to have an actor run both beef and nog routes 
+is:
+   </p>
+   <pre><code>class HttpApp extends Actor with RouteService {
     override val actorRefFactory: ActorRefFactory = context
     def receive = runRoute(route)
 }
-</code></pre><p>Pretty simple right? Lastly, to actually have this Actor <em>do something</em> 
-we&#39;ll need to bind it via spray&#39;s http libraries:</p>
-<pre><code>object HttpApp extends App {
-    runserver(host=  &quot;localhost&quot;, port = 8089)
+</code></pre>
+   <p>
+    Pretty simple right? Lastly, to actually have this Actor
+    <em>
+     do something
+    </em>
+    we'll need to bind it via spray's http libraries:
+   </p>
+   <pre><code>object HttpApp extends App {
+    runserver(host=  "localhost", port = 8089)
 
     def runserver(host: String, port: Int) {
-        implicit lazy val system = ActorSystem(&quot;HttpSystem&quot;)
+        implicit lazy val system = ActorSystem("HttpSystem")
         sys.addShutdownHook(system.shutdown())
 
-        val httpActor = system.actorOf(Props[HttpApp], name = &quot;httpActor&quot;)
+        val httpActor = system.actorOf(Props[HttpApp], name = "httpActor")
         implicit val timeout = Timeout(5.seconds)
 
         IO(Http) ? Http.Bind(httpActor, interface = host, port = port)
     }
 }
-</code></pre><p>This simply defines an object which extends <code>App</code>, therefore inherits 
+</code></pre>
+   <p>
+    This simply defines an object which extends
+    <code>
+     App
+    </code>
+    , therefore inherits 
 a main method. We setup a shutdown hook so that when the JVM goes offline 
 so does our server. Then we bind the actor to the ports specified by our 
-call to runserver. </p>
-<p>For clarity, here&#39;s the full code including the import statements:</p>
-<script src="https://gist.github.com/EdgeCaseBerg/4e71acb59a11d6ab1464.js"></script>
+call to runserver.
+   </p>
+   <p>
+    For clarity, here's the full code including the import statements:
+   </p>
+   <script src="https://gist.github.com/EdgeCaseBerg/4e71acb59a11d6ab1464.js">
+   </script>
+   <p>
+    And my build.sbt file looked like this for the project:
+   </p>
+   <pre><code>name := "Akka Tutorial"
 
-<p>And my build.sbt file looked like this for the project:</p>
-<pre><code>name := &quot;Akka Tutorial&quot;
+version := "1.0"
 
-version := &quot;1.0&quot;
+scalaVersion := "2.10.4"
 
-scalaVersion := &quot;2.10.4&quot;
-
-resolvers += &quot;Typesafe Repository&quot; at &quot;http://repo.typesafe.com/typesafe/releases/&quot;
+resolvers += "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
 
 libraryDependencies ++= {
-  val sprayVersion = &quot;1.3.1&quot;
-  val akkaVersion = &quot;2.3.11&quot;
+  val sprayVersion = "1.3.1"
+  val akkaVersion = "2.3.11"
   Seq(
-  &quot;io.spray&quot; % &quot;spray-can&quot; % sprayVersion,
-  &quot;io.spray&quot; % &quot;spray-routing&quot; % sprayVersion,
-  &quot;io.spray&quot; % &quot;spray-testkit&quot; % sprayVersion,
-  &quot;io.spray&quot; % &quot;spray-client&quot; % sprayVersion,
-  &quot;io.spray&quot; %%  &quot;spray-json&quot; % &quot;1.2.5&quot;,
-  &quot;com.typesafe.akka&quot; %% &quot;akka-actor&quot; % akkaVersion,
-  &quot;com.typesafe.akka&quot; %% &quot;akka-slf4j&quot; % akkaVersion,
-  &quot;com.typesafe.akka&quot; %% &quot;akka-testkit&quot; % akkaVersion % &quot;test&quot;,
-  &quot;ch.qos.logback&quot; % &quot;logback-classic&quot; % &quot;1.0.12&quot;,
-  &quot;org.scalatest&quot; %% &quot;scalatest&quot; % &quot;2.0.M7&quot; % &quot;test&quot;,
-  &quot;com.typesafe&quot; % &quot;config&quot; % &quot;1.2.1&quot;
+  "io.spray" % "spray-can" % sprayVersion,
+  "io.spray" % "spray-routing" % sprayVersion,
+  "io.spray" % "spray-testkit" % sprayVersion,
+  "io.spray" % "spray-client" % sprayVersion,
+  "io.spray" %%  "spray-json" % "1.2.5",
+  "com.typesafe.akka" %% "akka-actor" % akkaVersion,
+  "com.typesafe.akka" %% "akka-slf4j" % akkaVersion,
+  "com.typesafe.akka" %% "akka-testkit" % akkaVersion % "test",
+  "ch.qos.logback" % "logback-classic" % "1.0.12",
+  "org.scalatest" %% "scalatest" % "2.0.M7" % "test",
+  "com.typesafe" % "config" % "1.2.1"
   )
 }
-</code></pre><p>This is a simple introduction to using spray, scala, and Akka together 
+</code></pre>
+   <p>
+    This is a simple introduction to using spray, scala, and Akka together 
 to create a simple skeleton one can easily fill out as they go along. 
 In an actual application it would be best to extract each seperate 
 service (Beef and Nog) to their own files or packages as neccesary. Then 
 use the traits to bind each together. This has numerous advantages, 
-including: </p>
-<ol>
-<li>Easier for new team members to grok your code</li>
-<li>Easier for you to remember where things are</li>
-<li>Easier to test since each piece is seperated until glued together by traits </li>
-</ol>
-<p>Hope this has wetted your appetite for playing with some of the cooler 
-libraries and frameworks out there for Scala! </p>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=using-sassc-with-sbt-sass>Using sassc with play-sass plugin</a></li><li><a href=string-interpolation-vs-addition-performance>Which is faster, string interpolation or addition in python?</a></li><li><a href=shell_exec-sudo-php-apache>shell_exec with sudo in php</a></li><li><a href=dot-paths-harpjs-0-17-0>Dot Paths in Harp? Unexpected Behavior!</a></li><li><a href=dear-god-why>PHP Snippet</a></li><li><a href=value-enablePlugins-is-not-a-member-of-sbt-Project>Value EnablePlugins is not a member of sbt.Project error</a></li>
-        </ul>
-      </div>
-      <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'ejehardenberg';
+including:
+   </p>
+   <ol>
+    <li>
+     Easier for new team members to grok your code
+    </li>
+    <li>
+     Easier for you to remember where things are
+    </li>
+    <li>
+     Easier to test since each piece is seperated until glued together by traits
+    </li>
+   </ol>
+   <p>
+    Hope this has wetted your appetite for playing with some of the cooler 
+libraries and frameworks out there for Scala!
+   </p>
+   <h3>
+    Other Posts
+   </h3>
+   <div id="other-posts">
+    <ul>
+     <li>
+      <a href="using-sassc-with-sbt-sass">
+       Using sassc with play-sass plugin
+      </a>
+     </li>
+     <li>
+      <a href="string-interpolation-vs-addition-performance">
+       Which is faster, string interpolation or addition in python?
+      </a>
+     </li>
+     <li>
+      <a href="shell_exec-sudo-php-apache">
+       shell_exec with sudo in php
+      </a>
+     </li>
+     <li>
+      <a href="dot-paths-harpjs-0-17-0">
+       Dot Paths in Harp? Unexpected Behavior!
+      </a>
+     </li>
+     <li>
+      <a href="dear-god-why">
+       PHP Snippet
+      </a>
+     </li>
+     <li>
+      <a href="value-enablePlugins-is-not-a-member-of-sbt-Project">
+       Value EnablePlugins is not a member of sbt.Project error
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div id="disqus_thread">
+   </div>
+   <script type="text/javascript">
+    var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink"><!--
-    -->comments powered by <span class="logo-disqus">Disqus</span>
-</a>   
-    </div>
-    <nav>
-	<ul>
-		
-			<li>
-				<a href="/index">
-					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
-					--><span>Home</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/about">
-					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
-					--><span>About me</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/projects">
-					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
-					--><span>Projects</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/resume">
-					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
-					--><span>Resume</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/tech-blog">
-					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
-					--><span>Tech Blog</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/cooking">
-					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
-					--><span>Cooking</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/writing">
-					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
-					--><span>Writing</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/contact">
-					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
-					--><span>Contact</span>
-				</a>
-			</li>
-		
-		<li>
-			<a href="/writing/political">
-				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
-				--><span>Github</span>
-			</a>
-		</li>
-		<li> 
-			<a href="https://twitter.com/TheR3dLily">
-				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
-			</a>
-		</li>
-		<li>
-			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-  </body>
+   </script>
+   <noscript>
+    Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">
+     comments powered by Disqus.
+    </a>
+   </noscript>
+   <a class="dsq-brlink" href="http://disqus.com">
+    <!--
+-->
+    comments powered by
+    <span class="logo-disqus">
+     Disqus
+    </span>
+   </a>
+  </div>
+  <nav>
+   <ul>
+    <li>
+     <a href="/index">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/about">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
+      <!--
+-->
+      <span>
+       About me
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/projects">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Projects
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/resume">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Resume
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tech-blog">
+      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Tech Blog
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/cooking">
+      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Cooking
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing">
+      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Writing
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/contact">
+      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Contact
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing/political">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Opinion
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/EdgeCaseBerg">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Github
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://twitter.com/TheR3dLily">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
+      <!--
+-->
+      <span>
+       @TheR3dLily
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://www.linkedin.com/profile/view?id=151414806">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
+      <!--
+-->
+      <span>
+       LinkedIn
+      </span>
+     </a>
+    </li>
+   </ul>
+  </nav>
+ </body>
 </html>
-  	

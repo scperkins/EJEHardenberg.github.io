@@ -1,44 +1,33 @@
-
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Ethan's Tech Blog | Partial Processing of Slow Java Services with ExecutionService</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="If you&#39;ve ever needed to process partial data that a web service can return, then this post might help you time out so you don&#39;t block your whole application" />
-    <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="java,ExecutionService,invokeAll,concurrent,services,timeout"/>
-    <meta name="robots" content="index, follow"  />
-      <meta name="revisit-after" content="1 month" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-      
-    
-	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
-
-        
-    <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Partial Processing of Slow Java Services with ExecutionService" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
-    
-    <meta property="og:description" content="If you&#39;ve ever needed to process partial data that a web service can return, then this post might help you time out so you don&#39;t block your whole application" />
-    
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Partial Processing of Slow Java Services with ExecutionService" />
-    
-    <meta name="twitter:description" content="If you&#39;ve ever needed to process partial data that a web service can return, then this post might help you time out so you don&#39;t block your whole application" />
-    
-    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
-
-
-	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ <head>
+  <title>
+   Ethan's Tech Blog | Partial Processing of Slow Java Services with ExecutionService
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="If you've ever needed to process partial data that a web service can return, then this post might help you time out so you don't block your whole application" name="description"/>
+  <meta content="Ethan Eldridge" name="author"/>
+  <meta content="java,ExecutionService,invokeAll,concurrent,services,timeout" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="1 month" name="revisit-after"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
+  <!-- Facebook Open Graph Tags -->
+  <meta content="Ethan Eldridge | Partial Processing of Slow Java Services with ExecutionService" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
+  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
+  <meta content="If you've ever needed to process partial data that a web service can return, then this post might help you time out so you don't block your whole application" property="og:description"/>
+  <!-- Twitter Card Tags -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="Ethan Eldridge | Partial Processing of Slow Java Services with ExecutionService" name="twitter:title"/>
+  <meta content="If you've ever needed to process partial data that a web service can return, then this post might help you time out so you don't block your whole application" name="twitter:description"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
+  <!-- Core CSS Scripts -->
+  <link href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -46,47 +35,69 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-
-</script>
-
-  </head>
-  <body>
-    <header>
-      <h1>Partial Processing of Slow Java Services with ExecutionService</h1>
-    </header>
-
-
-    <div id="content">
-      <a href="/tech-blog">Back</a>
-      <h3>Concurrent Java - Partial Processing of Web Services</h3><p>In a web world, we often pull data from multiple services and other API
-servers. So you might pull a list of accounts from billing&#39;s services, 
-then check in with what the accountant&#39;s are saying, and have some type 
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    Partial Processing of Slow Java Services with ExecutionService
+   </h1>
+  </header>
+  <div id="content">
+   <a href="/tech-blog">
+    Back
+   </a>
+   <h3>
+    Concurrent Java - Partial Processing of Web Services
+   </h3>
+   <p>
+    In a web world, we often pull data from multiple services and other API
+servers. So you might pull a list of accounts from billing's services, 
+then check in with what the accountant's are saying, and have some type 
 of reporting system that is verifying all the information and finding 
-discrepencies. </p>
-<p>However, since the information is pulled from tons of different potential 
+discrepencies.
+   </p>
+   <p>
+    However, since the information is pulled from tons of different potential 
 sources, it makes sense to try to be fault tolerant. For example, if the 
 billing department has maintenance on their services one day and every
 thing is running slowly, but the reporting system is fine with being out 
 of date or having stale data for a short time, then we can implement some
-solutions.</p>
-<p>Let&#39;s say we have a list of products that belong to an account. Let&#39;s also
+solutions.
+   </p>
+   <p>
+    Let's say we have a list of products that belong to an account. Let's also
 suppose we have an HTTP service that returns more information per account 
 that we need. So we have a simple client connecting to retrieve the data 
-based on the list of id&#39;s. Something like this:</p>
-<ol>
-<li>System reporting on account A</li>
-<li>System retrieves list of product id&#39;s for account A</li>
-<li>System grabs each product from the service for further processing</li>
-</ol>
-<p>While one might simply implement a service that returns all products (the 
+based on the list of id's. Something like this:
+   </p>
+   <ol>
+    <li>
+     System reporting on account A
+    </li>
+    <li>
+     System retrieves list of product id's for account A
+    </li>
+    <li>
+     System grabs each product from the service for further processing
+    </li>
+   </ol>
+   <p>
+    While one might simply implement a service that returns all products (the 
 full object) for a single account. Another system might not do such things
-because it uses large memory cache&#39;s for each product resource and is 
-designed to take that type of load. Regardless of reason, let&#39;s assume 
-the latter is our system.</p>
-<p>A simple method of doing this somewhat efficiently is to process each 
-request asynchronously in it&#39;s own thread. For that, we can use <a href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html">ExecutorService</a> 
-to write some simple and readable code.</p>
-<pre><code>private final ExecutorService pool = Executors.newFixedThreadPool(numPools);
+because it uses large memory cache's for each product resource and is 
+designed to take that type of load. Regardless of reason, let's assume 
+the latter is our system.
+   </p>
+   <p>
+    A simple method of doing this somewhat efficiently is to process each 
+request asynchronously in it's own thread. For that, we can use
+    <a href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html">
+     ExecutorService
+    </a>
+    to write some simple and readable code.
+   </p>
+   <pre><code>private final ExecutorService pool = Executors.newFixedThreadPool(numPools);
 List&lt;Future&lt;Product&gt;&gt; futures = new ArrayList&lt;Future&lt;Product&gt;&gt;();
 
 //for each product id
@@ -103,22 +114,49 @@ for(Future&lt;Product&gt; product : futures) {
 }
 
 //carry on and error handling as neccesary
-</code></pre><p>Assuming that the service returning the products is fast,this code will work just 
-fine. But what if it get&#39;s slow? Well, we could add timeout&#39;s to the call to 
-<code>product.get()</code> like this:</p>
-<pre><code>List&lt;Product&gt; products = ...
+</code></pre>
+   <p>
+    Assuming that the service returning the products is fast,this code will work just 
+fine. But what if it get's slow? Well, we could add timeout's to the call to
+    <code>
+     product.get()
+    </code>
+    like this:
+   </p>
+   <pre><code>List&lt;Product&gt; products = ...
 for(Future&lt;Product&gt; product : futures) {
     product.add(product.get(4L, TimeUnit.SECONDS));
 }
-</code></pre><p>Once we do this, we&#39;ll only wait 4 seconds for each product, but that means that 
+</code></pre>
+   <p>
+    Once we do this, we'll only wait 4 seconds for each product, but that means that 
 for a list of products of size N, we might end up waiting N*4 seconds. This could 
 get large fast and cause problems for the user looking at these reports. So the 
-alternative is that instead of having each HTTP Request thread have it&#39;s own timeout, 
-we can place a timeout on the entire pool by using the function <code>invokeAll</code>.</p>
-<p>This is pretty easy to do, simply create a list of <code>Callable</code> instead of <code>Future</code>s 
-and pass them to <code>invokeAll</code> with a timeout specified. Here&#39;s a complete code 
-example:</p>
-<pre><code>import java.util.List;
+alternative is that instead of having each HTTP Request thread have it's own timeout, 
+we can place a timeout on the entire pool by using the function
+    <code>
+     invokeAll
+    </code>
+    .
+   </p>
+   <p>
+    This is pretty easy to do, simply create a list of
+    <code>
+     Callable
+    </code>
+    instead of
+    <code>
+     Future
+    </code>
+    s 
+and pass them to
+    <code>
+     invokeAll
+    </code>
+    with a timeout specified. Here's a complete code 
+example:
+   </p>
+   <pre><code>import java.util.List;
 import java.util.Collection;
 import java.util.ArrayList;
 import java.util.concurrent.*;
@@ -130,9 +168,9 @@ public class TimeoutExample {
     private final ExecutorService pool = Executors.newFixedThreadPool(50);
 
     private long getThingThatTakesAWhile(long milliSecs) throws InterruptedException{
-        System.out.println(&quot;Starting task that will take  &quot; + milliSecs + &quot; milliSecs!&quot;);
+        System.out.println("Starting task that will take  " + milliSecs + " milliSecs!");
         Thread.sleep(milliSecs);
-        System.out.println(&quot;Done task that took &quot; + milliSecs + &quot; milliSecs!&quot;);
+        System.out.println("Done task that took " + milliSecs + " milliSecs!");
         return milliSecs;
     }
 
@@ -158,16 +196,16 @@ public class TimeoutExample {
                 final Long cal = (Long)res.get(0,TimeUnit.SECONDS);
                 valuesReturned.add(cal);
             }
-        /* The next three exceptions won&#39;t happen in our example ... */
+        /* The next three exceptions won't happen in our example ... */
         } catch (InterruptedException ie) {
-            System.out.println(&quot;InterruptedException!&quot;);
+            System.out.println("InterruptedException!");
         } catch (ExecutionException ee) {
-            System.out.println(&quot;ExecutionException!&quot;);
+            System.out.println("ExecutionException!");
         } catch (TimeoutException te) {
-            System.out.println(&quot;TimeoutException!&quot;);
-        /* But this one will because we did cancel some callable&#39;s */
+            System.out.println("TimeoutException!");
+        /* But this one will because we did cancel some callable's */
         } catch (CancellationException ce) {
-            System.out.println(&quot;CancellationException!&quot;);
+            System.out.println("CancellationException!");
         }
 
         /* Will print out the first 7 since they were within the time limit */
@@ -177,7 +215,7 @@ public class TimeoutExample {
             got++;
         }
 
-        System.out.println(&quot;Retrieved [&quot; + valuesReturned.size() +  &quot;/&quot; + sizeOfList + &quot;]&quot;);
+        System.out.println("Retrieved [" + valuesReturned.size() +  "/" + sizeOfList + "]");
     }
 
     public static void main(String[] args) {
@@ -186,8 +224,11 @@ public class TimeoutExample {
     }
 
 }
-</code></pre><p>When you run this, you&#39;ll get an output somewhat like this:</p>
-<pre><code>Starting task that will take  0 milliSecs!
+</code></pre>
+   <p>
+    When you run this, you'll get an output somewhat like this:
+   </p>
+   <pre><code>Starting task that will take  0 milliSecs!
 Starting task that will take  1500 milliSecs!
 Starting task that will take  900 milliSecs!
 Starting task that will take  600 milliSecs!
@@ -213,12 +254,31 @@ CancellationException!
 1500
 1800
 Retrieved [7/10]
-</code></pre><p>As you can see, we hit the <a href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CancellationException.html">CancellationException</a> when we tried to <code>get</code> one of 
-the tasks that took longer than the <code>2L</code> timeout we set in the <code>invokeAll</code> call. 
+</code></pre>
+   <p>
+    As you can see, we hit the
+    <a href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CancellationException.html">
+     CancellationException
+    </a>
+    when we tried to
+    <code>
+     get
+    </code>
+    one of 
+the tasks that took longer than the
+    <code>
+     2L
+    </code>
+    timeout we set in the
+    <code>
+     invokeAll
+    </code>
+    call. 
 Of course, this code works because we have an increasing number in order for each
 of our sleeping threads called in that order. If we mixed it up though, such as 
-doing something like this:</p>
-<pre><code>import java.util.Random;
+doing something like this:
+   </p>
+   <pre><code>import java.util.Random;
 Random rand = new Random();
 for (int i =0; i &lt; sizeOfList ; i++) {
     final int j = i;
@@ -230,10 +290,13 @@ for (int i =0; i &lt; sizeOfList ; i++) {
         }
     });
 }
-</code></pre><p>Then we are not guaranteed to hit the canceled task last! In fact, if we were to 
+</code></pre>
+   <p>
+    Then we are not guaranteed to hit the canceled task last! In fact, if we were to 
 only replace the relevant part with the above code, we might get an output like 
-this from the program:</p>
-<pre><code>Starting task that will take  2798 milliSecs!
+this from the program:
+   </p>
+   <pre><code>Starting task that will take  2798 milliSecs!
 Starting task that will take  1408 milliSecs!
 Starting task that will take  80 milliSecs!
 Starting task that will take  1318 milliSecs!
@@ -252,16 +315,22 @@ Done task that took 1318 milliSecs!
 Done task that took 1408 milliSecs!
 CancellationException!
 Retrieved [0/10]
-</code></pre><p>Notice how we didn&#39;t get anything in our retrieved list even though we know some 
-tasks were finished? We can get these if we check if a task was cancelled first:</p>
-<pre><code>for (final Future res : returnedResults) {
+</code></pre>
+   <p>
+    Notice how we didn't get anything in our retrieved list even though we know some 
+tasks were finished? We can get these if we check if a task was cancelled first:
+   </p>
+   <pre><code>for (final Future res : returnedResults) {
     if (!res.isCancelled()) {
         final Long cal = (Long)res.get(0,TimeUnit.SECONDS);
         valuesReturned.add(cal);
     }
 }
-</code></pre><p>Then the results of our program can come out like this: </p>
-<pre><code>Starting task that will take  2010 milliSecs!
+</code></pre>
+   <p>
+    Then the results of our program can come out like this:
+   </p>
+   <pre><code>Starting task that will take  2010 milliSecs!
 Starting task that will take  2886 milliSecs!
 Starting task that will take  2944 milliSecs!
 Starting task that will take  803 milliSecs!
@@ -278,125 +347,220 @@ Done task that took 936 milliSecs!
 512
 803
 Retrieved [3/10]
-</code></pre><p>And now no matter what order the tasks start, we&#39;ll get back the ones that 
+</code></pre>
+   <p>
+    And now no matter what order the tasks start, we'll get back the ones that 
 finish within the time limit. One of the key things to note here that may 
-not be immediately obvious is the call to <code>pool.shutdown()</code>. This is <strong>very</strong> 
-important. If you don&#39;t call <code>shutdown</code> then you might have tasks hanging out 
-in the background taking up resources without doing anything useful. If you&#39;d 
+not be immediately obvious is the call to
+    <code>
+     pool.shutdown()
+    </code>
+    . This is
+    <strong>
+     very
+    </strong>
+    important. If you don't call
+    <code>
+     shutdown
+    </code>
+    then you might have tasks hanging out 
+in the background taking up resources without doing anything useful. If you'd 
 like your programs to be leak free, be sure to call shutdown if you use this 
-technique! </p>
-<p>In our fictional scenario with products and accounts, we could use this number 
+technique!
+   </p>
+   <p>
+    In our fictional scenario with products and accounts, we could use this number 
 retrieved to let the user know that some data may not be correct, or log events 
-that could notify us of slowness or issues in other services. </p>
-<script src="https://gist.github.com/EdgeCaseBerg/4eecad4cf9b474a7b04c.js"></script>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=lost-found>Lost and Found Application</a></li><li><a href=mutt-vim-decryption>Vim pgp/gpg macros to enhance mutt</a></li><li><a href=scala-first-look>A brief look into Scala</a></li><li><a href=apt-get-segfault-mutt>Segfault in apt-get while trying to install</a></li><li><a href=mcabber-gmail-and-gpg>Encrypting your chat with mcabber</a></li><li><a href=github-awesome-autocomplete-review>Github Awesome Autocomplete Review</a></li>
-        </ul>
-      </div>
-      <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'ejehardenberg';
+that could notify us of slowness or issues in other services.
+   </p>
+   <script src="https://gist.github.com/EdgeCaseBerg/4eecad4cf9b474a7b04c.js">
+   </script>
+   <h3>
+    Other Posts
+   </h3>
+   <div id="other-posts">
+    <ul>
+     <li>
+      <a href="lost-found">
+       Lost and Found Application
+      </a>
+     </li>
+     <li>
+      <a href="mutt-vim-decryption">
+       Vim pgp/gpg macros to enhance mutt
+      </a>
+     </li>
+     <li>
+      <a href="scala-first-look">
+       A brief look into Scala
+      </a>
+     </li>
+     <li>
+      <a href="apt-get-segfault-mutt">
+       Segfault in apt-get while trying to install
+      </a>
+     </li>
+     <li>
+      <a href="mcabber-gmail-and-gpg">
+       Encrypting your chat with mcabber
+      </a>
+     </li>
+     <li>
+      <a href="github-awesome-autocomplete-review">
+       Github Awesome Autocomplete Review
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div id="disqus_thread">
+   </div>
+   <script type="text/javascript">
+    var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink"><!--
-    -->comments powered by <span class="logo-disqus">Disqus</span>
-</a>   
-    </div>
-    <nav>
-	<ul>
-		
-			<li>
-				<a href="/index">
-					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
-					--><span>Home</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/about">
-					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
-					--><span>About me</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/projects">
-					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
-					--><span>Projects</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/resume">
-					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
-					--><span>Resume</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/tech-blog">
-					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
-					--><span>Tech Blog</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/cooking">
-					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
-					--><span>Cooking</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/writing">
-					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
-					--><span>Writing</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/contact">
-					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
-					--><span>Contact</span>
-				</a>
-			</li>
-		
-		<li>
-			<a href="/writing/political">
-				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
-				--><span>Github</span>
-			</a>
-		</li>
-		<li> 
-			<a href="https://twitter.com/TheR3dLily">
-				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
-			</a>
-		</li>
-		<li>
-			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-  </body>
+   </script>
+   <noscript>
+    Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">
+     comments powered by Disqus.
+    </a>
+   </noscript>
+   <a class="dsq-brlink" href="http://disqus.com">
+    <!--
+-->
+    comments powered by
+    <span class="logo-disqus">
+     Disqus
+    </span>
+   </a>
+  </div>
+  <nav>
+   <ul>
+    <li>
+     <a href="/index">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/about">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
+      <!--
+-->
+      <span>
+       About me
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/projects">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Projects
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/resume">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Resume
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tech-blog">
+      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Tech Blog
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/cooking">
+      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Cooking
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing">
+      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Writing
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/contact">
+      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Contact
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing/political">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Opinion
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/EdgeCaseBerg">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Github
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://twitter.com/TheR3dLily">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
+      <!--
+-->
+      <span>
+       @TheR3dLily
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://www.linkedin.com/profile/view?id=151414806">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
+      <!--
+-->
+      <span>
+       LinkedIn
+      </span>
+     </a>
+    </li>
+   </ul>
+  </nav>
+ </body>
 </html>
-  	

@@ -1,44 +1,33 @@
-
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Ethan's Tech Blog | *Arc: My First Chrome Extension</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="A simple archiving plugin, my first chrome extension and some thoughts on it" />
-    <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="arcstar,*arc,chrome,chromium,extension,archive,tweetsave"/>
-    <meta name="robots" content="index, follow"  />
-      <meta name="revisit-after" content="1 month" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-      
-    
-	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
-
-        
-    <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | *Arc: My First Chrome Extension" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
-    
-    <meta property="og:description" content="A simple archiving plugin, my first chrome extension and some thoughts on it" />
-    
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | *Arc: My First Chrome Extension" />
-    
-    <meta name="twitter:description" content="A simple archiving plugin, my first chrome extension and some thoughts on it" />
-    
-    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
-
-
-	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ <head>
+  <title>
+   Ethan's Tech Blog | *Arc: My First Chrome Extension
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="A simple archiving plugin, my first chrome extension and some thoughts on it" name="description"/>
+  <meta content="Ethan Eldridge" name="author"/>
+  <meta content="arcstar,*arc,chrome,chromium,extension,archive,tweetsave" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="1 month" name="revisit-after"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
+  <!-- Facebook Open Graph Tags -->
+  <meta content="Ethan Eldridge | *Arc: My First Chrome Extension" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
+  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
+  <meta content="A simple archiving plugin, my first chrome extension and some thoughts on it" property="og:description"/>
+  <!-- Twitter Card Tags -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="Ethan Eldridge | *Arc: My First Chrome Extension" name="twitter:title"/>
+  <meta content="A simple archiving plugin, my first chrome extension and some thoughts on it" name="twitter:description"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
+  <!-- Core CSS Scripts -->
+  <link href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -46,53 +35,78 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-
-</script>
-
-  </head>
-  <body>
-    <header>
-      <h1>*Arc: My First Chrome Extension</h1>
-    </header>
-
-
-    <div id="content">
-      <a href="/tech-blog">Back</a>
-      <h3>A First Foray into Chome Extensions</h3><p>Yesterday I created <a href="https://chrome.google.com/webstore/detail/arc-one-click-archiving/hmbmdbfkpgemaefgbinhcfodneaocfeg">*arc</a> a simple productivity tool for chome. It lets people archive websites a little bit easier. My main use case is
-just saving information that someone might choose to delete later. </p>
-<ul>
-<li>Politicians who need to be held accountable for things they say online</li>
-<li>Public figures who need to be held accountable</li>
-<li>Threats made against someone </li>
-<li>Evidence of harassment or bullying online</li>
-</ul>
-<p>A <a href="http://tweetsave.com/">recent website</a> lets you easily save tweets, they&#39;ve got a 
-bookmarklet and an API as well. So I thought to myself, it&#39;d be nice to 
-be able to save a tweet with a single click, and if you&#39;re on a website 
-be able to save that as well. While thinking about this, I decided it&#39;d 
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    *Arc: My First Chrome Extension
+   </h1>
+  </header>
+  <div id="content">
+   <a href="/tech-blog">
+    Back
+   </a>
+   <h3>
+    A First Foray into Chome Extensions
+   </h3>
+   <p>
+    Yesterday I created
+    <a href="https://chrome.google.com/webstore/detail/arc-one-click-archiving/hmbmdbfkpgemaefgbinhcfodneaocfeg">
+     *arc
+    </a>
+    a simple productivity tool for chome. It lets people archive websites a little bit easier. My main use case is
+just saving information that someone might choose to delete later.
+   </p>
+   <ul>
+    <li>
+     Politicians who need to be held accountable for things they say online
+    </li>
+    <li>
+     Public figures who need to be held accountable
+    </li>
+    <li>
+     Threats made against someone
+    </li>
+    <li>
+     Evidence of harassment or bullying online
+    </li>
+   </ul>
+   <p>
+    A
+    <a href="http://tweetsave.com/">
+     recent website
+    </a>
+    lets you easily save tweets, they've got a 
+bookmarklet and an API as well. So I thought to myself, it'd be nice to 
+be able to save a tweet with a single click, and if you're on a website 
+be able to save that as well. While thinking about this, I decided it'd 
 be better to have a single button and have it be context aware of the 
-current tab open.</p>
-<p>This led to some pretty simple code:</p>
-<pre><code>var arcGenerator = {
+current tab open.
+   </p>
+   <p>
+    This led to some pretty simple code:
+   </p>
+   <pre><code>var arcGenerator = {
   genArc: function(url) {
     /* If on twitter also send to tweetsave */
     if(url.match(/twitter.com\/[^\/]+\/status/)){
       setTimeout(function(){
-        open(&#39;http://tweetsave.com/?tweet=&#39;+encodeURIComponent(url))
+        open('http://tweetsave.com/?tweet='+encodeURIComponent(url))
       },10)
 
     } 
     setTimeout(function(){
-      open(&#39;https://archive.today/?run=1&amp;url=&#39;+encodeURIComponent(url))  
+      open('https://archive.today/?run=1&amp;url='+encodeURIComponent(url))  
     },10)    
   },
 };
 
-document.addEventListener(&#39;DOMContentLoaded&#39;, function () {
+document.addEventListener('DOMContentLoaded', function () {
   chrome.tabs.query(
     {
-      &#39;active&#39;: true,   
-      &#39;windowId&#39; : chrome.windows.WINDOW_ID_CURRENT
+      'active': true,   
+      'windowId' : chrome.windows.WINDOW_ID_CURRENT
     }, 
     function(tabs){
       var tab = tabs[0];
@@ -100,141 +114,260 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function () {
       arcGenerator.genArc(url);
     });
 });
-</code></pre><p>And that&#39;s it, there&#39;s the <em>manifest.json</em> file as well, and a popup.html to call the code above, which you can find in the <a href="https://github.com/EdgeCaseBerg/arcsave">repository</a>. 
-The only issue I ran into was getting the current tab from the extension.</p>
-<p>The code above will work with the latest chromium and chrome, In chromium
-you can use either:</p>
-<pre><code>chrome.tabs.query({&#39;active&#39; : true, &#39;windowId&#39; : chrome.windows.WINDOW_ID_CURRENT})
-</code></pre><p>or</p>
-<pre><code>chrome.tabs.query({active: true, lastFocusedWindow: true})
-</code></pre><p>But the latest stable build of chrome (38.0.2125.111) will give you a bad
+</code></pre>
+   <p>
+    And that's it, there's the
+    <em>
+     manifest.json
+    </em>
+    file as well, and a popup.html to call the code above, which you can find in the
+    <a href="https://github.com/EdgeCaseBerg/arcsave">
+     repository
+    </a>
+    . 
+The only issue I ran into was getting the current tab from the extension.
+   </p>
+   <p>
+    The code above will work with the latest chromium and chrome, In chromium
+you can use either:
+   </p>
+   <pre><code>chrome.tabs.query({'active' : true, 'windowId' : chrome.windows.WINDOW_ID_CURRENT})
+</code></pre>
+   <p>
+    or
+   </p>
+   <pre><code>chrome.tabs.query({active: true, lastFocusedWindow: true})
+</code></pre>
+   <p>
+    But the latest stable build of chrome (38.0.2125.111) will give you a bad
 result from the second. The only caveat I can say to that is that when 
-the second option wasn&#39;t working, I didn&#39;t have the <code>&quot;tabs&quot;</code> permission 
-in my manifest file. So it may just have been that issue and both work.</p>
-<p>Either way, the extension is out there, and literally took less than a
-half hour to make. The only thing I&#39;d call tricky about it would be that
-in order to have both TweetSave and Archive.today open from a single click, it is neccesary to use the <code>setTimeout</code> function to wrap both the
-<code>open</code> calls.</p>
-<p>If you find the extension useful let me know! I&#39;d be interested in 
-hearing what it&#39;s being used for and if it&#39;s helping anyone.</p>
-<p>The Google Chrome Store was easy to use, pay $5.00 for your developers 
-access to the store (the terms say it&#39;s to help weed out spam). Then the
+the second option wasn't working, I didn't have the
+    <code>
+     "tabs"
+    </code>
+    permission 
+in my manifest file. So it may just have been that issue and both work.
+   </p>
+   <p>
+    Either way, the extension is out there, and literally took less than a
+half hour to make. The only thing I'd call tricky about it would be that
+in order to have both TweetSave and Archive.today open from a single click, it is neccesary to use the
+    <code>
+     setTimeout
+    </code>
+    function to wrap both the
+    <code>
+     open
+    </code>
+    calls.
+   </p>
+   <p>
+    If you find the extension useful let me know! I'd be interested in 
+hearing what it's being used for and if it's helping anyone.
+   </p>
+   <p>
+    The Google Chrome Store was easy to use, pay $5.00 for your developers 
+access to the store (the terms say it's to help weed out spam). Then the
 developer dashboard is easy to navigate and update your plugins. The only
-suggestion I&#39;d make to Google would be to make a &quot;Your Apps&quot; link to your
+suggestion I'd make to Google would be to make a "Your Apps" link to your
 own developed apps from the main chrome store page, instead of having to 
-go to the developer center first, then see the link. It&#39;d be nice to have
-a faster way to share the url of your own plugins.</p>
-<p><strong>Edit:</strong> The owner of TweetSave contacted me and suggested to narrow
+go to the developer center first, then see the link. It'd be nice to have
+a faster way to share the url of your own plugins.
+   </p>
+   <p>
+    <strong>
+     Edit:
+    </strong>
+    The owner of TweetSave contacted me and suggested to narrow
 the TweetSave archiving link to just statuses since TweetSave only
-archives status updates. Version 1.2.1 in the store handles this. </p>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=shared-voice>Shared Voice - Activist&#39;s tool</a></li><li><a href=ambiguous-columns-namedparameterjdbc-order-by>Dynamic Tablename&#39;s in Order By with NamedParameterJdbc</a></li><li><a href=php-hours>Displaying Business hours with PHP</a></li><li><a href=load-opencv-for-spring-bean>Use Native Library Classes in XML Beans (OpenCV)</a></li><li><a href=subtracting-dates-java>Adding days with Java</a></li><li><a href=order-by-rand-mysql>Order by Rand without a starting ID of 1</a></li>
-        </ul>
-      </div>
-      <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'ejehardenberg';
+archives status updates. Version 1.2.1 in the store handles this.
+   </p>
+   <h3>
+    Other Posts
+   </h3>
+   <div id="other-posts">
+    <ul>
+     <li>
+      <a href="shared-voice">
+       Shared Voice - Activist's tool
+      </a>
+     </li>
+     <li>
+      <a href="ambiguous-columns-namedparameterjdbc-order-by">
+       Dynamic Tablename's in Order By with NamedParameterJdbc
+      </a>
+     </li>
+     <li>
+      <a href="php-hours">
+       Displaying Business hours with PHP
+      </a>
+     </li>
+     <li>
+      <a href="load-opencv-for-spring-bean">
+       Use Native Library Classes in XML Beans (OpenCV)
+      </a>
+     </li>
+     <li>
+      <a href="subtracting-dates-java">
+       Adding days with Java
+      </a>
+     </li>
+     <li>
+      <a href="order-by-rand-mysql">
+       Order by Rand without a starting ID of 1
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div id="disqus_thread">
+   </div>
+   <script type="text/javascript">
+    var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink"><!--
-    -->comments powered by <span class="logo-disqus">Disqus</span>
-</a>   
-    </div>
-    <nav>
-	<ul>
-		
-			<li>
-				<a href="/index">
-					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
-					--><span>Home</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/about">
-					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
-					--><span>About me</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/projects">
-					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
-					--><span>Projects</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/resume">
-					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
-					--><span>Resume</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/tech-blog">
-					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
-					--><span>Tech Blog</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/cooking">
-					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
-					--><span>Cooking</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/writing">
-					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
-					--><span>Writing</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/contact">
-					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
-					--><span>Contact</span>
-				</a>
-			</li>
-		
-		<li>
-			<a href="/writing/political">
-				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
-				--><span>Github</span>
-			</a>
-		</li>
-		<li> 
-			<a href="https://twitter.com/TheR3dLily">
-				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
-			</a>
-		</li>
-		<li>
-			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-  </body>
+   </script>
+   <noscript>
+    Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">
+     comments powered by Disqus.
+    </a>
+   </noscript>
+   <a class="dsq-brlink" href="http://disqus.com">
+    <!--
+-->
+    comments powered by
+    <span class="logo-disqus">
+     Disqus
+    </span>
+   </a>
+  </div>
+  <nav>
+   <ul>
+    <li>
+     <a href="/index">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/about">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
+      <!--
+-->
+      <span>
+       About me
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/projects">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Projects
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/resume">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Resume
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tech-blog">
+      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Tech Blog
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/cooking">
+      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Cooking
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing">
+      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Writing
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/contact">
+      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Contact
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing/political">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Opinion
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/EdgeCaseBerg">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Github
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://twitter.com/TheR3dLily">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
+      <!--
+-->
+      <span>
+       @TheR3dLily
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://www.linkedin.com/profile/view?id=151414806">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
+      <!--
+-->
+      <span>
+       LinkedIn
+      </span>
+     </a>
+    </li>
+   </ul>
+  </nav>
+ </body>
 </html>
-  	

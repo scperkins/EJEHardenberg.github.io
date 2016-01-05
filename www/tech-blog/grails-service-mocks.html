@@ -1,44 +1,33 @@
-
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Ethan's Tech Blog | Grails Service Mocks</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Stubbing out unneccesary service calls in Grails without Mocks" />
-    <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="Grails,Mock,Stub,Service"/>
-    <meta name="robots" content="index, follow"  />
-      <meta name="revisit-after" content="1 month" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-      
-    
-	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
-
-        
-    <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Grails Service Mocks" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
-    
-    <meta property="og:description" content="Stubbing out unneccesary service calls in Grails without Mocks" />
-    
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Grails Service Mocks" />
-    
-    <meta name="twitter:description" content="Stubbing out unneccesary service calls in Grails without Mocks" />
-    
-    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
-
-
-	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ <head>
+  <title>
+   Ethan's Tech Blog | Grails Service Mocks
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="Stubbing out unneccesary service calls in Grails without Mocks" name="description"/>
+  <meta content="Ethan Eldridge" name="author"/>
+  <meta content="Grails,Mock,Stub,Service" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="1 month" name="revisit-after"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
+  <!-- Facebook Open Graph Tags -->
+  <meta content="Ethan Eldridge | Grails Service Mocks" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
+  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
+  <meta content="Stubbing out unneccesary service calls in Grails without Mocks" property="og:description"/>
+  <!-- Twitter Card Tags -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="Ethan Eldridge | Grails Service Mocks" name="twitter:title"/>
+  <meta content="Stubbing out unneccesary service calls in Grails without Mocks" name="twitter:description"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
+  <!-- Core CSS Scripts -->
+  <link href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -46,167 +35,326 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-
-</script>
-
-  </head>
-  <body>
-    <header>
-      <h1>Grails Service Mocks</h1>
-    </header>
-
-
-    <div id="content">
-      <a href="/tech-blog">Back</a>
-      <h3>Mocking a service method within another service in Grails 2.3.4</h3><p>I&#39;ve been working with <a href="http://grails.org/doc/2.3.4/guide/">Grails</a> recently. And one of the biggest wastes of time
-I deal with is Unit and Integration testing. Now, I&#39;m not saying Tests are a 
-waste of time: If you&#39;re creating useful and meaningful tests, then you&#39;re doing
-it right. If you&#39;re testing accessors and mutators... well, there&#39;s a special 
-place in productivity hell that you belong. </p>
-<p>One of the biggest things in Grails is that they support a lot of different ways
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    Grails Service Mocks
+   </h1>
+  </header>
+  <div id="content">
+   <a href="/tech-blog">
+    Back
+   </a>
+   <h3>
+    Mocking a service method within another service in Grails 2.3.4
+   </h3>
+   <p>
+    I've been working with
+    <a href="http://grails.org/doc/2.3.4/guide/">
+     Grails
+    </a>
+    recently. And one of the biggest wastes of time
+I deal with is Unit and Integration testing. Now, I'm not saying Tests are a 
+waste of time: If you're creating useful and meaningful tests, then you're doing
+it right. If you're testing accessors and mutators... well, there's a special 
+place in productivity hell that you belong.
+   </p>
+   <p>
+    One of the biggest things in Grails is that they support a lot of different ways
 to mock interactions wihin Unit tests. But sometimes, you want to test a service
-that relies on other services. If you&#39;re really trying to just test a single 
+that relies on other services. If you're really trying to just test a single 
 service and just need to ignore the wired-in auxillary services, ones first thought
-might be to use <em><a href="http://groovy.codehaus.org/gapi/groovy/mock/interceptor/MockFor.html">MockFor</a></em> or <a href="http://www.ibm.com/developerworks/library/j-grails10209/">MockDomain</a> or any other mock.</p>
-<p><strong>For the love of God save yourself and don&#39;t do this</strong></p>
-<p>You&#39;ll find yourself dealing with a lot of useless and uninformative error messages
-if you do<sup>1</sup>. And I really don&#39;t recommend trying to understand the long list of 
+might be to use
+    <em>
+     <a href="http://groovy.codehaus.org/gapi/groovy/mock/interceptor/MockFor.html">
+      MockFor
+     </a>
+    </em>
+    or
+    <a href="http://www.ibm.com/developerworks/library/j-grails10209/">
+     MockDomain
+    </a>
+    or any other mock.
+   </p>
+   <p>
+    <strong>
+     For the love of God save yourself and don't do this
+    </strong>
+   </p>
+   <p>
+    You'll find yourself dealing with a lot of useless and uninformative error messages
+if you do
+    <sup>
+     1
+    </sup>
+    . And I really don't recommend trying to understand the long list of 
 closures and other verbose messages that appear in the stack traces. (I myself 
 was playing with metaClass as well and accidently broke the JVM running on my 
-machine for a little while!)</p>
-<p>So far, in my experience, the best way to mock out a couple simple functions 
-within a test is to use a stub and to affect <em>only</em> <em>the</em> <em>instance</em> <em>of</em> <em>the</em> 
-<em>service</em> <em>you</em> <em>need</em> <em>to</em>. It&#39;s simple, and it&#39;s a two parter like this:</p>
-<pre><code>@TestFor(SomeService)
+machine for a little while!)
+   </p>
+   <p>
+    So far, in my experience, the best way to mock out a couple simple functions 
+within a test is to use a stub and to affect
+    <em>
+     only
+    </em>
+    <em>
+     the
+    </em>
+    <em>
+     instance
+    </em>
+    <em>
+     of
+    </em>
+    <em>
+     the
+    </em>
+    <em>
+     service
+    </em>
+    <em>
+     you
+    </em>
+    <em>
+     need
+    </em>
+    <em>
+     to
+    </em>
+    . It's simple, and it's a two parter like this:
+   </p>
+   <pre><code>@TestFor(SomeService)
 public class SomeServiceTests{
     def someService
     @Before
     public void setup() throws Exception {
         def mock = [
-            someMethodInWiredService: {String anyparameters, Object youmighthave -&gt; return &quot;mock!&quot; }
+            someMethodInWiredService: {String anyparameters, Object youmighthave -&gt; return "mock!" }
         ] as WiredService
         someService.wiredService = mock
         //... continue on happily
     }
     ...
-</code></pre><p>And that&#39;s it. No strange <code>MockFor(ClassName)</code> or wondering whether or not you&#39;ve
-restored a services <code>metaClass</code> to it&#39;s original state or anything of that nature.
+</code></pre>
+   <p>
+    And that's it. No strange
+    <code>
+     MockFor(ClassName)
+    </code>
+    or wondering whether or not you've
+restored a services
+    <code>
+     metaClass
+    </code>
+    to it's original state or anything of that nature.
 To me, this is the way that makes sense to mock during an integration test. This
-might not fit into your scenario, as really the reason why I&#39;m doing this is 
+might not fit into your scenario, as really the reason why I'm doing this is 
 because I need to essentially ignore another service. Why? I need to run this
 test in the integration environment, but since this other services calls performs
-a lot of other things (like sending emails for example), and I don&#39;t really want
-to verify or wait for those processes to complete<sup>2</sup>, I just stub it out.</p>
-<p><sup>1 Ok maybe you can use it sometimes usefully, but you shouldn&#39;t be using Mocks in integration tests most of the time. The use case here is that you need to just stub out a service call during a test.</sup>
-<sup>2 And the other service has it&#39;s own test that handles all of it&#39;s testing</sup></p>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=wordpress-form-name-error>404 Error from WordPress Form Submit with an input named &#39;name&#39;</a></li><li><a href=resource-replace>Resource Replace, update js and css domain links</a></li><li><a href=adding-actions-to-user-lists>Adding Actions to the WordPress User Lists</a></li><li><a href=wordpress-gripes>Gripes with wordpress&#39;s postmeta and autoload</a></li><li><a href=varnish-directors>Varnish Directors and API Caching</a></li><li><a href=varnish>Varnish and API Servers</a></li>
-        </ul>
-      </div>
-      <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'ejehardenberg';
+a lot of other things (like sending emails for example), and I don't really want
+to verify or wait for those processes to complete
+    <sup>
+     2
+    </sup>
+    , I just stub it out.
+   </p>
+   <p>
+    <sup>
+     1 Ok maybe you can use it sometimes usefully, but you shouldn't be using Mocks in integration tests most of the time. The use case here is that you need to just stub out a service call during a test.
+    </sup>
+    <sup>
+     2 And the other service has it's own test that handles all of it's testing
+    </sup>
+   </p>
+   <h3>
+    Other Posts
+   </h3>
+   <div id="other-posts">
+    <ul>
+     <li>
+      <a href="wordpress-form-name-error">
+       404 Error from WordPress Form Submit with an input named 'name'
+      </a>
+     </li>
+     <li>
+      <a href="resource-replace">
+       Resource Replace, update js and css domain links
+      </a>
+     </li>
+     <li>
+      <a href="adding-actions-to-user-lists">
+       Adding Actions to the WordPress User Lists
+      </a>
+     </li>
+     <li>
+      <a href="wordpress-gripes">
+       Gripes with wordpress's postmeta and autoload
+      </a>
+     </li>
+     <li>
+      <a href="varnish-directors">
+       Varnish Directors and API Caching
+      </a>
+     </li>
+     <li>
+      <a href="varnish">
+       Varnish and API Servers
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div id="disqus_thread">
+   </div>
+   <script type="text/javascript">
+    var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink"><!--
-    -->comments powered by <span class="logo-disqus">Disqus</span>
-</a>   
-    </div>
-    <nav>
-	<ul>
-		
-			<li>
-				<a href="/index">
-					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
-					--><span>Home</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/about">
-					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
-					--><span>About me</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/projects">
-					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
-					--><span>Projects</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/resume">
-					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
-					--><span>Resume</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/tech-blog">
-					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
-					--><span>Tech Blog</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/cooking">
-					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
-					--><span>Cooking</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/writing">
-					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
-					--><span>Writing</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/contact">
-					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
-					--><span>Contact</span>
-				</a>
-			</li>
-		
-		<li>
-			<a href="/writing/political">
-				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
-				--><span>Github</span>
-			</a>
-		</li>
-		<li> 
-			<a href="https://twitter.com/TheR3dLily">
-				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
-			</a>
-		</li>
-		<li>
-			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-  </body>
+   </script>
+   <noscript>
+    Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">
+     comments powered by Disqus.
+    </a>
+   </noscript>
+   <a class="dsq-brlink" href="http://disqus.com">
+    <!--
+-->
+    comments powered by
+    <span class="logo-disqus">
+     Disqus
+    </span>
+   </a>
+  </div>
+  <nav>
+   <ul>
+    <li>
+     <a href="/index">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/about">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
+      <!--
+-->
+      <span>
+       About me
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/projects">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Projects
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/resume">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Resume
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tech-blog">
+      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Tech Blog
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/cooking">
+      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Cooking
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing">
+      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Writing
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/contact">
+      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Contact
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing/political">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Opinion
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/EdgeCaseBerg">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Github
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://twitter.com/TheR3dLily">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
+      <!--
+-->
+      <span>
+       @TheR3dLily
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://www.linkedin.com/profile/view?id=151414806">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
+      <!--
+-->
+      <span>
+       LinkedIn
+      </span>
+     </a>
+    </li>
+   </ul>
+  </nav>
+ </body>
 </html>
-  	

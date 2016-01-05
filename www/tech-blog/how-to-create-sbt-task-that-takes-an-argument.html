@@ -1,44 +1,33 @@
-
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Ethan's Tech Blog | How to create an SBT task that takes an argument</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="If a task only differs by a parameter, then use a parameter! How to do this in SBT isn&#39;t too hard, but SBT&#39;s documentation can be thick. This post will help." />
-    <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="sbt,scala,task,parameter,argument,how to"/>
-    <meta name="robots" content="index, follow"  />
-      <meta name="revisit-after" content="1 month" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-      
-    
-	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
-
-        
-    <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | How to create an SBT task that takes an argument" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
-    
-    <meta property="og:description" content="If a task only differs by a parameter, then use a parameter! How to do this in SBT isn&#39;t too hard, but SBT&#39;s documentation can be thick. This post will help." />
-    
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | How to create an SBT task that takes an argument" />
-    
-    <meta name="twitter:description" content="If a task only differs by a parameter, then use a parameter! How to do this in SBT isn&#39;t too hard, but SBT&#39;s documentation can be thick. This post will help." />
-    
-    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
-
-
-	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ <head>
+  <title>
+   Ethan's Tech Blog | How to create an SBT task that takes an argument
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="If a task only differs by a parameter, then use a parameter! How to do this in SBT isn't too hard, but SBT's documentation can be thick. This post will help." name="description"/>
+  <meta content="Ethan Eldridge" name="author"/>
+  <meta content="sbt,scala,task,parameter,argument,how to" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="1 month" name="revisit-after"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
+  <!-- Facebook Open Graph Tags -->
+  <meta content="Ethan Eldridge | How to create an SBT task that takes an argument" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
+  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
+  <meta content="If a task only differs by a parameter, then use a parameter! How to do this in SBT isn't too hard, but SBT's documentation can be thick. This post will help." property="og:description"/>
+  <!-- Twitter Card Tags -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="Ethan Eldridge | How to create an SBT task that takes an argument" name="twitter:title"/>
+  <meta content="If a task only differs by a parameter, then use a parameter! How to do this in SBT isn't too hard, but SBT's documentation can be thick. This post will help." name="twitter:description"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
+  <!-- Core CSS Scripts -->
+  <link href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -46,186 +35,367 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-
-</script>
-
-  </head>
-  <body>
-    <header>
-      <h1>How to create an SBT task that takes an argument</h1>
-    </header>
-
-
-    <div id="content">
-      <a href="/tech-blog">Back</a>
-      <h3>How to create a task that takes an argument in sbt</h3><p>Something that comes up when you&#39;re coming to an end of a project is the 
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    How to create an SBT task that takes an argument
+   </h1>
+  </header>
+  <div id="content">
+   <a href="/tech-blog">
+    Back
+   </a>
+   <h3>
+    How to create a task that takes an argument in sbt
+   </h3>
+   <p>
+    Something that comes up when you're coming to an end of a project is the 
 simple question of how to deploy it. For the hobbyist, deploying might be 
 as simple as installing libraries or services to a machine and sftp-ing 
 the contents of their project up to a server. For a professional, it may 
-involve setting up <a href="/tech-blog/jenkins-multiple-deploy-keys-and-github">builds on Jenkin&#39;s servers and deploy key&#39;s on github</a>, 
+involve setting up
+    <a href="/tech-blog/jenkins-multiple-deploy-keys-and-github">
+     builds on Jenkin's servers and deploy key's on github
+    </a>
+    , 
 then creating a deployed and auto-scaling environment on something like 
-Amazon or Rackspace. </p>
-<p>If you&#39;re using <a href="http://www.scala-sbt.org/">SBT</a> it&#39;s natural that to deploy something with a build 
-in jenkins you would use something like <a href="https://github.com/sbt/sbt-assembly">SBT Assembly</a> or <a href="https://github.com/sbt/sbt-native-packager">SBT Native Packager</a>. 
-If you&#39;re also using the <a href="https://www.playframework.com">PlayFramework</a> you&#39;re likely familiar with the 
-<a href="https://www.playframework.com/documentation/2.3.x/ProductionDist">dist task</a> which creates a deployment for your application. No matter what 
-you use to create your final application, if you&#39;re doing an enterprise 
-launch of some kind, you&#39;ll likely have more than one environment. A possible 
-setup might include:</p>
-<ol>
-<li>A development environment to test feature branches on</li>
-<li>An integration environment to ensure features work with each other</li>
-<li>A production environment that is live.</li>
-</ol>
-<p>With those in mind, your build task will likely use different configuration 
-files, and so you&#39;ll want to change that for each environment. But when 
-making an sbt task, how do you do that? It&#39;s not too hard if you read 
-the [documentation on Input Tasks] and on <a href="http://www.scala-sbt.org/release/docs/Parsing-Input.html">Parsers</a> for a few minutes. 
-Here&#39;s the long and skinny:</p>
-<ol>
-<li>Imports go at the <strong>top</strong> of your build.sbt file. <pre><code>import sbt.complete._
+Amazon or Rackspace.
+   </p>
+   <p>
+    If you're using
+    <a href="http://www.scala-sbt.org/">
+     SBT
+    </a>
+    it's natural that to deploy something with a build 
+in jenkins you would use something like
+    <a href="https://github.com/sbt/sbt-assembly">
+     SBT Assembly
+    </a>
+    or
+    <a href="https://github.com/sbt/sbt-native-packager">
+     SBT Native Packager
+    </a>
+    . 
+If you're also using the
+    <a href="https://www.playframework.com">
+     PlayFramework
+    </a>
+    you're likely familiar with the
+    <a href="https://www.playframework.com/documentation/2.3.x/ProductionDist">
+     dist task
+    </a>
+    which creates a deployment for your application. No matter what 
+you use to create your final application, if you're doing an enterprise 
+launch of some kind, you'll likely have more than one environment. A possible 
+setup might include:
+   </p>
+   <ol>
+    <li>
+     A development environment to test feature branches on
+    </li>
+    <li>
+     An integration environment to ensure features work with each other
+    </li>
+    <li>
+     A production environment that is live.
+    </li>
+   </ol>
+   <p>
+    With those in mind, your build task will likely use different configuration 
+files, and so you'll want to change that for each environment. But when 
+making an sbt task, how do you do that? It's not too hard if you read 
+the [documentation on Input Tasks] and on
+    <a href="http://www.scala-sbt.org/release/docs/Parsing-Input.html">
+     Parsers
+    </a>
+    for a few minutes. 
+Here's the long and skinny:
+   </p>
+   <ol>
+    <li>
+     Imports go at the
+     <strong>
+      top
+     </strong>
+     of your build.sbt file.
+     <pre><code>import sbt.complete._
 import complete.DefaultParsers._
-</code></pre></li>
-<li>Next, define your task as <code>inputKey</code> since it takes input:<pre><code>val myTask = inputKey[Unit](&quot;This task takes a parameter!&quot;)
-</code></pre></li>
-<li>Define the input to your task, in our example let&#39;s say we&#39;ll have the 
-environment as the variable:<pre><code>val stageEnv: Parser[String] = &quot; staging&quot; 
-val intEnv : Parser[String] = &quot; integration&quot; 
-val prodEnv : Parser[String] = &quot; production&quot;
+</code></pre>
+    </li>
+    <li>
+     Next, define your task as
+     <code>
+      inputKey
+     </code>
+     since it takes input:
+     <pre><code>val myTask = inputKey[Unit]("This task takes a parameter!")
+</code></pre>
+    </li>
+    <li>
+     Define the input to your task, in our example let's say we'll have the 
+environment as the variable:
+     <pre><code>val stageEnv: Parser[String] = " staging" 
+val intEnv : Parser[String] = " integration" 
+val prodEnv : Parser[String] = " production"
 val combinedParser: Parser[String] = stageEnv | intEnv | prodEnv
-</code></pre></li>
-<li>Define what your task is going to do!<pre><code>myTask := {
+</code></pre>
+    </li>
+    <li>
+     Define what your task is going to do!
+     <pre><code>myTask := {
 val environment = combinedParser.parsed.trim
 val s = streams.value
-s.log.info(s&quot;Parameter was $environment&quot;)
+s.log.info(s"Parameter was $environment")
 }
-</code></pre></li>
-<li>If neccesary, have dependent tasks run first. For example, to run <code>myTask</code> 
-after the <code>dist</code> task in play try:<pre><code>myTask &lt;&lt;= myTask.dependsOn(dist in Universal)
-</code></pre></li>
-<li>Run <code>sbt</code> and <code>myTask &lt;environment&gt;</code> where <code>environment</code> is staging, 
-integration or production.</li>
-</ol>
-<p>And that&#39;s the step by step process. I find myself learning from simple 
-examples like these much better than other ways. The documentation on 
-<a href="http://www.scala-sbt.org/release/docs/Parsing-Input.html#Combining+parsers">combining parsers</a> states you can do things like</p>
-<pre><code>val color: Parser[String] = &quot;blue&quot; | &quot;green&quot;
-</code></pre><p>But I found that sbt complained when doing so. The other thing to notice 
-here is that I <code>trim</code>ed the output of the parsed environment. Why? Because 
-it has an extra space in the parser see? The trick with the regular 
-<code>Parser[String]</code> is that it takes the literal string. </p>
-<p>This is all I wanted to cover in this blog post, but depending on interest, 
+</code></pre>
+    </li>
+    <li>
+     If neccesary, have dependent tasks run first. For example, to run
+     <code>
+      myTask
+     </code>
+     after the
+     <code>
+      dist
+     </code>
+     task in play try:
+     <pre><code>myTask &lt;&lt;= myTask.dependsOn(dist in Universal)
+</code></pre>
+    </li>
+    <li>
+     Run
+     <code>
+      sbt
+     </code>
+     and
+     <code>
+      myTask &lt;environment&gt;
+     </code>
+     where
+     <code>
+      environment
+     </code>
+     is staging, 
+integration or production.
+    </li>
+   </ol>
+   <p>
+    And that's the step by step process. I find myself learning from simple 
+examples like these much better than other ways. The documentation on
+    <a href="http://www.scala-sbt.org/release/docs/Parsing-Input.html#Combining+parsers">
+     combining parsers
+    </a>
+    states you can do things like
+   </p>
+   <pre><code>val color: Parser[String] = "blue" | "green"
+</code></pre>
+   <p>
+    But I found that sbt complained when doing so. The other thing to notice 
+here is that I
+    <code>
+     trim
+    </code>
+    ed the output of the parsed environment. Why? Because 
+it has an extra space in the parser see? The trick with the regular
+    <code>
+     Parser[String]
+    </code>
+    is that it takes the literal string.
+   </p>
+   <p>
+    This is all I wanted to cover in this blog post, but depending on interest, 
 I might write up a small series on going from small examples to bigger 
 ones with SBT, or just provide some simple templates or examples of SBT 
-usage that I&#39;ve seen come in handy.</p>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=connect-visualvm-docker>How to connect VisualVM to Docker</a></li><li><a href=combine-xml-files>Combine XML files with Bash</a></li><li><a href=netty-timeouts-and-playframework>How to set Netty options in Playframework</a></li><li><a href=scala-xml-xsd-validation>Scala, XML, and XSD Validation</a></li><li><a href=building-state-from-scala-workflows>Building Content State from Workflow and Audit Logs</a></li><li><a href=spray-ToResponseMarshallable-too-many-arguments-error>Spray ToResponseMarshallable &quot;Too Many Arguments&quot; error</a></li>
-        </ul>
-      </div>
-      <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'ejehardenberg';
+usage that I've seen come in handy.
+   </p>
+   <h3>
+    Other Posts
+   </h3>
+   <div id="other-posts">
+    <ul>
+     <li>
+      <a href="connect-visualvm-docker">
+       How to connect VisualVM to Docker
+      </a>
+     </li>
+     <li>
+      <a href="combine-xml-files">
+       Combine XML files with Bash
+      </a>
+     </li>
+     <li>
+      <a href="netty-timeouts-and-playframework">
+       How to set Netty options in Playframework
+      </a>
+     </li>
+     <li>
+      <a href="scala-xml-xsd-validation">
+       Scala, XML, and XSD Validation
+      </a>
+     </li>
+     <li>
+      <a href="building-state-from-scala-workflows">
+       Building Content State from Workflow and Audit Logs
+      </a>
+     </li>
+     <li>
+      <a href="spray-ToResponseMarshallable-too-many-arguments-error">
+       Spray ToResponseMarshallable "Too Many Arguments" error
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div id="disqus_thread">
+   </div>
+   <script type="text/javascript">
+    var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink"><!--
-    -->comments powered by <span class="logo-disqus">Disqus</span>
-</a>   
-    </div>
-    <nav>
-	<ul>
-		
-			<li>
-				<a href="/index">
-					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
-					--><span>Home</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/about">
-					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
-					--><span>About me</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/projects">
-					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
-					--><span>Projects</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/resume">
-					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
-					--><span>Resume</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/tech-blog">
-					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
-					--><span>Tech Blog</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/cooking">
-					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
-					--><span>Cooking</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/writing">
-					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
-					--><span>Writing</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/contact">
-					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
-					--><span>Contact</span>
-				</a>
-			</li>
-		
-		<li>
-			<a href="/writing/political">
-				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
-				--><span>Github</span>
-			</a>
-		</li>
-		<li> 
-			<a href="https://twitter.com/TheR3dLily">
-				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
-			</a>
-		</li>
-		<li>
-			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-  </body>
+   </script>
+   <noscript>
+    Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">
+     comments powered by Disqus.
+    </a>
+   </noscript>
+   <a class="dsq-brlink" href="http://disqus.com">
+    <!--
+-->
+    comments powered by
+    <span class="logo-disqus">
+     Disqus
+    </span>
+   </a>
+  </div>
+  <nav>
+   <ul>
+    <li>
+     <a href="/index">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/about">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
+      <!--
+-->
+      <span>
+       About me
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/projects">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Projects
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/resume">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Resume
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tech-blog">
+      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Tech Blog
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/cooking">
+      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Cooking
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing">
+      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Writing
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/contact">
+      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Contact
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing/political">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Opinion
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/EdgeCaseBerg">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Github
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://twitter.com/TheR3dLily">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
+      <!--
+-->
+      <span>
+       @TheR3dLily
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://www.linkedin.com/profile/view?id=151414806">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
+      <!--
+-->
+      <span>
+       LinkedIn
+      </span>
+     </a>
+    </li>
+   </ul>
+  </nav>
+ </body>
 </html>
-  	
