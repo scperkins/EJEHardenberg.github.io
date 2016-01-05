@@ -19,10 +19,11 @@ def sha384OfFile(filepath):
 
 def sriOfFile(filepath):
 	sha = sha384OfFile(filepath)
-	return encodestring(sha)[:-1] #drop newline added by b64
+	return 'sha384-' + encodestring(sha)[:-1] #drop newline added by b64
 
 import os
 
+# http://stackoverflow.com/a/19308592/1808164
 def get_filepaths(directory):
     """
     This function will generate the file names in a directory 
@@ -56,7 +57,10 @@ print searchLinks
 print searchScripts
 
 def isCssLink(tag):
-	return tag.has_attr('rel') and 'stylesheet' in tag['rel']
+	return tag.has_attr('rel') and tag.has_attr('href') and 'stylesheet' in tag['rel']
+
+def isScriptLink(tag):
+	return tag.has_attr('src') and tag.has_attr('type') and 'text/javascript' in tag['type']
 
 allFiles = get_filepaths("www/")
 for f in allFiles:
@@ -70,6 +74,11 @@ for f in allFiles:
 				for searchLink in searchLinks:
 					if link['href'].endswith(searchLink[0]):
 						link['integrity'] = searchLink[1]
+			scripts = soup.find_all(isScriptLink)
+			for script in scripts:
+				for searchScript in searchScripts:
+					if script['src'].endswith(searchScript[0]):
+						script['integrity'] = searchLink[1]
 			data = soup.prettify()
 		with open(f, 'w') as openedFile:
 			openedFile.write(data.encode('utf-8'))
