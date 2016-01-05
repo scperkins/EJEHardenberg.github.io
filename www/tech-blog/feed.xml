@@ -8,7 +8,7 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Tue, 15 Dec 2015 00:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Fri, 18 Dec 2015 00:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
@@ -27,7 +27,7 @@
 			<title>Upload binary data in play</title>
 			<link>http://ethanjoachimeldridge.info/tech-blog/upload-binary-data-play-exif</link>
 			<guid>http://ethanjoachimeldridge.info/tech-blog/upload-binary-data-play-exif</guid>
-			<pubDate>Invalid Date</pubDate>
+			<pubDate>Fri, 18 Dec 2015 00:00:00 GMT</pubDate>
 			<description>
 				![CDATA[How to upload binary data in play and parse the bytes. Also shows how to grab EXIF data from an image as an example of the upload.]]
 			</description>
