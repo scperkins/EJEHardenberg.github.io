@@ -77,11 +77,13 @@ for f in allFiles:
 				for searchLink in searchLinks:
 					if link['href'].endswith(searchLink[0]):
 						link['integrity'] = searchLink[1]
+						link['crossorigin'] = 'anonymous'
 			scripts = soup.find_all(isScriptLink)
 			for script in scripts:
 				for searchScript in searchScripts:
 					if script['src'].endswith(searchScript[0]):
 						script['integrity'] = searchLink[1]
+						script['crossorigin'] = 'anonymous'
 			data = soup.prettify()
 		with open(f, 'w') as openedFile:
 			openedFile.write(data.encode('utf-8'))
