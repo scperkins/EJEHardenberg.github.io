@@ -1,44 +1,33 @@
-
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Ethan's Tech Blog | Adding days with Java</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Adding and subtracting days in Java, also, how to get the end of the month and first of the month. Useful for database queries and jobs" />
-    <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="Java,Date,Days,Calendar,Subtracting,Adding,First,End,of Month"/>
-    <meta name="robots" content="index, follow"  />
-      <meta name="revisit-after" content="1 month" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-      
-    
-	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
-
-        
-    <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Adding days with Java" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
-    
-    <meta property="og:description" content="Adding and subtracting days in Java, also, how to get the end of the month and first of the month. Useful for database queries and jobs" />
-    
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Adding days with Java" />
-    
-    <meta name="twitter:description" content="Adding and subtracting days in Java, also, how to get the end of the month and first of the month. Useful for database queries and jobs" />
-    
-    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
-
-
-	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ <head>
+  <title>
+   Ethan's Tech Blog | Adding days with Java
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="Adding and subtracting days in Java, also, how to get the end of the month and first of the month. Useful for database queries and jobs" name="description"/>
+  <meta content="Ethan Eldridge" name="author"/>
+  <meta content="Java,Date,Days,Calendar,Subtracting,Adding,First,End,of Month" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="1 month" name="revisit-after"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
+  <!-- Facebook Open Graph Tags -->
+  <meta content="Ethan Eldridge | Adding days with Java" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
+  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
+  <meta content="Adding and subtracting days in Java, also, how to get the end of the month and first of the month. Useful for database queries and jobs" property="og:description"/>
+  <!-- Twitter Card Tags -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="Ethan Eldridge | Adding days with Java" name="twitter:title"/>
+  <meta content="Adding and subtracting days in Java, also, how to get the end of the month and first of the month. Useful for database queries and jobs" name="twitter:description"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
+  <!-- Core CSS Scripts -->
+  <link href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -46,161 +35,262 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-
-</script>
-
-  </head>
-  <body>
-    <header>
-      <h1>Adding days with Java</h1>
-    </header>
-
-
-    <div id="content">
-      <a href="/tech-blog">Back</a>
-      <h3>Adding and Subtracting Days in Java</h3><p>This is going to be a short post. But one which hopefully will provide a
-reference point to anyone doing a quick google search. </p>
-<p>It is often very common to see SQL queries constrained by dates and ranges. 
-For example, if you say: &quot;Give me all the records within the past X days&quot;
-you might see mySQL people using <code>INTERVAL</code> and some other date functions. 
-If you&#39;re a performance conscious person like me, you don&#39;t want to make 
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    Adding days with Java
+   </h1>
+  </header>
+  <div id="content">
+   <a href="/tech-blog">
+    Back
+   </a>
+   <h3>
+    Adding and Subtracting Days in Java
+   </h3>
+   <p>
+    This is going to be a short post. But one which hopefully will provide a
+reference point to anyone doing a quick google search.
+   </p>
+   <p>
+    It is often very common to see SQL queries constrained by dates and ranges. 
+For example, if you say: "Give me all the records within the past X days"
+you might see mySQL people using
+    <code>
+     INTERVAL
+    </code>
+    and some other date functions. 
+If you're a performance conscious person like me, you don't want to make 
 mySQL compute an interval over and over again for each row (possible in 
 some queries). Instead, you want to provide a hard value to test against. 
-In java it&#39;s easy enough to do something like this:</p>
-<pre><code>import java.util.*;
+In java it's easy enough to do something like this:
+   </p>
+   <pre><code>import java.util.*;
 
 Map params = new HashMap&lt;String,Object&gt;();
 int daysBack = -x; //x is whatever number you need
 
 Calendar cal = GregorianCalendar.getInstance();
 cal.add(Calendar.DAY_OF_YEAR, daysBack);
-params.put(&quot;afterDate&quot;, cal.getTime());
+params.put("afterDate", cal.getTime());
 
 //query using these params...
-</code></pre><p>Another situation you might run into is when you want to retrieve records 
+</code></pre>
+   <p>
+    Another situation you might run into is when you want to retrieve records 
 for up to the end of the month or beginning of a month. But months come 
 in all days, shapes, and leap-year sizes! What to do? Java has you covered 
-again:</p>
-<pre><code>Timestamp timestamp = //...
+again:
+   </p>
+   <pre><code>Timestamp timestamp = //...
 calendar.setTime(timestamp)
 calendar.add(Calendar.DAY_OF_MONTH,calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
-</code></pre><p>Another method I&#39;ve seen suggested was to add one month, set the day to the first 
-of the month, then subtract a day. While this will work 10/12 times, it will fail
-on the first and last month since we&#39;ll end up changing the year as well. Of 
-course you can set the year. But why go through all that hassle when you can just
-use <code>getActualMaximum</code> and avoid the issue entirely?</p>
-<p>If you want to set the first day of the month, it&#39;s a single change to a Calendar
-object:</p>
-<pre><code>calendar.set(Calendar.DAY_OF_MONTH, 1)
 </code></pre>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=mailing-list>Make your own Mailing List</a></li><li><a href=php-hours>Displaying Business hours with PHP</a></li><li><a href=proxy-paranoia-and-resolve>Proxy Paranoia and DNS resolves</a></li><li><a href=shared-voice>Shared Voice - Activist&#39;s tool</a></li><li><a href=gotodocumentation-sublime-chromium-default>Setting Chromium as the default browser for GotoDocumentation in Sublime Text 2</a></li><li><a href=arcstar-chrome-extensions>*Arc: My First Chrome Extension</a></li>
-        </ul>
-      </div>
-      <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'ejehardenberg';
+   <p>
+    Another method I've seen suggested was to add one month, set the day to the first 
+of the month, then subtract a day. While this will work 10/12 times, it will fail
+on the first and last month since we'll end up changing the year as well. Of 
+course you can set the year. But why go through all that hassle when you can just
+use
+    <code>
+     getActualMaximum
+    </code>
+    and avoid the issue entirely?
+   </p>
+   <p>
+    If you want to set the first day of the month, it's a single change to a Calendar
+object:
+   </p>
+   <pre><code>calendar.set(Calendar.DAY_OF_MONTH, 1)
+</code></pre>
+   <h3>
+    Other Posts
+   </h3>
+   <div id="other-posts">
+    <ul>
+     <li>
+      <a href="mailing-list">
+       Make your own Mailing List
+      </a>
+     </li>
+     <li>
+      <a href="php-hours">
+       Displaying Business hours with PHP
+      </a>
+     </li>
+     <li>
+      <a href="proxy-paranoia-and-resolve">
+       Proxy Paranoia and DNS resolves
+      </a>
+     </li>
+     <li>
+      <a href="shared-voice">
+       Shared Voice - Activist's tool
+      </a>
+     </li>
+     <li>
+      <a href="gotodocumentation-sublime-chromium-default">
+       Setting Chromium as the default browser for GotoDocumentation in Sublime Text 2
+      </a>
+     </li>
+     <li>
+      <a href="arcstar-chrome-extensions">
+       *Arc: My First Chrome Extension
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div id="disqus_thread">
+   </div>
+   <script type="text/javascript">
+    var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink"><!--
-    -->comments powered by <span class="logo-disqus">Disqus</span>
-</a>   
-    </div>
-    <nav>
-	<ul>
-		
-			<li>
-				<a href="/index">
-					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
-					--><span>Home</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/about">
-					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
-					--><span>About me</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/projects">
-					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
-					--><span>Projects</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/resume">
-					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
-					--><span>Resume</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/tech-blog">
-					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
-					--><span>Tech Blog</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/cooking">
-					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
-					--><span>Cooking</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/writing">
-					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
-					--><span>Writing</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/contact">
-					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
-					--><span>Contact</span>
-				</a>
-			</li>
-		
-		<li>
-			<a href="/writing/political">
-				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
-				--><span>Github</span>
-			</a>
-		</li>
-		<li> 
-			<a href="https://twitter.com/TheR3dLily">
-				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
-			</a>
-		</li>
-		<li>
-			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-  </body>
+   </script>
+   <noscript>
+    Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">
+     comments powered by Disqus.
+    </a>
+   </noscript>
+   <a class="dsq-brlink" href="http://disqus.com">
+    <!--
+-->
+    comments powered by
+    <span class="logo-disqus">
+     Disqus
+    </span>
+   </a>
+  </div>
+  <nav>
+   <ul>
+    <li>
+     <a href="/index">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/about">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
+      <!--
+-->
+      <span>
+       About me
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/projects">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Projects
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/resume">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Resume
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tech-blog">
+      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Tech Blog
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/cooking">
+      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Cooking
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing">
+      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Writing
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/contact">
+      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Contact
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing/political">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Opinion
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/EdgeCaseBerg">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Github
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://twitter.com/TheR3dLily">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
+      <!--
+-->
+      <span>
+       @TheR3dLily
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://www.linkedin.com/profile/view?id=151414806">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
+      <!--
+-->
+      <span>
+       LinkedIn
+      </span>
+     </a>
+    </li>
+   </ul>
+  </nav>
+ </body>
 </html>
-  	

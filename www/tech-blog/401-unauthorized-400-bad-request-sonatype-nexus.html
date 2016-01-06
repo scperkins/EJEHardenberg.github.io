@@ -1,44 +1,33 @@
-
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Ethan's Tech Blog | 401 Unauthorized and 400 Bad Request from Sonatype Nexus in SBT</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="How to fix SBT and Nexus sonatype when you&#39;re just starting out and making mistakes. A few cautionary points" />
-    <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="sonatype nexus,sbt,scala,unauthorized,bad request,artifact repository"/>
-    <meta name="robots" content="index, follow"  />
-      <meta name="revisit-after" content="1 month" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-      
-    
-	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
-
-        
-    <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | 401 Unauthorized and 400 Bad Request from Sonatype Nexus in SBT" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
-    
-    <meta property="og:description" content="How to fix SBT and Nexus sonatype when you&#39;re just starting out and making mistakes. A few cautionary points" />
-    
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | 401 Unauthorized and 400 Bad Request from Sonatype Nexus in SBT" />
-    
-    <meta name="twitter:description" content="How to fix SBT and Nexus sonatype when you&#39;re just starting out and making mistakes. A few cautionary points" />
-    
-    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
-
-
-	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ <head>
+  <title>
+   Ethan's Tech Blog | 401 Unauthorized and 400 Bad Request from Sonatype Nexus in SBT
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="How to fix SBT and Nexus sonatype when you're just starting out and making mistakes. A few cautionary points" name="description"/>
+  <meta content="Ethan Eldridge" name="author"/>
+  <meta content="sonatype nexus,sbt,scala,unauthorized,bad request,artifact repository" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="1 month" name="revisit-after"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
+  <!-- Facebook Open Graph Tags -->
+  <meta content="Ethan Eldridge | 401 Unauthorized and 400 Bad Request from Sonatype Nexus in SBT" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
+  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
+  <meta content="How to fix SBT and Nexus sonatype when you're just starting out and making mistakes. A few cautionary points" property="og:description"/>
+  <!-- Twitter Card Tags -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="Ethan Eldridge | 401 Unauthorized and 400 Bad Request from Sonatype Nexus in SBT" name="twitter:title"/>
+  <meta content="How to fix SBT and Nexus sonatype when you're just starting out and making mistakes. A few cautionary points" name="twitter:description"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
+  <!-- Core CSS Scripts -->
+  <link href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -46,85 +35,182 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-
-</script>
-
-  </head>
-  <body>
-    <header>
-      <h1>401 Unauthorized and 400 Bad Request from Sonatype Nexus in SBT</h1>
-    </header>
-
-
-    <div id="content">
-      <a href="/tech-blog">Back</a>
-      <h3>401 Unauthorized and 400 Bad Request in Sonatype Nexus OSS</h3><p>Today I was searching for a artifact repository to use in development, and was 
-evaluating <a href="http://www.sonatype.org/nexus/go/">Sonatype&#39;s Nexus</a>. Besides the <a href="http://books.sonatype.com/nexus-book/index.html">fantastic documentation</a>, the application 
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    401 Unauthorized and 400 Bad Request from Sonatype Nexus in SBT
+   </h1>
+  </header>
+  <div id="content">
+   <a href="/tech-blog">
+    Back
+   </a>
+   <h3>
+    401 Unauthorized and 400 Bad Request in Sonatype Nexus OSS
+   </h3>
+   <p>
+    Today I was searching for a artifact repository to use in development, and was 
+evaluating
+    <a href="http://www.sonatype.org/nexus/go/">
+     Sonatype's Nexus
+    </a>
+    . Besides the
+    <a href="http://books.sonatype.com/nexus-book/index.html">
+     fantastic documentation
+    </a>
+    , the application 
 itself seemed to have a good community supporting it. So, I decided to download 
-and give it a try. It was easy to follow the <a href="http://books.sonatype.com/nexus-book/reference/install.html">installation manual</a> and within 5 
-minutes I had everything installed and was ready to rumble. Here&#39;s a couple notes:</p>
-<ol>
-<li><strong>Don&#39;t run Nexus as root</strong>. It&#39;s a security issue. Make a user for them instead, or run it as your user in a home folder somewhere. </li>
-<li><strong>Read through the documentation</strong>, at least the first few chapters to get the concepts down. </li>
-<li><strong>Change the default passwords if this isn&#39;t a local nexus and can be reached within a network</strong></li>
-</ol>
-<p>Working with <a href="http://www.scala-sbt.org/">SBT</a> was what I was interested in, and luckily Nexus has a 
-chapter <a href="http://books.sonatype.com/nexus-book/reference/sbt.html">specifically on just that</a>. Which got me mostly up and running. My 
-build file ended up looking like this: </p>
-<pre><code>organization := &quot;test&quot;
+and give it a try. It was easy to follow the
+    <a href="http://books.sonatype.com/nexus-book/reference/install.html">
+     installation manual
+    </a>
+    and within 5 
+minutes I had everything installed and was ready to rumble. Here's a couple notes:
+   </p>
+   <ol>
+    <li>
+     <strong>
+      Don't run Nexus as root
+     </strong>
+     . It's a security issue. Make a user for them instead, or run it as your user in a home folder somewhere.
+    </li>
+    <li>
+     <strong>
+      Read through the documentation
+     </strong>
+     , at least the first few chapters to get the concepts down.
+    </li>
+    <li>
+     <strong>
+      Change the default passwords if this isn't a local nexus and can be reached within a network
+     </strong>
+    </li>
+   </ol>
+   <p>
+    Working with
+    <a href="http://www.scala-sbt.org/">
+     SBT
+    </a>
+    was what I was interested in, and luckily Nexus has a 
+chapter
+    <a href="http://books.sonatype.com/nexus-book/reference/sbt.html">
+     specifically on just that
+    </a>
+    . Which got me mostly up and running. My 
+build file ended up looking like this:
+   </p>
+   <pre><code>organization := "test"
 
-name := &quot;thing&quot;
+name := "thing"
 
-version := &quot;0.0.1&quot;
+version := "0.0.1"
 
-scalaVersion := &quot;2.10.3&quot;
+scalaVersion := "2.10.3"
 
-scalacOptions += &quot;-deprecation&quot;
+scalacOptions += "-deprecation"
 
-libraryDependencies &lt;+= (scalaVersion)(&quot;org.scala-lang&quot; % &quot;scala-compiler&quot; % _)
+libraryDependencies &lt;+= (scalaVersion)("org.scala-lang" % "scala-compiler" % _)
 
-resolvers += &quot;Nexus&quot; at &quot;http://localhost:8081/nexus/content/groups/public&quot;
+resolvers += "Nexus" at "http://localhost:8081/nexus/content/groups/public"
 
-credentials += Credentials(Path.userHome / &quot;.ivy2&quot; / &quot;.credentials&quot;)
+credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
 
 publishTo &lt;&lt;= version { v: String =&gt;
-  val nexus = &quot;http://localhost:8081/nexus/&quot;
-  if (v.trim.endsWith(&quot;SNAPSHOT&quot;))
-    Some(&quot;snapshots&quot; at nexus + &quot;content/repositories/snapshots&quot;)
+  val nexus = "http://localhost:8081/nexus/"
+  if (v.trim.endsWith("SNAPSHOT"))
+    Some("snapshots" at nexus + "content/repositories/snapshots")
   else
-    Some(&quot;releases&quot; at nexus + &quot;content/repositories/releases&quot;)
+    Some("releases" at nexus + "content/repositories/releases")
 }
-</code></pre><p>With a <em>.ivy2/.credentials</em> file:</p>
-<pre><code>realm=Sonatype Nexus Repository Manager
+</code></pre>
+   <p>
+    With a
+    <em>
+     .ivy2/.credentials
+    </em>
+    file:
+   </p>
+   <pre><code>realm=Sonatype Nexus Repository Manager
 host=127.0.0.1
 user=admin
 password=admin123
-</code></pre><p>I spent a lot longer than my initial 5 minutes on trying to get the <code>publish</code> 
-task in sbt to run though. I kept getting:</p>
-<pre><code>&gt; publish
+</code></pre>
+   <p>
+    I spent a lot longer than my initial 5 minutes on trying to get the
+    <code>
+     publish
+    </code>
+    task in sbt to run though. I kept getting:
+   </p>
+   <pre><code>&gt; publish
 [info] Wrote /Users/eeldridg/Sites/thing/target/scala-2.10/thing_2.10-0.0.1.pom
 [info] :: delivering :: test#thing_2.10;0.0.1 :: 0.0.1 :: release :: Thu Jul 02 11:56:02 EDT 2015
 [info]     delivering ivy file to /Users/eeldridg/Sites/thing/target/scala-2.10/ivy-0.0.1.xml
 [trace] Stack trace suppressed: run last *:publish for the full output.
 [error] (*:publish) java.io.IOException: Access to URL http://localhost:8081/nexus/content/repositories/releases/test/thing_2.10/0.0.1/thing_2.10-0.0.1.pom was refused by the server: Unauthorized
 [error] Total time: 0 s, completed Jul 2, 2015 11:56:03 AM
-</code></pre><p>And after looking through a <a href="http://stackoverflow.com/questions/16425639/sbt-publish-to-corporate-nexus-repository-unauthorized">few</a> <a href="http://blog.restphone.com/2012/10/sbt-pushing-and-pulling-from-local.html">posts</a> <a href="http://stackoverflow.com/questions/4348805/how-can-i-access-a-secured-nexus-with-sbt">on</a> <a href="https://groups.google.com/forum/?fromgroups=#!topic/simple-build-tool/n0v0jd4UWOQ">the</a> <a href="http://stackoverflow.com/questions/4348805/how-can-i-access-a-secured-nexus-with-sbt">web</a> I finally got my Realm right 
-by checking the headers via <code>curl</code>. </p>
-<pre><code>curl -I -XPOST http://localhost:8081/nexus/content/repositories/releases/test/thing_2.10/0.0.1/drupalslick_2.10-0.0.1.pom -v &gt; /dev/null 
-</code></pre><p>During this process I also tried out </p>
-<pre><code>curl -u admin:admin123 -I -XPOST http://localhost:8081/nexus/content/repositories/releases/test/thing_2.10/0.0.1/drupalslick_2.10-0.0.1.pom -v &gt; /dev/null 
-</code></pre><p>Which returned successful, so I figure&#39;d there wasn&#39;t an issue with my setup. However,
+</code></pre>
+   <p>
+    And after looking through a
+    <a href="http://stackoverflow.com/questions/16425639/sbt-publish-to-corporate-nexus-repository-unauthorized">
+     few
+    </a>
+    <a href="http://blog.restphone.com/2012/10/sbt-pushing-and-pulling-from-local.html">
+     posts
+    </a>
+    <a href="http://stackoverflow.com/questions/4348805/how-can-i-access-a-secured-nexus-with-sbt">
+     on
+    </a>
+    <a href="https://groups.google.com/forum/?fromgroups=#!topic/simple-build-tool/n0v0jd4UWOQ">
+     the
+    </a>
+    <a href="http://stackoverflow.com/questions/4348805/how-can-i-access-a-secured-nexus-with-sbt">
+     web
+    </a>
+    I finally got my Realm right 
+by checking the headers via
+    <code>
+     curl
+    </code>
+    .
+   </p>
+   <pre><code>curl -I -XPOST http://localhost:8081/nexus/content/repositories/releases/test/thing_2.10/0.0.1/drupalslick_2.10-0.0.1.pom -v &gt; /dev/null 
+</code></pre>
+   <p>
+    During this process I also tried out
+   </p>
+   <pre><code>curl -u admin:admin123 -I -XPOST http://localhost:8081/nexus/content/repositories/releases/test/thing_2.10/0.0.1/drupalslick_2.10-0.0.1.pom -v &gt; /dev/null 
+</code></pre>
+   <p>
+    Which returned successful, so I figure'd there wasn't an issue with my setup. However,
 a few minutes later of messing with the realm settings and credentials in SBT, I 
 started getting a 400 error instead. By this point, I had all my loggers on Nexus 
-turned up to maximum and was viewing errors like</p>
-<pre><code>2015-07-02 12:22:35,208-0400 DEBUG [qtp2141807259-51] anonymous org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter - Authentication required: sending 401 Authentication challenge response.
+turned up to maximum and was viewing errors like
+   </p>
+   <pre><code>2015-07-02 12:22:35,208-0400 DEBUG [qtp2141807259-51] anonymous org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter - Authentication required: sending 401 Authentication challenge response.
 2015-07-02 12:22:51,885-0400 DEBUG [qtp2141807259-54] *UNKNOWN org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter - Attempting to execute login with headers [Basic YWRtaW46YWRtaW4xMjM=]
-</code></pre><p>But wasn&#39;t seeing the 400. So instead, I turned towards the ever trusty tool: <code>tcpdump</code>!
-Since I couldn&#39;t see the request on the Nexus side, I decided to watch what was happening 
-on the SBT side. </p>
-<pre><code> sudo tcpdump -i lo0 -n -s 0 -w - 
-</code></pre><p>And hitting <code>publish</code> one more time from the SBT CLI immediately got me the answer:</p>
-<pre><code>?!~/?!xHTTP/1.1 400 Bad Request
+</code></pre>
+   <p>
+    But wasn't seeing the 400. So instead, I turned towards the ever trusty tool:
+    <code>
+     tcpdump
+    </code>
+    !
+Since I couldn't see the request on the Nexus side, I decided to watch what was happening 
+on the SBT side.
+   </p>
+   <pre><code> sudo tcpdump -i lo0 -n -s 0 -w - 
+</code></pre>
+   <p>
+    And hitting
+    <code>
+     publish
+    </code>
+    one more time from the SBT CLI immediately got me the answer:
+   </p>
+   <pre><code>?!~/?!xHTTP/1.1 400 Bad Request
 Date: Thu, 02 Jul 2015 16:23:05 GMT
 Server: Nexus/2.11.3-01
 X-Frame-Options: SAMEORIGIN
@@ -136,135 +222,227 @@ Transfer-Encoding: chunked
 2EA
 &lt;html&gt;
   &lt;head&gt;
-    &lt;title&gt;400 - Repository with ID=&#39;releases&#39; does not allow updating artifacts.&lt;/title&gt;
-    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;/&gt;
+    &lt;title&gt;400 - Repository with ID='releases' does not allow updating artifacts.&lt;/title&gt;
+    &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"/&gt;
 
-    &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; href=&quot;http://localhost:8081/nexus/favicon.png&quot;&gt;
+    &lt;link rel="icon" type="image/png" href="http://localhost:8081/nexus/favicon.png"&gt;
     &lt;!--[if IE]&gt;
-    &lt;link rel=&quot;SHORTCUT ICON&quot; href=&quot;http://localhost:8081/nexus/favicon.ico&quot;/&gt;
+    &lt;link rel="SHORTCUT ICON" href="http://localhost:8081/nexus/favicon.ico"/&gt;
     &lt;![endif]--&gt;
 
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;http://localhost:8081/nexus/static/css/Sonatype-content.css?2.11.3-01&quot; type=&quot;text/css&quot; media=&quot;screen&quot; title=&quot;no title&quot; charset=&quot;utf-8&quot;&gt;
+    &lt;link rel="stylesheet" href="http://localhost:8081/nexus/static/css/Sonatype-content.css?2.11.3-01" type="text/css" media="screen" title="no title" charset="utf-8"&gt;
   &lt;/head&gt;
   &lt;body&gt;
-    &lt;h1&gt;400 - Repository with ID=&#39;releases&#39; does not allow updating artifacts.&lt;/h1&gt;
-    &lt;p&gt;Repository with ID=&#39;releases&#39; does not allow updating artifacts.&lt;/p&gt;
+    &lt;h1&gt;400 - Repository with ID='releases' does not allow updating artifacts.&lt;/h1&gt;
+    &lt;p&gt;Repository with ID='releases' does not allow updating artifacts.&lt;/p&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-</code></pre><p><strong>Derp!</strong> Of course I was getting a 400, since I wasn&#39;t versioning with a Snapshot, the 
+</code></pre>
+   <p>
+    <strong>
+     Derp!
+    </strong>
+    Of course I was getting a 400, since I wasn't versioning with a Snapshot, the 
 deployment policy on Nexus was refusing to change the empty POST request I had sent when 
-testing with <code>curl</code>. That&#39;s an easy fix in nexus though:</p>
-<p><img src="/images/tech-blog/nexus-sbt.png" width="600px"></p>
-<p>So let this be a helpful reminder to anyone else: Don&#39;t test a repository configuration 
-with the release branch! </p>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=aspect-ratios-and-math>Aspect Ratios, Math, and Scala</a></li><li><a href=none-in-default-fold-and-type-erasure>Type Error when using None as a default to Option.fold</a></li><li><a href=github-streak>A Year of committing to Github</a></li><li><a href=could-not-instantiate-SVGImageReader-Scrimage>Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException</a></li><li><a href=serializing-java-util-locale-with-spray-json>Serializing java.util.Locale with Spray JSON library</a></li><li><a href=manipulating-XML-with-PHP>Manipulating XML with PHP</a></li>
-        </ul>
-      </div>
-      <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'ejehardenberg';
+testing with
+    <code>
+     curl
+    </code>
+    . That's an easy fix in nexus though:
+   </p>
+   <p>
+    <img src="/images/tech-blog/nexus-sbt.png" width="600px"/>
+   </p>
+   <p>
+    So let this be a helpful reminder to anyone else: Don't test a repository configuration 
+with the release branch!
+   </p>
+   <h3>
+    Other Posts
+   </h3>
+   <div id="other-posts">
+    <ul>
+     <li>
+      <a href="aspect-ratios-and-math">
+       Aspect Ratios, Math, and Scala
+      </a>
+     </li>
+     <li>
+      <a href="none-in-default-fold-and-type-erasure">
+       Type Error when using None as a default to Option.fold
+      </a>
+     </li>
+     <li>
+      <a href="github-streak">
+       A Year of committing to Github
+      </a>
+     </li>
+     <li>
+      <a href="could-not-instantiate-SVGImageReader-Scrimage">
+       Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException
+      </a>
+     </li>
+     <li>
+      <a href="serializing-java-util-locale-with-spray-json">
+       Serializing java.util.Locale with Spray JSON library
+      </a>
+     </li>
+     <li>
+      <a href="manipulating-XML-with-PHP">
+       Manipulating XML with PHP
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div id="disqus_thread">
+   </div>
+   <script type="text/javascript">
+    var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink"><!--
-    -->comments powered by <span class="logo-disqus">Disqus</span>
-</a>   
-    </div>
-    <nav>
-	<ul>
-		
-			<li>
-				<a href="/index">
-					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
-					--><span>Home</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/about">
-					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
-					--><span>About me</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/projects">
-					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
-					--><span>Projects</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/resume">
-					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
-					--><span>Resume</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/tech-blog">
-					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
-					--><span>Tech Blog</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/cooking">
-					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
-					--><span>Cooking</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/writing">
-					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
-					--><span>Writing</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/contact">
-					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
-					--><span>Contact</span>
-				</a>
-			</li>
-		
-		<li>
-			<a href="/writing/political">
-				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
-				--><span>Github</span>
-			</a>
-		</li>
-		<li> 
-			<a href="https://twitter.com/TheR3dLily">
-				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
-			</a>
-		</li>
-		<li>
-			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-  </body>
+   </script>
+   <noscript>
+    Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">
+     comments powered by Disqus.
+    </a>
+   </noscript>
+   <a class="dsq-brlink" href="http://disqus.com">
+    <!--
+-->
+    comments powered by
+    <span class="logo-disqus">
+     Disqus
+    </span>
+   </a>
+  </div>
+  <nav>
+   <ul>
+    <li>
+     <a href="/index">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/about">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
+      <!--
+-->
+      <span>
+       About me
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/projects">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Projects
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/resume">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Resume
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tech-blog">
+      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Tech Blog
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/cooking">
+      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Cooking
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing">
+      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Writing
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/contact">
+      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Contact
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing/political">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Opinion
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/EdgeCaseBerg">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Github
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://twitter.com/TheR3dLily">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
+      <!--
+-->
+      <span>
+       @TheR3dLily
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://www.linkedin.com/profile/view?id=151414806">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
+      <!--
+-->
+      <span>
+       LinkedIn
+      </span>
+     </a>
+    </li>
+   </ul>
+  </nav>
+ </body>
 </html>
-  	

@@ -1,44 +1,33 @@
-
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Ethan's Tech Blog | Private Talk and plans for some tutorials</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Some thoughts after creating a private chat server with c and qdecoder. Planning to create a set of tutorials" />
-    <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="C,CGI,apache,chat,server,tutorial"/>
-    <meta name="robots" content="index, follow"  />
-      <meta name="revisit-after" content="1 month" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-      
-    
-	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
-
-        
-    <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Private Talk and plans for some tutorials" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
-    
-    <meta property="og:description" content="Some thoughts after creating a private chat server with c and qdecoder. Planning to create a set of tutorials" />
-    
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Private Talk and plans for some tutorials" />
-    
-    <meta name="twitter:description" content="Some thoughts after creating a private chat server with c and qdecoder. Planning to create a set of tutorials" />
-    
-    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
-
-
-	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ <head>
+  <title>
+   Ethan's Tech Blog | Private Talk and plans for some tutorials
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="Some thoughts after creating a private chat server with c and qdecoder. Planning to create a set of tutorials" name="description"/>
+  <meta content="Ethan Eldridge" name="author"/>
+  <meta content="C,CGI,apache,chat,server,tutorial" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="1 month" name="revisit-after"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
+  <!-- Facebook Open Graph Tags -->
+  <meta content="Ethan Eldridge | Private Talk and plans for some tutorials" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
+  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
+  <meta content="Some thoughts after creating a private chat server with c and qdecoder. Planning to create a set of tutorials" property="og:description"/>
+  <!-- Twitter Card Tags -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="Ethan Eldridge | Private Talk and plans for some tutorials" name="twitter:title"/>
+  <meta content="Some thoughts after creating a private chat server with c and qdecoder. Planning to create a set of tutorials" name="twitter:description"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
+  <!-- Core CSS Scripts -->
+  <link href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -46,151 +35,277 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-
-</script>
-
-  </head>
-  <body>
-    <header>
-      <h1>Private Talk and plans for some tutorials</h1>
-    </header>
-
-
-    <div id="content">
-      <a href="/tech-blog">Back</a>
-      <h3>Private Talk. A simple chat server behind apache</h3><p>I&#39;ve been <a href="http://www.ethanjoachimeldridge.info/tech-blog/bgi">into CGI recently</a> and wanted to continue the trend. So I
-started a <a href="https://github.com/EdgeCaseBerg/pChat">new project</a> to make a small chat server. You might ask
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    Private Talk and plans for some tutorials
+   </h1>
+  </header>
+  <div id="content">
+   <a href="/tech-blog">
+    Back
+   </a>
+   <h3>
+    Private Talk. A simple chat server behind apache
+   </h3>
+   <p>
+    I've been
+    <a href="http://www.ethanjoachimeldridge.info/tech-blog/bgi">
+     into CGI recently
+    </a>
+    and wanted to continue the trend. So I
+started a
+    <a href="https://github.com/EdgeCaseBerg/pChat">
+     new project
+    </a>
+    to make a small chat server. You might ask
 yourself, why do that? Everyone uses facebook Chat or G+ chat
-now-a-days. No one uses AIM or Yahoo to message people anymore. </p>
-<p>And to that I say: yeah but <strong>everyone</strong> stores your data.<sup>*</sup></p>
-<p>So recent life events have left in me in a situation where one of my
+now-a-days. No one uses AIM or Yahoo to message people anymore.
+   </p>
+   <p>
+    And to that I say: yeah but
+    <strong>
+     everyone
+    </strong>
+    stores your data.
+    <sup>
+     *
+    </sup>
+   </p>
+   <p>
+    So recent life events have left in me in a situation where one of my
 closest friends is going to be overseas for a while and I wanted a way
-to talk to them. Following the opposing view to the <a href="http://en.wikipedia.org/wiki/Not_invented_here">NIH</a> principle and
+to talk to them. Following the opposing view to the
+    <a href="http://en.wikipedia.org/wiki/Not_invented_here">
+     NIH
+    </a>
+    principle and
 satisfying my natural curiousity of how hard it would be to make a chat
 server, combined with this situation has resulted in a small chat server
-being made.</p>
-<p>It was really easy. </p>
-<p>So easy in fact, that I&#39;m thinking I will write a couple blog posts with
+being made.
+   </p>
+   <p>
+    It was really easy.
+   </p>
+   <p>
+    So easy in fact, that I'm thinking I will write a couple blog posts with
 tutorials in them on how to make your own private chat server. I think
 it will be fun, and hopefully helpful to people learning everywhere. The
-structure of the tutorial will probably be something like this: </p>
-<ul>
-<li>Introduction to qdecoder and apache CGI</li>
-<li>Creating a register and login system with qdecoder</li>
-<li>Creating a chat program with C and apache</li>
-</ul>
-<p>I&#39;m hoping that will be an alright pace for things and will probably
-provide sample code as some type of small library. </p>
-<p><sup>* Not everyone, for example there is this <a href="http://labs.bittorrent.com/experiments/bittorrent-chat.html">excellent project</a> going
-on:  </sup></p>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=free-item-in-authorize-line-item-invalid>Authorize LineItem&#39;s, mixed free and paid for causes error</a></li><li><a href=harp-macro-revisit>Harp CDN Macro Revisited</a></li><li><a href=adding-scheduled-posts>Adding Scheduled Posts to your Harp Site</a></li><li><a href=bgi>BGI, a way to track your spending</a></li><li><a href=cgi-c-harp-1>Let&#39;s make a chat server, Part 1</a></li><li><a href=xml-sitemap-for-harpjs>XML Sitemap for Harp JS</a></li>
-        </ul>
-      </div>
-      <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'ejehardenberg';
+structure of the tutorial will probably be something like this:
+   </p>
+   <ul>
+    <li>
+     Introduction to qdecoder and apache CGI
+    </li>
+    <li>
+     Creating a register and login system with qdecoder
+    </li>
+    <li>
+     Creating a chat program with C and apache
+    </li>
+   </ul>
+   <p>
+    I'm hoping that will be an alright pace for things and will probably
+provide sample code as some type of small library.
+   </p>
+   <p>
+    <sup>
+     * Not everyone, for example there is this
+     <a href="http://labs.bittorrent.com/experiments/bittorrent-chat.html">
+      excellent project
+     </a>
+     going
+on:
+    </sup>
+   </p>
+   <h3>
+    Other Posts
+   </h3>
+   <div id="other-posts">
+    <ul>
+     <li>
+      <a href="free-item-in-authorize-line-item-invalid">
+       Authorize LineItem's, mixed free and paid for causes error
+      </a>
+     </li>
+     <li>
+      <a href="harp-macro-revisit">
+       Harp CDN Macro Revisited
+      </a>
+     </li>
+     <li>
+      <a href="adding-scheduled-posts">
+       Adding Scheduled Posts to your Harp Site
+      </a>
+     </li>
+     <li>
+      <a href="bgi">
+       BGI, a way to track your spending
+      </a>
+     </li>
+     <li>
+      <a href="cgi-c-harp-1">
+       Let's make a chat server, Part 1
+      </a>
+     </li>
+     <li>
+      <a href="xml-sitemap-for-harpjs">
+       XML Sitemap for Harp JS
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div id="disqus_thread">
+   </div>
+   <script type="text/javascript">
+    var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink"><!--
-    -->comments powered by <span class="logo-disqus">Disqus</span>
-</a>   
-    </div>
-    <nav>
-	<ul>
-		
-			<li>
-				<a href="/index">
-					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
-					--><span>Home</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/about">
-					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
-					--><span>About me</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/projects">
-					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
-					--><span>Projects</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/resume">
-					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
-					--><span>Resume</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/tech-blog">
-					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
-					--><span>Tech Blog</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/cooking">
-					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
-					--><span>Cooking</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/writing">
-					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
-					--><span>Writing</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/contact">
-					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
-					--><span>Contact</span>
-				</a>
-			</li>
-		
-		<li>
-			<a href="/writing/political">
-				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
-				--><span>Github</span>
-			</a>
-		</li>
-		<li> 
-			<a href="https://twitter.com/TheR3dLily">
-				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
-			</a>
-		</li>
-		<li>
-			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-  </body>
+   </script>
+   <noscript>
+    Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">
+     comments powered by Disqus.
+    </a>
+   </noscript>
+   <a class="dsq-brlink" href="http://disqus.com">
+    <!--
+-->
+    comments powered by
+    <span class="logo-disqus">
+     Disqus
+    </span>
+   </a>
+  </div>
+  <nav>
+   <ul>
+    <li>
+     <a href="/index">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/about">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
+      <!--
+-->
+      <span>
+       About me
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/projects">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Projects
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/resume">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Resume
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tech-blog">
+      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Tech Blog
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/cooking">
+      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Cooking
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing">
+      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Writing
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/contact">
+      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Contact
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing/political">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Opinion
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/EdgeCaseBerg">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Github
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://twitter.com/TheR3dLily">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
+      <!--
+-->
+      <span>
+       @TheR3dLily
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://www.linkedin.com/profile/view?id=151414806">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
+      <!--
+-->
+      <span>
+       LinkedIn
+      </span>
+     </a>
+    </li>
+   </ul>
+  </nav>
+ </body>
 </html>
-  	
