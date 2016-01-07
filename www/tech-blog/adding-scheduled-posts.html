@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Adding Scheduled Posts to your Harp Site
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="How to create scheduled posts for your Harp Site" name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="Harp,HarpJS,tutorial,recipe,HTML,JS" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Adding Scheduled Posts to your Harp Site" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="How to create scheduled posts for your Harp Site" property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Adding Scheduled Posts to your Harp Site" name="twitter:title"/>
-  <meta content="How to create scheduled posts for your Harp Site" name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Adding Scheduled Posts to your Harp Site</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="How to create scheduled posts for your Harp Site" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="Harp,HarpJS,tutorial,recipe,HTML,JS"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Adding Scheduled Posts to your Harp Site" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="How to create scheduled posts for your Harp Site" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Adding Scheduled Posts to your Harp Site" />
+    
+    <meta name="twitter:description" content="How to create scheduled posts for your Harp Site" />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,121 +46,66 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Adding Scheduled Posts to your Harp Site
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Draft and Scheduled Posts in Harp
-   </h3>
-   <p>
-    If you use
-    <a href="http://harpjs.com">
-     Harp
-    </a>
-    , you've probably checked out their recipes before. And if you've
-looked at those recipes you've probably seen the
-    <a href="http://kennethormandy.com/journal/static-draft-posts-with-harp">
-     great draft recipe
-    </a>
-    about draft
-posts. I'm not going to try to do a better job than Kenneth Ormandy on drafts so
-you can read that post there if you'd like. What I am going to show you in this
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Adding Scheduled Posts to your Harp Site</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Draft and Scheduled Posts in Harp</h3><p>If you use <a href="http://harpjs.com">Harp</a>, you&#39;ve probably checked out their recipes before. And if you&#39;ve
+looked at those recipes you&#39;ve probably seen the <a href="http://kennethormandy.com/journal/static-draft-posts-with-harp">great draft recipe</a> about draft
+posts. I&#39;m not going to try to do a better job than Kenneth Ormandy on drafts so
+you can read that post there if you&#39;d like. What I am going to show you in this
 recipe, is how to schedule your blog posts, pages, or anything else your heart
-desires.
-   </p>
-   <p>
-    So let's get down to what we need, as usual I'm going to be using my own site as
-an example of how all this works. We'll need a few things:
-   </p>
-   <ul>
-    <li>
-     _data.json
-    </li>
-    <li>
-     _layout.ejs
-    </li>
-    <li>
-     Sitemap.xml.ejs
-    </li>
-   </ul>
-   <p>
-    If you don't have a Sitemap, then you can ignore that part later, but if you want 
-to make yourself one
-    <a href="http://www.ethanjoachimeldridge.info/tech-blog/xml-sitemap-for-harpjs">
-     you can read how to here
-    </a>
-    .
-   </p>
-   <p>
-    In simple terms, we're going to attach a
-    <code>
-     date
-    </code>
-    meta property to your blog posts
+desires.</p>
+<p>So let&#39;s get down to what we need, as usual I&#39;m going to be using my own site as
+an example of how all this works. We&#39;ll need a few things:</p>
+<ul>
+<li>_data.json</li>
+<li>_layout.ejs</li>
+<li>Sitemap.xml.ejs </li>
+</ul>
+<p>If you don&#39;t have a Sitemap, then you can ignore that part later, but if you want 
+to make yourself one <a href="http://www.ethanjoachimeldridge.info/tech-blog/xml-sitemap-for-harpjs">you can read how to here</a>. </p>
+<p>In simple terms, we&#39;re going to attach a <code>date</code> meta property to your blog posts
 and then use that to decide when the post will be available on your blog. The code
-to support this is pretty simple. We'll then update the Sitemap to filter out any
-posts that shouldn't be available yet. After all, you don't want those search 
-engines reading content they shouldn't yet!
-   </p>
-   <h4>
-    Step one - Make a site
-   </h4>
-   <pre><code>mkdir yoursite
+to support this is pretty simple. We&#39;ll then update the Sitemap to filter out any
+posts that shouldn&#39;t be available yet. After all, you don&#39;t want those search 
+engines reading content they shouldn&#39;t yet!</p>
+<h4>Step one - Make a site</h4><pre><code>mkdir yoursite
 cd yoursite
 harp init
-touch example.md &amp;&amp; echo "1" &gt;&gt; example.md
-touch in-the-past.md &amp;&amp; echo "2" &gt;&gt; in-the-past.md
-touch in-the-future.md &amp;&amp; echo "3" &gt;&gt; in-the-future.md
-</code></pre>
-   <p>
-    Running the above steps will make the default harp project structure, as well as
-a few example blog posts to illustrate the scheduling. We'll modify those in a 
-moment, but first:
-   </p>
-   <h4>
-    Step two - Create _data.json
-   </h4>
-   <pre><code>{
-    "example" : {
-            "title" : "Blog Post 1",
-            "date"  : "2014-08-13"
+touch example.md &amp;&amp; echo &quot;1&quot; &gt;&gt; example.md
+touch in-the-past.md &amp;&amp; echo &quot;2&quot; &gt;&gt; in-the-past.md
+touch in-the-future.md &amp;&amp; echo &quot;3&quot; &gt;&gt; in-the-future.md
+</code></pre><p>Running the above steps will make the default harp project structure, as well as
+a few example blog posts to illustrate the scheduling. We&#39;ll modify those in a 
+moment, but first:</p>
+<h4>Step two - Create _data.json</h4><pre><code>{
+    &quot;example&quot; : {
+            &quot;title&quot; : &quot;Blog Post 1&quot;,
+            &quot;date&quot;  : &quot;2014-08-13&quot;
     },
-    "in-the-past" : {
-            "title" : "Blog Post 0",
-            "date" : "2014-07-24"
+    &quot;in-the-past&quot; : {
+            &quot;title&quot; : &quot;Blog Post 0&quot;,
+            &quot;date&quot; : &quot;2014-07-24&quot;
     },
-    "in-the-future" : {
-            "title" : "Future Post!",
-            "date" : "2015-09-14"
+    &quot;in-the-future&quot; : {
+            &quot;title&quot; : &quot;Future Post!&quot;,
+            &quot;date&quot; : &quot;2015-09-14&quot;
     }
 }
-</code></pre>
-   <p>
-    We've defined our blog posts to have a title and a date. You can probably already 
-see where this is going, but let's go ahead and modify the index file appropriately
-to handle these posts:
-   </p>
-   <h4>
-    Step Three - Your index page
-   </h4>
-   <h5>
-    Change index.jade into index.ejs
-   </h5>
-   <pre><code>mv index.jade index.ejs
-</code></pre>
-   <h5>
-    Change the contents of index.ejs
-   </h5>
-   <pre><code>&lt;h1&gt; Welcome to Harp.
+</code></pre><p>We&#39;ve defined our blog posts to have a title and a date. You can probably already 
+see where this is going, but let&#39;s go ahead and modify the index file appropriately
+to handle these posts:</p>
+<h4>Step Three - Your index page</h4><h5>Change index.jade into index.ejs</h5><pre><code>mv index.jade index.ejs
+</code></pre><h5>Change the contents of index.ejs</h5><pre><code>&lt;h1&gt; Welcome to Harp.
 &lt;h3&gt; This is yours to own. Enjoy.
 
 &lt;%
@@ -157,115 +113,64 @@ for(idx in public._data){
     post = public._data[idx]
     if(new Date(post.date) &lt;= new Date()){
     %&gt;
-    &lt;h2&gt;&lt;a href="/&lt;%- idx %&gt;"&gt;&lt;%- post.title %&gt;&lt;/a&gt;
+    &lt;h2&gt;&lt;a href=&quot;/&lt;%- idx %&gt;&quot;&gt;&lt;%- post.title %&gt;&lt;/a&gt;
     &lt;%
     }
 }
 %&gt;
-</code></pre>
-   <p>
-    This code simply makes a list of links to the blog posts if their publish date is 
-in the future. Note that this doesn't stop your layout from rendering the items, 
-so someone can still access a future post by going to /in-the-future right now.
-   </p>
-   <h4>
-    Step Four - Protect the Future
-   </h4>
-   <p>
-    In order to not have the above happen, you need to modify your layout file to go
-from this:
-   </p>
-   <p>
-    <em>
-     _layout.jade
-    </em>
-   </p>
-   <pre><code>doctype
+</code></pre><p>This code simply makes a list of links to the blog posts if their publish date is 
+in the future. Note that this doesn&#39;t stop your layout from rendering the items, 
+so someone can still access a future post by going to /in-the-future right now.</p>
+<h4>Step Four - Protect the Future</h4><p>In order to not have the above happen, you need to modify your layout file to go
+from this:</p>
+<p><em>_layout.jade</em></p>
+<pre><code>doctype
 html
   head
-    link(rel="stylesheet" href="/main.css")
+    link(rel=&quot;stylesheet&quot; href=&quot;/main.css&quot;)
   body
     != yield
-</code></pre>
-   <p>
-    To this:
-   </p>
-   <p>
-    <em>
-     _layout.ejs
-    </em>
-   </p>
-   <pre><code>&lt;DOCTYPE html&gt;
+</code></pre><p>To this:</p>
+<p><em>_layout.ejs</em></p>
+<pre><code>&lt;DOCTYPE html&gt;
   &lt;head&gt;
     &lt;title&gt;Your site&lt;/title&gt;
-    &lt;link rel="stylesheet" href="/main.css"&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/main.css&quot;&gt;
   &lt;/head&gt;
   &lt;body&gt;
     &lt;% var obj = public._data[current.source] %&gt;
-    &lt;% if( !obj  || (obj.date &amp;&amp; new Date(obj.date) &lt;= new Date()) || environment == "development" ){ %&gt;
+    &lt;% if( !obj  || (obj.date &amp;&amp; new Date(obj.date) &lt;= new Date()) || environment == &quot;development&quot; ){ %&gt;
     &lt;%- yield %&gt;
     &lt;% } else { %&gt;
-    &lt;%- partial("404") %&gt;
+    &lt;%- partial(&quot;404&quot;) %&gt;
     &lt;% } %&gt;
-</code></pre>
-   <p>
-    We loop through our meta data, and if we don't have any object defined, we know
-that that's our index file, so we should display it. If we do have some data 
-defined, then we check if it should be published or not. Lastly, when you're
-working on something locally, you'll likely want to view it before it goes live.
-This is why we specify that it's ok to show the content if the
-    <code>
-     environment == "development"
-    </code>
-   </p>
-   <p>
-    If you want, right now you can modify index.ejs's
-   </p>
-   <pre><code>if(new Date(post.date) &lt;= new Date()){
-</code></pre>
-   <p>
-    line to
-   </p>
-   <pre><code> if(new Date(post.date) &lt;= new Date() || environment == "development"){
-</code></pre>
-   <p>
-    to let your future blog posts show on the index page if you're working locally 
-as well.
-   </p>
-   <p>
-    I use
-    <code>
-     .ejs
-    </code>
-    files due to personal preference, but it's possible to do the same
-thing as I did above with jade if you want to, though that's an exercise for the
-reader. ;)
-   </p>
-   <h4>
-    Step 5 - Protect your SEO! (Sitemap update)
-   </h4>
-   <p>
-    If you don't have a sitemap you can
-    <a href="http://www.ethanjoachimeldridge.info/tech-blog/xml-sitemap-for-harpjs">
-     make yourself one
-    </a>
-    and then come back, or 
+</code></pre><p>We loop through our meta data, and if we don&#39;t have any object defined, we know
+that that&#39;s our index file, so we should display it. If we do have some data 
+defined, then we check if it should be published or not. Lastly, when you&#39;re
+working on something locally, you&#39;ll likely want to view it before it goes live.
+This is why we specify that it&#39;s ok to show the content if the <code>environment == &quot;development&quot;</code></p>
+<p>If you want, right now you can modify index.ejs&#39;s</p>
+<pre><code>if(new Date(post.date) &lt;= new Date()){
+</code></pre><p>line to </p>
+<pre><code> if(new Date(post.date) &lt;= new Date() || environment == &quot;development&quot;){
+</code></pre><p>to let your future blog posts show on the index page if you&#39;re working locally 
+as well.</p>
+<p>I use <code>.ejs</code> files due to personal preference, but it&#39;s possible to do the same
+thing as I did above with jade if you want to, though that&#39;s an exercise for the
+reader. ;)</p>
+<h4>Step 5 - Protect your SEO! (Sitemap update)</h4><p>If you don&#39;t have a sitemap you can <a href="http://www.ethanjoachimeldridge.info/tech-blog/xml-sitemap-for-harpjs">make yourself one</a> and then come back, or 
 you can skip this section. The sitemap code is simple and we only need to change
-one part. Find the code that looks like this:
-   </p>
-   <pre><code>if(head['_data']){
-    obj = head['_data'][file]
+one part. Find the code that looks like this:</p>
+<pre><code>if(head[&#39;_data&#39;]){
+    obj = head[&#39;_data&#39;][file]
     if(obj &amp;&amp; obj.date){
         date = new Date(Date.parse(obj.date)).toISOString()
     }
 }
-</code></pre>
-   <p>
-    and add a small conditional to skip over any posts that are drafts or shouldn't be
-displayed:
-   </p>
-   <pre><code>if(head['_data']){
-       obj = head['_data'][file]
+</code></pre><p>and add a small conditional to skip over any posts that are drafts or shouldn&#39;t be
+displayed:</p>
+<pre><code>if(head[&#39;_data&#39;]){
+       obj = head[&#39;_data&#39;][file]
        if(obj &amp;&amp; obj.date){
            if(new Date(obj.date) &gt; new Date()){
                continue;
@@ -273,239 +178,132 @@ displayed:
            date = new Date(Date.parse(obj.date)).toISOString()
        }
 }
-</code></pre>
-   <p>
-    Also, you'll want to make sure the
-    <code>
-     _data.json
-    </code>
-    file has the following added to it:
-   </p>
-   <pre><code>"Sitemap" : {
-    "layout" : false
+</code></pre><p>Also, you&#39;ll want to make sure the <code>_data.json</code> file has the following added to it:</p>
+<pre><code>&quot;Sitemap&quot; : {
+    &quot;layout&quot; : false
 }
-</code></pre>
-   <p>
-    Otherwise you'll get XML format issues due to the html layout.
-   </p>
-   <h4>
-    Final Step - Miscellaneous auto-building
-   </h4>
-   <p>
-    If you're deployed your site to
-    <a href="https://www.harp.io/">
-     the harp platform
-    </a>
-    then you're done. If you're
-deploying just your static files to something like
-    <a href="https://pages.github.com/">
-     gh-pages
-    </a>
-    or Apache you'll 
-need some type of automatic build process to keep your site's pages publishing
-on schedule. For that I recommend something like
-   </p>
-   <pre><code>5 0 * * * * /path/to/your/directory/publish.sh
-</code></pre>
-   <p>
-    Where publish.sh is:
-   </p>
-   <pre><code>#/bin/sh
+</code></pre><p>Otherwise you&#39;ll get XML format issues due to the html layout.</p>
+<h4>Final Step - Miscellaneous auto-building</h4><p>If you&#39;re deployed your site to <a href="https://www.harp.io/">the harp platform</a> then you&#39;re done. If you&#39;re
+deploying just your static files to something like <a href="https://pages.github.com/">gh-pages</a> or Apache you&#39;ll 
+need some type of automatic build process to keep your site&#39;s pages publishing
+on schedule. For that I recommend something like</p>
+<pre><code>5 0 * * * * /path/to/your/directory/publish.sh
+</code></pre><p>Where publish.sh is:</p>
+<pre><code>#/bin/sh
 cd /path/to/your/directory/
 harp compile
-</code></pre>
-   <p>
-    And then you'll be compiling harp every day at 5 minutes after midnight. If you use
-gh-pages you'll probably want to add this cron task locally, if it's on a server
-then you'll want to do it up there. All in all it's pretty simple to add scheduled
-posts to your blog or site!
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="cgi-c-harp-1">
-       Let's make a chat server, Part 1
-      </a>
-     </li>
-     <li>
-      <a href="free-item-in-authorize-line-item-invalid">
-       Authorize LineItem's, mixed free and paid for causes error
-      </a>
-     </li>
-     <li>
-      <a href="cgi-c-harp-2">
-       Let's make a chat server, Part 2
-      </a>
-     </li>
-     <li>
-      <a href="privateTalk">
-       Private Talk and plans for some tutorials
-      </a>
-     </li>
-     <li>
-      <a href="cgi-c-harp-3">
-       Let's make a chat server, Part 3
-      </a>
-     </li>
-     <li>
-      <a href="harp-macro-revisit">
-       Harp CDN Macro Revisited
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+</code></pre><p>And then you&#39;ll be compiling harp every day at 5 minutes after midnight. If you use
+gh-pages you&#39;ll probably want to add this cron task locally, if it&#39;s on a server
+then you&#39;ll want to do it up there. All in all it&#39;s pretty simple to add scheduled
+posts to your blog or site! </p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=cgi-c-harp-1>Let&#39;s make a chat server, Part 1</a></li><li><a href=free-item-in-authorize-line-item-invalid>Authorize LineItem&#39;s, mixed free and paid for causes error</a></li><li><a href=cgi-c-harp-2>Let&#39;s make a chat server, Part 2</a></li><li><a href=privateTalk>Private Talk and plans for some tutorials</a></li><li><a href=cgi-c-harp-3>Let&#39;s make a chat server, Part 3</a></li><li><a href=harp-macro-revisit>Harp CDN Macro Revisited</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

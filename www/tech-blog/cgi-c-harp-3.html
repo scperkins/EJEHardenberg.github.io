@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Let's make a chat server, Part 3
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="Third installment of a C CGI and Harp powered chat platform. This post shows how to create the web interface to the server" name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="C,CGI,Harp,HarpJS,Chat,Server,tutorial,qdecoder,API,HTML,CSS,javascript,Ethan,Eldridge" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Let's make a chat server, Part 3" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="Third installment of a C CGI and Harp powered chat platform. This post shows how to create the web interface to the server" property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Let's make a chat server, Part 3" name="twitter:title"/>
-  <meta content="Third installment of a C CGI and Harp powered chat platform. This post shows how to create the web interface to the server" name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Let&#39;s make a chat server, Part 3</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Third installment of a C CGI and Harp powered chat platform. This post shows how to create the web interface to the server" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="C,CGI,Harp,HarpJS,Chat,Server,tutorial,qdecoder,API,HTML,CSS,javascript,Ethan,Eldridge"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Let&#39;s make a chat server, Part 3" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Third installment of a C CGI and Harp powered chat platform. This post shows how to create the web interface to the server" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Let&#39;s make a chat server, Part 3" />
+    
+    <meta name="twitter:description" content="Third installment of a C CGI and Harp powered chat platform. This post shows how to create the web interface to the server" />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,463 +46,183 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Let's make a chat server, Part 3
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    CGI with Harp and C - Web front end for the Chat Server
-   </h3>
-   <p>
-    If you haven't read the
-    <a href="http://www.ethanjoachimeldridge.info/tech-blog/cgi-c-harp-1">
-     first post
-    </a>
-    or the
-    <a href="http://www.ethanjoachimeldridge.info/tech-blog/cgi-c-harp-2">
-     previous post
-    </a>
-    you might want to do 
-that before starting this one! If you're looking for the source code for the finished
-project, you can find that
-    <a href="https://github.com/EdgeCaseBerg/chat-tutorial">
-     here on github
-    </a>
-    in my repositories. If you want to see
-and use the finished project you can do so
-    <a href="http://chat.ethanjoachimeldridge.info/">
-     right here
-    </a>
-    .
-   </p>
-   <h4>
-    The Plan
-   </h4>
-   <p>
-    In this post we're going to install
-    <a href="http://harpjs.com">
-     Harp
-    </a>
-    , and I'll show you some quick tricks 
-and recipes in making our site look decent. Once the layout is in place we'll connect
-the front end to the backend with some simple javascript using
-    <a href="http://jquery.com/">
-     jquery
-    </a>
-    .
-   </p>
-   <h4>
-    Install Harp
-   </h4>
-   <p>
-    The first we need to do is install harp onto our machines. Harp runs using Node,
-so we need to have that installed first. If you're using linux you can use
-    <code>
-     apt-get
-    </code>
-    or some other package manager to install Node and
-    <code>
-     npm
-    </code>
-    , if you're on windows
-then you can download Node from
-    <a href="http://nodejs.org/download/">
-     their download page
-    </a>
-    .
-   </p>
-   <p>
-    Once you have
-    <code>
-     npm
-    </code>
-    installed you can then follow the simple instructions on 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Let&#39;s make a chat server, Part 3</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>CGI with Harp and C - Web front end for the Chat Server</h3><p>If you haven&#39;t read the <a href="http://www.ethanjoachimeldridge.info/tech-blog/cgi-c-harp-1">first post</a> or the <a href="http://www.ethanjoachimeldridge.info/tech-blog/cgi-c-harp-2">previous post</a> you might want to do 
+that before starting this one! If you&#39;re looking for the source code for the finished
+project, you can find that <a href="https://github.com/EdgeCaseBerg/chat-tutorial">here on github</a> in my repositories. If you want to see
+and use the finished project you can do so <a href="http://chat.ethanjoachimeldridge.info/">right here</a>.</p>
+<h4>The Plan</h4><p>In this post we&#39;re going to install <a href="http://harpjs.com">Harp</a>, and I&#39;ll show you some quick tricks 
+and recipes in making our site look decent. Once the layout is in place we&#39;ll connect
+the front end to the backend with some simple javascript using <a href="http://jquery.com/">jquery</a>. </p>
+<h4>Install Harp</h4><p>The first we need to do is install harp onto our machines. Harp runs using Node,
+so we need to have that installed first. If you&#39;re using linux you can use <code>apt-get</code>
+or some other package manager to install Node and <code>npm</code>, if you&#39;re on windows
+then you can download Node from <a href="http://nodejs.org/download/">their download page</a>. </p>
+<p>Once you have <code>npm</code> installed you can then follow the simple instructions on 
 [harps quickstart page] to install it. To save you the click all you need to do
-is run:
-   </p>
-   <pre><code>npm install -g harp
-</code></pre>
-   <p>
-    <strong>
-     Note
-    </strong>
-    : If you're on windows Node comes with a command prompt you can do to run
-this, if you're on a *NIX system you can run the above on your terminal (might
-require sudo).
-   </p>
-   <p>
-    You've installed harp so now run the following commands to setup our website structure:
-   </p>
-   <pre><code>mkdir public
+is run:</p>
+<pre><code>npm install -g harp
+</code></pre><p><strong>Note</strong>: If you&#39;re on windows Node comes with a command prompt you can do to run
+this, if you&#39;re on a *NIX system you can run the above on your terminal (might
+require sudo).</p>
+<p>You&#39;ve installed harp so now run the following commands to setup our website structure:</p>
+<pre><code>mkdir public
 touch public/chat.js
 touch public/style.less
 touch public/_layout.ejs
 touch public/index.ejs
 touch harp.json
-</code></pre>
-   <h4>
-    Some basics in Harp
-   </h4>
-   <p>
-    With that, we have every file we need for our chat server. Let's do a basic "Hello World"
+</code></pre><h4>Some basics in Harp</h4><p>With that, we have every file we need for our chat server. Let&#39;s do a basic &quot;Hello World&quot;
 for harp now to verify that everything is working properly. First off, we need to 
-define the layout of our page. To quote [harp's layout documentation]
-   </p>
-   <p>
-    <q>
-     A Layout is a common template that includes all content except for one main content area. You can think of a Layout as the inverse of a partial.
-    </q>
-   </p>
-   <p>
-    in other words, your layout defines the parts of your website that don't change from
-page to page. With harp, you can specify layout's for different pages, or even tell
-it to not use one at all. By default, Harp will look for a file named
-    <strong>
-     _layout
-    </strong>
-    with an extension it recognizes (
-    <em>
-     .ejs
-    </em>
-    ,
-    <em>
-     .jade
-    </em>
-    ,
-    <em>
-     .html
-    </em>
-    ).
-   </p>
-   <p>
-    Now that I've mentioned layout's it bears to say that I should mention partials as 
-well. We're not using any here for our small site, but if you're going to learn about
-Harp, by jove you're going to learn about
-    <a href="http://harpjs.com/docs/development/partial">
-     partials
-    </a>
-    ! A partial is similar to a php
-script that is
-    <code>
-     include
-    </code>
-    'd into another script. Within a Harp template you can use
-the following ejs or jade to bring in another harp file:
-   </p>
-   <pre><code>&lt;%- partial("_header") %&gt; //in .ejs
-!= partial("_header") //in jade
-</code></pre>
-   <p>
-    It's also possible to pass parameters to your partials, but you can check out the
-excellent documentation on
-    <a href="http://harpjs.com/docs/development/partial">
-     partials
-    </a>
-    to read about that. Just becuase you're writing
-an ejs file does not mean you can't include a jade file. That's one of the beauties
-of harp, you can mix and match and get what you expect.
-   </p>
-   <p>
-    Next up on our list of basics, data files! Harp supports two data files,
-    <strong>
-     harp.json
-    </strong>
-    and
-    <strong>
-     _data.json
-    </strong>
-    . The file we'll be using is
-    <strong>
-     harp.json
-    </strong>
-    , which is a global data
+define the layout of our page. To quote [harp&#39;s layout documentation]</p>
+<p><q>A Layout is a common template that includes all content except for one main content area. You can think of a Layout as the inverse of a partial.</q></p>
+<p>in other words, your layout defines the parts of your website that don&#39;t change from
+page to page. With harp, you can specify layout&#39;s for different pages, or even tell
+it to not use one at all. By default, Harp will look for a file named <strong>_layout</strong>
+with an extension it recognizes (<em>.ejs</em>, <em>.jade</em>, <em>.html</em>).</p>
+<p>Now that I&#39;ve mentioned layout&#39;s it bears to say that I should mention partials as 
+well. We&#39;re not using any here for our small site, but if you&#39;re going to learn about
+Harp, by jove you&#39;re going to learn about <a href="http://harpjs.com/docs/development/partial">partials</a>! A partial is similar to a php
+script that is <code>include</code>&#39;d into another script. Within a Harp template you can use
+the following ejs or jade to bring in another harp file:</p>
+<pre><code>&lt;%- partial(&quot;_header&quot;) %&gt; //in .ejs
+!= partial(&quot;_header&quot;) //in jade
+</code></pre><p>It&#39;s also possible to pass parameters to your partials, but you can check out the
+excellent documentation on <a href="http://harpjs.com/docs/development/partial">partials</a> to read about that. Just becuase you&#39;re writing
+an ejs file does not mean you can&#39;t include a jade file. That&#39;s one of the beauties
+of harp, you can mix and match and get what you expect.</p>
+<p>Next up on our list of basics, data files! Harp supports two data files, <strong>harp.json</strong>
+and <strong>_data.json</strong>. The file we&#39;ll be using is <strong>harp.json</strong>, which is a global data
 file accessible from your code anywhere in your ejs or jade files. You cannot access
 this or any other data object within markdown, html, or any other file besides those
-two. Since
-    <strong>
-     harp.json
-    </strong>
-    is a global data sheet, that means
-    <strong>
-     _data.json
-    </strong>
-    is ...
+two. Since <strong>harp.json</strong> is a global data sheet, that means <strong>_data.json</strong> is ...
 you guessed it, a data file specific to something. Specifically, each directory
-can have one copy of
-    <strong>
-     _data.json
-    </strong>
-    with an object of objects stored in the lovely
-JSON format.
-   </p>
-   <p>
-    Something you might have noticed about harp filenames is that a few I've mentioned
-start off with an underscore. This isn't an accident. Any file you start with
-    <code>
-     _
-    </code>
-    will be ignored when harp looks to display files. This means that a file
-    <code>
-     _index.html
-    </code>
-    will not be shown to the user even if they navigate to the URL where you'd expect it.
-This doesn't just apply to files though, you can start directory names with one
-and harp won't allow public access to anything inside. This isn't to say that harp
-itself can't get to them though. In fact, the common usage of the underscore, besides
-the
-    <strong>
-     _data.json
-    </strong>
-    files are to store things like partials, headers, or other 
-repeatable code that occurs in multiple templates.
-   </p>
-   <p>
-    We only need one more tool in our arsenal before we can get to the code. The ability
-to render content within a layout. This is done by the use of the
-    <code>
-     yield
-    </code>
-    variable.
-You can read all the nitty gritty about
-    <a href="http://harpjs.com/docs/development/yield">
-     yield here
-    </a>
-    , but it's actually quite 
-simple to use and understand. It's a variable that contains the contents of whatever
-you're trying to view. If you've navigated to a directory, the index pages contents
-will be inserted into the
-    <code>
-     yield
-    </code>
-    variable. Gone to a blog post? That information
-you want to share is in the variable. Simple.
-   </p>
-   <p>
-    With all of that out of the way, this is what our
-    <strong>
-     harp.json
-    </strong>
-    file looks like:
-   </p>
-   <p>
-    <em>
-     harp.json
-    </em>
-   </p>
-   <pre><code>{
-    "globals" : {
-        "title" : "Temporary Chat",
-        "description" : "Chat with whoever is online, yourself, or nobody! A sample chat server made in a tutorial by Ethan Joachim Eldridge",
-        "chatdomain" : "//www.chat.dev/chat"
+can have one copy of <strong>_data.json</strong> with an object of objects stored in the lovely
+JSON format.</p>
+<p>Something you might have noticed about harp filenames is that a few I&#39;ve mentioned
+start off with an underscore. This isn&#39;t an accident. Any file you start with <code>_</code>
+will be ignored when harp looks to display files. This means that a file <code>_index.html</code>
+will not be shown to the user even if they navigate to the URL where you&#39;d expect it.
+This doesn&#39;t just apply to files though, you can start directory names with one
+and harp won&#39;t allow public access to anything inside. This isn&#39;t to say that harp
+itself can&#39;t get to them though. In fact, the common usage of the underscore, besides
+the <strong>_data.json</strong> files are to store things like partials, headers, or other 
+repeatable code that occurs in multiple templates.</p>
+<p>We only need one more tool in our arsenal before we can get to the code. The ability
+to render content within a layout. This is done by the use of the <code>yield</code> variable.
+You can read all the nitty gritty about <a href="http://harpjs.com/docs/development/yield">yield here</a>, but it&#39;s actually quite 
+simple to use and understand. It&#39;s a variable that contains the contents of whatever
+you&#39;re trying to view. If you&#39;ve navigated to a directory, the index pages contents
+will be inserted into the <code>yield</code> variable. Gone to a blog post? That information
+you want to share is in the variable. Simple.</p>
+<p>With all of that out of the way, this is what our <strong>harp.json</strong> file looks like:</p>
+<p><em>harp.json</em></p>
+<pre><code>{
+    &quot;globals&quot; : {
+        &quot;title&quot; : &quot;Temporary Chat&quot;,
+        &quot;description&quot; : &quot;Chat with whoever is online, yourself, or nobody! A sample chat server made in a tutorial by Ethan Joachim Eldridge&quot;,
+        &quot;chatdomain&quot; : &quot;//www.chat.dev/chat&quot;
     }
 }
-</code></pre>
-   <p>
-    We've defined the global properties of our website. Besides the
-    <code>
-     globals
-    </code>
-    field 
+</code></pre><p>We&#39;ve defined the global properties of our website. Besides the <code>globals</code> field 
 all of these properties are arbitrary. You can store whatever you normally store
-into a JSON object for use in your site. On my own site
-    <a href="http://www.ethanjoachimeldridge.info/tech-blog/harp-macro-revisit">
-     I store CDN
-    </a>
-    url's, [macro functions],
-and even a list of projects. For our server, we've created a sitewide title and description
-as well as defined a
-    <code>
-     chatdomain
-    </code>
-    . This domain is going to be a property we use
-in our javascripts to tell the front end where to submit requests to.
-   </p>
-   <p>
-    <strong>
-     Note
-    </strong>
-    : Readers of the
-    <a href="http://www.ethanjoachimeldridge.info/tech-blog/cgi-c-harp-2">
-     previous post
-    </a>
-    will note that
-    <code>
-     chatdomain
-    </code>
-    is our CGI URL.
-   </p>
-   <p>
-    Our layout is going to be pretty generic, but we don't need much for this:
-   </p>
-   <pre><code>&lt;!DOCTYPE html&gt;
+into a JSON object for use in your site. On my own site <a href="http://www.ethanjoachimeldridge.info/tech-blog/harp-macro-revisit">I store CDN</a> url&#39;s, [macro functions],
+and even a list of projects. For our server, we&#39;ve created a sitewide title and description
+as well as defined a <code>chatdomain</code>. This domain is going to be a property we use
+in our javascripts to tell the front end where to submit requests to. </p>
+<p><strong>Note</strong>: Readers of the <a href="http://www.ethanjoachimeldridge.info/tech-blog/cgi-c-harp-2">previous post</a> will note that <code>chatdomain</code> is our CGI URL.</p>
+<p>Our layout is going to be pretty generic, but we don&#39;t need much for this:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
     &lt;head&gt;
         &lt;title&gt;&lt;%= title %&gt;&lt;/title&gt;
-        &lt;meta http-equiv="content-type" content="text/html; charset=utf-8" /&gt;
-        &lt;meta name="description" content="&lt;%= description %&gt;" /&gt;
-        &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
-        &lt;link rel="stylesheet" type="text/css" href="/style.css"&gt;
+        &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+        &lt;meta name=&quot;description&quot; content=&quot;&lt;%= description %&gt;&quot; /&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/style.css&quot;&gt;
     &lt;/head&gt;
     &lt;body&gt;
         &lt;%- yield %&gt;
     &lt;/body&gt;
-    &lt;script type="text/javascript"&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
         /* Globals for use by the scripts */
-        window.chatdomain = "&lt;%= chatdomain %&gt;"
+        window.chatdomain = &quot;&lt;%= chatdomain %&gt;&quot;
     &lt;/script&gt;
-    &lt;script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
-    &lt;script type="text/javascript" src="/chat.js"&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;/chat.js&quot;&gt;&lt;/script&gt;
 &lt;/html&gt;
-</code></pre>
-   <p>
-    So here we have our first ejs file, if we want to output some variable we wrap it
-in
-    <code>
-     &lt;%
-    </code>
-    and
-    <code>
-     %&gt;
-    </code>
-    tags. Once we do this harp will lookup our variable for us and 
+</code></pre><p>So here we have our first ejs file, if we want to output some variable we wrap it
+in <code>&lt;%</code> and <code>%&gt;</code> tags. Once we do this harp will lookup our variable for us and 
 spit it out (provided it exists). When harp performs a lookup, any data in the
-current directory's
-    <strong>
-     _data.json
-    </strong>
-    file will override anything in the
-    <strong>
-     harp.json
-    </strong>
-    global file. This is useful for having a fall back title in your global and then
-having specific ones for each page of your site.
-   </p>
-   <p>
-    In our case, we are spitting out a global javascript variable
-    <code>
-     chatdomain
-    </code>
-    and 
+current directory&#39;s <strong>_data.json</strong> file will override anything in the <strong>harp.json</strong> 
+global file. This is useful for having a fall back title in your global and then
+having specific ones for each page of your site. </p>
+<p>In our case, we are spitting out a global javascript variable <code>chatdomain</code> and 
 attaching it to the window object of the browser. This will allow any of our 
-javascript files to use the URL stored in
-    <strong>
-     harp.json
-    </strong>
-    to find out where the CGI
-server is. We're also using
-    <a href="http://cdnjs.com/">
-     cloudfare's javascript
-    </a>
-    CDN to get jquery onto our 
-site without having to download anything to any local environments.
-   </p>
-   <h4>
-    Designing our interface
-   </h4>
-   <p>
-    Most people in their twenties know what a chatroom looked like, after all, before
+javascript files to use the URL stored in <strong>harp.json</strong> to find out where the CGI
+server is. We&#39;re also using <a href="http://cdnjs.com/">cloudfare&#39;s javascript</a> CDN to get jquery onto our 
+site without having to download anything to any local environments. </p>
+<h4>Designing our interface</h4><p>Most people in their twenties know what a chatroom looked like, after all, before
 we had Facebook and g+ we had AIM, IRC, and chatrooms everywhere. The internet was
 a wild place of pop-up ads, too many windows open, and being constantly asked for your A/S/L.
-There's less of that now, but the interface to a chat still typically looks something like 
-this:
-   </p>
-   <p>
-    <img height="400px" src="/images/tech-blog/chat-diagram.png" style="padding-left: 25%" width="500px"/>
-   </p>
-   <p>
-    We're going to make something similar to this, in that we'll have a main window
+There&#39;s less of that now, but the interface to a chat still typically looks something like 
+this:</p>
+<p><img src="/images/tech-blog/chat-diagram.png" width="500px" height="400px" style="padding-left: 25%"></p>
+<p>We&#39;re going to make something similar to this, in that we&#39;ll have a main window
 area to display the current chat going on, and a dialog box of some kind to send
-messages. Don't worry it will have a
-    <em>
-     much
-    </em>
-    better color scheme and presentation.
-I promise. That said, let's get some code onto the screen:
-   </p>
-   <p>
-    <em>
-     index.ejs
-    </em>
-   </p>
-   <pre><code>&lt;header&gt;
+messages. Don&#39;t worry it will have a <em>much</em> better color scheme and presentation.
+I promise. That said, let&#39;s get some code onto the screen:</p>
+<p><em>index.ejs</em></p>
+<pre><code>&lt;header&gt;
     &lt;h1&gt;&lt;%= title %&gt;&lt;/h1&gt;
-    &lt;small&gt;Talk to random people, you never know who you'll talk to!&lt;/small&gt;
+    &lt;small&gt;Talk to random people, you never know who you&#39;ll talk to!&lt;/small&gt;
 &lt;/header&gt;
 &lt;section&gt;
-    &lt;form action="/chat/chat.cgi" method="POST"&gt;
-        &lt;input name="u" placeholder="Enter your chat handle"&gt;
+    &lt;form action=&quot;/chat/chat.cgi&quot; method=&quot;POST&quot;&gt;
+        &lt;input name=&quot;u&quot; placeholder=&quot;Enter your chat handle&quot;&gt;
         &lt;sup&gt;
-            &lt;span name="updates"&gt;&lt;/span&gt;
+            &lt;span name=&quot;updates&quot;&gt;&lt;/span&gt;
         &lt;/sup&gt;
         &lt;button&gt;Send&lt;/button&gt;
         &lt;label&gt;
             &lt;small&gt;Press Enter to Send&lt;/small&gt;
-            &lt;input type="checkbox" name="entersend"  /&gt;
+            &lt;input type=&quot;checkbox&quot; name=&quot;entersend&quot;  /&gt;
         &lt;/label&gt;
-        &lt;textarea name="m" placeholder="type your message here and press send"&gt;&lt;/textarea&gt;
+        &lt;textarea name=&quot;m&quot; placeholder=&quot;type your message here and press send&quot;&gt;&lt;/textarea&gt;
 
     &lt;/form&gt;
 &lt;/section&gt;
 &lt;section&gt;
-    &lt;div id="history"&gt;
+    &lt;div id=&quot;history&quot;&gt;
         &lt;marquee&gt;Loading&lt;/marquee&gt;
         &lt;!-- inline becuase pre refuses to listen to us sometimes --&gt;
-        &lt;pre style="margin: 5px; word-wrap: break-word; overflow-y: auto; max-height: 300px;"&gt;&lt;/pre&gt;
+        &lt;pre style=&quot;margin: 5px; word-wrap: break-word; overflow-y: auto; max-height: 300px;&quot;&gt;&lt;/pre&gt;
     &lt;/div&gt;
 &lt;/section&gt;
-</code></pre>
-   <p>
-    When rendered in a browser we get a bundle of elements on our page:
-   </p>
-   <p>
-    <img height="198" src="/images/tech-blog/elements-of-chat.png" style="padding-left: 25%" width="544"/>
-   </p>
-   <p>
-    Yes, we're using a marquee tag. Why not? I like to have some fun with my HTML. And
-sadly, the
-    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blink">
-     blink tag
-    </a>
-    is deprecated. It makes a decent loading animation if you
-don't want to use something like
-    <a href="http://ajaxload.info/">
-     this
-    </a>
-    to make a nice loading image. Note that
-our form is posting to our CGI script that will create a message for us. We've
+</code></pre><p>When rendered in a browser we get a bundle of elements on our page:</p>
+<p><img src="/images/tech-blog/elements-of-chat.png" width="544" height="198" style="padding-left: 25%"></p>
+<p>Yes, we&#39;re using a marquee tag. Why not? I like to have some fun with my HTML. And
+sadly, the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blink">blink tag</a> is deprecated. It makes a decent loading animation if you
+don&#39;t want to use something like <a href="http://ajaxload.info/">this</a> to make a nice loading image. Note that
+our form is posting to our CGI script that will create a message for us. We&#39;ve
 also put a send button in place, as well as the option to use enter to send instead
-of pressing the button. We'll wire this whole thing up after we've made it acceptable
-to look at.
-   </p>
-   <h4>
-    Styling our site
-   </h4>
-   <p>
-    One of the many reasons I use
-    <a href="http://harpjs.com">
-     Harp
-    </a>
-    is for the native
-    <a href="http://lesscss.org/">
-     less
-    </a>
-    support. I love being
-able to write my CSS in a hierarchical way. If you haven't used
-    <a href="http://lesscss.org/">
-     less
-    </a>
-    before, 
-there's no reason to fear! I'm sure you'll understand it with just a single glance 
-at it:
-   </p>
-   <pre><code>@bgcolor: #F24E20;
+of pressing the button. We&#39;ll wire this whole thing up after we&#39;ve made it acceptable
+to look at.</p>
+<h4>Styling our site</h4><p>One of the many reasons I use <a href="http://harpjs.com">Harp</a> is for the native <a href="http://lesscss.org/">less</a> support. I love being
+able to write my CSS in a hierarchical way. If you haven&#39;t used <a href="http://lesscss.org/">less</a> before, 
+there&#39;s no reason to fear! I&#39;m sure you&#39;ll understand it with just a single glance 
+at it:</p>
+<pre><code>@bgcolor: #F24E20;
 
 html{
     font-family: Georgia, Serif;
@@ -591,154 +322,62 @@ button:active {
    border-top-color: #1b435e;
    background: #1b435e;
    }
-</code></pre>
-   <p>
-    A couple things, you can pretty much ignore the button css, all of that was
-    <a href="http://css-tricks.com/examples/ButtonMaker/#">
-     generated here
-    </a>
-    because I'm too lazy to spend a lot of time on a gradient. But
+</code></pre><p>A couple things, you can pretty much ignore the button css, all of that was 
+<a href="http://css-tricks.com/examples/ButtonMaker/#">generated here</a> because I&#39;m too lazy to spend a lot of time on a gradient. But
 the rest of the code is all mine and yours. The color theme exists to show you
-that the
-    <code>
-     darken
-    </code>
-    function of less is very cool. Also, you'll notice that we have
+that the <code>darken</code> function of less is very cool. Also, you&#39;ll notice that we have
 a variable controlling the color scheme of the page. Variables in less begin with
-an
-    <code>
-     @
-    </code>
-    sign, and are declared the same as other CSS properties, like so:
-   </p>
-   <pre><code>@somevar: sameval;
-</code></pre>
-   <p>
-    Another thing to notice is the nesting of elements, this is the hierachical structuring
+an <code>@</code> sign, and are declared the same as other CSS properties, like so:</p>
+<pre><code>@somevar: sameval;
+</code></pre><p>Another thing to notice is the nesting of elements, this is the hierachical structuring
 of less that I was talking about. It is very intuitive to follow that the CSS rules
 apply with the cascade of nesting and only there. Writing the same thing in plain
 CSS would take a good amount more code and be far less readable. Also, harp minifies
-your assets for you, so you don't have to go to an outside tool for that either!
-   </p>
-   <p>
-    Once the above css is in place, the chat screen will now look like this:
-   </p>
-   <p>
-    <img height="362px" src="/images/tech-blog/chat-styled.png" style="padding-left: 25%" width="600px"/>
-   </p>
-   <p>
-    Which is far better than a mess of elements on the screen. It's certainly not the
-most beautiful thing in the world, but it's good enough for this tutorial. We're
-almost done with our chat server now! We just need to wire the components up!
-   </p>
-   <p>
-    <strong>
-     Note:
-    </strong>
-    <small>
-     if you want to run your website with harp and tweak the styles, you 
-can use
-     <code>
-      harp server
-     </code>
-     from the root of the project to run a local server on port 9000
-    </small>
-   </p>
-   <h4>
-    Connecting Front to Back
-   </h4>
-   <p>
-    The last thing we need to do is handle the javascript talking to our CGI scripts.
-The high level view of what we're going to do is the following:
-   </p>
-   <ul>
-    <li>
-     check that the server is online
-    </li>
-    <li>
-     poll the server for updates
-    </li>
-    <li>
-     create a user handle and keep it
-    </li>
-    <li>
-     send a message
-    </li>
-    <li>
-     recieve all messages
-    </li>
-   </ul>
-   <p>
-    This is not an extensive list of things to do, so let's dive in:
-   </p>
-   <h5>
-    Some setup
-   </h5>
-   <p>
-    <em>
-     chat.js
-    </em>
-   </p>
-   <pre><code>jQuery( document ).ready(function( $ ) {
-    var heartbeatURL = window.chatdomain + "/heartbeat.cgi"
-    var pollURL = window.chatdomain + "/poll.cgi"
-    var readURL = window.chatdomain + "/read.cgi"
+your assets for you, so you don&#39;t have to go to an outside tool for that either!</p>
+<p>Once the above css is in place, the chat screen will now look like this:</p>
+<p><img src="/images/tech-blog/chat-styled.png" width="600px" height="362px" style="padding-left: 25%"></p>
+<p>Which is far better than a mess of elements on the screen. It&#39;s certainly not the
+most beautiful thing in the world, but it&#39;s good enough for this tutorial. We&#39;re
+almost done with our chat server now! We just need to wire the components up!</p>
+<p><strong>Note:</strong> <small>if you want to run your website with harp and tweak the styles, you 
+can use <code>harp server</code> from the root of the project to run a local server on port 9000</small></p>
+<h4>Connecting Front to Back</h4><p>The last thing we need to do is handle the javascript talking to our CGI scripts.
+The high level view of what we&#39;re going to do is the following:</p>
+<ul>
+<li>check that the server is online</li>
+<li>poll the server for updates</li>
+<li>create a user handle and keep it</li>
+<li>send a message</li>
+<li>recieve all messages</li>
+</ul>
+<p>This is not an extensive list of things to do, so let&#39;s dive in:</p>
+<h5>Some setup</h5><p><em>chat.js</em></p>
+<pre><code>jQuery( document ).ready(function( $ ) {
+    var heartbeatURL = window.chatdomain + &quot;/heartbeat.cgi&quot;
+    var pollURL = window.chatdomain + &quot;/poll.cgi&quot;
+    var readURL = window.chatdomain + &quot;/read.cgi&quot;
     var serverUp = true
 
 })
-</code></pre>
-   <p>
-    <strong>
-     Note
-    </strong>
-    :
-    <small>
-     All javascript code from this point on will be within the
-     <code>
-      .ready
-     </code>
-     's callback function
-    </small>
-   </p>
-   <p>
-    Remember
-    <strong>
-     chat.js
-    </strong>
-    ? We created this file at the beginning of this tutorial, and
-now it's time to fill it out. We define a couple convenience URL's so that we 
+</code></pre><p><strong>Note</strong>: <small>All javascript code from this point on will be within the <code>.ready</code>&#39;s callback function</small></p>
+<p>Remember <strong>chat.js</strong>? We created this file at the beginning of this tutorial, and
+now it&#39;s time to fill it out. We define a couple convenience URL&#39;s so that we 
 can easily change them if the scripts change. This is why we attached the chatdomain 
-to the window object, so we could grab it easily here.
-   </p>
-   <h5>
-    Checking the pulse of the server
-   </h5>
-   <p>
-    To make sure we have a connection to the server we can poll out heartbeat script 
-and check the
-    <code>
-     initialized
-    </code>
-    field of the returned object. If this is false we know
-something is up and we shouldn't allow the user to do anything:
-   </p>
-   <pre><code>Content-Type: application/JSON
+to the window object, so we could grab it easily here.</p>
+<h5>Checking the pulse of the server</h5><p>To make sure we have a connection to the server we can poll out heartbeat script 
+and check the <code>initialized</code> field of the returned object. If this is false we know
+something is up and we shouldn&#39;t allow the user to do anything:</p>
+<pre><code>Content-Type: application/JSON
 
-{ "heartbeat" : 1408764565, "initialized" : true }
-</code></pre>
-   <p>
-    If we get a response like the above then we know we're still connected and don't
-need to disable the chatting functions of the server. We'll be using the
-    <code>
-     serverUp
-    </code>
-    variable to keep track of whether or not our functions should allow users to chat. 
-So let's define a couple of utility functions to make our code cleaner later:
-   </p>
-   <pre><code>var userInputs = 'input,textarea,button'
+{ &quot;heartbeat&quot; : 1408764565, &quot;initialized&quot; : true }
+</code></pre><p>If we get a response like the above then we know we&#39;re still connected and don&#39;t
+need to disable the chatting functions of the server. We&#39;ll be using the <code>serverUp</code> 
+variable to keep track of whether or not our functions should allow users to chat. 
+So let&#39;s define a couple of utility functions to make our code cleaner later:</p>
+<pre><code>var userInputs = &#39;input,textarea,button&#39;
 function modifyInputs(onOrOff){
-    $(userInputs).prop('disable',onOrOff)
-    $(userInputs).prop('readonly',onOrOff)
+    $(userInputs).prop(&#39;disable&#39;,onOrOff)
+    $(userInputs).prop(&#39;readonly&#39;,onOrOff)
 }
 function disableInputs(){
     modifyInputs(true);
@@ -749,71 +388,47 @@ function enableInputs(){
     modifyInputs(false)
     setTimeout(doServerPoll, 1000)
 }
-</code></pre>
-   <p>
-    These functions simply toggle the state of user controls for inputting text. Note
-that this doesn't stop the button from submitting in all browsers, but we'll be 
-handling that one in a difference way through our serverUp variable. We're also 
-calling a couple of functions
-    <code>
-     doHeartbeat
-    </code>
-    and
-    <code>
-     doServerPoll
-    </code>
-    which we'll get to
-in a moment.
-   </p>
-   <p>
-    To check our server we'll send a heartbeat request to our CGI script and check the 
+</code></pre><p>These functions simply toggle the state of user controls for inputting text. Note
+that this doesn&#39;t stop the button from submitting in all browsers, but we&#39;ll be 
+handling that one in a difference way through our serverUp variable. We&#39;re also 
+calling a couple of functions <code>doHeartbeat</code> and <code>doServerPoll</code> which we&#39;ll get to
+in a moment.</p>
+<p>To check our server we&#39;ll send a heartbeat request to our CGI script and check the 
 initialized field of the returned object. If we run into any sort of error on the
-way, we'll treat it as a failure then keep repeating our heartbeat until something 
-works.
-   </p>
-   <pre><code>function doHeartBeat(){
+way, we&#39;ll treat it as a failure then keep repeating our heartbeat until something 
+works.</p>
+<pre><code>function doHeartBeat(){
     $.ajax({
-        type: "GET",
+        type: &quot;GET&quot;,
         url: heartbeatURL,
         success: function(response){
             serverUp = response.initialized         
-            $('marquee').text("Loaded!").blur()
-            $('marquee').fadeTo("slow",0.0)
-            $('#history').fadeTo("fast",1.0)
+            $(&#39;marquee&#39;).text(&quot;Loaded!&quot;).blur()
+            $(&#39;marquee&#39;).fadeTo(&quot;slow&quot;,0.0)
+            $(&#39;#history&#39;).fadeTo(&quot;fast&quot;,1.0)
             if(serverUp) enableInputs()
             else disableInputs()
         },
         error: function(){
-            $('marquee').fadeTo("slow",1.0)
-            $('marquee').text("Could not connect to server,retrying in 1 second").blur()
-            $('#history').fadeTo("slow",.2)
+            $(&#39;marquee&#39;).fadeTo(&quot;slow&quot;,1.0)
+            $(&#39;marquee&#39;).text(&quot;Could not connect to server,retrying in 1 second&quot;).blur()
+            $(&#39;#history&#39;).fadeTo(&quot;slow&quot;,.2)
             disableInputs()
 
         }
     })
 }
-</code></pre>
-   <p>
-    There's nothing hard about this code, it simply performs an AJAX request in order 
+</code></pre><p>There&#39;s nothing hard about this code, it simply performs an AJAX request in order 
 to accomplish what we literally just described. A heartbeat server check and an 
-initialization of our Chat server's javascript functionality.
-   </p>
-   <h5>
-    Polling for updates
-   </h5>
-   <p>
-    The next thing we need to do is to begin Polling the server for data. This is accomplished 
-in the function
-    <code>
-     doServerPoll
-    </code>
-   </p>
-   <pre><code>var first = true
+initialization of our Chat server&#39;s javascript functionality.</p>
+<h5>Polling for updates</h5><p>The next thing we need to do is to begin Polling the server for data. This is accomplished 
+in the function <code>doServerPoll</code></p>
+<pre><code>var first = true
 var lastUpdatedTime = (new Date().getTime()/1000).toFixed(0)
 function doServerPoll(){
     $.ajax({
-        type: "GET",
-        url: pollURL + "?date=" + lastUpdatedTime,
+        type: &quot;GET&quot;,
+        url: pollURL + &quot;?date=&quot; + lastUpdatedTime,
         success: function(response){
             if( response.updated || first){
                 first = false
@@ -823,160 +438,116 @@ function doServerPoll(){
         },
         error: function(){
             serverUp = false
-            alert("Connection to Server Lost! Reconnecting...")
+            alert(&quot;Connection to Server Lost! Reconnecting...&quot;)
             doHeartBeat()
         }
     })
 }
-</code></pre>
-   <p>
-    This function call is pretty similar to the heartbeat besides we have to handle the
-very first call to it. In our first call we need to get the chat history, which we'll 
-do with the function
-    <code>
-     getChatHistory
-    </code>
-    (not coded yet). We're sending a request to 
-poll the server if there are any updates to the chat history, and if so, we'll display 
+</code></pre><p>This function call is pretty similar to the heartbeat besides we have to handle the
+very first call to it. In our first call we need to get the chat history, which we&#39;ll 
+do with the function <code>getChatHistory</code> (not coded yet). We&#39;re sending a request to 
+poll the server if there are any updates to the chat history, and if so, we&#39;ll display 
 them with the chat history function. If we fail we begin checking the heartbeat of 
-the server again where we'll start the whole process over again. This function, like
-    <code>
-     doHeartBeat
-    </code>
-    is recursive, calling
-    <code>
-     setTimeout
-    </code>
-    with functions that call itself. Taken 
-as a whole, the heartbeat and the polling create a timed loop on our page.
-   </p>
-   <h5>
-    Saving the User's handle and persisting it
-   </h5>
-   <p>
-    Our user's need to have names, otherwise we wouldn't be able to tell them apart. 
-Since we have a place to store the user's name all we have to do is monitor that 
-and update a cookie on our users browser whenever neccesary. Because we're saving 
-the information in a cookie we'll be able to remember the user's name whenever 
-they come back to our page.
-   </p>
-   <p>
-    The cookie format is a simple one, and there exist many javascript wrapper libraries 
+the server again where we&#39;ll start the whole process over again. This function, like 
+<code>doHeartBeat</code> is recursive, calling <code>setTimeout</code> with functions that call itself. Taken 
+as a whole, the heartbeat and the polling create a timed loop on our page.</p>
+<h5>Saving the User&#39;s handle and persisting it</h5><p>Our user&#39;s need to have names, otherwise we wouldn&#39;t be able to tell them apart. 
+Since we have a place to store the user&#39;s name all we have to do is monitor that 
+and update a cookie on our users browser whenever neccesary. Because we&#39;re saving 
+the information in a cookie we&#39;ll be able to remember the user&#39;s name whenever 
+they come back to our page. </p>
+<p>The cookie format is a simple one, and there exist many javascript wrapper libraries 
 out there that take care of the minutiae of dealing with it for you. But since our 
-use case is
-    <em>
-     so
-    </em>
-    simple we're just going to set it directly.
-   </p>
-   <pre><code>var cookieName = "userhandle"
+use case is <em>so</em> simple we&#39;re just going to set it directly.</p>
+<pre><code>var cookieName = &quot;userhandle&quot;
 function setUserHandle(){
-    var value = $('input[name=u]').val()
-    if(value.trim() == "") return;
+    var value = $(&#39;input[name=u]&#39;).val()
+    if(value.trim() == &quot;&quot;) return;
     var date = new Date();
     date.setTime(date.getTime()+(365*24*60*60*1000));
-    var expires = "; expires="+date.toGMTString();
+    var expires = &quot;; expires=&quot;+date.toGMTString();
 
-    document.cookie = cookieName+"="+value+expires+"; path=/";
+    document.cookie = cookieName+&quot;=&quot;+value+expires+&quot;; path=/&quot;;
 }
 
 function readUserHandle() {
-    var nameEQ = cookieName + "=";
-    var ca = document.cookie.split(';');
+    var nameEQ = cookieName + &quot;=&quot;;
+    var ca = document.cookie.split(&#39;;&#39;);
     for(var i=0;i &lt; ca.length;i++) {
         var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        while (c.charAt(0)==&#39; &#39;) c = c.substring(1,c.length);
         if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
     }
     return null;
 }
-</code></pre>
-   <p>
-    Both of these functions are modified versions of
-    <a href="http://stackoverflow.com/a/24103596/1808164">
-     this S.O answer
-    </a>
-    that have been 
+</code></pre><p>Both of these functions are modified versions of <a href="http://stackoverflow.com/a/24103596/1808164">this S.O answer</a> that have been 
 changed to fit into our single cookie use case. With these two utility functions 
 we can automatically set the users name or change it whenever they want. To facilitate 
-this, we'll use jQuery to add an event handler onto the input.
-   </p>
-   <pre><code>var savedHandle = readUserHandle()
+this, we&#39;ll use jQuery to add an event handler onto the input.</p>
+<pre><code>var savedHandle = readUserHandle()
 if(savedHandle != null){
-    $('input[name=u]').val(savedHandle)
+    $(&#39;input[name=u]&#39;).val(savedHandle)
 }
-$('input[name=u]').on('keyup',setUserHandle)
-$('input[name=u]').on('change',setUserHandle)
-</code></pre>
-   <p>
-    Whenever a user presses a key or moves their focus outside of the user input box 
-we'll set the handle cookie. In addition, we come to the first line of code that 
-aren't just function calls! When the page loads we'll grab the cookie of the user 
-and if it exists we'll set the input to that value. In this way, we provide the 
-user with the pleasant experience of not having to enter their handle everytime.
-   </p>
-   <h5>
-    Sending the server a message
-   </h5>
-   <p>
-    While you can post the form right now and it will submit, it's not very helpful 
-to send the user
-    <strong>
-     away
-    </strong>
-    from the screen they're on for a live chat experience. 
+$(&#39;input[name=u]&#39;).on(&#39;keyup&#39;,setUserHandle)
+$(&#39;input[name=u]&#39;).on(&#39;change&#39;,setUserHandle)
+</code></pre><p>Whenever a user presses a key or moves their focus outside of the user input box 
+we&#39;ll set the handle cookie. In addition, we come to the first line of code that 
+aren&#39;t just function calls! When the page loads we&#39;ll grab the cookie of the user 
+and if it exists we&#39;ll set the input to that value. In this way, we provide the 
+user with the pleasant experience of not having to enter their handle everytime.</p>
+<h5>Sending the server a message</h5><p>While you can post the form right now and it will submit, it&#39;s not very helpful 
+to send the user <strong>away</strong> from the screen they&#39;re on for a live chat experience. 
 So we need to override the handlers on the form itself to prevent the page from 
-changing, this is easily done like so:
-   </p>
-   <pre><code>$('form').submit(function(evt){
+changing, this is easily done like so:</p>
+<pre><code>$(&#39;form&#39;).submit(function(evt){
     evt.preventDefault()
     if(!serverUp){
-        alert("The Server is not available right now. Please wait while we establish your connection")
+        alert(&quot;The Server is not available right now. Please wait while we establish your connection&quot;)
         return false
     }
     /* Some simple validation */
-    if( $('input[name=u]').val().trim() == "" ){
-        alert("You must enter a username!")
+    if( $(&#39;input[name=u]&#39;).val().trim() == &quot;&quot; ){
+        alert(&quot;You must enter a username!&quot;)
         return false
     }
 
-    if( $('input[name=u]').val().trim().length &gt; 20 ){
-        alert("usernames must be less than 20 characters")
+    if( $(&#39;input[name=u]&#39;).val().trim().length &gt; 20 ){
+        alert(&quot;usernames must be less than 20 characters&quot;)
         return false
     }
 
-    if( $('textarea').val().trim() == "" ){
-        alert("Please enter a message before sending")
+    if( $(&#39;textarea&#39;).val().trim() == &quot;&quot; ){
+        alert(&quot;Please enter a message before sending&quot;)
         return false
     }
 
 
     var data = $(this).serialize()
-    var url = $(this).attr('action')
-    var method = $(this).attr('method')
-    $(this).fadeTo("slow",0.5)
+    var url = $(this).attr(&#39;action&#39;)
+    var method = $(this).attr(&#39;method&#39;)
+    $(this).fadeTo(&quot;slow&quot;,0.5)
     $.ajax({
         type: method,
         data: data,
         url: url,
         context: this,
         success: function(response){
-            var updates = $(this).find('span[name=updates]')
+            var updates = $(this).find(&#39;span[name=updates]&#39;)
             updates.text(response.message)
             setTimeout(function(){
-                updates.text("")
+                updates.text(&quot;&quot;)
             }, 500)
-            $(this).find('textarea').val("")
-            $(this).fadeTo("slow",1.0)
-            $(this).find('textarea').focus()
+            $(this).find(&#39;textarea&#39;).val(&quot;&quot;)
+            $(this).fadeTo(&quot;slow&quot;,1.0)
+            $(this).find(&#39;textarea&#39;).focus()
         },
         error: function(){
-            var updates = $(this).find('span[name=updates]')
-            updates.text("There was an error in contacting the server, please hold.")
+            var updates = $(this).find(&#39;span[name=updates]&#39;)
+            updates.text(&quot;There was an error in contacting the server, please hold.&quot;)
             setTimeout(function(){
-                updates.text("")
+                updates.text(&quot;&quot;)
             }, 3000)
-            $(this).fadeTo("slow",1.0)
+            $(this).fadeTo(&quot;slow&quot;,1.0)
             serverUp = false
             doHeartBeat()
         }
@@ -984,317 +555,174 @@ changing, this is easily done like so:
     return false
 
 })    
-</code></pre>
-   <p>
-    Note that the only reason this function is so much code is because we validate that we
+</code></pre><p>Note that the only reason this function is so much code is because we validate that we
 actually submitting something to the server before we send it. Even though we
-do validation on the server itself, it's still best practices to validate everywhere. 
-Within the success/error callbacks of the
-    <code>
-     $.ajax
-    </code>
-    method we're using the
-    <code>
-     span
-    </code>
-    tag inside. If we fail we'll update the span tags to show a message to the user 
-for a short period of time.
-   </p>
-   <p>
-    The only thing left to do as far as sending messages go, is to make it possible
+do validation on the server itself, it&#39;s still best practices to validate everywhere. 
+Within the success/error callbacks of the <code>$.ajax</code> method we&#39;re using the <code>span</code> 
+tag inside. If we fail we&#39;ll update the span tags to show a message to the user 
+for a short period of time.</p>
+<p>The only thing left to do as far as sending messages go, is to make it possible
 to send a chat message by pressing the enter key. We can do this by monitoring 
 the clicked state of the checkbox, and updating a boolean variable within the javascript
-that is used by another listener on the textarea.
-   </p>
-   <pre><code>var enterToSend = false
-$('input[name=entersend]').click(function(evt){
+that is used by another listener on the textarea.</p>
+<pre><code>var enterToSend = false
+$(&#39;input[name=entersend]&#39;).click(function(evt){
     entersend = this.checked
 })
-$('textarea[name=m]').on('keydown',function(evt){
+$(&#39;textarea[name=m]&#39;).on(&#39;keydown&#39;,function(evt){
     if(entersend){
         if (event.which == 13 || event.keyCode == 13) {
-            $('form').submit()
+            $(&#39;form&#39;).submit()
         }
     }
 })
-</code></pre>
-   <p>
-    We use both
-    <code>
-     event.which
-    </code>
-    and
-    <code>
-     event.keyCode
-    </code>
-    becuase some browsers don't support
-    <code>
-     keyCode
-    </code>
-    . With this in place we can finish up our chat server by showing what
-we've been submitting to the user.
-   </p>
-   <h5>
-    Reading the chat history
-   </h5>
-   <p>
-    Believe it or not, this is extremely easy to do. Our last, but most important 
-function to write is
-    <code>
-     getChatHistory
-    </code>
-    , called from our first polling to the 
-server, it's what loads the current chat into the user's view and lets them 
-know they're online. It's a simple ajax call and one important assignment to
-    <code>
-     lastUpdatedTime
-    </code>
-    :
-   </p>
-   <pre><code>function scrollFix(){
-    var elem = $('#history pre')[0]
+</code></pre><p>We use both <code>event.which</code> and <code>event.keyCode</code> becuase some browsers don&#39;t support
+<code>keyCode</code>. With this in place we can finish up our chat server by showing what
+we&#39;ve been submitting to the user.</p>
+<h5>Reading the chat history</h5><p>Believe it or not, this is extremely easy to do. Our last, but most important 
+function to write is <code>getChatHistory</code>, called from our first polling to the 
+server, it&#39;s what loads the current chat into the user&#39;s view and lets them 
+know they&#39;re online. It&#39;s a simple ajax call and one important assignment to
+<code>lastUpdatedTime</code>:</p>
+<pre><code>function scrollFix(){
+    var elem = $(&#39;#history pre&#39;)[0]
     elem.scrollTop = elem.scrollHeight
 }
 
 function getChatHistory(){
     $.ajax({
         url: readURL,
-        method: "GET",
+        method: &quot;GET&quot;,
         error: function(){
-            $('#history pre').text("Could not load chat history!")
+            $(&#39;#history pre&#39;).text(&quot;Could not load chat history!&quot;)
             doHeartBeat()
         },
         success: function(response){
             /* The response is plain/text */
-            $('#history pre').text(response)
+            $(&#39;#history pre&#39;).text(response)
             scrollFix()
             lastUpdatedTime = (new Date().getTime()/1000).toFixed(0)
         }
     })
 }
-</code></pre>
-   <p>
-    By setting
-    <code>
-     lastUpdatedTime
-    </code>
-    to when we last updated our chat history the polling
-we do in
-    <code>
-     doServerPoll
-    </code>
-    is able to send us any updates that we haven't recieved
+</code></pre><p>By setting <code>lastUpdatedTime</code> to when we last updated our chat history the polling
+we do in <code>doServerPoll</code> is able to send us any updates that we haven&#39;t recieved
 yet. If we fail, we ask to perform the heartbeat to check if the server is alive
-and we let the user know we coudn't load their text. Also, we move the view of the
-history down by calling our
-    <code>
-     scrollFix
-    </code>
-    function.
-   </p>
-   <h4>
-    Finishing up
-   </h4>
-   <p>
-    With that, we're finished up. You can see and use the final product
-    <a href="http://chat.ethanjoachimeldridge.info/">
-     right here
-    </a>
-    and chat with me or anyone else whose online. The files are temporary so they'll
+and we let the user know we coudn&#39;t load their text. Also, we move the view of the
+history down by calling our <code>scrollFix</code> function. </p>
+<h4>Finishing up</h4><p>With that, we&#39;re finished up. You can see and use the final product <a href="http://chat.ethanjoachimeldridge.info/">right here</a>
+and chat with me or anyone else whose online. The files are temporary so they&#39;ll
 be cleared out whenever I reboot my server and also whenever I run a cronjob to
-remove the chat file. If you find any bugs or errors please
-    <a href="https://github.com/EdgeCaseBerg/chat-tutorial/issues">
-     let me know
-    </a>
-    and I'll
-get onto fixing it. Have fun and I hope you learned something!
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="dynamically-including-js">
-       Loading JS dynamically in Harp
-      </a>
-     </li>
-     <li>
-      <a href="cgi-c-harp-2">
-       Let's make a chat server, Part 2
-      </a>
-     </li>
-     <li>
-      <a href="autoload-harp-css-js">
-       Autoload your CSS and Javascript in Harp
-      </a>
-     </li>
-     <li>
-      <a href="cgi-c-harp-1">
-       Let's make a chat server, Part 1
-      </a>
-     </li>
-     <li>
-      <a href="likert-scales-less-css">
-       Coloring Likert Scales with LESS CSS
-      </a>
-     </li>
-     <li>
-      <a href="adding-scheduled-posts">
-       Adding Scheduled Posts to your Harp Site
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+remove the chat file. If you find any bugs or errors please <a href="https://github.com/EdgeCaseBerg/chat-tutorial/issues">let me know</a> and I&#39;ll
+get onto fixing it. Have fun and I hope you learned something!</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=dynamically-including-js>Loading JS dynamically in Harp</a></li><li><a href=cgi-c-harp-2>Let&#39;s make a chat server, Part 2</a></li><li><a href=autoload-harp-css-js>Autoload your CSS and Javascript in Harp</a></li><li><a href=cgi-c-harp-1>Let&#39;s make a chat server, Part 1</a></li><li><a href=likert-scales-less-css>Coloring Likert Scales with LESS CSS</a></li><li><a href=adding-scheduled-posts>Adding Scheduled Posts to your Harp Site</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

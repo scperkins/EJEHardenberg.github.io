@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Combine XML files with Bash
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="How to handle simple XML with the built in CLI tools" name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="xml,combine,bash,head,tail" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Combine XML files with Bash" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="How to handle simple XML with the built in CLI tools" property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Combine XML files with Bash" name="twitter:title"/>
-  <meta content="How to handle simple XML with the built in CLI tools" name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Combine XML files with Bash</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="How to handle simple XML with the built in CLI tools" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="xml,combine,bash,head,tail"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Combine XML files with Bash" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="How to handle simple XML with the built in CLI tools" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Combine XML files with Bash" />
+    
+    <meta name="twitter:description" content="How to handle simple XML with the built in CLI tools" />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,37 +46,27 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Combine XML files with Bash
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Let's combine XML files! (with bash)
-   </h3>
-   <p>
-    Today I was thinking of ways to improve my bash skills when a simple task 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Combine XML files with Bash</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Let&#39;s combine XML files! (with bash)</h3><p>Today I was thinking of ways to improve my bash skills when a simple task 
 appeared for me. Combine two XML files together. Same type, same xsd to 
 validate the two. A simple approach would be to open up the files and 
 copy paste the contents of one to the other. But thinking programatically 
 I realized there were some simpler ways (and faster when working with 
-large files).
-   </p>
-   <h4>
-    Sample XML:
-   </h4>
-   <p>
-    sample.xml
-   </p>
-   <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;TestInfoList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://localhost:9000/testInfo.xsd"&gt;
+large files).</p>
+<h4>Sample XML:</h4><p>sample.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;TestInfoList xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation=&quot;http://localhost:9000/testInfo.xsd&quot;&gt;
         &lt;TestInfo&gt;
                 &lt;Id&gt;1&lt;/Id&gt;
                 &lt;Name&gt;Name&lt;/Name&gt;
@@ -74,12 +75,9 @@ large files).
                 &lt;/Days&gt;
         &lt;/TestInfo&gt;
 &lt;/TestInfoList&gt;
-</code></pre>
-   <p>
-    sample2.xml
-   </p>
-   <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;TestInfoList  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://localhost:9000/testInfo.xsd"&gt;
+</code></pre><p>sample2.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;TestInfoList  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation=&quot;http://localhost:9000/testInfo.xsd&quot;&gt;
         &lt;TestInfo&gt;
                 &lt;Id&gt;2&lt;/Id&gt;
                 &lt;Name&gt;Name&lt;/Name&gt;
@@ -88,127 +86,39 @@ large files).
                 &lt;/Days&gt;
         &lt;/TestInfo&gt;
 &lt;/TestInfoList&gt;
-</code></pre>
-   <h4>
-    Thought process
-   </h4>
-   <p>
-    Because we know that our two files are similar, we really just need to 
+</code></pre><h4>Thought process</h4><p>Because we know that our two files are similar, we really just need to 
 work at the outer tag layer. Thinking about this from the stance of copying 
-and pasting manually, we would do something like the following:
-   </p>
-   <ol>
-    <li>
-     Copy the first file to a another
-    </li>
-    <li>
-     Remove the closing
-     <code>
-      &lt;/TestInfoList&gt;
-     </code>
-     tag
-    </li>
-    <li>
-     Copy the second file, sans the first opening tag to the other
-    </li>
-   </ol>
-   <p>
-    This can be translated into bash via simple
-    <code>
-     head
-    </code>
-    and
-    <code>
-     tail
-    </code>
-    calls. The
-    <code>
-     head
-    </code>
-    command allows us to take the first
-    <code>
-     n
-    </code>
-    lines of a file, and the
-    <code>
-     tail
-    </code>
-    the 
-last
-    <code>
-     n
-    </code>
-    lines of a file. We can then translate our above process to:
-   </p>
-   <ol>
-    <li>
-     Take the head of the file, up to the number of lines in the file -1
-    </li>
-    <li>
-     Take the tail of the second file, up to the number of lines in the file -2
-    </li>
-   </ol>
-   <p>
-    Assuming that there aren't any new lines at the end of the file, this will work 
-fine.
-   </p>
-   <h4>
-    head, tail, and bash
-   </h4>
-   <p>
-    We can use the
-    <code>
-     wc
-    </code>
-    program to count the words in a file, but given the switch
-    <code>
-     -l
-    </code>
-    it will count the number of lines instead. So we can get the number of lines 
-in a file simply by executing
-    <code>
-     wc -l &gt;file&gt;
-    </code>
-    which will print out the number of 
-linesand the filename. However, if we
-    <em>
-     pipe
-    </em>
-    the file to
-    <code>
-     wc
-    </code>
-    we'll only get the 
-number of lines:
-   </p>
-   <pre><code>$ wc -l &lt; sample.xml 
+and pasting manually, we would do something like the following:</p>
+<ol>
+<li>Copy the first file to a another</li>
+<li>Remove the closing <code>&lt;/TestInfoList&gt;</code> tag</li>
+<li>Copy the second file, sans the first opening tag to the other</li>
+</ol>
+<p>This can be translated into bash via simple <code>head</code> and <code>tail</code> calls. The <code>head</code>
+command allows us to take the first <code>n</code> lines of a file, and the <code>tail</code> the 
+last <code>n</code> lines of a file. We can then translate our above process to:</p>
+<ol>
+<li>Take the head of the file, up to the number of lines in the file -1</li>
+<li>Take the tail of the second file, up to the number of lines in the file -2</li>
+</ol>
+<p>Assuming that there aren&#39;t any new lines at the end of the file, this will work 
+fine. </p>
+<h4>head, tail, and bash</h4><p>We can use the <code>wc</code> program to count the words in a file, but given the switch 
+<code>-l</code> it will count the number of lines instead. So we can get the number of lines 
+in a file simply by executing <code>wc -l &gt;file&gt;</code> which will print out the number of 
+linesand the filename. However, if we <em>pipe</em> the file to <code>wc</code> we&#39;ll only get the 
+number of lines:</p>
+<pre><code>$ wc -l &lt; sample.xml 
 13
-</code></pre>
-   <p>
-    Bash allows simple arithmetic as well. So we can combine this with the line count
-like so:
-   </p>
-   <pre><code>$ echo $(($(cat sample.xml | wc -l)-1))
+</code></pre><p>Bash allows simple arithmetic as well. So we can combine this with the line count
+like so:</p>
+<pre><code>$ echo $(($(cat sample.xml | wc -l)-1))
 12
-</code></pre>
-   <p>
-    Next, using this number we can pass it to the
-    <code>
-     tail
-    </code>
-    or
-    <code>
-     head
-    </code>
-    command via the
-    <code>
-     -n
-    </code>
-    . Simple right?
-   </p>
-   <pre><code>$ head -n $(($(cat sample.xml | wc -l)-1)) sample.xml 
-&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;TestInfoList  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://localhost:9000/testInfo.xsd"&gt;
+</code></pre><p>Next, using this number we can pass it to the <code>tail</code> or <code>head</code> command via the 
+<code>-n</code>. Simple right?</p>
+<pre><code>$ head -n $(($(cat sample.xml | wc -l)-1)) sample.xml 
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;TestInfoList  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation=&quot;http://localhost:9000/testInfo.xsd&quot;&gt;
     &lt;TestInfo&gt;
             &lt;Id&gt;1&lt;/Id&gt;
             &lt;Name&gt;Name&lt;/Name&gt;
@@ -216,12 +126,9 @@ like so:
                 &lt;Day&gt;Monday&lt;/Day&gt;
             &lt;/Days&gt;
     &lt;/TestInfo&gt;
-</code></pre>
-   <p>
-    this gives us the first half of our XML. The second half is easily gotten from 
-tail:
-   </p>
-   <pre><code>$ tail -n $(($(cat sample2.xml | wc -l)-2)) sample2.xml 
+</code></pre><p>this gives us the first half of our XML. The second half is easily gotten from 
+tail:</p>
+<pre><code>$ tail -n $(($(cat sample2.xml | wc -l)-2)) sample2.xml 
     &lt;TestInfo&gt;
             &lt;Id&gt;2&lt;/Id&gt;
             &lt;Name&gt;Name&lt;/Name&gt;
@@ -230,29 +137,16 @@ tail:
             &lt;/Days&gt;
     &lt;/TestInfo&gt;
 &lt;/TestInfoList&gt;
-</code></pre>
-   <p>
-    If we wanted to do both of these commands at once we can use
-    <code>
-     echo
-    </code>
-    :
-   </p>
-   <pre><code>$ echo $(head -n $(($(cat sample.xml | wc -l)-1)) sample.xml) $(tail -n $(($(cat sample2.xml | wc -l)-2)) sample2.xml )
-&lt;?xml version="1.0" encoding="UTF-8"?&gt; &lt;TestInfoList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://localhost:9000/testInfo.xsd"&gt; &lt;TestInfo&gt; &lt;Id&gt;1&lt;/Id&gt; &lt;Name&gt;Name&lt;/Name&gt; &lt;Days&gt; &lt;Day&gt;Monday&lt;/Day&gt; &lt;/Days&gt; &lt;/TestInfo&gt; &lt;TestInfo&gt; &lt;Id&gt;2&lt;/Id&gt; &lt;Name&gt;Name&lt;/Name&gt; &lt;Days&gt; &lt;Day&gt;Friday&lt;/Day&gt; &lt;/Days&gt; &lt;/TestInfo&gt; &lt;/TestInfoList&gt;
-</code></pre>
-   <p>
-    Granted this does squish everything together. The XML is still vaild. If we 
-wanted to preserve the formatting, we'd want to use temporary files:
-   </p>
-   <pre><code> head -n $(($(cat sample.xml | wc -l)-1)) sample.xml &gt; t1; tail -n $(($(cat sample2.xml | wc -l)-2)) sample2.xml &gt; t2; cat t1 t2 &gt; t3; rm t1 t2;
-</code></pre>
-   <p>
-    And then t3 will hold the output:
-   </p>
-   <pre><code>cat t3 
-&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;TestInfoList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://localhost:9000/testInfo.xsd"&gt;
+</code></pre><p>If we wanted to do both of these commands at once we can use <code>echo</code>:</p>
+<pre><code>$ echo $(head -n $(($(cat sample.xml | wc -l)-1)) sample.xml) $(tail -n $(($(cat sample2.xml | wc -l)-2)) sample2.xml )
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;TestInfoList xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation=&quot;http://localhost:9000/testInfo.xsd&quot;&gt; &lt;TestInfo&gt; &lt;Id&gt;1&lt;/Id&gt; &lt;Name&gt;Name&lt;/Name&gt; &lt;Days&gt; &lt;Day&gt;Monday&lt;/Day&gt; &lt;/Days&gt; &lt;/TestInfo&gt; &lt;TestInfo&gt; &lt;Id&gt;2&lt;/Id&gt; &lt;Name&gt;Name&lt;/Name&gt; &lt;Days&gt; &lt;Day&gt;Friday&lt;/Day&gt; &lt;/Days&gt; &lt;/TestInfo&gt; &lt;/TestInfoList&gt;
+</code></pre><p>Granted this does squish everything together. The XML is still vaild. If we 
+wanted to preserve the formatting, we&#39;d want to use temporary files:</p>
+<pre><code> head -n $(($(cat sample.xml | wc -l)-1)) sample.xml &gt; t1; tail -n $(($(cat sample2.xml | wc -l)-2)) sample2.xml &gt; t2; cat t1 t2 &gt; t3; rm t1 t2;
+</code></pre><p>And then t3 will hold the output:</p>
+<pre><code>cat t3 
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;TestInfoList xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation=&quot;http://localhost:9000/testInfo.xsd&quot;&gt;
         &lt;TestInfo&gt;
                 &lt;Id&gt;1&lt;/Id&gt;
                 &lt;Name&gt;Name&lt;/Name&gt;
@@ -268,37 +162,23 @@ wanted to preserve the formatting, we'd want to use temporary files:
                 &lt;/Days&gt;
         &lt;/TestInfo&gt;
 &lt;/TestInfoList&gt;
-</code></pre>
-   <h4>
-    More?
-   </h4>
-   <p>
-    Assuming that your XML files are simple and have 1 line at the start for 
+</code></pre><h4>More?</h4><p>Assuming that your XML files are simple and have 1 line at the start for 
 their xml version string, then another line for the schema, this strategy
-will work fine. What about when it's more than two files though? We can 
+will work fine. What about when it&#39;s more than two files though? We can 
 obviously write out the steps, but it will become apparent that we can 
 simply work in pairs and build up an xml file incrementaly. Or, we can 
 do something a bit smarter. If we think of an xml file as a header, footer,
 and body then our task becomes much simpler. We need a single header (composed 
 of the version, schema, and openning tag) and a single footer (the closing tag 
-of the element list). These two things stay constant.
-   </p>
-   <p>
-    Header:
-   </p>
-   <pre><code>head -n 2 file
-</code></pre>
-   <p>
-    Footer:
-   </p>
-   <pre><code>tail -n 1 file
-</code></pre>
-   <p>
-    And the body? Well the body is just everything between! We can get that 
-using head and tail to strip away the header and footer. All in all, we'd
-end up with something like this:
-   </p>
-   <pre><code>#add conditional logic to check for &gt; 1 params
+of the element list). These two things stay constant. </p>
+<p>Header:</p>
+<pre><code>head -n 2 file
+</code></pre><p>Footer:</p>
+<pre><code>tail -n 1 file
+</code></pre><p>And the body? Well the body is just everything between! We can get that 
+using head and tail to strip away the header and footer. All in all, we&#39;d
+end up with something like this:</p>
+<pre><code>#add conditional logic to check for &gt; 1 params
 #Take the version, schema, and opening tag
 head -n 2 $1
 
@@ -311,13 +191,10 @@ done;
 
 #Take the last line
 tail -n 1 $1
-</code></pre>
-   <p>
-    In action:
-   </p>
-   <pre><code>$ sh combine.sh sample.xml sample2.xml sample3.xml 
-&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;TestInfoList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://localhost:9000/testInfo.xsd"&gt;
+</code></pre><p>In action:</p>
+<pre><code>$ sh combine.sh sample.xml sample2.xml sample3.xml 
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;TestInfoList xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation=&quot;http://localhost:9000/testInfo.xsd&quot;&gt;
         &lt;TestInfo&gt;
                 &lt;Id&gt;1&lt;/Id&gt;
                 &lt;Name&gt;Name&lt;/Name&gt;
@@ -340,203 +217,119 @@ tail -n 1 $1
                 &lt;/Days&gt;
         &lt;/TestInfo&gt;
 &lt;/TestInfoList&gt;
-</code></pre>
-   <h4>
-    Limitations
-   </h4>
-   <p>
-    Obviously, this scripting relies on a very simple XML scheme, and uniform 
-content as far as newlines go. If we didn't have this, we'd probably want
+</code></pre><h4>Limitations</h4><p>Obviously, this scripting relies on a very simple XML scheme, and uniform 
+content as far as newlines go. If we didn&#39;t have this, we&#39;d probably want
 to script something with actual XML support and not just manipulate the 
 files via bash. Regardless, I had fun playing with bash and I hope this 
-has inspired you to have a bit of fun with it yourself.
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="how-to-create-sbt-task-that-takes-an-argument">
-       How to create an SBT task that takes an argument
-      </a>
-     </li>
-     <li>
-      <a href="scala-xml-xsd-validation">
-       Scala, XML, and XSD Validation
-      </a>
-     </li>
-     <li>
-      <a href="connect-visualvm-docker">
-       How to connect VisualVM to Docker
-      </a>
-     </li>
-     <li>
-      <a href="spray-ToResponseMarshallable-too-many-arguments-error">
-       Spray ToResponseMarshallable "Too Many Arguments" error
-      </a>
-     </li>
-     <li>
-      <a href="netty-timeouts-and-playframework">
-       How to set Netty options in Playframework
-      </a>
-     </li>
-     <li>
-      <a href="newrelic-xml-scala-instrumentation">
-       NewRelic, Scala, and XML Instrumentation
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+has inspired you to have a bit of fun with it yourself. </p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=how-to-create-sbt-task-that-takes-an-argument>How to create an SBT task that takes an argument</a></li><li><a href=scala-xml-xsd-validation>Scala, XML, and XSD Validation</a></li><li><a href=connect-visualvm-docker>How to connect VisualVM to Docker</a></li><li><a href=spray-ToResponseMarshallable-too-many-arguments-error>Spray ToResponseMarshallable &quot;Too Many Arguments&quot; error</a></li><li><a href=netty-timeouts-and-playframework>How to set Netty options in Playframework</a></li><li><a href=newrelic-xml-scala-instrumentation>NewRelic, Scala, and XML Instrumentation</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

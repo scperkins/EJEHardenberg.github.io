@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Preparing for Green Up
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="The configuration and setup of the API servers for this years green up vermont." name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="ufw,varnish,api,green up vermont,green up vt,green,up,servers,system administration,sysadmin" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Preparing for Green Up" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="The configuration and setup of the API servers for this years green up vermont." property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Preparing for Green Up" name="twitter:title"/>
-  <meta content="The configuration and setup of the API servers for this years green up vermont." name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Preparing for Green Up</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="The configuration and setup of the API servers for this years green up vermont." />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="ufw,varnish,api,green up vermont,green up vt,green,up,servers,system administration,sysadmin"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Preparing for Green Up" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="The configuration and setup of the API servers for this years green up vermont." />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Preparing for Green Up" />
+    
+    <meta name="twitter:description" content="The configuration and setup of the API servers for this years green up vermont." />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,94 +46,42 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Preparing for Green Up
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Green Up 2015
-   </h3>
-   <p>
-    Last year I
-    <a href="/tech-blog/green-up-vt-app">
-     wrote about Green Up
-    </a>
-    and my use of
-    <a href="https://www.varnish-cache.org">
-     varnish
-    </a>
-    to cache the
-    <a href="https://github.com/EdgeCaseBerg/green-serv">
-     API server
-    </a>
-    that was created to service the various applications
-    <a href="http://www.greenupvermont.org/?page_id=788">
-     Xenon Apps
-    </a>
-    created for the
-    <a href="http://greenupvermont.org">
-     Green Up Vermont NPO
-    </a>
-    .
-   </p>
-   <p>
-    This year we're running the same setup for them, and this past weekend I 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Preparing for Green Up</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Green Up 2015</h3><p>Last year I <a href="/tech-blog/green-up-vt-app">wrote about Green Up</a> and my use of <a href="https://www.varnish-cache.org">varnish</a> to cache the 
+<a href="https://github.com/EdgeCaseBerg/green-serv">API server</a> that was created to service the various applications <a href="http://www.greenupvermont.org/?page_id=788">Xenon Apps</a> 
+created for the <a href="http://greenupvermont.org">Green Up Vermont NPO</a>. </p>
+<p>This year we&#39;re running the same setup for them, and this past weekend I 
 got together with the other developers and reworked the server for the 
-API. It's running a pretty small stack:
-   </p>
-   <ul>
-    <li>
-     <a href="https://www.varnish-cache.org">
-      Varnish
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg/green-serv">
-      C API
-     </a>
-    </li>
-    <li>
-     <a href="https://help.ubuntu.com/community/UFW">
-      ufw
-     </a>
-    </li>
-   </ul>
-   <p>
-    And that's it. The machine is
-    <em>
-     small
-    </em>
-    , running with only 256MB of RAM. 
+API. It&#39;s running a pretty small stack:</p>
+<ul>
+<li><a href="https://www.varnish-cache.org">Varnish</a></li>
+<li><a href="https://github.com/EdgeCaseBerg/green-serv">C API</a></li>
+<li><a href="https://help.ubuntu.com/community/UFW">ufw</a></li>
+</ul>
+<p>And that&#39;s it. The machine is <em>small</em>, running with only 256MB of RAM. 
 It might surprise you that this is the same machine that serviced the 
-300 or so users of the application last year.
-   </p>
-   <h4>
-    Varnish
-   </h4>
-   <p>
-    Varnish is performing the same duties as last year, acting as
-    <a href="https://www.varnish-cache.org/docs/3.0/tutorial/advanced_backend_servers.html#directors">
-     backend 
-director
-    </a>
-    and load balancer for the running instances of the C APIs. 
+300 or so users of the application last year. </p>
+<h4>Varnish</h4><p>Varnish is performing the same duties as last year, acting as <a href="https://www.varnish-cache.org/docs/3.0/tutorial/advanced_backend_servers.html#directors">backend 
+director</a> and load balancer for the running instances of the C APIs. 
 The full configuration file uses 2 backends right now and also enables 
-the CORS headers for varnish during the delivery phase. Here's the full 
-vcl file:
-   </p>
-   <pre><code>backend default {
-    .host = "127.0.0.1";
-    .port = "31337";
+the CORS headers for varnish during the delivery phase. Here&#39;s the full 
+vcl file:</p>
+<pre><code>backend default {
+    .host = &quot;127.0.0.1&quot;;
+    .port = &quot;31337&quot;;
     .probe = {
-    .url ="/api/";
+    .url =&quot;/api/&quot;;
     .interval = 10s;
     .timeout = 2s;
     .window = 5;
@@ -131,10 +90,10 @@ vcl file:
 }
 
 backend backup {
-    .host = "127.0.0.1";
-    .port = "31338";
+    .host = &quot;127.0.0.1&quot;;
+    .port = &quot;31338&quot;;
     .probe = {
-    .url ="/api/";
+    .url =&quot;/api/&quot;;
     .interval = 10s;
     .timeout = 2s;
     .window = 5;
@@ -143,23 +102,23 @@ backend backup {
 }
 
 sub vcl_recv {
-    if ( req.request == "POST" || req.request == "PUT" ) {
+    if ( req.request == &quot;POST&quot; || req.request == &quot;PUT&quot; ) {
         #Invalidate only the neccesary things per endpoint
-        if ( req.url ~ "(?i)/api/comments" ) {
-            ban("req.url ~ (?i)/api/comments");
-            ban("req.url ~ (?i)/api/pins");
+        if ( req.url ~ &quot;(?i)/api/comments&quot; ) {
+            ban(&quot;req.url ~ (?i)/api/comments&quot;);
+            ban(&quot;req.url ~ (?i)/api/pins&quot;);
         }
-        if ( req.url ~ "(?i)/api/pins" ) {
-            ban("req.url ~ (?i)/api/comments");
-            ban("req.url ~ (?i)/api/pins");
+        if ( req.url ~ &quot;(?i)/api/pins&quot; ) {
+            ban(&quot;req.url ~ (?i)/api/comments&quot;);
+            ban(&quot;req.url ~ (?i)/api/pins&quot;);
         }
-        if ( req.url ~ "(?i)/api/heatmap" ) {
-            ban("req.url ~ (?i)/api/heatmap");
+        if ( req.url ~ &quot;(?i)/api/heatmap&quot; ) {
+            ban(&quot;req.url ~ (?i)/api/heatmap&quot;);
         }
-        if( req.url ~ "(?i)/api/debug" ) {
-            ban("req.url ~ (?i)/api/debug");
+        if( req.url ~ &quot;(?i)/api/debug&quot; ) {
+            ban(&quot;req.url ~ (?i)/api/debug&quot;);
         }
-        #Don't cache POST or PUT (no sense in doing so)
+        #Don&#39;t cache POST or PUT (no sense in doing so)
         return(pass);
     }
 }
@@ -178,61 +137,35 @@ sub vcl_fetch {
 }
 
 sub vcl_deliver {
-    set resp.http.Access-Control-Allow-Origin = "*";
-    set resp.http.Access-Control-Allow-Methods = "GET, POST, PUT, DELETE";
-    set resp.http.Access-Control-Allow-Headers = "Content-Type";
+    set resp.http.Access-Control-Allow-Origin = &quot;*&quot;;
+    set resp.http.Access-Control-Allow-Methods = &quot;GET, POST, PUT, DELETE&quot;;
+    set resp.http.Access-Control-Allow-Headers = &quot;Content-Type&quot;;
 
     if (obj.hits &gt;= 0)
     {
-        set resp.http.X-Cache = "HIT";
+        set resp.http.X-Cache = &quot;HIT&quot;;
     }
     else
     {
-        set resp.http.X-Cache = "MISS";
+        set resp.http.X-Cache = &quot;MISS&quot;;
     }
 }
-</code></pre>
-   <p>
-    You'll notice the invalidation on the POST requests is exactly the same 
-as it was
-    <a href="http://www.ethanjoachimeldridge.info/tech-blog/varnish">
-     last year
-    </a>
-    . And also the header X-Cache is handy for debugging 
-if you're recieving a cached result or not.
-   </p>
-   <h4>
-    API Servers
-   </h4>
-   <p>
-    Something that is a little bit different this year is the way which the 
-API servers are setup. Last year my system admin hat wasn't quite so 
-feathered, this year, I've got a new set of tools to apply. Specifically,
-    <a href="http://www.ethanjoachimeldridge.info/tech-blog/write-your-own-init-scripts">
-     subsystem scripts
-    </a>
-    .
-   </p>
-   <p>
-    I started out by deciding how best to organize the multiple copies of
-    <br/>
-    the API servers that would run, deciding on a simple directory structure 
-inside
-    <em>
-     /var/run/
-    </em>
-    directory. I created a green-serv folder, and then 
+</code></pre><p>You&#39;ll notice the invalidation on the POST requests is exactly the same 
+as it was <a href="http://www.ethanjoachimeldridge.info/tech-blog/varnish">last year</a>. And also the header X-Cache is handy for debugging 
+if you&#39;re recieving a cached result or not.</p>
+<h4>API Servers</h4><p>Something that is a little bit different this year is the way which the 
+API servers are setup. Last year my system admin hat wasn&#39;t quite so 
+feathered, this year, I&#39;ve got a new set of tools to apply. Specifically, 
+<a href="http://www.ethanjoachimeldridge.info/tech-blog/write-your-own-init-scripts">subsystem scripts</a>.</p>
+<p>I started out by deciding how best to organize the multiple copies of<br>the API servers that would run, deciding on a simple directory structure 
+inside <em>/var/run/</em> directory. I created a green-serv folder, and then 
 for each instance of the API running I created a folder based on the 
-port it would listen in on. So in the end I had 3 folders setup:
-   </p>
-   <pre><code>user@server:/var/run/green-serv# ls
+port it would listen in on. So in the end I had 3 folders setup:</p>
+<pre><code>user@server:/var/run/green-serv# ls
 31337  31338  80  
-</code></pre>
-   <p>
-    This was done to make it easier to start up multiple instances of the 
-server itself. If we take a look at the script I wrote for the service:
-   </p>
-   <pre><code>#!/bin/sh
+</code></pre><p>This was done to make it easier to start up multiple instances of the 
+server itself. If we take a look at the script I wrote for the service:</p>
+<pre><code>#!/bin/sh
 #
 # Subsystem file for green-serv
 #
@@ -244,8 +177,8 @@ server itself. If we take a look at the script I wrote for the service:
 #   chmod +x, mv to /etc/init.d/green-serv, then chkconfig --add green-serv
 
 RETVAL=0
-prog="green-serv"
-PORT="80"
+prog=&quot;green-serv&quot;
+PORT=&quot;80&quot;
 if [ $# -eq 2 ]; then
     PORT=$2
 fi
@@ -255,24 +188,24 @@ CMD=/var/run/green-serv/$PORT/green-serv
 LOGFILE=/var/log/green-serv.log
 
 start() {
-    echo -n $"Staring $prog:"
+    echo -n $&quot;Staring $prog:&quot;
     echo $PORT &gt; $PORT_FILE
     nohup $CMD &gt;&gt; $LOGFILE 2&gt;&amp;1 &amp;
     echo
 }
 
 stop() {
-    echo -n $"Stopping $prog:"
+    echo -n $&quot;Stopping $prog:&quot;
     if [ -f $PID_FILE ]; then kill `cat $PID_FILE`; fi
     echo
 }
 
-if [ "$(id -u)" != "0" ]; then
-    echo "This script must be run as root" 1&gt;&amp;2
+if [ &quot;$(id -u)&quot; != &quot;0&quot; ]; then
+    echo &quot;This script must be run as root&quot; 1&gt;&amp;2
     exit 1
 fi
 
-case "$1" in
+case &quot;$1&quot; in
     start)
         start
         ;;
@@ -284,77 +217,39 @@ case "$1" in
         start
         ;;
     *)
-        echo $"Usage: $0 {start [port]|stop [port]|restart}"
+        echo $&quot;Usage: $0 {start [port]|stop [port]|restart}&quot;
         RETVAL=1
 esac
 exit $RETVAL
-</code></pre>
-   <p>
-    You might notice that unlike your common service file such as apache or 
+</code></pre><p>You might notice that unlike your common service file such as apache or 
 mysql, this one can take an additional argument! Specifically, doing 
-something like this:
-    <code>
-     service green-serv start 3000
-    </code>
-    would start up a 
+something like this: <code>service green-serv start 3000</code> would start up a 
 server instance on port 3000 (as long as that directory exists and has 
-the server binary).
-   </p>
-   <p>
-    A couple changes I made today on the API server was to have it write its 
-own
-    <a href="https://github.com/EdgeCaseBerg/green-serv/commit/1ff34c78e11eb954af15802ab33a8a9bfec39ac3">
-     process id to a file
-    </a>
-    , and to
-    <a href="https://github.com/EdgeCaseBerg/green-serv/commit/7c216c95944358f6a5164f896af245830c7b4074">
-     load which port to run on from a file 
-within the same directory as the binary
-    </a>
-    . This helped facilate this script 
-to be an easy one to write.
-   </p>
-   <p>
-    In addition, I updated the
-    <a href="https://github.com/EdgeCaseBerg/green-serv/blob/master/Makefile">
-     Makefile
-    </a>
-    to have an
-    <code>
-     install
-    </code>
-    command to 
-make deploying any changes out to the various run folders easy:
-   </p>
-   <pre><code>install:
+the server binary). </p>
+<p>A couple changes I made today on the API server was to have it write its 
+own <a href="https://github.com/EdgeCaseBerg/green-serv/commit/1ff34c78e11eb954af15802ab33a8a9bfec39ac3">process id to a file</a>, and to <a href="https://github.com/EdgeCaseBerg/green-serv/commit/7c216c95944358f6a5164f896af245830c7b4074">load which port to run on from a file 
+within the same directory as the binary</a>. This helped facilate this script 
+to be an easy one to write. </p>
+<p>In addition, I updated the <a href="https://github.com/EdgeCaseBerg/green-serv/blob/master/Makefile">Makefile</a> to have an <code>install</code> command to 
+make deploying any changes out to the various run folders easy:</p>
+<pre><code>install:
     mkdir -p /var/run/green-serv/80
     for portdir in `ls -d /var/run/green-serv/*/`; do \
         cp green-serv $$portdir;\
     done
     chmod +x green-serv.d
     cp green-serv.d /etc/init.d/green-serv
-</code></pre>
-   <p>
-    This is pretty standard, and only handles just an 80 port as far as 
+</code></pre><p>This is pretty standard, and only handles just an 80 port as far as 
 creating goes, but it does support updating the binaries for any directory 
-in the green-serv run folder. The only thing to make note of is the weird
-    <code>
-     $$portdir
-    </code>
-    -- which if you're familiar with bash will make you assume that 
+in the green-serv run folder. The only thing to make note of is the weird 
+<code>$$portdir</code> -- which if you&#39;re familiar with bash will make you assume that 
 I had a typo and wrote 2 dollar signs instead of one. Nope, within a Makefile 
 you need two dollar signs in order to differentiate the make and bash variables 
-from one another.
-   </p>
-   <h4>
-    UFW
-   </h4>
-   <p>
-    The last thing to setup was a firewall. The uncomplicated firewall (ufw) 
+from one another.</p>
+<h4>UFW</h4><p>The last thing to setup was a firewall. The uncomplicated firewall (ufw) 
 is, as its name implies, uncomplicated. A few simple commands are all you 
-really need:
-   </p>
-   <pre><code>cat /etc/ufw/applications.d/varnish
+really need:</p>
+<pre><code>cat /etc/ufw/applications.d/varnish
 [Varnish]
 title=Web Proxy
 description=Proxy caching server
@@ -364,223 +259,127 @@ sudo ufw allow OpenSSH
 sudo ufw allow Varnish
 sudo ufw default deny
 sudo ufw enable
-</code></pre>
-   <p>
-    And you're pretty much all set. Ports that aren't used by the applications 
-listed in
-    <em>
-     /etc/ufw/applications.d
-    </em>
-    will be denied by default. Note that 
-you probably want to triple check that you've allowed SSH through so you 
-don't kill your connection to your server. A good rule of thumb is to 
-enable the ports you're using for SSH, then enable the firewall and try 
-to ssh to the server
-    <em>
-     from a different shell
-    </em>
-    and if it doesn't work, 
-disable the firewall and try again with different settings.
-   </p>
-   <p>
-    The firewall is in place to make sure that the API servers are only 
+</code></pre><p>And you&#39;re pretty much all set. Ports that aren&#39;t used by the applications 
+listed in <em>/etc/ufw/applications.d</em> will be denied by default. Note that 
+you probably want to triple check that you&#39;ve allowed SSH through so you 
+don&#39;t kill your connection to your server. A good rule of thumb is to 
+enable the ports you&#39;re using for SSH, then enable the firewall and try 
+to ssh to the server <em>from a different shell</em> and if it doesn&#39;t work, 
+disable the firewall and try again with different settings.</p>
+<p>The firewall is in place to make sure that the API servers are only 
 accessed through Varnish and not from the outside world. This enables us 
-to be sure that varnish will handle all the load and we won't tax our 
-servers from the outside world by anything.
-   </p>
-   <h4>
-    Summary
-   </h4>
-   <p>
-    In conclusion, the API server is ready to go for round two of Green Up 
-day and we're all hoping that it will go as smoothly as it did last year!
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="approaching-optimizations">
-       Approaching Optimizations
-      </a>
-     </li>
-     <li>
-      <a href="write-your-own-init-scripts">
-       Write your own service init scripts
-      </a>
-     </li>
-     <li>
-      <a href="elasticsearch-filtered-aggregations">
-       Elastic Search filtered Aggregations
-      </a>
-     </li>
-     <li>
-      <a href="mcabber-gmail-and-gpg">
-       Encrypting your chat with mcabber
-      </a>
-     </li>
-     <li>
-      <a href="watermarking-images-with-scala-play">
-       Watermarking Images with Scala (play)
-      </a>
-     </li>
-     <li>
-      <a href="scala-first-look">
-       A brief look into Scala
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+to be sure that varnish will handle all the load and we won&#39;t tax our 
+servers from the outside world by anything.</p>
+<h4>Summary</h4><p>In conclusion, the API server is ready to go for round two of Green Up 
+day and we&#39;re all hoping that it will go as smoothly as it did last year!</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=approaching-optimizations>Approaching Optimizations</a></li><li><a href=write-your-own-init-scripts>Write your own service init scripts</a></li><li><a href=elasticsearch-filtered-aggregations>Elastic Search filtered Aggregations</a></li><li><a href=mcabber-gmail-and-gpg>Encrypting your chat with mcabber</a></li><li><a href=watermarking-images-with-scala-play>Watermarking Images with Scala (play)</a></li><li><a href=scala-first-look>A brief look into Scala</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

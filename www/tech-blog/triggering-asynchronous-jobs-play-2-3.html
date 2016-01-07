@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Trigger Asynchronous Jobs in Play 2.3
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="Since version 2 of the PlayFramework deprecated the jobs package, you need to create jobs in a different way. This is how to use the Akka System embedded in play to do so" name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="playframework,jobs,2.3,asynchronous,actor,akka" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Trigger Asynchronous Jobs in Play 2.3" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="Since version 2 of the PlayFramework deprecated the jobs package, you need to create jobs in a different way. This is how to use the Akka System embedded in play to do so" property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Trigger Asynchronous Jobs in Play 2.3" name="twitter:title"/>
-  <meta content="Since version 2 of the PlayFramework deprecated the jobs package, you need to create jobs in a different way. This is how to use the Akka System embedded in play to do so" name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Trigger Asynchronous Jobs in Play 2.3</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Since version 2 of the PlayFramework deprecated the jobs package, you need to create jobs in a different way. This is how to use the Akka System embedded in play to do so" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="playframework,jobs,2.3,asynchronous,actor,akka"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Trigger Asynchronous Jobs in Play 2.3" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Since version 2 of the PlayFramework deprecated the jobs package, you need to create jobs in a different way. This is how to use the Akka System embedded in play to do so" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Trigger Asynchronous Jobs in Play 2.3" />
+    
+    <meta name="twitter:description" content="Since version 2 of the PlayFramework deprecated the jobs package, you need to create jobs in a different way. This is how to use the Akka System embedded in play to do so" />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,49 +46,26 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Trigger Asynchronous Jobs in Play 2.3
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Triggering Asynchronous Jobs in Play 2.3
-   </h3>
-   <p>
-    In the
-    <a href="https://www.playframework.com/documentation/1.2/jobs">
-     old version of play it was rather easy to create jobs
-    </a>
-    . There 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Trigger Asynchronous Jobs in Play 2.3</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Triggering Asynchronous Jobs in Play 2.3</h3><p>In the <a href="https://www.playframework.com/documentation/1.2/jobs">old version of play it was rather easy to create jobs</a>. There 
 was an entire package dedicated to the task in version 1.2 of the 
-framework. But, with an upgrade to Play 2.3 that package disappeared!
-   </p>
-   <p>
-    So then, how do you perform a job?
-   </p>
-   <p>
-    Well, in 2.3 this has to be done by
-    <a href="https://www.playframework.com/documentation/2.3.x/ScalaAkka">
-     integrating with Akka
-    </a>
-    . Luckily, 
-the framework has a default
-    <a href="http://doc.akka.io/docs/akka/2.0/general/actor-systems.html">
-     ActorSystem
-    </a>
-    which we can tie into easily.
-   </p>
-   <p>
-    Long story short, you'll end up with code like this:
-   </p>
-   <pre><code> import play.api.libs.concurrent.Akka
+framework. But, with an upgrade to Play 2.3 that package disappeared! </p>
+<p>So then, how do you perform a job? </p>
+<p>Well, in 2.3 this has to be done by <a href="https://www.playframework.com/documentation/2.3.x/ScalaAkka">integrating with Akka</a>. Luckily, 
+the framework has a default <a href="http://doc.akka.io/docs/akka/2.0/general/actor-systems.html">ActorSystem</a> which we can tie into easily. </p>
+<p>Long story short, you&#39;ll end up with code like this:</p>
+<pre><code> import play.api.libs.concurrent.Akka
   import play.api.libs.concurrent.Execution.Implicits._
 
   // code ...
@@ -85,68 +73,44 @@ the framework has a default
     val myActor = Akka.system.actorOf(Props( SomeTestActor()))
     Akka.system.scheduler.scheduleOnce(0.microsecond, myActor, SomeTestActor.SomeMessage(args))
   }
-</code></pre>
-   <p>
-    This is taking avantage of the Akka
-    <a href="http://doc.akka.io/docs/akka/2.0/scala/scheduler.html">
-     scheduler
-    </a>
-    that is integrated into 
+</code></pre><p>This is taking avantage of the Akka <a href="http://doc.akka.io/docs/akka/2.0/scala/scheduler.html">scheduler</a> that is integrated into 
 the Playframework. In the code above we would create an actor and 
 immediately send it a message to kick off whatever it needs to do. You 
-can also schedule recurring messages like so:
-   </p>
-   <pre><code>// code ...
+can also schedule recurring messages like so:</p>
+<pre><code>// code ...
   def someControllerOrServiceMethod() {
     val myActor = Akka.system.actorOf(Props( SomeTestActor()))
     Akka.system.scheduler.scheduleOnce(1000.microsecond, 300.seconds, myActor, SomeTestActor.SomeMessage(args))
   }
-</code></pre>
-   <p>
-    This uses the overloaded version of
-    <code>
-     schedule
-    </code>
-    with the following signature:
-   </p>
-   <pre><code>schedule( initialDelay: Duration, 
+</code></pre><p>This uses the overloaded version of <code>schedule</code> with the following signature:</p>
+<pre><code>schedule( initialDelay: Duration, 
     frequency: Duration,
     receiver: ActorRef,
     message: Any
 ): Cancellable
-</code></pre>
-   <p>
-    You could use this for simple clean up processes, starting the 
-scheduled tasks when play boots using
-    <a href="https://www.playframework.com/documentation/2.3.x/ScalaGlobal">
-     GlobalSettings
-    </a>
-    like so:
-   </p>
-   <pre><code>import play.api._
+</code></pre><p>You could use this for simple clean up processes, starting the 
+scheduled tasks when play boots using <a href="https://www.playframework.com/documentation/2.3.x/ScalaGlobal">GlobalSettings</a> like so:</p>
+<pre><code>import play.api._
 import play.api.libs.concurrent.Akka
 import play.api.libs.concurrent.Execution.Implicits._
 
 object Global extends GlobalSettings {
 
   override def onStart(app: Application) {
-    Logger.info("Application has started")
+    Logger.info(&quot;Application has started&quot;)
     val myActor = Akka.system.actorOf(Props( SomeTestActor()))
     Akka.system.scheduler.scheduleOnce(1000.microsecond, 300.seconds, myActor, SomeTestActor.SomeMessage(args))
   }
 
   override def onStop(app: Application) {
-    Logger.info("Application shutdown...")
+    Logger.info(&quot;Application shutdown...&quot;)
   }
 
 }
-</code></pre>
-   <p>
-    The calling code isn't difficult, but you do need to provide an 
-implementation of an Actor that makes sense. In the work I've done 
-so far I've used self-killing Actors. Here's the basics:
-   </p>
-   <pre><code>import akka.actor.{Actor, ActorRef, PoisonPill}
+</code></pre><p>The calling code isn&#39;t difficult, but you do need to provide an 
+implementation of an Actor that makes sense. In the work I&#39;ve done 
+so far I&#39;ve used self-killing Actors. Here&#39;s the basics: </p>
+<pre><code>import akka.actor.{Actor, ActorRef, PoisonPill}
 import scala.util.{Success, Failure}
 import scala.concurrent._
 import scala.concurrent.duration._
@@ -182,251 +146,141 @@ class TestActor extends Actor { this: MsgSender =&gt;
             self ! PoisonPill
     }
 }
-</code></pre>
-   <p>
-    This is a heavily stripped down version of some code I'm using. You 
-might wonder why I'd abstract the sending into a trait like I did. 
-The answer is: for testing!
-   </p>
-   <p>
-    If you have an actor that primarily communicates with itself by sending 
-messages via
-    <code>
-     self ! msg
-    </code>
-    it can be difficult to test. Since when you 
-send it a message, you'll always end up at the end of the chain of events. 
-In the above case, how would you test that handling SomeMessage worked?
-   </p>
-   <p>
-    With the trait and mixin being done in the
-    <code>
-     apply
-    </code>
-    method of the TestActor 
-companion object, we can grab our "default" Actor for use in the application 
-and mix in a testing MsgSender when we unit test:
-   </p>
-   <pre><code>trait TestMsgSender extends MsgSender {
+</code></pre><p>This is a heavily stripped down version of some code I&#39;m using. You 
+might wonder why I&#39;d abstract the sending into a trait like I did. 
+The answer is: for testing! </p>
+<p>If you have an actor that primarily communicates with itself by sending 
+messages via <code>self ! msg</code> it can be difficult to test. Since when you 
+send it a message, you&#39;ll always end up at the end of the chain of events. 
+In the above case, how would you test that handling SomeMessage worked? </p>
+<p>With the trait and mixin being done in the <code>apply</code> method of the TestActor 
+companion object, we can grab our &quot;default&quot; Actor for use in the application 
+and mix in a testing MsgSender when we unit test:</p>
+<pre><code>trait TestMsgSender extends MsgSender {
     def sendMsg(msg: TestActor.InternalActorMessage)(implicit actor: ActorRef) = {
-        //don't forward the message back to the actor, or send it to a 
-        //test monitoring actor or whatever you'd like! 
+        //don&#39;t forward the message back to the actor, or send it to a 
+        //test monitoring actor or whatever you&#39;d like! 
     }
 }
 
 val testActor = Props(new TestActor() with TestMsgSender)
 
 // ... do tests with TestKit and whatnot 
-</code></pre>
-   <p>
-    By not forwarding the messages along to ourselves, we can execute and 
-test
-    <em>
-     only
-    </em>
-    the cases in the
-    <code>
-     receive
-    </code>
-    method that we want to. There 
-are other ways to do this of course, such as overriding the
-    <code>
-     !
-    </code>
-    (tell) 
-method and using the test probe, but I find that using trait's is easy 
-to reason and understand within a test. So I've preferred that so far.
-   </p>
-   <p>
-    while using jobs is not as simple as it was in version 1 of the framework, 
-it still is pretty easy as long as you know the right tricks!
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="reverse-routing-package-controller">
-       Reverse routing with non-standard controller packages in Play
-      </a>
-     </li>
-     <li>
-      <a href="non-empty-lists-validation-in-playframework">
-       Non Empty List Form Validation in Play
-      </a>
-     </li>
-     <li>
-      <a href="generate-conditonal-policy-awscala">
-       Generate Conditional AWS Group Policies with AWScala
-      </a>
-     </li>
-     <li>
-      <a href="dear-god-why">
-       PHP Snippet
-      </a>
-     </li>
-     <li>
-      <a href="manipulating-XML-with-PHP">
-       Manipulating XML with PHP
-      </a>
-     </li>
-     <li>
-      <a href="shell_exec-sudo-php-apache">
-       shell_exec with sudo in php
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+</code></pre><p>By not forwarding the messages along to ourselves, we can execute and 
+test <em>only</em> the cases in the <code>receive</code> method that we want to. There 
+are other ways to do this of course, such as overriding the <code>!</code> (tell) 
+method and using the test probe, but I find that using trait&#39;s is easy 
+to reason and understand within a test. So I&#39;ve preferred that so far. </p>
+<p>while using jobs is not as simple as it was in version 1 of the framework, 
+it still is pretty easy as long as you know the right tricks! </p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=reverse-routing-package-controller>Reverse routing with non-standard controller packages in Play</a></li><li><a href=non-empty-lists-validation-in-playframework>Non Empty List Form Validation in Play</a></li><li><a href=generate-conditonal-policy-awscala>Generate Conditional AWS Group Policies with AWScala</a></li><li><a href=dear-god-why>PHP Snippet</a></li><li><a href=manipulating-XML-with-PHP>Manipulating XML with PHP</a></li><li><a href=shell_exec-sudo-php-apache>shell_exec with sudo in php</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

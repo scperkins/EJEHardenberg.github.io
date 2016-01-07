@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Upload binary data in play
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="How to upload binary data in play and parse the bytes. Also shows how to grab EXIF data from an image as an example of the upload." name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="binary,upload,playframework,exif,image,data" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Upload binary data in play" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="How to upload binary data in play and parse the bytes. Also shows how to grab EXIF data from an image as an example of the upload." property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Upload binary data in play" name="twitter:title"/>
-  <meta content="How to upload binary data in play and parse the bytes. Also shows how to grab EXIF data from an image as an example of the upload." name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Upload binary data in play</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="How to upload binary data in play and parse the bytes. Also shows how to grab EXIF data from an image as an example of the upload." />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="binary,upload,playframework,exif,image,data"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Upload binary data in play" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="How to upload binary data in play and parse the bytes. Also shows how to grab EXIF data from an image as an example of the upload." />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Upload binary data in play" />
+    
+    <meta name="twitter:description" content="How to upload binary data in play and parse the bytes. Also shows how to grab EXIF data from an image as an example of the upload." />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,150 +46,63 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Upload binary data in play
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Reading Binary Data in a Play Controller
-   </h3>
-   <p>
-    Today I was reading some
-    <a href="https://github.com/guardian/grid/blob/master/image-loader/app/lib/imaging/FileMetadataReader.scala">
-     code from the Guardian
-    </a>
-    and ended up looking
-into
-    <a href="http://metadata-extractor.googlecode.com/svn/trunk/Javadoc/overview-summary.html">
-     Drew Noakes metadata extractor library
-    </a>
-    . Since I've written blog 
-posts
-    <a href="/tech-blog/aspect-ratios-and-math">
-     about images before
-    </a>
-    and
-    <a href="/tech-blog/could-not-instantiate-SVGImageReader-Scrimage">
-     how to manipulate them
-    </a>
-    I figure'd it 
-might be fun to dive into reading Exif data. I'm not going to talk about
-    <em>
-     how
-    </em>
-    to extract the data, but rather how you can use Drew Noake's library 
-on the backend without having to send the entire image file across the net.
-   </p>
-   <p>
-    While you can
-    <a href="http://code.flickr.net/2012/06/01/parsing-exif-client-side-using-javascript-2/">
-     parse the exif data with javascript
-    </a>
-    , writing a library for 
-that that works with images of all kinds of different formats isn't something 
-I want to do. Instead, I'd rather send the data to the back and use Drew's
-    <a href="https://github.com/drewnoakes/metadata-extractor">
-     metadata extractor
-    </a>
-    . So first I need to figure out how to
-    <em>
-     get
-    </em>
-    the part of 
-the file that has exif data. According to the page 11 of the
-    <a href="http://www.exiv2.org/Exif2-2.PDF">
-     specification:
-    </a>
-   </p>
-   <blockquote>
-    <p>
-     The size of APP1 including all these elements shall not exceed the 64 Kbytes specified in the JPEG standard.
-    </p>
-   </blockquote>
-   <p>
-    Of course, according to the javascript post:
-   </p>
-   <blockquote>
-    <p>
-     The Exif specification states that all of the data should exist in the first 64kb, but IPTC sometimes goes beyond that, especially when formatted as XMP.
-    </p>
-   </blockquote>
-   <p>
-    So we'll be safe and use the first 128kb of the image data. Using the
-    <a href="https://developer.mozilla.org/en-US/docs/Web/API/FileReader">
-     FileReader
-    </a>
-    object in the browser we can do this easily.
-   </p>
-   <pre><code>var input = document.getElementById('somefileinput');
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Upload binary data in play</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Reading Binary Data in a Play Controller</h3><p>Today I was reading some <a href="https://github.com/guardian/grid/blob/master/image-loader/app/lib/imaging/FileMetadataReader.scala">code from the Guardian</a> and ended up looking
+into <a href="http://metadata-extractor.googlecode.com/svn/trunk/Javadoc/overview-summary.html">Drew Noakes metadata extractor library</a>. Since I&#39;ve written blog 
+posts <a href="/tech-blog/aspect-ratios-and-math">about images before</a> and <a href="/tech-blog/could-not-instantiate-SVGImageReader-Scrimage">how to manipulate them</a> I figure&#39;d it 
+might be fun to dive into reading Exif data. I&#39;m not going to talk about 
+<em>how</em> to extract the data, but rather how you can use Drew Noake&#39;s library 
+on the backend without having to send the entire image file across the net. </p>
+<p>While you can <a href="http://code.flickr.net/2012/06/01/parsing-exif-client-side-using-javascript-2/">parse the exif data with javascript</a>, writing a library for 
+that that works with images of all kinds of different formats isn&#39;t something 
+I want to do. Instead, I&#39;d rather send the data to the back and use Drew&#39;s 
+<a href="https://github.com/drewnoakes/metadata-extractor">metadata extractor</a>. So first I need to figure out how to <em>get</em> the part of 
+the file that has exif data. According to the page 11 of the <a href="http://www.exiv2.org/Exif2-2.PDF">specification:</a></p>
+<blockquote>
+<p>The size of APP1 including all these elements shall not exceed the 64 Kbytes specified in the JPEG standard. </p>
+</blockquote>
+<p>Of course, according to the javascript post:</p>
+<blockquote>
+<p>The Exif specification states that all of the data should exist in the first 64kb, but IPTC sometimes goes beyond that, especially when formatted as XMP.</p>
+</blockquote>
+<p>So we&#39;ll be safe and use the first 128kb of the image data. Using the 
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/FileReader">FileReader</a> object in the browser we can do this easily. </p>
+<pre><code>var input = document.getElementById(&#39;somefileinput&#39;);
 var readerForExif = new FileReader();
 readerForExif.readAsArrayBuffer(input.files[0]);
 readerForExif.result.slice(0, 1024 * 128);
-</code></pre>
-   <p>
-    Assuming you wait after calling
-    <code>
-     readAsArrayBuffer
-    </code>
-    , the you'll get back 
-an
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer">
-     ArrayBuffer
-    </a>
-    that you can manipulate. Putting this together and using 
-the
-    <code>
-     onload
-    </code>
-    field of our reader we can make a simple block of code 
-that posts binary data to a server from the front end javascript:
-   </p>
-   <pre><code>var readerForExif = new FileReader();
+</code></pre><p>Assuming you wait after calling <code>readAsArrayBuffer</code>, the you&#39;ll get back 
+an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer">ArrayBuffer</a> that you can manipulate. Putting this together and using 
+the <code>onload</code> field of our reader we can make a simple block of code 
+that posts binary data to a server from the front end javascript:</p>
+<pre><code>var readerForExif = new FileReader();
 readerForExif.onload = function (e) {
     var first128Kb = e.target.result.slice(0,1024 * 128);
     var view = new Uint8Array(first128Kb);
     var xhr = new XMLHttpRequest;
-    xhr.open("POST", "/exif", true);
+    xhr.open(&quot;POST&quot;, &quot;/exif&quot;, true);
     xhr.send(view);
 };
 readerForExif.readAsArrayBuffer(input.files[0]);
-</code></pre>
-   <p>
-    Easy right? In a production implementation you might want to specify 
-a content type header of
-    <code>
-     application/octet-stream
-    </code>
-    *, but for this 
+</code></pre><p>Easy right? In a production implementation you might want to specify 
+a content type header of <code>application/octet-stream</code>*, but for this 
 example the above code is enough to get you sending data to your 
-backend. Once the data is posted we need to parse it.
-   </p>
-   <p>
-    Play has a bunch of
-    <a href="https://www.playframework.com/documentation/2.4.x/ScalaBodyParsers">
-     BodyParsers
-    </a>
-    , and unsurprisingly, for something 
-as
-    <em>
-     raw
-    </em>
-    as a byte stream, we'll be using the
-    <code>
-     raw
-    </code>
-    parser! To invoke 
-the parser we simple start our controller action like so:
-   </p>
-   <pre><code>import play.api._
+backend. Once the data is posted we need to parse it. </p>
+<p>Play has a bunch of <a href="https://www.playframework.com/documentation/2.4.x/ScalaBodyParsers">BodyParsers</a>, and unsurprisingly, for something 
+as <em>raw</em> as a byte stream, we&#39;ll be using the <code>raw</code> parser! To invoke 
+the parser we simple start our controller action like so:</p>
+<pre><code>import play.api._
 import play.api.mvc._
 
 class MyController extends Controller {
@@ -188,309 +112,160 @@ class MyController extends Controller {
         ...
     }
 }
-</code></pre>
-   <p>
-    We still need one tweak to make this work with our front end code 
-though. According to the
-    <a href="https://www.playframework.com/documentation/2.4.x/ScalaBodyParsers#Specifying-a-body-parser">
-     documentation
-    </a>
-    the maximum body size 
-our parser will parse is 100KB unless we specify
-    <code>
-     play.http.parser.maxMemoryBuffer
-    </code>
-    in application.conf. However, I found that this property didn't 
-effect the raw parser, [probably because it's hard coded]. They've
-    <a href="https://www.playframework.com/documentation/2.4.x/Migration24#Maximum-body-length">
-     fixed this in the newer play versions
-    </a>
-    , but I got around this 
-by specifying the maximum content length size directly in the action:
-   </p>
-   <pre><code>def myFunc = Action(parse.raw(1024 * 124)) { implicit request =&gt; 
-</code></pre>
-   <p>
-    So all together the method to read binary data becomes extremely 
-easy:
-   </p>
-   <pre><code>import play.api.libs.json._
+</code></pre><p>We still need one tweak to make this work with our front end code 
+though. According to the <a href="https://www.playframework.com/documentation/2.4.x/ScalaBodyParsers#Specifying-a-body-parser">documentation</a> the maximum body size 
+our parser will parse is 100KB unless we specify <code>play.http.parser.maxMemoryBuffer</code>
+in application.conf. However, I found that this property didn&#39;t 
+effect the raw parser, [probably because it&#39;s hard coded]. They&#39;ve 
+<a href="https://www.playframework.com/documentation/2.4.x/Migration24#Maximum-body-length">fixed this in the newer play versions</a>, but I got around this 
+by specifying the maximum content length size directly in the action:</p>
+<pre><code>def myFunc = Action(parse.raw(1024 * 124)) { implicit request =&gt; 
+</code></pre><p>So all together the method to read binary data becomes extremely 
+easy: </p>
+<pre><code>import play.api.libs.json._
 def readExifFromBinary = Action(parse.raw(1024 * 128)) { implicit request =&gt;
     val raw = request.body
     val bytes = raw.asBytes().getOrElse(Array[Byte]())
     val exif : Map[String,String] = readExifFrom(bytes)
     Ok( Json.toJson(exif) )
 }
-</code></pre>
-   <p>
-    The only thing left to do is to create
-    <code>
-     readExifFrom(b: Array[Bytes])
-    </code>
-    . 
-If you peak at the
-    <a href="http://metadata-extractor.googlecode.com/svn/trunk/Javadoc/com/drew/imaging/ImageMetadataReader.html">
-     javadocs for ImageMetadataReader
-    </a>
-    you'll notice that 
-there is an overloaded version of
-    <code>
-     readMetadata
-    </code>
-    that takes a
-    <a href="https://docs.oracle.com/javase/7/docs/api/java/io/BufferedInputStream.html">
-     BufferedInputStream
-    </a>
-    .
-It's trivial to convert an array of bytes to a BufferedInputStream
-by using
-    <a href="https://docs.oracle.com/javase/7/docs/api/java/io/ByteArrayInputStream.html">
-     ByteArrayInputStream
-    </a>
-   </p>
-   <pre><code>val inputStream = new java.io.ByteArrayInputStream(bytes)
+</code></pre><p>The only thing left to do is to create <code>readExifFrom(b: Array[Bytes])</code>. 
+If you peak at the <a href="http://metadata-extractor.googlecode.com/svn/trunk/Javadoc/com/drew/imaging/ImageMetadataReader.html">javadocs for ImageMetadataReader</a> you&#39;ll notice that 
+there is an overloaded version of <code>readMetadata</code> that takes a <a href="https://docs.oracle.com/javase/7/docs/api/java/io/BufferedInputStream.html">BufferedInputStream</a>.
+It&#39;s trivial to convert an array of bytes to a BufferedInputStream
+by using <a href="https://docs.oracle.com/javase/7/docs/api/java/io/ByteArrayInputStream.html">ByteArrayInputStream</a></p>
+<pre><code>val inputStream = new java.io.ByteArrayInputStream(bytes)
 val bufferedInputStream = new java.io.BufferedInputStream(byteArrayInputStream)
-</code></pre>
-   <p>
-    And then we can create an instance of the
-    <a href="http://metadata-extractor.googlecode.com/svn/trunk/Javadoc/com/drew/metadata/Metadata.html">
-     Metadata
-    </a>
-    class:
-   </p>
-   <pre><code>val metadata = ImageMetadataReader.readMetadata(bufferedInputStream)
-</code></pre>
-   <p>
-    and then follow the
-    <a href="https://github.com/guardian/grid/blob/master/image-loader/app/lib/imaging/FileMetadataReader.scala#L43">
-     general idea the guardian uses
-    </a>
-    to create a 
-simple String to String Map.
-   </p>
-   <pre><code>import scala.collection.JavaConversions._
+</code></pre><p>And then we can create an instance of the <a href="http://metadata-extractor.googlecode.com/svn/trunk/Javadoc/com/drew/metadata/Metadata.html">Metadata</a> class:</p>
+<pre><code>val metadata = ImageMetadataReader.readMetadata(bufferedInputStream)
+</code></pre><p>and then follow the <a href="https://github.com/guardian/grid/blob/master/image-loader/app/lib/imaging/FileMetadataReader.scala#L43">general idea the guardian uses</a> to create a 
+simple String to String Map.</p>
+<pre><code>import scala.collection.JavaConversions._
 
 metadata.getDirectories().toList.flatMap { dir =&gt;
     dir.getTags()
         .filter(_.hasTagName()).toList
         .map { tag =&gt;
-            tag.getTagName() -&gt; Option(tag.getDescription).fold("")(identity)
+            tag.getTagName() -&gt; Option(tag.getDescription).fold(&quot;&quot;)(identity)
         }
 }.toMap
-</code></pre>
-   <p>
-    The only interesting thing of note here is that we use
-    <code>
-     Option
-    </code>
-    to 
-make sure we don't accidently get a null value for our descriptions. 
+</code></pre><p>The only interesting thing of note here is that we use <code>Option</code> to 
+make sure we don&#39;t accidently get a null value for our descriptions. 
 Once you have these building blocks in place, we have an extremely 
 simple exif reading method that is both efficient and leverages all 
-the power of the server side** while taking advantage of the newer
-    <a href="https://developer.mozilla.org/en-US/docs/Web/API/File">
-     javascript File API
-    </a>
-    to cut down how much data we have to send to 
-the back end to get information about our file.
-   </p>
-   <p>
-    *
-    <small>
-     Among other things, you may want to make it cross browser too depending on your use case.
-    </small>
-    <br/>
-    **
-    <small>
-     Not to mention type safety and extensive java libraries to deal with different image format types
-    </small>
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="how-to-test-playframework-mailer">
-       How to test the PlayFramework Mailer
-      </a>
-     </li>
-     <li>
-      <a href="bashing-logs">
-       Bashing Logs
-      </a>
-     </li>
-     <li>
-      <a href="building-state-from-scala-workflows">
-       Building Content State from Workflow and Audit Logs
-      </a>
-     </li>
-     <li>
-      <a href="netty-timeouts-and-playframework">
-       How to set Netty options in Playframework
-      </a>
-     </li>
-     <li>
-      <a href="connect-visualvm-docker">
-       How to connect VisualVM to Docker
-      </a>
-     </li>
-     <li>
-      <a href="how-to-create-sbt-task-that-takes-an-argument">
-       How to create an SBT task that takes an argument
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+the power of the server side** while taking advantage of the newer 
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/File">javascript File API</a> to cut down how much data we have to send to 
+the back end to get information about our file. </p>
+<p>*<small>Among other things, you may want to make it cross browser too depending on your use case.</small><br>
+**<small>Not to mention type safety and extensive java libraries to deal with different image format types</small></p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=how-to-test-playframework-mailer>How to test the PlayFramework Mailer</a></li><li><a href=bashing-logs>Bashing Logs</a></li><li><a href=building-state-from-scala-workflows>Building Content State from Workflow and Audit Logs</a></li><li><a href=netty-timeouts-and-playframework>How to set Netty options in Playframework</a></li><li><a href=connect-visualvm-docker>How to connect VisualVM to Docker</a></li><li><a href=how-to-create-sbt-task-that-takes-an-argument>How to create an SBT task that takes an argument</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Building Content State from Workflow and Audit Logs
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="Workflows are integral to any business, and keeping track of changes is as well. There are many systems out there that do this, but what are some basics? This post explores some." name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="workflow,scala,state,action,logs,audit,building state" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Building Content State from Workflow and Audit Logs" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="Workflows are integral to any business, and keeping track of changes is as well. There are many systems out there that do this, but what are some basics? This post explores some." property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Building Content State from Workflow and Audit Logs" name="twitter:title"/>
-  <meta content="Workflows are integral to any business, and keeping track of changes is as well. There are many systems out there that do this, but what are some basics? This post explores some." name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Building Content State from Workflow and Audit Logs</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Workflows are integral to any business, and keeping track of changes is as well. There are many systems out there that do this, but what are some basics? This post explores some." />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="workflow,scala,state,action,logs,audit,building state"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Building Content State from Workflow and Audit Logs" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Workflows are integral to any business, and keeping track of changes is as well. There are many systems out there that do this, but what are some basics? This post explores some." />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Building Content State from Workflow and Audit Logs" />
+    
+    <meta name="twitter:description" content="Workflows are integral to any business, and keeping track of changes is as well. There are many systems out there that do this, but what are some basics? This post explores some." />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,380 +46,197 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Building Content State from Workflow and Audit Logs
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Building Content State from Workflow and Audit Logs
-   </h3>
-   <h4>
-    Background
-   </h4>
-   <p>
-    For a little while I've been milling over the idea that the state of an object 
-is a result of the history it's been through. For example, you could say that 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Building Content State from Workflow and Audit Logs</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Building Content State from Workflow and Audit Logs</h3><h4>Background</h4><p>For a little while I&#39;ve been milling over the idea that the state of an object 
+is a result of the history it&#39;s been through. For example, you could say that 
 a blog post is the result of multiple iterations of thought, writing, and 
 revising. In order to create something like that, you have a single piece 
 of content having actions applied to it, and this ultimately changes its 
-state. So you think of the following
-    <em>
-     actions
-    </em>
-    that go into making a blog 
-post:
-   </p>
-   <ol>
-    <li>
-     Have idea for blog post
-    </li>
-    <li>
-     Write down thoughts
-    </li>
-    <li>
-     Edit and correct typos
-    </li>
-    <li>
-     Read again and look for improvements
-    </li>
-    <li>
-     Improve with more links, references and better wording
-    </li>
-    <li>
-     Publish blog post
-    </li>
-   </ol>
-   <p>
-    This sequence of events could be captured by a few states:
-   </p>
-   <table>
+state. So you think of the following <em>actions</em> that go into making a blog 
+post:</p>
+<ol>
+<li>Have idea for blog post </li>
+<li>Write down thoughts</li>
+<li>Edit and correct typos</li>
+<li>Read again and look for improvements</li>
+<li>Improve with more links, references and better wording</li>
+<li>Publish blog post</li>
+</ol>
+<p>This sequence of events could be captured by a few states:</p>
+<table>
     <thead>
-     <th>
-      State
-     </th>
-     <th>
-      Description
-     </th>
+        <th>State</th>
+        <th>Description</th>
     </thead>
     <tbody>
-     <tr>
-      <td>
-       Start State
-      </td>
-      <td>
-       Nothing is done yet
-      </td>
-     </tr>
-     <tr>
-      <td>
-       Brainstorming Phase
-      </td>
-      <td>
-       Coming up with an idea for a post
-      </td>
-     </tr>
-     <tr>
-      <td>
-       Writing
-      </td>
-      <td>
-       The post is being written
-      </td>
-     </tr>
-     <tr>
-      <td>
-       Editorial
-      </td>
-      <td>
-       The post is being reviewed and suggestions made for improving
-      </td>
-     </tr>
-     <tr>
-      <td>
-       Published
-      </td>
-      <td>
-       The blog post is done being improved and is out for reading
-      </td>
-     </tr>
+        <tr>
+            <td>Start State</td>
+            <td>Nothing is done yet</td>
+        </tr>
+        <tr>
+            <td>Brainstorming Phase</td>
+            <td>Coming up with an idea for a post</td>
+        </tr>
+        <tr>
+            <td>Writing</td>
+            <td>The post is being written</td>
+        </tr>
+        <tr>
+            <td>Editorial</td>
+            <td>The post is being reviewed and suggestions made for improving</td>
+        </tr>
+        <tr>
+            <td>Published</td>
+            <td>The blog post is done being improved and is out for reading</td>
+        </tr>
     </tbody>
-   </table>
-   <p>
-    We always have a start state or some kind as a starting point that says 
+</table>
+
+<p>We always have a start state or some kind as a starting point that says 
 that nothing has been done yet for whatever content is being created. Then 
 we move between three main phases: thinking, writing, and reviewing. For 
-a one person team there isn't really a well-defined progression here, but 
+a one person team there isn&#39;t really a well-defined progression here, but 
 for a team working on a single product there might be very well defined 
 roles for each member. A producer might do most of the brain storming, 
 then pass along their notes to a writer during a meeting. Once the writer 
-has a rough draft, they'll send it to an editorial team. At this point 
-we might loop back saying there needs to be more done before it's ready, 
-which could end up back in either the producer or the writer's court. 
+has a rough draft, they&#39;ll send it to an editorial team. At this point 
+we might loop back saying there needs to be more done before it&#39;s ready, 
+which could end up back in either the producer or the writer&#39;s court. 
 Either way, it will go through the same set of actions over and over until 
-it finally reaches the published state:
-   </p>
-   <table>
+it finally reaches the published state:</p>
+<table>
     <thead>
-     <th>
-      Action
-     </th>
-     <th>
-      Description
-     </th>
+        <th>Action</th>
+        <th>Description</th>
     </thead>
     <tbody>
-     <tr>
-      <td>
-       Brainstorming
-      </td>
-      <td>
-       Coming up with an idea for a post
-      </td>
-     </tr>
-     <tr>
-      <td>
-       Start Writing
-      </td>
-      <td>
-       Someone will start writing
-      </td>
-     </tr>
-     <tr>
-      <td>
-       Start Editing
-      </td>
-      <td>
-       Someone will start editing
-      </td>
-     </tr>
-     <tr>
-      <td>
-       Submit Corrections
-      </td>
-      <td>
-       Send piece back to writer or producer for more work
-      </td>
-     </tr>
-     <tr>
-      <td>
-       Publish
-      </td>
-      <td>
-       The blog post is put out for reading
-      </td>
-     </tr>
+        <tr>
+            <td>Brainstorming</td>
+            <td>Coming up with an idea for a post</td>
+        </tr>
+        <tr>
+            <td>Start Writing</td>
+            <td>Someone will start writing</td>
+        </tr>
+        <tr>
+            <td>Start Editing</td>
+            <td>Someone will start editing</td>
+        </tr>
+        <tr>
+            <td>Submit Corrections</td>
+            <td>Send piece back to writer or producer for more work</td>
+        </tr>
+        <tr>
+            <td>Publish</td>
+            <td>The blog post is put out for reading</td>
+        </tr>
     </tbody>
-   </table>
-   <p>
-    As we write out the state's and action's that can be applied to something 
-it is notable that you can begin to see a
-    <em>
-     workflow
-    </em>
-    emerge from this. 
+</table>
+
+<p>As we write out the state&#39;s and action&#39;s that can be applied to something 
+it is notable that you can begin to see a <em>workflow</em> emerge from this. 
 This leads us to believe that a workflow is the set of actions and states 
 in which content can transition through before it is published. Or generally 
-speaking, before an object has reached an end state with no further actions.
-   </p>
-   <p>
-    Now let's say that you're not just writing one blog post. But a bunch of 
-them, and your team isn't able to always walk over to each other to check 
-how something is going. At that point, you'll probably end up with something 
+speaking, before an object has reached an end state with no further actions.</p>
+<p>Now let&#39;s say that you&#39;re not just writing one blog post. But a bunch of 
+them, and your team isn&#39;t able to always walk over to each other to check 
+how something is going. At that point, you&#39;ll probably end up with something 
 in place to keep track of these things. Maybe basecamp, maybe Jira, maybe 
-something like Salesforce. No matter what you get, you're now in the business 
+something like Salesforce. No matter what you get, you&#39;re now in the business 
 of keeping track of not just the content, but what its current state is 
-and where it's supposed to go next. Depending on what you use, you might 
+and where it&#39;s supposed to go next. Depending on what you use, you might 
 have a history of events that happened, or you might just have a whole 
 bunch of notes attached to a single object. So long as the management of
 the content can tell you where to send it next, or why someone added a 
-long essay about some unrelated topic, you're good!
-   </p>
-   <h4>
-    Codifying State
-   </h4>
-   <p>
-    The idea of State is pretty easy to put into code, after all it's just a 
-label right? One thing that helps to know in a workflow is
-    <em>
-     when
-    </em>
-    you 
-can move into a new state. After all, we don't move directly from 
+long essay about some unrelated topic, you&#39;re good!</p>
+<h4>Codifying State</h4><p>The idea of State is pretty easy to put into code, after all it&#39;s just a 
+label right? One thing that helps to know in a workflow is <em>when</em> you 
+can move into a new state. After all, we don&#39;t move directly from 
 brainstorming to published! So the idea of a state also includes the idea 
-of a
-    <em>
-     prerequisite
-    </em>
-    . That one state must come before another. The 
+of a <em>prerequisite</em>. That one state must come before another. The 
 enforcement of this idea is entirely up to the implementation though. 
-For reason's you'll see soon, we'll just leave our model of state simple:
-   </p>
-   <pre><code>case class State(name: String)
-</code></pre>
-   <h4>
-    Codifying Action and Workflow
-   </h4>
-   <p>
-    Action is a little more complicated but not by much. An action allows an 
-object to transition from one state to another, so we'll need a
-    <code>
-     from
-    </code>
-    and a
-    <code>
-     to
-    </code>
-    field of some kind. On top of that, if we consider actions to 
-be the
-    <em>
-     links
-    </em>
-    in a directed graph, then they also possess a
-    <code>
-     direction
-    </code>
-    . 
-For UI purposes, and for our own sanity, we'll also want to include some 
-human readable information like a
-    <code>
-     name
-    </code>
-    within the model so we can make 
-sense of any output we're debugging or that we need to show to a user.
-   </p>
-   <pre><code>sealed trait Direction
+For reason&#39;s you&#39;ll see soon, we&#39;ll just leave our model of state simple:</p>
+<pre><code>case class State(name: String)
+</code></pre><h4>Codifying Action and Workflow</h4><p>Action is a little more complicated but not by much. An action allows an 
+object to transition from one state to another, so we&#39;ll need a <code>from</code> 
+and a <code>to</code> field of some kind. On top of that, if we consider actions to 
+be the <em>links</em> in a directed graph, then they also possess a <code>direction</code>. 
+For UI purposes, and for our own sanity, we&#39;ll also want to include some 
+human readable information like a <code>name</code> within the model so we can make 
+sense of any output we&#39;re debugging or that we need to show to a user.</p>
+<pre><code>sealed trait Direction
 case object Forward extends Direction
 case object Backward extends Direction
 
 case class Action(from: State, to: State, flow: Direction, name: String)
-</code></pre>
-   <p>
-    Using a
-    <a href="http://www.scala-lang.org/old/node/6568">
-     sealed trait
-    </a>
-    we can ensure that the compiler will know when 
-we've created an exhaustive match against classes of type
-    <code>
-     Direction
-    </code>
-    . 
-And we can rest assured that the "direction" of an action will be 
-represented correctly. Now that we have both
-    <code>
-     State
-    </code>
-    s and
-    <code>
-     Action
-    </code>
-    s we 
-can consider how to model something like the following:
-   </p>
-   <p>
-    <img src="/images/tech-blog/workflow-1.png" style="max-width:100%"/>
-   </p>
-   <p>
-    This sums up the scenario we were discussing earlier. In code we might 
-create a list of State's like so:
-   </p>
-   <pre><code>val start = State("Start")
-val brainstorming = State("brainstorming")
-val writing = State("writing")
-val editorial = State("editorial")
-val approved = State("approved")
-val published = State("published")
-</code></pre>
-   <p>
-    and a set of actions:
-   </p>
-   <pre><code>val startBrainstorming = Action(start, brainstorming, Forward, "start brainstorming")
-val startWriting = Action(brainstorming, writing, Forward, "start writing")
-val getMoreInfo = Action(writing, brainstorming, Backward, "get more information from producer")
-val sendToEditor = Action(writing, editorial, Forward, "submit for editing")
-val sendBackToWriter = Action(editorial, writing, Backward, "send back to writer")
-val backToDrawingBoard = Action(editorial, brainstorming, Backward, "back to the drawing board")
-val approvePost = Action(editorial, approved, Forward, "approve post")
-val publishPost = Action(approved, published, Forward, "publish post")
-</code></pre>
-   <p>
-    These would become characteristic of our own workflow:
-   </p>
-   <pre><code>case class Workflow(states: List[State], actions: List[Action])
-</code></pre>
-   <h4>
-    Tracking content
-   </h4>
-   <p>
-    So now that we have our definition of Workflow as a collection of states 
+</code></pre><p>Using a <a href="http://www.scala-lang.org/old/node/6568">sealed trait</a> we can ensure that the compiler will know when 
+we&#39;ve created an exhaustive match against classes of type <code>Direction</code>. 
+And we can rest assured that the &quot;direction&quot; of an action will be 
+represented correctly. Now that we have both <code>State</code>s and <code>Action</code>s we 
+can consider how to model something like the following:</p>
+<p><img src="/images/tech-blog/workflow-1.png" style="max-width:100%"></p>
+<p>This sums up the scenario we were discussing earlier. In code we might 
+create a list of State&#39;s like so:</p>
+<pre><code>val start = State(&quot;Start&quot;)
+val brainstorming = State(&quot;brainstorming&quot;)
+val writing = State(&quot;writing&quot;)
+val editorial = State(&quot;editorial&quot;)
+val approved = State(&quot;approved&quot;)
+val published = State(&quot;published&quot;)
+</code></pre><p>and a set of actions:</p>
+<pre><code>val startBrainstorming = Action(start, brainstorming, Forward, &quot;start brainstorming&quot;)
+val startWriting = Action(brainstorming, writing, Forward, &quot;start writing&quot;)
+val getMoreInfo = Action(writing, brainstorming, Backward, &quot;get more information from producer&quot;)
+val sendToEditor = Action(writing, editorial, Forward, &quot;submit for editing&quot;)
+val sendBackToWriter = Action(editorial, writing, Backward, &quot;send back to writer&quot;)
+val backToDrawingBoard = Action(editorial, brainstorming, Backward, &quot;back to the drawing board&quot;)
+val approvePost = Action(editorial, approved, Forward, &quot;approve post&quot;)
+val publishPost = Action(approved, published, Forward, &quot;publish post&quot;)
+</code></pre><p>These would become characteristic of our own workflow:</p>
+<pre><code>case class Workflow(states: List[State], actions: List[Action])
+</code></pre><h4>Tracking content</h4><p>So now that we have our definition of Workflow as a collection of states 
 and actions, we can move onto how to actually keep track of what state 
 something is in! Essentially, all we need to do is keep track of the actions
-themselves, allong with any notes about the transition. A
-    <em>
-     log entry
-    </em>
-    than 
-is something like the following:
-   </p>
-   <pre><code>case class LogEntry(startState: State, endState: State, note: String, flowTaken: Direction, actionTaken: Action)
-</code></pre>
-   <p>
-    once we have a list like this, taken
-    <em>
-     in sequential order
-    </em>
-    , we can come 
-up with an algorithm to determine an end state. The algorithm isn't that 
+themselves, allong with any notes about the transition. A <em>log entry</em> than 
+is something like the following:</p>
+<pre><code>case class LogEntry(startState: State, endState: State, note: String, flowTaken: Direction, actionTaken: Action)
+</code></pre><p>once we have a list like this, taken <em>in sequential order</em>, we can come 
+up with an algorithm to determine an end state. The algorithm isn&#39;t that 
 hard if we have a single chain of events, after all, the last one in the 
-sequence is the last state we were in.
-   </p>
-   <pre><code>val log: Seq[LogEntry] = ...
+sequence is the last state we were in.</p>
+<pre><code>val log: Seq[LogEntry] = ...
 log.last
-</code></pre>
-   <p>
-    But what if your workflow is more complicated and doesn't simply end in an
+</code></pre><p>But what if your workflow is more complicated and doesn&#39;t simply end in an
 published state, but also has multiple approval processes and conditions 
-that need to be satisfied before it's ready? In that case, our log, even 
-when ordered, will not be as simple as a
-    <code>
-     log.last
-    </code>
-    line of code. Rather, 
-we'll need to keep track of each "path" through the log to some extent. 
+that need to be satisfied before it&#39;s ready? In that case, our log, even 
+when ordered, will not be as simple as a <code>log.last</code> line of code. Rather, 
+we&#39;ll need to keep track of each &quot;path&quot; through the log to some extent. 
 Or at least be able to connect entries together and build up a history 
-of events for each "path".
-   </p>
-   <p>
-    This isn't too hard considering each
-    <code>
-     LogEntry
-    </code>
-    has both a start and an end 
-state. We simply need to compare Entry's against the previous and track 
+of events for each &quot;path&quot;. </p>
+<p>This isn&#39;t too hard considering each <code>LogEntry</code> has both a start and an end 
+state. We simply need to compare Entry&#39;s against the previous and track 
 all of the last states. This can be done easily with a list of stacks. A 
-stack is the perfect choice for this since a
-    <em>
-     first in, last out
-    </em>
-    strategy 
+stack is the perfect choice for this since a <em>first in, last out</em> strategy 
 will allow us to push down as many states as we need, but also get an 
-answer to what the last state is quickly. A list of stack's allows us to 
-maintain multiple "paths" in the log by comparing the start state of the 
+answer to what the last state is quickly. A list of stack&#39;s allows us to 
+maintain multiple &quot;paths&quot; in the log by comparing the start state of the 
 current state to the end state of each element on the top of the stack. 
-Once the top is figure'd out, we simply push down the element and continue 
-on from there, the only limitation is that it's first come first serve
+Once the top is figure&#39;d out, we simply push down the element and continue 
+on from there, the only limitation is that it&#39;s first come first serve
 for which stack the new entry will be added to should two stacks have 
-the same end state that matches the new state's beginning.
-   </p>
-   <pre><code>def determineCurrentState(log: Seq[LogEntry], workflow: Workflow): Set[State] = {
+the same end state that matches the new state&#39;s beginning. </p>
+<pre><code>def determineCurrentState(log: Seq[LogEntry], workflow: Workflow): Set[State] = {
     var sequences = List[Stack[LogEntry]](
         Stack[LogEntry]()
     )
@@ -444,285 +272,157 @@ the same end state that matches the new state's beginning.
     }
     sequences.map(_.headOption).filter(_.isDefined).map(_.get.endState).toSet
 }
-</code></pre>
-   <p>
-    The input to the above function is an ordered list, probably pulled from a 
+</code></pre><p>The input to the above function is an ordered list, probably pulled from a 
 database somewhere ordered by timestamp or some type of sequencing number. 
 The workflow is passed as a parameter because we could add checks against 
-the workflow to verify that all the state's we're pushing down onto the stacks 
-are allowed to be in that order; but for simplicity the above code doesn't do 
-that. If it did, it'd replace
-   </p>
-   <pre><code>stack.headOption.map(_.endState) == Some(entry.startState))
-</code></pre>
-   <p>
-    with something like:
-   </p>
-   <pre><code>transitionPermissibleByWorkflow(stach.headOption, entry.startState)
-</code></pre>
-   <p>
-    where the flow, start, and end state would all be checked by a helper 
-function.
-   </p>
-   <p>
-    Once we have the above algorithm we can retrieve a set of States back in 
-a set. This tells us
-    <em>
-     all
-    </em>
-    of the current states for an item and allows 
+the workflow to verify that all the state&#39;s we&#39;re pushing down onto the stacks 
+are allowed to be in that order; but for simplicity the above code doesn&#39;t do 
+that. If it did, it&#39;d replace</p>
+<pre><code>stack.headOption.map(_.endState) == Some(entry.startState))
+</code></pre><p>with something like:</p>
+<pre><code>transitionPermissibleByWorkflow(stach.headOption, entry.startState)
+</code></pre><p>where the flow, start, and end state would all be checked by a helper 
+function.</p>
+<p>Once we have the above algorithm we can retrieve a set of States back in 
+a set. This tells us <em>all</em> of the current states for an item and allows 
 us to handle content that has multiple end states. To prove that the code 
-works to yourself, you can checkout the
-    <a href="https://github.com/EdgeCaseBerg/scala-workflow/blob/master/src/test/scala/com.github.edgecaseberg/workflow/WorkflowTest.scala">
-     repositories tests here
-    </a>
-    . Of 
-course, knowing a State is handy, but this doesn't tell a user much. After 
+works to yourself, you can checkout the <a href="https://github.com/EdgeCaseBerg/scala-workflow/blob/master/src/test/scala/com.github.edgecaseberg/workflow/WorkflowTest.scala">repositories tests here</a>. Of 
+course, knowing a State is handy, but this doesn&#39;t tell a user much. After 
 all, someone keeping tabs on an item wants to not only know the state, but 
-also
-    <em>
-     what actions can be taken
-    </em>
-    . This is simple:
-   </p>
-   <pre><code>def possibleActionsForState(state: State, workflow: Workflow): List[Action] = {
+also <em>what actions can be taken</em>. This is simple:</p>
+<pre><code>def possibleActionsForState(state: State, workflow: Workflow): List[Action] = {
     workflow.actions.filter(_.from == state)
 }
-</code></pre>
-   <p>
-    And if we combine this with our other function:
-   </p>
-   <pre><code>def possibleActionsForLog(log: Seq[LogEntry], workflow: Workflow): Map[State, List[Action]] = {
+</code></pre><p>And if we combine this with our other function:</p>
+<pre><code>def possibleActionsForLog(log: Seq[LogEntry], workflow: Workflow): Map[State, List[Action]] = {
     determineCurrentState(log, workflow).map(state =&gt; state -&gt; possibleActionsForState(state, workflow)).toMap
 }
-</code></pre>
-   <p>
-    we can now retrieve which actions an item can have performed given a workflow 
-and a log file!
-   </p>
-   <h4>
-    What next?
-   </h4>
-   <p>
-    The next thing to do would be to create some type of simple system or API that 
+</code></pre><p>we can now retrieve which actions an item can have performed given a workflow 
+and a log file!</p>
+<h4>What next?</h4><p>The next thing to do would be to create some type of simple system or API that 
 allowed this general model to work with your own content. A few ideas pop up to 
-me:
-   </p>
-   <ol>
-    <li>
-     Allow input of a workflow via
-     <a href="https://en.wikipedia.org/wiki/DOT_(graph_description_language)">
-      dotfiles
-     </a>
-     or a simplification of
-    </li>
-    <li>
-     Concept of major and minor states, so that the branching that results in multiple 
+me:</p>
+<ol>
+<li>Allow input of a workflow via <a href="https://en.wikipedia.org/wiki/DOT_(graph_description_language)">dotfiles</a> or a simplification of</li>
+<li>Concept of major and minor states, so that the branching that results in multiple 
 end states for a piece of content could be controlled better (branching allowed while
-in transition from a major to another major).
-    </li>
-    <li>
-     Build a friendly UI to do all the hard work for you! (Building workflows, 
-moving items along, etc).
-    </li>
-   </ol>
-   <p>
-    I know there are systems out there like
-    <a href="http://java-source.net/open-source/workflow-engines">
-     jBPM, Enhydra, and many more
-    </a>
-    but this 
+in transition from a major to another major). </li>
+<li>Build a friendly UI to do all the hard work for you! (Building workflows, 
+moving items along, etc).</li>
+</ol>
+<p>I know there are systems out there like <a href="http://java-source.net/open-source/workflow-engines">jBPM, Enhydra, and many more</a> but this 
 is mostly a thought exercise to get the juices flowing. If you implement any 
 workflow structures using this as a base, I want to know! Not just that the code 
 was useful, but also where you had to make updates or changes and why. Happy 
-coding!
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="bashing-logs">
-       Bashing Logs
-      </a>
-     </li>
-     <li>
-      <a href="netty-timeouts-and-playframework">
-       How to set Netty options in Playframework
-      </a>
-     </li>
-     <li>
-      <a href="upload-binary-data-play-exif">
-       Upload binary data in play
-      </a>
-     </li>
-     <li>
-      <a href="connect-visualvm-docker">
-       How to connect VisualVM to Docker
-      </a>
-     </li>
-     <li>
-      <a href="how-to-test-playframework-mailer">
-       How to test the PlayFramework Mailer
-      </a>
-     </li>
-     <li>
-      <a href="how-to-create-sbt-task-that-takes-an-argument">
-       How to create an SBT task that takes an argument
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+coding!</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=bashing-logs>Bashing Logs</a></li><li><a href=netty-timeouts-and-playframework>How to set Netty options in Playframework</a></li><li><a href=upload-binary-data-play-exif>Upload binary data in play</a></li><li><a href=connect-visualvm-docker>How to connect VisualVM to Docker</a></li><li><a href=how-to-test-playframework-mailer>How to test the PlayFramework Mailer</a></li><li><a href=how-to-create-sbt-task-that-takes-an-argument>How to create an SBT task that takes an argument</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | How to set Netty options in Playframework
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="Setting netty options like timeouts or backlog's is easy if you know how. This is how to do it with play" name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="netty,play,playframework,server,options,timeout" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | How to set Netty options in Playframework" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="Setting netty options like timeouts or backlog's is easy if you know how. This is how to do it with play" property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | How to set Netty options in Playframework" name="twitter:title"/>
-  <meta content="Setting netty options like timeouts or backlog's is easy if you know how. This is how to do it with play" name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | How to set Netty options in Playframework</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Setting netty options like timeouts or backlog&#39;s is easy if you know how. This is how to do it with play" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="netty,play,playframework,server,options,timeout"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | How to set Netty options in Playframework" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Setting netty options like timeouts or backlog&#39;s is easy if you know how. This is how to do it with play" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | How to set Netty options in Playframework" />
+    
+    <meta name="twitter:description" content="Setting netty options like timeouts or backlog&#39;s is easy if you know how. This is how to do it with play" />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,336 +46,170 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    How to set Netty options in Playframework
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Set netty timeout options in Play
-   </h3>
-   <p>
-    As you may or may not know, the
-    <a href="https://playframework.com">
-     Playframework
-    </a>
-    runs on top of
-    <a href="http://netty.io/">
-     Netty
-    </a>
-    .
-This means that when you're configuring the server aspects of your 
-application, at some point you're going to want to set the options on 
-Netty itself. The
-    <a href="https://www.playframework.com/documentation/2.2.x/ProductionConfiguration">
-     documentation for production configuration
-    </a>
-    is fairly 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>How to set Netty options in Playframework</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Set netty timeout options in Play</h3><p>As you may or may not know, the <a href="https://playframework.com">Playframework</a> runs on top of <a href="http://netty.io/">Netty</a>.
+This means that when you&#39;re configuring the server aspects of your 
+application, at some point you&#39;re going to want to set the options on 
+Netty itself. The <a href="https://www.playframework.com/documentation/2.2.x/ProductionConfiguration">documentation for production configuration</a> is fairly 
 useful in this, providing a few examples of the properties you can set, 
-and even detailing how to pass any option to the server underneath.
-   </p>
-   <p>
-    The one thing it doesn't do is tell you how to
-    <em>
-     get
-    </em>
-    the options to the 
-server in the first place. Unless you're in the business of passing along 
-options to your applications you might not realize that
-    <em>
-     every
-    </em>
-    new option 
-to netty needs to be passed on startup via a
-    <code>
-     -D
-    </code>
-    parameter. Keeping track 
+and even detailing how to pass any option to the server underneath. </p>
+<p>The one thing it doesn&#39;t do is tell you how to <em>get</em> the options to the 
+server in the first place. Unless you&#39;re in the business of passing along 
+options to your applications you might not realize that <em>every</em> new option 
+to netty needs to be passed on startup via a <code>-D</code> parameter. Keeping track 
 of this is a pain, after all, what about when you have multiple environments 
-and you need to tweak each one?
-   </p>
-   <p>
-    While looking around, I found a
-    <a href="http://www.ybrikman.com/writing/2014/02/18/maxing-out-at-50-concurrent-connections/">
-     smart guy
-    </a>
-    who might not have read the 
+and you need to tweak each one? </p>
+<p>While looking around, I found a <a href="http://www.ybrikman.com/writing/2014/02/18/maxing-out-at-50-concurrent-connections/">smart guy</a> who might not have read the 
 documentation page I linked above. And this blog post goes out to him on 
 a simpler way to set Netty options. First off you need to recognize two 
-things.
-   </p>
-   <ol>
-    <li>
-     Using the
-     <code>
-      dist
-     </code>
-     command will create a startup script
-    </li>
-    <li>
-     Hidden in this startup script is a way to add configuration easily
-    </li>
-   </ol>
-   <p>
-    If you look into the file named after your application in the dist's bin 
-directory you'll find the following piece of bash script:
-   </p>
-   <pre><code>declare -r script_conf_file="/etc/default/yourappnamehere"
+things. </p>
+<ol>
+<li>Using the <code>dist</code> command will create a startup script</li>
+<li>Hidden in this startup script is a way to add configuration easily</li>
+</ol>
+<p>If you look into the file named after your application in the dist&#39;s bin 
+directory you&#39;ll find the following piece of bash script:</p>
+<pre><code>declare -r script_conf_file=&quot;/etc/default/yourappnamehere&quot;
 ...
 # if configuration files exist, prepend their contents to $@ so it can be processed by this runner
-[[ -f "$script_conf_file" ]] &amp;&amp; set -- $(loadConfigFile "$script_conf_file") "$@"
-</code></pre>
-   <p>
-    The
-    <code>
-     loadConfigFile
-    </code>
-    is fairly simple:
-   </p>
-   <pre><code># Loads a configuration file full of default command line options for this script.
+[[ -f &quot;$script_conf_file&quot; ]] &amp;&amp; set -- $(loadConfigFile &quot;$script_conf_file&quot;) &quot;$@&quot;
+</code></pre><p>The <code>loadConfigFile</code> is fairly simple:</p>
+<pre><code># Loads a configuration file full of default command line options for this script.
 loadConfigFile() {
-  cat "$1" | sed '/^\#/d'
+  cat &quot;$1&quot; | sed &#39;/^\#/d&#39;
 }
-</code></pre>
-   <p>
-    In essence, whatever you put into the config file will be appended to your
-startup. So if you were to say, add
-    <code>
-     -Dhttp.netty.option.child.connectTimeoutMillis=600000
-    </code>
-    you'd endup setting the timeout to 10 minutes for your netty server running 
-your play application. Useful right? If you're
-    <a href="http://www.ybrikman.com/">
-     Yevgeniy Brikman
-    </a>
-    this one line:
-   </p>
-   <pre><code>-Dhttp.netty.option.backlog
-</code></pre>
-   <p>
-    in an
-    <code>
-     /etc/default/myapp
-    </code>
-    file would have saved you a lot of trouble. 
-Since play doesn't write the Netty configuration to a logfile for you 
+</code></pre><p>In essence, whatever you put into the config file will be appended to your
+startup. So if you were to say, add <code>-Dhttp.netty.option.child.connectTimeoutMillis=600000</code> 
+you&#39;d endup setting the timeout to 10 minutes for your netty server running 
+your play application. Useful right? If you&#39;re <a href="http://www.ybrikman.com/">Yevgeniy Brikman</a> this one line: </p>
+<pre><code>-Dhttp.netty.option.backlog
+</code></pre><p>in an <code>/etc/default/myapp</code> file would have saved you a lot of trouble. 
+Since play doesn&#39;t write the Netty configuration to a logfile for you 
 on startup, verifying that the settings are in place required me to 
-check the JVM itself. This was easily done by using
-    <a href="https://visualvm.java.net/">
-     VisualVM
-    </a>
-    to connect 
-to my
-    <a href="https://www.docker.com/what-docker">
-     Docker container
-    </a>
-    . If you want instructions on how to do that, 
-you can check my
-    <a href="connect-visualvm-docker">
-     previous post here
-    </a>
-    . Then check the
-    <code>
-     ServerBootstrap
-    </code>
-    class instance on the heap and look in the options HashMap:
-   </p>
-   <p>
-    <img src="/images/tech-blog/visualvm.png" style="max-width:100%"/>
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="building-state-from-scala-workflows">
-       Building Content State from Workflow and Audit Logs
-      </a>
-     </li>
-     <li>
-      <a href="connect-visualvm-docker">
-       How to connect VisualVM to Docker
-      </a>
-     </li>
-     <li>
-      <a href="bashing-logs">
-       Bashing Logs
-      </a>
-     </li>
-     <li>
-      <a href="how-to-create-sbt-task-that-takes-an-argument">
-       How to create an SBT task that takes an argument
-      </a>
-     </li>
-     <li>
-      <a href="upload-binary-data-play-exif">
-       Upload binary data in play
-      </a>
-     </li>
-     <li>
-      <a href="combine-xml-files">
-       Combine XML files with Bash
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+check the JVM itself. This was easily done by using <a href="https://visualvm.java.net/">VisualVM</a> to connect 
+to my <a href="https://www.docker.com/what-docker">Docker container</a>. If you want instructions on how to do that, 
+you can check my <a href="connect-visualvm-docker">previous post here</a>. Then check the <code>ServerBootstrap</code>
+class instance on the heap and look in the options HashMap:</p>
+<p><img style="max-width:100%" src="/images/tech-blog/visualvm.png"></p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=building-state-from-scala-workflows>Building Content State from Workflow and Audit Logs</a></li><li><a href=connect-visualvm-docker>How to connect VisualVM to Docker</a></li><li><a href=bashing-logs>Bashing Logs</a></li><li><a href=how-to-create-sbt-task-that-takes-an-argument>How to create an SBT task that takes an argument</a></li><li><a href=upload-binary-data-play-exif>Upload binary data in play</a></li><li><a href=combine-xml-files>Combine XML files with Bash</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

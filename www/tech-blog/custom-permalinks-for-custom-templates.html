@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Custom Permalinks for Custom Tables and Pages
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="How to create custom permalinks for custom pages and page templates. If you're using a custom table and need to alter information on a Page template based on this, then this blog post is for you!" name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="Custom permalinks,custom tables,custom pages,permalinks,wordpress,SEO,ugly links" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Custom Permalinks for Custom Tables and Pages" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="How to create custom permalinks for custom pages and page templates. If you're using a custom table and need to alter information on a Page template based on this, then this blog post is for you!" property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Custom Permalinks for Custom Tables and Pages" name="twitter:title"/>
-  <meta content="How to create custom permalinks for custom pages and page templates. If you're using a custom table and need to alter information on a Page template based on this, then this blog post is for you!" name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Custom Permalinks for Custom Tables and Pages</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="How to create custom permalinks for custom pages and page templates. If you&#39;re using a custom table and need to alter information on a Page template based on this, then this blog post is for you!" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="Custom permalinks,custom tables,custom pages,permalinks,wordpress,SEO,ugly links"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Custom Permalinks for Custom Tables and Pages" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="How to create custom permalinks for custom pages and page templates. If you&#39;re using a custom table and need to alter information on a Page template based on this, then this blog post is for you!" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Custom Permalinks for Custom Tables and Pages" />
+    
+    <meta name="twitter:description" content="How to create custom permalinks for custom pages and page templates. If you&#39;re using a custom table and need to alter information on a Page template based on this, then this blog post is for you!" />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,118 +46,82 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Custom Permalinks for Custom Tables and Pages
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Custom Permalinks for WordPress Custom Template Page or Custom Tables
-   </h3>
-   <p>
-    I've blogged
-    <a href="http://www.ethanjoachimeldridge.info/tech-blog/shortcodes-routing-wordpress">
-     before
-    </a>
-    about custom routing in WordPress, but today I faced a more
-practical problem. Let's say you've create a page template and are displaying
-some information on it based on the query parameters. For example:
-   </p>
-   <p>
-    <code>
-     http://www.example.com/?page_id=47&amp;recipe_id=1231
-    </code>
-   </p>
-   <p>
-    And you've created a custom table for your recipes (though in this case they would
-fit in as a post type, but for the sake of example bare with me). Say you've done
-something like this:
-   </p>
-   <pre><code>global $wpdb;
-if ( ! empty($wpdb-&gt;charset) )
-    $charset_collate = "DEFAULT CHARACTER SET $wpdb-&gt;charset";
-if ( ! empty($wpdb-&gt;collate) )
-    $charset_collate .= " COLLATE $wpdb-&gt;collate";
 
-$schema = "CREATE TABLE {$wpdb-&gt;prefix}recipes(
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Custom Permalinks for Custom Tables and Pages</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Custom Permalinks for WordPress Custom Template Page or Custom Tables</h3><p>I&#39;ve blogged <a href="http://www.ethanjoachimeldridge.info/tech-blog/shortcodes-routing-wordpress">before</a> about custom routing in WordPress, but today I faced a more
+practical problem. Let&#39;s say you&#39;ve create a page template and are displaying
+some information on it based on the query parameters. For example:</p>
+<p><code>http://www.example.com/?page_id=47&amp;recipe_id=1231</code></p>
+<p>And you&#39;ve created a custom table for your recipes (though in this case they would
+fit in as a post type, but for the sake of example bare with me). Say you&#39;ve done
+something like this:</p>
+<pre><code>global $wpdb;
+if ( ! empty($wpdb-&gt;charset) )
+    $charset_collate = &quot;DEFAULT CHARACTER SET $wpdb-&gt;charset&quot;;
+if ( ! empty($wpdb-&gt;collate) )
+    $charset_collate .= &quot; COLLATE $wpdb-&gt;collate&quot;;
+
+$schema = &quot;CREATE TABLE {$wpdb-&gt;prefix}recipes(
         ID bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
         slug varchar(255) NOT NULL,
         description TEXT
-        ) $charset_collate;";
-require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+        ) $charset_collate;&quot;;
+require_once( ABSPATH . &#39;wp-admin/includes/upgrade.php&#39; );
 dbDelta( $schema );
-</code></pre>
-   <p>
-    And you've gone through all the effort to display the description and a bunch of
-other information linked from other tables, but now you're stuck with URLs that 
-look like the above, and you've decided they're ugly and you'd rather have a nice
-structure like this:
-   </p>
-   <p>
-    <code>
-     http://www.example.com/recipes/real-cool-recipe
-    </code>
-   </p>
-   <p>
-    Where the
-    <code>
-     real-cool-recipe
-    </code>
-    is the slug of the recipe. Believe it or not, this
+</code></pre><p>And you&#39;ve gone through all the effort to display the description and a bunch of
+other information linked from other tables, but now you&#39;re stuck with URLs that 
+look like the above, and you&#39;ve decided they&#39;re ugly and you&#39;d rather have a nice
+structure like this:</p>
+<p><code>http://www.example.com/recipes/real-cool-recipe</code></p>
+<p>Where the <code>real-cool-recipe</code> is the slug of the recipe. Believe it or not, this
 is actually pretty simple to do with WordPress permalinks! Though there is a very
-dasterdly gotcha here:
-   </p>
-   <p>
-    <strong>
-     If another post is set to the same thing as your permalink's structure, you'll get
-an endless redirect
-    </strong>
-   </p>
-   <p>
-    More on that in a moment, here's how to do it:
-   </p>
-   <p>
-    functions.php
-   </p>
-   <pre><code>add_action( 'init', 'vanity_setup' );
+dasterdly gotcha here:</p>
+<p><strong>If another post is set to the same thing as your permalink&#39;s structure, you&#39;ll get
+an endless redirect</strong> </p>
+<p>More on that in a moment, here&#39;s how to do it:</p>
+<p>functions.php</p>
+<pre><code>add_action( &#39;init&#39;, &#39;vanity_setup&#39; );
 function vanity_setup(){
     $pageId = 47; //pull this from the page with the recipes template
     add_rewrite_rule(
-        'recipes/(([^/]+))?',
-        'index.php?page_id='.$pageId.'&amp;recipe_id=$matches[1]',
-        'top'
+        &#39;recipes/(([^/]+))?&#39;,
+        &#39;index.php?page_id=&#39;.$pageId.&#39;&amp;recipe_id=$matches[1]&#39;,
+        &#39;top&#39;
     );
 }
 
-add_filter( 'query_vars', 'vanity_vars' );
+add_filter( &#39;query_vars&#39;, &#39;vanity_vars&#39; );
 function vanity_vars( $query_vars ){
-    $query_vars[] = 'recipe_id'; //dont forget this!
+    $query_vars[] = &#39;recipe_id&#39;; //dont forget this!
     return $query_vars;
 }
 
-add_action('pre_get_posts', 'vanity_permalink', 10, 3);
+add_action(&#39;pre_get_posts&#39;, &#39;vanity_permalink&#39;, 10, 3);
 
 function vanity_permalink($query) {
 
     if(if_on_recipe_index_page()){
         return;
     }
-    if( isset($query-&gt;query_vars['recipe_id']) 
-        &amp;&amp; !empty($query-&gt;query_vars['recipe_id']) 
-        &amp;&amp; !is_numeric($query-&gt;query_vars['recipe_id']) 
-        &amp;&amp; isset($query-&gt;query_vars['page_id']) ){
+    if( isset($query-&gt;query_vars[&#39;recipe_id&#39;]) 
+        &amp;&amp; !empty($query-&gt;query_vars[&#39;recipe_id&#39;]) 
+        &amp;&amp; !is_numeric($query-&gt;query_vars[&#39;recipe_id&#39;]) 
+        &amp;&amp; isset($query-&gt;query_vars[&#39;page_id&#39;]) ){
 
-            switch ($query-&gt;query_vars['page_id']) {
+            switch ($query-&gt;query_vars[&#39;page_id&#39;]) {
                 case 47:
-                    $query-&gt;query_vars['recipe_id'] = Recipe::getIdBySlug($query-&gt;query_vars['recipe_id']); 
-                    if(empty($query-&gt;query_vars['recipe_id'])){
+                    $query-&gt;query_vars[&#39;recipe_id&#39;] = Recipe::getIdBySlug($query-&gt;query_vars[&#39;recipe_id&#39;]); 
+                    if(empty($query-&gt;query_vars[&#39;recipe_id&#39;])){
                         //404...
                     }
                 break;
@@ -155,255 +130,134 @@ function vanity_permalink($query) {
             }        
     }
 }
-</code></pre>
-   <p>
-    Alright, so let's examine the code! 
-First off, we create our rewrite rule, this
-    <strong>
-     must
-    </strong>
-    be setup in or before the init 
+</code></pre><p>Alright, so let&#39;s examine the code! 
+First off, we create our rewrite rule, this <strong>must</strong> be setup in or before the init 
 action. Because we know our page id then you can go ahead and use your knowledge
-to set which page we'll actually load (since we need it's template). Next, we
-create the redirect rule
-    <code>
-     'index.php?page_id='.$pageId.'&amp;recipe_id=$matches[1]'
-    </code>
-    which tells wordpress to treat it like we're getting the page_id and the recipe_id
+to set which page we&#39;ll actually load (since we need it&#39;s template). Next, we
+create the redirect rule <code>&#39;index.php?page_id=&#39;.$pageId.&#39;&amp;recipe_id=$matches[1]&#39;</code>
+which tells wordpress to treat it like we&#39;re getting the page_id and the recipe_id
 as query parameters. This is why we filter the query_vars and add the variable.
-    <strong>
-     The variable will not be availabled from
-     <code>
-      $_GET
-     </code>
-     becuase WordPress will filter it out.
-    </strong>
-   </p>
-   <p>
-    Next, we do 'the magic' as it were. Mapping our slug to the id field in the
-    <code>
-     pre_get_posts
-    </code>
-    action. Note the call to
-    <code>
-     if_on_recipe_index_page()
-    </code>
-    is to prevent redirects. If
-you had another page whose name was
-    <code>
-     recipes
-    </code>
-    , and then set the permalink structure
-to display single recipes in
-    <code>
-     recipes/slug
-    </code>
-    and didn't do this, WordPress would 
-keep jumping between them until your browser got tired.
-   </p>
-   <p>
-    All the checks in the condition before the switch statement is because we only
+<strong>The variable will not be availabled from <code>$_GET</code> becuase WordPress will filter it out.</strong></p>
+<p>Next, we do &#39;the magic&#39; as it were. Mapping our slug to the id field in the <code>pre_get_posts</code>
+action. Note the call to <code>if_on_recipe_index_page()</code> is to prevent redirects. If
+you had another page whose name was <code>recipes</code>, and then set the permalink structure
+to display single recipes in <code>recipes/slug</code> and didn&#39;t do this, WordPress would 
+keep jumping between them until your browser got tired.</p>
+<p>All the checks in the condition before the switch statement is because we only
 want to filter the calls we want to know about. Then the switch statement is useful
 for if you need multiple structures like this and want to handle them in one routing 
-function.
-   </p>
-   <p>
-    Note that once you use something like this you will have to save your permalinks
-everytime you make a change to the rule in the
-    <code>
-     add_rewrite_rule
-    </code>
-    .
-   </p>
-   <p>
-    Hope this helps someone!
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="xml-sitemap-for-harpjs">
-       XML Sitemap for Harp JS
-      </a>
-     </li>
-     <li>
-      <a href="googlebot-heisenbug">
-       'Caught in the Spiders Web' -- A googlebot Heisenbug
-      </a>
-     </li>
-     <li>
-      <a href="bgi">
-       BGI, a way to track your spending
-      </a>
-     </li>
-     <li>
-      <a href="harpjs-macros">
-       HarpJS and Macros, Static Delivery for Static Content
-      </a>
-     </li>
-     <li>
-      <a href="harp-macro-revisit">
-       Harp CDN Macro Revisited
-      </a>
-     </li>
-     <li>
-      <a href="item-processor-example">
-       Spring Batch ItemProcessListener Example
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+function.</p>
+<p>Note that once you use something like this you will have to save your permalinks
+everytime you make a change to the rule in the <code>add_rewrite_rule</code>.</p>
+<p>Hope this helps someone!</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=xml-sitemap-for-harpjs>XML Sitemap for Harp JS</a></li><li><a href=googlebot-heisenbug>&#39;Caught in the Spiders Web&#39; -- A googlebot Heisenbug</a></li><li><a href=bgi>BGI, a way to track your spending</a></li><li><a href=harpjs-macros>HarpJS and Macros, Static Delivery for Static Content</a></li><li><a href=harp-macro-revisit>Harp CDN Macro Revisited</a></li><li><a href=item-processor-example>Spring Batch ItemProcessListener Example</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

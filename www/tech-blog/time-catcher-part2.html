@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Time Catcher Part 2! (Alpha)
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="The second part of the 3 part blog series on my program, Timecather. In this post I talk about a few of the algorithms used within the programmer and a couple other interesting pieces of the code." name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="timecatcher,time,tracking,program,Ethan Eldridge,C" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Time Catcher Part 2! (Alpha)" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="The second part of the 3 part blog series on my program, Timecather. In this post I talk about a few of the algorithms used within the programmer and a couple other interesting pieces of the code." property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Time Catcher Part 2! (Alpha)" name="twitter:title"/>
-  <meta content="The second part of the 3 part blog series on my program, Timecather. In this post I talk about a few of the algorithms used within the programmer and a couple other interesting pieces of the code." name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Time Catcher Part 2! (Alpha)</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="The second part of the 3 part blog series on my program, Timecather. In this post I talk about a few of the algorithms used within the programmer and a couple other interesting pieces of the code." />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="timecatcher,time,tracking,program,Ethan Eldridge,C"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Time Catcher Part 2! (Alpha)" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="The second part of the 3 part blog series on my program, Timecather. In this post I talk about a few of the algorithms used within the programmer and a couple other interesting pieces of the code." />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Time Catcher Part 2! (Alpha)" />
+    
+    <meta name="twitter:description" content="The second part of the 3 part blog series on my program, Timecather. In this post I talk about a few of the algorithms used within the programmer and a couple other interesting pieces of the code." />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,62 +46,38 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Time Catcher Part 2! (Alpha)
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <p>
-    So the work on my
-    <a href="https://github.com/EdgeCaseBerg/timecatcher">
-     newest project
-    </a>
-    is at a point where I felt comfortable enough for an alpha release. It's pretty simple. The basics are done. You can start tasks, finish them, switch between them and view information for one or all tasks.
-   </p>
-   <p>
-    The best part? In my opinion it's a combination of the following:
-   </p>
-   <ul>
-    <li>
-     It's all in C.
-    </li>
-    <li>
-     It's memory leak free and has no unintialized value runtime errors.
-    </li>
-    <li>
-     The Bash Completion of it's commands
-    </li>
-    <li>
-     It's only 1600 lines of code. Refactored from ~2600 just today.
-    </li>
-    <li>
-     It doesn't consume your process space by having a running timer
-    </li>
-   </ul>
-   <p>
-    So let's see. What were some cool things I probably want to touch on. Oh right, how about the way it tracks time?
-   </p>
-   <p>
-    The algorithm is actually pretty simple. It depends on a couple of things. First off, each task has a sequence file and an information file. These are stored in the .tc directory the program creates in the home directory. The information files are only important for the view --all command. But the sequence files are the heart of a task. In each file is a simple format:
-   </p>
-   <pre> 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Time Catcher Part 2! (Alpha)</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <p>So the work on my <a href="https://github.com/EdgeCaseBerg/timecatcher">newest project</a> is at a point where I felt comfortable enough for an alpha release. It&#39;s pretty simple. The basics are done. You can start tasks, finish them, switch between them and view information for one or all tasks.</p>
+<p>The best part? In my opinion it&#39;s a combination of the following:</p>
+<ul>
+<li>It&#39;s all in C.</li>
+<li>It&#39;s memory leak free and has no unintialized value runtime errors.</li>
+<li>The Bash Completion of it&#39;s commands</li>
+<li>It&#39;s only 1600 lines of code. Refactored from ~2600 just today.</li>
+<li>It doesn&#39;t consume your process space by having a running timer</li>
+</ul>
+<p>So let&#39;s see. What were some cool things I probably want to touch on. Oh right, how about the way it tracks time? </p>
+<p>The algorithm is actually pretty simple. It depends on a couple of things. First off, each task has a sequence file and an information file. These are stored in the .tc directory the program creates in the home directory. The information files are only important for the view --all command. But the sequence files are the heart of a task. In each file is a simple format:</p>
+<pre> 
   &lt;seq num&gt; &lt;state&gt; &lt;epoch time&gt;  
   &lt;seq num&gt; &lt;state&gt; &lt;epoch time&gt;  
 </pre>
-   <p>
-    So you might see where this is going. A task can be in 1 of 5 possible states. Only 3 of which are ever recorded in the sequence file: Started, paused, and finished (The other two states are for error handling).
-   </p>
-   <p>
-    The algorithm to read information is simple:
-   </p>
-   <pre>
+
+
+<p> So you might see where this is going. A task can be in 1 of 5 possible states. Only 3 of which are ever recorded in the sequence file: Started, paused, and finished (The other two states are for error handling).</p>
+<p> The algorithm to read information is simple:</p>
+<pre>
     while( read 3 fields stated above) 
         if seqNum = 0
             startTime = seqTime;
@@ -105,241 +92,137 @@
         runningTime =  time(0) - startTime;
 
  </pre>
-   <p>
-    Basically all we're doing is computing the time between when the task started being in progress and when it was finished. Taking into affect that if it is current in progress we'll use the current time as the ending time (not shown here). One little tricky bit is that the running time is affected at the very end after the loop if the runningTime is zero and we're in a started state. We do this because of the special case of when a task is first started and there's only a single entry in the sequence file.
-   </p>
-   <p>
-    There's far more interesting things going on in the program besides this little algorithm. But it seems like since it's a time tracking program it's appropriate to mention it at the very least. Some more interesting tidbits are:
-   </p>
-   <ul>
-    <li>
-     This program calls it's own main.
-    </li>
-   </ul>
-   <p>
-    What's that? Did your head just explode? Did your pedentic sense of justice to the C++ C99 standard come raging forth? Reality check. I'm compiling with cc and ansi pedantic. The C (C! not C++! PURE C!) standard doesn't say I can't call my own main if I want to. And guess what. There's no loss (on my machine at least) of the current stack or anything. I return from the call to main as you'd expect and carry on my way to free the memory allocated in the calling function. If you're interested, the recursive call is in the tc-start.c file.
-   </p>
-   <ul>
-    <li>
-     The program creates a directory in your home directory
-    </li>
-   </ul>
-   <p>
-    How does it do this? The wonderful world of environmental variables! Believe it or not, if you give a path to fopen with a tilde... it's not going to like it. Why? Because the tilde is really a shell expansion for your home directory. So you either have to grab the environment or use wordexp to do word expansion on the tilde itself. I do both. If you're curious how it's done, check out tc-directory.c
-   </p>
-   <ul>
-    <li>
-     It runs through the tasks directory within the .tc directory and finds the filename's using the opendir commands.
-    </li>
-   </ul>
-   <p>
-    It was my first time getting a chance to play with the dirent library so it was a lot fun. The code's in tc-view.c around where the --all command is parsed out.
-   </p>
-   <ul>
-    <li>
-     Bash Completion
-    </li>
-   </ul>
-   <p>
-    Ok, so this is just cool. I didn't know how to do completion for my own programs before and I found it it's not that hard using all the excellent tutorials around for it. There is
-    <a href="http://www.debian-administration.org/articles/316">
-     one in particular
-    </a>
-    that everyone links to. Probably because you can easily modify the example scripts to get what you'd like out of it. Perhaps my favorite part of this whole process was this clever bash command:
-   </p>
-   <pre> cat ~/.tc/indexes/*.index | cut -d ' ' -f 2- | uniq | grep -v  [[:space:]]*8 | rev | cut -d ' ' -f 2- | rev` </pre>
-   <p>
-    This is part of the completion script, specifically, this grabs the list of tasks that aren't in progress. How? Easy. We cat the index files to retrieve the task names and the states of them. Then we grab the 2nd field onward with cut (using space as our delimiter). Do an inverse grep for the state that corresponds to the in progress state. Then we reverse the string (wait why you might ask). Then we remove the first field of the reversed string (which happens to be the state). Then we flip the string again and we're only left with the task name itself. Cool right?
-   </p>
-   <p>
-    This has been a very fun project to do, and I think I'll probably add a few more commands before I'm done with it. But while I do, I'll definitely be using it to keep track of how long I spend on it! (Talk about dog fooding)
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="time-catcher-part3">
-       Time Catcher Part 3
-      </a>
-     </li>
-     <li>
-      <a href="time-catcher-part1">
-       Time Catcher Part 1
-      </a>
-     </li>
-     <li>
-      <a href="stack-smashing">
-       Stack Smashing
-      </a>
-     </li>
-     <li>
-      <a href="how-this-site-was-made">
-       How this site was made
-      </a>
-     </li>
-     <li>
-      <a href="shortcodes-routing-wordpress">
-       Short Codes and Routing in WordPress
-      </a>
-     </li>
-     <li>
-      <a href="git-crash-course">
-       Git Crash Course
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+
+<p>Basically all we&#39;re doing is computing the time between when the task started being in progress and when it was finished. Taking into affect that if it is current in progress we&#39;ll use the current time as the ending time (not shown here). One little tricky bit is that the running time is affected at the very end after the loop if the runningTime is zero and we&#39;re in a started state. We do this because of the special case of when a task is first started and there&#39;s only a single entry in the sequence file.</p>
+<p>There&#39;s far more interesting things going on in the program besides this little algorithm. But it seems like since it&#39;s a time tracking program it&#39;s appropriate to mention it at the very least. Some more interesting tidbits are:</p>
+<ul>
+<li>This program calls it&#39;s own main.</li>
+</ul>
+<p>What&#39;s that? Did your head just explode? Did your pedentic sense of justice to the C++ C99 standard come raging forth? Reality check. I&#39;m compiling with cc and ansi pedantic. The C (C! not C++! PURE C!) standard doesn&#39;t say I can&#39;t call my own main if I want to. And guess what. There&#39;s no loss (on my machine at least) of the current stack or anything. I return from the call to main as you&#39;d expect and carry on my way to free the memory allocated in the calling function. If you&#39;re interested, the recursive call is in the tc-start.c file. </p>
+<ul>
+<li>The program creates a directory in your home directory</li>
+</ul>
+<p>How does it do this? The wonderful world of environmental variables! Believe it or not, if you give a path to fopen with a tilde... it&#39;s not going to like it. Why? Because the tilde is really a shell expansion for your home directory. So you either have to grab the environment or use wordexp to do word expansion on the tilde itself. I do both. If you&#39;re curious how it&#39;s done, check out tc-directory.c</p>
+<ul>
+<li>It runs through the tasks directory within the .tc directory and finds the filename&#39;s using the opendir commands. </li>
+</ul>
+<p>It was my first time getting a chance to play with the dirent library so it was a lot fun. The code&#39;s in tc-view.c around where the --all command is parsed out. </p>
+<ul>
+<li>Bash Completion</li>
+</ul>
+<p>Ok, so this is just cool. I didn&#39;t know how to do completion for my own programs before and I found it it&#39;s not that hard using all the excellent tutorials around for it. There is <a href="http://www.debian-administration.org/articles/316">one in particular</a>  that everyone links to. Probably because you can easily modify the example scripts to get what you&#39;d like out of it. Perhaps my favorite part of this whole process was this clever bash command:</p>
+ <pre> cat ~/.tc/indexes/*.index | cut -d ' ' -f 2- | uniq | grep -v  [[:space:]]*8 | rev | cut -d ' ' -f 2- | rev` </pre>
+
+<p>This is part of the completion script, specifically, this grabs the list of tasks that aren&#39;t in progress. How? Easy. We cat the index files to retrieve the task names and the states of them. Then we grab the 2nd field onward with cut (using space as our delimiter). Do an inverse grep for the state that corresponds to the in progress state. Then we reverse the string (wait why you might ask). Then we remove the first field of the reversed string (which happens to be the state). Then we flip the string again and we&#39;re only left with the task name itself. Cool right?</p>
+<p>This has been a very fun project to do, and I think I&#39;ll probably add a few more commands before I&#39;m done with it. But while I do, I&#39;ll definitely be using it to keep track of how long I spend on it! (Talk about dog fooding)</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=time-catcher-part3>Time Catcher Part 3</a></li><li><a href=time-catcher-part1>Time Catcher Part 1</a></li><li><a href=stack-smashing>Stack Smashing</a></li><li><a href=how-this-site-was-made>How this site was made</a></li><li><a href=shortcodes-routing-wordpress>Short Codes and Routing in WordPress</a></li><li><a href=git-crash-course>Git Crash Course</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Administrative Gotcha when doing local proxying
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="Attempts at security don't matter if people don't test things or understand the full configuration of a system" name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="proxy,nginx,apache,security" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Administrative Gotcha when doing local proxying" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="Attempts at security don't matter if people don't test things or understand the full configuration of a system" property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Administrative Gotcha when doing local proxying" name="twitter:title"/>
-  <meta content="Attempts at security don't matter if people don't test things or understand the full configuration of a system" name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Administrative Gotcha when doing local proxying</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Attempts at security don&#39;t matter if people don&#39;t test things or understand the full configuration of a system" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="proxy,nginx,apache,security"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Administrative Gotcha when doing local proxying" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Attempts at security don&#39;t matter if people don&#39;t test things or understand the full configuration of a system" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Administrative Gotcha when doing local proxying" />
+    
+    <meta name="twitter:description" content="Attempts at security don&#39;t matter if people don&#39;t test things or understand the full configuration of a system" />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,428 +46,209 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Administrative Gotcha when doing local proxying
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Administration Gotcha's when proxying
-   </h3>
-   <p>
-    <strong>
-     Warning. Blogging under irritation. You've been warned
-    </strong>
-   </p>
-   <p>
-    Everyone deals with Legacy systems and almost everyone who's ever had 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Administrative Gotcha when doing local proxying</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Administration Gotcha&#39;s when proxying</h3><p><strong>Warning. Blogging under irritation. You&#39;ve been warned</strong></p>
+<p>Everyone deals with Legacy systems and almost everyone who&#39;s ever had 
 to do any system administration has ran into a server configuration 
-that they didn't originally setup. A lot of the time these systems are
-a cludge of multiple people's blood throughout the last 10 or more years.
-Other times, let's be honest, they're just setup by idiots who've never
-read a man page in their life* or who didn't bother checking log files 
+that they didn&#39;t originally setup. A lot of the time these systems are
+a cludge of multiple people&#39;s blood throughout the last 10 or more years.
+Other times, let&#39;s be honest, they&#39;re just setup by idiots who&#39;ve never
+read a man page in their life* or who didn&#39;t bother checking log files 
 for anything odd before they ran out at 5:00pm sharp to get home to the
-latest re-run of terrible-movie the show part 14 on HBO**
-   </p>
-   <p>
-    I ran into something which may be a mix of these two while troubleshooting
-some systems recently.
-    <a href="http://foaas.com/everyone/Anyone%20who%20reads%20manpages">
-     Everyone
-    </a>
-    knows to restrict access to sensitive 
-information when you setup a server. And so you'll commonly see things like
-this:
-   </p>
-   <pre><code>&lt;Location /server-status&gt;
+latest re-run of terrible-movie the show part 14 on HBO**</p>
+<p>I ran into something which may be a mix of these two while troubleshooting
+some systems recently. <a href="http://foaas.com/everyone/Anyone%20who%20reads%20manpages">Everyone</a> knows to restrict access to sensitive 
+information when you setup a server. And so you&#39;ll commonly see things like
+this:</p>
+<pre><code>&lt;Location /server-status&gt;
     SetHandler server-status
     Order Deny,Allow
     Allow from 127.0.0.1
 &lt;/Location&gt;
-</code></pre>
-   <p>
-    Which is great. Now only people who have already compromised your box, or you, 
+</code></pre><p>Which is great. Now only people who have already compromised your box, or you, 
 can get information about your server. This is a good thing (unless
-you're compromised). But something which people love to do is use nginx to proxy.
-After all, it's
-    <a href="https://anturis.com/blog/nginx-vs-apache/">
-     recommended in the top hit for nginx vs apache in the 
-"Using Nginx and Apache both" section
-    </a>
-    for pretty good reasons. But something 
-else people do (which makes less sense), is to have both nginx
-    <em>
-     and
-    </em>
-    apache running
-    <em>
-     on the same machine
-    </em>
-    . If your argument for using both 
+you&#39;re compromised). But something which people love to do is use nginx to proxy.
+After all, it&#39;s <a href="https://anturis.com/blog/nginx-vs-apache/">recommended in the top hit for nginx vs apache in the 
+&quot;Using Nginx and Apache both&quot; section</a> for pretty good reasons. But something 
+else people do (which makes less sense), is to have both nginx 
+<em>and</em> apache running <em>on the same machine</em>. If your argument for using both 
 systems is that nginx is better at static content, and apache better at heavy
-processing, then you should probably understand that
-    <em>
-     if apache is taking all
-the resources to work, it's going to affect nginx, and in that case, why don't
-you just
-     <a href="http://www.eschrade.com/page/why-you-should-not-use-htaccess-allowoverride-all-in-production/">
-      shut off AllowOverride
-     </a>
-     and only use apache?
-    </em>
-    ***
-   </p>
-   <p>
-    Why am I mentioning this and the
-    <code>
-     server-status
-    </code>
-    handler above? Let me guide you
+processing, then you should probably understand that <em>if apache is taking all
+the resources to work, it&#39;s going to affect nginx, and in that case, why don&#39;t
+you just <a href="http://www.eschrade.com/page/why-you-should-not-use-htaccess-allowoverride-all-in-production/">shut off AllowOverride</a> and only use apache?</em>***</p>
+<p>Why am I mentioning this and the <code>server-status</code> handler above? Let me guide you
 down the right path: What IP Address will nginx provide to apache when proxying?
-If you answered
-    <strong>
-     The ip of the client duh!
-    </strong>
-    I would suggest you do two things.
-   </p>
-   <ol>
-    <li>
-     <a href="http://foaas.com/madison/dear reader/Ethan">
-      Click here
-     </a>
-    </li>
-    <li>
-     Keep reading.
-    </li>
-   </ol>
-   <p>
-    The correct answer is of course,
-    <code>
-     127.0.0.1
-    </code>
-    because nginx is running on your local 
+If you answered <strong>The ip of the client duh!</strong> I would suggest you do two things.</p>
+<ol>
+<li><a href="http://foaas.com/madison/dear reader/Ethan">Click here</a></li>
+<li>Keep reading. </li>
+</ol>
+<p>The correct answer is of course, <code>127.0.0.1</code> because nginx is running on your local 
 system. And apache will see that local ip and correctly take the localhost as the 
 incoming address. Of course, you view this as wrong, but how do you expect apache 
-to know that it's being proxied to? It doesn't.
-    <em>
-     But
-    </em>
-    , we can fix that. First off,
-you'll need
-    <a href="https://github.com/gnif/mod_rpaf">
-     mod_rpaf
-    </a>
-    (or an
-    <a href="http://massivescale.blogspot.com/2013/10/alternatives-to-modrpaf.html">
-     alternative
-    </a>
-    ). Installing this is easy.
-   </p>
-   <ol>
-    <li>
-     Use your package manager to grab the
-     <code>
-      httpd-devel
-     </code>
-     package which includes the
-     <code>
-      apxs
-     </code>
-     command.
-    </li>
-    <li>
-     Download mod_rpaf (you can find a copy
-     <a href="http://drupion.com/sites/default/files/mod_rpaf-0.6.tar_.gz">
-      here
-     </a>
-     or pull a release from github)
-    </li>
-    <li>
-     Open the tar file, or change into the root directory and run
-     <code>
-      apxs -i -c -n mod_rpaf-2.0.so mod_rpaf-2.0.c
-     </code>
-    </li>
-    <li>
-     Create the configuration file
-     <pre>#/etc/httpd/conf.d/mod_rpaf-2.0.so
+to know that it&#39;s being proxied to? It doesn&#39;t. <em>But</em>, we can fix that. First off,
+you&#39;ll need <a href="https://github.com/gnif/mod_rpaf">mod_rpaf</a> (or an <a href="http://massivescale.blogspot.com/2013/10/alternatives-to-modrpaf.html">alternative</a>). Installing this is easy. </p>
+<ol>
+<li>Use your package manager to grab the <code>httpd-devel</code> package which includes the 
+<code>apxs</code> command.</li>
+<li>Download mod_rpaf (you can find a copy <a href="http://drupion.com/sites/default/files/mod_rpaf-0.6.tar_.gz">here</a> or pull a release from github)</li>
+<li>Open the tar file, or change into the root directory and run <code>apxs -i -c -n mod_rpaf-2.0.so mod_rpaf-2.0.c</code></li>
+<li>Create the configuration file <pre>#/etc/httpd/conf.d/mod_rpaf-2.0.so
 LoadModule rpaf_module modules/mod_rpaf-2.0.so
 RPAFenable On
 RPAFsethostname On
 RPAFproxy_ips 127.0.0.1
-RPAFheader X-Forwarded-For</pre>
-    </li>
-    <li>
-     Restart apache.
-    </li>
-   </ol>
-   <p>
-    Now apache will understand when someone sends headers along with
-    <code>
-     X-Forwarded-For
-    </code>
-    and
-    <code>
-     X-Host
-    </code>
-    that it's really supposed to be pretending that it got the request
+RPAFheader X-Forwarded-For</pre></li>
+<li>Restart apache.</li>
+</ol>
+<p>Now apache will understand when someone sends headers along with <code>X-Forwarded-For</code> 
+and <code>X-Host</code> that it&#39;s really supposed to be pretending that it got the request
 for that IP and host directly and and not from whatever locally just came to it. 
-This is all well and good, but you do need to update your nginx configuration to
-    <em>
-     set the headers in the first place
-    </em>
-    . As it's not going to do it by itself:
-   </p>
-   <ol>
-    <li>
-     Open your nginx configuration and add in a couple lines to your proxying location:
-     <pre>...
+This is all well and good, but you do need to update your nginx configuration to 
+<em>set the headers in the first place</em>. As it&#39;s not going to do it by itself:</p>
+<ol>
+<li>Open your nginx configuration and add in a couple lines to your proxying location:<pre>...
  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
- proxy_set_header Host $host;<pre></pre></pre>
-    </li>
-    <li>
-     Restart nginx
-    </li>
-   </ol>
-   <p>
-    That's it. You should now be able to look in your access logs (I know it might hurt
+ proxy_set_header Host $host;<pre></pre></pre></li>
+<li>Restart nginx </li>
+</ol>
+<p>That&#39;s it. You should now be able to look in your access logs (I know it might hurt
 the log challenge, but really, do it) and see the real ip addresses coming in to 
-apache and any
-    <code>
-     server-status
-    </code>
-    requests being denied. Don't get me wrong, server 
+apache and any <code>server-status</code> requests being denied. Don&#39;t get me wrong, server 
 status is great. It shows useful information like server version, SSL library version,
-what build you're using, how much traffic you're dealing with, and
-    <em>
-     every ip address
-connected to your system!
-    </em>
-    . Which is all, obviously, public information you want to share 
-with everyone.****
-   </p>
-   <p>
-    While you're in your configuration, you may also consider shutting off your
-    <a href="http://ask.xmodulo.com/turn-off-server-signature-apache-web-server.html">
-     server's signature
-    </a>
-    as well. That is, as long as it's not past 5pm and your 
-re-run isn't calling you.
-   </p>
-   <p>
-    <small>
-     * For the love of god, read a man page or some documentation
-before you put something in production
-    </small>
-    <br/>
-    <small>
-     ** Really. Check your log files when you turn something
-on
-    </small>
-    <br/>
-    <small>
-     *** Pretty sure I saw a benchmark a while ago showing that
+what build you&#39;re using, how much traffic you&#39;re dealing with, and <em>every ip address
+connected to your system!</em>. Which is all, obviously, public information you want to share 
+with everyone.****</p>
+<p>While you&#39;re in your configuration, you may also consider shutting off your 
+<a href="http://ask.xmodulo.com/turn-off-server-signature-apache-web-server.html">server&#39;s signature</a> as well. That is, as long as it&#39;s not past 5pm and your 
+re-run isn&#39;t calling you.</p>
+<p><small>* For the love of god, read a man page or some documentation
+before you put something in production</small><br>
+<small>** Really. Check your log files when you turn something
+on</small><br>
+<small>*** Pretty sure I saw a benchmark a while ago showing that
 Apache performed just as well as nginx when AllowOverride was
-off
-    </small>
-    <br/>
-    <small>
-     **** If you want to get hit by exploits specific to your server version
-    </small>
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="jenkins-multiple-deploy-keys-and-github">
-       Multiple Deploy Keys and Jenkins
-      </a>
-     </li>
-     <li>
-      <a href="spray-transparent-head-requests-testing">
-       Spray's Transparent Head Requests and Testing
-      </a>
-     </li>
-     <li>
-      <a href="compromising-wordpress">
-       WordPress 4.2 Exploit, SQL Injection Edition
-      </a>
-     </li>
-     <li>
-      <a href="logging-to-a-file-spray-async">
-       Logging to a File in Spray
-      </a>
-     </li>
-     <li>
-      <a href="newrelic-xml-scala-instrumentation">
-       NewRelic, Scala, and XML Instrumentation
-      </a>
-     </li>
-     <li>
-      <a href="serializing-json-generic-classes-spray-json">
-       Serializing Generic Types with Spray JSON Library
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+off</small><br>
+<small>**** If you want to get hit by exploits specific to your server version</small></p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=jenkins-multiple-deploy-keys-and-github>Multiple Deploy Keys and Jenkins</a></li><li><a href=spray-transparent-head-requests-testing>Spray&#39;s Transparent Head Requests and Testing</a></li><li><a href=compromising-wordpress>WordPress 4.2 Exploit, SQL Injection Edition</a></li><li><a href=logging-to-a-file-spray-async>Logging to a File in Spray</a></li><li><a href=newrelic-xml-scala-instrumentation>NewRelic, Scala, and XML Instrumentation</a></li><li><a href=serializing-json-generic-classes-spray-json>Serializing Generic Types with Spray JSON Library</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

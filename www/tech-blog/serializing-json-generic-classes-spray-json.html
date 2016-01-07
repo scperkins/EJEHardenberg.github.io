@@ -1,33 +1,44 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Serializing Generic Types with Spray JSON Library
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="Continuing from the last post, this is how you can take generic base classes and allow the serialization code to convert them to the appropriate subclass." name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="spray-json,generics,type hierarchy,spray,json,serialize,generic,base class" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Serializing Generic Types with Spray JSON Library" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="Continuing from the last post, this is how you can take generic base classes and allow the serialization code to convert them to the appropriate subclass." property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Serializing Generic Types with Spray JSON Library" name="twitter:title"/>
-  <meta content="Continuing from the last post, this is how you can take generic base classes and allow the serialization code to convert them to the appropriate subclass." name="twitter:description"/>
-  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Serializing Generic Types with Spray JSON Library</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Continuing from the last post, this is how you can take generic base classes and allow the serialization code to convert them to the appropriate subclass." />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="spray-json,generics,type hierarchy,spray,json,serialize,generic,base class"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Serializing Generic Types with Spray JSON Library" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Continuing from the last post, this is how you can take generic base classes and allow the serialization code to convert them to the appropriate subclass." />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Serializing Generic Types with Spray JSON Library" />
+    
+    <meta name="twitter:description" content="Continuing from the last post, this is how you can take generic base classes and allow the serialization code to convert them to the appropriate subclass." />
+    
+    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -35,170 +46,101 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Serializing Generic Types with Spray JSON Library
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Serializing JSON and Generic Classes with spray-json
-   </h3>
-   <p>
-    Continuing on from where
-    <a href="/tech-blog/serializing-java-util-locale-with-spray-json">
-     the last post
-    </a>
-    left off, let's talk about structure. 
-Whether or not you're working in an object oriented paradigm or a functional 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Serializing Generic Types with Spray JSON Library</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Serializing JSON and Generic Classes with spray-json</h3><p>Continuing on from where <a href="/tech-blog/serializing-java-util-locale-with-spray-json">the last post</a> left off, let&#39;s talk about structure. 
+Whether or not you&#39;re working in an object oriented paradigm or a functional 
 one, having base classes and a nice class hierarchy can make your code easier
-to understand and use. Of course since we'll be working in example code, none 
-of these classes will
-    <em>
-     actually
-    </em>
-    be useful, but hey, you can always apply the 
-concepts yourself.
-   </p>
-   <p>
-    So let's say you've got a base class and a couple of subclasses:
-   </p>
-   <pre><code>class Base(msg: String)
+to understand and use. Of course since we&#39;ll be working in example code, none 
+of these classes will <em>actually</em> be useful, but hey, you can always apply the 
+concepts yourself.</p>
+<p>So let&#39;s say you&#39;ve got a base class and a couple of subclasses: </p>
+<pre><code>class Base(msg: String)
 
 case class Thing1(msg: String, thing1Thing: String) extends Base(msg)
 
 case class Thing2(msg: String, thing2Thing: String) extends Base(msg)
-</code></pre>
-   <p>
-    It's easy to define a few conversion implicits:
-   </p>
-   <pre><code>import spray.json._
+</code></pre><p>It&#39;s easy to define a few conversion implicits:</p>
+<pre><code>import spray.json._
 import spray.json.DefaultJsonProtocol._
 implicit val thing1Conversion = jsonFormat2(Thing1)
 implicit val thing2Conversion = jsonFormat2(Thing2)
-</code></pre>
-   <p>
-    ning
-And we can use the
-    <code>
-     toJson
-    </code>
-    and
-    <code>
-     convertTo[ClassName]
-    </code>
-    methods from the spray
-package just fine. But what about when we want to do something like this:
-   </p>
-   <pre><code>case class ServiceResponse(status: Int, result: Base)
-</code></pre>
-   <p>
-    And then define a serializer for that? Attempting to create one with the
-    <code>
-     jsonFormat2
-    </code>
-    call will fail:
-   </p>
-   <pre><code>implicit val srConv = jsonFormat2(ServiceResponse)
+</code></pre><p>ning
+And we can use the <code>toJson</code> and <code>convertTo[ClassName]</code> methods from the spray
+package just fine. But what about when we want to do something like this:</p>
+<pre><code>case class ServiceResponse(status: Int, result: Base)
+</code></pre><p>And then define a serializer for that? Attempting to create one with the <code>jsonFormat2</code> 
+call will fail:</p>
+<pre><code>implicit val srConv = jsonFormat2(ServiceResponse)
 &lt;console&gt;:23: error: could not find implicit value for evidence parameter of type spray.json.DefaultJsonProtocol.JF[Base]
-</code></pre>
-   <p>
-    and conveniently tell you that you need to define a protocol for the
-    <code>
-     Base
-    </code>
-    class. 
-Because case classes inherentance is prohibited by the compiler, we need to handle
-    <code>
-     Base
-    </code>
-    as we would any other normal class. So we provide
-    <code>
-     JsonFormat[T]
-    </code>
-    for it. 
-The write method is simple:
-   </p>
-   <pre><code>implicit object ColorJsonFormat extends RootJsonFormat[Base] {
+</code></pre><p>and conveniently tell you that you need to define a protocol for the <code>Base</code> class. 
+Because case classes inherentance is prohibited by the compiler, we need to handle 
+<code>Base</code> as we would any other normal class. So we provide <code>JsonFormat[T]</code> for it. 
+The write method is simple:</p>
+<pre><code>implicit object ColorJsonFormat extends RootJsonFormat[Base] {
     def write(c: Base) = c match {
-        case s: Thing2 =&gt; JsObject(("msg",JsString(s.msg)), ("thing2Thing",JsString(s.thing2Thing)))
-        case s: Thing1 =&gt; JsObject(("msg",JsString(s.msg)), ("thing1Thing",JsString(s.thing1Thing)))
-        case _ =&gt; serializationError(s"Could not write object $c")
+        case s: Thing2 =&gt; JsObject((&quot;msg&quot;,JsString(s.msg)), (&quot;thing2Thing&quot;,JsString(s.thing2Thing)))
+        case s: Thing1 =&gt; JsObject((&quot;msg&quot;,JsString(s.msg)), (&quot;thing1Thing&quot;,JsString(s.thing1Thing)))
+        case _ =&gt; serializationError(s&quot;Could not write object $c&quot;)
     }
     ...
-</code></pre>
-   <p>
-    We pattern match according to the type, then proceed to construct a simple JSON 
-object out of the data. What about reading?
-   </p>
-   <pre><code>def read(json: JsValue) = {
+</code></pre><p>We pattern match according to the type, then proceed to construct a simple JSON 
+object out of the data. What about reading?</p>
+<pre><code>def read(json: JsValue) = {
     json match {
         case JsObject(map) =&gt; 
-            List("msg","thing1Thing","thing2Thing").map(i =&gt; map.contains(i)).toArray match {
-                case Array(true,true,false) =&gt; Thing1(map("msg").toString, map("thing1Thing").toString)
-                case Array(true,false,true) =&gt; Thing2(map("msg").toString, map("thing2Thing").toString)
-                case _ =&gt; deserializationError("fields invalid")
+            List(&quot;msg&quot;,&quot;thing1Thing&quot;,&quot;thing2Thing&quot;).map(i =&gt; map.contains(i)).toArray match {
+                case Array(true,true,false) =&gt; Thing1(map(&quot;msg&quot;).toString, map(&quot;thing1Thing&quot;).toString)
+                case Array(true,false,true) =&gt; Thing2(map(&quot;msg&quot;).toString, map(&quot;thing2Thing&quot;).toString)
+                case _ =&gt; deserializationError(&quot;fields invalid&quot;)
             }
-        case _ =&gt; deserializationError("Base expected")
+        case _ =&gt; deserializationError(&quot;Base expected&quot;)
     }
 }
-</code></pre>
-   <p>
-    The above is a bit clunky since we can't
-    <a href="https://stackoverflow.com/questions/13536619/pattern-matching-against-scala-map-type">
-     pattern match against a Map
-    </a>
-    . But you 
-can now use the ServiceResponse like so:
-   </p>
-   <pre><code>implicit val srConv = jsonFormat2(ServiceResponse)
-"""{"status" : 200, "result" :{"msg":"a","thing1Thing":"t"}}""".parseJson.convertTo[ServiceResponse]
-//res0: ServiceResponse = ServiceResponse(200,Thing1("a","t"))
-</code></pre>
-   <p>
-    But we can make this code a bit easier to deal with by leveraging implicit conversions 
-on each of our subclasses:
-   </p>
-   <pre><code>implicit val thing1Conversion = jsonFormat2(Thing1)
+</code></pre><p>The above is a bit clunky since we can&#39;t <a href="https://stackoverflow.com/questions/13536619/pattern-matching-against-scala-map-type">pattern match against a Map</a>. But you 
+can now use the ServiceResponse like so:</p>
+<pre><code>implicit val srConv = jsonFormat2(ServiceResponse)
+&quot;&quot;&quot;{&quot;status&quot; : 200, &quot;result&quot; :{&quot;msg&quot;:&quot;a&quot;,&quot;thing1Thing&quot;:&quot;t&quot;}}&quot;&quot;&quot;.parseJson.convertTo[ServiceResponse]
+//res0: ServiceResponse = ServiceResponse(200,Thing1(&quot;a&quot;,&quot;t&quot;))
+</code></pre><p>But we can make this code a bit easier to deal with by leveraging implicit conversions 
+on each of our subclasses:</p>
+<pre><code>implicit val thing1Conversion = jsonFormat2(Thing1)
 implicit val thing2Conversion = jsonFormat2(Thing2)
 
 class BaseConversion extends RootJsonFormat[Base] {
     def write(obj: Base) = obj match {
         case t1: Thing1 =&gt; t1.toJson
         case t2: Thing2 =&gt; t2.toJson
-        case _ =&gt; serializationError("Could not serialize $obj, no conversion found")
+        case _ =&gt; serializationError(&quot;Could not serialize $obj, no conversion found&quot;)
     }
 
     def read(json: JsValue) = {
         val discrimator = List(
-            "thing1Thing", //Thing1 unique field
-            "thing2Thing" //Thing2 unique field
+            &quot;thing1Thing&quot;, //Thing1 unique field
+            &quot;thing2Thing&quot; //Thing2 unique field
         ).map( d =&gt; json.asJsObject.fields.contains(d) )
         discrimator.indexOf(true) match {
             case 0     =&gt; json.convertTo[Thing1]
             case 1     =&gt; json.convertTo[Thing2]
-            case _ =&gt; deserializationError("Base expected")
+            case _ =&gt; deserializationError(&quot;Base expected&quot;)
         }
     }
 }
-</code></pre>
-   <p>
-    We still need to work a bit of voodoo on the
-    <code>
-     read
-    </code>
-    function in order to discriminate 
+</code></pre><p>We still need to work a bit of voodoo on the <code>read</code> function in order to discriminate 
 between the two different types, but so long as we always have a unique field to 
-go by, we'll be ok. The nice thing is that this works with Traits as well as classes. 
-Here's a full example I submitted to the spray user group mailing list:
-   </p>
-   <pre><code>package example
+go by, we&#39;ll be ok. The nice thing is that this works with Traits as well as classes. 
+Here&#39;s a full example I submitted to the spray user group mailing list:</p>
+<pre><code>package example
 
 import spray.json._
 import spray.json.DefaultJsonProtocol._
@@ -223,21 +165,21 @@ object ImplicitConversions extends DefaultJsonProtocol {
             case c : Class1 =&gt; c.toJson
             case c : Class2 =&gt; c.toJson
             case c : Class3 =&gt; c.toJson
-            case _ =&gt; serializationError(s"Could not write object $obj")
+            case _ =&gt; serializationError(s&quot;Could not write object $obj&quot;)
         }
 
         /* Read is kind of frustrating as we need to use the fields to determine which type to turn it into */
         def read(json: JsValue) = {
             val discrimator = List(
-                "someField",
-                "someOtherField",
-                "yetAnotherField"
+                &quot;someField&quot;,
+                &quot;someOtherField&quot;,
+                &quot;yetAnotherField&quot;
             ).map( d =&gt; json.asJsObject.fields.contains(d) )
             discrimator.indexOf(true) match {
                 case 0     =&gt; json.convertTo[Class1]
                 case 1     =&gt; json.convertTo[Class2]
                 case 2  =&gt; json.convertTo[Class3]
-                case _ =&gt; deserializationError("MyTrait expected")
+                case _ =&gt; deserializationError(&quot;MyTrait expected&quot;)
             }
         }
     }
@@ -252,207 +194,121 @@ object Example{
         implicit val mtc =new  MyTraitConversion()
         implicit val tc = jsonFormat2(TestCase)
 
-          val result = """{"works": true, "myClassWithTrait" : {"someOtherField" : 2}}""".parseJson.convertTo[TestCase]
+          val result = &quot;&quot;&quot;{&quot;works&quot;: true, &quot;myClassWithTrait&quot; : {&quot;someOtherField&quot; : 2}}&quot;&quot;&quot;.parseJson.convertTo[TestCase]
           println(result) //example.TestCase = TestCase(true,Class2(2))
     }
 }
-</code></pre>
-   <p>
-    Hopefully this gives you some more insight in how use spray's json library. Happy 
-serializing! You can see all this code
-    <a href="https://github.com/EdgeCaseBerg/spray-json-locale-example">
-     here on github
-    </a>
-   </p>
-   <p>
-    java.lang.RuntimeException: Cannot automatically determine case class field names and order for 'example.Thing1', please use the 'jsonFormat' overload with explicit field name specification
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="logging-to-a-file-spray-async">
-       Logging to a File in Spray
-      </a>
-     </li>
-     <li>
-      <a href="serializing-java-util-locale-with-spray-json">
-       Serializing java.util.Locale with Spray JSON library
-      </a>
-     </li>
-     <li>
-      <a href="spray-transparent-head-requests-testing">
-       Spray's Transparent Head Requests and Testing
-      </a>
-     </li>
-     <li>
-      <a href="github-streak">
-       A Year of committing to Github
-      </a>
-     </li>
-     <li>
-      <a href="protecting-proxied-servers">
-       Administrative Gotcha when doing local proxying
-      </a>
-     </li>
-     <li>
-      <a href="aspect-ratios-and-math">
-       Aspect Ratios, Math, and Scala
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+</code></pre><p>Hopefully this gives you some more insight in how use spray&#39;s json library. Happy 
+serializing! You can see all this code <a href="https://github.com/EdgeCaseBerg/spray-json-locale-example">here on github</a></p>
+<p>java.lang.RuntimeException: Cannot automatically determine case class field names and order for &#39;example.Thing1&#39;, please use the &#39;jsonFormat&#39; overload with explicit field name specification</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=logging-to-a-file-spray-async>Logging to a File in Spray</a></li><li><a href=serializing-java-util-locale-with-spray-json>Serializing java.util.Locale with Spray JSON library</a></li><li><a href=spray-transparent-head-requests-testing>Spray&#39;s Transparent Head Requests and Testing</a></li><li><a href=github-streak>A Year of committing to Github</a></li><li><a href=protecting-proxied-servers>Administrative Gotcha when doing local proxying</a></li><li><a href=aspect-ratios-and-math>Aspect Ratios, Math, and Scala</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
-      <!--
--->
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
-      <!--
--->
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
-      <!--
--->
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
-      <!--
--->
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
-      <!--
--->
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
-      <!--
--->
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
-      <!--
--->
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
-      <!--
--->
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
-      <!--
--->
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
-      <!--
--->
-      <span>
-       @TheR3dLily
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
-      <!--
--->
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
+					--><span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
+					--><span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
+					--><span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
+					--><span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
+					--><span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
+					--><span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
+					--><span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
+					--><span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
+				--><span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
+				--><span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
+				--><span>@TheR3dLily</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
+				--><span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	
