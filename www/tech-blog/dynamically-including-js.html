@@ -1,44 +1,33 @@
-
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Ethan's Tech Blog | Loading JS dynamically in Harp</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="How to dynamically include Javascript on a page served by harp" />
-    <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="Harp,HarpJS,javascript,dynamic,include,Ethan,Eldridge,recipe"/>
-    <meta name="robots" content="index, follow"  />
-      <meta name="revisit-after" content="1 month" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-      
-    
-	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
-
-        
-    <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Loading JS dynamically in Harp" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
-    
-    <meta property="og:description" content="How to dynamically include Javascript on a page served by harp" />
-    
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Loading JS dynamically in Harp" />
-    
-    <meta name="twitter:description" content="How to dynamically include Javascript on a page served by harp" />
-    
-    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
-
-
-	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ <head>
+  <title>
+   Ethan's Tech Blog | Loading JS dynamically in Harp
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="How to dynamically include Javascript on a page served by harp" name="description"/>
+  <meta content="Ethan Eldridge" name="author"/>
+  <meta content="Harp,HarpJS,javascript,dynamic,include,Ethan,Eldridge,recipe" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="1 month" name="revisit-after"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
+  <!-- Facebook Open Graph Tags -->
+  <meta content="Ethan Eldridge | Loading JS dynamically in Harp" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
+  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
+  <meta content="How to dynamically include Javascript on a page served by harp" property="og:description"/>
+  <!-- Twitter Card Tags -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="Ethan Eldridge | Loading JS dynamically in Harp" name="twitter:title"/>
+  <meta content="How to dynamically include Javascript on a page served by harp" name="twitter:description"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
+  <!-- Core CSS Scripts -->
+  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -46,205 +35,349 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-
-</script>
-
-  </head>
-  <body>
-    <header>
-      <h1>Loading JS dynamically in Harp</h1>
-    </header>
-
-
-    <div id="content">
-      <a href="/tech-blog">Back</a>
-      <h3>Dynamic Javascript Inclusion Recipe for Harp</h3><p>Today I was thinking about how great it would be to include only the javascript 
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    Loading JS dynamically in Harp
+   </h1>
+  </header>
+  <div id="content">
+   <a href="/tech-blog">
+    Back
+   </a>
+   <h3>
+    Dynamic Javascript Inclusion Recipe for Harp
+   </h3>
+   <p>
+    Today I was thinking about how great it would be to include only the javascript 
 files you need on a webpage, and how best to break it up. If you have global library 
-files like <a href="http://www.jquery.com">jQuery</a> it makes sense to have them on every page. But what if you 
-have a single use case for some javascript? </p>
-<p>Here&#39;s my use case:</p>
-<p>You want to show a popup on your main page, and are tired of doing checks like this:</p>
-<pre><code>var flag = document.getElementById(&quot;someflagelement&quot;)
+files like
+    <a href="http://www.jquery.com">
+     jQuery
+    </a>
+    it makes sense to have them on every page. But what if you 
+have a single use case for some javascript?
+   </p>
+   <p>
+    Here's my use case:
+   </p>
+   <p>
+    You want to show a popup on your main page, and are tired of doing checks like this:
+   </p>
+   <pre><code>var flag = document.getElementById("someflagelement")
 if(flag){
-    alert(&quot;POP UP!&quot;)
+    alert("POP UP!")
 }
-</code></pre><p>It&#39;s not a big problem to do, but now your javascript is tied to the existence of 
-certain tags on your page, it&#39;s undocumented and if someone accidently names their
+</code></pre>
+   <p>
+    It's not a big problem to do, but now your javascript is tied to the existence of 
+certain tags on your page, it's undocumented and if someone accidently names their
 element the same then a pop up is going to appear. Not good. Another scenario is
-when you have a <strong>large</strong> site and you don&#39;t want to have one giant javascript 
+when you have a
+    <strong>
+     large
+    </strong>
+    site and you don't want to have one giant javascript 
 file that you include on every page. For that problem I offer the following Harp 
-recipe:</p>
-<pre><code>var src = current.source
-var filter = new RegExp(&quot;(&quot;+src+&quot;\.js$)&quot;); 
+recipe:
+   </p>
+   <pre><code>var src = current.source
+var filter = new RegExp("("+src+"\.js$)"); 
 
 function findDynamicJavaScript(head, tail) {
       for (key in head) { 
         val = head[key]; 
-          if (key == &#39;_contents&#39;) { 
+          if (key == '_contents') { 
             for (i in val) { 
                   file = val[i]
                   if (filter.test(file) ) { 
-                %&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;&lt;%= tail + file %&gt;&quot;&gt;&lt;/script&gt;&lt;%
+                %&gt;&lt;script type="text/javascript" src="&lt;%= tail + file %&gt;"&gt;&lt;/script&gt;&lt;%
                 }
             }
           } else { 
-            findDynamicJavaScript(val, tail + key + &quot;/&quot;)
+            findDynamicJavaScript(val, tail + key + "/")
         }
     }
 }
 
-findDynamicJavaScript(public, &quot;/&quot;) 
-</code></pre><p>So what does this do? This function is very similar to the <a href="http://harpjs.com/recipes/blog-sitemap">Sitemap</a> recipe from 
-Harp (or to <a href="http://www.ethanjoachimeldridge.info/tech-blog/xml-sitemap-for-harpjs">my XML Sitemap</a> recipe) in that it traverses the directories harp knows
+findDynamicJavaScript(public, "/") 
+</code></pre>
+   <p>
+    So what does this do? This function is very similar to the
+    <a href="http://harpjs.com/recipes/blog-sitemap">
+     Sitemap
+    </a>
+    recipe from 
+Harp (or to
+    <a href="http://www.ethanjoachimeldridge.info/tech-blog/xml-sitemap-for-harpjs">
+     my XML Sitemap
+    </a>
+    recipe) in that it traverses the directories harp knows
 about and uses a RegEx to check whether the file matches a pattern or not. In this 
-case, we use the current source as our query. This means that on <em>index.html</em>, if a
-javascript file named <em>index.js</em> exists, it will be pulled onto the page. </p>
-<p><strong>Note</strong>: <small>The regular expression above would also detect /otherindex.js as well 
-since the expression doesn&#39;t check the path at all.</small></p>
-<p>This is rather useful since it keeps your file structure semantically aligned. For 
+case, we use the current source as our query. This means that on
+    <em>
+     index.html
+    </em>
+    , if a
+javascript file named
+    <em>
+     index.js
+    </em>
+    exists, it will be pulled onto the page.
+   </p>
+   <p>
+    <strong>
+     Note
+    </strong>
+    :
+    <small>
+     The regular expression above would also detect /otherindex.js as well 
+since the expression doesn't check the path at all.
+    </small>
+   </p>
+   <p>
+    This is rather useful since it keeps your file structure semantically aligned. For 
 someone coming to your codebase, if they see something happening on a page and want
-to know where it&#39;s coming from, they&#39;ll immediately spot the javascript file with 
-the same name when they look in your scripts directory. This is a <strong>great</strong> thing
-when you&#39;re working with other people.</p>
-<p>But what if we have multiple index files? After all, there&#39;s one per directory typically.</p>
-<p>In that case we should be testing the full path. So we can modify our recipe like so:</p>
-<pre><code>var src = current.path.join(&quot;/&quot;)
-var javascriptBase = &quot;/js/&quot;
-var filter = new RegExp(&quot;(^&quot;+javascriptBase+src+&quot;\.js$)&quot;); 
+to know where it's coming from, they'll immediately spot the javascript file with 
+the same name when they look in your scripts directory. This is a
+    <strong>
+     great
+    </strong>
+    thing
+when you're working with other people.
+   </p>
+   <p>
+    But what if we have multiple index files? After all, there's one per directory typically.
+   </p>
+   <p>
+    In that case we should be testing the full path. So we can modify our recipe like so:
+   </p>
+   <pre><code>var src = current.path.join("/")
+var javascriptBase = "/js/"
+var filter = new RegExp("(^"+javascriptBase+src+"\.js$)"); 
 
 function findDynamicJavaScript(head, tail) {
       for (key in head) { 
         val = head[key]; 
-          if (key == &#39;_contents&#39;) { 
+          if (key == '_contents') { 
             for (i in val) { 
                   file = val[i]
                   if (filter.test(tail + file) ) { 
                     %&gt;
-                    &lt;script type=&quot;text/javascript&quot; src=&quot;&lt;%= tail + file %&gt;&quot;&gt;&lt;/script&gt;
+                    &lt;script type="text/javascript" src="&lt;%= tail + file %&gt;"&gt;&lt;/script&gt;
                     &lt;%
                 }
             }
           } else { 
-            findDynamicJavaScript(val, tail + key + &quot;/&quot;)
+            findDynamicJavaScript(val, tail + key + "/")
         }
     }
 }
 
-findDynamicJavaScript(public, &quot;/&quot;) 
-</code></pre><p>All we&#39;re doing is using the current path (joined by &quot;/&quot;) to look more specifically
-at the files we&#39;re testing. We need to have <code>javascriptBase</code> because we&#39;re looking
-for javascript files that match the path to our html files. </p>
-<p>This is a simple and easy recipe to handle including javascript based on the current
+findDynamicJavaScript(public, "/") 
+</code></pre>
+   <p>
+    All we're doing is using the current path (joined by "/") to look more specifically
+at the files we're testing. We need to have
+    <code>
+     javascriptBase
+    </code>
+    because we're looking
+for javascript files that match the path to our html files.
+   </p>
+   <p>
+    This is a simple and easy recipe to handle including javascript based on the current
 file being served. It keeps your code clean, consistent, and developer friendly.
-I hope it helps someone out there!</p>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=autoload-harp-css-js>Autoload your CSS and Javascript in Harp</a></li><li><a href=cgi-c-harp-3>Let&#39;s make a chat server, Part 3</a></li><li><a href=likert-scales-less-css>Coloring Likert Scales with LESS CSS</a></li><li><a href=cgi-c-harp-2>Let&#39;s make a chat server, Part 2</a></li><li><a href=using-encrypted-search-in-chromium>Using Encrypted Search in Chrome</a></li><li><a href=cgi-c-harp-1>Let&#39;s make a chat server, Part 1</a></li>
-        </ul>
-      </div>
-      <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'ejehardenberg';
+I hope it helps someone out there!
+   </p>
+   <h3>
+    Other Posts
+   </h3>
+   <div id="other-posts">
+    <ul>
+     <li>
+      <a href="autoload-harp-css-js">
+       Autoload your CSS and Javascript in Harp
+      </a>
+     </li>
+     <li>
+      <a href="cgi-c-harp-3">
+       Let's make a chat server, Part 3
+      </a>
+     </li>
+     <li>
+      <a href="likert-scales-less-css">
+       Coloring Likert Scales with LESS CSS
+      </a>
+     </li>
+     <li>
+      <a href="cgi-c-harp-2">
+       Let's make a chat server, Part 2
+      </a>
+     </li>
+     <li>
+      <a href="using-encrypted-search-in-chromium">
+       Using Encrypted Search in Chrome
+      </a>
+     </li>
+     <li>
+      <a href="cgi-c-harp-1">
+       Let's make a chat server, Part 1
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div id="disqus_thread">
+   </div>
+   <script type="text/javascript">
+    var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink"><!--
-    -->comments powered by <span class="logo-disqus">Disqus</span>
-</a>   
-    </div>
-    <nav>
-	<ul>
-		
-			<li>
-				<a href="/index">
-					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
-					--><span>Home</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/about">
-					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
-					--><span>About me</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/projects">
-					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
-					--><span>Projects</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/resume">
-					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
-					--><span>Resume</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/tech-blog">
-					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
-					--><span>Tech Blog</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/cooking">
-					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
-					--><span>Cooking</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/writing">
-					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
-					--><span>Writing</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/contact">
-					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
-					--><span>Contact</span>
-				</a>
-			</li>
-		
-		<li>
-			<a href="/writing/political">
-				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
-				--><span>Github</span>
-			</a>
-		</li>
-		<li> 
-			<a href="https://twitter.com/TheR3dLily">
-				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
-			</a>
-		</li>
-		<li>
-			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-  </body>
+   </script>
+   <noscript>
+    Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">
+     comments powered by Disqus.
+    </a>
+   </noscript>
+   <a class="dsq-brlink" href="http://disqus.com">
+    <!--
+-->
+    comments powered by
+    <span class="logo-disqus">
+     Disqus
+    </span>
+   </a>
+  </div>
+  <nav>
+   <ul>
+    <li>
+     <a href="/index">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/about">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
+      <!--
+-->
+      <span>
+       About me
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/projects">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Projects
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/resume">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Resume
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tech-blog">
+      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Tech Blog
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/cooking">
+      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Cooking
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing">
+      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Writing
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/contact">
+      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Contact
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing/political">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Opinion
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/EdgeCaseBerg">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Github
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://twitter.com/TheR3dLily">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
+      <!--
+-->
+      <span>
+       @TheR3dLily
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://www.linkedin.com/profile/view?id=151414806">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
+      <!--
+-->
+      <span>
+       LinkedIn
+      </span>
+     </a>
+    </li>
+   </ul>
+  </nav>
+ </body>
 </html>
-  	

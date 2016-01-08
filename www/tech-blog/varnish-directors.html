@@ -1,44 +1,33 @@
-
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Ethan's Tech Blog | Varnish Directors and API Caching</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="How to setup round robin, and health checks for multiple back ends behind Varnish HTTP Cache. GreenUp VT API Server as a case study." />
-    <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="Varnish,Directors,API,Caching,GreenUp VT,Ethan,Eldridge,XenonApps"/>
-    <meta name="robots" content="index, follow"  />
-      <meta name="revisit-after" content="1 month" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-      
-    
-	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
-
-        
-    <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Varnish Directors and API Caching" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
-    
-    <meta property="og:description" content="How to setup round robin, and health checks for multiple back ends behind Varnish HTTP Cache. GreenUp VT API Server as a case study." />
-    
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Varnish Directors and API Caching" />
-    
-    <meta name="twitter:description" content="How to setup round robin, and health checks for multiple back ends behind Varnish HTTP Cache. GreenUp VT API Server as a case study." />
-    
-    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
-
-
-	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ <head>
+  <title>
+   Ethan's Tech Blog | Varnish Directors and API Caching
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="How to setup round robin, and health checks for multiple back ends behind Varnish HTTP Cache. GreenUp VT API Server as a case study." name="description"/>
+  <meta content="Ethan Eldridge" name="author"/>
+  <meta content="Varnish,Directors,API,Caching,GreenUp VT,Ethan,Eldridge,XenonApps" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="1 month" name="revisit-after"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
+  <!-- Facebook Open Graph Tags -->
+  <meta content="Ethan Eldridge | Varnish Directors and API Caching" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
+  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
+  <meta content="How to setup round robin, and health checks for multiple back ends behind Varnish HTTP Cache. GreenUp VT API Server as a case study." property="og:description"/>
+  <!-- Twitter Card Tags -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="Ethan Eldridge | Varnish Directors and API Caching" name="twitter:title"/>
+  <meta content="How to setup round robin, and health checks for multiple back ends behind Varnish HTTP Cache. GreenUp VT API Server as a case study." name="twitter:description"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
+  <!-- Core CSS Scripts -->
+  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -46,39 +35,81 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-
-</script>
-
-  </head>
-  <body>
-    <header>
-      <h1>Varnish Directors and API Caching</h1>
-    </header>
-
-
-    <div id="content">
-      <a href="/tech-blog">Back</a>
-      <h3>Using Directors in Varnish</h3><p>Quite frankly, I love <a href="https://www.varnish-cache.org/">Varnish</a> and am quite happy with the level of control and
-possibilities given by the VCL files. I&#39;ve <a href="http://ethanjoachimeldridge.info/tech-blog/varnish">blogged before</a> about how <a href="http://xenonapps.com">XenonApps</a>
-uses Varnish for our <a href="https://itunes.apple.com/us/app/green-up-vt/id860271437?ls=1&amp;mt=8">Green Up App</a>&#39;s API Server, but today I&#39;m going to talk 
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    Varnish Directors and API Caching
+   </h1>
+  </header>
+  <div id="content">
+   <a href="/tech-blog">
+    Back
+   </a>
+   <h3>
+    Using Directors in Varnish
+   </h3>
+   <p>
+    Quite frankly, I love
+    <a href="https://www.varnish-cache.org/">
+     Varnish
+    </a>
+    and am quite happy with the level of control and
+possibilities given by the VCL files. I've
+    <a href="http://ethanjoachimeldridge.info/tech-blog/varnish">
+     blogged before
+    </a>
+    about how
+    <a href="http://xenonapps.com">
+     XenonApps
+    </a>
+    uses Varnish for our
+    <a href="https://itunes.apple.com/us/app/green-up-vt/id860271437?ls=1&amp;mt=8">
+     Green Up App
+    </a>
+    's API Server, but today I'm going to talk 
 about how we handle crashes and making sure that the system is available even
-when we&#39;re having problems.</p>
-<p>First off, the concept of a load balancer will be familiar to anyone whose ever
-used <a href="http://aws.amazon.com/">AWS</a> services before. However, at XenonApps, we&#39;re not using AWS, so we
-have our own way of dealing with it. A <a href="http://en.wikipedia.org/wiki/Load_balancing_(computing)">Load Balancer</a> is a pretty simple concept.
+when we're having problems.
+   </p>
+   <p>
+    First off, the concept of a load balancer will be familiar to anyone whose ever
+used
+    <a href="http://aws.amazon.com/">
+     AWS
+    </a>
+    services before. However, at XenonApps, we're not using AWS, so we
+have our own way of dealing with it. A
+    <a href="http://en.wikipedia.org/wiki/Load_balancing_(computing)">
+     Load Balancer
+    </a>
+    is a pretty simple concept.
 It sits in front of other applications and directs incoming requests to different
-&quot;backends&quot;. In our case, our backend is the <a href="https://github.com/EdgeCaseBerg/green-serv">C API Server</a>, and our load balancer
-is Varnish.</p>
-<p>That&#39;s right kids. Varnish.</p>
-<p>Varnish provides more than just a cache by allowing you to define <a href="https://www.varnish-cache.org/docs/2.1/tutorial/advanced_backend_servers.html">Directors</a> to
+"backends". In our case, our backend is the
+    <a href="https://github.com/EdgeCaseBerg/green-serv">
+     C API Server
+    </a>
+    , and our load balancer
+is Varnish.
+   </p>
+   <p>
+    That's right kids. Varnish.
+   </p>
+   <p>
+    Varnish provides more than just a cache by allowing you to define
+    <a href="https://www.varnish-cache.org/docs/2.1/tutorial/advanced_backend_servers.html">
+     Directors
+    </a>
+    to
 link multiple back ends together. These back ends can be running on different
-ports, machines, or be entirely different applications all together. Here&#39;s how
-we&#39;ve setup our Green Up backends setup:</p>
-<pre><code>backend default {
-    .host = &quot;127.0.0.1&quot;;
-    .port = &quot;30000&quot;;
+ports, machines, or be entirely different applications all together. Here's how
+we've setup our Green Up backends setup:
+   </p>
+   <pre><code>backend default {
+    .host = "127.0.0.1";
+    .port = "30000";
     .probe = {
-            .url = &quot;/api/&quot;;
+            .url = "/api/";
             .interval = 10s;
             .timeout = 2s;
             .window = 5;
@@ -86,10 +117,10 @@ we&#39;ve setup our Green Up backends setup:</p>
     }
 }
 backend backup {
-    .host = &quot;127.0.0.1&quot;;
-    .port = &quot;30001&quot;;
+    .host = "127.0.0.1";
+    .port = "30001";
     .probe = {
-            .url = &quot;/api/&quot;;
+            .url = "/api/";
             .interval = 10s;
             .timeout = 2s;
             .window = 5;
@@ -97,10 +128,10 @@ backend backup {
     }
 }
 backend backup2 {
-    .host = &quot;127.0.0.1&quot;;
-    .port = &quot;30002&quot;;
+    .host = "127.0.0.1";
+    .port = "30002";
     .probe = {
-            .url = &quot;/api/&quot;;
+            .url = "/api/";
             .interval = 10s;
             .timeout = 2s;
             .window = 5;
@@ -121,151 +152,307 @@ director backup_director round-robin {
 sub vcl_fetch {
     set req.backend = backup_director;
 }
-</code></pre><p>Now, this is a pretty simple setup to understand, but let me just go over it and
-mention a gotcha that got me. </p>
-<p>First off, we define each backend, this is standard varnish configuration. If 
-you&#39;re doing something that&#39;s facing the web you&#39;ve likely got something like this:</p>
-<pre><code>backend default {
-    .host = &quot;127.0.0.1&quot;;
-    .port = &quot;8000&quot;;
+</code></pre>
+   <p>
+    Now, this is a pretty simple setup to understand, but let me just go over it and
+mention a gotcha that got me.
+   </p>
+   <p>
+    First off, we define each backend, this is standard varnish configuration. If 
+you're doing something that's facing the web you've likely got something like this:
+   </p>
+   <pre><code>backend default {
+    .host = "127.0.0.1";
+    .port = "8000";
 }
-</code></pre><p>or something similar to how you&#39;ve setup your server ports. The piece you might
-not recognize is the <code>.probe</code> configuration. Probes are what AWS (and the rest of the world)
-call health checks. They&#39;re Varnish&#39;s way of determining if the backend is still
-running or not. The <code>interval</code> is how often Varnish will check the backend&#39;s health status.
-<code>.timeout</code> is how long the backend has to respond to a request from varnish to the <code>url</code>.
-If you&#39;ve ever read up on the TCP protocol, or most network protocols, you&#39;ll remember
-something called a &quot;sliding window&quot;. In Varnish, the <code>window</code> parameter to the probe
-indicates how many requests Varnish will remember. If <code>threshold</code> number of checks
-are healthy within the last window, then Varnish will consider the backend operational.</p>
-<p>In case you&#39;re wondering, <code>/api/</code> is the Heartbeat of the API server. If you&#39;ve ever
+</code></pre>
+   <p>
+    or something similar to how you've setup your server ports. The piece you might
+not recognize is the
+    <code>
+     .probe
+    </code>
+    configuration. Probes are what AWS (and the rest of the world)
+call health checks. They're Varnish's way of determining if the backend is still
+running or not. The
+    <code>
+     interval
+    </code>
+    is how often Varnish will check the backend's health status.
+    <code>
+     .timeout
+    </code>
+    is how long the backend has to respond to a request from varnish to the
+    <code>
+     url
+    </code>
+    .
+If you've ever read up on the TCP protocol, or most network protocols, you'll remember
+something called a "sliding window". In Varnish, the
+    <code>
+     window
+    </code>
+    parameter to the probe
+indicates how many requests Varnish will remember. If
+    <code>
+     threshold
+    </code>
+    number of checks
+are healthy within the last window, then Varnish will consider the backend operational.
+   </p>
+   <p>
+    In case you're wondering,
+    <code>
+     /api/
+    </code>
+    is the Heartbeat of the API server. If you've ever
 wondered why API writers create these seamingly useless echoing of the current time, 
-this is one of the many reasons why.</p>
-<p>Next in our configuration we get to the <code>director</code>, this is running the show. Varnish
-has two different types of directors, the <code>round-robin</code> and <code>random</code>. Round robin
+this is one of the many reasons why.
+   </p>
+   <p>
+    Next in our configuration we get to the
+    <code>
+     director
+    </code>
+    , this is running the show. Varnish
+has two different types of directors, the
+    <code>
+     round-robin
+    </code>
+    and
+    <code>
+     random
+    </code>
+    . Round robin
 will simply deliver requests to the backends in sequence. Looping around to the previous
-once we&#39;ve run out of backends. It&#39;s a fairly common strategy and you&#39;ll find it
-in <a href="http://en.wikipedia.org/wiki/Round-robin_scheduling">Process Scheduling, Network packet schedeling, and a lot of other places</a>.</p>
-<p>And last, but not least, we tell varnish to actually use our director by updating
-our <code>vcl_fetch</code> method to set the backend to use the director. This is where I
-got bit before. I did everything but this step and ran into <a href="https://www.varnish-cache.org/lists/pipermail/varnish-misc/2011-May/020566.html">the same problem as this guy</a>.</p>
-<p>Once all this was setup, I restarted Varnish and ran my backends. Opening up <code>varnishlog</code>
-to make sure. If you&#39;re is working like mine, you&#39;ll see something similar to this:</p>
-<pre><code>0 Backend_health - backup2 Still healthy 4--X-RH 5 3 5 0.000639 0.000811 HTTP/1.1 200 OK
+once we've run out of backends. It's a fairly common strategy and you'll find it
+in
+    <a href="http://en.wikipedia.org/wiki/Round-robin_scheduling">
+     Process Scheduling, Network packet schedeling, and a lot of other places
+    </a>
+    .
+   </p>
+   <p>
+    And last, but not least, we tell varnish to actually use our director by updating
+our
+    <code>
+     vcl_fetch
+    </code>
+    method to set the backend to use the director. This is where I
+got bit before. I did everything but this step and ran into
+    <a href="https://www.varnish-cache.org/lists/pipermail/varnish-misc/2011-May/020566.html">
+     the same problem as this guy
+    </a>
+    .
+   </p>
+   <p>
+    Once all this was setup, I restarted Varnish and ran my backends. Opening up
+    <code>
+     varnishlog
+    </code>
+    to make sure. If you're is working like mine, you'll see something similar to this:
+   </p>
+   <pre><code>0 Backend_health - backup2 Still healthy 4--X-RH 5 3 5 0.000639 0.000811 HTTP/1.1 200 OK
 0 Backend_health - backup Still healthy 4--X-RH 5 3 5 0.000580 0.000657 HTTP/1.1 200 OK
 0 Backend_health - default Still healthy 4--X-RH 5 3 5 0.000670 0.001173 HTTP/1.1 200 OK
-</code></pre><p>And it&#39;s really that easy.</p>
-<p>Now that you&#39;ve got your backends set up to be healthy you might want to enable 
-<a href="https://www.varnish-cache.org/docs/3.0/tutorial/handling_misbehaving_servers.html#tutorial-handling-misbehaving-servers">grace and saint mode</a>. This will allow you to serve stale content while a backend
-is unhealthy. Useful! </p>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=green-up-vt-app>Green Up Vermont</a></li><li><a href=adding-actions-to-user-lists>Adding Actions to the WordPress User Lists</a></li><li><a href=serial-hill-climber-golang>Serial Hill Climber in GoLang</a></li><li><a href=wordpress-form-name-error>404 Error from WordPress Form Submit with an input named &#39;name&#39;</a></li><li><a href=item-processor-example>Spring Batch ItemProcessListener Example</a></li><li><a href=grails-service-mocks>Grails Service Mocks</a></li>
-        </ul>
-      </div>
-      <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'ejehardenberg';
+</code></pre>
+   <p>
+    And it's really that easy.
+   </p>
+   <p>
+    Now that you've got your backends set up to be healthy you might want to enable
+    <a href="https://www.varnish-cache.org/docs/3.0/tutorial/handling_misbehaving_servers.html#tutorial-handling-misbehaving-servers">
+     grace and saint mode
+    </a>
+    . This will allow you to serve stale content while a backend
+is unhealthy. Useful!
+   </p>
+   <h3>
+    Other Posts
+   </h3>
+   <div id="other-posts">
+    <ul>
+     <li>
+      <a href="green-up-vt-app">
+       Green Up Vermont
+      </a>
+     </li>
+     <li>
+      <a href="adding-actions-to-user-lists">
+       Adding Actions to the WordPress User Lists
+      </a>
+     </li>
+     <li>
+      <a href="serial-hill-climber-golang">
+       Serial Hill Climber in GoLang
+      </a>
+     </li>
+     <li>
+      <a href="wordpress-form-name-error">
+       404 Error from WordPress Form Submit with an input named 'name'
+      </a>
+     </li>
+     <li>
+      <a href="item-processor-example">
+       Spring Batch ItemProcessListener Example
+      </a>
+     </li>
+     <li>
+      <a href="grails-service-mocks">
+       Grails Service Mocks
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div id="disqus_thread">
+   </div>
+   <script type="text/javascript">
+    var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink"><!--
-    -->comments powered by <span class="logo-disqus">Disqus</span>
-</a>   
-    </div>
-    <nav>
-	<ul>
-		
-			<li>
-				<a href="/index">
-					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
-					--><span>Home</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/about">
-					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
-					--><span>About me</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/projects">
-					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
-					--><span>Projects</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/resume">
-					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
-					--><span>Resume</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/tech-blog">
-					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
-					--><span>Tech Blog</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/cooking">
-					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
-					--><span>Cooking</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/writing">
-					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
-					--><span>Writing</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/contact">
-					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
-					--><span>Contact</span>
-				</a>
-			</li>
-		
-		<li>
-			<a href="/writing/political">
-				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
-				--><span>Github</span>
-			</a>
-		</li>
-		<li> 
-			<a href="https://twitter.com/TheR3dLily">
-				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
-			</a>
-		</li>
-		<li>
-			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-  </body>
+   </script>
+   <noscript>
+    Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">
+     comments powered by Disqus.
+    </a>
+   </noscript>
+   <a class="dsq-brlink" href="http://disqus.com">
+    <!--
+-->
+    comments powered by
+    <span class="logo-disqus">
+     Disqus
+    </span>
+   </a>
+  </div>
+  <nav>
+   <ul>
+    <li>
+     <a href="/index">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/about">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
+      <!--
+-->
+      <span>
+       About me
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/projects">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Projects
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/resume">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Resume
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tech-blog">
+      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Tech Blog
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/cooking">
+      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Cooking
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing">
+      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Writing
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/contact">
+      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Contact
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing/political">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Opinion
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/EdgeCaseBerg">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Github
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://twitter.com/TheR3dLily">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
+      <!--
+-->
+      <span>
+       @TheR3dLily
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://www.linkedin.com/profile/view?id=151414806">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
+      <!--
+-->
+      <span>
+       LinkedIn
+      </span>
+     </a>
+    </li>
+   </ul>
+  </nav>
+ </body>
 </html>
-  	

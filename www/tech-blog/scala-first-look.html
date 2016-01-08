@@ -1,44 +1,33 @@
-
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Ethan's Tech Blog | A brief look into Scala</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="A random post about some parts of scala I found interesting" />
-    <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="scala,first,look,casbah,xml"/>
-    <meta name="robots" content="index, follow"  />
-      <meta name="revisit-after" content="1 month" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-      
-    
-	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
-
-        
-    <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | A brief look into Scala" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
-    
-    <meta property="og:description" content="A random post about some parts of scala I found interesting" />
-    
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | A brief look into Scala" />
-    
-    <meta name="twitter:description" content="A random post about some parts of scala I found interesting" />
-    
-    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
-
-
-	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ <head>
+  <title>
+   Ethan's Tech Blog | A brief look into Scala
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="A random post about some parts of scala I found interesting" name="description"/>
+  <meta content="Ethan Eldridge" name="author"/>
+  <meta content="scala,first,look,casbah,xml" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="1 month" name="revisit-after"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
+  <!-- Facebook Open Graph Tags -->
+  <meta content="Ethan Eldridge | A brief look into Scala" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
+  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
+  <meta content="A random post about some parts of scala I found interesting" property="og:description"/>
+  <!-- Twitter Card Tags -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="Ethan Eldridge | A brief look into Scala" name="twitter:title"/>
+  <meta content="A random post about some parts of scala I found interesting" name="twitter:description"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
+  <!-- Core CSS Scripts -->
+  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -46,78 +35,122 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-
-</script>
-
-  </head>
-  <body>
-    <header>
-      <h1>A brief look into Scala</h1>
-    </header>
-
-
-    <div id="content">
-      <a href="/tech-blog">Back</a>
-      <h3>Scala 101 - My first look</h3><p>I&#39;m currently transitioning from Java to Scala and learning more about 
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    A brief look into Scala
+   </h1>
+  </header>
+  <div id="content">
+   <a href="/tech-blog">
+    Back
+   </a>
+   <h3>
+    Scala 101 - My first look
+   </h3>
+   <p>
+    I'm currently transitioning from Java to Scala and learning more about 
 functional programming. While I have done functional programming before, 
 it was, sadly, several years ago so refreshing my memory is the first 
-priority here. </p>
-<p>There&#39;s a lot on the net about scala, but I decided to get started with 
+priority here.
+   </p>
+   <p>
+    There's a lot on the net about scala, but I decided to get started with 
 sbt. I know this may sound weird, not doing a language tutorial and 
 immediately jumping to a build tool. But I like preparing myself for 
 development environments first before I dive into learning details of a 
-language. Afterall, most of the time as a dev you&#39;re playing plumber and 
+language. Afterall, most of the time as a dev you're playing plumber and 
 glueing different libraries together, so it makes sense to start out 
-learning how to do that.  </p>
-<h4>Defining library dependencies</h4><p>Here&#39;s an example of library dependencies and setup from <a href="http://www.scala-sbt.org/release/tutorial/Basic-Def.html">sbt&#39;s website</a></p>
-<pre><code>val derby = &quot;org.apache.derby&quot; % &quot;derby&quot; % &quot;10.4.1.3&quot;
+learning how to do that.
+   </p>
+   <h4>
+    Defining library dependencies
+   </h4>
+   <p>
+    Here's an example of library dependencies and setup from
+    <a href="http://www.scala-sbt.org/release/tutorial/Basic-Def.html">
+     sbt's website
+    </a>
+   </p>
+   <pre><code>val derby = "org.apache.derby" % "derby" % "10.4.1.3"
 
 lazy val commonSettings = Seq(
-  organization := &quot;com.example&quot;,
-  version := &quot;0.1.0&quot;,
-  scalaVersion := &quot;2.11.4&quot;
+  organization := "com.example",
+  version := "0.1.0",
+  scalaVersion := "2.11.4"
 )
 
-lazy val root = (project in file(&quot;.&quot;)).
+lazy val root = (project in file(".")).
   settings(commonSettings: _*).
   settings(
-    name := &quot;hello&quot;,
+    name := "hello",
     libraryDependencies += derby
   )
-</code></pre><p>The <code>_*</code> allows the sequence to be passed to the settings method.</p>
-<p>The points of note here is that the <code>commonSettings</code> is where you&#39;d 
-define your project&#39;s package details and versions. Then for each of the 
-components of your project you&#39;d define the name&#39;s and their libraries. 
-If you&#39;re doing something with custom libraries and are defining a single 
-application you&#39;d likely have something like this:</p>
-<pre><code>name := &quot;Project Name&quot;
+</code></pre>
+   <p>
+    The
+    <code>
+     _*
+    </code>
+    allows the sequence to be passed to the settings method.
+   </p>
+   <p>
+    The points of note here is that the
+    <code>
+     commonSettings
+    </code>
+    is where you'd 
+define your project's package details and versions. Then for each of the 
+components of your project you'd define the name's and their libraries. 
+If you're doing something with custom libraries and are defining a single 
+application you'd likely have something like this:
+   </p>
+   <pre><code>name := "Project Name"
 
-version := &quot;0.0.1&quot;
+version := "0.0.1"
 
-scalaVersion := &quot;2.11.1&quot;
+scalaVersion := "2.11.1"
 
-resolvers += &quot;Repo Name&quot; at &quot;http://urltotherepository&quot;
+resolvers += "Repo Name" at "http://urltotherepository"
 
-libraryDependencies += &quot;com.example&quot; % &quot;artifact&quot; % &quot;1.0.0&quot;
+libraryDependencies += "com.example" % "artifact" % "1.0.0"
 
-libraryDependencies += &quot;com.example&quot; % &quot;artifact2&quot; % &quot;1.0.0&quot;
+libraryDependencies += "com.example" % "artifact2" % "1.0.0"
 
 etc...
-</code></pre><h4>Tasks and inspection</h4><p>An interesting thing about sbt&#39;s shell is that you have the ability to 
-<code>inspect</code> any task you could run. For example, if you define the example 
-task from the documentation: </p>
-<pre><code>lazy val hello = taskKey[Unit](&quot;An example task&quot;)
-lazy val root = (project in file(&quot;.&quot;))
+</code></pre>
+   <h4>
+    Tasks and inspection
+   </h4>
+   <p>
+    An interesting thing about sbt's shell is that you have the ability to
+    <code>
+     inspect
+    </code>
+    any task you could run. For example, if you define the example 
+task from the documentation:
+   </p>
+   <pre><code>lazy val hello = taskKey[Unit]("An example task")
+lazy val root = (project in file("."))
        .settings(commonSettings:_*)
        .settings(
-           name := &quot;hello&quot;,
-         version := &quot;1.0&quot;,
+           name := "hello",
+         version := "1.0",
          hello := {
-             println(&quot;Hello!&quot;)
+             println("Hello!")
            }
     )
-</code></pre><p>And the run <code>inspect hello</code> you&#39;ll see useful information like so: </p>
-<pre><code>&gt; inspect hello
+</code></pre>
+   <p>
+    And the run
+    <code>
+     inspect hello
+    </code>
+    you'll see useful information like so:
+   </p>
+   <pre><code>&gt; inspect hello
 [info] Task: Unit
 [info] Description:
 [info]     An example task
@@ -129,98 +162,228 @@ lazy val root = (project in file(&quot;.&quot;))
 [info]     *:hello
 [info]     {.}/*:hello
 [info]     */*:hello
-</code></pre><p>Which tells you where you can find the definition of the task. Handy if 
-you&#39;re wondering what the task does and you didn&#39;t write it yourself. 
-If you look at the <code>compile</code> task you can see that it&#39;s defined in the 
-<code>(sbt.Defaults) Defaults.scala:250</code> <a href="http://www.scala-sbt.org/0.12.1/sxr/Keys.scala.html#324085">file</a>. I can imagine this being 
-helpful for contributing or patching other projects or frameworks.</p>
-<h4>Deleting custom files with clean</h4><p>The other handy thing I found in the documentation was the ability to 
-add <a href="http://www.scala-sbt.org/release/tutorial/More-About-Settings.html">files to be cleaned</a> via <code>cleanFiles</code> in <em>build.sbt</em> like so:</p>
-<pre><code>cleanFiles += file(&quot;/tmp/data.txt&quot;)
-</code></pre><p>Then when you run <code>clean</code> that file will be removed. I can see this 
+</code></pre>
+   <p>
+    Which tells you where you can find the definition of the task. Handy if 
+you're wondering what the task does and you didn't write it yourself. 
+If you look at the
+    <code>
+     compile
+    </code>
+    task you can see that it's defined in the
+    <code>
+     (sbt.Defaults) Defaults.scala:250
+    </code>
+    <a href="http://www.scala-sbt.org/0.12.1/sxr/Keys.scala.html#324085">
+     file
+    </a>
+    . I can imagine this being 
+helpful for contributing or patching other projects or frameworks.
+   </p>
+   <h4>
+    Deleting custom files with clean
+   </h4>
+   <p>
+    The other handy thing I found in the documentation was the ability to 
+add
+    <a href="http://www.scala-sbt.org/release/tutorial/More-About-Settings.html">
+     files to be cleaned
+    </a>
+    via
+    <code>
+     cleanFiles
+    </code>
+    in
+    <em>
+     build.sbt
+    </em>
+    like so:
+   </p>
+   <pre><code>cleanFiles += file("/tmp/data.txt")
+</code></pre>
+   <p>
+    Then when you run
+    <code>
+     clean
+    </code>
+    that file will be removed. I can see this 
 being handy for when your code generates reports of some kind. Another 
 handy thing, is that if your program code has more than one class 
-defining the <code>main</code> function for some reason when you run <code>run</code> from the 
-sbt shell it will ask you which you&#39;d like to run. My first thought when 
+defining the
+    <code>
+     main
+    </code>
+    function for some reason when you run
+    <code>
+     run
+    </code>
+    from the 
+sbt shell it will ask you which you'd like to run. My first thought when 
 I saw this it made me think of writing scala deployment/management scripts 
-to manage or run jobs from a shell. </p>
-<h4>Scala versions and sbt&#39;s &#39;dumbness&#39;</h4><p>An interesting thing about scala is that the jars are expected to have 
+to manage or run jobs from a shell.
+   </p>
+   <h4>
+    Scala versions and sbt's 'dumbness'
+   </h4>
+   <p>
+    An interesting thing about scala is that the jars are expected to have 
 the version of scala within their name. If you follow the examples on 
-sbt&#39;s page and run <code>package</code> you&#39;ll end up with: <strong>hello_2.10-1.0.jar</strong> 
-in target directory. </p>
-<p>When specifying dependencies you&#39;ll run into two flavors: </p>
-<pre><code>libraryDependencies += &quot;org.scala-tools&quot; % &quot;scala-stm_2.11.1&quot; % &quot;0.3&quot;
-</code></pre><p>or </p>
-<pre><code>libraryDependencies += &quot;org.scala-tools&quot; %% &quot;scala-stm&quot; % &quot;0.3&quot;
-</code></pre><p>The <code>%%</code> will implicitly assume that the version of scala specified for 
-your project is the one it should use in the artifact&#39;s name. So if you
+sbt's page and run
+    <code>
+     package
+    </code>
+    you'll end up with:
+    <strong>
+     hello_2.10-1.0.jar
+    </strong>
+    in target directory.
+   </p>
+   <p>
+    When specifying dependencies you'll run into two flavors:
+   </p>
+   <pre><code>libraryDependencies += "org.scala-tools" % "scala-stm_2.11.1" % "0.3"
+</code></pre>
+   <p>
+    or
+   </p>
+   <pre><code>libraryDependencies += "org.scala-tools" %% "scala-stm" % "0.3"
+</code></pre>
+   <p>
+    The
+    <code>
+     %%
+    </code>
+    will implicitly assume that the version of scala specified for 
+your project is the one it should use in the artifact's name. So if you
 need to use a jar that differs from your own scala language version 
-you&#39;ll need to use a single <code>%</code> and specify.</p>
-<h4>Organization of large projects</h4><p>If you were creating a larger project in java you might use modules in 
+you'll need to use a single
+    <code>
+     %
+    </code>
+    and specify.
+   </p>
+   <h4>
+    Organization of large projects
+   </h4>
+   <p>
+    If you were creating a larger project in java you might use modules in 
 maven to create the project. In scala, there is a similar way of doing 
-this. <strong>Aggregates</strong>. Here&#39;s an example from me fooling around with scala:</p>
-<p><em>build.sbt</em></p>
-<pre><code>lazy val helloTask = taskKey[Unit](&quot;An example task&quot;) 
-lazy val multiTask = taskKey[Unit](&quot;An example task showing aggregates&quot;) 
+this.
+    <strong>
+     Aggregates
+    </strong>
+    . Here's an example from me fooling around with scala:
+   </p>
+   <p>
+    <em>
+     build.sbt
+    </em>
+   </p>
+   <pre><code>lazy val helloTask = taskKey[Unit]("An example task") 
+lazy val multiTask = taskKey[Unit]("An example task showing aggregates") 
 
 lazy val commonSettings = Seq(
-    organization := &quot;com.example&quot;,
-    scalaVersion := &quot;2.10.4&quot;,
-    version := &quot;0.1.0&quot;
+    organization := "com.example",
+    scalaVersion := "2.10.4",
+    version := "0.1.0"
 )
 
-lazy val hello = (project in file(&quot;hello&quot;))
+lazy val hello = (project in file("hello"))
     .settings(commonSettings:_*)
     .settings(
-        name := &quot;hello&quot;,
-        version := &quot;1.0&quot;,
+        name := "hello",
+        version := "1.0",
         helloTask := { 
-            println(&quot;Hello!&quot;) 
+            println("Hello!") 
         }
     )
 
-lazy val util = (project in file(&quot;util&quot;))
+lazy val util = (project in file("util"))
     .settings(commonSettings:_*)
     .settings(
-        name := &quot;util&quot;,
-        version := &quot;1.0&quot;
+        name := "util",
+        version := "1.0"
     )
 
-lazy val multi = (project in file(&quot;.&quot;))
+lazy val multi = (project in file("."))
     .aggregate(util, hello)
     .dependsOn(util)
 
-cleanFiles += file(&quot;/tmp/data.txt&quot;)
-</code></pre><p><em>./Go.scala</em></p>
-<pre><code>package com.example
+cleanFiles += file("/tmp/data.txt")
+</code></pre>
+   <p>
+    <em>
+     ./Go.scala
+    </em>
+   </p>
+   <pre><code>package com.example
 
 object Go {
     def main(args: Array[String]): Unit = {
-         println(&quot;Running Aggregate!&quot;)
+         println("Running Aggregate!")
         val e = new Example();
         e.sayHello()
     }
 }
-</code></pre><p><em>./util/src/main/java/com/dealer/Example.java</em></p>
-<pre><code>package com.example;
+</code></pre>
+   <p>
+    <em>
+     ./util/src/main/java/com/dealer/Example.java
+    </em>
+   </p>
+   <pre><code>package com.example;
 
 public class Example {
     public void sayHello(){
-        System.out.println(&quot;Hey there!&quot;);
+        System.out.println("Hey there!");
     }
 }
-</code></pre><p>_./hello/src/main/scala/hw.scala</p>
-<pre><code>object Hi {
-      def main(args: Array[String]) = println(&quot;Hi!&quot;)
+</code></pre>
+   <p>
+    _./hello/src/main/scala/hw.scala
+   </p>
+   <pre><code>object Hi {
+      def main(args: Array[String]) = println("Hi!")
 }
-</code></pre><p>There&#39;s a three projects going on here. The <strong>hello</strong> project, the 
-<strong>util</strong> project, and the <strong>multi</strong> project. When you run sbt in the 
-root directory, you&#39;ll compile all projects and then <code>run</code> the <em>go</em> 
-script. If you run sbt in the hello directory, you&#39;ll only compile 
-the hello files and <code>run</code> will give you the &quot;Hi!&quot; string. </p>
-<p>If you <code>package</code> from the root, you&#39;ll end up with 3 jars. The real use 
-of this would be creating something like this:</p>
-<pre><code>models/
+</code></pre>
+   <p>
+    There's a three projects going on here. The
+    <strong>
+     hello
+    </strong>
+    project, the
+    <strong>
+     util
+    </strong>
+    project, and the
+    <strong>
+     multi
+    </strong>
+    project. When you run sbt in the 
+root directory, you'll compile all projects and then
+    <code>
+     run
+    </code>
+    the
+    <em>
+     go
+    </em>
+    script. If you run sbt in the hello directory, you'll only compile 
+the hello files and
+    <code>
+     run
+    </code>
+    will give you the "Hi!" string.
+   </p>
+   <p>
+    If you
+    <code>
+     package
+    </code>
+    from the root, you'll end up with 3 jars. The real use 
+of this would be creating something like this:
+   </p>
+   <pre><code>models/
     ... source code for shared models
 jobs/ 
     ... jobs to be ran etc depends on models
@@ -228,21 +391,38 @@ api/
     ... web facing API exposing models 
 site/
     ... static website that consumes api and creates jobs
-</code></pre><p>And you&#39;d probably package the whole thing up to deploy it to one server 
-(if that was the case). Pretty simple right? In the <em>build.sbt</em> example 
-above you&#39;ll notice that the multi project aggregates 2 projects but only 
+</code></pre>
+   <p>
+    And you'd probably package the whole thing up to deploy it to one server 
+(if that was the case). Pretty simple right? In the
+    <em>
+     build.sbt
+    </em>
+    example 
+above you'll notice that the multi project aggregates 2 projects but only 
 depends on one. An important note here is that multi cannot use anything 
-in the hello project. Why? Because it doesn&#39;t depend on it, and aggregate 
-just means we&#39;re going to compile/package all these things at once, not 
-that they depend on each other. That&#39;s what dependOn is for.</p>
-<p>When you have a large number of projects, it also helps to organize 
-dependencies. <a href="http://www.scala-sbt.org/release/tutorial/Organizing-Build.html">There&#39;s good documentation on how to make reusable dependencies</a> 
-that I won&#39;t bother repeating here.</p>
-<h4>Getting to some code</h4><p>Now that we have an idea of how to organize our code and projects, let&#39;s 
-actually get to some code. If you run the scala console, or sbt&#39;s console 
-command you&#39;ll drop into a shell that can be used to test out some 
-expressions:</p>
-<pre><code>Welcome to Scala version 2.10.4 (OpenJDK 64-Bit Server VM, Java 1.7.0_55).
+in the hello project. Why? Because it doesn't depend on it, and aggregate 
+just means we're going to compile/package all these things at once, not 
+that they depend on each other. That's what dependOn is for.
+   </p>
+   <p>
+    When you have a large number of projects, it also helps to organize 
+dependencies.
+    <a href="http://www.scala-sbt.org/release/tutorial/Organizing-Build.html">
+     There's good documentation on how to make reusable dependencies
+    </a>
+    that I won't bother repeating here.
+   </p>
+   <h4>
+    Getting to some code
+   </h4>
+   <p>
+    Now that we have an idea of how to organize our code and projects, let's 
+actually get to some code. If you run the scala console, or sbt's console 
+command you'll drop into a shell that can be used to test out some 
+expressions:
+   </p>
+   <pre><code>Welcome to Scala version 2.10.4 (OpenJDK 64-Bit Server VM, Java 1.7.0_55).
 Type in expressions to have them evaluated.
 Type :help for more information.
 
@@ -253,219 +433,431 @@ scala&gt; res0 + 4
 res1: Int = 7
 
 scala&gt; 
-</code></pre><p>One of the nice things about the scala console that I haven&#39;t seen before 
-is the <code>res0</code> <code>res1</code> variables that are auto populated when you do 
-computations. Which you can then use. You&#39;ll find your typical primitive 
-types in scala, <code>Int</code>&#39;s, <code>Boolean</code>&#39;s, <code>Double</code>&#39;s, and <code>String</code> to name a 
-few. </p>
-<p>In addition, you can also define anonymous functions, similar to 
-javascript. This is helpful when you&#39;re testing things out in the shell 
-and don&#39;t want to write a full blown class and compile to test things. </p>
-<pre><code>scala&gt; val f = (x: Int) =&gt; { x + 2 }
+</code></pre>
+   <p>
+    One of the nice things about the scala console that I haven't seen before 
+is the
+    <code>
+     res0
+    </code>
+    <code>
+     res1
+    </code>
+    variables that are auto populated when you do 
+computations. Which you can then use. You'll find your typical primitive 
+types in scala,
+    <code>
+     Int
+    </code>
+    's,
+    <code>
+     Boolean
+    </code>
+    's,
+    <code>
+     Double
+    </code>
+    's, and
+    <code>
+     String
+    </code>
+    to name a 
+few.
+   </p>
+   <p>
+    In addition, you can also define anonymous functions, similar to 
+javascript. This is helpful when you're testing things out in the shell 
+and don't want to write a full blown class and compile to test things.
+   </p>
+   <pre><code>scala&gt; val f = (x: Int) =&gt; { x + 2 }
 f: Int =&gt; Int = &lt;function1&gt;
 
 scala&gt; f(3)
 res12: Int = 5
-</code></pre><p>And here we burst into a few things. </p>
-<ol>
-<li><code>val</code> to define a value, AKA, something which doesn&#39;t change. </li>
-<li><code>(x: Int)</code> the way to define arguments and their types in a function definition </li>
-<li><code>=&gt;</code> seperates signature from the anonymous function body</li>
-<li><code>{ ... }</code> how to define the body of an anonymous function</li>
-</ol>
-<p>And of course calling the function is exactly what&#39;d you find in any other 
-language <code>f(argument)</code>. Well, sometimes, Let&#39;s take a look at a bit of a 
-weird call:</p>
-<pre><code>scala&gt; (1 to 5).toList.foldLeft(0)((a: Int, b) =&gt; { a + b})
+</code></pre>
+   <p>
+    And here we burst into a few things.
+   </p>
+   <ol>
+    <li>
+     <code>
+      val
+     </code>
+     to define a value, AKA, something which doesn't change.
+    </li>
+    <li>
+     <code>
+      (x: Int)
+     </code>
+     the way to define arguments and their types in a function definition
+    </li>
+    <li>
+     <code>
+      =&gt;
+     </code>
+     seperates signature from the anonymous function body
+    </li>
+    <li>
+     <code>
+      { ... }
+     </code>
+     how to define the body of an anonymous function
+    </li>
+   </ol>
+   <p>
+    And of course calling the function is exactly what'd you find in any other 
+language
+    <code>
+     f(argument)
+    </code>
+    . Well, sometimes, Let's take a look at a bit of a 
+weird call:
+   </p>
+   <pre><code>scala&gt; (1 to 5).toList.foldLeft(0)((a: Int, b) =&gt; { a + b})
 res9: Int = 15
-</code></pre><p>Saying <code>(1 to 5).toList)</code> is the same as saying <code>List(1,2,3,4,5)</code> but it&#39;s 
-a bit less wordy and more flexible. <code>foldLeft</code> is a concept that is likely 
+</code></pre>
+   <p>
+    Saying
+    <code>
+     (1 to 5).toList)
+    </code>
+    is the same as saying
+    <code>
+     List(1,2,3,4,5)
+    </code>
+    but it's 
+a bit less wordy and more flexible.
+    <code>
+     foldLeft
+    </code>
+    is a concept that is likely 
 familiar to people who have been introduced to functional programming before. 
 Folding is when you aply an operation across an iterable and accumulate the 
-results. <code>foldLeft</code> is a function, but it takes <strong>two</strong> sets of parenthesis. 
-Seem weird? Well, it&#39;s syntactic sugaring for being able to pass an anonymous 
-function as an argument to the <code>foldLeft</code> function. It could also be written 
-as <code>(1 to 5).toList.foldLeft(0) { (a: Int, b) =&gt; a + b }</code>. </p>
-<p>One of the strengths of functional programming is matching. This is similar 
-to switch statements but much much more powerful. Here&#39;s a toy example:</p>
-<pre><code>val g = (n: AnyVal) =&gt; { 
+results.
+    <code>
+     foldLeft
+    </code>
+    is a function, but it takes
+    <strong>
+     two
+    </strong>
+    sets of parenthesis. 
+Seem weird? Well, it's syntactic sugaring for being able to pass an anonymous 
+function as an argument to the
+    <code>
+     foldLeft
+    </code>
+    function. It could also be written 
+as
+    <code>
+     (1 to 5).toList.foldLeft(0) { (a: Int, b) =&gt; a + b }
+    </code>
+    .
+   </p>
+   <p>
+    One of the strengths of functional programming is matching. This is similar 
+to switch statements but much much more powerful. Here's a toy example:
+   </p>
+   <pre><code>val g = (n: AnyVal) =&gt; { 
     n match { 
-        case i:Int =&gt; println(&quot;int&quot;)
-        case d:Double =&gt; println(&quot;double&quot;)
-        case _ =&gt; println(&quot;lol wut&quot;)
+        case i:Int =&gt; println("int")
+        case d:Double =&gt; println("double")
+        case _ =&gt; println("lol wut")
     } 
 }
 
 g(1) //-&gt; int
 g(2.0) //-&gt; double
-g(&quot;hi&quot;) //-&gt; lol wut
-</code></pre><p>This function can literally handle any type of input, if it doesn&#39;t know 
-how to handle it, it will print the obligatory &quot;lol wut&quot; and end. When 
+g("hi") //-&gt; lol wut
+</code></pre>
+   <p>
+    This function can literally handle any type of input, if it doesn't know 
+how to handle it, it will print the obligatory "lol wut" and end. When 
 applied to more complex scenarios this can provide simple ways to branch 
 a program based on inputs. If you really wanted to, you could probably 
-avoid if statements to some degree since they&#39;re the same as something 
-like this:</p>
-<pre><code>2 &lt; 4 match { case true =&gt; 1; case false =&gt; 2 }
-</code></pre><p>Though why you&#39;d want to do this I&#39;m not sure quite yet, esoteric reasons 
-perhaps. </p>
-<p>A more realistic example is dealing with XML files. While most of the 
-web world is <strong>slowly</strong> moving to JSON. Much of it still exists within 
+avoid if statements to some degree since they're the same as something 
+like this:
+   </p>
+   <pre><code>2 &lt; 4 match { case true =&gt; 1; case false =&gt; 2 }
+</code></pre>
+   <p>
+    Though why you'd want to do this I'm not sure quite yet, esoteric reasons 
+perhaps.
+   </p>
+   <p>
+    A more realistic example is dealing with XML files. While most of the 
+web world is
+    <strong>
+     slowly
+    </strong>
+    moving to JSON. Much of it still exists within 
 XML. Which is fine as far as scala is concerned because it provides a 
 degree of native support for it. In the scala interpretter you can 
-write out XML freely and then do some basic <a href="https://en.wikipedia.org/wiki/XPath">xpath</a> querying on it.</p>
-<p>Let&#39;s say we have a configuration file that looks something like this:</p>
-<pre><code>&lt;config&gt;
-    &lt;database environment=&quot;local&quot;&gt;
+write out XML freely and then do some basic
+    <a href="https://en.wikipedia.org/wiki/XPath">
+     xpath
+    </a>
+    querying on it.
+   </p>
+   <p>
+    Let's say we have a configuration file that looks something like this:
+   </p>
+   <pre><code>&lt;config&gt;
+    &lt;database environment="local"&gt;
         &lt;password&gt;foo&lt;/password&gt;
         &lt;username&gt;bar&lt;/username&gt;
         &lt;name&gt;baz&lt;/name&gt;
         &lt;host&gt;boz&lt;/host&gt;
     &lt;/database&gt;
-    &lt;database environment=&quot;dev&quot;&gt;
+    &lt;database environment="dev"&gt;
         &lt;password&gt;foo2&lt;/password&gt;
         &lt;username&gt;bar2&lt;/username&gt;
         &lt;name&gt;baz2&lt;/name&gt;
         &lt;host&gt;boz2&lt;/host&gt;
     &lt;/database&gt;
-    &lt;database environment=&quot;production&quot;&gt;
+    &lt;database environment="production"&gt;
         &lt;password&gt;foo3&lt;/password&gt;
         &lt;username&gt;bar3&lt;/username&gt;
         &lt;name&gt;baz3&lt;/name&gt;
         &lt;host&gt;boz3&lt;/host&gt;
     &lt;/database&gt;
 &lt;/config&gt;
-</code></pre><p>Then in scala we can either have this be a variable like so: </p>
-<pre><code>val conf = &lt;config&gt;&lt;database //omitting the rest but you get the idea
+</code></pre>
+   <p>
+    Then in scala we can either have this be a variable like so:
+   </p>
+   <pre><code>val conf = &lt;config&gt;&lt;database //omitting the rest but you get the idea
 //or load it using the XML library:
-scala.xml.XML.loadFile(&quot;conf.xml&quot;)
-</code></pre><p>We can then grab all the database nodes via xpath: <code>conf \\ &quot;database&quot;</code> 
-which will give us a <code>NodeSeq</code> type back. Which we can filter on the 
-environmental attribute with <code>.filter</code>. here&#39;s an example: </p>
-<pre><code>scala&gt; var datasource = (conf \\ &quot;database&quot;).filter(dNode =&gt; dNode.attribute(&quot;environment&quot;).exists(env =&gt; env.text == &quot;dev&quot;))
+scala.xml.XML.loadFile("conf.xml")
+</code></pre>
+   <p>
+    We can then grab all the database nodes via xpath:
+    <code>
+     conf \\ "database"
+    </code>
+    which will give us a
+    <code>
+     NodeSeq
+    </code>
+    type back. Which we can filter on the 
+environmental attribute with
+    <code>
+     .filter
+    </code>
+    . here's an example:
+   </p>
+   <pre><code>scala&gt; var datasource = (conf \\ "database").filter(dNode =&gt; dNode.attribute("environment").exists(env =&gt; env.text == "dev"))
 datasource: scala.xml.NodeSeq = 
-NodeSeq(&lt;database environment=&quot;dev&quot;&gt;
+NodeSeq(&lt;database environment="dev"&gt;
             &lt;password&gt;foo2&lt;/password&gt;
             &lt;username&gt;bar2&lt;/username&gt;
             &lt;name&gt;baz2&lt;/name&gt;
             &lt;host&gt;boz2&lt;/host&gt;
         &lt;/database&gt;)
-(datasource \ &quot;host&quot;).text // gives back boz2
-</code></pre><p>It&#39;s pretty easy to see how this could then be used to easily parse out and use 
-for custom configuratons of your own system.</p>
-<p>Overall, so far what I&#39;ve seen of scala is interesting. The syntax is enjoyable 
-and the community seems interesting and intelligent. I&#39;ve picked up some books 
+(datasource \ "host").text // gives back boz2
+</code></pre>
+   <p>
+    It's pretty easy to see how this could then be used to easily parse out and use 
+for custom configuratons of your own system.
+   </p>
+   <p>
+    Overall, so far what I've seen of scala is interesting. The syntax is enjoyable 
+and the community seems interesting and intelligent. I've picked up some books 
 and plan on creating a few projects using scala soon. This post has gotten a bit 
-long and didn&#39;t have much of a point but to chronologue some of the things I was 
+long and didn't have much of a point but to chronologue some of the things I was 
 playing with. So perhaps this will inspire you to pick up scala! A really good 
-post to read if you&#39;re interested in learning more is <a href="http://www.vasinov.com/blog/16-months-of-functional-programming/">this one</a>, good luck!</p>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=mcabber-gmail-and-gpg>Encrypting your chat with mcabber</a></li><li><a href=lost-found>Lost and Found Application</a></li><li><a href=write-your-own-init-scripts>Write your own service init scripts</a></li><li><a href=concurrent-java-stale-data-tolerance-with-executionservice-invokeall-timeout>Partial Processing of Slow Java Services with ExecutionService</a></li><li><a href=green-up-2015>Preparing for Green Up</a></li><li><a href=mutt-vim-decryption>Vim pgp/gpg macros to enhance mutt</a></li>
-        </ul>
-      </div>
-      <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'ejehardenberg';
+post to read if you're interested in learning more is
+    <a href="http://www.vasinov.com/blog/16-months-of-functional-programming/">
+     this one
+    </a>
+    , good luck!
+   </p>
+   <h3>
+    Other Posts
+   </h3>
+   <div id="other-posts">
+    <ul>
+     <li>
+      <a href="mcabber-gmail-and-gpg">
+       Encrypting your chat with mcabber
+      </a>
+     </li>
+     <li>
+      <a href="lost-found">
+       Lost and Found Application
+      </a>
+     </li>
+     <li>
+      <a href="write-your-own-init-scripts">
+       Write your own service init scripts
+      </a>
+     </li>
+     <li>
+      <a href="concurrent-java-stale-data-tolerance-with-executionservice-invokeall-timeout">
+       Partial Processing of Slow Java Services with ExecutionService
+      </a>
+     </li>
+     <li>
+      <a href="green-up-2015">
+       Preparing for Green Up
+      </a>
+     </li>
+     <li>
+      <a href="mutt-vim-decryption">
+       Vim pgp/gpg macros to enhance mutt
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div id="disqus_thread">
+   </div>
+   <script type="text/javascript">
+    var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink"><!--
-    -->comments powered by <span class="logo-disqus">Disqus</span>
-</a>   
-    </div>
-    <nav>
-	<ul>
-		
-			<li>
-				<a href="/index">
-					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
-					--><span>Home</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/about">
-					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
-					--><span>About me</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/projects">
-					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
-					--><span>Projects</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/resume">
-					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
-					--><span>Resume</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/tech-blog">
-					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
-					--><span>Tech Blog</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/cooking">
-					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
-					--><span>Cooking</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/writing">
-					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
-					--><span>Writing</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/contact">
-					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
-					--><span>Contact</span>
-				</a>
-			</li>
-		
-		<li>
-			<a href="/writing/political">
-				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
-				--><span>Github</span>
-			</a>
-		</li>
-		<li> 
-			<a href="https://twitter.com/TheR3dLily">
-				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
-			</a>
-		</li>
-		<li>
-			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-  </body>
+   </script>
+   <noscript>
+    Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">
+     comments powered by Disqus.
+    </a>
+   </noscript>
+   <a class="dsq-brlink" href="http://disqus.com">
+    <!--
+-->
+    comments powered by
+    <span class="logo-disqus">
+     Disqus
+    </span>
+   </a>
+  </div>
+  <nav>
+   <ul>
+    <li>
+     <a href="/index">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/about">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
+      <!--
+-->
+      <span>
+       About me
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/projects">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Projects
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/resume">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Resume
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tech-blog">
+      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Tech Blog
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/cooking">
+      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Cooking
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing">
+      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Writing
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/contact">
+      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Contact
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing/political">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Opinion
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/EdgeCaseBerg">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Github
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://twitter.com/TheR3dLily">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
+      <!--
+-->
+      <span>
+       @TheR3dLily
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://www.linkedin.com/profile/view?id=151414806">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
+      <!--
+-->
+      <span>
+       LinkedIn
+      </span>
+     </a>
+    </li>
+   </ul>
+  </nav>
+ </body>
 </html>
-  	

@@ -1,44 +1,33 @@
-
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Ethan's Tech Blog | Spray&#39;s Transparent Head Requests and Testing</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="It is not possible to fully test HEAD-only routes in spray, and this can lead to unexpected behaviors in production system. This post is about a gotcha to be wary of" />
-    <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="spray,head,transparent head request,requests,testing,error,bug"/>
-    <meta name="robots" content="index, follow"  />
-      <meta name="revisit-after" content="1 month" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-      
-    
-	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
-
-        
-    <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Spray&#39;s Transparent Head Requests and Testing" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
-    
-    <meta property="og:description" content="It is not possible to fully test HEAD-only routes in spray, and this can lead to unexpected behaviors in production system. This post is about a gotcha to be wary of" />
-    
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Spray&#39;s Transparent Head Requests and Testing" />
-    
-    <meta name="twitter:description" content="It is not possible to fully test HEAD-only routes in spray, and this can lead to unexpected behaviors in production system. This post is about a gotcha to be wary of" />
-    
-    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
-
-
-	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ <head>
+  <title>
+   Ethan's Tech Blog | Spray's Transparent Head Requests and Testing
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="It is not possible to fully test HEAD-only routes in spray, and this can lead to unexpected behaviors in production system. This post is about a gotcha to be wary of" name="description"/>
+  <meta content="Ethan Eldridge" name="author"/>
+  <meta content="spray,head,transparent head request,requests,testing,error,bug" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="1 month" name="revisit-after"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
+  <!-- Facebook Open Graph Tags -->
+  <meta content="Ethan Eldridge | Spray's Transparent Head Requests and Testing" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
+  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
+  <meta content="It is not possible to fully test HEAD-only routes in spray, and this can lead to unexpected behaviors in production system. This post is about a gotcha to be wary of" property="og:description"/>
+  <!-- Twitter Card Tags -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="Ethan Eldridge | Spray's Transparent Head Requests and Testing" name="twitter:title"/>
+  <meta content="It is not possible to fully test HEAD-only routes in spray, and this can lead to unexpected behaviors in production system. This post is about a gotcha to be wary of" name="twitter:description"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
+  <!-- Core CSS Scripts -->
+  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -46,166 +35,408 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-
-</script>
-
-  </head>
-  <body>
-    <header>
-      <h1>Spray&#39;s Transparent Head Requests and Testing</h1>
-    </header>
-
-
-    <div id="content">
-      <a href="/tech-blog">Back</a>
-      <h3>Spray Transparent Head Requests and Testing</h3><p>Recently I&#39;ve been using <a href="https://spray.io">Spray</a> for API work. While doing so I&#39;ve 
-written a few posts like <a href="/tech-blog/serializing-json-generic-classes-spray-json">JSON and Generic Class Serialization</a> and
-<a href="/tech-blog/logging-to-a-file-spray-async">Logging with Spray</a>, but the other day I ran into a weird bit of a 
-nonsense and ended up <a href="https://github.com/spray/spray-can/issues/27">raising an issue about it on the spray-can repo</a>.</p>
-<p>It may just be my own poor reading comprehension, but I was quite confused 
-that the feature <a href="http://spray.io/documentation/1.1.2/spray-routing/method-directives/head/">Transparent Head Request</a> can cause an untestable situation. 
-As I documented in my <a href="https://github.com/EdgeCaseBerg/spray-head-error-example">example repository that reproduces the error</a>, you can 
-test a <code>head</code> directive within your code and it will never actually check out 
-against the Transparent Head Request behavior. </p>
-<p>The issue is that if you have a route which <em>only</em> supports <code>head</code> directives, 
-having the <code>spray.can.server.transparent-head-requests=&quot;on&quot;</code> line in your 
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    Spray's Transparent Head Requests and Testing
+   </h1>
+  </header>
+  <div id="content">
+   <a href="/tech-blog">
+    Back
+   </a>
+   <h3>
+    Spray Transparent Head Requests and Testing
+   </h3>
+   <p>
+    Recently I've been using
+    <a href="https://spray.io">
+     Spray
+    </a>
+    for API work. While doing so I've 
+written a few posts like
+    <a href="/tech-blog/serializing-json-generic-classes-spray-json">
+     JSON and Generic Class Serialization
+    </a>
+    and
+    <a href="/tech-blog/logging-to-a-file-spray-async">
+     Logging with Spray
+    </a>
+    , but the other day I ran into a weird bit of a 
+nonsense and ended up
+    <a href="https://github.com/spray/spray-can/issues/27">
+     raising an issue about it on the spray-can repo
+    </a>
+    .
+   </p>
+   <p>
+    It may just be my own poor reading comprehension, but I was quite confused 
+that the feature
+    <a href="http://spray.io/documentation/1.1.2/spray-routing/method-directives/head/">
+     Transparent Head Request
+    </a>
+    can cause an untestable situation. 
+As I documented in my
+    <a href="https://github.com/EdgeCaseBerg/spray-head-error-example">
+     example repository that reproduces the error
+    </a>
+    , you can 
+test a
+    <code>
+     head
+    </code>
+    directive within your code and it will never actually check out 
+against the Transparent Head Request behavior.
+   </p>
+   <p>
+    The issue is that if you have a route which
+    <em>
+     only
+    </em>
+    supports
+    <code>
+     head
+    </code>
+    directives, 
+having the
+    <code>
+     spray.can.server.transparent-head-requests="on"
+    </code>
+    line in your 
 application.conf file will result in an error. Why? Because the transparent 
-head request doesn&#39;t enhance the request or handle it like a rejection catcher 
-of some kind (my initial assumption), but rather <em>replaces</em> the actual <code>HEAD</code> 
-request with a <code>GET</code>!</p>
-<p>You can see this in the <a href="https://github.com/spray/spray/blob/ccc3f20477a0752233f19315dcbf695050c399ab/spray-can/src/main/scala/spray/can/server/OpenRequest.scala#L80">code here</a> that it&#39;s just copying the request into a 
-<code>GET</code>. This is handy when you have a route that responds to <code>GET</code> it now also 
-responds to <code>HEAD</code>. But if you head a route that is only meant for a <code>HEAD</code>
-request than it will reject any <code>HEAD</code> request sent to it while you have the 
+head request doesn't enhance the request or handle it like a rejection catcher 
+of some kind (my initial assumption), but rather
+    <em>
+     replaces
+    </em>
+    the actual
+    <code>
+     HEAD
+    </code>
+    request with a
+    <code>
+     GET
+    </code>
+    !
+   </p>
+   <p>
+    You can see this in the
+    <a href="https://github.com/spray/spray/blob/ccc3f20477a0752233f19315dcbf695050c399ab/spray-can/src/main/scala/spray/can/server/OpenRequest.scala#L80">
+     code here
+    </a>
+    that it's just copying the request into a
+    <code>
+     GET
+    </code>
+    . This is handy when you have a route that responds to
+    <code>
+     GET
+    </code>
+    it now also 
+responds to
+    <code>
+     HEAD
+    </code>
+    . But if you head a route that is only meant for a
+    <code>
+     HEAD
+    </code>
+    request than it will reject any
+    <code>
+     HEAD
+    </code>
+    request sent to it while you have the 
 transparent requests on! In order to fix that, you need to set the transparent 
-requests off, and now if you want to support <code>HEAD</code> on each of those <code>GET</code> 
-routes of yours, you need to code them yourself manually.</p>
-<p>The extra labour isn&#39;t really my issue, after all, if you&#39;re supporting <code>HEAD</code> 
-requests, there&#39;s a chance that you probably don&#39;t want the same logic to be 
-applied (for example if you don&#39;t want to hit your database on every <code>HEAD</code>), 
-so you might be coding your <code>head</code> directives anyway. The reason why I raised 
-this as <a href="https://github.com/spray/spray-can/issues/27">a bug</a> on the <a href="https://github.com/spray/spray-can">spray-can repository</a> was because there is <em>absolutely 
-no way to test this behavior</em>. </p>
-<blockquote>
-<p>&quot;That&#39;s because tests built with the testkit are executed without spray-can and so transparent-head-request handling isn&#39;t available. I agree that this is unfortunate as it prevents proper testing of the behavior.&quot; -<a href="https://github.com/jrudolph">jrudolph</a></p>
-</blockquote>
-<p>So while you can test your code and <code>head</code> directives and the tests will tell 
-you they pass, when you actually <em>run</em> the server and send a <code>HEAD</code> request to 
-one of your endpoints to check that it works. <strong>BAM</strong> Whatever code you&#39;re 
-expecting to run on a <code>HEAD</code>-only endpoint isn&#39;t running. <strong>And there&#39;s probably
-no way you&#39;re going to know that</strong>.*</p>
-<p>Best part is that transparent head requests is <code>on</code> by default. So if you&#39;re not 
-aware of this by reading the <a href="http://spray.io/documentation/1.1.2/spray-routing/method-directives/head/">Transparent Head Request</a> documentation, you&#39;ll get
-hit by this!</p>
-<p><small>*At least not until your DBA asks why all your health checks against database intensive endpoints are triggering the database when you assured him the <code>HEAD</code> requests wouldn&#39;t do that ;)</small></p>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=protecting-proxied-servers>Administrative Gotcha when doing local proxying</a></li><li><a href=logging-to-a-file-spray-async>Logging to a File in Spray</a></li><li><a href=jenkins-multiple-deploy-keys-and-github>Multiple Deploy Keys and Jenkins</a></li><li><a href=serializing-json-generic-classes-spray-json>Serializing Generic Types with Spray JSON Library</a></li><li><a href=compromising-wordpress>WordPress 4.2 Exploit, SQL Injection Edition</a></li><li><a href=serializing-java-util-locale-with-spray-json>Serializing java.util.Locale with Spray JSON library</a></li>
-        </ul>
-      </div>
-      <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'ejehardenberg';
+requests off, and now if you want to support
+    <code>
+     HEAD
+    </code>
+    on each of those
+    <code>
+     GET
+    </code>
+    routes of yours, you need to code them yourself manually.
+   </p>
+   <p>
+    The extra labour isn't really my issue, after all, if you're supporting
+    <code>
+     HEAD
+    </code>
+    requests, there's a chance that you probably don't want the same logic to be 
+applied (for example if you don't want to hit your database on every
+    <code>
+     HEAD
+    </code>
+    ), 
+so you might be coding your
+    <code>
+     head
+    </code>
+    directives anyway. The reason why I raised 
+this as
+    <a href="https://github.com/spray/spray-can/issues/27">
+     a bug
+    </a>
+    on the
+    <a href="https://github.com/spray/spray-can">
+     spray-can repository
+    </a>
+    was because there is
+    <em>
+     absolutely 
+no way to test this behavior
+    </em>
+    .
+   </p>
+   <blockquote>
+    <p>
+     "That's because tests built with the testkit are executed without spray-can and so transparent-head-request handling isn't available. I agree that this is unfortunate as it prevents proper testing of the behavior." -
+     <a href="https://github.com/jrudolph">
+      jrudolph
+     </a>
+    </p>
+   </blockquote>
+   <p>
+    So while you can test your code and
+    <code>
+     head
+    </code>
+    directives and the tests will tell 
+you they pass, when you actually
+    <em>
+     run
+    </em>
+    the server and send a
+    <code>
+     HEAD
+    </code>
+    request to 
+one of your endpoints to check that it works.
+    <strong>
+     BAM
+    </strong>
+    Whatever code you're 
+expecting to run on a
+    <code>
+     HEAD
+    </code>
+    -only endpoint isn't running.
+    <strong>
+     And there's probably
+no way you're going to know that
+    </strong>
+    .*
+   </p>
+   <p>
+    Best part is that transparent head requests is
+    <code>
+     on
+    </code>
+    by default. So if you're not 
+aware of this by reading the
+    <a href="http://spray.io/documentation/1.1.2/spray-routing/method-directives/head/">
+     Transparent Head Request
+    </a>
+    documentation, you'll get
+hit by this!
+   </p>
+   <p>
+    <small>
+     *At least not until your DBA asks why all your health checks against database intensive endpoints are triggering the database when you assured him the
+     <code>
+      HEAD
+     </code>
+     requests wouldn't do that ;)
+    </small>
+   </p>
+   <h3>
+    Other Posts
+   </h3>
+   <div id="other-posts">
+    <ul>
+     <li>
+      <a href="protecting-proxied-servers">
+       Administrative Gotcha when doing local proxying
+      </a>
+     </li>
+     <li>
+      <a href="logging-to-a-file-spray-async">
+       Logging to a File in Spray
+      </a>
+     </li>
+     <li>
+      <a href="jenkins-multiple-deploy-keys-and-github">
+       Multiple Deploy Keys and Jenkins
+      </a>
+     </li>
+     <li>
+      <a href="serializing-json-generic-classes-spray-json">
+       Serializing Generic Types with Spray JSON Library
+      </a>
+     </li>
+     <li>
+      <a href="compromising-wordpress">
+       WordPress 4.2 Exploit, SQL Injection Edition
+      </a>
+     </li>
+     <li>
+      <a href="serializing-java-util-locale-with-spray-json">
+       Serializing java.util.Locale with Spray JSON library
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div id="disqus_thread">
+   </div>
+   <script type="text/javascript">
+    var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink"><!--
-    -->comments powered by <span class="logo-disqus">Disqus</span>
-</a>   
-    </div>
-    <nav>
-	<ul>
-		
-			<li>
-				<a href="/index">
-					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
-					--><span>Home</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/about">
-					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
-					--><span>About me</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/projects">
-					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
-					--><span>Projects</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/resume">
-					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
-					--><span>Resume</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/tech-blog">
-					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
-					--><span>Tech Blog</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/cooking">
-					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
-					--><span>Cooking</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/writing">
-					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
-					--><span>Writing</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/contact">
-					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
-					--><span>Contact</span>
-				</a>
-			</li>
-		
-		<li>
-			<a href="/writing/political">
-				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
-				--><span>Github</span>
-			</a>
-		</li>
-		<li> 
-			<a href="https://twitter.com/TheR3dLily">
-				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
-			</a>
-		</li>
-		<li>
-			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-  </body>
+   </script>
+   <noscript>
+    Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">
+     comments powered by Disqus.
+    </a>
+   </noscript>
+   <a class="dsq-brlink" href="http://disqus.com">
+    <!--
+-->
+    comments powered by
+    <span class="logo-disqus">
+     Disqus
+    </span>
+   </a>
+  </div>
+  <nav>
+   <ul>
+    <li>
+     <a href="/index">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/about">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
+      <!--
+-->
+      <span>
+       About me
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/projects">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Projects
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/resume">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Resume
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tech-blog">
+      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Tech Blog
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/cooking">
+      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Cooking
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing">
+      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Writing
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/contact">
+      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Contact
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing/political">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Opinion
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/EdgeCaseBerg">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Github
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://twitter.com/TheR3dLily">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
+      <!--
+-->
+      <span>
+       @TheR3dLily
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://www.linkedin.com/profile/view?id=151414806">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
+      <!--
+-->
+      <span>
+       LinkedIn
+      </span>
+     </a>
+    </li>
+   </ul>
+  </nav>
+ </body>
 </html>
-  	

@@ -1,44 +1,33 @@
-
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Ethan's Tech Blog | Multiple Deploy Keys and Jenkins</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Setting up multiply deploy keys and continous integration in jenkins with github." />
-    <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="jenkins,git,deploy keys,multiple,continous,integration"/>
-    <meta name="robots" content="index, follow"  />
-      <meta name="revisit-after" content="1 month" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-      
-    
-	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
-
-        
-    <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Multiple Deploy Keys and Jenkins" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
-    
-    <meta property="og:description" content="Setting up multiply deploy keys and continous integration in jenkins with github." />
-    
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Multiple Deploy Keys and Jenkins" />
-    
-    <meta name="twitter:description" content="Setting up multiply deploy keys and continous integration in jenkins with github." />
-    
-    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
-
-
-	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ <head>
+  <title>
+   Ethan's Tech Blog | Multiple Deploy Keys and Jenkins
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="Setting up multiply deploy keys and continous integration in jenkins with github." name="description"/>
+  <meta content="Ethan Eldridge" name="author"/>
+  <meta content="jenkins,git,deploy keys,multiple,continous,integration" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="1 month" name="revisit-after"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
+  <!-- Facebook Open Graph Tags -->
+  <meta content="Ethan Eldridge | Multiple Deploy Keys and Jenkins" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
+  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
+  <meta content="Setting up multiply deploy keys and continous integration in jenkins with github." property="og:description"/>
+  <!-- Twitter Card Tags -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="Ethan Eldridge | Multiple Deploy Keys and Jenkins" name="twitter:title"/>
+  <meta content="Setting up multiply deploy keys and continous integration in jenkins with github." name="twitter:description"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
+  <!-- Core CSS Scripts -->
+  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -46,177 +35,353 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-
-</script>
-
-  </head>
-  <body>
-    <header>
-      <h1>Multiple Deploy Keys and Jenkins</h1>
-    </header>
-
-
-    <div id="content">
-      <a href="/tech-blog">Back</a>
-      <h3>Jenkins Multiple Deploy Keys and Github Hooks</h3><p>The other day I ran into an annoying issue. And it&#39;s such common one that 
-<a href="https://help.github.com/articles/error-key-already-in-use/">github has a page for it</a>. I was setting up an application for continous 
-integration. The common components were there. Application, <a href="https://jenkins-ci.org/">Jenkins</a>,
-and <a href="https://git-scm.com/">a VCS</a>, and there I was with an error. The issue is that you can&#39;t 
-have a deploy key in use by multiple repositories. <a href="https://developer.github.com/guides/managing-deploy-keys/#machine-users">Github suggests using machine users</a> 
-but that&#39;s a bit of a pain in my opinion. As I rather manage everything 
-from the server. </p>
-<h4>Multiple SSH Keys and Jenkins</h4><p>So the way around this is to setup a deploy key for each project. This 
-is easily done with the command:</p>
-<pre><code>ssh-keygen -t rsa -f &lt;filename&gt;
-</code></pre><p>Since these are keys that will be used by machines, you&#39;ll want to leave 
-the password  blank or you&#39;ll get some annoying issues to deal with later.
-So, with that in mind become your jenkins user and create one!</p>
-<pre><code>su jenkins #login as jenkins
-cd #change to jenkins&#39;s home directory
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    Multiple Deploy Keys and Jenkins
+   </h1>
+  </header>
+  <div id="content">
+   <a href="/tech-blog">
+    Back
+   </a>
+   <h3>
+    Jenkins Multiple Deploy Keys and Github Hooks
+   </h3>
+   <p>
+    The other day I ran into an annoying issue. And it's such common one that
+    <a href="https://help.github.com/articles/error-key-already-in-use/">
+     github has a page for it
+    </a>
+    . I was setting up an application for continous 
+integration. The common components were there. Application,
+    <a href="https://jenkins-ci.org/">
+     Jenkins
+    </a>
+    ,
+and
+    <a href="https://git-scm.com/">
+     a VCS
+    </a>
+    , and there I was with an error. The issue is that you can't 
+have a deploy key in use by multiple repositories.
+    <a href="https://developer.github.com/guides/managing-deploy-keys/#machine-users">
+     Github suggests using machine users
+    </a>
+    but that's a bit of a pain in my opinion. As I rather manage everything 
+from the server.
+   </p>
+   <h4>
+    Multiple SSH Keys and Jenkins
+   </h4>
+   <p>
+    So the way around this is to setup a deploy key for each project. This 
+is easily done with the command:
+   </p>
+   <pre><code>ssh-keygen -t rsa -f &lt;filename&gt;
+</code></pre>
+   <p>
+    Since these are keys that will be used by machines, you'll want to leave 
+the password  blank or you'll get some annoying issues to deal with later.
+So, with that in mind become your jenkins user and create one!
+   </p>
+   <pre><code>su jenkins #login as jenkins
+cd #change to jenkins's home directory
 ssh-keygen -t rsa -f .ssh/id_rsa_myreponame    
-</code></pre><p>Next we&#39;ll do the &quot;magic&quot; here, open up your SSH configuration file like so
-<code>vi .ssh/config</code> and enter:</p>
-<pre><code>Host myrepo
+</code></pre>
+   <p>
+    Next we'll do the "magic" here, open up your SSH configuration file like so
+    <code>
+     vi .ssh/config
+    </code>
+    and enter:
+   </p>
+   <pre><code>Host myrepo
   HostName github.com
   User git
   IdentityFile ~/.ssh/id_rsa_myreponame
-</code></pre><p>Now that that&#39;s in place you can test the connection:</p>
-<pre><code>ssh -T myrepo
-</code></pre><p>And you&#39;ll get back the usual &quot;You&#39;ve successfully authenticated, but GitHub 
-does not provide shell access.&quot; So you&#39;re halfway there. The next thing you 
-should do is go to your Jenkins server, the job configuration you&#39;re working 
-on, and update the github urls to use your new host. For example, if you&#39;re 
-using the <a href="https://wiki.jenkins-ci.org/display/JENKINS/GitHub+Plugin">Github Plugin for jenkins</a> you&#39;ll update the <strong>Github project</strong> area to
-say: <code>myrepo/username/repository/</code>. And if you&#39;re using the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin">Git plugin</a> you&#39;ll
-update the <strong>Source Code Management -&gt; Repository URL</strong> area to say:
-<code>myrepo/username/repo.git</code> and set the <strong>credentials</strong> area to use the ssh file you just made. </p>
-<p>Once you do that and add the SSH key as a deploy key to github, you&#39;re done if you
+</code></pre>
+   <p>
+    Now that that's in place you can test the connection:
+   </p>
+   <pre><code>ssh -T myrepo
+</code></pre>
+   <p>
+    And you'll get back the usual "You've successfully authenticated, but GitHub 
+does not provide shell access." So you're halfway there. The next thing you 
+should do is go to your Jenkins server, the job configuration you're working 
+on, and update the github urls to use your new host. For example, if you're 
+using the
+    <a href="https://wiki.jenkins-ci.org/display/JENKINS/GitHub+Plugin">
+     Github Plugin for jenkins
+    </a>
+    you'll update the
+    <strong>
+     Github project
+    </strong>
+    area to
+say:
+    <code>
+     myrepo/username/repository/
+    </code>
+    . And if you're using the
+    <a href="https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin">
+     Git plugin
+    </a>
+    you'll
+update the
+    <strong>
+     Source Code Management -&gt; Repository URL
+    </strong>
+    area to say:
+    <code>
+     myrepo/username/repo.git
+    </code>
+    and set the
+    <strong>
+     credentials
+    </strong>
+    area to use the ssh file you just made.
+   </p>
+   <p>
+    Once you do that and add the SSH key as a deploy key to github, you're done if you
 just want to have the one jenkins server talk to multiple github projects. But wait,
-there&#39;s more!</p>
-<h4>What about continous integration?</h4><p>When it comes to the Github Jenkins Plugin, you&#39;re out of luck as far as I know. 
-Because the <code>/github-plugin</code> hook, is sent the <em>Github version of the url</em> in the
-post data. You&#39;ll see nice errors like this in your logfile:</p>
-<pre><code>INFO: Received POST for https://github.com/username/repo
+there's more!
+   </p>
+   <h4>
+    What about continous integration?
+   </h4>
+   <p>
+    When it comes to the Github Jenkins Plugin, you're out of luck as far as I know. 
+Because the
+    <code>
+     /github-plugin
+    </code>
+    hook, is sent the
+    <em>
+     Github version of the url
+    </em>
+    in the
+post data. You'll see nice errors like this in your logfile:
+   </p>
+   <pre><code>INFO: Received POST for https://github.com/username/repo
 Aug 21, 2015 1:53:25 PM com.cloudbees.jenkins.GitHubRepositoryName create
 WARNING: Could not match URL myrepo:username/repo.git
 Aug 21, 2015 1:53:25 PM com.cloudbees.jenkins.GitHubWebHook processGitHubPayload
 INFO: Poked Specification Build
-</code></pre><p>But, if you&#39;re using the git plugin you&#39;re in luck because the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin#GitPlugin-Pushnotificationfromrepository">push notification</a> 
-takes a <code>url=</code> parameter that you can use to specify your customized url in. The 
-useful thing (and I&#39;m not sure if it&#39;s <em>supposed</em> to do this, but it does) is this
+</code></pre>
+   <p>
+    But, if you're using the git plugin you're in luck because the
+    <a href="https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin#GitPlugin-Pushnotificationfromrepository">
+     push notification
+    </a>
+    takes a
+    <code>
+     url=
+    </code>
+    parameter that you can use to specify your customized url in. The 
+useful thing (and I'm not sure if it's
+    <em>
+     supposed
+    </em>
+    to do this, but it does) is this
 endpoint responds to both GET and POST requests the same way. So you can go to your 
-github repository settings and add a WebHook with the specified url:</p>
-<pre><code>http://yourserver/git/notifyCommit?url=&lt;URL of the Git repository&gt;
-</code></pre><p>To the Jenkins Hook URL field in the settings for the jenkins web hooks. And then you
-should see builds when you push to your repository! </p>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=compromising-wordpress>WordPress 4.2 Exploit, SQL Injection Edition</a></li><li><a href=protecting-proxied-servers>Administrative Gotcha when doing local proxying</a></li><li><a href=newrelic-xml-scala-instrumentation>NewRelic, Scala, and XML Instrumentation</a></li><li><a href=spray-transparent-head-requests-testing>Spray&#39;s Transparent Head Requests and Testing</a></li><li><a href=spray-ToResponseMarshallable-too-many-arguments-error>Spray ToResponseMarshallable &quot;Too Many Arguments&quot; error</a></li><li><a href=logging-to-a-file-spray-async>Logging to a File in Spray</a></li>
-        </ul>
-      </div>
-      <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'ejehardenberg';
+github repository settings and add a WebHook with the specified url:
+   </p>
+   <pre><code>http://yourserver/git/notifyCommit?url=&lt;URL of the Git repository&gt;
+</code></pre>
+   <p>
+    To the Jenkins Hook URL field in the settings for the jenkins web hooks. And then you
+should see builds when you push to your repository!
+   </p>
+   <h3>
+    Other Posts
+   </h3>
+   <div id="other-posts">
+    <ul>
+     <li>
+      <a href="compromising-wordpress">
+       WordPress 4.2 Exploit, SQL Injection Edition
+      </a>
+     </li>
+     <li>
+      <a href="protecting-proxied-servers">
+       Administrative Gotcha when doing local proxying
+      </a>
+     </li>
+     <li>
+      <a href="newrelic-xml-scala-instrumentation">
+       NewRelic, Scala, and XML Instrumentation
+      </a>
+     </li>
+     <li>
+      <a href="spray-transparent-head-requests-testing">
+       Spray's Transparent Head Requests and Testing
+      </a>
+     </li>
+     <li>
+      <a href="spray-ToResponseMarshallable-too-many-arguments-error">
+       Spray ToResponseMarshallable "Too Many Arguments" error
+      </a>
+     </li>
+     <li>
+      <a href="logging-to-a-file-spray-async">
+       Logging to a File in Spray
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div id="disqus_thread">
+   </div>
+   <script type="text/javascript">
+    var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink"><!--
-    -->comments powered by <span class="logo-disqus">Disqus</span>
-</a>   
-    </div>
-    <nav>
-	<ul>
-		
-			<li>
-				<a href="/index">
-					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
-					--><span>Home</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/about">
-					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
-					--><span>About me</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/projects">
-					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
-					--><span>Projects</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/resume">
-					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
-					--><span>Resume</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/tech-blog">
-					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
-					--><span>Tech Blog</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/cooking">
-					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
-					--><span>Cooking</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/writing">
-					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
-					--><span>Writing</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/contact">
-					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
-					--><span>Contact</span>
-				</a>
-			</li>
-		
-		<li>
-			<a href="/writing/political">
-				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
-				--><span>Github</span>
-			</a>
-		</li>
-		<li> 
-			<a href="https://twitter.com/TheR3dLily">
-				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
-			</a>
-		</li>
-		<li>
-			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-  </body>
+   </script>
+   <noscript>
+    Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">
+     comments powered by Disqus.
+    </a>
+   </noscript>
+   <a class="dsq-brlink" href="http://disqus.com">
+    <!--
+-->
+    comments powered by
+    <span class="logo-disqus">
+     Disqus
+    </span>
+   </a>
+  </div>
+  <nav>
+   <ul>
+    <li>
+     <a href="/index">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/about">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
+      <!--
+-->
+      <span>
+       About me
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/projects">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Projects
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/resume">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Resume
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tech-blog">
+      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Tech Blog
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/cooking">
+      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Cooking
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing">
+      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Writing
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/contact">
+      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Contact
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing/political">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Opinion
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/EdgeCaseBerg">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Github
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://twitter.com/TheR3dLily">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
+      <!--
+-->
+      <span>
+       @TheR3dLily
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://www.linkedin.com/profile/view?id=151414806">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
+      <!--
+-->
+      <span>
+       LinkedIn
+      </span>
+     </a>
+    </li>
+   </ul>
+  </nav>
+ </body>
 </html>
-  	

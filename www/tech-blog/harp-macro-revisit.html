@@ -1,44 +1,33 @@
-
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Ethan's Tech Blog | Harp CDN Macro Revisited</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Revisiting a macro in a previous blog post, cleaning it up for browser caching performance" />
-    <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="Harp,Development,Programming,Recipes,CDN,macros"/>
-    <meta name="robots" content="index, follow"  />
-      <meta name="revisit-after" content="1 month" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-      
-    
-	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
-
-        
-    <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Harp CDN Macro Revisited" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
-    
-    <meta property="og:description" content="Revisiting a macro in a previous blog post, cleaning it up for browser caching performance" />
-    
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Harp CDN Macro Revisited" />
-    
-    <meta name="twitter:description" content="Revisiting a macro in a previous blog post, cleaning it up for browser caching performance" />
-    
-    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
-
-
-	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ <head>
+  <title>
+   Ethan's Tech Blog | Harp CDN Macro Revisited
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="Revisiting a macro in a previous blog post, cleaning it up for browser caching performance" name="description"/>
+  <meta content="Ethan Eldridge" name="author"/>
+  <meta content="Harp,Development,Programming,Recipes,CDN,macros" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="1 month" name="revisit-after"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
+  <!-- Facebook Open Graph Tags -->
+  <meta content="Ethan Eldridge | Harp CDN Macro Revisited" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
+  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
+  <meta content="Revisiting a macro in a previous blog post, cleaning it up for browser caching performance" property="og:description"/>
+  <!-- Twitter Card Tags -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="Ethan Eldridge | Harp CDN Macro Revisited" name="twitter:title"/>
+  <meta content="Revisiting a macro in a previous blog post, cleaning it up for browser caching performance" name="twitter:description"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
+  <!-- Core CSS Scripts -->
+  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -46,62 +35,113 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-
-</script>
-
-  </head>
-  <body>
-    <header>
-      <h1>Harp CDN Macro Revisited</h1>
-    </header>
-
-
-    <div id="content">
-      <a href="/tech-blog">Back</a>
-      <h3>Harp Image Macros Revisited</h3><p>A while ago I <a href="http://www.ethanjoachimeldridge.info/tech-blog/harpjs-macros">wrote a blog post on using a CDN and Harp together</a> and gave out
-this piece of code</p>
-<pre><code>&lt;%
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    Harp CDN Macro Revisited
+   </h1>
+  </header>
+  <div id="content">
+   <a href="/tech-blog">
+    Back
+   </a>
+   <h3>
+    Harp Image Macros Revisited
+   </h3>
+   <p>
+    A while ago I
+    <a href="http://www.ethanjoachimeldridge.info/tech-blog/harpjs-macros">
+     wrote a blog post on using a CDN and Harp together
+    </a>
+    and gave out
+this piece of code
+   </p>
+   <pre><code>&lt;%
 macros.rrImageDomain = function rrImageDomain(){
     //Round robin style
     return staticimagesurl[nextDomain++ % maxDomains];
 }
 
 %&gt;
-</code></pre><p>The code, combined with a few harp globals, allows you to set a dynamic image
+</code></pre>
+   <p>
+    The code, combined with a few harp globals, allows you to set a dynamic image
 domain for images. This allowed you to serve images from multiple domains and
 specifically, leverage CDN for your site. Something I noticed after starting to
-do this, is that a speed calculator, such as <a href="http://gtmetrix.com/">GTmetrix</a> will give you warnings
-about serving the same content from different URLs.</p>
-<p>First, let&#39;s talk about why this matters:</p>
-<p>When it comes to making your site fast, minimizing the number of times the browser
+do this, is that a speed calculator, such as
+    <a href="http://gtmetrix.com/">
+     GTmetrix
+    </a>
+    will give you warnings
+about serving the same content from different URLs.
+   </p>
+   <p>
+    First, let's talk about why this matters:
+   </p>
+   <p>
+    When it comes to making your site fast, minimizing the number of times the browser
 needs to go back to the server for any resource is important. If your site is 
 image heavy, than you want to make sure    that you have proper image caching. So that
-whenever your browser requests <code>http://example.com/images/nice.jpg</code>, you only ask
-for it once, and then the browser caches the image and doesn&#39;t have to do anymore
-work.</p>
-<p>Now what happens if you&#39;ve got the same image at: <code>http://example.com/images/nice.jpg</code>
-and <code>http://cdn.example.com/images/nice.jpg</code></p>
-<p>Let&#39;s make an example page and try it out. Throw this HTML into a file, save it, 
-and then open it:</p>
-<pre><code>&lt;html&gt;
+whenever your browser requests
+    <code>
+     http://example.com/images/nice.jpg
+    </code>
+    , you only ask
+for it once, and then the browser caches the image and doesn't have to do anymore
+work.
+   </p>
+   <p>
+    Now what happens if you've got the same image at:
+    <code>
+     http://example.com/images/nice.jpg
+    </code>
+    and
+    <code>
+     http://cdn.example.com/images/nice.jpg
+    </code>
+   </p>
+   <p>
+    Let's make an example page and try it out. Throw this HTML into a file, save it, 
+and then open it:
+   </p>
+   <pre><code>&lt;html&gt;
     &lt;head&gt;&lt;title&gt;My Test&lt;/title&gt;&lt;/head&gt;
     &lt;body&gt;
-        &lt;img src=&quot;http://static1.ethanjoachimeldridge.info/ethan.jpeg&quot;&gt;
-        &lt;img src=&quot;http://static2.ethanjoachimeldridge.info/ethan.jpeg&quot;&gt;
-        &lt;img src=&quot;http://www.ethanjoachimeldridge.info/images/ethan.jpeg&quot; &gt;
+        &lt;img src="http://static1.ethanjoachimeldridge.info/ethan.jpeg"&gt;
+        &lt;img src="http://static2.ethanjoachimeldridge.info/ethan.jpeg"&gt;
+        &lt;img src="http://www.ethanjoachimeldridge.info/images/ethan.jpeg" &gt;
     &lt;/body&gt;
 &lt;/html&gt;
-</code></pre><p>And now open <code>about:cache</code> (or chrome://cache if you&#39;re on chrome) and you&#39;ll see something
-like this:</p>
-<p><img src="/images/tech-blog/aboutcache.png" width="362px" height="134px"> </p>
-<p>Clicking on one of them will give you bunches of useful information about the server
+</code></pre>
+   <p>
+    And now open
+    <code>
+     about:cache
+    </code>
+    (or chrome://cache if you're on chrome) and you'll see something
+like this:
+   </p>
+   <p>
+    <img height="134px" src="/images/tech-blog/aboutcache.png" width="362px"/>
+   </p>
+   <p>
+    Clicking on one of them will give you bunches of useful information about the server
 headers and the content of the image itself. Obviously, besides the domain and maybe
 some headers, all of this is the same. Now why is this bad exactly? Because the
-browser cache is only <em>so</em> big. And if you&#39;re filling it with lots of big images
-that are really the same, then you&#39;re losing out on the ability to cache other
-images.</p>
-<p>So how do we solve that problem if you&#39;re using my Macro? Like this:</p>
-<pre><code>macros.imgSrc = function imgSrc(filePath){
+browser cache is only
+    <em>
+     so
+    </em>
+    big. And if you're filling it with lots of big images
+that are really the same, then you're losing out on the ability to cache other
+images.
+   </p>
+   <p>
+    So how do we solve that problem if you're using my Macro? Like this:
+   </p>
+   <pre><code>macros.imgSrc = function imgSrc(filePath){
     if(filePath in imagecache){
         return imagecache[filePath]
     }
@@ -112,120 +152,204 @@ images.</p>
     return src
 }
 %&gt;
-</code></pre><p>And call it like so:</p>
-<pre><code>&lt;%= macros.imgSrc(&quot;/images/nice.jpg&quot;) %&gt;
-</code></pre><p>This allows Harp to have a sort of object cache for every image you&#39;re asking it
+</code></pre>
+   <p>
+    And call it like so:
+   </p>
+   <pre><code>&lt;%= macros.imgSrc("/images/nice.jpg") %&gt;
+</code></pre>
+   <p>
+    This allows Harp to have a sort of object cache for every image you're asking it
 to make. And we key the cache by the image path. So long as the image path is the
-same, then we&#39;ll always get the same domain out. It&#39;s a pretty handy macro to have
-and I hope it helps someone out there!</p>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=privateTalk>Private Talk and plans for some tutorials</a></li><li><a href=bgi>BGI, a way to track your spending</a></li><li><a href=free-item-in-authorize-line-item-invalid>Authorize LineItem&#39;s, mixed free and paid for causes error</a></li><li><a href=xml-sitemap-for-harpjs>XML Sitemap for Harp JS</a></li><li><a href=adding-scheduled-posts>Adding Scheduled Posts to your Harp Site</a></li><li><a href=custom-permalinks-for-custom-templates>Custom Permalinks for Custom Tables and Pages</a></li>
-        </ul>
-      </div>
-      <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'ejehardenberg';
+same, then we'll always get the same domain out. It's a pretty handy macro to have
+and I hope it helps someone out there!
+   </p>
+   <h3>
+    Other Posts
+   </h3>
+   <div id="other-posts">
+    <ul>
+     <li>
+      <a href="privateTalk">
+       Private Talk and plans for some tutorials
+      </a>
+     </li>
+     <li>
+      <a href="bgi">
+       BGI, a way to track your spending
+      </a>
+     </li>
+     <li>
+      <a href="free-item-in-authorize-line-item-invalid">
+       Authorize LineItem's, mixed free and paid for causes error
+      </a>
+     </li>
+     <li>
+      <a href="xml-sitemap-for-harpjs">
+       XML Sitemap for Harp JS
+      </a>
+     </li>
+     <li>
+      <a href="adding-scheduled-posts">
+       Adding Scheduled Posts to your Harp Site
+      </a>
+     </li>
+     <li>
+      <a href="custom-permalinks-for-custom-templates">
+       Custom Permalinks for Custom Tables and Pages
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div id="disqus_thread">
+   </div>
+   <script type="text/javascript">
+    var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink"><!--
-    -->comments powered by <span class="logo-disqus">Disqus</span>
-</a>   
-    </div>
-    <nav>
-	<ul>
-		
-			<li>
-				<a href="/index">
-					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
-					--><span>Home</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/about">
-					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
-					--><span>About me</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/projects">
-					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
-					--><span>Projects</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/resume">
-					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
-					--><span>Resume</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/tech-blog">
-					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
-					--><span>Tech Blog</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/cooking">
-					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
-					--><span>Cooking</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/writing">
-					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
-					--><span>Writing</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/contact">
-					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
-					--><span>Contact</span>
-				</a>
-			</li>
-		
-		<li>
-			<a href="/writing/political">
-				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
-				--><span>Github</span>
-			</a>
-		</li>
-		<li> 
-			<a href="https://twitter.com/TheR3dLily">
-				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
-			</a>
-		</li>
-		<li>
-			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-  </body>
+   </script>
+   <noscript>
+    Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">
+     comments powered by Disqus.
+    </a>
+   </noscript>
+   <a class="dsq-brlink" href="http://disqus.com">
+    <!--
+-->
+    comments powered by
+    <span class="logo-disqus">
+     Disqus
+    </span>
+   </a>
+  </div>
+  <nav>
+   <ul>
+    <li>
+     <a href="/index">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/about">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
+      <!--
+-->
+      <span>
+       About me
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/projects">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Projects
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/resume">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Resume
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tech-blog">
+      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Tech Blog
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/cooking">
+      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Cooking
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing">
+      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Writing
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/contact">
+      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Contact
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing/political">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Opinion
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/EdgeCaseBerg">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Github
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://twitter.com/TheR3dLily">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
+      <!--
+-->
+      <span>
+       @TheR3dLily
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://www.linkedin.com/profile/view?id=151414806">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
+      <!--
+-->
+      <span>
+       LinkedIn
+      </span>
+     </a>
+    </li>
+   </ul>
+  </nav>
+ </body>
 </html>
-  	

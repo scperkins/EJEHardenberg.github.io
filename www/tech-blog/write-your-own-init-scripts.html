@@ -1,44 +1,33 @@
-
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Ethan's Tech Blog | Write your own service init scripts</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Ever wonder how to make your services restart when your server does? This is how!" />
-    <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="init,scripts,service,restart,tutorial,rc.d,init.d"/>
-    <meta name="robots" content="index, follow"  />
-      <meta name="revisit-after" content="1 month" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-      
-    
-	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
-
-        
-    <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Write your own service init scripts" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
-    
-    <meta property="og:description" content="Ever wonder how to make your services restart when your server does? This is how!" />
-    
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Write your own service init scripts" />
-    
-    <meta name="twitter:description" content="Ever wonder how to make your services restart when your server does? This is how!" />
-    
-    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
-
-
-	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ <head>
+  <title>
+   Ethan's Tech Blog | Write your own service init scripts
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="Ever wonder how to make your services restart when your server does? This is how!" name="description"/>
+  <meta content="Ethan Eldridge" name="author"/>
+  <meta content="init,scripts,service,restart,tutorial,rc.d,init.d" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="1 month" name="revisit-after"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
+  <!-- Facebook Open Graph Tags -->
+  <meta content="Ethan Eldridge | Write your own service init scripts" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
+  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
+  <meta content="Ever wonder how to make your services restart when your server does? This is how!" property="og:description"/>
+  <!-- Twitter Card Tags -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="Ethan Eldridge | Write your own service init scripts" name="twitter:title"/>
+  <meta content="Ever wonder how to make your services restart when your server does? This is how!" name="twitter:description"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
+  <!-- Core CSS Scripts -->
+  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -46,40 +35,86 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-
-</script>
-
-  </head>
-  <body>
-    <header>
-      <h1>Write your own service init scripts</h1>
-    </header>
-
-
-    <div id="content">
-      <a href="/tech-blog">Back</a>
-      <h3>Write your own init script</h3><p>Most developers who&#39;ve written web software know that when they install 
-something like <a href="https://httpd.apache.org/">httpd</a> they can typically call <code>service httpd restart</code> 
-and they&#39;ll restart their server. Similarly, they could call 
-<code>/etc/init.d/httpd start</code> to start, or change start to <code>stop</code> and they&#39;ll
-shut off the server. All of this is typically web-dev 101. </p>
-<p>But what happens when you write your own server? And how does that service 
-call work?</p>
-<p>On a linux machine there&#39;s a concept of <em>runlevels</em>. These indicate the 
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    Write your own service init scripts
+   </h1>
+  </header>
+  <div id="content">
+   <a href="/tech-blog">
+    Back
+   </a>
+   <h3>
+    Write your own init script
+   </h3>
+   <p>
+    Most developers who've written web software know that when they install 
+something like
+    <a href="https://httpd.apache.org/">
+     httpd
+    </a>
+    they can typically call
+    <code>
+     service httpd restart
+    </code>
+    and they'll restart their server. Similarly, they could call
+    <code>
+     /etc/init.d/httpd start
+    </code>
+    to start, or change start to
+    <code>
+     stop
+    </code>
+    and they'll
+shut off the server. All of this is typically web-dev 101.
+   </p>
+   <p>
+    But what happens when you write your own server? And how does that service 
+call work?
+   </p>
+   <p>
+    On a linux machine there's a concept of
+    <em>
+     runlevels
+    </em>
+    . These indicate the 
 state of your machine. And when you transition into one of these states 
 there are scripts that can be ran automatically. To manage these you can 
-use <code>chkconfig</code>. If you call <code>chkconfig --list</code> you&#39;ll see a list of 
-various services and which run levels they&#39;re active on. I won&#39;t attempt 
-to go fully in depth on run levels, but you should read <a href="http://www.linuxjournal.com/article/1274">about them here</a> 
-and then come back to this post once you&#39;re finished. </p>
-<p>Back? Alright, now that we know all about run levels, and we&#39;ve discovered 
+use
+    <code>
+     chkconfig
+    </code>
+    . If you call
+    <code>
+     chkconfig --list
+    </code>
+    you'll see a list of 
+various services and which run levels they're active on. I won't attempt 
+to go fully in depth on run levels, but you should read
+    <a href="http://www.linuxjournal.com/article/1274">
+     about them here
+    </a>
+    and then come back to this post once you're finished.
+   </p>
+   <p>
+    Back? Alright, now that we know all about run levels, and we've discovered 
 that we only need to write one script that will be symlinked like crazy 
-from all those <em>rcN.d</em> directories. So what goes into this script?</p>
-<p>Well, the template is pretty simple to follow. It goes like this:</p>
-<pre><code>#!/bin/sh
+from all those
+    <em>
+     rcN.d
+    </em>
+    directories. So what goes into this script?
+   </p>
+   <p>
+    Well, the template is pretty simple to follow. It goes like this:
+   </p>
+   <pre><code>#!/bin/sh
 #
 # /etc/init.d/myservice
-# init script for &quot;MyService&quot; server
+# init script for "MyService" server
 #
 # chkconfig: 036 95 05
 # description: MyServer server daemon
@@ -88,17 +123,17 @@ from all those <em>rcN.d</em> directories. So what goes into this script?</p>
 # pidfile: /var/run/MyServer.pid
 
 RETVAL=0
-prog=&quot;MyServer&quot;
+prog="MyServer"
 
 start() {
-    echo -n $&quot;Starting $prog:&quot;
+    echo -n $"Starting $prog:"
     nohup MyServer &amp;
     echo $! &gt; /var/run/MyServer.pid
     echo
 }
 
 stop() {    (6)
-    echo -n $&quot;Stopping $prog:&quot;
+    echo -n $"Stopping $prog:"
     if [ -f /var/www/run/MyServer.pid ]; then 
         kill `cat /var/www/run/MyServer.pid`
         rm /var/www/run/MyServer.pid
@@ -106,7 +141,7 @@ stop() {    (6)
     echo
 }
 
-case &quot;$1&quot; in
+case "$1" in
     start)
         start
         ;;
@@ -118,150 +153,291 @@ case &quot;$1&quot; in
         start
         ;;
     *)    (10)
-        echo $&quot;Usage: $0 {start|stop|restart}&quot;
+        echo $"Usage: $0 {start|stop|restart}"
         RETVAL=1
 esac
 exit $RETVAL
-</code></pre><p>The first part of this script consists of a large block of comments. These 
-are known as <em>tags</em> for the init system to read. The <code>chkconfig:</code> and 
-<code>description:</code> tags are the only required ones and have an important role 
+</code></pre>
+   <p>
+    The first part of this script consists of a large block of comments. These 
+are known as
+    <em>
+     tags
+    </em>
+    for the init system to read. The
+    <code>
+     chkconfig:
+    </code>
+    and
+    <code>
+     description:
+    </code>
+    tags are the only required ones and have an important role 
 to play. The description tag tells you what this script is all about 
 (documentation is important you know?). The chkconfig is special, those 
 three numbers set the run levels this script is called from, the priority 
 in which the script is ran when started, and the priority when the script 
-is called with stop. These last two numbers should add up to 100.</p>
-<p>For a description of each of the tags you can use, you can <a href="http://www.sensi.org/~alec/unix/redhat/sysvinit.html">read more here</a>. 
-I&#39;ve chosen run levels 0,3 and 6 so that the service is called whenever the 
-machine is stopped or rebooted, and when we&#39;ve acquired networking capabilities.</p>
-<p>The one fancy trick here is the following:</p>
-<pre><code>nohup MyServer &amp;
+is called with stop. These last two numbers should add up to 100.
+   </p>
+   <p>
+    For a description of each of the tags you can use, you can
+    <a href="http://www.sensi.org/~alec/unix/redhat/sysvinit.html">
+     read more here
+    </a>
+    . 
+I've chosen run levels 0,3 and 6 so that the service is called whenever the 
+machine is stopped or rebooted, and when we've acquired networking capabilities.
+   </p>
+   <p>
+    The one fancy trick here is the following:
+   </p>
+   <pre><code>nohup MyServer &amp;
 echo $! &gt; /var/run/MyServer.pid
-</code></pre><p>The <code>$!</code> (dollarsign bang), within a bash shell, recieves the process id of the 
-program which was pushed to the background last. Don&#39;t ask me how to google for 
-that symbol (it&#39;s hard), but that&#39;s what it does, and when combined with the 
-<a href="http://linux.die.net/man/1/nohup">nohup</a> command, it makes for an easy way to grab the process ID of your new 
-service.</p>
-<p>Make sure your script doesn&#39;t have any syntax errors and move it to the /etc/init.d/
-directory. Make sure it&#39;s executable via <code>chmod +x scriptname</code> and give it a couple 
+</code></pre>
+   <p>
+    The
+    <code>
+     $!
+    </code>
+    (dollarsign bang), within a bash shell, recieves the process id of the 
+program which was pushed to the background last. Don't ask me how to google for 
+that symbol (it's hard), but that's what it does, and when combined with the
+    <a href="http://linux.die.net/man/1/nohup">
+     nohup
+    </a>
+    command, it makes for an easy way to grab the process ID of your new 
+service.
+   </p>
+   <p>
+    Make sure your script doesn't have any syntax errors and move it to the /etc/init.d/
+directory. Make sure it's executable via
+    <code>
+     chmod +x scriptname
+    </code>
+    and give it a couple 
 of goes. Depending on what your service is capable of responding to, you may add 
-in other options like <code>status</code>, <code>reload</code>, etc. If you want to see all the options 
-for what you can use in the case statement, you can read more <a href="http://www.sensi.org/~alec/unix/redhat/sysvinit.html">here</a>. </p>
-<p>Once the script is in place simply run <code>chkconfig</code> using the name of the script 
-in the init.d directory like so:</p>
-<pre><code>chkconfig --add myservice
+in other options like
+    <code>
+     status
+    </code>
+    ,
+    <code>
+     reload
+    </code>
+    , etc. If you want to see all the options 
+for what you can use in the case statement, you can read more
+    <a href="http://www.sensi.org/~alec/unix/redhat/sysvinit.html">
+     here
+    </a>
+    .
+   </p>
+   <p>
+    Once the script is in place simply run
+    <code>
+     chkconfig
+    </code>
+    using the name of the script 
+in the init.d directory like so:
+   </p>
+   <pre><code>chkconfig --add myservice
 chkconfig --list myservice
 myservice   0:on   1:off   2:off   3:on    4:off   5:off    6:on
-</code></pre><p>And that&#39;s it! If you change the runlevels in the tags of the script you&#39;ll want 
-to do a quick <code>chkconfig --del myservice &amp;&amp; chkconfig --add myservice</code> to update
-the run levels. Now go forth! Write your own services!</p>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=green-up-2015>Preparing for Green Up</a></li><li><a href=mcabber-gmail-and-gpg>Encrypting your chat with mcabber</a></li><li><a href=approaching-optimizations>Approaching Optimizations</a></li><li><a href=scala-first-look>A brief look into Scala</a></li><li><a href=elasticsearch-filtered-aggregations>Elastic Search filtered Aggregations</a></li><li><a href=lost-found>Lost and Found Application</a></li>
-        </ul>
-      </div>
-      <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'ejehardenberg';
+</code></pre>
+   <p>
+    And that's it! If you change the runlevels in the tags of the script you'll want 
+to do a quick
+    <code>
+     chkconfig --del myservice &amp;&amp; chkconfig --add myservice
+    </code>
+    to update
+the run levels. Now go forth! Write your own services!
+   </p>
+   <h3>
+    Other Posts
+   </h3>
+   <div id="other-posts">
+    <ul>
+     <li>
+      <a href="green-up-2015">
+       Preparing for Green Up
+      </a>
+     </li>
+     <li>
+      <a href="mcabber-gmail-and-gpg">
+       Encrypting your chat with mcabber
+      </a>
+     </li>
+     <li>
+      <a href="approaching-optimizations">
+       Approaching Optimizations
+      </a>
+     </li>
+     <li>
+      <a href="scala-first-look">
+       A brief look into Scala
+      </a>
+     </li>
+     <li>
+      <a href="elasticsearch-filtered-aggregations">
+       Elastic Search filtered Aggregations
+      </a>
+     </li>
+     <li>
+      <a href="lost-found">
+       Lost and Found Application
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div id="disqus_thread">
+   </div>
+   <script type="text/javascript">
+    var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink"><!--
-    -->comments powered by <span class="logo-disqus">Disqus</span>
-</a>   
-    </div>
-    <nav>
-	<ul>
-		
-			<li>
-				<a href="/index">
-					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
-					--><span>Home</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/about">
-					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
-					--><span>About me</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/projects">
-					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
-					--><span>Projects</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/resume">
-					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
-					--><span>Resume</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/tech-blog">
-					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
-					--><span>Tech Blog</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/cooking">
-					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
-					--><span>Cooking</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/writing">
-					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
-					--><span>Writing</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/contact">
-					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
-					--><span>Contact</span>
-				</a>
-			</li>
-		
-		<li>
-			<a href="/writing/political">
-				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
-				--><span>Github</span>
-			</a>
-		</li>
-		<li> 
-			<a href="https://twitter.com/TheR3dLily">
-				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
-			</a>
-		</li>
-		<li>
-			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-  </body>
+   </script>
+   <noscript>
+    Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">
+     comments powered by Disqus.
+    </a>
+   </noscript>
+   <a class="dsq-brlink" href="http://disqus.com">
+    <!--
+-->
+    comments powered by
+    <span class="logo-disqus">
+     Disqus
+    </span>
+   </a>
+  </div>
+  <nav>
+   <ul>
+    <li>
+     <a href="/index">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/about">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
+      <!--
+-->
+      <span>
+       About me
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/projects">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Projects
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/resume">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Resume
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tech-blog">
+      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Tech Blog
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/cooking">
+      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Cooking
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing">
+      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Writing
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/contact">
+      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Contact
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing/political">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Opinion
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/EdgeCaseBerg">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Github
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://twitter.com/TheR3dLily">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
+      <!--
+-->
+      <span>
+       @TheR3dLily
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://www.linkedin.com/profile/view?id=151414806">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
+      <!--
+-->
+      <span>
+       LinkedIn
+      </span>
+     </a>
+    </li>
+   </ul>
+  </nav>
+ </body>
 </html>
-  	

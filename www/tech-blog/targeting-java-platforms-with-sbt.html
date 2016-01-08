@@ -1,44 +1,33 @@
-
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Ethan's Tech Blog | Targeting Java Platforms with SBT</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="How to target environments other than your own JVM for SBT. Just in case you&#39;re running a legacy environment or environments don&#39;t run the same JVMs" />
-    <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="sbt,build,jvm,java,target,scala,Pattern matching in val statements is not supported"/>
-    <meta name="robots" content="index, follow"  />
-      <meta name="revisit-after" content="1 month" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-      
-    
-	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
-
-        
-    <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Targeting Java Platforms with SBT" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
-    
-    <meta property="og:description" content="How to target environments other than your own JVM for SBT. Just in case you&#39;re running a legacy environment or environments don&#39;t run the same JVMs" />
-    
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Targeting Java Platforms with SBT" />
-    
-    <meta name="twitter:description" content="How to target environments other than your own JVM for SBT. Just in case you&#39;re running a legacy environment or environments don&#39;t run the same JVMs" />
-    
-    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
-
-
-	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ <head>
+  <title>
+   Ethan's Tech Blog | Targeting Java Platforms with SBT
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="How to target environments other than your own JVM for SBT. Just in case you're running a legacy environment or environments don't run the same JVMs" name="description"/>
+  <meta content="Ethan Eldridge" name="author"/>
+  <meta content="sbt,build,jvm,java,target,scala,Pattern matching in val statements is not supported" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="1 month" name="revisit-after"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
+  <!-- Facebook Open Graph Tags -->
+  <meta content="Ethan Eldridge | Targeting Java Platforms with SBT" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
+  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
+  <meta content="How to target environments other than your own JVM for SBT. Just in case you're running a legacy environment or environments don't run the same JVMs" property="og:description"/>
+  <!-- Twitter Card Tags -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="Ethan Eldridge | Targeting Java Platforms with SBT" name="twitter:title"/>
+  <meta content="How to target environments other than your own JVM for SBT. Just in case you're running a legacy environment or environments don't run the same JVMs" name="twitter:description"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
+  <!-- Core CSS Scripts -->
+  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -46,211 +35,386 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-
-</script>
-
-  </head>
-  <body>
-    <header>
-      <h1>Targeting Java Platforms with SBT</h1>
-    </header>
-
-
-    <div id="content">
-      <a href="/tech-blog">Back</a>
-      <h3>How to target JVM environments in Play! Framework (scala) with SBT</h3><p>Unfortunately, legacy systems exist. Many times these systems run on old
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    Targeting Java Platforms with SBT
+   </h1>
+  </header>
+  <div id="content">
+   <a href="/tech-blog">
+    Back
+   </a>
+   <h3>
+    How to target JVM environments in Play! Framework (scala) with SBT
+   </h3>
+   <p>
+    Unfortunately, legacy systems exist. Many times these systems run on old
 or antiquated hardware, sometimes the applications are so tightly wound
-to the environment that a component can&#39;t be upgraded unless you upgrade
+to the environment that a component can't be upgraded unless you upgrade
 100 others. More than that, on some occasions, environments can differ
 in ways like: staging, qa, production, NEW production with shiny new
-tools, NEW NEW production, NEW staging, etc etc.</p>
-<p>Unless one is careful and thorough in their system administration, a
+tools, NEW NEW production, NEW staging, etc etc.
+   </p>
+   <p>
+    Unless one is careful and thorough in their system administration, a
 local environment can often differ from live ones. For example, if your
 JVM and java version are different then some web server you inherited
-from a 15 year old legacy project. </p>
-<p>Luckily, when you compile java files with <code>javac</code> you can specify both
-the <code>-source</code> and <code>-target</code> version. And for people using <a href="http://www.scala-sbt.org/release/tutorial/Directories.html">sbt</a> there&#39;s
-a simple way to specify these from your build.sbt file. </p>
-<pre><code>javacOptions ++= Seq(&quot;-source&quot;, 1.7, &quot;-target&quot;, 1.7)
+from a 15 year old legacy project.
+   </p>
+   <p>
+    Luckily, when you compile java files with
+    <code>
+     javac
+    </code>
+    you can specify both
+the
+    <code>
+     -source
+    </code>
+    and
+    <code>
+     -target
+    </code>
+    version. And for people using
+    <a href="http://www.scala-sbt.org/release/tutorial/Directories.html">
+     sbt
+    </a>
+    there's
+a simple way to specify these from your build.sbt file.
+   </p>
+   <pre><code>javacOptions ++= Seq("-source", 1.7, "-target", 1.7)
 scalacOptions := Seq(-target:jvm-1.7)
-</code></pre><p>Of course, this doesn&#39;t do you much good if you&#39;re using version
-control, as you&#39;ll end up needing to commit different versions whenever
+</code></pre>
+   <p>
+    Of course, this doesn't do you much good if you're using version
+control, as you'll end up needing to commit different versions whenever
 you try to build unless your deploy process specifies that information.
-So instead of hard coding the java version, it&#39;s better to use a
+So instead of hard coding the java version, it's better to use a
 variable you can set on starting your sbt process. To do this, we need
 to pull in environmental variables to our build.sbt. How do we do this?
-Simple, we use <a href="http://www.scala-lang.org/api/current/index.html#scala.sys.SystemProperties">sys.props.getOrElse</a>! </p>
-<pre><code>val javaTargetVersion = sys.props.getOrElse(&quot;JAVATARGET&quot;, default = &quot;1.7&quot;) 
-javacOptions ++= Seq(&quot;-source&quot;, javaTargetVersion, &quot;-target&quot;, javaTargetVersion)
-scalacOptions := Seq(s&quot;-target:jvm-$javaTargetVersion&quot;)
-</code></pre><p>With this in our build file we can now use <code>-D</code> variables when starting
-sbt to define which version of java we&#39;ll target. For example: </p>
-<pre><code>sbt -DJAVATARGET=1.6 clean compile dist
-</code></pre><p>Will build and package a zip file for our application targeting a system
-using java 1.6. </p>
-<p>We can stop here, but most people don&#39;t want to remember or type out a
-long list of <code>-D</code> variables. Rather, most people would at most type out
-a single switch to their build. Something like </p>
-<pre><code>sbt -DENV=stage clean compile dist
-</code></pre><p>So how do we support that? One would think it would be simple, use
-something like this:</p>
-<pre><code>val env = sys.props.getOrElse(&quot;ENV&quot;, default = &quot;local&quot;) 
+Simple, we use
+    <a href="http://www.scala-lang.org/api/current/index.html#scala.sys.SystemProperties">
+     sys.props.getOrElse
+    </a>
+    !
+   </p>
+   <pre><code>val javaTargetVersion = sys.props.getOrElse("JAVATARGET", default = "1.7") 
+javacOptions ++= Seq("-source", javaTargetVersion, "-target", javaTargetVersion)
+scalacOptions := Seq(s"-target:jvm-$javaTargetVersion")
+</code></pre>
+   <p>
+    With this in our build file we can now use
+    <code>
+     -D
+    </code>
+    variables when starting
+sbt to define which version of java we'll target. For example:
+   </p>
+   <pre><code>sbt -DJAVATARGET=1.6 clean compile dist
+</code></pre>
+   <p>
+    Will build and package a zip file for our application targeting a system
+using java 1.6.
+   </p>
+   <p>
+    We can stop here, but most people don't want to remember or type out a
+long list of
+    <code>
+     -D
+    </code>
+    variables. Rather, most people would at most type out
+a single switch to their build. Something like
+   </p>
+   <pre><code>sbt -DENV=stage clean compile dist
+</code></pre>
+   <p>
+    So how do we support that? One would think it would be simple, use
+something like this:
+   </p>
+   <pre><code>val env = sys.props.getOrElse("ENV", default = "local") 
 
 val (javaTargetVersion, sourceVersion, jvmVersion) = env match {
-    case &quot;local&quot; =&gt; (&quot;1.7&quot;,&quot;1.7&quot;,&quot;1.7&quot;)
-    case &quot;stage&quot; =&gt; (&quot;1.6&quot;,&quot;1.7&quot;,&quot;1.6&quot;)
-    case &quot;production&quot; =&gt; (&quot;1.7&quot;,&quot;1.7&quot;,&quot;1.8&quot;)
+    case "local" =&gt; ("1.7","1.7","1.7")
+    case "stage" =&gt; ("1.6","1.7","1.6")
+    case "production" =&gt; ("1.7","1.7","1.8")
 }
-</code></pre><p><em>But you&#39;d be wrong</em>. If you attempt to do this you&#39;ll get an error from
-the compiler that says: </p>
-<pre><code>[error]  Pattern matching in val statements is not supported
-</code></pre><p>As of right now, even defining a function in Build.scala doesn&#39;t work to
+</code></pre>
+   <p>
+    <em>
+     But you'd be wrong
+    </em>
+    . If you attempt to do this you'll get an error from
+the compiler that says:
+   </p>
+   <pre><code>[error]  Pattern matching in val statements is not supported
+</code></pre>
+   <p>
+    As of right now, even defining a function in Build.scala doesn't work to
 resolve the error message and allow for something like the above. There
-may be a way to do it, but as of this writing, <strike>I&#39;m still waiting for an
-answer to my <a href="https://stackoverflow.com/questions/29864732/is-there-a-way-to-use-pattern-matching-in-build-sbt">StackOverFlow Question</a>. </strike></p>
-<p>Until the scala community responds, we&#39;ll be stuck specifying -D flags
-to sbt in bulk. But even with the slight inconvenience, it&#39;s not so bad,
-as we could automate such things with makefiles.</p>
-<p><strong> Update </strong> </p>
-<p>As stated by <a href="https://stackoverflow.com/users/846273/gabriele-petronella">Gabriele Petronella</a> in the answer to my <a href="https://stackoverflow.com/questions/29864732/is-there-a-way-to-use-pattern-matching-in-build-sbt">StackOverFlow
-Question</a> the SBT parser does not support assigning to tuples. But, if
-you use a <a href="http://www.scala-lang.org/old/node/107">case class</a> then you&#39;ll be ok. This needs to be done in the
-Build.scala file like so: </p>
-<pre><code>import sbt._
+may be a way to do it, but as of this writing,
+    <strike>
+     I'm still waiting for an
+answer to my
+     <a href="https://stackoverflow.com/questions/29864732/is-there-a-way-to-use-pattern-matching-in-build-sbt">
+      StackOverFlow Question
+     </a>
+     .
+    </strike>
+   </p>
+   <p>
+    Until the scala community responds, we'll be stuck specifying -D flags
+to sbt in bulk. But even with the slight inconvenience, it's not so bad,
+as we could automate such things with makefiles.
+   </p>
+   <p>
+    <strong>
+     Update
+    </strong>
+   </p>
+   <p>
+    As stated by
+    <a href="https://stackoverflow.com/users/846273/gabriele-petronella">
+     Gabriele Petronella
+    </a>
+    in the answer to my
+    <a href="https://stackoverflow.com/questions/29864732/is-there-a-way-to-use-pattern-matching-in-build-sbt">
+     StackOverFlow
+Question
+    </a>
+    the SBT parser does not support assigning to tuples. But, if
+you use a
+    <a href="http://www.scala-lang.org/old/node/107">
+     case class
+    </a>
+    then you'll be ok. This needs to be done in the
+Build.scala file like so:
+   </p>
+   <pre><code>import sbt._
 import Keys._
 
 case class EnvData(target: String, source: String, jvm: String)
-</code></pre><p>And then you can update the build.sbt file to use this new class to have
-a more informative and clear process:</p>
-<pre><code>val env = sys.props.getOrElse(&quot;ENV&quot;, default = &quot;local&quot;) 
+</code></pre>
+   <p>
+    And then you can update the build.sbt file to use this new class to have
+a more informative and clear process:
+   </p>
+   <pre><code>val env = sys.props.getOrElse("ENV", default = "local") 
 
 val envData = env match {
-    case &quot;local&quot; =&gt; EnvData(&quot;1.7&quot;,&quot;1.7&quot;,&quot;1.7&quot;)
-    case &quot;stage&quot; =&gt; EnvData(&quot;1.6&quot;,&quot;1.7&quot;,&quot;1.6&quot;)
-    case &quot;production&quot; =&gt; EnvData(&quot;1.7&quot;,&quot;1.7&quot;,&quot;1.8&quot;)
+    case "local" =&gt; EnvData("1.7","1.7","1.7")
+    case "stage" =&gt; EnvData("1.6","1.7","1.6")
+    case "production" =&gt; EnvData("1.7","1.7","1.8")
 }
 
-val targetJvm = s&quot;-target:jvm-${envData.jvm}&quot; 
+val targetJvm = s"-target:jvm-${envData.jvm}" 
 
 scalacOptions := Seq(
-  &quot;-unchecked&quot;,
-  &quot;-deprecation&quot;,
-  &quot;-feature&quot;,
-  &quot;-encoding&quot;, &quot;utf8&quot;,
+  "-unchecked",
+  "-deprecation",
+  "-feature",
+  "-encoding", "utf8",
   targetJvm
 )
 
-javacOptions ++= Seq(&quot;-source&quot;, envData.source, &quot;-target&quot;, envData.target)
-</code></pre><p>If you&#39;d like to see an example Play Application using the sbt setup
-described above, check out this <a href="https://github.com/EdgeCaseBerg/sbt-target-example">example repository</a>.</p>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=value-raw-not-member-string-scala>Value Raw is not a member of String, Scala Error</a></li><li><a href=strace-adventure>An Adventure with strace</a></li><li><a href=has-many-relationships-slick>Handling Has-Many Relationships with Slick</a></li><li><a href=remove-google-search-history>How to remove your entire google search history</a></li><li><a href=mongodb-install-replica-set-and-backup>Install and Backup a MongoDB Replica Set</a></li><li><a href=xml-playframework-templates>PlayFramework XML Templates and Scala</a></li>
-        </ul>
-      </div>
-      <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'ejehardenberg';
+javacOptions ++= Seq("-source", envData.source, "-target", envData.target)
+</code></pre>
+   <p>
+    If you'd like to see an example Play Application using the sbt setup
+described above, check out this
+    <a href="https://github.com/EdgeCaseBerg/sbt-target-example">
+     example repository
+    </a>
+    .
+   </p>
+   <h3>
+    Other Posts
+   </h3>
+   <div id="other-posts">
+    <ul>
+     <li>
+      <a href="value-raw-not-member-string-scala">
+       Value Raw is not a member of String, Scala Error
+      </a>
+     </li>
+     <li>
+      <a href="strace-adventure">
+       An Adventure with strace
+      </a>
+     </li>
+     <li>
+      <a href="has-many-relationships-slick">
+       Handling Has-Many Relationships with Slick
+      </a>
+     </li>
+     <li>
+      <a href="remove-google-search-history">
+       How to remove your entire google search history
+      </a>
+     </li>
+     <li>
+      <a href="mongodb-install-replica-set-and-backup">
+       Install and Backup a MongoDB Replica Set
+      </a>
+     </li>
+     <li>
+      <a href="xml-playframework-templates">
+       PlayFramework XML Templates and Scala
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div id="disqus_thread">
+   </div>
+   <script type="text/javascript">
+    var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink"><!--
-    -->comments powered by <span class="logo-disqus">Disqus</span>
-</a>   
-    </div>
-    <nav>
-	<ul>
-		
-			<li>
-				<a href="/index">
-					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
-					--><span>Home</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/about">
-					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
-					--><span>About me</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/projects">
-					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
-					--><span>Projects</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/resume">
-					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
-					--><span>Resume</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/tech-blog">
-					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
-					--><span>Tech Blog</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/cooking">
-					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
-					--><span>Cooking</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/writing">
-					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
-					--><span>Writing</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/contact">
-					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
-					--><span>Contact</span>
-				</a>
-			</li>
-		
-		<li>
-			<a href="/writing/political">
-				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
-				--><span>Github</span>
-			</a>
-		</li>
-		<li> 
-			<a href="https://twitter.com/TheR3dLily">
-				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
-			</a>
-		</li>
-		<li>
-			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-  </body>
+   </script>
+   <noscript>
+    Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">
+     comments powered by Disqus.
+    </a>
+   </noscript>
+   <a class="dsq-brlink" href="http://disqus.com">
+    <!--
+-->
+    comments powered by
+    <span class="logo-disqus">
+     Disqus
+    </span>
+   </a>
+  </div>
+  <nav>
+   <ul>
+    <li>
+     <a href="/index">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/about">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
+      <!--
+-->
+      <span>
+       About me
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/projects">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Projects
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/resume">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Resume
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tech-blog">
+      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Tech Blog
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/cooking">
+      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Cooking
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing">
+      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Writing
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/contact">
+      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Contact
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing/political">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Opinion
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/EdgeCaseBerg">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Github
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://twitter.com/TheR3dLily">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
+      <!--
+-->
+      <span>
+       @TheR3dLily
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://www.linkedin.com/profile/view?id=151414806">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
+      <!--
+-->
+      <span>
+       LinkedIn
+      </span>
+     </a>
+    </li>
+   </ul>
+  </nav>
+ </body>
 </html>
-  	

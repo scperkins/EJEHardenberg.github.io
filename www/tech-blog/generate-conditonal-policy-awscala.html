@@ -1,44 +1,33 @@
-
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Ethan's Tech Blog | Generate Conditional AWS Group Policies with AWScala</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="How to programmatically generate a policy containing conditionals for AWS group S3 access with AWScala" />
-    <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="awscala, condition, policy, scala, aws, amazon"/>
-    <meta name="robots" content="index, follow"  />
-      <meta name="revisit-after" content="1 month" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-      
-    
-	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
-
-        
-    <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Generate Conditional AWS Group Policies with AWScala" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
-    
-    <meta property="og:description" content="How to programmatically generate a policy containing conditionals for AWS group S3 access with AWScala" />
-    
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Generate Conditional AWS Group Policies with AWScala" />
-    
-    <meta name="twitter:description" content="How to programmatically generate a policy containing conditionals for AWS group S3 access with AWScala" />
-    
-    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
-
-
-	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ <head>
+  <title>
+   Ethan's Tech Blog | Generate Conditional AWS Group Policies with AWScala
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="How to programmatically generate a policy containing conditionals for AWS group S3 access with AWScala" name="description"/>
+  <meta content="Ethan Eldridge" name="author"/>
+  <meta content="awscala, condition, policy, scala, aws, amazon" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="1 month" name="revisit-after"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
+  <!-- Facebook Open Graph Tags -->
+  <meta content="Ethan Eldridge | Generate Conditional AWS Group Policies with AWScala" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
+  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
+  <meta content="How to programmatically generate a policy containing conditionals for AWS group S3 access with AWScala" property="og:description"/>
+  <!-- Twitter Card Tags -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="Ethan Eldridge | Generate Conditional AWS Group Policies with AWScala" name="twitter:title"/>
+  <meta content="How to programmatically generate a policy containing conditionals for AWS group S3 access with AWScala" name="twitter:description"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
+  <!-- Core CSS Scripts -->
+  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -46,293 +35,442 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-
-</script>
-
-  </head>
-  <body>
-    <header>
-      <h1>Generate Conditional AWS Group Policies with AWScala</h1>
-    </header>
-
-
-    <div id="content">
-      <a href="/tech-blog">Back</a>
-      <h3>Generating a conditonal policy with AWScala</h3><p>One of the benefits of Amazon Web Services is the <a href="http://aws.amazon.com/iam/">IAM system</a>. This 
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    Generate Conditional AWS Group Policies with AWScala
+   </h1>
+  </header>
+  <div id="content">
+   <a href="/tech-blog">
+    Back
+   </a>
+   <h3>
+    Generating a conditonal policy with AWScala
+   </h3>
+   <p>
+    One of the benefits of Amazon Web Services is the
+    <a href="http://aws.amazon.com/iam/">
+     IAM system
+    </a>
+    . This 
 handy interface can be used to give people within, or outside, of your 
-organization access to the console or content. Here&#39;s an example that 
-is fairly common.</p>
-<p>A tech-smart photographer takes his photo&#39;s with a high resolution 
+organization access to the console or content. Here's an example that 
+is fairly common.
+   </p>
+   <p>
+    A tech-smart photographer takes his photo's with a high resolution 
 camera and needs to deliver a few Gigabytes of data to a client. He has 
 a few options: get a portalble hard-drive and hand the files over 
 directly; upload the images to a private service and send the links to 
-the client; or use something like dropbox to transfer the files over. </p>
-<p>Let&#39;s say the client isn&#39;t tech savvy enough to pull out the information 
-from the hard-drives and they don&#39;t trust dropbox. So instead, the 
+the client; or use something like dropbox to transfer the files over.
+   </p>
+   <p>
+    Let's say the client isn't tech savvy enough to pull out the information 
+from the hard-drives and they don't trust dropbox. So instead, the 
 photographer tells them about his AWS S3 Bucket and provides a login for 
 them to use. All good right? The client connects, navigates the S3 
-interface like it was their usual file explorer, and downloads the images. </p>
-<p>But wait. What if the photographer has more than one client? How does he 
-prevent one client from downloading another&#39;s work? After all, each client 
-is only entitled to the work they&#39;ve paid him for and no more. </p>
-<p>Enter <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html">Policies</a>. </p>
-<p>Using a policy it&#39;s not too hard to restrict access to a single folder* 
-inside of a bucket. Here&#39;s the gist of it: </p>
-<pre><code>{
-    &quot;Version&quot;: &quot;2012-10-17&quot;,
-    &quot;Statement&quot;: [
+interface like it was their usual file explorer, and downloads the images.
+   </p>
+   <p>
+    But wait. What if the photographer has more than one client? How does he 
+prevent one client from downloading another's work? After all, each client 
+is only entitled to the work they've paid him for and no more.
+   </p>
+   <p>
+    Enter
+    <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html">
+     Policies
+    </a>
+    .
+   </p>
+   <p>
+    Using a policy it's not too hard to restrict access to a single folder* 
+inside of a bucket. Here's the gist of it:
+   </p>
+   <pre><code>{
+    "Version": "2012-10-17",
+    "Statement": [
         {
-            &quot;Sid&quot;: &quot;AllowGroupToSeeBucketListAndAlsoAllowGetBucketLocationRequiredForListBucket&quot;,
-            &quot;Action&quot;: [
-                &quot;s3:ListAllMyBuckets&quot;,
-                &quot;s3:GetBucketLocation&quot;
+            "Sid": "AllowGroupToSeeBucketListAndAlsoAllowGetBucketLocationRequiredForListBucket",
+            "Action": [
+                "s3:ListAllMyBuckets",
+                "s3:GetBucketLocation"
             ],
-            &quot;Effect&quot;: &quot;Allow&quot;,
-            &quot;Resource&quot;: [
-                &quot;arn:aws:s3:::*&quot;,
-                &quot;arn:aws:s3:::my-bucket&quot;
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:s3:::*",
+                "arn:aws:s3:::my-bucket"
             ]
         },
         {
-            &quot;Sid&quot;: &quot;AllowListBucketIfSpecificPrefixIsIncludedInRequest&quot;,
-            &quot;Action&quot;: [
-                &quot;s3:ListBucket&quot;
+            "Sid": "AllowListBucketIfSpecificPrefixIsIncludedInRequest",
+            "Action": [
+                "s3:ListBucket"
             ],
-            &quot;Effect&quot;: &quot;Allow&quot;,
-            &quot;Resource&quot;: [
-                &quot;arn:aws:s3:::my-bucket&quot;
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:s3:::my-bucket"
             ],
-            &quot;Condition&quot; : {
-                &quot;StringLike&quot; : {
-                    &quot;s3:prefix&quot; : [&quot;&quot;,&quot;ClientOne/*&quot;]
+            "Condition" : {
+                "StringLike" : {
+                    "s3:prefix" : ["","ClientOne/*"]
                 }
             }
         },
         {
-            &quot;Sid&quot;: &quot;AllowUserToReadObjectDataInClientsFolder&quot;,
-            &quot;Action&quot;: [
-                &quot;s3:GetObject&quot;
+            "Sid": "AllowUserToReadObjectDataInClientsFolder",
+            "Action": [
+                "s3:GetObject"
             ],
-            &quot;Effect&quot;: &quot;Allow&quot;,
-            &quot;Resource&quot;: [
-                &quot;arn:aws:s3:::my-bucket/ClientOne/*&quot;
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:s3:::my-bucket/ClientOne/*"
             ]
         },
         {
-            &quot;Sid&quot;: &quot;ExplicitlyDenyAnyRequestsForAllOtherFoldersExceptForclients&quot;,
-            &quot;Action&quot;: [
-                &quot;s3:ListBucket&quot;
+            "Sid": "ExplicitlyDenyAnyRequestsForAllOtherFoldersExceptForclients",
+            "Action": [
+                "s3:ListBucket"
             ],
-            &quot;Effect&quot;: &quot;Deny&quot;,
-            &quot;Resource&quot;: [
-                &quot;arn:aws:s3:::my-bucket&quot;
+            "Effect": "Deny",
+            "Resource": [
+                "arn:aws:s3:::my-bucket"
             ],
-            &quot;Condition&quot;: {
-                &quot;StringNotLike&quot;: {
-                    &quot;s3:prefix&quot;: [
-                        &quot;&quot;,
-                        &quot;ClientOne/*&quot;
+            "Condition": {
+                "StringNotLike": {
+                    "s3:prefix": [
+                        "",
+                        "ClientOne/*"
                     ]
                 }
             }
         }
     ]
 }
-</code></pre><p>Ok, so maybe not the briefest things. But it&#39;s fairly clear what the 
+</code></pre>
+   <p>
+    Ok, so maybe not the briefest things. But it's fairly clear what the 
 policy does when you exam it. There are 4 statements. The first 2 
 deal with access to the bucket and listing the contents. The third 
 allows a user to download an object from the bucket. Last, the fourth 
-denies access to any other bucket or folder if it doesn&#39;t match our 
-specified folder.</p>
-<p>While it&#39;s fun to write out the JSON by hand, or to use the <a href="http://awspolicygen.s3.amazonaws.com/policygen.html">generator</a> 
-that amazon provides. It&#39;s a bit faster to do this programmatically then 
-it is to navigate all the screens inside the Amazon console. Using the 
-<a href="https://github.com/seratch/AWScala">AWScala</a> library, we can create the same policy as above in code: </p>
-<pre><code>val sidName = &quot;SomeNameYouWouldMake&quot;
-val bucketName = &quot;my-bucket&quot;
-val keyToAllow = &quot;ClientOne/&quot; //
+denies access to any other bucket or folder if it doesn't match our 
+specified folder.
+   </p>
+   <p>
+    While it's fun to write out the JSON by hand, or to use the
+    <a href="http://awspolicygen.s3.amazonaws.com/policygen.html">
+     generator
+    </a>
+    that amazon provides. It's a bit faster to do this programmatically then 
+it is to navigate all the screens inside the Amazon console. Using the
+    <a href="https://github.com/seratch/AWScala">
+     AWScala
+    </a>
+    library, we can create the same policy as above in code:
+   </p>
+   <pre><code>val sidName = "SomeNameYouWouldMake"
+val bucketName = "my-bucket"
+val keyToAllow = "ClientOne/" //
 val policy = Policy(
     Seq(
         Statement(Effect.Allow, 
             Seq(
-                Action(&quot;s3:ListAllMyBuckets&quot;), 
-                Action(&quot;s3:GetBucketLocation&quot;)
+                Action("s3:ListAllMyBuckets"), 
+                Action("s3:GetBucketLocation")
             ),
             Seq(
-                Resource(&quot;arn:aws:s3:::*&quot;),
-                Resource(s&quot;arn:aws:s3:::${bucketName}&quot;)
+                Resource("arn:aws:s3:::*"),
+                Resource(s"arn:aws:s3:::${bucketName}")
             ),
-            id = Some(s&quot;AllowGroupToSeeBucketListAndAlsoAllowGetBucketLocationRequiredForListBucket${sidName}&quot;)
+            id = Some(s"AllowGroupToSeeBucketListAndAlsoAllowGetBucketLocationRequiredForListBucket${sidName}")
         ),
         Statement(Effect.Allow,
             Seq(
-                Action(&quot;s3:ListBucket&quot;)
+                Action("s3:ListBucket")
             ),
             Seq(
-                Resource(s&quot;arn:aws:s3:::${bucketName}&quot;)
+                Resource(s"arn:aws:s3:::${bucketName}")
             ),
-            id = Some(s&quot;AllowListBucketIfSpecificPrefixIsIncludedInRequest${sidName}&quot;),
+            id = Some(s"AllowListBucketIfSpecificPrefixIsIncludedInRequest${sidName}"),
             conditions = Seq(
                 new awscala.Condition(                            
-                    &quot;s3:prefix&quot;,
-                    &quot;StringLike&quot;,
-                    Seq(&quot;&quot;, s&quot;${keyToAllow}*&quot;)
+                    "s3:prefix",
+                    "StringLike",
+                    Seq("", s"${keyToAllow}*")
                 )
             )
         ),
         Statement(Effect.Allow, 
             Seq(
                 Action(
-                    &quot;s3:GetObject&quot;
+                    "s3:GetObject"
                 )
             ),
             Seq(
                 Resource(
-                    s&quot;arn:aws:s3:::${bucketName}/${keyToAllow}*&quot;
+                    s"arn:aws:s3:::${bucketName}/${keyToAllow}*"
                 )
             ),
-            id = Some(s&quot;AllowUserToReadObjectDataInFolderFor${sidName}&quot;)
+            id = Some(s"AllowUserToReadObjectDataInFolderFor${sidName}")
         ),
         Statement(Effect.Deny,
             Seq(
                 Action(
-                    &quot;s3:ListBucket&quot;
+                    "s3:ListBucket"
                 )
             ),
             Seq(
                 Resource(
-                    s&quot;arn:aws:s3:::${bucketName}&quot;
+                    s"arn:aws:s3:::${bucketName}"
                 )
             ),
-            id = Some(s&quot;ExplicitlyDenyAnyRequestsForAllOtherFoldersExcept${sidName}&quot;),
+            id = Some(s"ExplicitlyDenyAnyRequestsForAllOtherFoldersExcept${sidName}"),
             conditions = Seq(
                 new awscala.Condition(
-                    &quot;s3:prefix&quot;,
-                    &quot;StringNotLike&quot;,
-                    Seq(&quot;&quot;, s&quot;${keyToAllow}*&quot;)
+                    "s3:prefix",
+                    "StringNotLike",
+                    Seq("", s"${keyToAllow}*")
                 )
             )
         )
     )
 )
-</code></pre><p>You don&#39;t <em>have</em> to set the <code>id</code> in the <code>Statement</code>s. But if you want 
-them to mean something to you if you ever look into your group&#39;s policies 
-then you should consider it. </p>
-<p>You may notice that the <code>Condition</code> is created using <code>new</code> unlike the 
-other parts of the policy. This is doe to an <a href="https://github.com/seratch/AWScala/issues/83">inconsitency that has since been fixed</a>. 
-If you haven&#39;t tried out <a href="https://github.com/seratch/AWScala">AWScala</a>, you should give it a try. The source 
+</code></pre>
+   <p>
+    You don't
+    <em>
+     have
+    </em>
+    to set the
+    <code>
+     id
+    </code>
+    in the
+    <code>
+     Statement
+    </code>
+    s. But if you want 
+them to mean something to you if you ever look into your group's policies 
+then you should consider it.
+   </p>
+   <p>
+    You may notice that the
+    <code>
+     Condition
+    </code>
+    is created using
+    <code>
+     new
+    </code>
+    unlike the 
+other parts of the policy. This is doe to an
+    <a href="https://github.com/seratch/AWScala/issues/83">
+     inconsitency that has since been fixed
+    </a>
+    . 
+If you haven't tried out
+    <a href="https://github.com/seratch/AWScala">
+     AWScala
+    </a>
+    , you should give it a try. The source 
 code is clear enough most of the time that you can figure out how to do 
-things quickly. The examples given in the <a href="https://github.com/seratch/AWScala/blob/master/README.md">README</a> provide common use cases 
-that should be good for most people. There&#39;s no conditional policy example, 
-but you&#39;re welcome to use the one above as a starting point! </p>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=manipulating-XML-with-PHP>Manipulating XML with PHP</a></li><li><a href=reverse-routing-package-controller>Reverse routing with non-standard controller packages in Play</a></li><li><a href=could-not-instantiate-SVGImageReader-Scrimage>Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException</a></li><li><a href=triggering-asynchronous-jobs-play-2-3>Trigger Asynchronous Jobs in Play 2.3</a></li><li><a href=none-in-default-fold-and-type-erasure>Type Error when using None as a default to Option.fold</a></li><li><a href=non-empty-lists-validation-in-playframework>Non Empty List Form Validation in Play</a></li>
-        </ul>
-      </div>
-      <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'ejehardenberg';
+things quickly. The examples given in the
+    <a href="https://github.com/seratch/AWScala/blob/master/README.md">
+     README
+    </a>
+    provide common use cases 
+that should be good for most people. There's no conditional policy example, 
+but you're welcome to use the one above as a starting point!
+   </p>
+   <h3>
+    Other Posts
+   </h3>
+   <div id="other-posts">
+    <ul>
+     <li>
+      <a href="manipulating-XML-with-PHP">
+       Manipulating XML with PHP
+      </a>
+     </li>
+     <li>
+      <a href="reverse-routing-package-controller">
+       Reverse routing with non-standard controller packages in Play
+      </a>
+     </li>
+     <li>
+      <a href="could-not-instantiate-SVGImageReader-Scrimage">
+       Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException
+      </a>
+     </li>
+     <li>
+      <a href="triggering-asynchronous-jobs-play-2-3">
+       Trigger Asynchronous Jobs in Play 2.3
+      </a>
+     </li>
+     <li>
+      <a href="none-in-default-fold-and-type-erasure">
+       Type Error when using None as a default to Option.fold
+      </a>
+     </li>
+     <li>
+      <a href="non-empty-lists-validation-in-playframework">
+       Non Empty List Form Validation in Play
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div id="disqus_thread">
+   </div>
+   <script type="text/javascript">
+    var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink"><!--
-    -->comments powered by <span class="logo-disqus">Disqus</span>
-</a>   
-    </div>
-    <nav>
-	<ul>
-		
-			<li>
-				<a href="/index">
-					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
-					--><span>Home</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/about">
-					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
-					--><span>About me</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/projects">
-					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
-					--><span>Projects</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/resume">
-					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
-					--><span>Resume</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/tech-blog">
-					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
-					--><span>Tech Blog</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/cooking">
-					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
-					--><span>Cooking</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/writing">
-					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
-					--><span>Writing</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/contact">
-					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
-					--><span>Contact</span>
-				</a>
-			</li>
-		
-		<li>
-			<a href="/writing/political">
-				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
-				--><span>Github</span>
-			</a>
-		</li>
-		<li> 
-			<a href="https://twitter.com/TheR3dLily">
-				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
-			</a>
-		</li>
-		<li>
-			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-  </body>
+   </script>
+   <noscript>
+    Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">
+     comments powered by Disqus.
+    </a>
+   </noscript>
+   <a class="dsq-brlink" href="http://disqus.com">
+    <!--
+-->
+    comments powered by
+    <span class="logo-disqus">
+     Disqus
+    </span>
+   </a>
+  </div>
+  <nav>
+   <ul>
+    <li>
+     <a href="/index">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/about">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
+      <!--
+-->
+      <span>
+       About me
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/projects">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Projects
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/resume">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Resume
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tech-blog">
+      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Tech Blog
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/cooking">
+      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Cooking
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing">
+      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Writing
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/contact">
+      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Contact
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing/political">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Opinion
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/EdgeCaseBerg">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Github
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://twitter.com/TheR3dLily">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
+      <!--
+-->
+      <span>
+       @TheR3dLily
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://www.linkedin.com/profile/view?id=151414806">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
+      <!--
+-->
+      <span>
+       LinkedIn
+      </span>
+     </a>
+    </li>
+   </ul>
+  </nav>
+ </body>
 </html>
-  	

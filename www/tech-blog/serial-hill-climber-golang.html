@@ -1,44 +1,33 @@
-
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Ethan's Tech Blog | Serial Hill Climber in GoLang</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="My first foray into GoLang, creating a simple serial hill climber (the simplest of all evolutionary algorithms) in GoLang. Using some of the concurrent features of Go make it a very powerful language for Evolutionary method implementations." />
-    <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="GoLang,Serial Hill Climber,Evolutionary Algorithms,Algorithms,Computation,concurrent,Ethan,Eldridge,Programming"/>
-    <meta name="robots" content="index, follow"  />
-      <meta name="revisit-after" content="1 month" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-      
-    
-	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
-
-        
-    <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Serial Hill Climber in GoLang" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
-    
-    <meta property="og:description" content="My first foray into GoLang, creating a simple serial hill climber (the simplest of all evolutionary algorithms) in GoLang. Using some of the concurrent features of Go make it a very powerful language for Evolutionary method implementations." />
-    
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Serial Hill Climber in GoLang" />
-    
-    <meta name="twitter:description" content="My first foray into GoLang, creating a simple serial hill climber (the simplest of all evolutionary algorithms) in GoLang. Using some of the concurrent features of Go make it a very powerful language for Evolutionary method implementations." />
-    
-    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
-
-
-	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ <head>
+  <title>
+   Ethan's Tech Blog | Serial Hill Climber in GoLang
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="My first foray into GoLang, creating a simple serial hill climber (the simplest of all evolutionary algorithms) in GoLang. Using some of the concurrent features of Go make it a very powerful language for Evolutionary method implementations." name="description"/>
+  <meta content="Ethan Eldridge" name="author"/>
+  <meta content="GoLang,Serial Hill Climber,Evolutionary Algorithms,Algorithms,Computation,concurrent,Ethan,Eldridge,Programming" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="1 month" name="revisit-after"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
+  <!-- Facebook Open Graph Tags -->
+  <meta content="Ethan Eldridge | Serial Hill Climber in GoLang" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
+  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
+  <meta content="My first foray into GoLang, creating a simple serial hill climber (the simplest of all evolutionary algorithms) in GoLang. Using some of the concurrent features of Go make it a very powerful language for Evolutionary method implementations." property="og:description"/>
+  <!-- Twitter Card Tags -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="Ethan Eldridge | Serial Hill Climber in GoLang" name="twitter:title"/>
+  <meta content="My first foray into GoLang, creating a simple serial hill climber (the simplest of all evolutionary algorithms) in GoLang. Using some of the concurrent features of Go make it a very powerful language for Evolutionary method implementations." name="twitter:description"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
+  <!-- Core CSS Scripts -->
+  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -46,45 +35,84 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-
-</script>
-
-  </head>
-  <body>
-    <header>
-      <h1>Serial Hill Climber in GoLang</h1>
-    </header>
-
-
-    <div id="content">
-      <a href="/tech-blog">Back</a>
-      <h3>Simple Binary Hill Climber in GoLang</h3><p>I&#39;ve been playing with <a href="http://golang.org">Go</a> recently and really enjoying it. But one of my problems
-was that I couldn&#39;t think of what to do with all that great concurrent power. Web 
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    Serial Hill Climber in GoLang
+   </h1>
+  </header>
+  <div id="content">
+   <a href="/tech-blog">
+    Back
+   </a>
+   <h3>
+    Simple Binary Hill Climber in GoLang
+   </h3>
+   <p>
+    I've been playing with
+    <a href="http://golang.org">
+     Go
+    </a>
+    recently and really enjoying it. But one of my problems
+was that I couldn't think of what to do with all that great concurrent power. Web 
 applications and servers are of course  one of the things I first thought of, but
-that&#39;s basically the Hello World of Go. </p>
-<p>So instead, I looked through my books and spotted my copy of Josh Bongard&#39;s <a href="http://mitpress.mit.edu/books/how-body-shapes-way-we-think">How the Body Shapes the Way We Think</a>
-that I picked up when I took his course on evolutionary robotics. Our first assignment
+that's basically the Hello World of Go.
+   </p>
+   <p>
+    So instead, I looked through my books and spotted my copy of Josh Bongard's
+    <a href="http://mitpress.mit.edu/books/how-body-shapes-way-we-think">
+     How the Body Shapes the Way We Think
+    </a>
+    that I picked up when I took his course on evolutionary robotics. Our first assignment
 in that class was a serial hill climber. It was a super simple program written in
 python, a couple for loops and an object. The point of which was to mutate a genome
-string into the perfect fitness. </p>
-<p>Generations? Population Sizes? Sounds perfect for some concurrency play! So I built
-<s>an entire Evolutionary Computation Kit</s> a small program to get a grip on how
-channels in Go work, and on wetting my appetite for Evolutionary methods. </p>
-<p>Without further adieu, here&#39;s the entire Go program:</p>
-<script src="https://gist.github.com/EdgeCaseBerg/9c535f1cd71f2c2a8012.js"></script>
-
-<p>It&#39;s pretty simple. Here&#39;s a quick run down:</p>
-<p>We create a simple struct to keep track of each member of the population, they
+string into the perfect fitness.
+   </p>
+   <p>
+    Generations? Population Sizes? Sounds perfect for some concurrency play! So I built
+    <s>
+     an entire Evolutionary Computation Kit
+    </s>
+    a small program to get a grip on how
+channels in Go work, and on wetting my appetite for Evolutionary methods.
+   </p>
+   <p>
+    Without further adieu, here's the entire Go program:
+   </p>
+   <script src="https://gist.github.com/EdgeCaseBerg/9c535f1cd71f2c2a8012.js">
+   </script>
+   <p>
+    It's pretty simple. Here's a quick run down:
+   </p>
+   <p>
+    We create a simple struct to keep track of each member of the population, they
 have a genome as well as a fitness (based on said genome), and they also store a 
-reference to a channel. If you&#39;re unfamiliar with Go, you can <a href="https://gobyexample.com/channels">read up on them
-here</a> or just take my word that they&#39;re like pipes in a Linux/Unix system. </p>
-<p>To create a child we initialize it&#39;s genome to a random binary sequence of 1&#39;s 
-and 0&#39;s. Simplistic yes, but this is a toy problem. A cool feature of the way we
-initialize our <code>Child</code> is that we use go routines to initialize each <code>Child</code>&#39;s genome
+reference to a channel. If you're unfamiliar with Go, you can
+    <a href="https://gobyexample.com/channels">
+     read up on them
+here
+    </a>
+    or just take my word that they're like pipes in a Linux/Unix system.
+   </p>
+   <p>
+    To create a child we initialize it's genome to a random binary sequence of 1's 
+and 0's. Simplistic yes, but this is a toy problem. A cool feature of the way we
+initialize our
+    <code>
+     Child
+    </code>
+    is that we use go routines to initialize each
+    <code>
+     Child
+    </code>
+    's genome
 concurrently; when we do this we also collect the initialized parts and feed them
-back into our calculation of the fitness as it happens. There&#39;s no real reason to
-do this in such a small example, but it&#39;s quite fun nonetheless.</p>
-<pre><code>func (c* Child) init(resChan * chan int) {
+back into our calculation of the fitness as it happens. There's no real reason to
+do this in such a small example, but it's quite fun nonetheless.
+   </p>
+   <pre><code>func (c* Child) init(resChan * chan int) {
     c.resultChan = *resChan
     c.genome = make([]int, genomeSize)
     initilizeChannel := make(chan int, genomeSize)
@@ -101,13 +129,24 @@ do this in such a small example, but it&#39;s quite fun nonetheless.</p>
         c.fitness += &lt;- initilizeChannel
     }
 }
-</code></pre><p>The Mutate function represents our variation in the population, for this example
-we&#39;re merely flipping a coin to decide whether or not we should allow a single
+</code></pre>
+   <p>
+    The Mutate function represents our variation in the population, for this example
+we're merely flipping a coin to decide whether or not we should allow a single
 portion of the genomic string to change. One again, we fan out for the calculation
 and send the fitness back to the owning struct in parts. The most important part
-of the Mutate function though, is that it uses the internal <code>resultChan</code> channel
-variable in the <code>Child</code> to send the fitness result to whoever is listening.</p>
-<pre><code>func (c* Child) Mutate() {
+of the Mutate function though, is that it uses the internal
+    <code>
+     resultChan
+    </code>
+    channel
+variable in the
+    <code>
+     Child
+    </code>
+    to send the fitness result to whoever is listening.
+   </p>
+   <pre><code>func (c* Child) Mutate() {
     doneChannel := make(chan int, genomeSize)
     for i := 0; i &lt; genomeSize; i++ {
         i := i
@@ -125,123 +164,217 @@ variable in the <code>Child</code> to send the fitness result to whoever is list
     //Send fitness out
     c.resultChan &lt;- c.fitness
 }
-</code></pre><p>Where does resultChan go? To the channel we opened in the <code>main</code> function called
-<code>resultsChan</code> (name makes sense? imagine that). This channel is responsible for
+</code></pre>
+   <p>
+    Where does resultChan go? To the channel we opened in the
+    <code>
+     main
+    </code>
+    function called
+    <code>
+     resultsChan
+    </code>
+    (name makes sense? imagine that). This channel is responsible for
 figuring out which of the population is the best candidate for reproduction to
 help shape the next generation of candidates. At the end each generation we mutate
-the best <code>Child</code> and replace a small subset of the population with them.</p>
-<p>It&#39;s a fun toy example, and this is by no means a Go tutorial, but I hope that this
+the best
+    <code>
+     Child
+    </code>
+    and replace a small subset of the population with them.
+   </p>
+   <p>
+    It's a fun toy example, and this is by no means a Go tutorial, but I hope that this
 helps inspire some ideas for people to start using Go as a language to express
 inheritly concurrent operations such as genetic algorithms and other evolutionary
-methods.</p>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=item-processor-example>Spring Batch ItemProcessListener Example</a></li><li><a href=green-up-vt-app>Green Up Vermont</a></li><li><a href=harpjs-macros>HarpJS and Macros, Static Delivery for Static Content</a></li><li><a href=varnish-directors>Varnish Directors and API Caching</a></li><li><a href=googlebot-heisenbug>&#39;Caught in the Spiders Web&#39; -- A googlebot Heisenbug</a></li><li><a href=adding-actions-to-user-lists>Adding Actions to the WordPress User Lists</a></li>
-        </ul>
-      </div>
-      <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'ejehardenberg';
+methods.
+   </p>
+   <h3>
+    Other Posts
+   </h3>
+   <div id="other-posts">
+    <ul>
+     <li>
+      <a href="item-processor-example">
+       Spring Batch ItemProcessListener Example
+      </a>
+     </li>
+     <li>
+      <a href="green-up-vt-app">
+       Green Up Vermont
+      </a>
+     </li>
+     <li>
+      <a href="harpjs-macros">
+       HarpJS and Macros, Static Delivery for Static Content
+      </a>
+     </li>
+     <li>
+      <a href="varnish-directors">
+       Varnish Directors and API Caching
+      </a>
+     </li>
+     <li>
+      <a href="googlebot-heisenbug">
+       'Caught in the Spiders Web' -- A googlebot Heisenbug
+      </a>
+     </li>
+     <li>
+      <a href="adding-actions-to-user-lists">
+       Adding Actions to the WordPress User Lists
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div id="disqus_thread">
+   </div>
+   <script type="text/javascript">
+    var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink"><!--
-    -->comments powered by <span class="logo-disqus">Disqus</span>
-</a>   
-    </div>
-    <nav>
-	<ul>
-		
-			<li>
-				<a href="/index">
-					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
-					--><span>Home</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/about">
-					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
-					--><span>About me</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/projects">
-					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
-					--><span>Projects</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/resume">
-					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
-					--><span>Resume</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/tech-blog">
-					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
-					--><span>Tech Blog</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/cooking">
-					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
-					--><span>Cooking</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/writing">
-					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
-					--><span>Writing</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/contact">
-					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
-					--><span>Contact</span>
-				</a>
-			</li>
-		
-		<li>
-			<a href="/writing/political">
-				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
-				--><span>Github</span>
-			</a>
-		</li>
-		<li> 
-			<a href="https://twitter.com/TheR3dLily">
-				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
-			</a>
-		</li>
-		<li>
-			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-  </body>
+   </script>
+   <noscript>
+    Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">
+     comments powered by Disqus.
+    </a>
+   </noscript>
+   <a class="dsq-brlink" href="http://disqus.com">
+    <!--
+-->
+    comments powered by
+    <span class="logo-disqus">
+     Disqus
+    </span>
+   </a>
+  </div>
+  <nav>
+   <ul>
+    <li>
+     <a href="/index">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/about">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
+      <!--
+-->
+      <span>
+       About me
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/projects">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Projects
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/resume">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Resume
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tech-blog">
+      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Tech Blog
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/cooking">
+      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Cooking
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing">
+      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Writing
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/contact">
+      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Contact
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing/political">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Opinion
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/EdgeCaseBerg">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Github
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://twitter.com/TheR3dLily">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
+      <!--
+-->
+      <span>
+       @TheR3dLily
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://www.linkedin.com/profile/view?id=151414806">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
+      <!--
+-->
+      <span>
+       LinkedIn
+      </span>
+     </a>
+    </li>
+   </ul>
+  </nav>
+ </body>
 </html>
-  	

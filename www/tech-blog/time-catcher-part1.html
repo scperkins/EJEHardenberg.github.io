@@ -1,44 +1,33 @@
-
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Ethan's Tech Blog | Time Catcher Part 1</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="The first of a 3 part blog post where I kept running commentary as I created my TimeCatcher programmer." />
-    <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="timecatcher,time,tracking,program,Ethan Eldridge,C"/>
-    <meta name="robots" content="index, follow"  />
-      <meta name="revisit-after" content="1 month" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-      
-    
-	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
-
-        
-    <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Time Catcher Part 1" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
-    
-    <meta property="og:description" content="The first of a 3 part blog post where I kept running commentary as I created my TimeCatcher programmer." />
-    
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Time Catcher Part 1" />
-    
-    <meta name="twitter:description" content="The first of a 3 part blog post where I kept running commentary as I created my TimeCatcher programmer." />
-    
-    <meta name="twitter:image" content="//static2.ethanjoachimeldridge.info/ethan.jpeg" />
-    	<!-- Core CSS Scripts -->
-	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
-
-
-	
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ <head>
+  <title>
+   Ethan's Tech Blog | Time Catcher Part 1
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="The first of a 3 part blog post where I kept running commentary as I created my TimeCatcher programmer." name="description"/>
+  <meta content="Ethan Eldridge" name="author"/>
+  <meta content="timecatcher,time,tracking,program,Ethan Eldridge,C" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="1 month" name="revisit-after"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
+  <!-- Facebook Open Graph Tags -->
+  <meta content="Ethan Eldridge | Time Catcher Part 1" property="og:title"/>
+  <meta content="article" property="og:type"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
+  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
+  <meta content="The first of a 3 part blog post where I kept running commentary as I created my TimeCatcher programmer." property="og:description"/>
+  <!-- Twitter Card Tags -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="Ethan Eldridge | Time Catcher Part 1" name="twitter:title"/>
+  <meta content="The first of a 3 part blog post where I kept running commentary as I created my TimeCatcher programmer." name="twitter:description"/>
+  <meta content="//static2.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
+  <!-- Core CSS Scripts -->
+  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-N5yYwPDw4cymKjw0SjwRTKGAR4pv2PWn7wUtflWwszx/tkL1rEaVQyalmX2tM3wO" rel="stylesheet"/>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -46,139 +35,243 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-
-</script>
-
-  </head>
-  <body>
-    <header>
-      <h1>Time Catcher Part 1</h1>
-    </header>
-
-
-    <div id="content">
-      <a href="/tech-blog">Back</a>
-      <p>I&#39;ve begun work on a <a href="https://github.com/EdgeCaseBerg/timecatcher">new project</a> and so far it&#39;s coming along nicely. I&#39;ve been using some software at work to keep track of my hours, it&#39;s called office time. It works fine, simple interface, easy to manage for the most part, and at least 20 features I don&#39;t use. Ever. </p>
-<p>So being the kind of guy I am, I decided that I could probably make a simple to use task tracking utility. Here are some of my motivations. </p>
-<ul>
-<li>I spend about 60-80% of my day in a terminal. So I should be able to access the utility from there</li>
-<li>I need to keep track of a task per day, and then be able to display it meaningfully later on</li>
-<li>I want to be able to add notes to myself about the task as I work on it</li>
-<li>I should only be active on a single task at a time</li>
-</ul>
-<p>So let&#39;s see. I&#39;m going to working in the command line, well that means I&#39;ll want an executable file. I could write a bash script, but bash syntax is not the best for anything complicated. So I want a higher language. I want to sit low, and I like C. So I&#39;ll do it in C. </p>
-<p>Keeping track of a single task, well that&#39;s simple. Give it a name. I&#39;ll have to be able to have it be permanent, and I even have a process running in the background (no) or I make an object of some kind in a file and use that to keep track of things. Now that sounds easy. If it works for git, it will work for me. If I want to keep track of my tasks per day, I should store these object files into their own folder, named after the current date. The benefit to this is that if I want to generate spreadsheets or information later on, I can do it by date with these folders.</p>
-<p>Adding a note, well that&#39;s easy too, keep track of it in the file for the current task.</p>
-<p>Being active on only a single task at a time? Now that seems hard to enforce. Because I&#39;ll be able to start a task, then end a task with a command. So I could fire off a bunch of tasks then finish them when I wanted to and the timing data would be complete garbage. Ah! So I&#39;ll keep track of the last created task in some type of master file. Easy! When a new task is created, the other task will be &#39;paused&#39; or for starters I won&#39;t let a user switch tasks unless they finish one first. </p>
-<p>And this is my first plan. So far it&#39;s coming along and I&#39;ve got the directory to hold this information all good and am writing out the usage documentation, as a guide to me and a guide to anyone else who wants to use it. </p>
-      
-      <h3>Other Posts</h3>
-      <div id="other-posts">
-        <ul>
-          <li><a href=time-catcher-part2>Time Catcher Part 2! (Alpha)</a></li><li><a href=how-this-site-was-made>How this site was made</a></li><li><a href=time-catcher-part3>Time Catcher Part 3</a></li><li><a href=git-crash-course>Git Crash Course</a></li><li><a href=stack-smashing>Stack Smashing</a></li><li><a href=feed>My RSS Feed</a></li>
-        </ul>
-      </div>
-      <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'ejehardenberg';
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    Time Catcher Part 1
+   </h1>
+  </header>
+  <div id="content">
+   <a href="/tech-blog">
+    Back
+   </a>
+   <p>
+    I've begun work on a
+    <a href="https://github.com/EdgeCaseBerg/timecatcher">
+     new project
+    </a>
+    and so far it's coming along nicely. I've been using some software at work to keep track of my hours, it's called office time. It works fine, simple interface, easy to manage for the most part, and at least 20 features I don't use. Ever.
+   </p>
+   <p>
+    So being the kind of guy I am, I decided that I could probably make a simple to use task tracking utility. Here are some of my motivations.
+   </p>
+   <ul>
+    <li>
+     I spend about 60-80% of my day in a terminal. So I should be able to access the utility from there
+    </li>
+    <li>
+     I need to keep track of a task per day, and then be able to display it meaningfully later on
+    </li>
+    <li>
+     I want to be able to add notes to myself about the task as I work on it
+    </li>
+    <li>
+     I should only be active on a single task at a time
+    </li>
+   </ul>
+   <p>
+    So let's see. I'm going to working in the command line, well that means I'll want an executable file. I could write a bash script, but bash syntax is not the best for anything complicated. So I want a higher language. I want to sit low, and I like C. So I'll do it in C.
+   </p>
+   <p>
+    Keeping track of a single task, well that's simple. Give it a name. I'll have to be able to have it be permanent, and I even have a process running in the background (no) or I make an object of some kind in a file and use that to keep track of things. Now that sounds easy. If it works for git, it will work for me. If I want to keep track of my tasks per day, I should store these object files into their own folder, named after the current date. The benefit to this is that if I want to generate spreadsheets or information later on, I can do it by date with these folders.
+   </p>
+   <p>
+    Adding a note, well that's easy too, keep track of it in the file for the current task.
+   </p>
+   <p>
+    Being active on only a single task at a time? Now that seems hard to enforce. Because I'll be able to start a task, then end a task with a command. So I could fire off a bunch of tasks then finish them when I wanted to and the timing data would be complete garbage. Ah! So I'll keep track of the last created task in some type of master file. Easy! When a new task is created, the other task will be 'paused' or for starters I won't let a user switch tasks unless they finish one first.
+   </p>
+   <p>
+    And this is my first plan. So far it's coming along and I've got the directory to hold this information all good and am writing out the usage documentation, as a guide to me and a guide to anyone else who wants to use it.
+   </p>
+   <h3>
+    Other Posts
+   </h3>
+   <div id="other-posts">
+    <ul>
+     <li>
+      <a href="time-catcher-part2">
+       Time Catcher Part 2! (Alpha)
+      </a>
+     </li>
+     <li>
+      <a href="how-this-site-was-made">
+       How this site was made
+      </a>
+     </li>
+     <li>
+      <a href="time-catcher-part3">
+       Time Catcher Part 3
+      </a>
+     </li>
+     <li>
+      <a href="git-crash-course">
+       Git Crash Course
+      </a>
+     </li>
+     <li>
+      <a href="stack-smashing">
+       Stack Smashing
+      </a>
+     </li>
+     <li>
+      <a href="feed">
+       My RSS Feed
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div id="disqus_thread">
+   </div>
+   <script type="text/javascript">
+    var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink"><!--
-    -->comments powered by <span class="logo-disqus">Disqus</span>
-</a>   
-    </div>
-    <nav>
-	<ul>
-		
-			<li>
-				<a href="/index">
-					<img src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px" height="32px" /><!--
-					--><span>Home</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/about">
-					<img src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px" height="32px" /><!--
-					--><span>About me</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/projects">
-					<img src="//static3.ethanjoachimeldridge.info/project.png" width="32px" height="32px" /><!--
-					--><span>Projects</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/resume">
-					<img src="//static4.ethanjoachimeldridge.info/cv.png" width="32px" height="32px" /><!--
-					--><span>Resume</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/tech-blog">
-					<img src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px" height="32px" /><!--
-					--><span>Tech Blog</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/cooking">
-					<img src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px" height="32px" /><!--
-					--><span>Cooking</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/writing">
-					<img src="//static7.ethanjoachimeldridge.info/writing.png" width="32px" height="32px" /><!--
-					--><span>Writing</span>
-				</a>
-			</li>
-		
-			<li>
-				<a href="/contact">
-					<img src="//static.ethanjoachimeldridge.info/contact.png" width="32px" height="32px" /><!--
-					--><span>Contact</span>
-				</a>
-			</li>
-		
-		<li>
-			<a href="/writing/political">
-				<img src="//static1.ethanjoachimeldridge.info/politics.png" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//static2.ethanjoachimeldridge.info/github.png" width="32px" height="32px" /><!--
-				--><span>Github</span>
-			</a>
-		</li>
-		<li> 
-			<a href="https://twitter.com/TheR3dLily">
-				<img src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
-			</a>
-		</li>
-		<li>
-			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-  </body>
+   </script>
+   <noscript>
+    Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">
+     comments powered by Disqus.
+    </a>
+   </noscript>
+   <a class="dsq-brlink" href="http://disqus.com">
+    <!--
+-->
+    comments powered by
+    <span class="logo-disqus">
+     Disqus
+    </span>
+   </a>
+  </div>
+  <nav>
+   <ul>
+    <li>
+     <a href="/index">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/california.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/about">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/ethan.jpeg" width="32px"/>
+      <!--
+-->
+      <span>
+       About me
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/projects">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/project.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Projects
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/resume">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/cv.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Resume
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tech-blog">
+      <img height="32px" src="//static5.ethanjoachimeldridge.info/tech-blog.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Tech Blog
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/cooking">
+      <img height="32px" src="//static6.ethanjoachimeldridge.info/cooking.jpg" width="32px"/>
+      <!--
+-->
+      <span>
+       Cooking
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing">
+      <img height="32px" src="//static7.ethanjoachimeldridge.info/writing.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Writing
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/contact">
+      <img height="32px" src="//static.ethanjoachimeldridge.info/contact.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Contact
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/writing/political">
+      <img height="32px" src="//static1.ethanjoachimeldridge.info/politics.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Opinion
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/EdgeCaseBerg">
+      <img height="32px" src="//static2.ethanjoachimeldridge.info/github.png" width="32px"/>
+      <!--
+-->
+      <span>
+       Github
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://twitter.com/TheR3dLily">
+      <img height="32px" src="//static3.ethanjoachimeldridge.info/twitter-bird-light-bgs.png" width="32px"/>
+      <!--
+-->
+      <span>
+       @TheR3dLily
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://www.linkedin.com/profile/view?id=151414806">
+      <img height="32px" src="//static4.ethanjoachimeldridge.info/LinkedIn_logo.png" width="32px"/>
+      <!--
+-->
+      <span>
+       LinkedIn
+      </span>
+     </a>
+    </li>
+   </ul>
+  </nav>
+ </body>
 </html>
-  	
