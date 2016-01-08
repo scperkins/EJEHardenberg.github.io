@@ -1,4 +1,9 @@
 {
+	"uninspiring" : {
+		"title" : "Uninspiring",
+		"date" : "2016-1-7",
+		"freq" : "monthly"
+	},
 	"organ" : {
 		"title" : "Organ",
 		"date" : "2015-12-28",
