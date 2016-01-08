@@ -1,4 +1,9 @@
 {
+	"press" : {
+		"title" : "Press",
+		"date" : "2016-1-8",
+		"freq" : "monthly"
+	},
 	"ache" : {
 		"title" : "Ache",
 		"date" : "2016-1-2",
