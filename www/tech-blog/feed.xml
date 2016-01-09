@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Fri, 18 Dec 2015 00:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Sat, 09 Jan 2016 05:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>How to implement Subresource Integrity (SRI)</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/implementing-subresource-integrity-sri</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/implementing-subresource-integrity-sri</guid>
+			<pubDate>Sat, 09 Jan 2016 05:00:00 GMT</pubDate>
+			<description>
+				![CDATA[SRI is an upcoming way to secure third party assets and provide defense against malicious code being ran within browsers. In this post I talk about how to implement and automate updating HTML elements with the required attributes]]
+			</description>
+		</item>
 		
 		<item>
 			<title>How to test the PlayFramework Mailer</title>
