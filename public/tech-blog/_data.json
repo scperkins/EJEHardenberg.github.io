@@ -751,5 +751,11 @@
 		"description" : "SMTP Servers can be a pain to setup, but if you're using a JVM based language you're in luck! This post shows how to integrate GreenMail with Play!",
 		"date" : "2015-12-8",
 		"keywords" : "greenmail,play,smtp,test,testing,mail,mailer,MailerPlugin,PlayFramework,email"
+	},
+	"implementing-subresource-integrity-sri" : {
+		"title" : "How to implement Subresource Integrity (SRI)",
+		"description" : "SRI is an upcoming way to secure third party assets and provide defense against malicious code being ran within browsers. In this post I talk about how to implement and automate updating HTML elements with the required attributes",		
+		"date" : "2016-1-9",
+		"keywords" : "subresource integrity,sri,crossorigin,security,how to,cdn,HTML"
 	}
 }
