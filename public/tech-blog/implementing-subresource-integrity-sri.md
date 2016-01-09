@@ -251,7 +251,8 @@ Namely because I _forgot to add the crossorigin attribute_ to the tag.
 You **absolutely** need to include it, otherwise the asset will not
 load. And depending on your browser version, you might not get a clear
 [message about it in the error console]. But the main thing you need to
-remember is to add the crossorigin attribute. 
+remember is to add the crossorigin attribute. And of course, add CORS
+headers to whatever is serving the assets, most CDN do already.
 
 The other thing to note is that your integrity value doesn't actually
 ensure anything unless it's in a secure context, i.e. if the asset is
