@@ -1,4 +1,9 @@
 {
+	"loon" : {
+		"title" : "Loon",
+		"date" : "2016-1-10",
+		"freq" : "monthly"
+	},
 	"press" : {
 		"title" : "Press",
 		"date" : "2016-1-8",
