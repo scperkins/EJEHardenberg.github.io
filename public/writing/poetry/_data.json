@@ -1,4 +1,9 @@
 {
+	"modernize" : {
+		"title" : "Modernize",
+		"date" : "2016-1-12",
+		"freq" : "monthly"
+	},
 	"loon" : {
 		"title" : "Loon",
 		"date" : "2016-1-10",
