@@ -89,10 +89,8 @@ tags and CSS `link` tags. The items in the array are arrays of length
 being the script to look for. Since my website [chooses one of my static hosts randomly] 
 I don't know the full domain to search for and simply look for a match
 at the _end_ of a file, which means that if there were more than one
-app.js, this script would have some issues. 
-t
-
-Caveat aside, it's trivial to move on to the next step. 
+app.js, this script would have some issues. Caveat aside, it's trivial 
+to move on to the next step. 
 
 #### Computing integrity values for SRI in Python
 
@@ -106,7 +104,7 @@ compute a hash in python:
 
 But what's not entirely clear is whether you should use `hexdigest` or
 `digest`. If we _only_ needed the sha value and not the base 64 encoded
-version as well, we'd probably before `hexdigest` since, according to
+version as well, we'd probably prefer `hexdigest` since, according to
 the docs:
 
 >the digest is returned as a string of double length, containing only
@@ -294,7 +292,7 @@ turn references [Content Security Policy Level 2, section 4.2].<small>
 [configure it]:https://github.com/EdgeCaseBerg/EJEHardenberg.github.io/blob/master/sri.conf
 [managed to break it for a while]:https://github.com/EdgeCaseBerg/EJEHardenberg.github.io/issues/2
 [Harp]:http://www.harpjs.com/
-[Beautiful Soup]:http://www.crummy.com/software/BeautifulSoup/
+[BeautifulSoup]:http://www.crummy.com/software/BeautifulSoup/
 [Hashlib]:https://docs.python.org/2/library/hashlib.html
 [Base64]:https://docs.python.org/2/library/base64.html#module-base64
 [JSON]:https://docs.python.org/2/library/json.html
