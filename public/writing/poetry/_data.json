@@ -1,4 +1,9 @@
 {
+	"lockdown" : {
+		"title" : "Lockdown",
+		"date" : "2016-1-13",
+		"freq" : "monthly"
+	},
 	"modernize" : {
 		"title" : "Modernize",
 		"date" : "2016-1-12",
