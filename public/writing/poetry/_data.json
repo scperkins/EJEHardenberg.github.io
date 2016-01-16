@@ -1,4 +1,9 @@
 {
+	"when" : {
+		"title" : "When?",
+		"date" : "2016-1-16",
+		"freq" : "monthly"
+	},
 	"lockdown" : {
 		"title" : "Lockdown",
 		"date" : "2016-1-13",
