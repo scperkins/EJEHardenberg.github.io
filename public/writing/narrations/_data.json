@@ -1,4 +1,9 @@
 {
+	"coffee" : {
+		"title" : "Coffee",
+		"date" : "2016-1-16",
+		"freq" : "monthly"
+	},
 	"play" : {
 		"title" : "Play",
 		"date" : "2016-1-11",
