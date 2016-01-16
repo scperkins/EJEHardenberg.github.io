@@ -157,10 +157,7 @@ python would be a safe alternative. I chose python because it provides:
    </p>
    <ul>
     <li>
-     An easy to use HTML parser via
-     <a href="http://www.crummy.com/software/BeautifulSoup/">
-      Beautiful Soup
-     </a>
+     An easy to use HTML parser via [Beautiful Soup]
     </li>
     <li>
      An easy to use hashing library via
@@ -247,11 +244,8 @@ at the
      end
     </em>
     of a file, which means that if there were more than one
-app.js, this script would have some issues. 
-t
-   </p>
-   <p>
-    Caveat aside, it's trivial to move on to the next step.
+app.js, this script would have some issues. Caveat aside, it's trivial 
+to move on to the next step.
    </p>
    <h4>
     Computing integrity values for SRI in Python
@@ -287,7 +281,7 @@ print sha.hexdigest()
      only
     </em>
     needed the sha value and not the base 64 encoded
-version as well, we'd probably before
+version as well, we'd probably prefer
     <code>
      hexdigest
     </code>
@@ -427,7 +421,11 @@ need to update and edit:
     return file_paths  # Self-explanatory.
 </code></pre>
    <p>
-    Once we have the files, we parse them with [BeautifulSoup] and update
+    Once we have the files, we parse them with
+    <a href="http://www.crummy.com/software/BeautifulSoup/">
+     BeautifulSoup
+    </a>
+    and update
 the
     <code>
      link
