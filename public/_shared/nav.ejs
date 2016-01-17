@@ -4,34 +4,29 @@
 			if(slug != "404" && slug != 'Sitemap'){ %>
 			<li>
 				<a href="/<%= slug %>">
-					<img src="//<%= macros.imgSrc("/" + public._data[slug].navimage) %>" width="32px" height="32px" /><!--
-					--><span><%= public._data[slug].navtitle %></span>
+					<span><%= public._data[slug].navtitle %></span>
 				</a>
 			</li>
 		<%  }
 		}; %>
 		<li>
 			<a href="/writing/political">
-				<img src="//<%= macros.imgSrc("/politics.png") %>" width="32px" height="32px" /><!--
-				--><span>Opinion</span>
+				<span>Opinion</span>
 			</a>
 		</li>
 		<li>
 			<a href="https://github.com/EdgeCaseBerg">
-				<img src="//<%= macros.imgSrc("/github.png") %>" width="32px" height="32px" /><!--
-				--><span>Github</span>
+				<span>Github</span>
 			</a>
 		</li>
 		<li> 
 			<a href="https://twitter.com/TheR3dLily">
-				<img src="//<%= macros.imgSrc("/twitter-bird-light-bgs.png") %>" width="32px" height="32px" /><!--
-				--><span>@TheR3dLily</span>
+				<span>Twitter</span>
 			</a>
 		</li>
 		<li>
 			<a href="http://www.linkedin.com/profile/view?id=151414806">
-				<img src="//<%= macros.imgSrc("/LinkedIn_logo.png") %>" width="32px" height="32px"/><!--
-				--><span>LinkedIn</span>
+				<span>LinkedIn</span>
 			</a>
 		</li>
 	</ul>
