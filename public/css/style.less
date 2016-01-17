@@ -1,25 +1,28 @@
 
-@bgColor: #eee;
-@gutter: 10px;
+@middle: #BDCFCE;
+@darkest: #2A7875;
+@lightest: #fff;
+@light: #F6F7F7;
+@dark: #749F9D;
+@gutter: 0.75em;
 @fontColor: #7bab2e;
-@linkColor: #4183c4;
+@linkColor: @darkest;
 @colorSpeed: 300ms;
 @california: '//static1.ethanjoachimeldridge.info/california.jpg';
 @writing: '//static7.ethanjoachimeldridge.info/writing.png';
+@fontSize: 1.2em;
 
 
 html{
-	background-color: black;
-	background-image: url(@california);
+	background-color: @middle;
 	background-size: 480px 640px;
 	background-repeat: no-repeat;
-	font-size: 1.0em;
+	font-size: @fontSize;
 	font-family: 'EB Garamond', serif;
     line-height:1.4em;
-    padding-left: 20%;
+    padding-left: 6em;
+    padding-right: 6em;
 }
-
-
 
 p {
     margin:1em 0;
@@ -43,8 +46,9 @@ q, blockquote {
 }
 
 body{	
-	background-color: lighten(@bgColor,50%);
+	background-color: @light;
 	margin: 0 auto;
+	border-right: thin black solid;
 }
 
 a{color: @linkColor;}
@@ -53,12 +57,9 @@ a:active{color: lighten(@linkColor,10%);}
 a:hover{color: darken(@linkColor,10%);}
 
 header{
-
-	color: #d4bc8c;
-	background-color: #597987;
+	background-color: @middle;
 	width: 100%;
-	padding-top: @gutter;
-	padding-bottom: @gutter;
+	
 	h1{
 		margin-top: 0;
 		padding-top: @gutter;
@@ -67,40 +68,35 @@ header{
 		margin-bottom: 0;
 	}
 	border-bottom: black solid thin;
-	
+	border-right: @middle solid thin;
 }
 nav{
-		width: 15%;
-		display: inline-block;
-		vertical-align: top;
+	background-color: @lightest;
+	width: 15%;
+	text-align: center;
+	display: inline-block;
+	vertical-align: top;
+	padding: 0px;
+	font-size: @fontSize;
+	ul{
+		list-style: none;
 		padding: 0px;
-		ul{
-			margin-top: 0px;
-			list-style: none;
-			padding: 0px;
-			li{
-				padding-top: @gutter;
-				a{	
-					padding-right: @gutter;
-					transition: background-color @colorSpeed*1.5 linear;
-					img{
-						padding-right: @gutter/2;
-						vertical-align: middle;
-						width: 32px;
-						height: 32px;
-						border-radius: 15px;
-					}
-				}
-				a:hover{
-					background-color: darken(@bgColor,10%);
-					transition: background-color @colorSpeed linear;
-					opacity: .8;
-				}
+		li{
+			padding-top: @gutter;
+			a{	
+				transition: color @colorSpeed*1.5 linear;
+			}
+			a:hover{
+				color: @darkest;
+				transition: color @colorSpeed linear;
+				opacity: .8;
 			}
 		}
 	}
+}
 #content{
 	border-left: thin black solid;
+	border-right: thin black solid;
 	padding-left: @gutter;
 	padding-right: @gutter;
 	display: inline-block;
@@ -156,30 +152,25 @@ nav{
 }
 
 /* To make code nicely formatted:; */
-pre,code{font:12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}
+pre,code{
+	font:13px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+	background-color: @lightest;
+}
 pre {
     margin:1em 0;
-    font-size:12px;
-    background-color:#eee;
-    border:1px solid #ddd;
+    border:1px solid @dark;
     padding:5px;
     line-height:1.5em;
-    color:#444;
     overflow:auto;
     -webkit-box-shadow:rgba(0,0,0,0.07) 0 1px 2px inset;
     -webkit-border-radius:3px;
     -moz-border-radius:3px;border-radius:3px;
-}
-pre code {
-    padding:0;
-    font-size:12px;
-    background-color:#eee;
-    border:none;
+    code {
+    	padding:0;
+    	border:none;
+	}
 }
 code {
-    font-size:12px;
-    background-color:#f8f8ff;
-    color:#444;
     padding:0 .2em;
     border:1px solid #dedede;
 }
@@ -200,7 +191,7 @@ code {
 					a{
 						display: block;
 						
-						background-color: darken(@bgColor, 10);	
+						background-color: darken(@middle, 10);	
 						text-align: center;
 						cursor: pointer;
 					}
@@ -250,7 +241,7 @@ code {
 	}
 	#index{
 		article{
-			background-color: darken(@bgColor, 5%);
+			background-color: darken(@middle, 5%);
 			transition: background-color @colorSpeed linear;
 			padding: @gutter/2;
 			margin: @gutter/2;
@@ -271,7 +262,7 @@ code {
 			display: inline;
 		}
 		article:hover{
-			background-color: darken(@bgColor, 20%);
+			background-color: darken(@middle, 20%);
 			transition: background-color @colorSpeed linear;
 		}
 	}
@@ -298,8 +289,8 @@ code {
 		div{
 			margin: 0px;
 			padding: @gutter;
-			background-color: darken(@bgColor, 5%);
-			box-shadow:  0 @gutter/2 0 darken(@bgColor,10%);
+			background-color: darken(@middle, 5%);
+			box-shadow:  0 @gutter/2 0 darken(@middle,10%);
 			border-right: black thin solid;
 		}
 		ul{
@@ -310,7 +301,7 @@ code {
 			li{
 				text-align: center;
 				transition: background-color @colorSpeed linear;
-				background-color: darken(@bgColor,10%);
+				background-color: darken(@middle,10%);
 				border-radius: 2em;
 				margin-bottom: @gutter;
 				a{
@@ -320,7 +311,7 @@ code {
 			}
 			li:hover{
 				transition: background-color @colorSpeed linear;
-				background-color: lighten(@bgColor,10%);
+				background-color: lighten(@middle,10%);
 			}
 		}
 	}
@@ -349,10 +340,10 @@ code {
 	}
 }
 .outside-block:nth-child(even) a{
-	background-color: @bgColor;
+	background-color: @middle;
 }
 .outside-block:nth-child(odd) a{
-	background-color: lighten(@bgColor, 10%);
+	background-color: lighten(@middle, 10%);
 }
 .outside-block:nth-child(even) a:hover{
 	transition: background-color @colorSpeed linear;
@@ -360,7 +351,7 @@ code {
 }
 .outside-block:nth-child(odd) a:hover{
 	transition: background-color @colorSpeed linear;
-	background-color: darken(@bgColor, 10%);
+	background-color: darken(@middle, 10%);
 }
 
 
@@ -382,11 +373,11 @@ code {
 			width: 100%;
 			display: block;
 			text-align: left;
-			background-color: darken(@bgColor, 10%);
+			background-color: darken(@middle, 10%);
 		}
 		div:nth-child(even){
 			text-align: right;
-			background-color: lighten(@bgColor, 5%);
+			background-color: lighten(@middle, 5%);
 		}
 		div[name="cooking"]{			
 			background-image: url('//static.ethanjoachimeldridge.info/cooking/baked-chedder-chicken.jpg');
