@@ -28,19 +28,19 @@ me politically, checkout <a href="/writing/political">the opinion section</a>
 		<h4>Learn to Cook</h4>
 		<ul><% 
 			//Global toShow for this section.
-			var toShow = 2
-			var shown = 0
+			var toShow = 3
+			var i = 0
 			var recipes = []
-			for(idx in public.cooking._data){
+			for(var idx in public.cooking._data){
 				public.cooking._data[idx].slug = idx
 				recipes.push(public.cooking._data[idx])
-			}
-			recipes = recipes.reverse()
-
-			for(var idx = recipes.length -1;  idx >= 0; idx--){
-				if(shown > toShow){
+				if(i == toShow) {
 					break
 				}
+				i++
+			}
+
+			for(var idx = 0;  idx < recipes.length; idx++){
 				if( recipes[idx].slug != 'index' ){
 					%><li>
 						<a href="/cooking/<%= recipes[idx].slug %>"><%= recipes[idx].title %></a>
