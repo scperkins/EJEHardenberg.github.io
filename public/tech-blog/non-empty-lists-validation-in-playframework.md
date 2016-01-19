@@ -72,7 +72,7 @@ all together we have:
 	  )
 	}
 
-Pretty simple right? We can easily right custom constraints to support 
+Pretty simple right? We can easily write custom constraints to support 
 any logic our forms might need, verifying Enumerated values, making sure 
 that we've actually submitted multiple elements to an endpoint, checking 
 that the username matches some custom validation. You name it, you can 
