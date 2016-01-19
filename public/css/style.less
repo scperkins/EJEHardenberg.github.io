@@ -290,9 +290,10 @@ code {
 		div{
 			margin: 0px;
 			padding: @gutter;
-			background-color: darken(@middle, 5%);
+			background-color: @light;
 			box-shadow:  0 @gutter/2 0 darken(@middle,10%);
 			border-right: black thin solid;
+			vertical-align: bottom;
 		}
 		ul{
 			padding: 0;
@@ -302,10 +303,11 @@ code {
 			li{
 				text-align: center;
 				transition: background-color @colorSpeed linear;
-				background-color: darken(@middle,10%);
+				background-color: @darkest;
 				border-radius: 2em;
 				margin-bottom: @gutter;
 				a{
+					color: @lightest;
 					display: block;
 					padding: @gutter/2;
 				}
@@ -313,6 +315,9 @@ code {
 			li:hover{
 				transition: background-color @colorSpeed linear;
 				background-color: lighten(@middle,10%);
+				a {
+					color: @darkest;
+				}
 			}
 		}
 	}
@@ -354,7 +359,6 @@ code {
 	transition: background-color @colorSpeed linear;
 	background-color: darken(@middle, 10%);
 }
-
 
 #home{
 	section{
