@@ -22,7 +22,9 @@
 
     <div id="content">
       <a href="/writing">Back</a>
+      <% if(current.source != "index") {%>
       <h2><%= title %></h2>
+      <% } %>
       <div>
         <%- yield %>
       </div>

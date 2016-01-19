@@ -1,5 +1,7 @@
 <p>
+	<% if(current.source != "index") {%>
 	<%- description %>
+	<% } %>
 </p>
 <% for(var slug in public.writing.poetry._data){ %>
 	<div class="outside-block">
