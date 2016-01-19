@@ -190,8 +190,9 @@ code {
 					width: 20%;
 					a{
 						display: block;
-						
-						background-color: darken(@middle, 10);	
+						border-top-left-radius: 1em;
+						border-top-right-radius: 1em;
+						background-color:@middle;
 						text-align: center;
 						cursor: pointer;
 					}
@@ -241,7 +242,7 @@ code {
 	}
 	#index{
 		article{
-			background-color: darken(@middle, 5%);
+			background-color: @middle;
 			transition: background-color @colorSpeed linear;
 			padding: @gutter/2;
 			margin: @gutter/2;
