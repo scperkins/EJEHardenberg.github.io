@@ -4,9 +4,11 @@
 	times.
 </p>
 <% for(var slug in public.writing.smut._data){ %>
+	<% if(slug != "index") {%>
 	<div class="outside-block">
 		<div class="blocks">
   			<h3><a href="<%= slug %>"><%= public.writing.smut._data[slug].title %></a></h3>
   		</div>
   	</div>
+	<% }; %>  	
 <% }; %>

@@ -991,6 +991,7 @@
 		"freq" : "monthly"
 	},
 	"index" : {
+		"title" : "Poetry",
 		"description": "List of Ethan J. Eldridge's poems",
 		"poemDescription" : "List of Ethan J. Eldridge's poems"
 	}

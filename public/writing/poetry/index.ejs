@@ -4,9 +4,11 @@
 	<% } %>
 </p>
 <% for(var slug in public.writing.poetry._data){ %>
+	<% if(slug != "index") {%>
 	<div class="outside-block">
 		<div class="blocks">
   			<h3><a href="<%= slug %>"><%= public.writing.poetry._data[slug].title %></a></h3>
   		</div>
   	</div>
+  	<% }; %>
 <% }; %>
