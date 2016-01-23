@@ -1,8 +1,8 @@
 deploy: sri push
 
 push:
-	#git push origin master
-	#git push live master
+	git push origin master
+	git push live master
 
 #Compure Subresource integrity hashes
 sri:
