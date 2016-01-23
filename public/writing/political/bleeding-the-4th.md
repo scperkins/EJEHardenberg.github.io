@@ -268,6 +268,12 @@ important was said by Edward Snowden:
 >Arguing that you don't care about the right to privacy because you have nothing to hide is no different than saying you don't care about free speech because you have nothing to say
 
 
+
+
+I have [written about this before], and if you're interested in learning 
+more I suggest you read _The Right To Privacy_ by Ellen Alderman and 
+Caroline Kennedy.
+
 [Justice Louis D. Brandeis]:http://www.brandeis.edu/legacyfund/bio.html
 [pages of material the FBI kept on Martin Luther King Jr]:http://library.truman.edu/microforms/martin_luther_king.asp
 [millions of american's telephone calls by the NSA]:http://www.theguardian.com/world/2013/jun/06/nsa-phone-records-verizon-court-order
@@ -285,3 +291,4 @@ important was said by Edward Snowden:
 [The Third Wave]:https://en.wikipedia.org/wiki/The_Third_Wave_(experiment)
 [The Wave]:https://www.youtube.com/watch?v=ICng-KRxXJ8
 [Common Sense]:http://hua.umf.maine.edu/Reading_Revolutions/Paine.html
+[written about this before]:/writing/political/information-mosaic
