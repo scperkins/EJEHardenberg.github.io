@@ -3,7 +3,8 @@
 		"title" : "Star Wars 7, meh",
 		"description" : "The new star wars film is Ok. Not great, but Ok. Just wanted to write down some holes I saw in the film.  There will be spoilers",
 		"date" : "2015-12-20",
-		"Free" : "monthly"
+		"freq" : "monthly",
+		"draft" : false
 	},
 	"fined-for-feeding-the-homeless" : {
 		"title" : "Fined for Feeding the homeless? No.",
