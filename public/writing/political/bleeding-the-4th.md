@@ -88,7 +88,7 @@ they only share information with their own 3rd party services. Then where
 does Symphony's monitoring of your phone fall in legaly? 
 
 Putting aside inter-company legality, the sheer scope of advertisement's 
-disgusting crusade for behavioral analysis is insane. Buy you might say 
+disgusting crusade for behavioral analysis is insane. You might say 
 that this is just paranoia. After all the goal, as with NBC and Symphony, 
 is to make money. And there's no harm in some research to sell you 
 something right? In a long article about the lengths companies go to to 
