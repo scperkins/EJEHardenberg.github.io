@@ -175,7 +175,7 @@ the 4th & 5th amendments and advertisements?
 
 It's simple, [the Government wants to combine with tech to increase surveillance].
 Why? As I stated before, National Security is the chopping block on which 
-rights are maimed. The worst part is that not is it encouraged to have 
+rights are maimed. The worst part is not that it's encouraged to have 
 the police monitor your threat level, but also your friends:
 
 >One area of discussion was over how a system used by Facebook to deal 
