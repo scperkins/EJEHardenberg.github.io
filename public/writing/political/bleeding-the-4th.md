@@ -73,8 +73,8 @@ I was reading it:
 While Wurtzel may want to give Netflix a “reality check.” I'd prefer to 
 look into what [Symphony Advanced Media] is and does. Monitoring through
 a device is [(sadly) nothing new]. According to their 
-website, their product **passively collects behavior patterns cross 
-media and in real time**. But their results page boasts about user's 
+website, their product **passively collects behavior patterns across 
+media and in real time**. Their results page boasts about user's 
 twitter usage in relation to their television viewing. No matter how 
 anonymous the data they collect from you is, it is an admitted fact that 
 this company is actively monitoring what you are doing, in your home, 
