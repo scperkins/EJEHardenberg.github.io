@@ -88,8 +88,6 @@ done in the first place) and to tell gentoo not to bother with SATA. Running
 `gentoo nosata debug` got me to the point where it tried to scan for `raid456`,
 and then it hung. 
 
-<img src="/images/tech-blog/gentoo-raid456.png" >
-
 So I reset the VM again and ran `gentoo nosata noload=raid456 debug`, it got 
 farther this time, all the way to `raid5`. So maybe it was a problem with the
 raid modules themselves? I scanned the Handbook and found the option `nodmraid`, 
