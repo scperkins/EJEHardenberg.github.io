@@ -45,7 +45,7 @@ grim picture of the patient.
 In January 18th 2016s New England edition of the New York Times, an 
 article titled _[Disruption By Netflix Irks TV Foes]_ ran. While the 
 piece itself is only reporting on Network Television's begging of 
-Netflix to release ratings, an interestint paragraph caught my eye when 
+Netflix to release ratings, an interesting paragraph caught my eye when 
 I was reading it:
 
 >The battle over ratings began when Alan Wurtzel, NBC Universal’s head 
