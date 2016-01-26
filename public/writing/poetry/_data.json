@@ -1,4 +1,9 @@
 {
+	"amendment" : {
+		"title" : "Amendment",
+		"date" : "2016-1-26",
+		"freq" : "monthly"
+	},
 	"when" : {
 		"title" : "When?",
 		"date" : "2016-1-16",
