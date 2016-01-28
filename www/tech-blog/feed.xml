@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Sat, 09 Jan 2016 05:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Wed, 27 Jan 2016 05:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Let's Exploit Magento! (<1.9.2.3)</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/exploiting-magento</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/exploiting-magento</guid>
+			<pubDate>Wed, 27 Jan 2016 05:00:00 GMT</pubDate>
+			<description>
+				![CDATA[Educational example of how to create an Exploit for Magento systems running versions less than 1.9.2.3!]]
+			</description>
+		</item>
 		
 		<item>
 			<title>How to implement Subresource Integrity (SRI)</title>
