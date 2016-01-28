@@ -757,5 +757,11 @@
 		"description" : "SRI is an upcoming way to secure third party assets and provide defense against malicious code being ran within browsers. In this post I talk about how to implement and automate updating HTML elements with the required attributes",		
 		"date" : "2016-1-9",
 		"keywords" : "subresource integrity,sri,crossorigin,security,how to,cdn,HTML"
+	},
+	"exploiting-magento" : {
+		"title" : "Let's Exploit Magento! (<1.9.2.3)",
+		"description" : "Educational example of how to create an Exploit for Magento systems running versions less than 1.9.2.3!",
+		"date" : "2016-1-27",
+		"keywords" : "magento,xss,exploit,compromise,let's exploit,security"
 	}
 }
