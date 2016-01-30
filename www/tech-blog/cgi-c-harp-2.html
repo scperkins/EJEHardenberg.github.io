@@ -1,34 +1,45 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Let's make a chat server, Part 2
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="Second installment of a C CGI and Harp powered chat platform. This tutorial focuses on the CGI and qdecoder portions." name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="C,CGI,Harp,HarpJS,Chat,Server,tutorial,qdecoder,API" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Let's make a chat server, Part 2" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="Second installment of a C CGI and Harp powered chat platform. This tutorial focuses on the CGI and qdecoder portions." property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Let's make a chat server, Part 2" name="twitter:title"/>
-  <meta content="Second installment of a C CGI and Harp powered chat platform. This tutorial focuses on the CGI and qdecoder portions." name="twitter:description"/>
-  <meta content="//static.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet" type="text/css"/>
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-Yk6fMSCCTCPyHYaY4h661zZEU59LSxS2pX0b+B1jG+4atCz2yx/YhiimkVlATCwk" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Let&#39;s make a chat server, Part 2</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Second installment of a C CGI and Harp powered chat platform. This tutorial focuses on the CGI and qdecoder portions." />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="C,CGI,Harp,HarpJS,Chat,Server,tutorial,qdecoder,API"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Let&#39;s make a chat server, Part 2" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Second installment of a C CGI and Harp powered chat platform. This tutorial focuses on the CGI and qdecoder portions." />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Let&#39;s make a chat server, Part 2" />
+    
+    <meta name="twitter:description" content="Second installment of a C CGI and Harp powered chat platform. This tutorial focuses on the CGI and qdecoder portions." />
+    
+    <meta name="twitter:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -36,152 +47,59 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Let's make a chat server, Part 2
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    CGI with Harp and C - QDecoder and Apache
-   </h3>
-   <p>
-    Welcome to round 2 of "Let's create a chat server!", if you missed the
-    <a href="http://www.ethanjoachimeldridge.info/tech-blog/cgi-c-harp-1">
-     previous post
-    </a>
-    then you'll want to read that to get up to speed. If you just want to grab the
-source code from that tutorial you can find it
-    <a href="https://github.com/EdgeCaseBerg/chat-tutorial">
-     here on github
-    </a>
-    .
-   </p>
-   <p>
-    In this tutorial we're going to take the work we did last time (what I refer to as
-internals) and use the
-    <a href="http://www.qdecoder.org/wiki/qdecoder">
-     qdecoder
-    </a>
-    library to make it web facing. I'll show you the
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Let&#39;s make a chat server, Part 2</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>CGI with Harp and C - QDecoder and Apache</h3><p>Welcome to round 2 of &quot;Let&#39;s create a chat server!&quot;, if you missed the <a href="http://www.ethanjoachimeldridge.info/tech-blog/cgi-c-harp-1">previous post</a> 
+then you&#39;ll want to read that to get up to speed. If you just want to grab the
+source code from that tutorial you can find it <a href="https://github.com/EdgeCaseBerg/chat-tutorial">here on github</a>.</p>
+<p>In this tutorial we&#39;re going to take the work we did last time (what I refer to as
+internals) and use the <a href="http://www.qdecoder.org/wiki/qdecoder">qdecoder</a> library to make it web facing. I&#39;ll show you the
 neccesary apache configuration for using CGI and give a brief explanation into
-some of the basics of CGI. So let's get started:
-   </p>
-   <h4>
-    Install Apache and qdecoder
-   </h4>
-   <p>
-    First off, you'll need apache (or some other webserver)  setup. If you're running
-linux this is normally as easy as:
-   </p>
-   <pre><code>sudo apt-get install apache2
-</code></pre>
-   <p>
-    If you're on windows you can download a bundle like
-    <a href="https://www.apachefriends.org/index.html">
-     xampp
-    </a>
-    or
-    <a href="http://www.wampserver.com/en/">
-     wamp
-    </a>
-    and install the
-binary by following the instructions on their pages. Most mac's come preinstalled
-with some type of webserver, but I don't own a mac so you're on your own.
-   </p>
-   <p>
-    To install the qdecoder library you'll need to follow
-    <a href="https://github.com/wolkykim/qdecoder">
-     their instructions
-    </a>
-    and 
-download the source and build the static library. It's not difficult to do, for me
-the steps were something like this:
-   </p>
-   <ol>
-    <li>
-     Download the latest qdecoder package
-     <a href="https://github.com/wolkykim/qdecoder">
-      from here
-     </a>
-    </li>
-    <li>
-     run
-     <code>
-      ./configure
-     </code>
-     to setup the library for you system
-    </li>
-    <li>
-     compile the library with
-     <code>
-      make
-     </code>
-    </li>
-    <li>
-     install the library with
-     <code>
-      make install
-     </code>
-    </li>
-   </ol>
-   <p>
-    Which are literally the steps out of the
-    <strong>
-     INSTALL.md
-    </strong>
-    file in the repository. 
-I've only installed qdecoder on linux, so if you're trying to do this on windows
-or mac you'll want to get your
-    <a href="http://lmgtfy.com/?q=qdecoder+windows">
-     google fu
-    </a>
-    on to figure it out. I believe, (don't
-qoute me on this) that the mac install should be the exact same as what I've said
-above since it's a unix based operating system.
-   </p>
-   <p>
-    Once you've installed the library, try building some of the
-    <a href="http://www.qdecoder.org/releases/current/examples/">
-     examples
-    </a>
-    to make
-sure everything is working. Once you've got that come back here. For the purpose
-of my tutorial I'll assume you built it from source and installed it into a folder
-called
-    <strong>
-     lib
-    </strong>
-    within your working directory.
-   </p>
-   <h4>
-    Using qdecoder
-   </h4>
-   <p>
-    The library has some great
-    <a href="http://www.qdecoder.org/releases/current/examples/">
-     examples
-    </a>
-    and if you haven't looked at them, seriously
-do so. If you've ever done web programming before, chances are some of this stuff
-will look and feel familiar to you. And even if it doesn't you'll probably be able
-to take a good guess. Let's take an overview of the functions we're going to use:
-   </p>
-   <pre><code>FCGI_Accept
-</code></pre>
-   <p>
-    If you've configured qdecoder with fast CGI, then you'll be using this function
+some of the basics of CGI. So let&#39;s get started:</p>
+<h4>Install Apache and qdecoder</h4><p>First off, you&#39;ll need apache (or some other webserver)  setup. If you&#39;re running
+linux this is normally as easy as:</p>
+<pre><code>sudo apt-get install apache2
+</code></pre><p>If you&#39;re on windows you can download a bundle like <a href="https://www.apachefriends.org/index.html">xampp</a> or <a href="http://www.wampserver.com/en/">wamp</a> and install the
+binary by following the instructions on their pages. Most mac&#39;s come preinstalled
+with some type of webserver, but I don&#39;t own a mac so you&#39;re on your own.</p>
+<p>To install the qdecoder library you&#39;ll need to follow <a href="https://github.com/wolkykim/qdecoder">their instructions</a> and 
+download the source and build the static library. It&#39;s not difficult to do, for me
+the steps were something like this:</p>
+<ol>
+<li>Download the latest qdecoder package <a href="https://github.com/wolkykim/qdecoder">from here</a></li>
+<li>run <code>./configure</code> to setup the library for you system</li>
+<li>compile the library with <code>make</code></li>
+<li>install the library with <code>make install</code></li>
+</ol>
+<p>Which are literally the steps out of the <strong>INSTALL.md</strong> file in the repository. 
+I&#39;ve only installed qdecoder on linux, so if you&#39;re trying to do this on windows
+or mac you&#39;ll want to get your <a href="http://lmgtfy.com/?q=qdecoder+windows">google fu</a> on to figure it out. I believe, (don&#39;t
+qoute me on this) that the mac install should be the exact same as what I&#39;ve said
+above since it&#39;s a unix based operating system.</p>
+<p>Once you&#39;ve installed the library, try building some of the <a href="http://www.qdecoder.org/releases/current/examples/">examples</a> to make
+sure everything is working. Once you&#39;ve got that come back here. For the purpose
+of my tutorial I&#39;ll assume you built it from source and installed it into a folder
+called <strong>lib</strong> within your working directory.</p>
+<h4>Using qdecoder</h4><p>The library has some great <a href="http://www.qdecoder.org/releases/current/examples/">examples</a> and if you haven&#39;t looked at them, seriously
+do so. If you&#39;ve ever done web programming before, chances are some of this stuff
+will look and feel familiar to you. And even if it doesn&#39;t you&#39;ll probably be able
+to take a good guess. Let&#39;s take an overview of the functions we&#39;re going to use:</p>
+<pre><code>FCGI_Accept
+</code></pre><p>If you&#39;ve configured qdecoder with fast CGI, then you&#39;ll be using this function
 to keep your script running (as oppose to turning on and off for each request).
-The library provides a simple define to check for the configuration, so you'll
-see this in a few places as a fallback in case the runtime doesn't support it:
-   </p>
-   <pre><code>#ifdef ENABLE_FASTCGI
+The library provides a simple define to check for the configuration, so you&#39;ll
+see this in a few places as a fallback in case the runtime doesn&#39;t support it:</p>
+<pre><code>#ifdef ENABLE_FASTCGI
     while(FCGI_Accept() &gt;= 0) {
 #endif
 
@@ -190,255 +108,86 @@ see this in a few places as a fallback in case the runtime doesn't support it:
 #ifdef ENABLE_FASTCGI
     }
 #endif
-</code></pre>
-   <p>
-    <strong>
-     Note
-    </strong>
-    :
-    <small>
-     If you're unfamiliar with the C Preprocessor, all you need to know 
-is that the code between the
-     <code>
-      ifdef
-     </code>
-     and
-     <code>
-      endif
-     </code>
-     will only be used if the
-     <code>
-      ENABLE_FASTCGI
-     </code>
-     constant is defined. If it's not, just think of the code as being commented out.
-    </small>
-   </p>
-   <pre><code>qcgireq_parse
-</code></pre>
-   <p>
-    The
-    <code>
-     qcgireq_parse
-    </code>
-    function handles the hard part about taking the environmental
-variable sent to apache and parsing them into a useful way. If you've used PHP before
+</code></pre><p><strong>Note</strong>: <small>If you&#39;re unfamiliar with the C Preprocessor, all you need to know 
+is that the code between the <code>ifdef</code> and <code>endif</code> will only be used if the <code>ENABLE_FASTCGI</code>
+constant is defined. If it&#39;s not, just think of the code as being commented out.</small></p>
+<pre><code>qcgireq_parse
+</code></pre><p>The <code>qcgireq_parse</code> function handles the hard part about taking the environmental
+variable sent to apache and parsing them into a useful way. If you&#39;ve used PHP before
 you can think of this as what your server does as it puts variables into the super
-globals
-    <code>
-     $_GET
-    </code>
-    ,
-    <code>
-     $_POST
-    </code>
-    ,
-    <code>
-     $_COOKIE
-    </code>
-    , and etc. qDecoder parses the servers in 
+globals <code>$_GET</code>,<code>$_POST</code>, <code>$_COOKIE</code>, and etc. qDecoder parses the servers in 
 COOKIE, POST, then GET order. If you want to change that ordering you can find out
-how in the
-    <a href="http://wolkykim.github.io/qdecoder/">
-     documentation
-    </a>
-    . The
-    <code>
-     qcgireq_parse
-    </code>
-    function takes two parameters:
-a
-    <code>
-     qentry_t
-    </code>
-    pointer and a flag on parsing order. If you pass
-    <code>
-     NULL
-    </code>
-    as the first 
-parameter you'll be given back a
-    <code>
-     qentry_t
-    </code>
-    variable with all the variables stored
-in it, this is what we'll be doing. So far, the only time I've seen a non-NULL value
-passed is for getting the parameters in a specific order.
-   </p>
-   <pre><code>qcgires_setcontenttype
-</code></pre>
-   <p>
-    This function allows you to set the HTML header for the content type. qDecoder does
-    <strong>
-     not
-    </strong>
-    allow you to set any headers you want. Rather, it provides methods to set
-the content type and to send redirect headers. Most applications really don't need
-much more than this so it's a pragmatic choice and keeps the library code less
-complex and the API simple. We'll be using 2 content types in our scripts:
-    <code>
-     text/plain
-    </code>
-    and
-    <code>
-     application/JSON
-    </code>
-    .
-   </p>
-   <pre><code>qentry_t-&gt;getstr, qentry-&gt;free
-</code></pre>
-   <p>
-    These two functions are two of the ways we can interact with a request object, when
-    <code>
-     qcgireq_parse
-    </code>
-    returns a struct of type
-    <code>
-     qentry_t
-    </code>
-    you can use
-    <code>
-     -&gt;getstr
-    </code>
-    to retrieve
-a variable from the parsed values, and use
-    <code>
-     -&gt;free
-    </code>
-    to release your request object.
-   </p>
-   <p>
-    Here's some equalvalent code between PHP and qDecoder for some clarification:
-   </p>
-   <p>
-    <em>
-     PHP
-    </em>
-   </p>
-   <pre><code>$myvar = $_GET['theVarInTheUrl'];
-$mypvar = $_POST['theVarInThePostedData'];
-</code></pre>
-   <p>
-    and in
-    <em>
-     C
-    </em>
-   </p>
-   <pre><code>qentry_t *req = qcgireq_parse(NULL, 0);
-char * myvar = req-&gt;getstr(req, "theVarInTheUrl", true);
-char * mypvar = req-&gt;getstr(req, "theVarInThePostedData", false);
+how in the <a href="http://wolkykim.github.io/qdecoder/">documentation</a>. The <code>qcgireq_parse</code> function takes two parameters:
+a <code>qentry_t</code> pointer and a flag on parsing order. If you pass <code>NULL</code> as the first 
+parameter you&#39;ll be given back a <code>qentry_t</code> variable with all the variables stored
+in it, this is what we&#39;ll be doing. So far, the only time I&#39;ve seen a non-NULL value
+passed is for getting the parameters in a specific order.</p>
+<pre><code>qcgires_setcontenttype
+</code></pre><p>This function allows you to set the HTML header for the content type. qDecoder does
+<strong>not</strong> allow you to set any headers you want. Rather, it provides methods to set
+the content type and to send redirect headers. Most applications really don&#39;t need
+much more than this so it&#39;s a pragmatic choice and keeps the library code less
+complex and the API simple. We&#39;ll be using 2 content types in our scripts: <code>text/plain</code>
+and <code>application/JSON</code>. </p>
+<pre><code>qentry_t-&gt;getstr, qentry-&gt;free
+</code></pre><p>These two functions are two of the ways we can interact with a request object, when
+<code>qcgireq_parse</code> returns a struct of type <code>qentry_t</code> you can use <code>-&gt;getstr</code> to retrieve
+a variable from the parsed values, and use <code>-&gt;free</code> to release your request object.</p>
+<p>Here&#39;s some equalvalent code between PHP and qDecoder for some clarification:</p>
+<p><em>PHP</em></p>
+<pre><code>$myvar = $_GET[&#39;theVarInTheUrl&#39;];
+$mypvar = $_POST[&#39;theVarInThePostedData&#39;];
+</code></pre><p>and in <em>C</em></p>
+<pre><code>qentry_t *req = qcgireq_parse(NULL, 0);
+char * myvar = req-&gt;getstr(req, &quot;theVarInTheUrl&quot;, true);
+char * mypvar = req-&gt;getstr(req, &quot;theVarInThePostedData&quot;, false);
 req-&gt;free(req);
-</code></pre>
-   <p>
-    Not much difference besides having to parse the request. Also, you'll notice I 
-used
-    <code>
-     true
-    </code>
-    in one call to
-    <code>
-     -&gt;getstr
-    </code>
-    and not in the other. The third parameter
-to the
-    <code>
-     -&gt;getstr
-    </code>
-    method is whether or not the caller is responsible for freeing
-the string returned to them or not. If you're in a
-    <strong>
-     single
-    </strong>
-    thread environment
-then you'll safe to use false and you won't need to worry about
-    <code>
-     free
-    </code>
-    -ing the strings
-you from the request (so long as you free the request itself), but if you're working
-in a multithreaded application or fastCGI you'll want to use
-    <code>
-     true
-    </code>
-    and free them when you can.
-   </p>
-   <p>
-    Another difference to note is that we do not have seperate calls for
-    <code>
-     GET
-    </code>
-    or
-    <code>
-     POST
-    </code>
-    but in this case, because we've passed
-    <code>
-     0
-    </code>
-    as the second parameter to
-    <code>
-     qcgireq_parse
-    </code>
-    we get ALL values sent to us. If you wanted to make a couple of global variables for 
-yourself you could do this:
-   </p>
-   <pre><code>qentry_t *_POST = qcgireq_parse(NULL, Q_CGI_POST);
+</code></pre><p>Not much difference besides having to parse the request. Also, you&#39;ll notice I 
+used <code>true</code> in one call to <code>-&gt;getstr</code> and not in the other. The third parameter
+to the <code>-&gt;getstr</code> method is whether or not the caller is responsible for freeing
+the string returned to them or not. If you&#39;re in a <strong>single</strong> thread environment
+then you&#39;ll safe to use false and you won&#39;t need to worry about <code>free</code>-ing the strings
+you from the request (so long as you free the request itself), but if you&#39;re working
+in a multithreaded application or fastCGI you&#39;ll want to use <code>true</code> and free them when you can.</p>
+<p>Another difference to note is that we do not have seperate calls for <code>GET</code> or <code>POST</code>
+but in this case, because we&#39;ve passed <code>0</code> as the second parameter to <code>qcgireq_parse</code> 
+we get ALL values sent to us. If you wanted to make a couple of global variables for 
+yourself you could do this:</p>
+<pre><code>qentry_t *_POST = qcgireq_parse(NULL, Q_CGI_POST);
 qentry_t *_GET = qcgireq_parse(NULL, Q_CGI_GET);
-</code></pre>
-   <p>
-    and then use each one accordingly.
-   </p>
-   <p>
-    The last thing I want to touch on is an error message you might see in your logs 
-when attempting to debug your scripts:
-   </p>
-   <pre><code>Premature end of script headers
-</code></pre>
-   <p>
-    This means that you tried to output content before you set the content type of the 
-request. If you're looking at your code saying "no way, I set it right there!",
-then there's a good chance you're dealing with some undefined behavior in your 
-scripts, a variable isn't initialized properly, you've written somewhere you 
-shouldn't or you've read somewhere you definitely shouldn't have. All of these
-things will cause that error. And if you're lucky, you'll get a memory dump in 
-your error log for you to decipher.
-    <b>
-     This is why we tested our internal code
-in the last tutorial
-    </b>
-    , and it's always a good idea to do so. Also, use
-    <a href="http://valgrind.org/">
-     valgrind
-    </a>
-    to test everything you do! (more on that in a bit!)
-   </p>
-   <h4>
-    Your first qdecoder script
-   </h4>
-   <p>
-    We're going to make a heartbeat script. This is a standard API trick, it's simple
-to make, and when you want to know if your server is still functioning it's a good
-way to check. Some heartbears can be complicated, but our's is going to be super
-simple. We'll simply spit out the time and make sure the chat is initialized. 
-Check it out:
-   </p>
-   <p>
-    <em>
-     src/heartbeat.c
-    </em>
-   </p>
-   <pre><code>#include "config.h"
-#include "chatfile.h"
-#include "load_qdecoder.h"
+</code></pre><p>and then use each one accordingly.</p>
+<p>The last thing I want to touch on is an error message you might see in your logs 
+when attempting to debug your scripts: </p>
+<pre><code>Premature end of script headers
+</code></pre><p>This means that you tried to output content before you set the content type of the 
+request. If you&#39;re looking at your code saying &quot;no way, I set it right there!&quot;,
+then there&#39;s a good chance you&#39;re dealing with some undefined behavior in your 
+scripts, a variable isn&#39;t initialized properly, you&#39;ve written somewhere you 
+shouldn&#39;t or you&#39;ve read somewhere you definitely shouldn&#39;t have. All of these
+things will cause that error. And if you&#39;re lucky, you&#39;ll get a memory dump in 
+your error log for you to decipher. <b>This is why we tested our internal code
+in the last tutorial</b>, and it&#39;s always a good idea to do so. Also, use <a href="http://valgrind.org/">valgrind</a> 
+to test everything you do! (more on that in a bit!)</p>
+<h4>Your first qdecoder script</h4><p>We&#39;re going to make a heartbeat script. This is a standard API trick, it&#39;s simple
+to make, and when you want to know if your server is still functioning it&#39;s a good
+way to check. Some heartbears can be complicated, but our&#39;s is going to be super
+simple. We&#39;ll simply spit out the time and make sure the chat is initialized. 
+Check it out:</p>
+<p><em>src/heartbeat.c</em></p>
+<pre><code>#include &quot;config.h&quot;
+#include &quot;chatfile.h&quot;
+#include &quot;load_qdecoder.h&quot;
 
 int main(void){
 #ifdef ENABLE_FASTCGI
     while(FCGI_Accept() &gt;= 0) {
 #endif
     qentry_t *req = qcgireq_parse(NULL, Q_CGI_GET);
-    qcgires_setcontenttype(req, "application/JSON");
+    qcgires_setcontenttype(req, &quot;application/JSON&quot;);
 
     int initialized = chatInit();
 
-    printf("{ \"heartbeat\" : %ld, \"initialized\" : %s }", time(0), initialized ? "true" : "false");
+    printf(&quot;{ \&quot;heartbeat\&quot; : %ld, \&quot;initialized\&quot; : %s }&quot;, time(0), initialized ? &quot;true&quot; : &quot;false&quot;);
 
     // De-allocate memories
     req-&gt;free(req);
@@ -447,190 +196,76 @@ int main(void){
 #endif
     return 0;
 }
-</code></pre>
-   <p>
-    In order to compile this program we'll need to load the qdecoder library, which
-means updating our
-    <strong>
-     Makefile
-    </strong>
-    a little bit. Add the following to the top of
-your Makefile underneath the
-    <code>
-     LINKFLAGS
-    </code>
-   </p>
-   <pre><code>LIBS = lib/wolkykim-qdecoder-63888fc/src/libqdecoder.a
-</code></pre>
-   <p>
-    <strong>
-     Note
-    </strong>
-    :
-    <small>
-     If you've installed qdecoder somewhere other than lib, you'll need
+</code></pre><p>In order to compile this program we&#39;ll need to load the qdecoder library, which
+means updating our <strong>Makefile</strong> a little bit. Add the following to the top of
+your Makefile underneath the <code>LINKFLAGS</code></p>
+<pre><code>LIBS = lib/wolkykim-qdecoder-63888fc/src/libqdecoder.a
+</code></pre><p><strong>Note</strong>:<small>If you&#39;ve installed qdecoder somewhere other than lib, you&#39;ll need
 to reflect that in the definition above. I downloaded the source, untar-ed it, and
-placed it into a
-     <strong>
-      lib
-     </strong>
-     folder, you might have done something else.
-    </small>
-   </p>
-   <p>
-    And then change the line that looks like this:
-   </p>
-   <pre><code>${CC} ${LINKFLAGS} -o $@ $(patsubst bin/%.cgi, obj/%.o, $@ ) $(patsubst %, obj/%.o, $(INTERNAL)) 
-</code></pre>
-   <p>
-    to this:
-   </p>
-   <pre><code>${CC} ${LINKFLAGS} -o $@ $(patsubst bin/%.cgi, obj/%.o, $@ ) $(patsubst %, obj/%.o, $(INTERNAL)) ${LIBS}
-</code></pre>
-   <p>
-    Lastly, we need to define the header file
-    <strong>
-     load_qdecoder.h
-    </strong>
-    which we've mentioned
-at the top of the heartbeat script. Here's the header:
-   </p>
-   <p>
-    <em>
-     load_qdecoder.h
-    </em>
-   </p>
-   <pre><code>#ifndef __LOAD_QDECODER_H__
+placed it into a <strong>lib</strong> folder, you might have done something else.</small></p>
+<p>And then change the line that looks like this:</p>
+<pre><code>${CC} ${LINKFLAGS} -o $@ $(patsubst bin/%.cgi, obj/%.o, $@ ) $(patsubst %, obj/%.o, $(INTERNAL)) 
+</code></pre><p>to this:</p>
+<pre><code>${CC} ${LINKFLAGS} -o $@ $(patsubst bin/%.cgi, obj/%.o, $@ ) $(patsubst %, obj/%.o, $(INTERNAL)) ${LIBS}
+</code></pre><p>Lastly, we need to define the header file <strong>load_qdecoder.h</strong> which we&#39;ve mentioned
+at the top of the heartbeat script. Here&#39;s the header:</p>
+<p><em>load_qdecoder.h</em></p>
+<pre><code>#ifndef __LOAD_QDECODER_H__
 #define __LOAD_QDECODER_H__
 
 #ifdef ENABLE_FASTCGI
-    #include "fcgi_stdio.h"
+    #include &quot;fcgi_stdio.h&quot;
 #else
     #include &lt;stdio.h&gt;
 #endif
-#include "qdecoder.h"
+#include &quot;qdecoder.h&quot;
 
 #endif
-</code></pre>
-   <p>
-    The only thing special about this include is that we are once again checking if
-we're using fast CGI or not, and if we are, then we need to include the appropriate
-standard I/O library.
-   </p>
-   <p>
-    Now run
-    <code>
-     make
-    </code>
-    and if you've got everything set up correctly, you'll be awarded with an
-output like this:
-   </p>
-   <pre><code>make
+</code></pre><p>The only thing special about this include is that we are once again checking if
+we&#39;re using fast CGI or not, and if we are, then we need to include the appropriate
+standard I/O library.</p>
+<p>Now run <code>make</code> and if you&#39;ve got everything set up correctly, you&#39;ll be awarded with an
+output like this:</p>
+<pre><code>make
 cc -std=gnu99 -pedantic -Wall -Wextra -Werror -g -I./headers -c src/internal/chatfile.c -o obj/chatfile.o 
 cc -std=gnu99 -pedantic -Wall -Wextra -Werror -g -I./headers  -o bin/heartbeat.cgi  obj/heartbeat.o  obj/chatfile.o lib/wolkykim-qdecoder-63888fc/src/libqdecoder.a
-</code></pre>
-   <p>
-    If you run your compiled file you should receive a heartbeat response:
-   </p>
-   <pre><code>./bin/heartbeat.cgi
+</code></pre><p>If you run your compiled file you should receive a heartbeat response:</p>
+<pre><code>./bin/heartbeat.cgi
 Content-Type: application/JSON
 
-{ "heartbeat" : 1408487034, "initialized" : true }
-</code></pre>
-   <p>
-    and now that we're alive, we can get to the fun stuff! Wiring your internal functions
-from the previous tutorial into CGI scripts!
-   </p>
-   <h4>
-    Polling, Reading, and Writing with CGI and Internals
-   </h4>
-   <p>
-    We now have enough knowledge to implement every function which our chat server
-needs:
-   </p>
-   <ul>
-    <li>
-     Polling: Check if the user needs to refresh their copy of the conversation
-    </li>
-    <li>
-     Writing: Send a message to the chat server
-    </li>
-    <li>
-     Reading: Retrieve the current chat history
-    </li>
-   </ul>
-   <h4>
-    <em>
-     Polling
-    </em>
-   </h4>
-   <p>
-    Let's define our contract: The user will send us an epoch timestamp of when they last
+{ &quot;heartbeat&quot; : 1408487034, &quot;initialized&quot; : true }
+</code></pre><p>and now that we&#39;re alive, we can get to the fun stuff! Wiring your internal functions
+from the previous tutorial into CGI scripts!</p>
+<h4>Polling, Reading, and Writing with CGI and Internals</h4><p>We now have enough knowledge to implement every function which our chat server
+needs:</p>
+<ul>
+<li>Polling: Check if the user needs to refresh their copy of the conversation</li>
+<li>Writing: Send a message to the chat server</li>
+<li>Reading: Retrieve the current chat history</li>
+</ul>
+<h4><em>Polling</em></h4><p>Let&#39;s define our contract: The user will send us an epoch timestamp of when they last
 retrieved the history for the chat. If this timestamp is less than the last 
 modification time of our history file, we know that the history has been updated. 
-Sounds like the perfect opportunity to make use of our function
-    <code>
-     fileLastModifiedAfter
-    </code>
-    !
-   </p>
-   <p>
-    If you recall, the function has a signature like so:
-   </p>
-   <pre><code>int fileLastModifiedAfter(const char * filename, time_t lastCheckedTime);
-</code></pre>
-   <p>
-    we know the filename (It's a constant), and now we just need a
-    <code>
-     time_t
-    </code>
-    value. Well,
-we know that
-    <code>
-     time_t
-    </code>
-    is defined to be
-    <code>
-     int
-    </code>
-    ,
-    <code>
-     long int
-    </code>
-    ,
-    <code>
-     float
-    </code>
-    , or whatever your 
+Sounds like the perfect opportunity to make use of our function <code>fileLastModifiedAfter</code>!</p>
+<p>If you recall, the function has a signature like so:</p>
+<pre><code>int fileLastModifiedAfter(const char * filename, time_t lastCheckedTime);
+</code></pre><p>we know the filename (It&#39;s a constant), and now we just need a <code>time_t</code> value. Well,
+we know that <code>time_t</code> is defined to be <code>int</code>, <code>long int</code>, <code>float</code>, or whatever your 
 system/compiler feels like, so we need to be sure we store the result into something
-big enough. Then we'll convert it to the proper type and use it. This will also
-give us the chance to perform some data validation (it is
-    <em>
-     user
-    </em>
-    input after all).
-   </p>
-   <p>
-    For ease of use later on, let's say we'll send back a JSON object that looks like
-this:
-   </p>
-   <pre><code>{"updated": true /* or false */}
-</code></pre>
-   <p>
-    And with that, our contract is defined and signed with the outside word. Easily
-enough, we can translate our above specification into the following CGI script:
-   </p>
-   <p>
-    <em>
-     poll.c
-    </em>
-   </p>
-   <pre><code>#include "config.h"
-#include "chatfile.h"
-#include "load_qdecoder.h"
+big enough. Then we&#39;ll convert it to the proper type and use it. This will also
+give us the chance to perform some data validation (it is <em>user</em> input after all). </p>
+<p>For ease of use later on, let&#39;s say we&#39;ll send back a JSON object that looks like
+this:</p>
+<pre><code>{&quot;updated&quot;: true /* or false */}
+</code></pre><p>And with that, our contract is defined and signed with the outside word. Easily
+enough, we can translate our above specification into the following CGI script:</p>
+<p><em>poll.c</em></p>
+<pre><code>#include &quot;config.h&quot;
+#include &quot;chatfile.h&quot;
+#include &quot;load_qdecoder.h&quot;
 
 static void printUpdated(int updated){
-    printf("{\"updated\": %s}", updated ? "true" : "false");
+    printf(&quot;{\&quot;updated\&quot;: %s}&quot;, updated ? &quot;true&quot; : &quot;false&quot;);
 }
 
 int main(void){
@@ -642,18 +277,18 @@ int main(void){
     char * sentTime = NULL; 
     long long intermediateTime = 0L;
     time_t parsedTime = 0;
-    qcgires_setcontenttype(req, "application/json");
+    qcgires_setcontenttype(req, &quot;application/json&quot;);
 
-    sentTime = req-&gt;getstr(req, "date", true);
+    sentTime = req-&gt;getstr(req, &quot;date&quot;, true);
     if(sentTime == NULL){
         /* They did not send us a proper request. */
         printUpdated(0);
         goto end;
     }
 
-    int scanned = sscanf(sentTime, "%lld", &amp;intermediateTime);
+    int scanned = sscanf(sentTime, &quot;%lld&quot;, &amp;intermediateTime);
     if(scanned != 1){
-        /* Incorrect format likely since we couldn't parse it out */
+        /* Incorrect format likely since we couldn&#39;t parse it out */
         printUpdated(0);
         free(sentTime);
         goto end;
@@ -673,194 +308,72 @@ int main(void){
 #endif
     return 0;
 }
-</code></pre>
-   <p>
-    This source code is a bit longer than before, but simple. First, we ensure that
-the chat server is initialized with
-    <code>
-     chatInit
-    </code>
-    . I do this before the Fast CGI accept
+</code></pre><p>This source code is a bit longer than before, but simple. First, we ensure that
+the chat server is initialized with <code>chatInit</code>. I do this before the Fast CGI accept
 becuase we know that our initialization is just creating a file, which only really
-needs to be done once. Next, we parse our request for
-    <code>
-     GET
-    </code>
-    variables using the
-    <code>
-     Q_CGI_GET
-    </code>
-    flag to the
-    <code>
-     qcgireq_parse
-    </code>
-    function. We then ensure that the expected URL parameter
-of
-    <code>
-     date
-    </code>
-    was sent to us, convert it to a
-    <code>
-     time_t
-    </code>
-    type, and finally use our
-internal function
-    <code>
-     fileLastModifiedAfter
-    </code>
-    to check whether or not the file's been updated
-since the
-    <code>
-     parsedTime
-    </code>
-    .
-   </p>
-   <p>
-    You might be wondering? How do I test this script since it takes a URL parameter. 
-We don't have any URL's after all! It's simple my friends! CGI is really nothing
+needs to be done once. Next, we parse our request for <code>GET</code> variables using the <code>Q_CGI_GET</code> 
+flag to the <code>qcgireq_parse</code> function. We then ensure that the expected URL parameter
+of <code>date</code> was sent to us, convert it to a <code>time_t</code> type, and finally use our
+internal function <code>fileLastModifiedAfter</code> to check whether or not the file&#39;s been updated
+since the <code>parsedTime</code>.</p>
+<p>You might be wondering? How do I test this script since it takes a URL parameter. 
+We don&#39;t have any URL&#39;s after all! It&#39;s simple my friends! CGI is really nothing
 more than passing information along in Environmental variables, because of this
-it's easy to specify a variable on the command line and "pass" it to the script.
-For example here are some tests of our poll script:
-   </p>
-   <pre><code>make
-QUERY_STRING="date=no" ./bin/poll.cgi 
+it&#39;s easy to specify a variable on the command line and &quot;pass&quot; it to the script.
+For example here are some tests of our poll script:</p>
+<pre><code>make
+QUERY_STRING=&quot;date=no&quot; ./bin/poll.cgi 
     Content-Type: application/json
 
-    {"updated": false}
+    {&quot;updated&quot;: false}
 
-QUERY_STRING="date2=100000000000" ./bin/poll.cgi 
+QUERY_STRING=&quot;date2=100000000000&quot; ./bin/poll.cgi 
     Content-Type: application/json
 
-    {"updated": false}
+    {&quot;updated&quot;: false}
 
-QUERY_STRING="date=1" ./bin/poll.cgi 
+QUERY_STRING=&quot;date=1&quot; ./bin/poll.cgi 
     Content-Type: application/json
 
-    {"updated": true}
-</code></pre>
-   <p>
-    You can see that it works correctly, a non integral
-    <code>
-     date
-    </code>
-    or no
-    <code>
-     date
-    </code>
-    parameter 
-at all means we get
-    <code>
-     false
-    </code>
-    , and if we send in an actual time we'll get
-    <code>
-     true
-    </code>
-    .
+    {&quot;updated&quot;: true}
+</code></pre><p>You can see that it works correctly, a non integral <code>date</code> or no <code>date</code> parameter 
+at all means we get <code>false</code>, and if we send in an actual time we&#39;ll get <code>true</code>.
 Running these scripts from the command line and verifying their correctness is
-something you should always try to do, and we can update out
-    <strong>
-     Makefile
-    </strong>
-    to perform
-these tests for us:
-   </p>
-   <p>
-    <em>
-     Makefile
-    </em>
-   </p>
-   <pre><code>#...previous code above...
+something you should always try to do, and we can update out <strong>Makefile</strong> to perform
+these tests for us:</p>
+<p><em>Makefile</em></p>
+<pre><code>#...previous code above...
 test-poll:
-    QUERY_STRING="date=no" ${valgrind} ./bin/poll.cgi
-    QUERY_STRING="date=1" ${valgrind} ./bin/poll.cgi
-    QUERY_STRING="date=100000000000" ${valgrind} ./bin/poll.cgi
-    QUERY_STRING="" ${valgrind} ./bin/poll.cgi
-</code></pre>
-   <p>
-    And then running
-    <code>
-     make test-poll
-    </code>
-    will valgrind each of the scenarios we are trying 
-to test our poll script for. I
-    <strong>
-     highly
-    </strong>
-    recommend using
-    <a href="http://valgrind.org/">
-     valgrind
-    </a>
-    when testing
-for undefined behavior as it is
-    <em>
-     immensely
-    </em>
-    helpful in pretty much all circumstances.
-With this code we can now poll our chat server's file! Now we need to write to it:
-   </p>
-   <h4>
-    <em>
-     Writing
-    </em>
-   </h4>
-   <p>
-    In order for a chat server to work, people need to be able to chat! So we'll need
+    QUERY_STRING=&quot;date=no&quot; ${valgrind} ./bin/poll.cgi
+    QUERY_STRING=&quot;date=1&quot; ${valgrind} ./bin/poll.cgi
+    QUERY_STRING=&quot;date=100000000000&quot; ${valgrind} ./bin/poll.cgi
+    QUERY_STRING=&quot;&quot; ${valgrind} ./bin/poll.cgi
+</code></pre><p>And then running <code>make test-poll</code> will valgrind each of the scenarios we are trying 
+to test our poll script for. I <strong>highly</strong> recommend using <a href="http://valgrind.org/">valgrind</a> when testing
+for undefined behavior as it is <em>immensely</em> helpful in pretty much all circumstances.
+With this code we can now poll our chat server&#39;s file! Now we need to write to it:</p>
+<h4><em>Writing</em></h4><p>In order for a chat server to work, people need to be able to chat! So we&#39;ll need
 to define a protocol for user A to talk to user B by sending a message of some kind.
-Easy enough, let's say that with each submission the chatter sends their username
-and their message to the server within a
-    <code>
-     POST
-    </code>
-    request. We'll use the standard
-web format of
-    <code>
-     parameter=value&amp;param2=value2
-    </code>
-    to do this.
-   </p>
-   <p>
-    Specifically we'll send the parameter
-    <code>
-     u
-    </code>
-    for user and
-    <code>
-     m
-    </code>
-    for message. This means
-that within our script we'll parse the data like so:
-   </p>
-   <pre><code>char * user = req-&gt;getstr(req, "u", true);
-char * msg  = req-&gt;getstr(req, "m", true);
-</code></pre>
-   <p>
-    And then we'll need to somehow store it, lucky for us we have
-    <code>
-     updateConversation
-    </code>
-    from our internal's library to work with. The signature looks like this:
-   </p>
-   <pre><code>int updateConversation(const char * user, const char * addendum)
-</code></pre>
-   <p>
-    Gosh, it's like we designed it this way or something!
-   </p>
-   <p>
-    Enough chatter, let's get to the code:
-   </p>
-   <p>
-    <em>
-     chat.h
-    </em>
-   </p>
-   <pre><code>#include "config.h"
-#include "chatfile.h"
-#include "load_qdecoder.h"
+Easy enough, let&#39;s say that with each submission the chatter sends their username
+and their message to the server within a <code>POST</code> request. We&#39;ll use the standard
+web format of <code>parameter=value&amp;param2=value2</code> to do this.</p>
+<p>Specifically we&#39;ll send the parameter <code>u</code> for user and <code>m</code> for message. This means
+that within our script we&#39;ll parse the data like so:</p>
+<pre><code>char * user = req-&gt;getstr(req, &quot;u&quot;, true);
+char * msg  = req-&gt;getstr(req, &quot;m&quot;, true);
+</code></pre><p>And then we&#39;ll need to somehow store it, lucky for us we have <code>updateConversation</code> 
+from our internal&#39;s library to work with. The signature looks like this:</p>
+<pre><code>int updateConversation(const char * user, const char * addendum)
+</code></pre><p>Gosh, it&#39;s like we designed it this way or something! </p>
+<p>Enough chatter, let&#39;s get to the code:</p>
+<p><em>chat.h</em></p>
+<pre><code>#include &quot;config.h&quot;
+#include &quot;chatfile.h&quot;
+#include &quot;load_qdecoder.h&quot;
 
-/* Don't pass msg with newline or "'s! */
+/* Don&#39;t pass msg with newline or &quot;&#39;s! */
 static void printSuccess(int updated, char * msg){
-    printf("{\"success\": %s, \"message\" : \"%s\"}", updated ? "true" : "false", msg);
+    printf(&quot;{\&quot;success\&quot;: %s, \&quot;message\&quot; : \&quot;%s\&quot;}&quot;, updated ? &quot;true&quot; : &quot;false&quot;, msg);
 }
 
 int main(void){
@@ -871,34 +384,34 @@ int main(void){
     qentry_t *req = qcgireq_parse(NULL, Q_CGI_POST);
     char * user = NULL; 
     char * msg = NULL;
-    qcgires_setcontenttype(req, "application/json");
+    qcgires_setcontenttype(req, &quot;application/json&quot;);
 
-    user = req-&gt;getstr(req, "u", true);
+    user = req-&gt;getstr(req, &quot;u&quot;, true);
     if(user == NULL){
         /* They did not send us a proper request. */
-        printSuccess(0, "Invalid Request");
+        printSuccess(0, &quot;Invalid Request&quot;);
         goto end;
     }
     /* Limit the user name length */
     int i = 0;
     int maxlength = 21;
-    for (i = 0; i &lt; maxlength &amp;&amp; user[i] != '\0'; ++i)
+    for (i = 0; i &lt; maxlength &amp;&amp; user[i] != &#39;\0&#39;; ++i)
         ;
     if(i == maxlength){
-        printSuccess(0, "Username too long");
+        printSuccess(0, &quot;Username too long&quot;);
         free(user);
         goto end;
     }
 
-    msg = req-&gt;getstr(req, "m", true);
+    msg = req-&gt;getstr(req, &quot;m&quot;, true);
     if(msg == NULL){
-        printSuccess(0, "Invalid Request");
+        printSuccess(0, &quot;Invalid Request&quot;);
         free(user);
         goto end;
     }
 
     int updated = updateConversation(user, msg);
-    printSuccess(updated, "Message has been sent");
+    printSuccess(updated, &quot;Message has been sent&quot;);
 
     free(user);
     free(msg);
@@ -910,151 +423,64 @@ int main(void){
 #endif
     return 0;
 }
-</code></pre>
-   <p>
-    You'll notice this is exceptionally similar to the polling process, except that 
+</code></pre><p>You&#39;ll notice this is exceptionally similar to the polling process, except that 
 we do our validations a little differently. First off, there is none for the
 chat message itself. Why? Because going into the minutiae of what we would actually
 have to watch for is WAY too much for this blog post. Second, we are limiting the
 length of the username. Why? Because I figured we had to do some type of validation 
-for this script. And this code, in my estimation, is more protective than using
-    <code>
-     strlen
-    </code>
-    . 
-Why? Because
-    <code>
-     strlen
-    </code>
-    relies on the string being ended properly, and we're dealing
+for this script. And this code, in my estimation, is more protective than using <code>strlen</code>. 
+Why? Because <code>strlen</code> relies on the string being ended properly, and we&#39;re dealing
 with user input. So we assume nothing and simply count characters while checking
-for the end of the string.
-   </p>
-   <p>
-   </p>
-   <hr/>
-   By this point you're probably wondering: "Why does he keep using
-   <code>
-    goto
-   </code>
-   ?"
-   <p>
-    And the answer is, because it makes my code cleaner. Now before you declare a 
-crusade on me for bad practice and etc, let me explain to you why
-    <code>
-     goto
-    </code>
-    is good
-in this use case:
-   </p>
-   <ul>
-    <li>
-     <code>
-      goto
-     </code>
-     is a local jump, it's not an actual long jump statement
-    </li>
-    <li>
-     we prevent a lot of conditional branching and repeated code by using it
-    </li>
-    <li>
-     it's very readable in my opinion since all the scripts are small enough to view at once
-    </li>
-    <li>
-     <code>
-      goto
-     </code>
-     is great for error handling since C has no conditionals
-    </li>
-   </ul>
-   <p>
-    The script above can be rewritten to not use
-    <code>
-     goto
-    </code>
-    , if you want to repeat code and
+for the end of the string.</p>
+<p><hr>
+By this point you&#39;re probably wondering: &quot;Why does he keep using <code>goto</code>?&quot;</p>
+<p>And the answer is, because it makes my code cleaner. Now before you declare a 
+crusade on me for bad practice and etc, let me explain to you why <code>goto</code> is good
+in this use case:</p>
+<ul>
+<li><code>goto</code> is a local jump, it&#39;s not an actual long jump statement</li>
+<li>we prevent a lot of conditional branching and repeated code by using it</li>
+<li>it&#39;s very readable in my opinion since all the scripts are small enough to view at once</li>
+<li><code>goto</code> is great for error handling since C has no conditionals</li>
+</ul>
+<p>The script above can be rewritten to not use <code>goto</code>, if you want to repeat code and
 nest a bunch of if conditionals inside one another. Also, the flow of the code is
-logicaly structured as well.
-   </p>
-   <hr/>
-   <p>
-    Next up, how to test the above script? When you send a
-    <code>
-     POST
-    </code>
-    request to a server, 
+logicaly structured as well.</p>
+<hr>
+
+<p>Next up, how to test the above script? When you send a <code>POST</code> request to a server, 
 a few environmental variables are set pertaining to the Content-Length, the Request
 Method, and various other things. The most important thing to remember is that the
 data comes in on stdin. So to test it, we need to set the proper variables and then
-pipe data into our script. You can do so by running the following:
-   </p>
-   <pre><code>CONTENT_TYPE="application/x-www-form-urlencoded" REQUEST_METHOD=POST CONTENT_LENGTH=11 ./bin/chat.cgi &lt;&lt;&lt; "u=test&amp;m=hi"
-</code></pre>
-   <p>
-    This will send a message of "hi" from the user "test" into the chat history in the
-    <code>
-     DATA_FILE
-    </code>
-    . The
-    <code>
-     CONTENT_LENGTH
-    </code>
-    is
-    <strong>
-     extremely
-    </strong>
-    important for the inner workings
-of qdecoder, and if you're testing your scripts out then make sure to set this right.
-Also, when testing this out, I found that only the right
-    <code>
-     CONTENT_TYPE
-    </code>
-    (application/x-www-form-urlencoded) would allow
-qdecoder to work from the cli for postings. You can add the following to your
-    <strong>
-     Makefile
-    </strong>
-    in order to automate some tests of your script:
-   </p>
-   <pre><code>test-chat:
-    CONTENT_TYPE="application/x-www-form-urlencoded" REQUEST_METHOD=POST CONTENT_LENGTH=7 ${valgrind} ./bash bin/chat.cgi &lt;&lt;&lt; "u=12345" 
-    CONTENT_TYPE="application/x-www-form-urlencoded" REQUEST_METHOD=POST CONTENT_LENGTH=23 ${valgrind} ./bin/chat.cgi &lt;&lt;&lt; "u=123456789012345678901"
-    CONTENT_TYPE="application/x-www-form-urlencoded" REQUEST_METHOD=POST CONTENT_LENGTH=11 ${valgrind} ./bin/chat.cgi &lt;&lt;&lt; "u=test&amp;m=hi"
-</code></pre>
-   <p>
-    <strong>
-     Note:
-    </strong>
-    <small>
-     You might need to set #!/bin/bash at the top of the Makefile, or change the symlink of /bin/sh to /bin/bash instead of /bin/dash if you have problems running
-     <code>
-      make test-chat
-     </code>
-    </small>
-   </p>
-   <h4>
-    <em>
-     Reading
-    </em>
-   </h4>
-   <p>
-    And last but not least, we have the script for reading the history file out to the
-world:
-   </p>
-   <pre><code>#include "config.h"
-#include "chatfile.h"
-#include "load_qdecoder.h"
+pipe data into our script. You can do so by running the following:</p>
+<pre><code>CONTENT_TYPE=&quot;application/x-www-form-urlencoded&quot; REQUEST_METHOD=POST CONTENT_LENGTH=11 ./bin/chat.cgi &lt;&lt;&lt; &quot;u=test&amp;m=hi&quot;
+</code></pre><p>This will send a message of &quot;hi&quot; from the user &quot;test&quot; into the chat history in the
+<code>DATA_FILE</code>. The <code>CONTENT_LENGTH</code> is <strong>extremely</strong> important for the inner workings
+of qdecoder, and if you&#39;re testing your scripts out then make sure to set this right.
+Also, when testing this out, I found that only the right <code>CONTENT_TYPE</code> (application/x-www-form-urlencoded) would allow
+qdecoder to work from the cli for postings. You can add the following to your <strong>Makefile</strong>
+in order to automate some tests of your script:</p>
+<pre><code>test-chat:
+    CONTENT_TYPE=&quot;application/x-www-form-urlencoded&quot; REQUEST_METHOD=POST CONTENT_LENGTH=7 ${valgrind} ./bash bin/chat.cgi &lt;&lt;&lt; &quot;u=12345&quot; 
+    CONTENT_TYPE=&quot;application/x-www-form-urlencoded&quot; REQUEST_METHOD=POST CONTENT_LENGTH=23 ${valgrind} ./bin/chat.cgi &lt;&lt;&lt; &quot;u=123456789012345678901&quot;
+    CONTENT_TYPE=&quot;application/x-www-form-urlencoded&quot; REQUEST_METHOD=POST CONTENT_LENGTH=11 ${valgrind} ./bin/chat.cgi &lt;&lt;&lt; &quot;u=test&amp;m=hi&quot;
+</code></pre><p><strong>Note:</strong><small>You might need to set #!/bin/bash at the top of the Makefile, or change the symlink of /bin/sh to /bin/bash instead of /bin/dash if you have problems running <code>make test-chat</code></small></p>
+<h4><em>Reading</em></h4><p>And last but not least, we have the script for reading the history file out to the
+world:</p>
+<pre><code>#include &quot;config.h&quot;
+#include &quot;chatfile.h&quot;
+#include &quot;load_qdecoder.h&quot;
 
 int main(void){
 #ifdef ENABLE_FASTCGI
     while(FCGI_Accept() &gt;= 0) {
 #endif
     qentry_t *req = qcgireq_parse(NULL, Q_CGI_GET);
-    qcgires_setcontenttype(req, "text/plain");
+    qcgires_setcontenttype(req, &quot;text/plain&quot;);
 
     FILE * fp =  getChatFile();
     if(fp == NULL){
-        printf("%s\n", "Could not retrieve chat history. Please try again later");
+        printf(&quot;%s\n&quot;, &quot;Could not retrieve chat history. Please try again later&quot;);
         goto end;
     }
 
@@ -1062,7 +488,7 @@ int main(void){
     char c;
     while( (cOrEOF = fgetc(fp)) != EOF){
         c = (char)cOrEOF;
-        printf("%c", c);
+        printf(&quot;%c&quot;, c);
     }
     fclose(fp);
 
@@ -1073,77 +499,28 @@ int main(void){
 #endif
     return 0;
 }
-</code></pre>
-   <p>
-    This script is straightforward, we retrieve our chat history with the internal
-function
-    <code>
-     getChatFile
-    </code>
-    and then output to the world as plain text. If we can't 
+</code></pre><p>This script is straightforward, we retrieve our chat history with the internal
+function <code>getChatFile</code> and then output to the world as plain text. If we can&#39;t 
 read the file we simply print out an error message. An observant reader will 
-notice that we're not calling
-    <code>
-     chatInit
-    </code>
-    anywhere. We know that
-    <code>
-     chatInit
-    </code>
-    simply
-creates our history file, which we're going to check for anyway when we try to
-read it. So there's no point in checking twice and we skip the call to initialize.
-   </p>
-   <p>
-    Since we're storing the chat in the
-    <strong>
-     tmp
-    </strong>
-    directory (if you're using the defaults
+notice that we&#39;re not calling <code>chatInit</code> anywhere. We know that <code>chatInit</code> simply
+creates our history file, which we&#39;re going to check for anyway when we try to
+read it. So there&#39;s no point in checking twice and we skip the call to initialize.</p>
+<p>Since we&#39;re storing the chat in the <strong>tmp</strong> directory (if you&#39;re using the defaults
 from last tutorial and on a *nix system.) the chat will be cleared whenever you
 shut off your computer at least, so people need to either poll or check the heartbeat
-of your server to make sure it's initialized.
-   </p>
-   <p>
-    Since the read script is stateless, you don't need to worry about sending any environmental
-variables when trying to test it and can simply run it with
-    <code>
-     ./bin/read.cgi
-    </code>
-    after
-a
-    <code>
-     make
-    </code>
-    command.
-   </p>
-   <p>
-    And that's it for the CGI scripts! Now we just need to set up a server:
-   </p>
-   <h4>
-    Apache Configuration
-   </h4>
-   <p>
-    So now all that we have to do is setup a new virtual host in our apache configuration
-to wrap our CGI scripts. First off, if you're working locally, add this line to
-yours hosts file (/etc/hosts for *nix, %systemroot%\system32\drivers\etc\ for windows)
-   </p>
-   <p>
-    <em>
-     /etc/hosts
-    </em>
-   </p>
-   <pre><code>127.0.0.1 www.chat.dev
-</code></pre>
-   <p>
-    and next in your apache configuration file:
-   </p>
-   <p>
-    <em>
-     /sites-available/default
-    </em>
-   </p>
-   <pre><code>&lt;VirtualHost *:80&gt;
+of your server to make sure it&#39;s initialized.</p>
+<p>Since the read script is stateless, you don&#39;t need to worry about sending any environmental
+variables when trying to test it and can simply run it with <code>./bin/read.cgi</code> after
+a <code>make</code> command.</p>
+<p>And that&#39;s it for the CGI scripts! Now we just need to set up a server:</p>
+<h4>Apache Configuration</h4><p>So now all that we have to do is setup a new virtual host in our apache configuration
+to wrap our CGI scripts. First off, if you&#39;re working locally, add this line to
+yours hosts file (/etc/hosts for *nix, %systemroot%\system32\drivers\etc\ for windows)</p>
+<p><em>/etc/hosts</em></p>
+<pre><code>127.0.0.1 www.chat.dev
+</code></pre><p>and next in your apache configuration file:</p>
+<p><em>/sites-available/default</em></p>
+<pre><code>&lt;VirtualHost *:80&gt;
         ServerAdmin webmaster@localhost
         ServerName www.chat.dev
         DocumentRoot /path/to/this/repository/tutorialchat/www
@@ -1167,231 +544,128 @@ yours hosts file (/etc/hosts for *nix, %systemroot%\system32\drivers\etc\ for wi
         LogLevel warn
 
 &lt;/VirtualHost&gt;
-</code></pre>
-   <p>
-    Note you'll need to change the path's inside the configuration to match your own
-server, but it's pretty easy to do. What we've done is said that when someone goes
-to
-    <code>
-     /chat/&lt;file&gt;.cgi
-    </code>
-    we'll let apache
-    <code>
-     ExecCGI
-    </code>
-    and run the script there. This
-means that
-    <strong>
-     anything
-    </strong>
-    in that directory ending in
-    <strong>
-     .cgi
-    </strong>
-    will be able to be
-seen from the outside world.
-   </p>
-   <p>
-    Before you restart/start your webserver we need to make the document root exist.
-   </p>
-   <pre><code>mkdir wwww
-echo "&lt;html&gt;&lt;body&gt;&lt;h1&gt;I'm alive. Yay." &gt; www/index.html
-</code></pre>
-   <p>
-    now start or restart your apache and navigate to
-    <code>
-     http://www.chat.dev
-    </code>
-    and you'll
-see the words "I'm alive. Yay." on the screen. If you navigate to
-    <code>
-     http://www.chat.dev/chat/heartbeat.cgi
-    </code>
-    you should be greeted with the familiar:
-   </p>
-   <pre><code>{ "heartbeat" : 1408623802, "initialized" : true }
-</code></pre>
-   <p>
-    which let's you know that your chat server is up and ready for an interface.
-   </p>
-   <h4>
-    What's next
-   </h4>
-   <p>
-    With that, you have a fully operation chat server. Kind of. It stills needs a web
+</code></pre><p>Note you&#39;ll need to change the path&#39;s inside the configuration to match your own
+server, but it&#39;s pretty easy to do. What we&#39;ve done is said that when someone goes
+to <code>/chat/&lt;file&gt;.cgi</code> we&#39;ll let apache <code>ExecCGI</code> and run the script there. This
+means that <strong>anything</strong> in that directory ending in <strong>.cgi</strong> will be able to be
+seen from the outside world.</p>
+<p>Before you restart/start your webserver we need to make the document root exist.</p>
+<pre><code>mkdir wwww
+echo &quot;&lt;html&gt;&lt;body&gt;&lt;h1&gt;I&#39;m alive. Yay.&quot; &gt; www/index.html
+</code></pre><p>now start or restart your apache and navigate to <code>http://www.chat.dev</code> and you&#39;ll
+see the words &quot;I&#39;m alive. Yay.&quot; on the screen. If you navigate to <code>http://www.chat.dev/chat/heartbeat.cgi</code>
+you should be greeted with the familiar:</p>
+<pre><code>{ &quot;heartbeat&quot; : 1408623802, &quot;initialized&quot; : true }
+</code></pre><p>which let&#39;s you know that your chat server is up and ready for an interface.</p>
+<h4>What&#39;s next</h4><p>With that, you have a fully operation chat server. Kind of. It stills needs a web
 interface but that will come in the next tutorial. For now if you want to be sure
-that everything is working (becuase a heartbeat wasn't enough), make your index
-file use this markup instead:
-   </p>
-   <pre><code>&lt;html&gt;&lt;body&gt;&lt;h1&gt;I'm alive. Yay.
-&lt;iframe src="/chat/read.cgi"&gt;&lt;/iframe&gt;
-</code></pre>
-   <p>
-    Run the following commands to get something to appear in the chat box:
-   </p>
-   <pre><code>make test-internal
+that everything is working (becuase a heartbeat wasn&#39;t enough), make your index
+file use this markup instead:</p>
+<pre><code>&lt;html&gt;&lt;body&gt;&lt;h1&gt;I&#39;m alive. Yay.
+&lt;iframe src=&quot;/chat/read.cgi&quot;&gt;&lt;/iframe&gt;
+</code></pre><p>Run the following commands to get something to appear in the chat box:</p>
+<pre><code>make test-internal
 ./bin/test-chat.out
 refresh your browser page
-</code></pre>
-   <p>
-    We'll get into HTML, Javascript, and a small amount of CSS for the front end in 
-the next tutorial! I'll show you how to setup a
-    <a href="http://harpjs.com">
-     Harp
-    </a>
-    project and we'll test
-the full application. See you then!
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="cgi-c-harp-3">
-       Let's make a chat server, Part 3
-      </a>
-     </li>
-     <li>
-      <a href="cgi-c-harp-1">
-       Let's make a chat server, Part 1
-      </a>
-     </li>
-     <li>
-      <a href="dynamically-including-js">
-       Loading JS dynamically in Harp
-      </a>
-     </li>
-     <li>
-      <a href="adding-scheduled-posts">
-       Adding Scheduled Posts to your Harp Site
-      </a>
-     </li>
-     <li>
-      <a href="autoload-harp-css-js">
-       Autoload your CSS and Javascript in Harp
-      </a>
-     </li>
-     <li>
-      <a href="free-item-in-authorize-line-item-invalid">
-       Authorize LineItem's, mixed free and paid for causes error
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+</code></pre><p>We&#39;ll get into HTML, Javascript, and a small amount of CSS for the front end in 
+the next tutorial! I&#39;ll show you how to setup a <a href="http://harpjs.com">Harp</a> project and we&#39;ll test
+the full application. See you then!</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=cgi-c-harp-3>Let&#39;s make a chat server, Part 3</a></li><li><a href=cgi-c-harp-1>Let&#39;s make a chat server, Part 1</a></li><li><a href=dynamically-including-js>Loading JS dynamically in Harp</a></li><li><a href=adding-scheduled-posts>Adding Scheduled Posts to your Harp Site</a></li><li><a href=autoload-harp-css-js>Autoload your CSS and Javascript in Harp</a></li><li><a href=free-item-in-authorize-line-item-invalid>Authorize LineItem&#39;s, mixed free and paid for causes error</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <span>
-       Twitter
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<span>Twitter</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

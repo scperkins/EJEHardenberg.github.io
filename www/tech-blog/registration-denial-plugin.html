@@ -1,34 +1,45 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Plugin to Ban users and deny registration in WordPress
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="An expansion on the last blog post, a simple plugin to help moderate your site" name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="moderation,wordpress,ban,deny,track,spam,mitigation" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Plugin to Ban users and deny registration in WordPress" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="An expansion on the last blog post, a simple plugin to help moderate your site" property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Plugin to Ban users and deny registration in WordPress" name="twitter:title"/>
-  <meta content="An expansion on the last blog post, a simple plugin to help moderate your site" name="twitter:description"/>
-  <meta content="//static.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet" type="text/css"/>
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-Yk6fMSCCTCPyHYaY4h661zZEU59LSxS2pX0b+B1jG+4atCz2yx/YhiimkVlATCwk" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Plugin to Ban users and deny registration in WordPress</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="An expansion on the last blog post, a simple plugin to help moderate your site" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="moderation,wordpress,ban,deny,track,spam,mitigation"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Plugin to Ban users and deny registration in WordPress" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="An expansion on the last blog post, a simple plugin to help moderate your site" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Plugin to Ban users and deny registration in WordPress" />
+    
+    <meta name="twitter:description" content="An expansion on the last blog post, a simple plugin to help moderate your site" />
+    
+    <meta name="twitter:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -36,280 +47,149 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Plugin to Ban users and deny registration in WordPress
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Simple Email Filter and Banning Plugin for WordPress
-   </h3>
-   <p>
-    In my
-    <a href="registration-denial-wordpress">
-     last post
-    </a>
-    I showed you how to make a really simple, programmatically 
-maintained filter to deny registration on your WordPress sites. But, if you're 
-the average user, you probably don't want to dive into source code when you're 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Plugin to Ban users and deny registration in WordPress</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Simple Email Filter and Banning Plugin for WordPress</h3><p>In my <a href="registration-denial-wordpress">last post</a> I showed you how to make a really simple, programmatically 
+maintained filter to deny registration on your WordPress sites. But, if you&#39;re 
+the average user, you probably don&#39;t want to dive into source code when you&#39;re 
 updating a list of spam mails, especially since they might change often or you
-just like a graphical interface for your administrative work.
-   </p>
-   <p>
-    Either way,
-    <a href="https://github.com/EdgeCaseBerg/simple-email-filter">
-     I've got you covered
-    </a>
-    with my new plugin. I'm calling it
-    <strong>
-     Simple 
-Email Filter &amp; User Ban
-    </strong>
-    , a lengthy, but correct name.
-   </p>
-   <p>
-    Here's how it works, first up you install and activate the plugin like you do 
-any other WordPress plugin. Then you'll notice a couple of new things.
-   </p>
-   <h4>
-    In the
-    <strong>
-     Users
-    </strong>
-    listing you'll have a new column and new actions
-   </h4>
-   <p>
-    You'll be able to see the last known IP Address of a user who has logged into 
-your site. This is useful for using
-    <a href="http://www.cyberciti.biz/faq/linux-howto-check-ip-blocked-against-iptables/">
-     iptables
-    </a>
-    to drop packets from malicious 
-users who don't know how to evade those types of things.
-   </p>
-   <p>
-    <img src="/images/tech-blog/sef/ipaddr.png" width="700px"/>
-   </p>
-   <p>
-    You'll also notice that when you hover over a user you'll be able to click an 
-action button to ban or unban that user.
-   </p>
-   <p>
-    <img src="/images/tech-blog/sef/unban.png"/>
-    <img src="/images/tech-blog/sef/ban.png"/>
-   </p>
-   <p>
-    Once banned, whenever they try to log in they'll get a nice message that you can 
-set in your
-    <strong>
-     wp-config
-    </strong>
-    file like this:
-   </p>
-   <pre><code>define('SEF_BAN_MESSAGE', 'It seem\'s you\'ve messed up and are banned, contact the site owner');
-</code></pre>
-   <p>
-    And it will look something like this on their site:
-   </p>
-   <p>
-    <img src="/images/tech-blog/sef/banned.jpg"/>
-   </p>
-   <h4>
-    A new options page is available for you!
-   </h4>
-   <p>
-    In the Registration Denial's setting page, you'll be able to manage the list of 
-domain and strings that you won't accept registrations from. This means no more 
-managing the programmatic list and using a simple list interface instead
-   </p>
-   <p>
-    <img src="/images/tech-blog/sef/settings.png"/>
-   </p>
-   <p>
-    Once you've listed the domains you count as spam, you'll be able to live in 
-moderate peace while the spam users will only see messages like this:
-   </p>
-   <p>
-    <img src="/images/tech-blog/sef/denied.png"/>
-   </p>
-   <p>
-    As with the ban message, you can set the denial message from
-    <strong>
-     wp-config
-    </strong>
-    as well:
-   </p>
-   <pre><code>define('SEF_DENY_MESSAGE', 'Registration halted, please contact support.');
-</code></pre>
-   <h4>
-    And that's it!
-   </h4>
-   <p>
-    Enjoy! If you have ideas or enhancements feel free to send me a pull request on
-    <a href="https://github.com/EdgeCaseBerg/simple-email-filter">
-     github
-    </a>
-    , and if you have any problems you can open an issue there. The source 
+just like a graphical interface for your administrative work. </p>
+<p>Either way, <a href="https://github.com/EdgeCaseBerg/simple-email-filter">I&#39;ve got you covered</a> with my new plugin. I&#39;m calling it <strong> Simple 
+Email Filter &amp; User Ban </strong>, a lengthy, but correct name.</p>
+<p>Here&#39;s how it works, first up you install and activate the plugin like you do 
+any other WordPress plugin. Then you&#39;ll notice a couple of new things.</p>
+<h4>In the <strong>Users</strong> listing you&#39;ll have a new column and new actions</h4><p>You&#39;ll be able to see the last known IP Address of a user who has logged into 
+your site. This is useful for using <a href="http://www.cyberciti.biz/faq/linux-howto-check-ip-blocked-against-iptables/">iptables</a> to drop packets from malicious 
+users who don&#39;t know how to evade those types of things.</p>
+<p><img src="/images/tech-blog/sef/ipaddr.png" width="700px"></p>
+<p>You&#39;ll also notice that when you hover over a user you&#39;ll be able to click an 
+action button to ban or unban that user.</p>
+<p><img src="/images/tech-blog/sef/unban.png">
+<img src="/images/tech-blog/sef/ban.png"></p>
+<p>Once banned, whenever they try to log in they&#39;ll get a nice message that you can 
+set in your <strong>wp-config</strong> file like this:</p>
+<pre><code>define(&#39;SEF_BAN_MESSAGE&#39;, &#39;It seem\&#39;s you\&#39;ve messed up and are banned, contact the site owner&#39;);
+</code></pre><p>And it will look something like this on their site:</p>
+<p><img src="/images/tech-blog/sef/banned.jpg"></p>
+<h4>A new options page is available for you!</h4><p>In the Registration Denial&#39;s setting page, you&#39;ll be able to manage the list of 
+domain and strings that you won&#39;t accept registrations from. This means no more 
+managing the programmatic list and using a simple list interface instead</p>
+<p><img src="/images/tech-blog/sef/settings.png"></p>
+<p>Once you&#39;ve listed the domains you count as spam, you&#39;ll be able to live in 
+moderate peace while the spam users will only see messages like this:</p>
+<p><img src="/images/tech-blog/sef/denied.png"></p>
+<p>As with the ban message, you can set the denial message from <strong>wp-config</strong> as well:</p>
+<pre><code>define(&#39;SEF_DENY_MESSAGE&#39;, &#39;Registration halted, please contact support.&#39;);
+</code></pre><h4>And that&#39;s it!</h4><p>Enjoy! If you have ideas or enhancements feel free to send me a pull request on 
+<a href="https://github.com/EdgeCaseBerg/simple-email-filter">github</a>, and if you have any problems you can open an issue there. The source 
 code is Open and freely available for modification, though I of course appreciate 
-a backlink and a mention if you use my code.
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="mysql-upstart-without-purge">
-       Stopping mysql Upstart issues without reinstalling
-      </a>
-     </li>
-     <li>
-      <a href="registration-denial-wordpress">
-       Deny spam emails from registering in WordPress
-      </a>
-     </li>
-     <li>
-      <a href="installing-gentoo-virtualbox">
-       Attempting to install Gentoo into VirtualBox
-      </a>
-     </li>
-     <li>
-      <a href="exifstrip-context-nautilus">
-       Context Menu Button to remove Exif Metadata
-      </a>
-     </li>
-     <li>
-      <a href="chromium-seccomp-dmesg-errors">
-       Fixing Chromium's seccomp logging to dmesg
-      </a>
-     </li>
-     <li>
-      <a href="change-wp-login-wp">
-       Change Wordpress login URL
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+a backlink and a mention if you use my code.</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=mysql-upstart-without-purge>Stopping mysql Upstart issues without reinstalling</a></li><li><a href=registration-denial-wordpress>Deny spam emails from registering in WordPress</a></li><li><a href=installing-gentoo-virtualbox>Attempting to install Gentoo into VirtualBox</a></li><li><a href=exifstrip-context-nautilus>Context Menu Button to remove Exif Metadata</a></li><li><a href=chromium-seccomp-dmesg-errors>Fixing Chromium&#39;s seccomp logging to dmesg</a></li><li><a href=change-wp-login-wp>Change Wordpress login URL</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <span>
-       Twitter
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<span>Twitter</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

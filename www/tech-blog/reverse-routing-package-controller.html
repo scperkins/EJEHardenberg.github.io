@@ -1,34 +1,45 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Reverse routing with non-standard controller packages in Play
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="Having a different package hierarchy than that shown in the play documentation can make one wonder how to link to actions in templates. This is how you do it!" name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="playframework,routing,template links,controller actions,reverse routing,template,nonstandard,package" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Reverse routing with non-standard controller packages in Play" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="Having a different package hierarchy than that shown in the play documentation can make one wonder how to link to actions in templates. This is how you do it!" property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Reverse routing with non-standard controller packages in Play" name="twitter:title"/>
-  <meta content="Having a different package hierarchy than that shown in the play documentation can make one wonder how to link to actions in templates. This is how you do it!" name="twitter:description"/>
-  <meta content="//static.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet" type="text/css"/>
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-Yk6fMSCCTCPyHYaY4h661zZEU59LSxS2pX0b+B1jG+4atCz2yx/YhiimkVlATCwk" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Reverse routing with non-standard controller packages in Play</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Having a different package hierarchy than that shown in the play documentation can make one wonder how to link to actions in templates. This is how you do it!" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="playframework,routing,template links,controller actions,reverse routing,template,nonstandard,package"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Reverse routing with non-standard controller packages in Play" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Having a different package hierarchy than that shown in the play documentation can make one wonder how to link to actions in templates. This is how you do it!" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Reverse routing with non-standard controller packages in Play" />
+    
+    <meta name="twitter:description" content="Having a different package hierarchy than that shown in the play documentation can make one wonder how to link to actions in templates. This is how you do it!" />
+    
+    <meta name="twitter:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -36,60 +47,29 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Reverse routing with non-standard controller packages in Play
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Reverse routing with Packaged Controllers in Play
-   </h3>
-   <h4>
-    TL;DR;
-   </h4>
-   <p>
-    <strong>
-     Use the fully qualified package name of your controller package followed by routes, then your class and method to perform reverse routing in a template to a controller action
-    </strong>
-   </p>
-   <h4>
-    Reverse Routing to Controller Actions in Play 2.3 templates
-   </h4>
-   <p>
-    Coming from an enterprise java world, you may be used to seeing long package 
-names like:
-    <code>
-     com.example.some.thing.and.stuff
-    </code>
-    , after all,
-    <a href="https://github.com/EnterpriseQualityCoding/FizzBuzzEnterpriseEdition">
-     it's enterprise
-    </a>
-    and that means we can't have conflicts with any other namespaces. So we use 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Reverse routing with non-standard controller packages in Play</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Reverse routing with Packaged Controllers in Play</h3><h4>TL;DR;</h4><p><strong> Use the fully qualified package name of your controller package followed by routes, then your class and method to perform reverse routing in a template to a controller action</strong></p>
+<h4>Reverse Routing to Controller Actions in Play 2.3 templates</h4><p>Coming from an enterprise java world, you may be used to seeing long package 
+names like: <code>com.example.some.thing.and.stuff</code>, after all, <a href="https://github.com/EnterpriseQualityCoding/FizzBuzzEnterpriseEdition">it&#39;s enterprise</a> 
+and that means we can&#39;t have conflicts with any other namespaces. So we use 
 long crazy package names. Of course, we use long package names for other 
-reasons, but that's my favorite.
-   </p>
-   <p>
-    In
-    <a href="https://www.playframework.com">
-     Play
-    </a>
-    , the convention for controllers is to simply be in the package called
-    <code>
-     controllers
-    </code>
-    . And so long as you obey this convention, you won't run into any 
-issues. Of course, I wouldn't be writing this blog post if I felt like obeying 
-conventions! Let's say you have a controller enterprisely namespaced:
-   </p>
-   <pre><code>package com.ethanjoachimeldridge.scala.controllers
+reasons, but that&#39;s my favorite. </p>
+<p>In <a href="https://www.playframework.com">Play</a>, the convention for controllers is to simply be in the package called 
+<code>controllers</code>. And so long as you obey this convention, you won&#39;t run into any 
+issues. Of course, I wouldn&#39;t be writing this blog post if I felt like obeying 
+conventions! Let&#39;s say you have a controller enterprisely namespaced: </p>
+<pre><code>package com.ethanjoachimeldridge.scala.controllers
 
 import play.api._
 import play.api.mvc_
@@ -100,14 +80,11 @@ object Application extends Controller {
     }
 
     def smile : Action[AnyContent] = Action {
-        Ok("Alrighty! =D")
+        Ok(&quot;Alrighty! =D&quot;)
     }
 }
-</code></pre>
-   <p>
-    And the view file:
-   </p>
-   <pre><code>@()
+</code></pre><p>And the view file:</p>
+<pre><code>@()
 
 &lt;html&gt;
     &lt;head&gt;
@@ -115,254 +92,142 @@ object Application extends Controller {
     &lt;/head&gt;
     &lt;body&gt;
         &lt;h1&gt;Demo!&lt;/h1&gt;
-        &lt;a href="#????"&gt;I just want to smile!&lt;/a&gt;                    
+        &lt;a href=&quot;#????&quot;&gt;I just want to smile!&lt;/a&gt;                    
     &lt;/body&gt;
 &lt;/html&gt;
-</code></pre>
-   <p>
-    Assuming you've got
-    <code>
-     build.sbt
-    </code>
-    and
-    <code>
-     plugins.sbt
-    </code>
-    setup, having files like this 
-in your project will compile if you're hoping to follow along. You might notice 
-the
-    <code>
-     #????
-    </code>
-    in the anchor tag. What to put here is the main subject of this 
-post!
-   </p>
-   <p>
-    According to the
-    <a href="https://www.playframework.com/documentation/2.3.x/ScalaRouting#Reverse-routing">
-     documentation
-    </a>
-    you'd expect to write
-    <code>
-     controllers.routes.Application.smile
-    </code>
-    here. Of course, if you do that you'll be greeted by a fun error:
-   </p>
-   <pre><code>value Application is not a member of object controllers.routes
-</code></pre>
-   <p>
-    "What gives!" You exclaim, wondering why the documentation has lied to you. So 
+</code></pre><p>Assuming you&#39;ve got <code>build.sbt</code> and <code>plugins.sbt</code> setup, having files like this 
+in your project will compile if you&#39;re hoping to follow along. You might notice 
+the <code>#????</code> in the anchor tag. What to put here is the main subject of this 
+post! </p>
+<p>According to the <a href="https://www.playframework.com/documentation/2.3.x/ScalaRouting#Reverse-routing">documentation</a> you&#39;d expect to write <code>controllers.routes.Application.smile</code> 
+here. Of course, if you do that you&#39;ll be greeted by a fun error:</p>
+<pre><code>value Application is not a member of object controllers.routes
+</code></pre><p>&quot;What gives!&quot; You exclaim, wondering why the documentation has lied to you. So 
 you give it another go, reasoning that perhaps your invokation was wrong and 
-you need something different. So you might try:
-   </p>
-   <pre><code>&lt;a href="@controllers.routes.com.ethanjoachimeldridge.scala.controllers.Application.smile"&gt;
-</code></pre>
-   <p>
-    But of course this will fail as well. Any notion of a framework wide controller 
+you need something different. So you might try:</p>
+<pre><code>&lt;a href=&quot;@controllers.routes.com.ethanjoachimeldridge.scala.controllers.Application.smile&quot;&gt;
+</code></pre><p>But of course this will fail as well. Any notion of a framework wide controller 
 package gone, you reason again wondering if the routes are contained in your 
-Application class by some extension magic:
-   </p>
-   <pre><code>&lt;a href="@com.ethanjoachimeldridge.scala.controllers.Application.routes.smile"&gt;
-</code></pre>
-   <p>
-    Which will of course fail. Not to give up, you look in the
-    <code>
-     target
-    </code>
-    directory of 
-your project and find the following:
-   </p>
-   <pre><code>target/scala-2.10/src_managed/main/controllers/routes.java
+Application class by some extension magic:</p>
+<pre><code>&lt;a href=&quot;@com.ethanjoachimeldridge.scala.controllers.Application.routes.smile&quot;&gt;
+</code></pre><p>Which will of course fail. Not to give up, you look in the <code>target</code> directory of 
+your project and find the following:</p>
+<pre><code>target/scala-2.10/src_managed/main/controllers/routes.java
 target/scala-2.10/src_managed/main/com/ethanjoachimeldridge/scala/controllers/routes.java
-</code></pre>
-   <p>
-    Woah! So you realize that Play has generated a routes object for your 
-controller package and try that out in your code:
-   </p>
-   <pre><code>&lt;a href="@com.ethanjoachimeldridge.scala.controllers.routes.Application.smile"
+</code></pre><p>Woah! So you realize that Play has generated a routes object for your 
+controller package and try that out in your code:</p>
+<pre><code>&lt;a href=&quot;@com.ethanjoachimeldridge.scala.controllers.routes.Application.smile&quot;
     I just want to smile!
 &lt;/a&gt;
-</code></pre>
-   <p>
-    And all the compilation errors go away and you're happy. On thinking about this 
+</code></pre><p>And all the compilation errors go away and you&#39;re happy. On thinking about this 
 it makes perfect sense that the routes package is added to whatever controller 
-package you're using. However the documentation doesn't actually mention this, 
+package you&#39;re using. However the documentation doesn&#39;t actually mention this, 
 or provide any examples of this. Seeming to assume that all users will use the 
 conventional top level controllers package. The documentation somewhat hints at 
-this:
-   </p>
-   <blockquote>
-    <p>
-     For each controller used in the routes file, the router will generate a ‘reverse controller’ in the routes package, having the same action methods, with the same signature, but returning a
-     <code>
-      play.api.mvc.Call
-     </code>
-     instead of a
-     <code>
-      play.api.mvc.Action.
-     </code>
-    </p>
-   </blockquote>
-   <p>
-    But doesn't explicitly say that the routes package
-    <em>
-     will be generated with the 
-same package hierarchy as your controller
-    </em>
-    . Regardless, now you know how to use 
-reverse routing within your templates or controllers appropriately when you're 
-using a non-standard package in a play app!
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="generate-conditonal-policy-awscala">
-       Generate Conditional AWS Group Policies with AWScala
-      </a>
-     </li>
-     <li>
-      <a href="triggering-asynchronous-jobs-play-2-3">
-       Trigger Asynchronous Jobs in Play 2.3
-      </a>
-     </li>
-     <li>
-      <a href="manipulating-XML-with-PHP">
-       Manipulating XML with PHP
-      </a>
-     </li>
-     <li>
-      <a href="non-empty-lists-validation-in-playframework">
-       Non Empty List Form Validation in Play
-      </a>
-     </li>
-     <li>
-      <a href="could-not-instantiate-SVGImageReader-Scrimage">
-       Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException
-      </a>
-     </li>
-     <li>
-      <a href="dear-god-why">
-       PHP Snippet
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+this:</p>
+<blockquote>
+<p>For each controller used in the routes file, the router will generate a ‘reverse controller’ in the routes package, having the same action methods, with the same signature, but returning a <code>play.api.mvc.Call</code> instead of a <code>play.api.mvc.Action.</code></p>
+</blockquote>
+<p>But doesn&#39;t explicitly say that the routes package <em>will be generated with the 
+same package hierarchy as your controller</em>. Regardless, now you know how to use 
+reverse routing within your templates or controllers appropriately when you&#39;re 
+using a non-standard package in a play app!</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=generate-conditonal-policy-awscala>Generate Conditional AWS Group Policies with AWScala</a></li><li><a href=triggering-asynchronous-jobs-play-2-3>Trigger Asynchronous Jobs in Play 2.3</a></li><li><a href=manipulating-XML-with-PHP>Manipulating XML with PHP</a></li><li><a href=non-empty-lists-validation-in-playframework>Non Empty List Form Validation in Play</a></li><li><a href=could-not-instantiate-SVGImageReader-Scrimage>Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException</a></li><li><a href=dear-god-why>PHP Snippet</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <span>
-       Twitter
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<span>Twitter</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

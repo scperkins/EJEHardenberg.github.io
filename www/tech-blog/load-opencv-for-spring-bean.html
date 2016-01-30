@@ -1,34 +1,45 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Use Native Library Classes in XML Beans (OpenCV)
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="With normal Java classes you can use System.loadLibrary to use native libraries, but what do you do when you're configuring classes via XML?" name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="OpenCV,XML,Configuration,loadLibrary,Spring,UnsatisfiedLinkError,Native,JNI,Bean,Java,instantiate,dependency,Batch" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Use Native Library Classes in XML Beans (OpenCV)" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="With normal Java classes you can use System.loadLibrary to use native libraries, but what do you do when you're configuring classes via XML?" property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Use Native Library Classes in XML Beans (OpenCV)" name="twitter:title"/>
-  <meta content="With normal Java classes you can use System.loadLibrary to use native libraries, but what do you do when you're configuring classes via XML?" name="twitter:description"/>
-  <meta content="//static.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet" type="text/css"/>
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-Yk6fMSCCTCPyHYaY4h661zZEU59LSxS2pX0b+B1jG+4atCz2yx/YhiimkVlATCwk" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Use Native Library Classes in XML Beans (OpenCV)</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="With normal Java classes you can use System.loadLibrary to use native libraries, but what do you do when you&#39;re configuring classes via XML?" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="OpenCV,XML,Configuration,loadLibrary,Spring,UnsatisfiedLinkError,Native,JNI,Bean,Java,instantiate,dependency,Batch"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Use Native Library Classes in XML Beans (OpenCV)" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="With normal Java classes you can use System.loadLibrary to use native libraries, but what do you do when you&#39;re configuring classes via XML?" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Use Native Library Classes in XML Beans (OpenCV)" />
+    
+    <meta name="twitter:description" content="With normal Java classes you can use System.loadLibrary to use native libraries, but what do you do when you&#39;re configuring classes via XML?" />
+    
+    <meta name="twitter:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -36,30 +47,21 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Use Native Library Classes in XML Beans (OpenCV)
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Use OpenCV Classes in Spring Bean XML Configuration
-   </h3>
-   <p>
-    Today I ran into an infuriating issue that lasted for several hours. Here's the 
-stack trace I was given when trying to run
-    <code>
-     mvn tomcat:run
-    </code>
-    :
-   </p>
-   <pre><code>Caused by: org.springframework.beans.BeanInstantiationException: Could not instantiate bean class [org.opencv.ml.CvSVM]: Constructor threw exception; nested exception is java.lang.UnsatisfiedLinkError: org.opencv.ml.CvSVM.CvSVM_0()J
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Use Native Library Classes in XML Beans (OpenCV)</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Use OpenCV Classes in Spring Bean XML Configuration</h3><p>Today I ran into an infuriating issue that lasted for several hours. Here&#39;s the 
+stack trace I was given when trying to run <code>mvn tomcat:run</code>:</p>
+<pre><code>Caused by: org.springframework.beans.BeanInstantiationException: Could not instantiate bean class [org.opencv.ml.CvSVM]: Constructor threw exception; nested exception is java.lang.UnsatisfiedLinkError: org.opencv.ml.CvSVM.CvSVM_0()J
         at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:162)
         at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:76)
         at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:990)
@@ -73,63 +75,29 @@ Caused by: java.lang.UnsatisfiedLinkError: org.opencv.ml.CvSVM.CvSVM_0()J
     at java.lang.reflect.Constructor.newInstance(Constructor.java:534)
     at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:147)
     ... 58 more
-</code></pre>
-   <p>
-    Linker errors are normally because you failed to call
-    <code>
-     System.loadLibrary
-    </code>
-    and
+</code></pre><p>Linker errors are normally because you failed to call <code>System.loadLibrary</code> and
 then your JNI fails since it knows about your classes via the Jar wrappers around
-the native code (and will compile) but at runtime you're out of luck. My problem 
-was doubly more confusing because at runtime my
-    <a href="http://docs.opencv.org/">
-     OpenCV
-    </a>
-    code worked fine, but 
+the native code (and will compile) but at runtime you&#39;re out of luck. My problem 
+was doubly more confusing because at runtime my <a href="http://docs.opencv.org/">OpenCV</a> code worked fine, but 
 stopped when I tried to put one of the classes into an XML bean. Then the error 
-above happened.
-   </p>
-   <p>
-    So how do you fix it? Simple, you need to call
-    <code>
-     System.loadLibrary
-    </code>
-    ...
-    <strong>
-     from 
-the XML
-    </strong>
-    . But how to do this obvious thing? For classes that depend on native
-libraries the general pattern you do is the following:
-   </p>
-   <pre><code>import some.native.library.*;
+above happened.</p>
+<p>So how do you fix it? Simple, you need to call <code>System.loadLibrary</code> ... <strong>from 
+the XML</strong>. But how to do this obvious thing? For classes that depend on native
+libraries the general pattern you do is the following:</p>
+<pre><code>import some.native.library.*;
 public class SomethingThatNeedsNativeSupport {
     static {
         System.loadLibrary(NATIVE_LIBRARY_NAME);
     }
 }
-</code></pre>
-   <p>
-    But for XML configuration? It's surprisingly difficult to google for, and it wasn't
+</code></pre><p>But for XML configuration? It&#39;s surprisingly difficult to google for, and it wasn&#39;t
 until I talked to one of my coworkers about the issue that he told me the obvious
-answer: The
-    <a href="http://docs.spring.io/spring/docs/2.5.3/reference/beans.html">
-     depends-on property
-    </a>
-    pointed at a loader class.
-   </p>
-   <p>
-    I had already thought to box the classes that were failing as beans in my own 
+answer: The <a href="http://docs.spring.io/spring/docs/2.5.3/reference/beans.html">depends-on property</a> pointed at a loader class. </p>
+<p>I had already thought to box the classes that were failing as beans in my own 
 wrapper implementations since I could run the classes fine in the actual Java code
-(luckily I didn't have
-    <a href="http://stackoverflow.com/questions/3155589/java-lang-unsatisfiedlinkerror-under-tomcat">
-     this guys issue
-    </a>
-    ), but a loader class was way easier, and
-now I can use XML to configure the OpenCV classes. Here's the code:
-   </p>
-   <pre><code>//OpenCVLoader.java
+(luckily I didn&#39;t have <a href="http://stackoverflow.com/questions/3155589/java-lang-unsatisfiedlinkerror-under-tomcat">this guys issue</a>), but a loader class was way easier, and
+now I can use XML to configure the OpenCV classes. Here&#39;s the code:</p>
+<pre><code>//OpenCVLoader.java
 package info.ethanjoachimeldridge.cv;
 import org.opencv.core.*;
 
@@ -138,183 +106,109 @@ public class OpenCVLoader {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
     }
 }
-</code></pre>
-   <p>
-    Throw that into your package and then do something like the following in your XML:
-   </p>
-   <pre><code>&lt;bean id="cvLibLoader" class="info.ethanjoachimeldridge.cv.OpenCVLoader" /&gt;
-&lt;bean id="svm" class="org.opencv.ml.CvSVM" depends-on="cvLibLoader"/&gt;
-</code></pre>
-   <p>
-    The
-    <code>
-     depends-on
-    </code>
-    property of the bean will force that bean to be initialized before
+</code></pre><p>Throw that into your package and then do something like the following in your XML:</p>
+<pre><code>&lt;bean id=&quot;cvLibLoader&quot; class=&quot;info.ethanjoachimeldridge.cv.OpenCVLoader&quot; /&gt;
+&lt;bean id=&quot;svm&quot; class=&quot;org.opencv.ml.CvSVM&quot; depends-on=&quot;cvLibLoader&quot;/&gt;
+</code></pre><p>The <code>depends-on</code> property of the bean will force that bean to be initialized before
 the other, and therefore the library will be loaded when Spring gets around to 
-loading the class.
-   </p>
-   <p>
-    Hope this helps anyone else out there who's using
-    <a href="http://projects.spring.io/spring-batch/">
-     Spring Batch
-    </a>
-    and
-    <a href="http://docs.opencv.org/">
-     OpenCV
-    </a>
-    together.
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="ambiguous-columns-namedparameterjdbc-order-by">
-       Dynamic Tablename's in Order By with NamedParameterJdbc
-      </a>
-     </li>
-     <li>
-      <a href="order-by-rand-mysql">
-       Order by Rand without a starting ID of 1
-      </a>
-     </li>
-     <li>
-      <a href="arcstar-chrome-extensions">
-       *Arc: My First Chrome Extension
-      </a>
-     </li>
-     <li>
-      <a href="today-we-learned-through-games">
-       Teaching Through Games
-      </a>
-     </li>
-     <li>
-      <a href="shared-voice">
-       Shared Voice - Activist's tool
-      </a>
-     </li>
-     <li>
-      <a href="upgrading-chromium-33-to-37">
-       Fixing the flash player in Chromium Version 37
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+loading the class.</p>
+<p>Hope this helps anyone else out there who&#39;s using <a href="http://projects.spring.io/spring-batch/">Spring Batch</a> and <a href="http://docs.opencv.org/">OpenCV</a> together.</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=ambiguous-columns-namedparameterjdbc-order-by>Dynamic Tablename&#39;s in Order By with NamedParameterJdbc</a></li><li><a href=order-by-rand-mysql>Order by Rand without a starting ID of 1</a></li><li><a href=arcstar-chrome-extensions>*Arc: My First Chrome Extension</a></li><li><a href=today-we-learned-through-games>Teaching Through Games</a></li><li><a href=shared-voice>Shared Voice - Activist&#39;s tool</a></li><li><a href=upgrading-chromium-33-to-37>Fixing the flash player in Chromium Version 37</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <span>
-       Twitter
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<span>Twitter</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

@@ -1,34 +1,45 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="Ran into an error about not being able to find the SVGImageReader class with a root cause of TranscoderException, this is how to fix it" name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="scrimage,the org.apache.batik.transcoder.TranscoderException,com.twelvemonkeys.imageio.plugins.svg.SVGImageReaderSpi,java.lang.NoClassDefFoundError: org/apache/batik/transcoder/TranscoderException,scala,scrimage,baltik,error,solution" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="Ran into an error about not being able to find the SVGImageReader class with a root cause of TranscoderException, this is how to fix it" property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException" name="twitter:title"/>
-  <meta content="Ran into an error about not being able to find the SVGImageReader class with a root cause of TranscoderException, this is how to fix it" name="twitter:description"/>
-  <meta content="//static.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet" type="text/css"/>
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-Yk6fMSCCTCPyHYaY4h661zZEU59LSxS2pX0b+B1jG+4atCz2yx/YhiimkVlATCwk" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Ran into an error about not being able to find the SVGImageReader class with a root cause of TranscoderException, this is how to fix it" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="scrimage,the org.apache.batik.transcoder.TranscoderException,com.twelvemonkeys.imageio.plugins.svg.SVGImageReaderSpi,java.lang.NoClassDefFoundError: org/apache/batik/transcoder/TranscoderException,scala,scrimage,baltik,error,solution"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Ran into an error about not being able to find the SVGImageReader class with a root cause of TranscoderException, this is how to fix it" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException" />
+    
+    <meta name="twitter:description" content="Ran into an error about not being able to find the SVGImageReader class with a root cause of TranscoderException, this is how to fix it" />
+    
+    <meta name="twitter:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -36,61 +47,41 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Could not instantiate SVGImageReader in Scrimage
-   </h3>
-   <p>
-    Today I was testing out the scala library
-    <a href="https://github.com/sksamuel/scrimage">
-     scrimage
-    </a>
-    . I wrote a pretty 
-simple sbt script:
-   </p>
-   <p>
-    <em>
-     Main.scala
-    </em>
-    :
-   </p>
-   <pre><code>package ee.test
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Could not instantiate SVGImageReader in Scrimage</h3><p>Today I was testing out the scala library <a href="https://github.com/sksamuel/scrimage">scrimage</a>. I wrote a pretty 
+simple sbt script:</p>
+<p><em>Main.scala</em>:</p>
+<pre><code>package ee.test
 
 import java.io.File
 import com.sksamuel.scrimage._
 
 object Main {
     def main(args: Array[String]): Unit = {
-      val image = Image.fromFile(new File("./testimage.jpg"))
+      val image = Image.fromFile(new File(&quot;./testimage.jpg&quot;))
 
       val scaled50 = TestOps.resize50(image)
       val scaled300 = TestOps.resize300(image)
       val crop = TestOps.crop(image, (420, 420), 500, 500)
 
-      scaled50.output(new File("./50.jpg"))
-      scaled300.output(new File("./300.jpg"))
-      crop.output(new File("./crop.jpg"))
+      scaled50.output(new File(&quot;./50.jpg&quot;))
+      scaled300.output(new File(&quot;./300.jpg&quot;))
+      crop.output(new File(&quot;./crop.jpg&quot;))
     }
 }
-</code></pre>
-   <p>
-    <em>
-     TestOps.scala
-    </em>
-    :
-   </p>
-   <pre><code>package ee.test
+</code></pre><p><em>TestOps.scala</em>:</p>
+<pre><code>package ee.test
 
 import com.sksamuel.scrimage._
 
@@ -113,28 +104,19 @@ object TestOps {
         )
     }
 }
-</code></pre>
-   <p>
-    And lastly,
-    <em>
-     build.sbt
-    </em>
-   </p>
-   <pre><code>name := "scrimage-test"
+</code></pre><p>And lastly, <em>build.sbt</em></p>
+<pre><code>name := &quot;scrimage-test&quot;
 
-version := "0.1"
+version := &quot;0.1&quot;
 
-scalaVersion := "2.10.4"
+scalaVersion := &quot;2.10.4&quot;
 
-libraryDependencies += "com.sksamuel.scrimage" %% "scrimage-core" % "2.0.0"
+libraryDependencies += &quot;com.sksamuel.scrimage&quot; %% &quot;scrimage-core&quot; % &quot;2.0.0&quot;
 
-libraryDependencies += "com.sksamuel.scrimage" %% "scrimage-io" % "2.0.0"
-</code></pre>
-   <p>
-    I was testing out my script when all of a sudden a giant error message 
-spewed itself across my console:
-   </p>
-   <pre><code>Could not instantiate SVGImageReader (missing support classes).
+libraryDependencies += &quot;com.sksamuel.scrimage&quot; %% &quot;scrimage-io&quot; % &quot;2.0.0&quot;
+</code></pre><p>I was testing out my script when all of a sudden a giant error message 
+spewed itself across my console:</p>
+<pre><code>Could not instantiate SVGImageReader (missing support classes).
 java.lang.NoClassDefFoundError: org/apache/batik/transcoder/TranscoderException
     at com.twelvemonkeys.imageio.plugins.svg.SVGImageReaderSpi.onRegistration(Unknown Source)
     at javax.imageio.spi.SubRegistry.registerServiceProvider(ServiceRegistry.java:715)
@@ -167,212 +149,134 @@ Caused by: java.lang.ClassNotFoundException: org.apache.batik.transcoder.Transco
     at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
     ... 22 more
 [success] Total time: 3 s, completed Jun 24, 2015 4:03:35 PM
-</code></pre>
-   <p>
-    While it didn't actually cause any errors in my script and the image 
-operations were successful, I don't like seeing warnings like this when 
-I'm working. So I started looking around. After a little bit of looking 
-I found one of the forementioned errors in
-    <a href="https://github.com/haraldk/TwelveMonkeys/issues/54">
-     this issue
-    </a>
-    , but the answer 
-there didn't make much sense to me. I didn't
-    <em>
-     have
-    </em>
-    any SVG plugins 
+</code></pre><p>While it didn&#39;t actually cause any errors in my script and the image 
+operations were successful, I don&#39;t like seeing warnings like this when 
+I&#39;m working. So I started looking around. After a little bit of looking 
+I found one of the forementioned errors in <a href="https://github.com/haraldk/TwelveMonkeys/issues/54">this issue</a>, but the answer 
+there didn&#39;t make much sense to me. I didn&#39;t <em>have</em> any SVG plugins 
 attempting to register to TwelveMonkeys that I knew of. My class path 
-didn't show much to help from first glance:
-   </p>
-   <pre><code>ls ~/.ivy2/cache/com.twelvemonkeys.imageio/imageio
+didn&#39;t show much to help from first glance: </p>
+<pre><code>ls ~/.ivy2/cache/com.twelvemonkeys.imageio/imageio
 imageio/          imageio-iff/      imageio-pict/     imageio-thumbsdb/
 imageio-batik/    imageio-jpeg/     imageio-pnm/      imageio-tiff/
 imageio-bmp/      imageio-metadata/ imageio-psd/      
 imageio-core/     imageio-pcx/      imageio-sgi/      
 imageio-icns/     imageio-pdf/      imageio-tga/    
-</code></pre>
-   <p>
-    Looking at the root cause,
-    <code>
-     the org.apache.batik.transcoder.TranscoderException
-    </code>
-    I looked around some more on the internet and found this
-    <a href="http://thinktibits.blogspot.com/2012/12/apache-batik-common-runtime-exceptions.html">
-     useful list of common
-exceptions from batik
-    </a>
-    . A quick glance at the mvn repositorie's and I updated 
-my build file:
-   </p>
-   <pre><code>name := "scrimage-test"
+</code></pre><p>Looking at the root cause, <code>the org.apache.batik.transcoder.TranscoderException</code> 
+I looked around some more on the internet and found this <a href="http://thinktibits.blogspot.com/2012/12/apache-batik-common-runtime-exceptions.html">useful list of common
+exceptions from batik</a>. A quick glance at the mvn repositorie&#39;s and I updated 
+my build file:</p>
+<pre><code>name := &quot;scrimage-test&quot;
 
-version := "0.1"
+version := &quot;0.1&quot;
 
-scalaVersion := "2.10.5"
+scalaVersion := &quot;2.10.5&quot;
 
-libraryDependencies += "com.sksamuel.scrimage" %% "scrimage-core" % "2.0.0"
+libraryDependencies += &quot;com.sksamuel.scrimage&quot; %% &quot;scrimage-core&quot; % &quot;2.0.0&quot;
 
-libraryDependencies += "com.sksamuel.scrimage" %% "scrimage-io" % "2.0.0"
+libraryDependencies += &quot;com.sksamuel.scrimage&quot; %% &quot;scrimage-io&quot; % &quot;2.0.0&quot;
 
-libraryDependencies += "org.apache.xmlgraphics" % "batik-codec" % "1.7"
-</code></pre>
-   <p>
-    Then the error message disappeared. Note that when I reloaded my sbt console 
+libraryDependencies += &quot;org.apache.xmlgraphics&quot; % &quot;batik-codec&quot; % &quot;1.7&quot;
+</code></pre><p>Then the error message disappeared. Note that when I reloaded my sbt console 
 it seems the new dependency issued a warning about updating to scalaVersion 
 2.10.5 for some reason. I hope this helps anyone else out there who runs into 
-the issue!
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="none-in-default-fold-and-type-erasure">
-       Type Error when using None as a default to Option.fold
-      </a>
-     </li>
-     <li>
-      <a href="manipulating-XML-with-PHP">
-       Manipulating XML with PHP
-      </a>
-     </li>
-     <li>
-      <a href="401-unauthorized-400-bad-request-sonatype-nexus">
-       401 Unauthorized and 400 Bad Request from Sonatype Nexus in SBT
-      </a>
-     </li>
-     <li>
-      <a href="generate-conditonal-policy-awscala">
-       Generate Conditional AWS Group Policies with AWScala
-      </a>
-     </li>
-     <li>
-      <a href="aspect-ratios-and-math">
-       Aspect Ratios, Math, and Scala
-      </a>
-     </li>
-     <li>
-      <a href="reverse-routing-package-controller">
-       Reverse routing with non-standard controller packages in Play
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+the issue! </p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=none-in-default-fold-and-type-erasure>Type Error when using None as a default to Option.fold</a></li><li><a href=manipulating-XML-with-PHP>Manipulating XML with PHP</a></li><li><a href=401-unauthorized-400-bad-request-sonatype-nexus>401 Unauthorized and 400 Bad Request from Sonatype Nexus in SBT</a></li><li><a href=generate-conditonal-policy-awscala>Generate Conditional AWS Group Policies with AWScala</a></li><li><a href=aspect-ratios-and-math>Aspect Ratios, Math, and Scala</a></li><li><a href=reverse-routing-package-controller>Reverse routing with non-standard controller packages in Play</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <span>
-       Twitter
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<span>Twitter</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

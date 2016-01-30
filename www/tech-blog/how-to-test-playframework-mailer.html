@@ -1,34 +1,45 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | How to test the PlayFramework Mailer
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="SMTP Servers can be a pain to setup, but if you're using a JVM based language you're in luck! This post shows how to integrate GreenMail with Play!" name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="greenmail,play,smtp,test,testing,mail,mailer,MailerPlugin,PlayFramework,email" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | How to test the PlayFramework Mailer" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="SMTP Servers can be a pain to setup, but if you're using a JVM based language you're in luck! This post shows how to integrate GreenMail with Play!" property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | How to test the PlayFramework Mailer" name="twitter:title"/>
-  <meta content="SMTP Servers can be a pain to setup, but if you're using a JVM based language you're in luck! This post shows how to integrate GreenMail with Play!" name="twitter:description"/>
-  <meta content="//static.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet" type="text/css"/>
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-Yk6fMSCCTCPyHYaY4h661zZEU59LSxS2pX0b+B1jG+4atCz2yx/YhiimkVlATCwk" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | How to test the PlayFramework Mailer</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="SMTP Servers can be a pain to setup, but if you&#39;re using a JVM based language you&#39;re in luck! This post shows how to integrate GreenMail with Play!" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="greenmail,play,smtp,test,testing,mail,mailer,MailerPlugin,PlayFramework,email"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | How to test the PlayFramework Mailer" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="SMTP Servers can be a pain to setup, but if you&#39;re using a JVM based language you&#39;re in luck! This post shows how to integrate GreenMail with Play!" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | How to test the PlayFramework Mailer" />
+    
+    <meta name="twitter:description" content="SMTP Servers can be a pain to setup, but if you&#39;re using a JVM based language you&#39;re in luck! This post shows how to integrate GreenMail with Play!" />
+    
+    <meta name="twitter:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -36,223 +47,98 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    How to test the PlayFramework Mailer
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    How to test the PlayFramework Mailer
-   </h3>
-   <p>
-    At some point in your life, you're going to have to deal with Email. A 
-seemingly simple thing, after all, it's just a subject, body and some 
-addresses right? Well, there's way more to it than that. But perhaps the 
-most troublesome about it is that it's hard to test.
-   </p>
-   <p>
-    Or at least normally, setting up a local SMTP server just to test that 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>How to test the PlayFramework Mailer</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>How to test the PlayFramework Mailer</h3><p>At some point in your life, you&#39;re going to have to deal with Email. A 
+seemingly simple thing, after all, it&#39;s just a subject, body and some 
+addresses right? Well, there&#39;s way more to it than that. But perhaps the 
+most troublesome about it is that it&#39;s hard to test.</p>
+<p>Or at least normally, setting up a local SMTP server just to test that 
 your code works is a pain. Trying to integrate a local SMTP setup into 
 a build server or any kind of project shared between someone other than 
-you? Worse! So what can you do? Well, say hello to
-    <a href="https://github.com/greenmail-mail-test/greenmail">
-     GreenMail
-    </a>
-    .
-   </p>
-   <blockquote>
-    <p>
-     GreenMail is an open source, intuitive and easy-to-use test suite of email servers for testing purposes. Supports SMTP, POP3, IMAP with SSL socket support. GreenMail also provides a JBoss GreenMail Service. GreenMail is the first and only library that offers a test framework for both receiving and retrieving emails from Java.
-    </p>
-   </blockquote>
-   <p>
-    In other words. It's your testing dream. There's already a
-    <a href="http://developer.vz.net/2011/11/08/unit-testing-java-mail-code/">
-     great blog 
-post on using it with JUnit
-    </a>
-    , but what if you're using scala? What if 
-you're using the
-    <a href="https://github.com/playframework/play-mailer">
-     Play Mailer Plugin
-    </a>
-    ? Well thats just fine, since it's 
-all SMTP or POP anyway. Though there are some things to keep in mind:
-   </p>
-   <ol>
-    <li>
-     Set
-     <code>
-      smtp.ssl
-     </code>
-     in your
-     <strong>
-      test
-     </strong>
-     configuration to
-     <code>
-      false
-     </code>
-    </li>
-    <li>
-     Make sure to set
-     <code>
-      smtp.port
-     </code>
-     to the same as GreenMail
-    </li>
-    <li>
-     Java's
-     <a href="https://javamail.java.net/nonav/docs/api/javax/mail/internet/MimeMessage.html">
-      MimeMessage
-     </a>
-     is a pain to parse
-    </li>
-   </ol>
-   <p>
-    The first two of these are easily addressed when you create a test:
-   </p>
-   <pre><code>import org.scalatest._
+you? Worse! So what can you do? Well, say hello to <a href="https://github.com/greenmail-mail-test/greenmail">GreenMail</a>. </p>
+<blockquote>
+<p>GreenMail is an open source, intuitive and easy-to-use test suite of email servers for testing purposes. Supports SMTP, POP3, IMAP with SSL socket support. GreenMail also provides a JBoss GreenMail Service. GreenMail is the first and only library that offers a test framework for both receiving and retrieving emails from Java.</p>
+</blockquote>
+<p>In other words. It&#39;s your testing dream. There&#39;s already a <a href="http://developer.vz.net/2011/11/08/unit-testing-java-mail-code/">great blog 
+post on using it with JUnit</a>, but what if you&#39;re using scala? What if 
+you&#39;re using the <a href="https://github.com/playframework/play-mailer">Play Mailer Plugin</a>? Well thats just fine, since it&#39;s 
+all SMTP or POP anyway. Though there are some things to keep in mind:</p>
+<ol>
+<li>Set <code>smtp.ssl</code> in your <strong>test</strong> configuration to <code>false</code></li>
+<li>Make sure to set <code>smtp.port</code> to the same as GreenMail</li>
+<li>Java&#39;s <a href="https://javamail.java.net/nonav/docs/api/javax/mail/internet/MimeMessage.html">MimeMessage</a> is a pain to parse </li>
+</ol>
+<p>The first two of these are easily addressed when you create a test: </p>
+<pre><code>import org.scalatest._
 import play.api.test.Helpers._
 import play.api.test._
 import com.icegreen.greenmail.util.{ GreenMail, ServerSetup }
 ...
 val mailPort = 30003
-val greenMail = new GreenMail(new ServerSetup(mailPort, null, "smtp"));
+val greenMail = new GreenMail(new ServerSetup(mailPort, null, &quot;smtp&quot;));
 
-"Some test" should "use the right config" in running(        
+&quot;Some test&quot; should &quot;use the right config&quot; in running(        
     FakeApplication(
         additionalConfiguration = Map(
-            "smtp.host" -&gt; "localhost",
-            "smtp.port" -&gt; mailPort,
-            "smtp.ssl" -&gt; false
+            &quot;smtp.host&quot; -&gt; &quot;localhost&quot;,
+            &quot;smtp.port&quot; -&gt; mailPort,
+            &quot;smtp.ssl&quot; -&gt; false
         )
     )
 ) { ... }
-</code></pre>
-   <p>
-    <small>
-     <strong>
-      Tip:
-     </strong>
-     You can make this a lot more readable by putting the
-     <code>
-      FakeApplication
-     </code>
-     creation into a helper function and calling that.
-    </small>
-   </p>
-   <p>
-    The second is more troublesome. While you might think that the text of 
-an email is just that, you'd be wrong. An email, at least in MIME style,
+</code></pre><p><small>
+<strong>Tip:</strong> You can make this a lot more readable by putting the 
+<code>FakeApplication</code> creation into a helper function and calling that.
+</small></p>
+<p>The second is more troublesome. While you might think that the text of 
+an email is just that, you&#39;d be wrong. An email, at least in MIME style,
 can have multiple parts. Each of which might have different MIME types 
-and dispositions. MIME types are your normal things like
-    <code>
-     text/html
-    </code>
-    ,
-    <code>
-     text/plain
-    </code>
-    , and etc. Disposition defines whether or not the content 
+and dispositions. MIME types are your normal things like <code>text/html</code>, 
+<code>text/plain</code>, and etc. Disposition defines whether or not the content 
 of the message should be shown to the user as an attachment or inline 
-with the body of the email.
-   </p>
-   <p>
-    Another MIME type to be wary of in emails is the
-    <code>
-     multipart/*
-    </code>
-    set. The 
-content in the subtype has some important rules, most notably
-    <a href="http://www.freesoft.org/CIE/RFC/1521/18.htm">
-     RFC 1521
-    </a>
-    states:
-   </p>
-   <blockquote>
-    <p>
-     Systems should recognize that the content of the various parts are interchangeable. Systems should choose the "best" type based on the local environment and preferences, in some cases even through user interaction. As with multipart/mixed, the order of body parts is significant. In this case, the alternatives appear in an order of increasing faithfulness to the original content. In general, the best choice is the LAST part of a type supported by the recipient system's local environment.
-    </p>
-   </blockquote>
-   <p>
-    Which means that during parsing one should take the order into account 
+with the body of the email. </p>
+<p>Another MIME type to be wary of in emails is the <code>multipart/*</code> set. The 
+content in the subtype has some important rules, most notably <a href="http://www.freesoft.org/CIE/RFC/1521/18.htm">RFC 1521</a>
+states:</p>
+<blockquote>
+<p>Systems should recognize that the content of the various parts are interchangeable. Systems should choose the &quot;best&quot; type based on the local environment and preferences, in some cases even through user interaction. As with multipart/mixed, the order of body parts is significant. In this case, the alternatives appear in an order of increasing faithfulness to the original content. In general, the best choice is the LAST part of a type supported by the recipient system&#39;s local environment.</p>
+</blockquote>
+<p>Which means that during parsing one should take the order into account 
 along with what view the user will see. Sending HTML back to a plain 
-text viewer wouldn't make any sense now would it? And displaying 
-unformated text to a user of a rich UI would be missing an opportunity.
-   </p>
-   <p>
-    Let's just focus on how to read from the
-    <a href="https://javamail.java.net/nonav/docs/api/javax/mail/internet/MimeMessage.html">
-     MIMEMessage
-    </a>
-    type first, the 
-message can have many different parts, so it's important to determine 
-what you're dealing with. The
-    <code>
-     getContentType
-    </code>
-    method might be your 
-first choice because of the name, however then you'll be parsing the 
-header yourself. A more useful indication is
-    <code>
-     isMimeType
-    </code>
-    which enables
+text viewer wouldn&#39;t make any sense now would it? And displaying 
+unformated text to a user of a rich UI would be missing an opportunity.</p>
+<p>Let&#39;s just focus on how to read from the <a href="https://javamail.java.net/nonav/docs/api/javax/mail/internet/MimeMessage.html">MIMEMessage</a> type first, the 
+message can have many different parts, so it&#39;s important to determine 
+what you&#39;re dealing with. The <code>getContentType</code> method might be your 
+first choice because of the name, however then you&#39;ll be parsing the 
+header yourself. A more useful indication is <code>isMimeType</code> which enables
 one to check the primary (like text) and sub (plain, html) type of the content. Once you do this, you can determine which type to cast the 
-result of the
-    <code>
-     getContent
-    </code>
-    method to. If you're interested in just 
-text for example, you can use the wildcard * for the subtype:
-   </p>
-   <pre><code>def getTextFromBodyPart(p: javax.mail.Part): Option[String] = {
-    if (p.isMimeType("text/*")) {
+result of the <code>getContent</code> method to. If you&#39;re interested in just 
+text for example, you can use the wildcard * for the subtype:</p>
+<pre><code>def getTextFromBodyPart(p: javax.mail.Part): Option[String] = {
+    if (p.isMimeType(&quot;text/*&quot;)) {
         Some(p.getContent().asInstanceOf[String])
     } else {
         None
     }
 }
-</code></pre>
-   <p>
-    If you wanted to get something more complicated, like a multipart 
-message, you'd check
-    <code>
-     isMimeType("multipart/*")
-    </code>
-    then use
-    <code>
-     asInstanceOf
-    </code>
-    with
-    <a href="https://javamail.java.net/nonav/docs/api/javax/mail/Multipart.html">
-     MultiPart
-    </a>
-    . The trick with handling the
-    <a href="https://javamail.java.net/nonav/docs/api/javax/mail/Multipart.html">
-     Multipart
-    </a>
-    class is that 
-you need to handle the
-    <em>
-     multiple parts
-    </em>
-    (obvious, yes, but still tricky).
-Here is a "simple" case of parsing a mimeMessage that
-    <em>
-     mostly
-    </em>
-    works:
-   </p>
-   <pre><code>case class SimpleEmail(to: List[String], from: List[String], subject: String, plain: Option[String], html: Option[String])
+</code></pre><p>If you wanted to get something more complicated, like a multipart 
+message, you&#39;d check <code>isMimeType(&quot;multipart/*&quot;)</code> then use <code>asInstanceOf</code> 
+with <a href="https://javamail.java.net/nonav/docs/api/javax/mail/Multipart.html">MultiPart</a>. The trick with handling the <a href="https://javamail.java.net/nonav/docs/api/javax/mail/Multipart.html">Multipart</a> class is that 
+you need to handle the <em>multiple parts</em> (obvious, yes, but still tricky).
+Here is a &quot;simple&quot; case of parsing a mimeMessage that <em>mostly</em> works:</p>
+<pre><code>case class SimpleEmail(to: List[String], from: List[String], subject: String, plain: Option[String], html: Option[String])
 
 
 def mimeMessageToSimpleEmail(mimeMsg: MimeMessage): SimpleEmail = {
@@ -265,19 +151,19 @@ def mimeMessageToSimpleEmail(mimeMsg: MimeMessage): SimpleEmail = {
     var htmlText = Option[String](null)
     for (p &lt;- 0 until mailParts.getCount()) {
         val bodyPart = mailParts.getBodyPart(p)
-        if (bodyPart.isMimeType("text/*")) {
-            if (bodyPart.isMimeType("text/html")) {
+        if (bodyPart.isMimeType(&quot;text/*&quot;)) {
+            if (bodyPart.isMimeType(&quot;text/html&quot;)) {
                 htmlText = getTextFromBodyPart(bodyPart)
             } else {
                 plainText = getTextFromBodyPart(bodyPart)
             }
-        } else if (bodyPart.isMimeType("multipart/*")) {
+        } else if (bodyPart.isMimeType(&quot;multipart/*&quot;)) {
             val multiPart = bodyPart.getContent().asInstanceOf[Multipart]
             for (mp &lt;- 0 until multiPart.getCount()) {
                 val part = multiPart.getBodyPart(mp)
-                if (part.isMimeType("text/plain")) {
+                if (part.isMimeType(&quot;text/plain&quot;)) {
                     plainText = getTextFromBodyPart(part)
-                } else if (part.isMimeType("text/html")) {
+                } else if (part.isMimeType(&quot;text/html&quot;)) {
                     htmlText = getTextFromBodyPart(part)
                 }
             }
@@ -286,48 +172,31 @@ def mimeMessageToSimpleEmail(mimeMsg: MimeMessage): SimpleEmail = {
 
     SimpleEmail(recipients, senders, subject, plainText, htmlText)
 }
-</code></pre>
-   <p>
-    The above code is an adaptation on some I found on
-    <a href="http://www.coderanch.com/t/597373/java/java/Body-text-javamail-retrieve-email">
-     coderanch
-    </a>
-    that 
+</code></pre><p>The above code is an adaptation on some I found on <a href="http://www.coderanch.com/t/597373/java/java/Body-text-javamail-retrieve-email">coderanch</a> that 
 provided some insight. Unfortunately, this code has a flaw. Namely that 
-we're not dealing with SMTP replacing our newlines with carriage returns 
+we&#39;re not dealing with SMTP replacing our newlines with carriage returns 
 and newlines. If you print out the above and compare it to the original 
-text directly, you'll see something a bit funny show up. In vector form:
-   </p>
-   <pre><code>//Plain Text From original
+text directly, you&#39;ll see something a bit funny show up. In vector form:</p>
+<pre><code>//Plain Text From original
 Vector(10, 87, 101, 108, 99, 111, 109, 101, 32, 110, 97, 109, 101, 33, 32, 10, 10, 72, 111, 112, 101, 32, 121, 111, 117, 32, 108, 105, 107, 101, 100, 32, 116, 104, 105, 115, 32, 116, 117, 116, 111, 114, 105, 97, 108, 33, 10, 10, 45, 32, 116, 101, 115, 116, 101, 114, 64, 100, 111, 109, 97, 105, 110, 46, 99, 111, 109)
 
 //Plain text parsed by the above
 Vector(13, 10, 87, 101, 108, 99, 111, 109, 101, 32, 110, 97, 109, 101, 33, 32, 13, 10, 13, 10, 72, 111, 112, 101, 32, 121, 111, 117, 32, 108, 105, 107, 101, 100, 32, 116, 104, 105, 115, 32, 116, 117, 116, 111, 114, 105, 97, 108, 33, 13, 10, 13, 10, 45, 32, 116, 101, 115, 116, 101, 114, 64, 100, 111, 109, 97, 105, 110, 46, 99, 111, 109)
-</code></pre>
-   <p>
-    See how before every newline (ASCII 10) we now have a carriage return (
+</code></pre><p>See how before every newline (ASCII 10) we now have a carriage return (
 ASCII 13?). This is a problem, we can easily solve this though by one 
-quick fix:
-   </p>
-   <pre><code>def getTextFromBodyPart(p: javax.mail.Part): Option[String] = {
-    if (p.isMimeType("text/*")) {
-        Some(p.getContent().asInstanceOf[String].replaceAll("\r\n","\n"))
+quick fix:</p>
+<pre><code>def getTextFromBodyPart(p: javax.mail.Part): Option[String] = {
+    if (p.isMimeType(&quot;text/*&quot;)) {
+        Some(p.getContent().asInstanceOf[String].replaceAll(&quot;\r\n&quot;,&quot;\n&quot;))
     } else {
         None
     }
 }
-</code></pre>
-   <p>
-    And we're good. But parsing all this code by ourselves seems like we're 
-doing a lot of hard work that someone else has done before. And you'd 
-be right!
-    <a href="https://commons.apache.org/proper/commons-email/userguide.html">
-     The fine folks at Apache Commons have an email library
-    </a>
-    . So 
-we can reduce our parsing code to something way simpler like this:
-   </p>
-   <pre><code>def mimeMessageToSimpleEmail(mimeMsg: MimeMessage): SimpleEmail = {
+</code></pre><p>And we&#39;re good. But parsing all this code by ourselves seems like we&#39;re 
+doing a lot of hard work that someone else has done before. And you&#39;d 
+be right! <a href="https://commons.apache.org/proper/commons-email/userguide.html">The fine folks at Apache Commons have an email library</a>. So 
+we can reduce our parsing code to something way simpler like this: </p>
+<pre><code>def mimeMessageToSimpleEmail(mimeMsg: MimeMessage): SimpleEmail = {
     val subject = mimeMsg.getSubject()
     val senders = arr2List(mimeMsg.getReplyTo()).map(_.toString())
     val recipients = arr2List(mimeMsg.getAllRecipients()).map(_.toString())
@@ -339,26 +208,17 @@ we can reduce our parsing code to something way simpler like this:
 
     SimpleEmail(recipients, senders, subject, plainText, htmlText)
 }
-</code></pre>
-   <p>
-    But then we run into a similar issue as before:
-   </p>
-   <pre><code>Vector(10, 87, 101, 108, 99, 111, 109, 101, 32, 110, 97, 109, 101, 33, 32, 10, 10, 72, 111, 112, 101, 32, 121, 111, 117, 32, 108, 105, 107, 101, 100, 32, 116, 104, 105, 115, 32, 116, 117, 116, 111, 114, 105, 97, 108, 33, 10, 10, 45, 32, 116, 101, 115, 116, 101, 114, 64, 100, 111, 109, 97, 105, 110, 46, 99, 111, 109)
+</code></pre><p>But then we run into a similar issue as before:</p>
+<pre><code>Vector(10, 87, 101, 108, 99, 111, 109, 101, 32, 110, 97, 109, 101, 33, 32, 10, 10, 72, 111, 112, 101, 32, 121, 111, 117, 32, 108, 105, 107, 101, 100, 32, 116, 104, 105, 115, 32, 116, 117, 116, 111, 114, 105, 97, 108, 33, 10, 10, 45, 32, 116, 101, 115, 116, 101, 114, 64, 100, 111, 109, 97, 105, 110, 46, 99, 111, 109)
 
 Vector(13, 10, 87, 101, 108, 99, 111, 109, 101, 32, 110, 97, 109, 101, 33, 32, 13, 10, 13, 10, 72, 111, 112, 101, 32, 121, 111, 117, 32, 108, 105, 107, 101, 100, 32, 116, 104, 105, 115, 32, 116, 117, 116, 111, 114, 105, 97, 108, 33, 13, 10, 13, 10, 45, 32, 116, 101, 115, 116, 101, 114, 64, 100, 111, 109, 97, 105, 110, 46, 99, 111, 109)
-</code></pre>
-   <p>
-    But we can fix this like before too:
-   </p>
-   <pre><code>val plainText = Option(parser.getPlainContent().replaceAll("\r\n", "\n"))
-val htmlText = Option(parser.getHtmlContent().replaceAll("\r\n", "\n"))
-</code></pre>
-   <p>
-    And then we're good. Now that we can parse an email, we can test that we 
+</code></pre><p>But we can fix this like before too:</p>
+<pre><code>val plainText = Option(parser.getPlainContent().replaceAll(&quot;\r\n&quot;, &quot;\n&quot;))
+val htmlText = Option(parser.getHtmlContent().replaceAll(&quot;\r\n&quot;, &quot;\n&quot;))
+</code></pre><p>And then we&#39;re good. Now that we can parse an email, we can test that we 
 can send one. To make this easy, we can create a simple trait to mix 
-into our test classes using what we've covered:
-   </p>
-   <pre><code>package test
+into our test classes using what we&#39;ve covered:</p>
+<pre><code>package test
 
 import org.scalatest._
 import com.icegreen.greenmail.util.{ GreenMail, ServerSetup }
@@ -382,7 +242,7 @@ trait MailSpec extends FlatSpec with Matchers with BeforeAndAfterEach with Befor
         9001
     }
 
-    val greenMail = new GreenMail(new ServerSetup(mailPort, null, "smtp"));
+    val greenMail = new GreenMail(new ServerSetup(mailPort, null, &quot;smtp&quot;));
 
     override def beforeAll() {
         super.beforeAll()
@@ -429,211 +289,138 @@ trait MailSpec extends FlatSpec with Matchers with BeforeAndAfterEach with Befor
 
         val parser = new org.apache.commons.mail.util.MimeMessageParser(mimeMsg)
         parser.parse()
-        val plainText = Option(parser.getPlainContent().replaceAll("\r\n", "\n"))
-        val htmlText = Option(parser.getHtmlContent().replaceAll("\r\n", "\n"))
+        val plainText = Option(parser.getPlainContent().replaceAll(&quot;\r\n&quot;, &quot;\n&quot;))
+        val htmlText = Option(parser.getHtmlContent().replaceAll(&quot;\r\n&quot;, &quot;\n&quot;))
 
         SimpleEmail(recipients, senders, subject, plainText, htmlText)
     }
 
 }
-</code></pre>
-   <p>
-    If you use the above, you can create tests like this:
-   </p>
-   <pre><code>class MailServiceTests extends test.MailSpec {
+</code></pre><p>If you use the above, you can create tests like this:</p>
+<pre><code>class MailServiceTests extends test.MailSpec {
     def fakeApp = {
         FakeApplication(
             additionalConfiguration = Map(
-                "smtp.host" -&gt; "localhost",
-                "smtp.port" -&gt; mailPort,
-                "smtp.ssl" -&gt; false
+                &quot;smtp.host&quot; -&gt; &quot;localhost&quot;,
+                &quot;smtp.port&quot; -&gt; mailPort,
+                &quot;smtp.ssl&quot; -&gt; false
             )
         )
     }
 
-    "The MailService" should "send mail!" in running(fakeApp) {
+    &quot;The MailService&quot; should &quot;send mail!&quot; in running(fakeApp) {
         ... Send an email ...
 
-        val emails = getMessageForEmail("user@localhost")
+        val emails = getMessageForEmail(&quot;user@localhost&quot;)
         assertResult(1)(emails.size)
 
         ... Perform Assertions on content ...
     }
 }
-</code></pre>
-   <p>
-    And you'll be up and running to the races in no time! The other thing 
-that you can do, if you're using the play mailer and you're testing code
-that sends an email, but you don't need to check the email itself, is to 
-set the
-    <code>
-     play.mailer.mock
-    </code>
-    property in a test.conf file to
-    <code>
-     true
-    </code>
-    so that 
-it logs the emails and doesn't actually send them.
-   </p>
-   <p>
-    You can find a full project showing the tests as well as some tests themselves
-    <a href="https://github.com/EdgeCaseBerg/testing-play-mailer">
-     here on github
-    </a>
-    . It includes not just the MailSpec trait but also some 
-simple models and services designed to integrate into general applications.
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="implementing-subresource-integrity-sri">
-       How to implement Subresource Integrity (SRI)
-      </a>
-     </li>
-     <li>
-      <a href="upload-binary-data-play-exif">
-       Upload binary data in play
-      </a>
-     </li>
-     <li>
-      <a href="exploiting-magento">
-       Let's Exploit Magento! (&lt;1.9.2.3)
-      </a>
-     </li>
-     <li>
-      <a href="bashing-logs">
-       Bashing Logs
-      </a>
-     </li>
-     <li>
-      <a href="building-state-from-scala-workflows">
-       Building Content State from Workflow and Audit Logs
-      </a>
-     </li>
-     <li>
-      <a href="netty-timeouts-and-playframework">
-       How to set Netty options in Playframework
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+</code></pre><p>And you&#39;ll be up and running to the races in no time! The other thing 
+that you can do, if you&#39;re using the play mailer and you&#39;re testing code
+that sends an email, but you don&#39;t need to check the email itself, is to 
+set the <code>play.mailer.mock</code> property in a test.conf file to <code>true</code> so that 
+it logs the emails and doesn&#39;t actually send them.</p>
+<p>You can find a full project showing the tests as well as some tests themselves
+<a href="https://github.com/EdgeCaseBerg/testing-play-mailer">here on github</a>. It includes not just the MailSpec trait but also some 
+simple models and services designed to integrate into general applications.</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=implementing-subresource-integrity-sri>How to implement Subresource Integrity (SRI)</a></li><li><a href=upload-binary-data-play-exif>Upload binary data in play</a></li><li><a href=exploiting-magento>Let&#39;s Exploit Magento! (&lt;1.9.2.3)</a></li><li><a href=bashing-logs>Bashing Logs</a></li><li><a href=building-state-from-scala-workflows>Building Content State from Workflow and Audit Logs</a></li><li><a href=netty-timeouts-and-playframework>How to set Netty options in Playframework</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <span>
-       Twitter
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<span>Twitter</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

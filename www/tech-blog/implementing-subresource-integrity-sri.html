@@ -1,34 +1,45 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | How to implement Subresource Integrity (SRI)
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="SRI is an upcoming way to secure third party assets and provide defense against malicious code being ran within browsers. In this post I talk about how to implement and automate updating HTML elements with the required attributes" name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="subresource integrity,sri,crossorigin,security,how to,cdn,HTML" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | How to implement Subresource Integrity (SRI)" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="SRI is an upcoming way to secure third party assets and provide defense against malicious code being ran within browsers. In this post I talk about how to implement and automate updating HTML elements with the required attributes" property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | How to implement Subresource Integrity (SRI)" name="twitter:title"/>
-  <meta content="SRI is an upcoming way to secure third party assets and provide defense against malicious code being ran within browsers. In this post I talk about how to implement and automate updating HTML elements with the required attributes" name="twitter:description"/>
-  <meta content="//static.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet" type="text/css"/>
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-Yk6fMSCCTCPyHYaY4h661zZEU59LSxS2pX0b+B1jG+4atCz2yx/YhiimkVlATCwk" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | How to implement Subresource Integrity (SRI)</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="SRI is an upcoming way to secure third party assets and provide defense against malicious code being ran within browsers. In this post I talk about how to implement and automate updating HTML elements with the required attributes" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="subresource integrity,sri,crossorigin,security,how to,cdn,HTML"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | How to implement Subresource Integrity (SRI)" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="SRI is an upcoming way to secure third party assets and provide defense against malicious code being ran within browsers. In this post I talk about how to implement and automate updating HTML elements with the required attributes" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | How to implement Subresource Integrity (SRI)" />
+    
+    <meta name="twitter:description" content="SRI is an upcoming way to secure third party assets and provide defense against malicious code being ran within browsers. In this post I talk about how to implement and automate updating HTML elements with the required attributes" />
+    
+    <meta name="twitter:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -36,515 +47,225 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    How to implement Subresource Integrity (SRI)
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Implementing Subresource Integrity
-   </h3>
-   <p>
-    A little while ago a blog post by
-    <a href="https://frederik-braun.com/index.html">
-     Frederik Braun
-    </a>
-    came across my radar
-and I learned about something call
-    <a href="http://www.w3.org/TR/SRI/">
-     Subresource integrity
-    </a>
-    . You can read
-the excellent explanation by Braun
-    <a href="https://frederik-braun.com/subresource-integrity.html">
-     on his website
-    </a>
-    for more details or
-you can
-    <a href="https://frederik-braun.com/using-subresource-integrity.html">
-     read his transcript
-    </a>
-    of a talk he gave if you want a really
-thorough explanation of how it works, what it is, and why it's useful.
-For this blog post, I'm focused on the practical people who simply want
-to
-    <em>
-     use
-    </em>
-    SRI and advise a few things to be mindful of as you implement.
-   </p>
-   <h4>
-    For those who don't want to read, what's SRI?
-   </h4>
-   <p>
-    SRI is a way to make sure CDN or other third party assets such as
-javascript or CSS don't deface your site or do malicious things should 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>How to implement Subresource Integrity (SRI)</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Implementing Subresource Integrity</h3><p>A little while ago a blog post by <a href="https://frederik-braun.com/index.html">Frederik Braun</a> came across my radar
+and I learned about something call <a href="http://www.w3.org/TR/SRI/">Subresource integrity</a>. You can read
+the excellent explanation by Braun <a href="https://frederik-braun.com/subresource-integrity.html">on his website</a> for more details or
+you can <a href="https://frederik-braun.com/using-subresource-integrity.html">read his transcript</a> of a talk he gave if you want a really
+thorough explanation of how it works, what it is, and why it&#39;s useful.
+For this blog post, I&#39;m focused on the practical people who simply want
+to <em>use</em> SRI and advise a few things to be mindful of as you implement. </p>
+<h4>For those who don&#39;t want to read, what&#39;s SRI?</h4><p>SRI is a way to make sure CDN or other third party assets such as
+javascript or CSS don&#39;t deface your site or do malicious things should 
 said third party become compromised. You can imagine a situation where
-you include jQuery from
-    <a href="https://cdnjs.com/">
-     cdnjs
-    </a>
-    , but it's been compromised, so every few
+you include jQuery from <a href="https://cdnjs.com/">cdnjs</a>, but it&#39;s been compromised, so every few
 seconds it does a simple call to load facebook silently.
-Congratulations, the world has just DDoS-ed a website for you
-    <em>
-     and you
-could have prevented it with SRI
-    </em>
-    .
-   </p>
-   <h4>
-    Getting to it, the key parts for SRI.
-   </h4>
-   <p>
-    To implement SRI for your resource you need 2 things.
-   </p>
-   <ol>
-    <li>
-     The hash of your resource, using sha256, sha384, or sha512*
-    </li>
-    <li>
-     The Base 64 encoding of your hash.
-    </li>
-   </ol>
-   <p>
-    You can compute this yourself with open SSL as Braun indicates on his
-website
-   </p>
-   <pre><code>cat MYFILE | openssl dgst -sha256 -binary | openssl enc -base64 -A
-</code></pre>
-   <p>
-    or you can use
-    <a href="https://www.srihash.org/">
-     this handy website to generate the HTML for a given file
-    </a>
-    .
-   </p>
-   <p>
-    If you're only doing this for a few resources on your pages (jQuery,
-bootstrap, etc) then you're probably fine using one of these tools and
-adding in the HTML manually. If you're like me, and like to automate
-things then you can do a bit more work.
-   </p>
-   <h4>
-    Automating SRI for your website, via Python
-   </h4>
-   <p>
-    If you just want the script,
-    <a href="https://github.com/EdgeCaseBerg/EJEHardenberg.github.io/blob/master/sri.py">
-     it's here
-    </a>
-    and you'll just need to
-    <a href="https://github.com/EdgeCaseBerg/EJEHardenberg.github.io/blob/master/sri.conf">
-     configure it
-    </a>
-    .
-   </p>
-   <p>
-    If I were any good with Node or understanding the finer nature of
-    <a href="http://www.harpjs.com/">
-     Harp
-    </a>
-    I'd be able to integrate the integrity checks directly into the compile
-step of my website, but since I don't know how to do that I figure'd
-python would be a safe alternative. I chose python because it provides:
-   </p>
-   <ul>
-    <li>
-     An easy to use HTML parser via [Beautiful Soup]
-    </li>
-    <li>
-     An easy to use hashing library via
-     <a href="https://docs.python.org/2/library/hashlib.html">
-      Hashlib
-     </a>
-    </li>
-    <li>
-     And an encoding library for
-     <a href="https://docs.python.org/2/library/base64.html#module-base64">
-      Base64
-     </a>
-     and
-     <a href="https://docs.python.org/2/library/json.html">
-      JSON
-     </a>
-    </li>
-   </ul>
-   <p>
-    The gist of the script is simple, using a configuration for which files
+Congratulations, the world has just DDoS-ed a website for you <em>and you
+could have prevented it with SRI</em>. </p>
+<h4>Getting to it, the key parts for SRI.</h4><p>To implement SRI for your resource you need 2 things. </p>
+<ol>
+<li>The hash of your resource, using sha256, sha384, or sha512*</li>
+<li>The Base 64 encoding of your hash.</li>
+</ol>
+<p>You can compute this yourself with open SSL as Braun indicates on his
+website</p>
+<pre><code>cat MYFILE | openssl dgst -sha256 -binary | openssl enc -base64 -A
+</code></pre><p>or you can use <a href="https://www.srihash.org/">this handy website to generate the HTML for a given file</a>.</p>
+<p>If you&#39;re only doing this for a few resources on your pages (jQuery,
+bootstrap, etc) then you&#39;re probably fine using one of these tools and
+adding in the HTML manually. If you&#39;re like me, and like to automate
+things then you can do a bit more work. </p>
+<h4>Automating SRI for your website, via Python</h4><p>If you just want the script, <a href="https://github.com/EdgeCaseBerg/EJEHardenberg.github.io/blob/master/sri.py">it&#39;s here</a> and you&#39;ll just need to
+<a href="https://github.com/EdgeCaseBerg/EJEHardenberg.github.io/blob/master/sri.conf">configure it</a>. </p>
+<p>If I were any good with Node or understanding the finer nature of <a href="http://www.harpjs.com/">Harp</a>
+I&#39;d be able to integrate the integrity checks directly into the compile
+step of my website, but since I don&#39;t know how to do that I figure&#39;d
+python would be a safe alternative. I chose python because it provides:</p>
+<ul>
+<li>An easy to use HTML parser via [Beautiful Soup]</li>
+<li>An easy to use hashing library via <a href="https://docs.python.org/2/library/hashlib.html">Hashlib</a></li>
+<li>And an encoding library for <a href="https://docs.python.org/2/library/base64.html#module-base64">Base64</a> and <a href="https://docs.python.org/2/library/json.html">JSON</a></li>
+</ul>
+<p>The gist of the script is simple, using a configuration for which files
 should have integrity checks added to them, walk an HTML folder and
 update each of the links with the appropriate intregity value. So, we
-need to:
-   </p>
-   <ol>
-    <li>
-     Load a configuration
-    </li>
-    <li>
-     Compute integrity values for the configured files
-    </li>
-    <li>
-     Walk and update each HTML file.
-    </li>
-   </ol>
-   <h4>
-    Loading a configuration
-   </h4>
-   <p>
-    In python, loading a simple JSON configuration file couldn't be simpler:
-   </p>
-   <pre><code>import json
-with open('sri.conf') as f:
+need to:</p>
+<ol>
+<li>Load a configuration</li>
+<li>Compute integrity values for the configured files</li>
+<li>Walk and update each HTML file.</li>
+</ol>
+<h4>Loading a configuration</h4><p>In python, loading a simple JSON configuration file couldn&#39;t be simpler:</p>
+<pre><code>import json
+with open(&#39;sri.conf&#39;) as f:
     conf = json.load(f)
-</code></pre>
-   <p>
-    We'll be provided with a simple dictionary to use of whatever happens to
-be in
-    <em>
-     sri.conf
-    </em>
-    . In my case it's:
-   </p>
-   <pre><code>{
-    "scripts" : [
-        ["www/javascript/app.js", "/app.js"],
-        ["www/javascript/jquery.min.1.9.1.js", "/jquery.min.1.9.1.js"]
+</code></pre><p>We&#39;ll be provided with a simple dictionary to use of whatever happens to
+be in <em>sri.conf</em>. In my case it&#39;s:</p>
+<pre><code>{
+    &quot;scripts&quot; : [
+        [&quot;www/javascript/app.js&quot;, &quot;/app.js&quot;],
+        [&quot;www/javascript/jquery.min.1.9.1.js&quot;, &quot;/jquery.min.1.9.1.js&quot;]
     ],
-    "links" : [
-        ["www/css/style.css", "/style.css"],
-        ["www/css/non-essentials.css", "/non-essentials.css"],
-        ["www/css/politics.css", "/politics.css"]
+    &quot;links&quot; : [
+        [&quot;www/css/style.css&quot;, &quot;/style.css&quot;],
+        [&quot;www/css/non-essentials.css&quot;, &quot;/non-essentials.css&quot;],
+        [&quot;www/css/politics.css&quot;, &quot;/politics.css&quot;]
     ]
 }
-</code></pre>
-   <p>
-    The configuration is simple, I'll be handling both javascript
-    <code>
-     script
-    </code>
-    tags and CSS
-    <code>
-     link
-    </code>
-    tags. The items in the array are arrays of length 
+</code></pre><p>The configuration is simple, I&#39;ll be handling both javascript <code>script</code>
+tags and CSS <code>link</code> tags. The items in the array are arrays of length 
 2, with the first element being the resource to validate, and the second
-being the script to look for. Since my website
-    <a href="/tech-blog/harpjs-macros">
-     chooses one of my static hosts randomly
-    </a>
-    I don't know the full domain to search for and simply look for a match
-at the
-    <em>
-     end
-    </em>
-    of a file, which means that if there were more than one
-app.js, this script would have some issues. Caveat aside, it's trivial 
-to move on to the next step.
-   </p>
-   <h4>
-    Computing integrity values for SRI in Python
-   </h4>
-   <p>
-    It's simple to call
-    <code>
-     hashlib.sha384()
-    </code>
-    and
-    <code>
-     update
-    </code>
-    on a set of bytes to
-compute a hash in python:
-   </p>
-   <pre><code>import hashlib
+being the script to look for. Since my website <a href="/tech-blog/harpjs-macros">chooses one of my static hosts randomly</a> 
+I don&#39;t know the full domain to search for and simply look for a match
+at the <em>end</em> of a file, which means that if there were more than one
+app.js, this script would have some issues. Caveat aside, it&#39;s trivial 
+to move on to the next step. </p>
+<h4>Computing integrity values for SRI in Python</h4><p>It&#39;s simple to call <code>hashlib.sha384()</code> and <code>update</code> on a set of bytes to
+compute a hash in python:</p>
+<pre><code>import hashlib
 sha = hashlib.sha384()
-sha.update("block")
+sha.update(&quot;block&quot;)
 print sha.hexdigest()
-</code></pre>
-   <p>
-    But what's not entirely clear is whether you should use
-    <code>
-     hexdigest
-    </code>
-    or
-    <code>
-     digest
-    </code>
-    . If we
-    <em>
-     only
-    </em>
-    needed the sha value and not the base 64 encoded
-version as well, we'd probably prefer
-    <code>
-     hexdigest
-    </code>
-    since, according to
-the docs:
-   </p>
-   <blockquote>
-    <p>
-     the digest is returned as a string of double length, containing only
+</code></pre><p>But what&#39;s not entirely clear is whether you should use <code>hexdigest</code> or
+<code>digest</code>. If we <em>only</em> needed the sha value and not the base 64 encoded
+version as well, we&#39;d probably prefer <code>hexdigest</code> since, according to
+the docs:</p>
+<blockquote>
+<p>the digest is returned as a string of double length, containing only
 hexadecimal digits. This may be used to exchange the value safely in
-email or other non-binary environments.
-    </p>
-   </blockquote>
-   <p>
-    But since we'll be passing it to
-    <code>
-     base64.encodestring
-    </code>
-    , we want to use
-    <code>
-     digest
-    </code>
-    which has a return value that is the raw hash and not a string
-encoding of it that would hash differently:
-   </p>
-   <blockquote>
-    <p>
-     This is a string of digest_size bytes which may contain non-ASCII
-characters, including null bytes.
-    </p>
-   </blockquote>
-   <p>
-    We're using the
-    <code>
-     base64.encodestring
-    </code>
-    method rather than
-    <code>
-     b64encode
-    </code>
-    or
-any of the other methods because, according to the
-    <a href="https://docs.python.org/2/library/base64.html#module-base64">
-     Base64
-    </a>
-    docs:
-   </p>
-   <blockquote>
-    <p>
-     The legacy interface provides for encoding and decoding to and from
+email or other non-binary environments.</p>
+</blockquote>
+<p>But since we&#39;ll be passing it to <code>base64.encodestring</code>, we want to use
+<code>digest</code> which has a return value that is the raw hash and not a string
+encoding of it that would hash differently:</p>
+<blockquote>
+<p>This is a string of digest_size bytes which may contain non-ASCII
+characters, including null bytes.</p>
+</blockquote>
+<p>We&#39;re using the <code>base64.encodestring</code> method rather than <code>b64encode</code> or
+any of the other methods because, according to the <a href="https://docs.python.org/2/library/base64.html#module-base64">Base64</a> docs:</p>
+<blockquote>
+<p>The legacy interface provides for encoding and decoding to and from
 file-like objects as well as strings, but only using the Base64
-standard alphabet.
-    </p>
-   </blockquote>
-   <p>
-    The community for python is great, so I didn't have to expend too much
-effort in finding
-    <a href="http://stackoverflow.com/a/19711609/1808164">
-     an example of hashing a file
-    </a>
-    , and my only update was
-to use
-    <code>
-     digest
-    </code>
-    rather than
-    <code>
-     hexdigest
-    </code>
-    so I didn't have to convert from
-the hex version back to the raw for my base64 encoding.
-   </p>
-   <pre><code>import hashlib
+standard alphabet.</p>
+</blockquote>
+<p>The community for python is great, so I didn&#39;t have to expend too much
+effort in finding <a href="http://stackoverflow.com/a/19711609/1808164">an example of hashing a file</a>, and my only update was
+to use <code>digest</code> rather than <code>hexdigest</code> so I didn&#39;t have to convert from
+the hex version back to the raw for my base64 encoding.</p>
+<pre><code>import hashlib
 def sha384OfFile(filepath):
     sha = hashlib.sha384()
-    with open(filepath, 'rb') as f:
+    with open(filepath, &#39;rb&#39;) as f:
         while True:
             block = f.read(2**10) # Magic number: one-megabyte blocks.
             if not block: break
             sha.update(block)
         return sha.digest()
-</code></pre>
-   <p>
-    And to compute the base64 encoding and format the string into a valid
-integrity check for SRI:
-   </p>
-   <pre><code>def sriOfFile(filepath):
+</code></pre><p>And to compute the base64 encoding and format the string into a valid
+integrity check for SRI:</p>
+<pre><code>def sriOfFile(filepath):
     sha = sha384OfFile(filepath)
-    return 'sha384-' + encodestring(sha)[:-1] #drop newline added by b64
-</code></pre>
-   <p>
-    Note that we have to drop the last line because
-    <code>
-     encodestring
-    </code>
-    adds a
-newline as indicated by the documentation:
-   </p>
-   <blockquote>
-    <p>
-     returns a string containing one or more lines of base64-encoded data
-always including an extra trailing newline ('\n').
-    </p>
-   </blockquote>
-   <h4>
-    Walking HTML files and adding SRI
-   </h4>
-   <p>
-    Finally, the last thing we need to do is traverse a file system and open
+    return &#39;sha384-&#39; + encodestring(sha)[:-1] #drop newline added by b64
+</code></pre><p>Note that we have to drop the last line because <code>encodestring</code> adds a
+newline as indicated by the documentation:</p>
+<blockquote>
+<p>returns a string containing one or more lines of base64-encoded data
+always including an extra trailing newline (&#39;\n&#39;).</p>
+</blockquote>
+<h4>Walking HTML files and adding SRI</h4><p>Finally, the last thing we need to do is traverse a file system and open
 and edit each HTML file. Walking directory structures is fairly trivial
-in Python:
-   </p>
-   <pre><code>directory = '/tmp'
+in Python:</p>
+<pre><code>directory = &#39;/tmp&#39;
 for root, directories, files in os.walk(directory):
     for filename in files:
         #Do stuff
-</code></pre>
-   <p>
-    To only deal with HTML files we simply check the filename:
-   </p>
-   <pre><code>if filename.endsWith(".html"):
+</code></pre><p>To only deal with HTML files we simply check the filename:</p>
+<pre><code>if filename.endsWith(&quot;.html&quot;):
     #Do stuff
-</code></pre>
-   <p>
-    So combining these two together we can construct a list of files that we
-need to update and edit:
-   </p>
-   <pre><code>def get_filepaths(directory):
+</code></pre><p>So combining these two together we can construct a list of files that we
+need to update and edit:</p>
+<pre><code>def get_filepaths(directory):
     file_paths = []  # List which will store all of the full filepaths.
 
     for root, directories, files in os.walk(directory):
         for filename in files:
-            if filename.endsWith(".html"):
+            if filename.endsWith(&quot;.html&quot;):
                 filepath = os.path.join(root, filename)
                 file_paths.append(filepath)  # Add it to the list.
 
     return file_paths  # Self-explanatory.
-</code></pre>
-   <p>
-    Once we have the files, we parse them with
-    <a href="http://www.crummy.com/software/BeautifulSoup/">
-     BeautifulSoup
-    </a>
-    and update
-the
-    <code>
-     link
-    </code>
-    and
-    <code>
-     script
-    </code>
-    tags with the configured values if they match
-our search pattern. Parsing a file is easy:
-   </p>
-   <pre><code># f being a member of the get_filepaths return array
-with open(f,'r') as openedFile:
-        soup = BeautifulSoup(openedFile, "lxml")
-</code></pre>
-   <p>
-    Then, finding valid links to update can be done with the
-    <code>
-     find_all
-    </code>
-    method on the
-    <code>
-     soup
-    </code>
-    by providing our own filtering functions:
-   </p>
-   <pre><code>def isCssLink(tag):
-    return tag.has_attr('rel') and tag.has_attr('href') and 'stylesheet' in tag['rel']
+</code></pre><p>Once we have the files, we parse them with <a href="http://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a> and update
+the <code>link</code> and <code>script</code> tags with the configured values if they match
+our search pattern. Parsing a file is easy:</p>
+<pre><code># f being a member of the get_filepaths return array
+with open(f,&#39;r&#39;) as openedFile:
+        soup = BeautifulSoup(openedFile, &quot;lxml&quot;)
+</code></pre><p>Then, finding valid links to update can be done with the <code>find_all</code>
+method on the <code>soup</code> by providing our own filtering functions:</p>
+<pre><code>def isCssLink(tag):
+    return tag.has_attr(&#39;rel&#39;) and tag.has_attr(&#39;href&#39;) and &#39;stylesheet&#39; in tag[&#39;rel&#39;]
 
 def isScriptLink(tag):
-    return tag.has_attr('src') and tag.has_attr('type') and 'text/javascript' in tag['type']
+    return tag.has_attr(&#39;src&#39;) and tag.has_attr(&#39;type&#39;) and &#39;text/javascript&#39; in tag[&#39;type&#39;]
 
 links = soup.find_all(isCssLink)
 scripts = soup.find_all(isScriptLink)
-</code></pre>
-   <p>
-    Once we have all the CSS links and javascript script tags, we can update
-them with soup's easy to understand syntax:
-   </p>
-   <pre><code>for link in links:
-    link['property'] = 'value'
-</code></pre>
-   <p>
-    So going back to our configuration JSON, we know we have a pattern to
+</code></pre><p>Once we have all the CSS links and javascript script tags, we can update
+them with soup&#39;s easy to understand syntax:</p>
+<pre><code>for link in links:
+    link[&#39;property&#39;] = &#39;value&#39;
+</code></pre><p>So going back to our configuration JSON, we know we have a pattern to
 search, and a file to hash. Pre-computing these will save us a lot of
-time and effort performance wise:
-   </p>
-   <pre><code>searchLinks = []
+time and effort performance wise:</p>
+<pre><code>searchLinks = []
 searchScripts = []
 
-for linkArray in conf['links']:
+for linkArray in conf[&#39;links&#39;]:
     sri = sriOfFile(linkArray[0]) #linkArray[0] is the filepath
     searchLinks.append( [linkArray[1] , sri]) #linkArray[1] is the pattern to search
 
-for scriptArray in conf['scripts']:
+for scriptArray in conf[&#39;scripts&#39;]:
     sri = sriOfFile(scriptArray[0])
     searchScripts.append( [scriptArray[1] , sri])
-</code></pre>
-   <p>
-    With these pre-computed SRI's and patterns we can update our HTML soup:
-   </p>
-   <pre><code>for link in links:
+</code></pre><p>With these pre-computed SRI&#39;s and patterns we can update our HTML soup:</p>
+<pre><code>for link in links:
     for searchLink in searchLinks:
-        if link['href'].endswith(searchLink[0]):
-            link['integrity'] = searchLink[1]
-            link['crossorigin'] = 'anonymous'
-</code></pre>
-   <p>
-    And just like that we have an updated HTML file, and all that's left is
-to save it:
-   </p>
-   <pre><code>data = soup.prettify()
+        if link[&#39;href&#39;].endswith(searchLink[0]):
+            link[&#39;integrity&#39;] = searchLink[1]
+            link[&#39;crossorigin&#39;] = &#39;anonymous&#39;
+</code></pre><p>And just like that we have an updated HTML file, and all that&#39;s left is
+to save it:</p>
+<pre><code>data = soup.prettify()
 
-with open(f, 'w') as openedFile:
-    openedFile.write(data.encode('utf-8'))
-</code></pre>
-   <h4>
-    Things to note
-   </h4>
-   <p>
-    With the script explained, there are a few things I'd like to make note
-of. While updating my own site to use SRI I
-    <a href="https://github.com/EdgeCaseBerg/EJEHardenberg.github.io/issues/2">
-     managed to break it for a while
-    </a>
-    . 
-Namely because I
-    <em>
-     forgot to add the crossorigin attribute
-    </em>
-    to the tag.
-You
-    <strong>
-     absolutely
-    </strong>
-    need to include it, otherwise the asset will not
+with open(f, &#39;w&#39;) as openedFile:
+    openedFile.write(data.encode(&#39;utf-8&#39;))
+</code></pre><h4>Things to note</h4><p>With the script explained, there are a few things I&#39;d like to make note
+of. While updating my own site to use SRI I <a href="https://github.com/EdgeCaseBerg/EJEHardenberg.github.io/issues/2">managed to break it for a while</a>. 
+Namely because I <em>forgot to add the crossorigin attribute</em> to the tag.
+You <strong>absolutely</strong> need to include it, otherwise the asset will not
 load. And depending on your browser version, you might not get a clear
-    <a href="https://code.google.com/p/chromium/issues/detail?id=527436">
-     message about it in the error console
-    </a>
-    . But the main thing you need to
+<a href="https://code.google.com/p/chromium/issues/detail?id=527436">message about it in the error console</a>. But the main thing you need to
 remember is to add the crossorigin attribute. And of course, add CORS
-headers to whatever is serving the assets, most CDN do already.
-   </p>
-   <p>
-    The other thing to note is that your integrity value doesn't actually
-ensure anything unless it's in a secure context, i.e. if the asset is
-loaded via SSL. While the SRI spec
-    <em>
-     has no requirement for SSL
-    </em>
-    on the
-loaded source, it still advises developers that they're just wasting
-people's time if it's not:
-   </p>
-   <blockquote>
-    <p>
-     Being in a Secure Context (e.g., a document delivered over HTTPS) is
+headers to whatever is serving the assets, most CDN do already.</p>
+<p>The other thing to note is that your integrity value doesn&#39;t actually
+ensure anything unless it&#39;s in a secure context, i.e. if the asset is
+loaded via SSL. While the SRI spec <em>has no requirement for SSL</em> on the
+loaded source, it still advises developers that they&#39;re just wasting
+people&#39;s time if it&#39;s not:</p>
+<blockquote>
+<p>Being in a Secure Context (e.g., a document delivered over HTTPS) is
 not necessary for the use of integrity validation. Because resource
 integrity is only an application level security tool, and it does not
 change the security state of the user agent, a Secure Context is
@@ -552,189 +273,111 @@ unnecessary. However, if integrity is used in something other than a
 Secure Context (e.g., a document delivered over HTTP), authors should
 be aware that the integrity provides no security guarantees at all. For
 this reason, authors should only deliver integrity metadata in a Secure
-Context. See [Non-secure contexts remain non-secure] for more discussion.
-    </p>
-   </blockquote>
-   <p>
-    And finally, SRI is still experimental and is supported by chrome and
+Context. See [Non-secure contexts remain non-secure] for more discussion.</p>
+</blockquote>
+<p>And finally, SRI is still experimental and is supported by chrome and
 firefox in their latest/nightly versions. If you want to see if your
-browser is supported, you can open the
-    <a href="https://www.srihash.org/">
-     srihash.org page
-    </a>
-    and scroll to
-the bottom.
-   </p>
-   <p>
-    Stay secure and I hope this helps!
-   </p>
-   <p>
-    *
-    <small>
-     The list of supported hash algorithms is in
-     <a href="https://w3c.github.io/webappsec-subresource-integrity/#the-integrity-attribute">
-      S 3.5 of the SRI spec
-     </a>
-     , which in
-turn references
-     <a href="http://www.w3.org/TR/CSP11/#source-list-syntax">
-      Content Security Policy Level 2, section 4.2
-     </a>
-     .
-     <small>
-     </small>
-    </small>
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="exploiting-magento">
-       Let's Exploit Magento! (&lt;1.9.2.3)
-      </a>
-     </li>
-     <li>
-      <a href="how-to-test-playframework-mailer">
-       How to test the PlayFramework Mailer
-      </a>
-     </li>
-     <li>
-      <a href="upload-binary-data-play-exif">
-       Upload binary data in play
-      </a>
-     </li>
-     <li>
-      <a href="bashing-logs">
-       Bashing Logs
-      </a>
-     </li>
-     <li>
-      <a href="building-state-from-scala-workflows">
-       Building Content State from Workflow and Audit Logs
-      </a>
-     </li>
-     <li>
-      <a href="netty-timeouts-and-playframework">
-       How to set Netty options in Playframework
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+browser is supported, you can open the <a href="https://www.srihash.org/">srihash.org page</a> and scroll to
+the bottom.</p>
+<p>Stay secure and I hope this helps!</p>
+<p>*<small>The list of supported hash algorithms is in <a href="https://w3c.github.io/webappsec-subresource-integrity/#the-integrity-attribute">S 3.5 of the SRI spec</a>, which in
+turn references <a href="http://www.w3.org/TR/CSP11/#source-list-syntax">Content Security Policy Level 2, section 4.2</a>.<small></small></small></p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=exploiting-magento>Let&#39;s Exploit Magento! (&lt;1.9.2.3)</a></li><li><a href=how-to-test-playframework-mailer>How to test the PlayFramework Mailer</a></li><li><a href=upload-binary-data-play-exif>Upload binary data in play</a></li><li><a href=bashing-logs>Bashing Logs</a></li><li><a href=building-state-from-scala-workflows>Building Content State from Workflow and Audit Logs</a></li><li><a href=netty-timeouts-and-playframework>How to set Netty options in Playframework</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <span>
-       Twitter
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<span>Twitter</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

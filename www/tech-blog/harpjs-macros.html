@@ -1,34 +1,45 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | HarpJS and Macros, Static Delivery for Static Content
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="A HarpJS recipe for leveraging CDN's and Static content delivery for your HarpJs site" name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="HarpJS,Harp,CDN,Static Site,Static Content,Delivery Network,Performance,Website Development,Ethan,Joachim,Eldridge,Programming" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | HarpJS and Macros, Static Delivery for Static Content" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="A HarpJS recipe for leveraging CDN's and Static content delivery for your HarpJs site" property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | HarpJS and Macros, Static Delivery for Static Content" name="twitter:title"/>
-  <meta content="A HarpJS recipe for leveraging CDN's and Static content delivery for your HarpJs site" name="twitter:description"/>
-  <meta content="//static.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet" type="text/css"/>
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-Yk6fMSCCTCPyHYaY4h661zZEU59LSxS2pX0b+B1jG+4atCz2yx/YhiimkVlATCwk" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | HarpJS and Macros, Static Delivery for Static Content</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="A HarpJS recipe for leveraging CDN&#39;s and Static content delivery for your HarpJs site" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="HarpJS,Harp,CDN,Static Site,Static Content,Delivery Network,Performance,Website Development,Ethan,Joachim,Eldridge,Programming"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | HarpJS and Macros, Static Delivery for Static Content" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="A HarpJS recipe for leveraging CDN&#39;s and Static content delivery for your HarpJs site" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | HarpJS and Macros, Static Delivery for Static Content" />
+    
+    <meta name="twitter:description" content="A HarpJS recipe for leveraging CDN&#39;s and Static content delivery for your HarpJs site" />
+    
+    <meta name="twitter:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -36,338 +47,201 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    HarpJS and Macros, Static Delivery for Static Content
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    HarpJS Macros and Multiple Static Domains
-   </h3>
-   <p>
-    I very recently bought my new domain name and redesigned my website. I'm still using
-    <a href="//harpjs.com">
-     Harp
-    </a>
-    to 
-generate my site, and
-    <a href="https://httpd.apache.org/">
-     apache
-    </a>
-    to serve it.
-   </p>
-   <p>
-    Any good web developer worth their salt will tell you that if you've got static
-content, you'll do the internet and your site visitors a favor if you use the
-proper cache headers. This isn't a cache header tutorial though, instead, I'd like
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>HarpJS and Macros, Static Delivery for Static Content</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>HarpJS Macros and Multiple Static Domains</h3><p>I very recently bought my new domain name and redesigned my website. I&#39;m still using <a href="//harpjs.com">Harp</a> to 
+generate my site, and <a href="https://httpd.apache.org/">apache</a> to serve it.</p>
+<p>Any good web developer worth their salt will tell you that if you&#39;ve got static
+content, you&#39;ll do the internet and your site visitors a favor if you use the
+proper cache headers. This isn&#39;t a cache header tutorial though, instead, I&#39;d like
 to show you how you can create a powerful Macro on your Harp Site to enable proper
-CDN/static domain usage for any static content you might have.
-   </p>
-   <p>
-    If you don't know what I'm talking about, you've probably seen things like
-    <a href="https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/f2IiBfPD5Mj.png">
-     https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/f2IiBfPD5Mj.png
-    </a>
-    or things like
-    <code>
-     somesites.static.1.domain.com
-    </code>
-    . The use of static, cookieless, 
+CDN/static domain usage for any static content you might have. </p>
+<p>If you don&#39;t know what I&#39;m talking about, you&#39;ve probably seen things like 
+<a href="https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/f2IiBfPD5Mj.png">https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/f2IiBfPD5Mj.png</a>
+or things like <code>somesites.static.1.domain.com</code>. The use of static, cookieless, 
 subdomains as hosts for resources like images, javascript, or css is something
 that enables browsers to download and display a webpage faster. Your browser is
 able to download a site faster (in general) if it can open up connections to 
-multiple hosts. I won't go into all the details, you can always read
-    <a href="http://en.wikipedia.org/wiki/Content_delivery_network">
-     wikipedia
-    </a>
-    for that.
-   </p>
-   <p>
-    As a case study, I'm going to tell you how it's done on this site. I assume you're
-somewhat familiar with Harp, and if not I recommend checking out their excellent
-    <a href="http://harpjs.com/docs/">
-     documentation
-    </a>
-    .
-   </p>
-   <p>
-    First, HarpJS runs as a
-    <a href="http://nodejs.org/">
-     Node
-    </a>
-    module and is part of the new-fangled server-side
+multiple hosts. I won&#39;t go into all the details, you can always read <a href="http://en.wikipedia.org/wiki/Content_delivery_network">wikipedia</a>
+for that.</p>
+<p>As a case study, I&#39;m going to tell you how it&#39;s done on this site. I assume you&#39;re
+somewhat familiar with Harp, and if not I recommend checking out their excellent <a href="http://harpjs.com/docs/">documentation</a>.</p>
+<p>First, HarpJS runs as a <a href="http://nodejs.org/">Node</a> module and is part of the new-fangled server-side
 javascript paradigm. As such, we get to use things like EJS to use Javascript to
-generate our pages in a similar way to PHP. Something that isn't immediately obvious 
-from following the many
-    <a href="http://harpjs.com/recipes/">
-     good recipes
-    </a>
-    on Harp's site is that full blown javascript 
-means
-    <em>
-     full
-    </em>
-    <em>
-     blown
-    </em>
-    <em>
-     javascript
-    </em>
-    . This means functions my friends!
-   </p>
-   <p>
-    The best way to enable any image to be served from our static subdomain is to write
-what I would call a Macro (I've been in the C world recently, don't mind my jargon).
-This macro is pretty simple and uses a couple globals that we'll declare in our 
-harp.json file like so:
-   </p>
-   <pre><code>{
-    "globals" : {
-        "macros" : {},
-        "nextDomain" : 0,
-        "maxDomains" : 8,
-        "staticimagesurl" : [
-            "static.ethanjoachimeldridge.info", 
-            "static1.ethanjoachimeldridge.info", 
-            "static2.ethanjoachimeldridge.info",
-            "static3.ethanjoachimeldridge.info",
-            "static4.ethanjoachimeldridge.info",
-            "static5.ethanjoachimeldridge.info",
-            "static6.ethanjoachimeldridge.info",
-            "static7.ethanjoachimeldridge.info"
+generate our pages in a similar way to PHP. Something that isn&#39;t immediately obvious 
+from following the many <a href="http://harpjs.com/recipes/">good recipes</a> on Harp&#39;s site is that full blown javascript 
+means <em>full</em> <em>blown</em> <em>javascript</em>. This means functions my friends! </p>
+<p>The best way to enable any image to be served from our static subdomain is to write
+what I would call a Macro (I&#39;ve been in the C world recently, don&#39;t mind my jargon).
+This macro is pretty simple and uses a couple globals that we&#39;ll declare in our 
+harp.json file like so:</p>
+<pre><code>{
+    &quot;globals&quot; : {
+        &quot;macros&quot; : {},
+        &quot;nextDomain&quot; : 0,
+        &quot;maxDomains&quot; : 8,
+        &quot;staticimagesurl&quot; : [
+            &quot;static.ethanjoachimeldridge.info&quot;, 
+            &quot;static1.ethanjoachimeldridge.info&quot;, 
+            &quot;static2.ethanjoachimeldridge.info&quot;,
+            &quot;static3.ethanjoachimeldridge.info&quot;,
+            &quot;static4.ethanjoachimeldridge.info&quot;,
+            &quot;static5.ethanjoachimeldridge.info&quot;,
+            &quot;static6.ethanjoachimeldridge.info&quot;,
+            &quot;static7.ethanjoachimeldridge.info&quot;
         ]
     },
 
 }
-</code></pre>
-   <p>
-    Each of the
-    <code>
-     staticimagesurl
-    </code>
-    will function as one of our 'cdn' servers. If you're
-using S3, CloudFlare, or MaxCDN then you'd be replacing each of those items with 
-your corresponding urls. The
-    <code>
-     maxDomains
-    </code>
-    field could be replaced by an array length
-check during our macro, but for this case I figured it's simple enough to just count
-them myself.
-   </p>
-   <p>
-    With our globals in place, we can write our function, to make it accessible to all
-pages, I created a partial for it that can be easily injected wherever I need it:
-   </p>
-   <h4>
-    macros.ejs
-   </h4>
-   <pre><code>&lt;%
+</code></pre><p>Each of the <code>staticimagesurl</code> will function as one of our &#39;cdn&#39; servers. If you&#39;re
+using S3, CloudFlare, or MaxCDN then you&#39;d be replacing each of those items with 
+your corresponding urls. The <code>maxDomains</code> field could be replaced by an array length
+check during our macro, but for this case I figured it&#39;s simple enough to just count
+them myself. </p>
+<p>With our globals in place, we can write our function, to make it accessible to all
+pages, I created a partial for it that can be easily injected wherever I need it:</p>
+<h4>macros.ejs</h4><pre><code>&lt;%
 macros.rrImageDomain = function rrImageDomain(){
     //Round robin style
     //You could also do staticimagesurl[Math.floor(Math.random() * staticimagesurl.length)]; for random urls
     return staticimagesurl[nextDomain++ % maxDomains];
 }
 %&gt;
-</code></pre>
-   <p>
-    Simply put, we are adding a function to the global macros object. Within this macro
+</code></pre><p> Simply put, we are adding a function to the global macros object. Within this macro
  we are using our list of static content domains and whenever we call the macro
- we'll output the next item in the list (wrapping around when nextDomain is greater
+ we&#39;ll output the next item in the list (wrapping around when nextDomain is greater
  than 7). This will set us up to distribute the requests evenly over the static
- content servers.
-   </p>
-   <p>
-    To use the macro we can do this (From one of my _layout files):
-   </p>
-   <pre><code> &lt;%- partial('_shared/macros') %&gt;
+ content servers.</p>
+<p> To use the macro we can do this (From one of my _layout files):</p>
+<pre><code> &lt;%- partial(&#39;_shared/macros&#39;) %&gt;
 &lt;!DOCTYPE HTML&gt;
 &lt;html&gt;
     &lt;head&gt;
         &lt;title&gt;Ethan J. Eldridge | &lt;%= title %&gt;&lt;/title&gt;
         &lt;!-- snip --&gt;
 
-        &lt;link rel="shortcut icon" href="//&lt;%= macros.rrImageDomain() %&gt;//favicon.ico" type="image/x-icon" /&gt;
-        &lt;link rel="icon" href="//&lt;%= macros.rrImageDomain() %&gt;//favicon.ico" type="image/ico"&gt;
-</code></pre>
-   <p>
-    This will result in the following markup:
-   </p>
-   <pre><code>&lt;!DOCTYPE HTML&gt;
+        &lt;link rel=&quot;shortcut icon&quot; href=&quot;//&lt;%= macros.rrImageDomain() %&gt;//favicon.ico&quot; type=&quot;image/x-icon&quot; /&gt;
+        &lt;link rel=&quot;icon&quot; href=&quot;//&lt;%= macros.rrImageDomain() %&gt;//favicon.ico&quot; type=&quot;image/ico&quot;&gt;
+</code></pre><p>This will result in the following markup:</p>
+<pre><code>&lt;!DOCTYPE HTML&gt;
 &lt;html&gt;
     &lt;head&gt;
         &lt;title&gt;Ethan J. Eldridge | Ethan Joachim Eldridge&amp;#39;s Webspace&lt;/title&gt;
         &lt;!-- snip --&gt;
 
-        &lt;link rel="shortcut icon" href="//static6.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" /&gt;
-        &lt;link rel="icon" href="//static7.ethanjoachimeldridge.info/favicon.ico" type="image/ico"&gt;
-</code></pre>
-   <p>
-    You can see that we simply have incrementing subdomains for our static content (in this case, domains 6 and 7)
-   </p>
-   <p>
-    By using macros like this it is easy to generate a site that is not only fast to 
+        &lt;link rel=&quot;shortcut icon&quot; href=&quot;//static6.ethanjoachimeldridge.info/favicon.ico&quot; type=&quot;image/x-icon&quot; /&gt;
+        &lt;link rel=&quot;icon&quot; href=&quot;//static7.ethanjoachimeldridge.info/favicon.ico&quot; type=&quot;image/ico&quot;&gt;
+</code></pre><p>You can see that we simply have incrementing subdomains for our static content (in this case, domains 6 and 7)</p>
+<p>By using macros like this it is easy to generate a site that is not only fast to 
 serve (due to the static content itself), but also fast to load (due to leveraging
 the browsers ability to download images in parallel from multiple hosts). Feel free
-to leave questions or comments in the disqus thread below!
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="googlebot-heisenbug">
-       'Caught in the Spiders Web' -- A googlebot Heisenbug
-      </a>
-     </li>
-     <li>
-      <a href="item-processor-example">
-       Spring Batch ItemProcessListener Example
-      </a>
-     </li>
-     <li>
-      <a href="custom-permalinks-for-custom-templates">
-       Custom Permalinks for Custom Tables and Pages
-      </a>
-     </li>
-     <li>
-      <a href="serial-hill-climber-golang">
-       Serial Hill Climber in GoLang
-      </a>
-     </li>
-     <li>
-      <a href="xml-sitemap-for-harpjs">
-       XML Sitemap for Harp JS
-      </a>
-     </li>
-     <li>
-      <a href="green-up-vt-app">
-       Green Up Vermont
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+to leave questions or comments in the disqus thread below!</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=googlebot-heisenbug>&#39;Caught in the Spiders Web&#39; -- A googlebot Heisenbug</a></li><li><a href=item-processor-example>Spring Batch ItemProcessListener Example</a></li><li><a href=custom-permalinks-for-custom-templates>Custom Permalinks for Custom Tables and Pages</a></li><li><a href=serial-hill-climber-golang>Serial Hill Climber in GoLang</a></li><li><a href=xml-sitemap-for-harpjs>XML Sitemap for Harp JS</a></li><li><a href=green-up-vt-app>Green Up Vermont</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <span>
-       Twitter
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<span>Twitter</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

@@ -1,34 +1,45 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Manipulating XML with PHP
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="A few ways to add, remove, and update XML node values with PHP's DOM libraries" name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="PHP,DOM,XML,remove,add,update,value,node,DomElement,DomNodeList" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Manipulating XML with PHP" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="A few ways to add, remove, and update XML node values with PHP's DOM libraries" property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Manipulating XML with PHP" name="twitter:title"/>
-  <meta content="A few ways to add, remove, and update XML node values with PHP's DOM libraries" name="twitter:description"/>
-  <meta content="//static.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet" type="text/css"/>
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-Yk6fMSCCTCPyHYaY4h661zZEU59LSxS2pX0b+B1jG+4atCz2yx/YhiimkVlATCwk" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Manipulating XML with PHP</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="A few ways to add, remove, and update XML node values with PHP&#39;s DOM libraries" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="PHP,DOM,XML,remove,add,update,value,node,DomElement,DomNodeList"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Manipulating XML with PHP" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="A few ways to add, remove, and update XML node values with PHP&#39;s DOM libraries" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Manipulating XML with PHP" />
+    
+    <meta name="twitter:description" content="A few ways to add, remove, and update XML node values with PHP&#39;s DOM libraries" />
+    
+    <meta name="twitter:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -36,90 +47,41 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Manipulating XML with PHP
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    Basic Manipulation of XML with PHP
-   </h3>
-   <p>
-    Even though I've been on a
-    <a href="/tech-blog/reverse-routing-package-controller">
-     Scala kick recently
-    </a>
-    , PHP is still the language 
-I'd consider the most common on the web. As such, we often need to dive into 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Manipulating XML with PHP</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Basic Manipulation of XML with PHP</h3><p>Even though I&#39;ve been on a <a href="/tech-blog/reverse-routing-package-controller">Scala kick recently</a>, PHP is still the language 
+I&#39;d consider the most common on the web. As such, we often need to dive into 
 legacy systems or perform things in the language no matter what our opinion 
-of its
-    <a href="/tech-blog/dear-god-why">
-     insanity
-    </a>
-    . Considering that PHP and XML go hand in hand on occasion, 
-(basing this on the current
-    <a href="http://stackoverflow.com/search?q=%5Bxml%5D+php">
-     32,265 results on StackOverflow
-    </a>
-    ) I figure'd I'd 
-write up a quick post about some common use cases for the two.
-   </p>
-   <h4>
-    The DOM
-   </h4>
-   <p>
-    The first thing to understand about XML and PHP is that, like everything in PHP, 
-there's a
-    <a href="http://php.net/manual/en/class.domdocument.php">
-     module dedicated to it
-    </a>
-    . And it's worth it to quickly peruse the 
-available functions for the
-    <code>
-     DOMDocument
-    </code>
-    ,
-    <code>
-     DOMNode
-    </code>
-    , and
-    <code>
-     DOMElement
-    </code>
-    classes. 
-The other thing worth looking into is
-    <a href="http://php.net/manual/en/class.domxpath.php">
-     XPATH
-    </a>
-    .
-   </p>
-   <p>
-    I won't go into this too much, but using XPath is probably the best way to 
+of its <a href="/tech-blog/dear-god-why">insanity</a>. Considering that PHP and XML go hand in hand on occasion, 
+(basing this on the current <a href="http://stackoverflow.com/search?q=%5Bxml%5D+php">32,265 results on StackOverflow</a>) I figure&#39;d I&#39;d 
+write up a quick post about some common use cases for the two.</p>
+<h4>The DOM</h4><p>The first thing to understand about XML and PHP is that, like everything in PHP, 
+there&#39;s a <a href="http://php.net/manual/en/class.domdocument.php">module dedicated to it</a>. And it&#39;s worth it to quickly peruse the 
+available functions for the <code>DOMDocument</code>, <code>DOMNode</code>, and <code>DOMElement</code> classes. 
+The other thing worth looking into is <a href="http://php.net/manual/en/class.domxpath.php">XPATH</a>. </p>
+<p>I won&#39;t go into this too much, but using XPath is probably the best way to 
 manipulate a subset of a Tag if you need to. For example, if you wanted to 
-add an attribute of "jackass" to only Tags that had an attribute of
-    <code>
-     partner="X223"
-    </code>
-    for your internal record keeping. More on this later.
-   </p>
-   <p>
-    For all the examples, assume you have the following available to you:
-   </p>
-   <pre><code>&lt;?php
+add an attribute of &quot;jackass&quot; to only Tags that had an attribute of <code>partner=&quot;X223&quot;</code> 
+for your internal record keeping. More on this later. </p>
+<p>For all the examples, assume you have the following available to you:</p>
+<pre><code>&lt;?php
 $xml = &lt;&lt;&lt;XML
-&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;Things&gt;
-    &lt;Thing name="one"&gt;
+    &lt;Thing name=&quot;one&quot;&gt;
         &lt;Color&gt;Red&lt;/Color&gt;
     &lt;/Thing&gt;
-    &lt;Thing name="two"&gt;
+    &lt;Thing name=&quot;two&quot;&gt;
         &lt;Color&gt;Blue&lt;/Color&gt;
     &lt;/Thing&gt;
 &lt;/Things&gt;
@@ -130,143 +92,70 @@ $dom-&gt;loadXml($xml);
 $dom-&gt;formatOutput = true;
 $document-&gt;preserveWhiteSpace = false;
 $xpath = new DOMXPath($dom);
-</code></pre>
-   <p>
-    In case you're curious, the format
-    <code>
-     &lt;&lt;&lt;XML ... XML;
-    </code>
-    is called a
-    <a href="https://php.net/manual/en/language.types.string.php#language.types.string.syntax.heredoc">
-     HEREDOC
-    </a>
-    . 
+</code></pre><p>In case you&#39;re curious, the format <code>&lt;&lt;&lt;XML ... XML;</code> is called a <a href="https://php.net/manual/en/language.types.string.php#language.types.string.syntax.heredoc">HEREDOC</a>. 
 Which is pretty handy for declaring large strings. Read the linked documentation 
-if you're curious about how to use it.
-   </p>
-   <h4>
-    Set the Value of an XML Node with PHP
-   </h4>
-   <p>
-    Let's say we get orders from on high that from henceforth, all Things must be 
-Yellow. How do we set the value of the
-    <code>
-     Color
-    </code>
-    tag in our XML?
-   </p>
-   <pre><code>function setAllTagToValue($dom, $tagName, $value) {
+if you&#39;re curious about how to use it.</p>
+<h4>Set the Value of an XML Node with PHP</h4><p>Let&#39;s say we get orders from on high that from henceforth, all Things must be 
+Yellow. How do we set the value of the <code>Color</code> tag in our XML?</p>
+<pre><code>function setAllTagToValue($dom, $tagName, $value) {
     $tags = $dom-&gt;getElementsByTagName($tagName);
     foreach ($tags as $domElement) {
-        $domElement-&gt;nodeValue = "";
+        $domElement-&gt;nodeValue = &quot;&quot;;
         $domElement-&gt;appendChild($dom-&gt;createTextNode($value));
     }
 }
 
-setAllTagToValue($dom, "Color", "Yellow");
-</code></pre>
-   <p>
-    Will do the trick. The
-    <code>
-     getElementsByTagName
-    </code>
-    returns a
-    <code>
-     DOMNodeList
-    </code>
-    . Which 
-implements
-    <a href="http://php.net/manual/en/class.traversable.php">
-     Traversable
-    </a>
-    and can be iterated over by
-    <code>
-     foreach
-    </code>
-    . You might be 
-wondering why we set
-    <code>
-     nodeValue
-    </code>
-    to an empty string? Consider what would 
-happen if we didn't! If we didn't reset the node Value, we'd end up with this 
-as our XML:
-   </p>
-   <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+setAllTagToValue($dom, &quot;Color&quot;, &quot;Yellow&quot;);
+</code></pre><p>Will do the trick. The <code>getElementsByTagName</code> returns a <code>DOMNodeList</code>. Which 
+implements <a href="http://php.net/manual/en/class.traversable.php">Traversable</a> and can be iterated over by <code>foreach</code>. You might be 
+wondering why we set <code>nodeValue</code> to an empty string? Consider what would 
+happen if we didn&#39;t! If we didn&#39;t reset the node Value, we&#39;d end up with this 
+as our XML:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;Things&gt;
-    &lt;Thing name="one"&gt;
+    &lt;Thing name=&quot;one&quot;&gt;
         &lt;Color&gt;RedYellow&lt;/Color&gt;
     &lt;/Thing&gt;
-    &lt;Thing name="two"&gt;
+    &lt;Thing name=&quot;two&quot;&gt;
         &lt;Color&gt;BlueYellow&lt;/Color&gt;
     &lt;/Thing&gt;
 &lt;/Things&gt;
-</code></pre>
-   <p>
-    Notice that without reseting the text, all we do is add text to the text node 
-inside the tag. We can use this knowledge to create a method:
-   </p>
-   <pre><code>function appendStringToTagValue($dom, $tagName, $value) {
+</code></pre><p>Notice that without reseting the text, all we do is add text to the text node 
+inside the tag. We can use this knowledge to create a method:</p>
+<pre><code>function appendStringToTagValue($dom, $tagName, $value) {
     $tags = $dom-&gt;getElementsByTagName($tagName);
     foreach ($tags as $domElement) {
         $domElement-&gt;appendChild($dom-&gt;createTextNode($value));
     }
 }
 
-appendStringToTagValue($dom, "Color", " is this thing's color");
-</code></pre>
-   <p>
-    What about the converse of this? Prepending text to a node? Pretty similar:
-   </p>
-   <pre><code>function prependStringToTagValue($dom, $tagName, $value) {
+appendStringToTagValue($dom, &quot;Color&quot;, &quot; is this thing&#39;s color&quot;);
+</code></pre><p>What about the converse of this? Prepending text to a node? Pretty similar: </p>
+<pre><code>function prependStringToTagValue($dom, $tagName, $value) {
     $tags = $dom-&gt;getElementsByTagName($tagName);
     foreach ($tags as $domElement) {
         $oldValue = $domElement-&gt;nodeValue;
-        $domElement-&gt;nodeValue = "";
+        $domElement-&gt;nodeValue = &quot;&quot;;
         $domElement-&gt;appendChild($dom-&gt;createTextNode($value . $oldValue));
     }
 }
 
-prependStringToTagValue($dom, "Color", "My ");
-</code></pre>
-   <p>
-    Which is just the two previous functions combined in a different order. Running 
-the above would result in the following xml:
-   </p>
-   <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+prependStringToTagValue($dom, &quot;Color&quot;, &quot;My &quot;);
+</code></pre><p>Which is just the two previous functions combined in a different order. Running 
+the above would result in the following xml:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;Things&gt;
-    &lt;Thing name="one"&gt;
-        &lt;Color&gt;My Yellow is this thing's color&lt;/Color&gt;
+    &lt;Thing name=&quot;one&quot;&gt;
+        &lt;Color&gt;My Yellow is this thing&#39;s color&lt;/Color&gt;
     &lt;/Thing&gt;
-    &lt;Thing name="two"&gt;
-        &lt;Color&gt;My Yellow is this thing's color&lt;/Color&gt;
+    &lt;Thing name=&quot;two&quot;&gt;
+        &lt;Color&gt;My Yellow is this thing&#39;s color&lt;/Color&gt;
     &lt;/Thing&gt;
 &lt;/Things&gt;
-</code></pre>
-   <h4>
-    Add a Node to an XML Tag
-   </h4>
-   <p>
-    Ok, so we can now adjust the value of a text node, what if we want to
-    <em>
-     add
-    </em>
-    a 
-node? We want our
-    <code>
-     Thing
-    </code>
-    s to also contain their disposition. We can use the
-    <code>
-     $dom-&gt;createElement
-    </code>
-    and
-    <code>
-     $domElement-appendChild
-    </code>
-    to accomplish this:
-   </p>
-   <pre><code>function addElementToTag($dom, $tagName, $elementName, $elementText) {
+</code></pre><h4>Add a Node to an XML Tag</h4><p>Ok, so we can now adjust the value of a text node, what if we want to <em>add</em> a 
+node? We want our <code>Thing</code>s to also contain their disposition. We can use the 
+<code>$dom-&gt;createElement</code> and <code>$domElement-appendChild</code> to accomplish this:</p>
+<pre><code>function addElementToTag($dom, $tagName, $elementName, $elementText) {
     $tags = $dom-&gt;getElementsByTagName($tagName);
     foreach ($tags as $domElement) {
         $newElement = $dom-&gt;createElement($elementName);
@@ -274,13 +163,10 @@ node? We want our
         $domElement-&gt;appendChild($newElement);
     }
 }
-</code></pre>
-   <p>
-    You might think to yourself, why not just create the element once and then add 
+</code></pre><p>You might think to yourself, why not just create the element once and then add 
 it to the appropriate tags? Surely that would be better? The results of code 
-like this would not be what you'd expect:
-   </p>
-   <pre><code>// Incorrect! Will only add to the LAST of $tagName
+like this would not be what you&#39;d expect:</p>
+<pre><code>// Incorrect! Will only add to the LAST of $tagName
 function addElementToTag($dom, $tagName, $elementName, $elementText) {
     $newElement = $dom-&gt;createElement($elementName);
     $newElement-&gt;appendChild($dom-&gt;createTextNode($elementText));
@@ -290,35 +176,24 @@ function addElementToTag($dom, $tagName, $elementName, $elementText) {
     }
 }
 
-addElementToTag($dom, "Thing", "Disposition", "Mischievious");
-</code></pre>
-   <p>
-    Results in:
-   </p>
-   <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+addElementToTag($dom, &quot;Thing&quot;, &quot;Disposition&quot;, &quot;Mischievious&quot;);
+</code></pre><p>Results in:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;Things&gt;
-    &lt;Thing name="one"&gt;
+    &lt;Thing name=&quot;one&quot;&gt;
         &lt;Color&gt;Red&lt;/Color&gt;
     &lt;/Thing&gt;
-    &lt;Thing name="two"&gt;
+    &lt;Thing name=&quot;two&quot;&gt;
         &lt;Color&gt;Blue&lt;/Color&gt;
         &lt;Disposition&gt;Mischievious&lt;/Disposition&gt;
     &lt;/Thing&gt;
 &lt;/Things&gt;
-</code></pre>
-   <p>
-    Which is a good reminder that manipulating the dom is a side-effecting 
+</code></pre><p>Which is a good reminder that manipulating the dom is a side-effecting 
 operation, and moving pieces around can be done pretty easily. Which leads 
-to our next step.
-   </p>
-   <h4>
-    How do I remove a Tag from an XML Node?
-   </h4>
-   <p>
-    Ok, so maybe it's not quiet the right seque, but we're getting there. Here's 
-how to remove a Tag from XML:
-   </p>
-   <pre><code>function removeTag($dom, $tagName) {
+to our next step. </p>
+<h4>How do I remove a Tag from an XML Node?</h4><p>Ok, so maybe it&#39;s not quiet the right seque, but we&#39;re getting there. Here&#39;s 
+how to remove a Tag from XML:</p>
+<pre><code>function removeTag($dom, $tagName) {
     $tagsToRemove = $dom-&gt;getElementsByTagName($tagName);
     $elementsToRemove = array();
     foreach ($tagsToRemove as $domElement) {
@@ -328,59 +203,27 @@ how to remove a Tag from XML:
            $domElement-&gt;parentNode-&gt;removeChild($domElement);
     }
   }
-</code></pre>
-   <p>
-    Wait what? Why do we have to iterate twice? The answer to this lies in the 
-implementation of
-    <code>
-     DomNodeList
-    </code>
-    itself. You can see in the
-    <a href="http://lxr.php.net/xref/PHP_5_3/ext/dom/nodelist.c#105">
-     source
-    </a>
-    , that the 
-node list is essentially a linked list. As such, the
-    <code>
-     -&gt;next
-    </code>
-    , if we were to 
-do something like this:
-   </p>
-   <pre><code>function removeTagWRONG($dom, $tagName) {
+</code></pre><p>Wait what? Why do we have to iterate twice? The answer to this lies in the 
+implementation of <code>DomNodeList</code> itself. You can see in the <a href="http://lxr.php.net/xref/PHP_5_3/ext/dom/nodelist.c#105">source</a>, that the 
+node list is essentially a linked list. As such, the <code>-&gt;next</code>, if we were to 
+do something like this: </p>
+<pre><code>function removeTagWRONG($dom, $tagName) {
     $tagsToRemove = $dom-&gt;getElementsByTagName($tagName);
     foreach ($tagsToRemove as $domElement) {
         $domElement-&gt;parentNode-&gt;removeChild($domElement);
     }
 }
-</code></pre>
-   <p>
-    Gets screwed up a bit since we're effecting the list we're iterating over. If 
-you attempt to use the
-    <code>
-     removeTagWRONG
-    </code>
-    function, the XML will only remove the 
+</code></pre><p>Gets screwed up a bit since we&#39;re effecting the list we&#39;re iterating over. If 
+you attempt to use the <code>removeTagWRONG</code> function, the XML will only remove the 
 first element matching the TagName. Consider that every operation on the dom 
 has a side effect on the underlying document. If we remove an element from a 
-list, then we have effected the underlying list structure underneath. So it's 
-not that surprising that we stop iterating, since after we've removed that 
-element there is no
-    <code>
-     next
-    </code>
-    pointer underneath.
-   </p>
-   <p>
-    But I don't want to iterate twice you say! Alright, we can do this if we go over 
-the list
-    <em>
-     backwards
-    </em>
-    . Weird? Yeah, but hey, it's PHP, try not to think about it 
-to hard.
-   </p>
-   <pre><code>function removeTag($dom, $tagName) {
+list, then we have effected the underlying list structure underneath. So it&#39;s 
+not that surprising that we stop iterating, since after we&#39;ve removed that 
+element there is no <code>next</code> pointer underneath. </p>
+<p>But I don&#39;t want to iterate twice you say! Alright, we can do this if we go over 
+the list <em>backwards</em>. Weird? Yeah, but hey, it&#39;s PHP, try not to think about it 
+to hard. </p>
+<pre><code>function removeTag($dom, $tagName) {
     $tagsToRemove = $dom-&gt;getElementsByTagName($tagName);
     $i = $tagsToRemove-&gt;length -1;
     while($i &gt;= 0) {
@@ -389,367 +232,191 @@ to hard.
         $i--;
     }
 }
-</code></pre>
-   <p>
-    This is using an alternate method of accessing the nodes we haven't seen yet. 
-The use of
-    <code>
-     -&gt;item(index)
-    </code>
-    on the
-    <code>
-     DomNodeList
-    </code>
-    itself. It's good to note that 
-you can use this at anytime if you can't use
-    <code>
-     foreach
-    </code>
-    for whatever reason.
-   </p>
-   <h4>
-    Adding an Element before another Element
-   </h4>
-   <p>
-    Let's say that we want to add a new
-    <code>
-     Thing
-    </code>
-    to our XML file. But orders from 
-on high has declared we need to put this new
-    <code>
-     Thing
-    </code>
-    after the one which has 
-an attribute of
-    <code>
-     name="two"
-    </code>
-    . How do we do this?
-   </p>
-   <p>
-    Firstly, we'll be needing to pull out
-    <em>
-     only
-    </em>
-    the
-    <code>
-     Thing
-    </code>
-    with the specified 
-attribute. Secondly, we'll have have to insert a new node before it. For this 
-we can use xpath and the
-    <code>
-     insertBefore
-    </code>
-    method on the
-    <a href="http://php.net/manual/en/class.domnode.php">
-     DomNode
-    </a>
-    class.
-   </p>
-   <p>
-    Using our previous declared
-    <code>
-     $xpath
-    </code>
-    variable, we can perform Queries on the 
-dom and retrieve
-    <a href="http://php.net/manual/en/class.domnodelist.php">
-     DomNodeList
-    </a>
-    results we can use. Here's an example:
-   </p>
-   <pre><code>$xPathResult = $xpath-&gt;query('/Things/Thing[@name="two"]');
+</code></pre><p>This is using an alternate method of accessing the nodes we haven&#39;t seen yet. 
+The use of <code>-&gt;item(index)</code> on the <code>DomNodeList</code> itself. It&#39;s good to note that 
+you can use this at anytime if you can&#39;t use <code>foreach</code> for whatever reason. </p>
+<h4>Adding an Element before another Element</h4><p>Let&#39;s say that we want to add a new <code>Thing</code> to our XML file. But orders from 
+on high has declared we need to put this new <code>Thing</code> after the one which has 
+an attribute of <code>name=&quot;two&quot;</code>. How do we do this? </p>
+<p>Firstly, we&#39;ll be needing to pull out <em>only</em> the <code>Thing</code> with the specified 
+attribute. Secondly, we&#39;ll have have to insert a new node before it. For this 
+we can use xpath and the <code>insertBefore</code> method on the <a href="http://php.net/manual/en/class.domnode.php">DomNode</a> class. </p>
+<p>Using our previous declared <code>$xpath</code> variable, we can perform Queries on the 
+dom and retrieve <a href="http://php.net/manual/en/class.domnodelist.php">DomNodeList</a> results we can use. Here&#39;s an example: </p>
+<pre><code>$xPathResult = $xpath-&gt;query(&#39;/Things/Thing[@name=&quot;two&quot;]&#39;);
 // xPathResult contains a node list of length 1, with a single DomElement (Thing) 
-</code></pre>
-   <p>
-    For a good list of xPath examples, check out the
-    <a href="https://en.wikipedia.org/wiki/XPath#Syntax_and_semantics_.28XPath_1.0.29">
-     wikipedia
-    </a>
-    page. The above 
+</code></pre><p>For a good list of xPath examples, check out the <a href="https://en.wikipedia.org/wiki/XPath#Syntax_and_semantics_.28XPath_1.0.29">wikipedia</a> page. The above 
 example queries for a Thing, which is a descendent of a Things tag, and has 
-an attribute of
-    <code>
-     name="two"
-    </code>
-    . Note that
-    <code>
-     @
-    </code>
-    is what specifies we're looking 
-for an attribute.
-   </p>
-   <p>
-    With this, we have the first half of our puzzle. Now how do we use it to insert 
-an element before the other?
-   </p>
-   <pre><code>// Make the new element
-newElement = $dom-&gt;createElement("Thing");
-$newElement-&gt;appendChild($dom-&gt;createElement("Color", "Orange"));
+an attribute of <code>name=&quot;two&quot;</code>. Note that <code>@</code> is what specifies we&#39;re looking 
+for an attribute. </p>
+<p>With this, we have the first half of our puzzle. Now how do we use it to insert 
+an element before the other? </p>
+<pre><code>// Make the new element
+newElement = $dom-&gt;createElement(&quot;Thing&quot;);
+$newElement-&gt;appendChild($dom-&gt;createElement(&quot;Color&quot;, &quot;Orange&quot;));
 $thingTwo = $results-&gt;item(0);
 thingTwo-&gt;parentNode-&gt;insertBefore($newElement,thingTwo);
-</code></pre>
-   <p>
-    What if we were inserting the same element before more than one node though?
-   </p>
-   <pre><code>$results = $xpath-&gt;query('/Things/Thing');
+</code></pre><p>What if we were inserting the same element before more than one node though? </p>
+<pre><code>$results = $xpath-&gt;query(&#39;/Things/Thing&#39;);
 foreach($results as $result) {
-    $newElement = $dom-&gt;createElement("Thing");
-    $newElement-&gt;appendChild($dom-&gt;createElement("Color", "Orange"));
+    $newElement = $dom-&gt;createElement(&quot;Thing&quot;);
+    $newElement-&gt;appendChild($dom-&gt;createElement(&quot;Color&quot;, &quot;Orange&quot;));
     $result-&gt;parentNode-&gt;insertBefore($newElement,$result);
 }
-</code></pre>
-   <p>
-    Take care to create the new element within the iteration, or you'll be faced 
+</code></pre><p>Take care to create the new element within the iteration, or you&#39;ll be faced 
 with the same issue as before. Having only a single element appear before the 
-last matching element.
-   </p>
-   <h4>
-    Set attributes on Tags
-   </h4>
-   <p>
-    Our regular XML string had a few attributes, so how do we set this? We have 
-two options. Use
-    <code>
-     createAttribute
-    </code>
-    from the
-    <code>
-     DomDocument
-    </code>
-    class, or use
-    <code>
-     setAttribute
-    </code>
-    method on the
-    <code>
-     DomElement
-    </code>
-    . We'll use the second since it's 
-more obvious in how it works:
-   </p>
-   <pre><code>$dom = new DomDocument("1.0","utf-8"); //new document using UTF-8 encoding, and version 1 of xml.
-$elem = $dom-&gt;createElement("Something");
+last matching element. </p>
+<h4>Set attributes on Tags</h4><p>Our regular XML string had a few attributes, so how do we set this? We have 
+two options. Use <code>createAttribute</code> from the <code>DomDocument</code> class, or use 
+<code>setAttribute</code> method on the <code>DomElement</code>. We&#39;ll use the second since it&#39;s 
+more obvious in how it works: </p>
+<pre><code>$dom = new DomDocument(&quot;1.0&quot;,&quot;utf-8&quot;); //new document using UTF-8 encoding, and version 1 of xml.
+$elem = $dom-&gt;createElement(&quot;Something&quot;);
 $dom-&gt;appendChild($elem);
-$elem-&gt;setAttribute("name","value");
+$elem-&gt;setAttribute(&quot;name&quot;,&quot;value&quot;);
 print $dom-&gt;saveXml();
 // Output: 
-// &lt;?xml version="1.0" encoding="utf-8"?&gt;
-// &lt;Something name="value"/&gt;
-</code></pre>
-   <p>
-    Pretty simple right? There's really not much to say about this besides that it 
-will escape the value for you. So calling
-    <code>
-     setAttribute("name","&amp;val");
-    </code>
-    will 
-result in a node with
-    <code>
-     name="&amp;amp;val"
-    </code>
-    .
-   </p>
-   <h4>
-    Put it all together
-   </h4>
-   <p>
-    Using these basics we can do some pretty simple XML manipulation. Let's go 
-ahead and construct our string Xml using the functions we've defined:
-   </p>
-   <pre><code>&lt;?php
-$dom = new DomDocument("1.0", "utf-8");
-$thingsElem = $dom-&gt;createElement('Things'); //need a root to play with
+// &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+// &lt;Something name=&quot;value&quot;/&gt;
+</code></pre><p>Pretty simple right? There&#39;s really not much to say about this besides that it 
+will escape the value for you. So calling <code>setAttribute(&quot;name&quot;,&quot;&amp;val&quot;);</code> will 
+result in a node with <code>name=&quot;&amp;amp;val&quot;</code>. </p>
+<h4>Put it all together</h4><p>Using these basics we can do some pretty simple XML manipulation. Let&#39;s go 
+ahead and construct our string Xml using the functions we&#39;ve defined: </p>
+<pre><code>&lt;?php
+$dom = new DomDocument(&quot;1.0&quot;, &quot;utf-8&quot;);
+$thingsElem = $dom-&gt;createElement(&#39;Things&#39;); //need a root to play with
 $dom-&gt;appendChild($thingsElem);
 $dom-&gt;formatOutput = true;
 $xpath = new DOMXPath($dom);
-addElementToTag($dom, "Things", "Thing", null);
-addElementToTag($dom, "Things", "Thing", null);
-addElementToTag($dom, "Thing", "Color", "Blue");
-addElementToTag($dom, "Thing", "Disposition", "Mischievious");
+addElementToTag($dom, &quot;Things&quot;, &quot;Thing&quot;, null);
+addElementToTag($dom, &quot;Things&quot;, &quot;Thing&quot;, null);
+addElementToTag($dom, &quot;Thing&quot;, &quot;Color&quot;, &quot;Blue&quot;);
+addElementToTag($dom, &quot;Thing&quot;, &quot;Disposition&quot;, &quot;Mischievious&quot;);
 
-// Set the first Thing's color to red
-$firstInList = $xpath-&gt;query("(/Things/Thing/Color)[1]"); //select first Color Node, note xpath indexes start at 1, not 0!
+// Set the first Thing&#39;s color to red
+$firstInList = $xpath-&gt;query(&quot;(/Things/Thing/Color)[1]&quot;); //select first Color Node, note xpath indexes start at 1, not 0!
 foreach($firstInList as $domElement) {
-    $domElement-&gt;nodeValue = "";
-    $domElement-&gt;appendChild($dom-&gt;createTextNode("Red"));
+    $domElement-&gt;nodeValue = &quot;&quot;;
+    $domElement-&gt;appendChild($dom-&gt;createTextNode(&quot;Red&quot;));
 }
 
-// Set the attribute for each Thing's Name!
-$thingNames = array("one", "two");
-$things = $xpath-&gt;query("/Things/Thing");
+// Set the attribute for each Thing&#39;s Name!
+$thingNames = array(&quot;one&quot;, &quot;two&quot;);
+$things = $xpath-&gt;query(&quot;/Things/Thing&quot;);
 $i = 0;
 foreach($things as $thing) {
-    $thing-&gt;setAttribute("name", $thingNames[$i] );
+    $thing-&gt;setAttribute(&quot;name&quot;, $thingNames[$i] );
     $i++;
 }
 
 print $dom-&gt;saveXml();
 /* 
   Results in the following xml: 
-  &lt;?xml version="1.0" encoding="utf-8"?&gt;
+  &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
   &lt;Things&gt;
-    &lt;Thing name="one"&gt;&lt;Color&gt;Red&lt;/Color&gt;&lt;Disposition&gt;Mischievious&lt;/Disposition&gt;&lt;/Thing&gt;
-    &lt;Thing name="two"&gt;&lt;Color&gt;Blue&lt;/Color&gt;&lt;Disposition&gt;Mischievious&lt;/Disposition&gt;&lt;/Thing&gt;
+    &lt;Thing name=&quot;one&quot;&gt;&lt;Color&gt;Red&lt;/Color&gt;&lt;Disposition&gt;Mischievious&lt;/Disposition&gt;&lt;/Thing&gt;
+    &lt;Thing name=&quot;two&quot;&gt;&lt;Color&gt;Blue&lt;/Color&gt;&lt;Disposition&gt;Mischievious&lt;/Disposition&gt;&lt;/Thing&gt;
   &lt;/Things&gt;
 */
-</code></pre>
-   <p>
-    Hopefully you've found this somewhat useful, and can approach XML in PHP
-with a little knowledge about how to do the basics. Good luck!
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="could-not-instantiate-SVGImageReader-Scrimage">
-       Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException
-      </a>
-     </li>
-     <li>
-      <a href="generate-conditonal-policy-awscala">
-       Generate Conditional AWS Group Policies with AWScala
-      </a>
-     </li>
-     <li>
-      <a href="none-in-default-fold-and-type-erasure">
-       Type Error when using None as a default to Option.fold
-      </a>
-     </li>
-     <li>
-      <a href="reverse-routing-package-controller">
-       Reverse routing with non-standard controller packages in Play
-      </a>
-     </li>
-     <li>
-      <a href="401-unauthorized-400-bad-request-sonatype-nexus">
-       401 Unauthorized and 400 Bad Request from Sonatype Nexus in SBT
-      </a>
-     </li>
-     <li>
-      <a href="triggering-asynchronous-jobs-play-2-3">
-       Trigger Asynchronous Jobs in Play 2.3
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+</code></pre><p>Hopefully you&#39;ve found this somewhat useful, and can approach XML in PHP
+with a little knowledge about how to do the basics. Good luck! </p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=could-not-instantiate-SVGImageReader-Scrimage>Scala Scrimage error solution: the org.apache.batik.transcoder.TranscoderException</a></li><li><a href=generate-conditonal-policy-awscala>Generate Conditional AWS Group Policies with AWScala</a></li><li><a href=none-in-default-fold-and-type-erasure>Type Error when using None as a default to Option.fold</a></li><li><a href=reverse-routing-package-controller>Reverse routing with non-standard controller packages in Play</a></li><li><a href=401-unauthorized-400-bad-request-sonatype-nexus>401 Unauthorized and 400 Bad Request from Sonatype Nexus in SBT</a></li><li><a href=triggering-asynchronous-jobs-play-2-3>Trigger Asynchronous Jobs in Play 2.3</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <span>
-       Twitter
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<span>Twitter</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

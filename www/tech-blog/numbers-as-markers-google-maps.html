@@ -1,34 +1,45 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Numbers as Markers on Google Maps
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="How to have custom markers on a google map that show numbers" name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="Google Maps,Markers,Numbers,Custom Markers,Maps,Google" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Numbers as Markers on Google Maps" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="How to have custom markers on a google map that show numbers" property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Numbers as Markers on Google Maps" name="twitter:title"/>
-  <meta content="How to have custom markers on a google map that show numbers" name="twitter:description"/>
-  <meta content="//static.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet" type="text/css"/>
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-Yk6fMSCCTCPyHYaY4h661zZEU59LSxS2pX0b+B1jG+4atCz2yx/YhiimkVlATCwk" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Numbers as Markers on Google Maps</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="How to have custom markers on a google map that show numbers" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="Google Maps,Markers,Numbers,Custom Markers,Maps,Google"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Numbers as Markers on Google Maps" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="How to have custom markers on a google map that show numbers" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Numbers as Markers on Google Maps" />
+    
+    <meta name="twitter:description" content="How to have custom markers on a google map that show numbers" />
+    
+    <meta name="twitter:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -36,32 +47,26 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Numbers as Markers on Google Maps
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <p>
-    I was making a heatmap for a client today, and thought to myself. Boy 
-wouldn't it be great to have the 'total heat' of an area show up on top
-of the map.
-   </p>
-   <p>
-    Turns out, it's easy to put down a marker, and only slightly harder to 
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Numbers as Markers on Google Maps</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <p>I was making a heatmap for a client today, and thought to myself. Boy 
+wouldn&#39;t it be great to have the &#39;total heat&#39; of an area show up on top
+of the map.</p>
+<p>Turns out, it&#39;s easy to put down a marker, and only slightly harder to 
 get a number down instead. The key here is that you have to use an 
-overlay and then have the map position everything for you via projection.
-   </p>
-   <p>
-    So how do you do it?
-   </p>
-   <pre><code>function NumberMarker(latlng,  map, value) {
+overlay and then have the map position everything for you via projection.</p>
+<p>So how do you do it? </p>
+<pre><code>function NumberMarker(latlng,  map, value) {
     this.latlng_ = latlng;
         this.value = value;
         /*Do this or nothing will happen:*/
@@ -74,19 +79,19 @@ NumberMarker.prototype.draw = function() {
     var div = this.div_;
     if (!div) {
         // Create a overlay text DIV
-        div = this.div_ = document.createElement('DIV');
+        div = this.div_ = document.createElement(&#39;DIV&#39;);
         // Create the DIV representing our NumberMarker
-        div.style.border = "none";
-        div.style.position = "absolute";
-        div.style.paddingLeft = "0px";
-        div.style.cursor = 'pointer';
+        div.style.border = &quot;none&quot;;
+        div.style.position = &quot;absolute&quot;;
+        div.style.paddingLeft = &quot;0px&quot;;
+        div.style.cursor = &#39;pointer&#39;;
 
-        var span = document.createElement("span");
-        span.className = "markerOverlay";
+        var span = document.createElement(&quot;span&quot;);
+        span.className = &quot;markerOverlay&quot;;
         span.appendChild(document.createTextNode(this.value));
         div.appendChild(span);
-        google.maps.event.addDomListener(div, "click", function(event) {
-        google.maps.event.trigger(me, "click");
+        google.maps.event.addDomListener(div, &quot;click&quot;, function(event) {
+        google.maps.event.trigger(me, &quot;click&quot;);
     });
 
     // Then add the overlay to the DOM
@@ -97,8 +102,8 @@ NumberMarker.prototype.draw = function() {
     // Position the overlay 
     var point = this.getProjection().fromLatLngToDivPixel(this.latlng_);
     if (point) {
-      div.style.left = point.x + 'px';
-      div.style.top = point.y + 'px';
+      div.style.left = point.x + &#39;px&#39;;
+      div.style.top = point.y + &#39;px&#39;;
     }
 };
 
@@ -128,175 +133,113 @@ var myOptions = {
   scaleControl: true,
   disableDoubleClickZoom: false
 };
-// we'll use the heatmapArea 
-var map = new google.maps.Map($('#maparea'')[0], myOptions);
+// we&#39;ll use the heatmapArea 
+var map = new google.maps.Map($(&#39;#maparea&#39;&#39;)[0], myOptions);
 
 var overlay;
-overlay = new NumberMarker(myLatlng, map, 'whatever text or numbers you want here');
-</code></pre>
-   <p>
-    Bam. There you go. In my application I loop through a bunch of 
+overlay = new NumberMarker(myLatlng, map, &#39;whatever text or numbers you want here&#39;);
+</code></pre><p>Bam. There you go. In my application I loop through a bunch of 
 information and create a number of these markers on the map. I also use
-    <a href="http://www.patrick-wied.at/static/heatmapjs/">
-     heatmap.js
-    </a>
-    to create my heat maps at the same time. Overall, it works 
-pretty well.
-   </p>
-   <p>
-    If you need any type of information positioned on a map, then just change the 
-span tag to be whatever you need it to be and create it appropriately.
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="html-templates-and-handlebars">
-       HTML Templates and Handlebar
-      </a>
-     </li>
-     <li>
-      <a href="shortcodes-routing-wordpress">
-       Short Codes and Routing in WordPress
-      </a>
-     </li>
-     <li>
-      <a href="post__in-returning-results-with-empty-array">
-       Empty Post__in WordPress problem
-      </a>
-     </li>
-     <li>
-      <a href="stack-smashing">
-       Stack Smashing
-      </a>
-     </li>
-     <li>
-      <a href="college-friend-chicken">
-       My Cooking Recipes
-      </a>
-     </li>
-     <li>
-      <a href="time-catcher-part3">
-       Time Catcher Part 3
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+<a href="http://www.patrick-wied.at/static/heatmapjs/">heatmap.js</a> to create my heat maps at the same time. Overall, it works 
+pretty well. </p>
+<p>If you need any type of information positioned on a map, then just change the 
+span tag to be whatever you need it to be and create it appropriately. </p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=html-templates-and-handlebars>HTML Templates and Handlebar</a></li><li><a href=shortcodes-routing-wordpress>Short Codes and Routing in WordPress</a></li><li><a href=post__in-returning-results-with-empty-array>Empty Post__in WordPress problem</a></li><li><a href=stack-smashing>Stack Smashing</a></li><li><a href=college-friend-chicken>My Cooking Recipes</a></li><li><a href=time-catcher-part3>Time Catcher Part 3</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <span>
-       Twitter
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<span>Twitter</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	

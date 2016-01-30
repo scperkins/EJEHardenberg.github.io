@@ -1,34 +1,45 @@
+
 <!DOCTYPE HTML>
 <html>
- <head>
-  <title>
-   Ethan's Tech Blog | Let's make a chat server, Part 1
-  </title>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="First installment of a C CGI and Harp powered chat platform. The first part focuses on C-based internal functions." name="description"/>
-  <meta content="Ethan Eldridge" name="author"/>
-  <meta content="C,CGI,Harp,HarpJS,Chat,Server,tutorial" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="1 month" name="revisit-after"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-  <link href="//static.ethanjoachimeldridge.info/favicon.ico" rel="icon" type="image/ico"/>
-  <!-- Facebook Open Graph Tags -->
-  <meta content="Ethan Eldridge | Let's make a chat server, Part 1" property="og:title"/>
-  <meta content="article" property="og:type"/>
-  <meta content="//static.ethanjoachimeldridge.info/ethan.jpeg" property="og:image"/>
-  <meta content="http://www.ethanjoachimeldridge.info/" property="og:url"/>
-  <meta content="First installment of a C CGI and Harp powered chat platform. The first part focuses on C-based internal functions." property="og:description"/>
-  <!-- Twitter Card Tags -->
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Ethan Eldridge | Let's make a chat server, Part 1" name="twitter:title"/>
-  <meta content="First installment of a C CGI and Harp powered chat platform. The first part focuses on C-based internal functions." name="twitter:description"/>
-  <meta content="//static.ethanjoachimeldridge.info/ethan.jpeg" name="twitter:image"/>
-  <!-- Core CSS Scripts -->
-  <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet" type="text/css"/>
-  <link crossorigin="anonymous" href="//css.ethanjoachimeldridge.info/style.css" integrity="sha384-Yk6fMSCCTCPyHYaY4h661zZEU59LSxS2pX0b+B1jG+4atCz2yx/YhiimkVlATCwk" rel="stylesheet"/>
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  <head>
+    <title>Ethan's Tech Blog | Let&#39;s make a chat server, Part 1</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="First installment of a C CGI and Harp powered chat platform. The first part focuses on C-based internal functions." />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="C,CGI,Harp,HarpJS,Chat,Server,tutorial"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Let&#39;s make a chat server, Part 1" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="First installment of a C CGI and Harp powered chat platform. The first part focuses on C-based internal functions." />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Let&#39;s make a chat server, Part 1" />
+    
+    <meta name="twitter:description" content="First installment of a C CGI and Harp powered chat platform. The first part focuses on C-based internal functions." />
+    
+    <meta name="twitter:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -36,107 +47,54 @@
   ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <header>
-   <h1>
-    Let's make a chat server, Part 1
-   </h1>
-  </header>
-  <div id="content">
-   <a href="/tech-blog">
-    Back
-   </a>
-   <h3>
-    CGI with Harp and C - Flat File and Architecture
-   </h3>
-   <p>
-    In a previous blog post I talked about
-    <a href="http://www.ethanjoachimeldridge.info/tech-blog/privateTalk">
-     creating a chat server
-    </a>
-    and today I'm going
-to talk about the overall plan for these tutorials. It's pretty simple, we'll start
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Let&#39;s make a chat server, Part 1</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>CGI with Harp and C - Flat File and Architecture</h3><p>In a previous blog post I talked about <a href="http://www.ethanjoachimeldridge.info/tech-blog/privateTalk">creating a chat server</a> and today I&#39;m going
+to talk about the overall plan for these tutorials. It&#39;s pretty simple, we&#39;ll start
 by creating a simple flat file database library to store our data. The next tutorial
-will focus on using
-    <a href="http://www.qdecoder.org/wiki/qdecoder">
-     qdecoder
-    </a>
-    to create CGI scripts to wrap the code in this tutorial 
-and tie it to the web. Finally, we'll create the HTML,Basic CSS, and Javascript to 
-tie our new code to our CGI and we'll suddenly have a proof of concept chat server.
-   </p>
-   <p>
-    <img height="300px" src="/images/tech-blog/harp-apache-flatfile.png" style="padding-left: 25%" width="400px"/>
-   </p>
-   <p>
-    <b style="padding-left: 25%">
-     The full source code for this tutorial is located
-     <a href="https://github.com/EdgeCaseBerg/chat-tutorial">
-      here on github
-     </a>
-    </b>
-   </p>
-   <p>
-    So without further ado, let's talk about what we need for a Chat Server from the
-backend perspective:
-   </p>
-   <ul>
-    <li>
-     A list of Users
-    </li>
-    <li>
-     A way to save the chat itself
-    </li>
-   </ul>
-   <p>
-    At first you might say, let's just create a flat file with a list of users! And we
-could do that! And in fact it's what I did in
-    <a href="https://github.com/EdgeCaseBerg/pChat">
-     pchat
-    </a>
-    , but since this chat server
-will support multiple people talking at once, we're going to skip saving the users.
-How you ask? Simply, when we submit a message to the chat server we'll submit the
-user who was talking along with it. Easy enough? I think so.
-   </p>
-   <p>
-    Now how do we save our chat? We can easily save it to a file and that's what we're
-going to do. We're going to do the most simplistic thing we can and so long as
-you're
-    <a href="http://stackoverflow.com/a/12943431/1808164">
-     on a unix like server
-    </a>
-    we won't worry too much about concurrency problems.
-   </p>
-   <p>
-    So let's get to the directory structure of the internal C code of our project! Run
-the commands below to get the right structure.
-   </p>
-   <pre><code>mkdir src
+will focus on using <a href="http://www.qdecoder.org/wiki/qdecoder">qdecoder</a> to create CGI scripts to wrap the code in this tutorial 
+and tie it to the web. Finally, we&#39;ll create the HTML,Basic CSS, and Javascript to 
+tie our new code to our CGI and we&#39;ll suddenly have a proof of concept chat server.</p>
+<p><img src="/images/tech-blog/harp-apache-flatfile.png" width="400px" height="300px" style="padding-left: 25%"></p>
+<p><b style="padding-left: 25%">The full source code for this tutorial is located <a href="https://github.com/EdgeCaseBerg/chat-tutorial">here on github</a></b></p>
+<p>So without further ado, let&#39;s talk about what we need for a Chat Server from the
+backend perspective: </p>
+<ul>
+<li>A list of Users</li>
+<li>A way to save the chat itself</li>
+</ul>
+<p>At first you might say, let&#39;s just create a flat file with a list of users! And we
+could do that! And in fact it&#39;s what I did in <a href="https://github.com/EdgeCaseBerg/pChat">pchat</a>, but since this chat server
+will support multiple people talking at once, we&#39;re going to skip saving the users.
+How you ask? Simply, when we submit a message to the chat server we&#39;ll submit the
+user who was talking along with it. Easy enough? I think so. </p>
+<p>Now how do we save our chat? We can easily save it to a file and that&#39;s what we&#39;re
+going to do. We&#39;re going to do the most simplistic thing we can and so long as
+you&#39;re <a href="http://stackoverflow.com/a/12943431/1808164">on a unix like server</a> we won&#39;t worry too much about concurrency problems.</p>
+<p>So let&#39;s get to the directory structure of the internal C code of our project! Run
+the commands below to get the right structure.</p>
+<pre><code>mkdir src
 mkdir src/internal
 mkdir obj 
 mkdir bin 
 mkdir headers 
-</code></pre>
-   <p>
-    Now we need to create our makefile to speed up our process, this tutorial is not an 
-example of how to make Makefiles, so I'm not going to explain that much about what
-this file is doing. We'll need to update it in our next tutorial to handle generating
-our CGI scripts and linking against the
-    <a href="http://www.qdecoder.org/wiki/qdecoder">
-     qdecoder
-    </a>
-    library, but for now it just 
-generates our object files we need to test the innards.
-   </p>
-   <p>
-    <em>
-     Makefile
-    </em>
-   </p>
-   <pre><code>#Configurations and setup
+</code></pre><p>Now we need to create our makefile to speed up our process, this tutorial is not an 
+example of how to make Makefiles, so I&#39;m not going to explain that much about what
+this file is doing. We&#39;ll need to update it in our next tutorial to handle generating
+our CGI scripts and linking against the <a href="http://www.qdecoder.org/wiki/qdecoder">qdecoder</a> library, but for now it just 
+generates our object files we need to test the innards.</p>
+<p><em>Makefile</em></p>
+<pre><code>#Configurations and setup
 CC = cc
 CFLAGS = -std=gnu99 -pedantic -Wall -Wextra -Werror -g -I./headers
 LINKFLAGS = $(CFLAGS) 
@@ -163,75 +121,35 @@ clean: ./headers/config.h
 
 $(OBJECTS): obj/%.o : src/%.c ./headers/config.h
     ${CC} ${CFLAGS} -c -o $@ $&lt; 
-</code></pre>
-   <p>
-    We'll be placing any cgi files into the
-    <strong>
-     src
-    </strong>
-    directory, and any private code into
-the
-    <strong>
-     internal
-    </strong>
-    directory. This will allow us to easily test our components later.
-   </p>
-   <p>
-    The first thing we need to do is handle configuration details. Where will we store
-our data files? We'll define this in a header file:
-   </p>
-   <p>
-    <em>
-     headers/config.h
-    </em>
-   </p>
-   <pre><code>#ifndef __CONFIG_H__
+</code></pre><p>We&#39;ll be placing any cgi files into the <strong>src</strong> directory, and any private code into
+the <strong>internal</strong> directory. This will allow us to easily test our components later.</p>
+<p>The first thing we need to do is handle configuration details. Where will we store
+our data files? We&#39;ll define this in a header file:</p>
+<p><em>headers/config.h</em></p>
+<pre><code>#ifndef __CONFIG_H__
 #define __CONFIG_H__
 
 /*  Data Layer Constants */
-#define DATA_FILE "/tmp/chat.txt"
+#define DATA_FILE &quot;/tmp/chat.txt&quot;
 #define BUFFER_LENGTH 32
 
 #endif
-</code></pre>
-   <p>
-    It's your average header file, guard includes and a few constants. The
-    <code>
-     DATA_FILE
-    </code>
-    is
-where we'll store our chat history and the BUFFER_LENGTH is our base size for any string
-buffer's we'll make that don't need to be dynamic.
-   </p>
-   <p>
-    Next we need to create some utility functions to handle talking to and writing to our
-history file. We'll need to check and do the following things:
-   </p>
-   <ul>
-    <li>
-     Does the file exist?
-    </li>
-    <li>
-     When was the file changed last?
-    </li>
-    <li>
-     Retrieve the file for reading
-    </li>
-    <li>
-     Appending new messages to the file
-    </li>
-   </ul>
-   <p>
-    Not all these operation need to be exposed to user facing code, the existence of
+</code></pre><p>It&#39;s your average header file, guard includes and a few constants. The <code>DATA_FILE</code> is
+where we&#39;ll store our chat history and the BUFFER_LENGTH is our base size for any string
+buffer&#39;s we&#39;ll make that don&#39;t need to be dynamic.</p>
+<p>Next we need to create some utility functions to handle talking to and writing to our
+history file. We&#39;ll need to check and do the following things:</p>
+<ul>
+<li>Does the file exist?</li>
+<li>When was the file changed last?</li>
+<li>Retrieve the file for reading</li>
+<li>Appending new messages to the file</li>
+</ul>
+<p>Not all these operation need to be exposed to user facing code, the existence of
 a file does not need a public API. So we can define our header file and function 
-signatures of just the ones we need like so:
-   </p>
-   <p>
-    <em>
-     headers/internal/chatfile.h
-    </em>
-   </p>
-   <pre><code>#ifndef __CHATFILE_H__
+signatures of just the ones we need like so:</p>
+<p><em>headers/internal/chatfile.h</em></p>
+<pre><code>#ifndef __CHATFILE_H__
 #define __CHATFILE_H__
 
 #include &lt;stdlib.h&gt;
@@ -241,7 +159,7 @@ signatures of just the ones we need like so:
 #include &lt;string.h&gt;
 #include &lt;time.h&gt;
 
-#include "config.h"
+#include &quot;config.h&quot;
 
 /* Returns 1 if the lastCheckedTime is less than the last write to the file */
 int fileLastModifiedAfter(const char * filename, time_t lastCheckedTime);
@@ -256,43 +174,21 @@ int updateConversation(const char * user, const char * addendum);
 int chatInit();
 
 #endif
-</code></pre>
-   <p>
-    Once again, standard fair for a header file: include guard, the neccesary libraries
-we'll need for the various files we'll implement, and the signatures of the methods
-that will be exposed to outside sources.
-   </p>
-   <p>
-    We'll use
-    <strong>
-     fileLastModifiedAfter
-    </strong>
-    later to tell if a user needs to update their local chat
-history,
-    <strong>
-     getChatFile
-    </strong>
-    will simply spit out the contents of our chat file and the apt-named
-    <strong>
-     updateConversation
-    </strong>
-    function will update our conversation or log an error.
-   </p>
-   <p>
-    The actual implement of these functions requires us to create two utility functions:
-   </p>
-   <p>
-    <em>
-     src/internal/chatfile.c
-    </em>
-   </p>
-   <pre><code>#include "chatfile.h"
+</code></pre><p>Once again, standard fair for a header file: include guard, the neccesary libraries
+we&#39;ll need for the various files we&#39;ll implement, and the signatures of the methods
+that will be exposed to outside sources.</p>
+<p>We&#39;ll use <strong>fileLastModifiedAfter</strong> later to tell if a user needs to update their local chat
+history, <strong>getChatFile</strong> will simply spit out the contents of our chat file and the apt-named 
+<strong>updateConversation</strong> function will update our conversation or log an error.</p>
+<p>The actual implement of these functions requires us to create two utility functions:</p>
+<p><em>src/internal/chatfile.c</em></p>
+<pre><code>#include &quot;chatfile.h&quot;
 
 static int file_exists(const char * filename){
-    /* Security Concern: If you check for a file's existence and then open the 
+    /* Security Concern: If you check for a file&#39;s existence and then open the 
      * file, between the time of access checking and creation of a file someone
      * can create a symlink or something and cause your open to fail or open 
-     * something that shouldn't be opened. That being said... I'm not concerned.
+     * something that shouldn&#39;t be opened. That being said... I&#39;m not concerned.
     */
     struct stat buffer;
     return(stat (filename, &amp;buffer) == 0);
@@ -301,10 +197,10 @@ static int file_exists(const char * filename){
 static int create_chat_file(){    
     int chatFileExists = file_exists(DATA_FILE);
     if(chatFileExists == 0){
-        FILE *fp = fopen(DATA_FILE, "w");
+        FILE *fp = fopen(DATA_FILE, &quot;w&quot;);
         if(!fp){
             chatFileExists = 0;
-            fprintf(stderr,"%s %s\n", "Could not create chat file " DATA_FILE " ",  strerror(errno));
+            fprintf(stderr,&quot;%s %s\n&quot;, &quot;Could not create chat file &quot; DATA_FILE &quot; &quot;,  strerror(errno));
         }else{
             chatFileExists = 1;
             fclose(fp);
@@ -312,49 +208,16 @@ static int create_chat_file(){
     }
     return chatFileExists;
 }
-</code></pre>
-   <p>
-    <strong>
-     Note:
-    </strong>
-    <small>
-     The security concern I note in the
-     <strong>
-      file_exists
-     </strong>
-     function is a footnote that a
-normal server shouldn't have to worry about. And if you do have to worry about it,
-then that means someones on your server already and that's a bigger problem.
-    </small>
-   </p>
-   <p>
-    The
-    <strong>
-     file_exists
-    </strong>
-    function will return 1 or 0 on if the file actually exists or not
-and then
-    <strong>
-     create_chat_file
-    </strong>
-    function creates the chat file if it does not already
-exists. Both of these functions are
-    <code>
-     static
-    </code>
-    which means they'll be local to the 
-source file.
-   </p>
-   <p>
-    <em>
-     src/internal/chatfile.c
-    </em>
-    (continued)
-   </p>
-   <p>
-    Three of the exposed methods have simple code that is easy to follow:
-   </p>
-   <pre><code>int fileLastModifiedAfter(const char * filename, time_t lastCheckedTime){
+</code></pre><p><strong>Note:</strong> <small>The security concern I note in the <strong>file_exists</strong> function is a footnote that a
+normal server shouldn&#39;t have to worry about. And if you do have to worry about it,
+then that means someones on your server already and that&#39;s a bigger problem.</small></p>
+<p>The <strong>file_exists</strong> function will return 1 or 0 on if the file actually exists or not
+and then <strong>create_chat_file</strong> function creates the chat file if it does not already
+exists. Both of these functions are <code>static</code> which means they&#39;ll be local to the 
+source file. </p>
+<p><em>src/internal/chatfile.c</em> (continued)</p>
+<p>Three of the exposed methods have simple code that is easy to follow:</p>
+<pre><code>int fileLastModifiedAfter(const char * filename, time_t lastCheckedTime){
     struct stat buffer;
     stat(filename, &amp;buffer);
     return lastCheckedTime &lt; buffer.st_mtime;
@@ -363,82 +226,32 @@ FILE * getChatFile(){
     int userFileExists = file_exists(DATA_FILE);
     if(userFileExists == 0) return NULL;
 
-    FILE * fp = fopen(DATA_FILE, "r");
+    FILE * fp = fopen(DATA_FILE, &quot;r&quot;);
     if(!fp){
-        fprintf(stderr, "Could not open chat file " DATA_FILE " for reading: %s", strerror(errno));
+        fprintf(stderr, &quot;Could not open chat file &quot; DATA_FILE &quot; for reading: %s&quot;, strerror(errno));
     }
     return fp;
 }
 int chatInit(){
     return create_chat_file();
 }
-</code></pre>
-   <p>
-    The
-    <strong>
-     fileLastModifiedAfter
-    </strong>
-    function uses the operating system's
-    <a href="http://linux.die.net/man/2/stat">
-     stat command
-    </a>
-    to find the
-    <code>
-     .st_mtime
-    </code>
-    field, which conains the last modification time, this compared
-to the argument
-    <code>
-     lastCheckedTime
-    </code>
-    results in doing exactly what we specified in 
-the header file.
-   </p>
-   <p>
-    <strong>
-     getChatFile
-    </strong>
-    performs a
-    <code>
-     fopen
-    </code>
-    operation and returns the resulting pointer.
+</code></pre><p>The <strong>fileLastModifiedAfter</strong> function uses the operating system&#39;s <a href="http://linux.die.net/man/2/stat">stat command</a>
+to find the <code>.st_mtime</code> field, which conains the last modification time, this compared
+to the argument <code>lastCheckedTime</code> results in doing exactly what we specified in 
+the header file.</p>
+<p><strong>getChatFile</strong> performs a <code>fopen</code> operation and returns the resulting pointer.
 Note the use of C compile time string compilation to automatically inject the 
-configured
-    <code>
-     DATA_FILE
-    </code>
-    into the error message. This is helpful for figuring out
-permissions errors or any other error raised by
-    <code>
-     strerror
-    </code>
-    . Lastly, chatInit simply 
-calls the
-    <code>
-     create_chat_file
-    </code>
-    function since our initialization isn't complicated.
-   </p>
-   <p>
-    Our last function
-    <strong>
-     updateConversation
-    </strong>
-    is slightly more compilicated looking,
-but is really quite simple:
-   </p>
-   <p>
-    <em>
-     src/internal/chatfile.c
-    </em>
-    (continued)
-   </p>
-   <pre><code>int updateConversation(const char * user, const char * addendum){
-    FILE * fp = fopen(DATA_FILE, "a");
+configured <code>DATA_FILE</code> into the error message. This is helpful for figuring out
+permissions errors or any other error raised by <code>strerror</code>. Lastly, chatInit simply 
+calls the <code>create_chat_file</code> function since our initialization isn&#39;t complicated.</p>
+<p>Our last function <strong>updateConversation</strong> is slightly more compilicated looking,
+but is really quite simple:</p>
+<p><em>src/internal/chatfile.c</em> (continued)</p>
+<pre><code>int updateConversation(const char * user, const char * addendum){
+    FILE * fp = fopen(DATA_FILE, &quot;a&quot;);
 
     if(!fp){
-        fprintf(stderr, "Could not open chat file " DATA_FILE " for updating: %s", strerror(errno));
+        fprintf(stderr, &quot;Could not open chat file &quot; DATA_FILE &quot; for updating: %s&quot;, strerror(errno));
         return 0;
     }
 
@@ -447,58 +260,36 @@ but is really quite simple:
     t = time(NULL);
     tmp = localtime(&amp;t);
     if(tmp == NULL){
-        fprintf(stderr, "Failed to determine local time\n");
-        fprintf(fp, "[Unknown Time %s]: %s\n", user ,addendum);
+        fprintf(stderr, &quot;Failed to determine local time\n&quot;);
+        fprintf(fp, &quot;[Unknown Time %s]: %s\n&quot;, user ,addendum);
     }else{
         char timeBuffer[30];
         bzero(timeBuffer, sizeof(timeBuffer));
-        strftime(timeBuffer, sizeof(timeBuffer), "%F %I:%M", tmp);
-        fprintf(fp, "[%s %s]: %s\n", timeBuffer , user ,addendum);
+        strftime(timeBuffer, sizeof(timeBuffer), &quot;%F %I:%M&quot;, tmp);
+        fprintf(fp, &quot;[%s %s]: %s\n&quot;, timeBuffer , user ,addendum);
     }
     fflush(fp);
     fclose(fp);
     return 1;
 }
-</code></pre>
-   <p>
-    We open the history file in appending mode so that we always add new messages to
+</code></pre><p>We open the history file in appending mode so that we always add new messages to
 the end of our file. This not only saves us code, but results in an easier to understand
 logic than trying to append new lines to the first line of the file for reading. 
 We then determine the current time according to the server and use it in our message
-format. Don't send me your complaints about a server spitting out the wrong time,
-that's a configuration issue in apache or your computer if you run into those problems 
-and is no fault of the function
-    <code>
-     localtime
-    </code>
-    .
-   </p>
-   <p>
-    With that, we have all the neccesary internal code to write a chat server! Surprised? 
-That's ok, but you might be wondering: I don't have any visual output that any of
-this stuff works, how can I be sure Ethan's not pulling a fast one on me?
-   </p>
-   <p>
-    Well, you can't ;) except that we're going to add a test directory and write a 
-couple tests:
-   </p>
-   <pre><code>mkdir test
+format. Don&#39;t send me your complaints about a server spitting out the wrong time,
+that&#39;s a configuration issue in apache or your computer if you run into those problems 
+and is no fault of the function <code>localtime</code>.</p>
+<p>With that, we have all the neccesary internal code to write a chat server! Surprised? 
+That&#39;s ok, but you might be wondering: I don&#39;t have any visual output that any of
+this stuff works, how can I be sure Ethan&#39;s not pulling a fast one on me?</p>
+<p>Well, you can&#39;t ;) except that we&#39;re going to add a test directory and write a 
+couple tests:</p>
+<pre><code>mkdir test
 touch test/test-chat.c
-</code></pre>
-   <p>
-    Next we'll update our
-    <strong>
-     Makefile
-    </strong>
-    to compile our test for us and then use asserts
-to guarantee that our code works as expected:
-   </p>
-   <p>
-    <em>
-     Makefile
-    </em>
-   </p>
-   <pre><code>#Configurations and setup
+</code></pre><p>Next we&#39;ll update our <strong>Makefile</strong> to compile our test for us and then use asserts
+to guarantee that our code works as expected:</p>
+<p><em>Makefile</em></p>
+<pre><code>#Configurations and setup
 CC = cc
 CFLAGS = -std=gnu99 -pedantic -Wall -Wextra -Werror -g -I./headers
 LINKFLAGS = $(CFLAGS) 
@@ -528,46 +319,20 @@ $(OBJECTS): obj/%.o : src/%.c ./headers/config.h
 
 test-internal:
     ${CC} ${LINKFLAGS} test/test-chat.c obj/chatfile.o -o bin/test-chat.out
-</code></pre>
-   <p>
-    The addition to the file is:
-   </p>
-   <pre><code>test-internal:
+</code></pre><p>The addition to the file is:</p>
+<pre><code>test-internal:
     ${CC} ${LINKFLAGS} test/test-chat.c obj/chatfile.o -o bin/test-chat.out
-</code></pre>
-   <p>
-    This will compile our test file into a binary we can run by executing
-    <code>
-     ./bin/test-chat.out
-    </code>
-    The test itself will do the following:
-   </p>
-   <ul>
-    <li>
-     initialize the chat internals with
-     <strong>
-      chatInit
-     </strong>
-    </li>
-    <li>
-     update the chat with a message
-    </li>
-    <li>
-     check the modification time to make sure it's changed
-    </li>
-    <li>
-     verify that the message we chatted is there when we read the file
-    </li>
-   </ul>
-   <p>
-    So without further ado:
-   </p>
-   <p>
-    <em>
-     test-chat.c
-    </em>
-   </p>
-   <pre><code>#include "chatfile.h"
+</code></pre><p>This will compile our test file into a binary we can run by executing <code>./bin/test-chat.out</code>
+The test itself will do the following:</p>
+<ul>
+<li>initialize the chat internals with <strong>chatInit</strong></li>
+<li>update the chat with a message</li>
+<li>check the modification time to make sure it&#39;s changed</li>
+<li>verify that the message we chatted is there when we read the file</li>
+</ul>
+<p>So without further ado:</p>
+<p><em>test-chat.c</em></p>
+<pre><code>#include &quot;chatfile.h&quot;
 #include &lt;assert.h&gt;
 #include &lt;unistd.h&gt;
 
@@ -578,7 +343,7 @@ int main(){
     assert(success == 1);
 
     /* Test adding to conversation */
-    success = updateConversation("test", "I AM GROOT");
+    success = updateConversation(&quot;test&quot;, &quot;I AM GROOT&quot;);
     assert(success == 1);
 
     sleep(1);
@@ -594,198 +359,123 @@ int main(){
     fgets(buffer, sizeof(buffer), fp);
     fclose(fp);
 
-    assert( strstr(buffer, "I AM GROOT") != NULL);
+    assert( strstr(buffer, &quot;I AM GROOT&quot;) != NULL);
 
     return 0;
 }
-</code></pre>
-   <p>
-    This test simply calls each of our methods and
-    <code>
-     assert
-    </code>
-    s that they work as we
-expect them to. Assert's are a great way to guarantee a contract with your code.
-They're good for some development processes (not all) and can be used to make
+</code></pre><p>This test simply calls each of our methods and <code>assert</code>s that they work as we
+expect them to. Assert&#39;s are a great way to guarantee a contract with your code.
+They&#39;re good for some development processes (not all) and can be used to make
 sure your code is error free. To test your own implementation use the following 
-commands:
-   </p>
-   <pre><code>make test-internal 
+commands:</p>
+<pre><code>make test-internal 
 ./bin/test-chat.out
-</code></pre>
-   <p>
-    If you don't get any errors, then you're good to go! You can also check out the
-    <code>
-     DATA_DIR
-    </code>
-    file and see that things are being written to it.
-   </p>
-   <p>
-    This wraps up the tutorial, stay tuned for the next installment for how to expose
-these internal functions to the web using CGI and
-    <a href="http://www.qdecoder.org/wiki/qdecoder">
-     qdecoder
-    </a>
-    ! Believe it or not,
-we've done the hard part of designing our application and writing the fundamental 
-peaces of our core code. We've tested them to ensure they're correct, and we've
+</code></pre><p>If you don&#39;t get any errors, then you&#39;re good to go! You can also check out the
+<code>DATA_DIR</code> file and see that things are being written to it. </p>
+<p>This wraps up the tutorial, stay tuned for the next installment for how to expose
+these internal functions to the web using CGI and <a href="http://www.qdecoder.org/wiki/qdecoder">qdecoder</a>! Believe it or not,
+we&#39;ve done the hard part of designing our application and writing the fundamental 
+peaces of our core code. We&#39;ve tested them to ensure they&#39;re correct, and we&#39;ve
 made a simple API for our other code to talk to when we implement it. In the next
-tutorial not only will we add qdecoder and learn how to write basic CGI, but we'll
-create an API that will expose our resources to the web.
-   </p>
-   <p>
-    See you next time!
-   </p>
-   <h3>
-    Other Posts
-   </h3>
-   <div id="other-posts">
-    <ul>
-     <li>
-      <a href="cgi-c-harp-2">
-       Let's make a chat server, Part 2
-      </a>
-     </li>
-     <li>
-      <a href="adding-scheduled-posts">
-       Adding Scheduled Posts to your Harp Site
-      </a>
-     </li>
-     <li>
-      <a href="cgi-c-harp-3">
-       Let's make a chat server, Part 3
-      </a>
-     </li>
-     <li>
-      <a href="free-item-in-authorize-line-item-invalid">
-       Authorize LineItem's, mixed free and paid for causes error
-      </a>
-     </li>
-     <li>
-      <a href="dynamically-including-js">
-       Loading JS dynamically in Harp
-      </a>
-     </li>
-     <li>
-      <a href="privateTalk">
-       Private Talk and plans for some tutorials
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div id="disqus_thread">
-   </div>
-   <script type="text/javascript">
-    var disqus_shortname = 'ejehardenberg';
+tutorial not only will we add qdecoder and learn how to write basic CGI, but we&#39;ll
+create an API that will expose our resources to the web.</p>
+<p>See you next time!</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=cgi-c-harp-2>Let&#39;s make a chat server, Part 2</a></li><li><a href=adding-scheduled-posts>Adding Scheduled Posts to your Harp Site</a></li><li><a href=cgi-c-harp-3>Let&#39;s make a chat server, Part 3</a></li><li><a href=free-item-in-authorize-line-item-invalid>Authorize LineItem&#39;s, mixed free and paid for causes error</a></li><li><a href=dynamically-including-js>Loading JS dynamically in Harp</a></li><li><a href=privateTalk>Private Talk and plans for some tutorials</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-   </script>
-   <noscript>
-    Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">
-     comments powered by Disqus.
-    </a>
-   </noscript>
-   <a class="dsq-brlink" href="http://disqus.com">
-    <!--
--->
-    comments powered by
-    <span class="logo-disqus">
-     Disqus
-    </span>
-   </a>
-  </div>
-  <nav>
-   <ul>
-    <li>
-     <a href="/index">
-      <span>
-       Home
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/about">
-      <span>
-       About me
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/projects">
-      <span>
-       Projects
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/resume">
-      <span>
-       Resume
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/tech-blog">
-      <span>
-       Tech Blog
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/cooking">
-      <span>
-       Cooking
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing">
-      <span>
-       Writing
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/contact">
-      <span>
-       Contact
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="/writing/political">
-      <span>
-       Opinion
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/EdgeCaseBerg">
-      <span>
-       Github
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="https://twitter.com/TheR3dLily">
-      <span>
-       Twitter
-      </span>
-     </a>
-    </li>
-    <li>
-     <a href="http://www.linkedin.com/profile/view?id=151414806">
-      <span>
-       LinkedIn
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
- </body>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<span>Twitter</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
 </html>
+  	
