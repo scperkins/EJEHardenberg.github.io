@@ -1,8 +1,13 @@
-deploy: sri push
+deploy: push compile
 
 push:
 	git push origin master
 	git push live master
+
+compile: 
+	harp compile
+	git add .
+	git commit -m "Compile Harp"
 
 #Compure Subresource integrity hashes
 sri:
