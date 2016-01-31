@@ -1,4 +1,9 @@
 {
+	"to-the-left" : {
+		"title" : "To the Left",
+		"date" : "2016-1-31",
+		"freq" : "monthly"
+	},
 	"coffee" : {
 		"title" : "Coffee",
 		"date" : "2016-1-16",
