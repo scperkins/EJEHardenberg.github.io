@@ -1,4 +1,9 @@
 {
+	"coins" : {
+		"title" : "Coins",
+		"date" : "2016-2-2",
+		"freq" : "monthly"
+	},
 	"amendment" : {
 		"title" : "Amendment",
 		"date" : "2016-1-26",
