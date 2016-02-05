@@ -1,4 +1,9 @@
 {
+	"new-things" : {
+		"title" : "New Things",
+		"date" : "2016-2-4",
+		"freq" : "monthly"
+	},
 	"coins" : {
 		"title" : "Coins",
 		"date" : "2016-2-2",
