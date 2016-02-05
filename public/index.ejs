@@ -85,7 +85,7 @@ me politically, checkout <a href="/writing/political">the opinion section</a>
 			var shown = 0
 			for(idx in public.writing.narrations._data){
 				var post = public.writing.narrations._data[idx]
-				if(shown > toShow/2){
+				if(shown > Math.ceil(toShow/2)){
 					break
 				}
 				if( idx != 'index'){
@@ -98,13 +98,15 @@ me politically, checkout <a href="/writing/political">the opinion section</a>
 			}
 
 			shown = 0
-			toShow = 36
 			for(idx in public.writing.poetry._data){
 				var post = public.writing.poetry._data[idx]
-				if(shown > toShow/2){
+				if(shown > 17){
 					break
 				}
 				if( idx != 'index'){
+					if(shown % 3 == 0){
+						%></ul><ul><%
+					}
 					%><li <% if(shown > 15){
 						%>class="non-essential-1260"<%
 					} else if(shown > 12){ 
@@ -117,9 +119,6 @@ me politically, checkout <a href="/writing/political">the opinion section</a>
 						<a href="/writing/poetry/<%= idx %>"><%= post.title %></a>
 					</li><%
 					shown++
-					if(shown % 3 == 1){
-						%></ul><ul><%
-					}
 				}
 			}	
 			%>
