@@ -97,13 +97,26 @@ me politically, checkout <a href="/writing/political">the opinion section</a>
 				
 			}
 
+			var dateAvailable = []
+			for(idx in public.writing.poetry._data) {
+				if("date" in public.writing.poetry._data[idx]){
+					var d = public.writing.poetry._data[idx].date
+					dateAvailable.push({date: d, key: idx})
+				}
+			}
+			
+			dateAvailable.sort(function(a,b){
+				return parseInt(Date.parse(b.date)) - parseInt(Date.parse(a.date))
+			})
+
 			shown = 0
-			for(idx in public.writing.poetry._data){
-				var post = public.writing.poetry._data[idx]
+			for(idx in dateAvailable){
+				var key = dateAvailable[idx].key
+				var post = public.writing.poetry._data[key]
 				if(shown > 17){
 					break
 				}
-				if( idx != 'index'){
+				if( key != 'index'){
 					if(shown % 3 == 0){
 						%></ul><ul><%
 					}
@@ -116,7 +129,7 @@ me politically, checkout <a href="/writing/political">the opinion section</a>
 					} else if(shown > 6){
 						%>class="non-essential-760"<%
 					}%>>
-						<a href="/writing/poetry/<%= idx %>"><%= post.title %></a>
+						<a href="/writing/poetry/<%= key %>"><%= post.title %></a>
 					</li><%
 					shown++
 				}
