@@ -1,4 +1,9 @@
 {
+	"irrigation" : {
+		"title" : "Irrigation",
+		"date" : "2016-2-7",
+		"freq" : "monthly"
+	},
 	"new-things" : {
 		"title" : "New Things",
 		"date" : "2016-2-4",
