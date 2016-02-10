@@ -763,5 +763,12 @@
 		"description" : "Educational example of how to create an Exploit for Magento systems running versions less than 1.9.2.3!",
 		"date" : "2016-1-27",
 		"keywords" : "magento,xss,exploit,compromise,let's exploit,security"
+	},
+	"elastic-search-java-scala-examples" : {
+		"title" : "Elastic Search Java API Examples",
+		"description" : "",
+		"date" : "2016-2-8",
+		"keywords" : "elasticsearch,examples,java api,java,scala,tutorial,guide",
+		"draft" : true
 	}
 }
