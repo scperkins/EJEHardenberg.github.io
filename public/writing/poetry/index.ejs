@@ -3,7 +3,25 @@
 	<%- description %>
 	<% } %>
 </p>
-<% for(var slug in public.writing.poetry._data){ %>
+<% 
+function sortByDate(object) {
+	var dateAvailable = []
+	for(idx in object) {
+		if("date" in object[idx]){
+			var d = object[idx].date
+			dateAvailable.push({date: d, key: idx})
+		}
+	}
+	
+	dateAvailable.sort(function(a,b){
+		return parseInt(Date.parse(b.date)) - parseInt(Date.parse(a.date))
+	})
+	return dateAvailable
+}
+var sortKeys = sortByDate(public.writing.poetry._data)
+for(var idx in sortKeys){ 
+	var slug = sortKeys[idx].key
+	%>
 	<% if(slug != "index") {%>
 	<div class="outside-block">
 		<div class="blocks">
