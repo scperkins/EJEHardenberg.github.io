@@ -68,11 +68,11 @@ me politically, checkout <a href="/writing/political">the opinion section</a>
 					%><li>
 						<a href="/tech-blog/<%= posts[idx].slug %>"><%= posts[idx].title %></a>
 					</li><%
-				}
-				if(i == toShow-1) {
-					break
-				}
-				i++
+					if(i == toShow-1) {
+						break
+					}
+					i++
+				}			
 			}
 			%>
 		</ul>
