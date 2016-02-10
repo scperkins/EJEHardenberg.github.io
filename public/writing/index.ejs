@@ -5,12 +5,29 @@
 	</div>
 	<ul class="non-essential-mobile">
 		<% 
-		for( item in public.writing.narrations._data){
-			if(item != 'index'){
-			var story = public.writing.narrations._data[item]
+		function sortByDate(object) {
+			var dateAvailable = []
+			for(idx in object) {
+				if("date" in object[idx]){
+					var d = object[idx].date
+					dateAvailable.push({date: d, key: idx})
+				}
+			}
+			
+			dateAvailable.sort(function(a,b){
+				return parseInt(Date.parse(b.date)) - parseInt(Date.parse(a.date))
+			})
+			return dateAvailable
+		}
+
+		var sorted = sortByDate(public.writing.narrations._data)
+		for( idx in sorted){
+			var key = sorted[idx].key
+			if(key != 'index'){
+			var story = public.writing.narrations._data[key]
 			%>
 			<li>
-				<a href="narrations/<%= item %>"><%= story.title %></a>
+				<a href="narrations/<%= key %>"><%= story.title %></a>
 			</li>
 			<%
 			}
@@ -25,12 +42,14 @@
 	</div>
 	<ul class="non-essential-mobile">
 		<% 
-		for( item in public.writing.poetry._data){
-			var poem = public.writing.poetry._data[item]
-			if(item != 'index'){
+		var sorted = sortByDate(public.writing.poetry._data)
+		for( idx in sorted){
+			var key = sorted[idx].key;
+			var poem = public.writing.poetry._data[key]
+			if(key != 'index'){
 			%>
 			<li>
-				<a href="poetry/<%= item %>"><%= poem.title %></a>
+				<a href="poetry/<%= key %>"><%= poem.title %></a>
 			</li>
 			<%
 			}
@@ -45,12 +64,14 @@
 	</div>
 	<ul class="non-essential-mobile">
 		<% 
-		for( item in public.writing.smut._data){
-			if(item != 'index'){
-			var smutStory = public.writing.smut._data[item]
+		var sorted = sortByDate(public.writing.smut._data)
+		for( idx in sorted){
+			var key = sorted[idx].key
+			if(key != 'index'){
+			var smutStory = public.writing.smut._data[key]
 			%>
 			<li>
-				<a href="smut/<%= item %>"><%= smutStory.title %></a>
+				<a href="smut/<%= key %>"><%= smutStory.title %></a>
 			</li>
 			<%
 			}
