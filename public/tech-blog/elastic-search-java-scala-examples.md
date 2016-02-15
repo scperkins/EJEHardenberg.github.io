@@ -24,6 +24,10 @@ and ask for an example if you need one and can't figure it out.
 All of these examples are available on my github, so if you're impatient 
 and want to just grab the code and run it yourself, [here's the link].
 
+#### Setup Elastic Search
+
+The repository contains 
+
 
 [elastic4s]:https://github.com/sksamuel/elastic4s
 [jest]:https://github.com/searchbox-io/Jest
