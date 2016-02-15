@@ -1,4 +1,9 @@
 {
+	"nationalism" : {
+		"title" : "Nationalism",
+		"date" : "2016-2-15",
+		"freq" : "monthly"
+	},
 	"irrigation" : {
 		"title" : "Irrigation",
 		"date" : "2016-2-7",
