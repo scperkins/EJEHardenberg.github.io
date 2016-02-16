@@ -304,7 +304,7 @@ code {
 			li{
 				text-align: center;
 				transition: background-color @colorSpeed linear;
-				background-color: @darkest;
+				background-color: lighten(@darkest,10%);
 				border-radius: 2em;
 				margin-bottom: @gutter;
 				a{
@@ -313,7 +313,7 @@ code {
 					padding: @gutter/2;
 				}
 				a:visited {
-					color: @middle;
+					color: black;
 				}
 			}
 			li:hover{
@@ -321,6 +321,9 @@ code {
 				background-color: lighten(@middle,10%);
 				a {
 					color: @darkest;
+				}
+				a:visited {
+					color: @dark;
 				}
 			}
 		}
