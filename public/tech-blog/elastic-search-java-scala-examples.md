@@ -26,7 +26,9 @@ and want to just grab the code and run it yourself, [here's the link].
 
 #### Setup Elastic Search
 
-The repository contains 
+You can setup elasticsearch locally and use their [get started guide] 
+pretty easily. But you don't need to do that if you're just running the 
+code in the repository as the test's start their own instance.
 
 
 [elastic4s]:https://github.com/sksamuel/elastic4s
@@ -34,3 +36,4 @@ The repository contains
 [spring's]:https://github.com/spring-projects/spring-data-elasticsearch
 [JavaDocs for each version of elastic search here]:http://javadoc.kyubu.de/elasticsearch
 [here's the link]:https://github.com/EdgeCaseBerg/elasticsearch-examples
+[get started guide]:https://www.elastic.co/guide/en/elasticsearch/guide/current/getting-started.html
