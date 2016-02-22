@@ -1,4 +1,9 @@
 {
+	"warmth" : {
+		"title" : "Warmth",
+		"date" : "2016-2-22",
+		"freq" : "monthly"
+	},
 	"to-the-left" : {
 		"title" : "To the Left",
 		"date" : "2016-1-31",
