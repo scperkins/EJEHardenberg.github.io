@@ -1,12 +1,12 @@
 from bs4 import BeautifulSoup
 from hashlib import sha384
 from base64 import encodestring
-import os
-import json
+from os import walk, path
+from json import load
 
 print "Loading SRI configuration"
 with open('sri.conf') as f:
-	conf = json.load(f)
+	conf = load(f)
 
 #http://stackoverflow.com/a/19711609/1808164
 def sha384OfFile(filepath):
@@ -36,10 +36,10 @@ def get_filepaths(directory):
     file_paths = []  # List which will store all of the full filepaths.
 
     # Walk the tree.
-    for root, directories, files in os.walk(directory):
+    for root, directories, files in walk(directory):
         for filename in files:
             # Join the two strings in order to form the full filepath.
-            filepath = os.path.join(root, filename)
+            filepath = path.join(root, filename)
             file_paths.append(filepath)  # Add it to the list.
 
     return file_paths  # Self-explanatory.
