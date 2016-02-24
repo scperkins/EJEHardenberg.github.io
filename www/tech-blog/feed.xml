@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Wed, 27 Jan 2016 05:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Wed, 24 Feb 2016 05:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Dockerized Play! App continously restarts?</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/docker-playframework-tip</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/docker-playframework-tip</guid>
+			<pubDate>Wed, 24 Feb 2016 05:00:00 GMT</pubDate>
+			<description>
+				![CDATA[How to fix an issue with play applications running inside a docker environment that can happen if the system quits unexpectedly.]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Let's Exploit Magento! (<1.9.2.3)</title>

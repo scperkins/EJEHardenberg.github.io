@@ -1,0 +1,198 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Ethan's Tech Blog | Dockerized Play! App continously restarts?</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="How to fix an issue with play applications running inside a docker environment that can happen if the system quits unexpectedly." />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="play,docker,playframework,continous,restart,error,RUNNING_PID"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Dockerized Play! App continously restarts?" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="How to fix an issue with play applications running inside a docker environment that can happen if the system quits unexpectedly." />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Dockerized Play! App continously restarts?" />
+    
+    <meta name="twitter:description" content="How to fix an issue with play applications running inside a docker environment that can happen if the system quits unexpectedly." />
+    
+    <meta name="twitter:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Dockerized Play! App continously restarts?</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Tip for dockerized Play! Framework applications</h3><p>If your application is continously restarting and you&#39;re running in a
+dockerized environment there&#39;s probably one simple (and obnoxious)
+reaason why. The long and short of it is that whether you use
+<code>ENTRYPOINT</code> or <code>CMD</code> to start your application, you need to set play&#39;s
+pid file to something that&#39;s transient. Like so:</p>
+<pre><code>-Dpidfile.path=/var/run/play.pid
+</code></pre><p>or</p>
+<pre><code>-Dpidfile.path=/dev/null
+</code></pre><p>You might wonder why this is neccesary if you&#39;ve dockerized your
+container. The answer is pretty easy to understand through an example.
+First, create a docker container that installs whatever version of Java
+you need. Second run <code>sbt dist</code> or use an <a href="https://github.com/sbt/sbt-assembly">assembly plugin</a> to create your
+executable. Last, create a Dockerfile that uses the java version and
+adds the neccesary files for your executable to itself, then runs the
+application.</p>
+<p>The next thing to do is to build and run your docker container. While
+it&#39;s running, open up another terminal and issue the commands:</p>
+<pre><code>docker ps # Grab the container Id of your running image
+docker kill -s=9 &lt;container id&gt;
+docker start &lt;container id&gt;
+</code></pre><p>Wait a moment, then run <code>docker logs &lt;container id&gt;</code> and observe the
+application refusing to boot because:</p>
+<pre><code>Play server process ID is 1
+This application is already running (Or delete RUNNING_PID file).
+</code></pre><p>which happens because in the event that a docker container quits
+unexpectantly it has the following behavior:</p>
+<blockquote>
+<p>By default a container’s file system persists even after the container
+exits. This makes debugging a lot easier (since you can inspect the
+final state) and you retain all your data by default. </p>
+</blockquote>
+<p>Which is a <a href="https://docs.docker.com/engine/reference/run/#clean-up-rm">quote from the docs</a>. So when your play application is
+running and the container quits suddenly, play doesn&#39;t clean up after
+itself and you end up with a PID file that causes play to think it&#39;s
+already running. If you update your code to set the pid file to
+somewhere temporary, or to send it to <code>/dev/null</code> (do this if play&#39;s the
+only thing running in the container) then you won&#39;t have this issue. </p>
+<p>Hope that helps someone out there who didn&#39;t <a href="https://www.playframework.com/documentation/2.3.x/ProductionConfiguration#Changing-the-path-of-RUNNING_PID">RTFM</a></p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=exploiting-magento>Let&#39;s Exploit Magento! (&lt;1.9.2.3)</a></li><li><a href=implementing-subresource-integrity-sri>How to implement Subresource Integrity (SRI)</a></li><li><a href=how-to-test-playframework-mailer>How to test the PlayFramework Mailer</a></li><li><a href=upload-binary-data-play-exif>Upload binary data in play</a></li><li><a href=bashing-logs>Bashing Logs</a></li><li><a href=building-state-from-scala-workflows>Building Content State from Workflow and Audit Logs</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<span>Github</span>
+			</a>
+		</li>
+		<li> 
+			<a href="https://twitter.com/TheR3dLily">
+				<span>Twitter</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
+</html>
+  	
