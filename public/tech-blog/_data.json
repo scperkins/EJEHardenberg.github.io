@@ -770,5 +770,11 @@
 		"date" : "2016-2-8",
 		"keywords" : "elasticsearch,examples,java api,java,scala,tutorial,guide",
 		"draft" : true
+	},
+	"docker-playframework-tip" : {
+		"title" : "Dockerized Play! App continously restarts?",
+		"description" : "How to fix an issue with play applications running inside a docker environment that can happen if the system quits unexpectedly.",
+		"date" : "2016-2-24",
+		"keywords" : "play,docker,playframework,continous,restart,error,RUNNING_PID"
 	}
 }
