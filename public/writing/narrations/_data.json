@@ -1,4 +1,9 @@
 {
+	"lecture" : {
+		"title" : "Lecture",
+		"date" : "2016-2-25",
+		"freq" : "monthly"
+	},
 	"warmth" : {
 		"title" : "Warmth",
 		"date" : "2016-2-22",
