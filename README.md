@@ -49,7 +49,9 @@ To run:
 	python sri.py
 
 The python script will look for the configured files (see sri.conf) and
-attempt to update the source code to have the correct hashes. 
+attempt to update the source code to have the correct hashes. Note that 
+I wrote a [post about this] but don't run SRI on my site because there's 
+no point since my site is served over regular HTTP.
 
 
 
@@ -64,3 +66,4 @@ attempt to update the source code to have the correct hashes.
 [visit the site]:http://www.ethanjoachimeldridge.info
 [Harp]:http://www.harpjs.com
 [SubResource Integrity]:https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
+[post about this]:http://www.ethanjoachimeldridge.info/tech-blog/implementing-subresource-integrity-sri
