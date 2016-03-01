@@ -132,7 +132,7 @@ the back end to get information about our file.
 [FileReader]:https://developer.mozilla.org/en-US/docs/Web/API/FileReader
 [ArrayBuffer]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer
 [documentation]:https://www.playframework.com/documentation/2.4.x/ScalaBodyParsers#Specifying-a-body-parser
-[project because it's hard coded]:https://github.com/playframework/playframework/blob/2.3.x/framework/src/play/src/main/scala/play/api/mvc/ContentTypes.scala#L351
+[probably because it's hard coded]:https://github.com/playframework/playframework/blob/2.3.x/framework/src/play/src/main/scala/play/api/mvc/ContentTypes.scala#L351
 [fixed this in the newer play versions]:https://www.playframework.com/documentation/2.4.x/Migration24#Maximum-body-length
 [javadocs for ImageMetadataReader]:http://metadata-extractor.googlecode.com/svn/trunk/Javadoc/com/drew/imaging/ImageMetadataReader.html
 [BufferedInputStream]:https://docs.oracle.com/javase/7/docs/api/java/io/BufferedInputStream.html
