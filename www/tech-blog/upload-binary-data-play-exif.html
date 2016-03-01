@@ -117,7 +117,7 @@ class MyController extends Controller {
 though. According to the <a href="https://www.playframework.com/documentation/2.4.x/ScalaBodyParsers#Specifying-a-body-parser">documentation</a> the maximum body size 
 our parser will parse is 100KB unless we specify <code>play.http.parser.maxMemoryBuffer</code>
 in application.conf. However, I found that this property didn&#39;t 
-effect the raw parser, [probably because it&#39;s hard coded]. They&#39;ve 
+effect the raw parser, <a href="https://github.com/playframework/playframework/blob/2.3.x/framework/src/play/src/main/scala/play/api/mvc/ContentTypes.scala#L351">probably because it&#39;s hard coded</a>. They&#39;ve 
 <a href="https://www.playframework.com/documentation/2.4.x/Migration24#Maximum-body-length">fixed this in the newer play versions</a>, but I got around this 
 by specifying the maximum content length size directly in the action:</p>
 <pre><code>def myFunc = Action(parse.raw(1024 * 124)) { implicit request =&gt; 

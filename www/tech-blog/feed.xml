@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Wed, 24 Feb 2016 05:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Tue, 01 Mar 2016 05:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Combining Asset's on the fly in Play (javascript example)</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/appending-javascript-files-in-play-for-configuration</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/appending-javascript-files-in-play-for-configuration</guid>
+			<pubDate>Tue, 01 Mar 2016 05:00:00 GMT</pubDate>
+			<description>
+				![CDATA[An example of how to combine asset's and configuration data (or other assets as you'd like.]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Dockerized Play! App continously restarts?</title>
