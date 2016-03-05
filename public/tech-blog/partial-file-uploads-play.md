@@ -1,5 +1,7 @@
 ### Partial File upload's and Play
 
+#### ResumableJS
+
 The other day I stumbled across [resumablejs] and was thinking to myself 
 that when dealing with large files this would be a really nice thing to 
 have. Since I [wrote up uploading binaries in play] before, I figure'd 
@@ -16,6 +18,17 @@ a very well defined API that is designed to do one thing and do it well.
 The nice thing about properly defined API's is that it's easy to code 
 against them.
 
+#### File Combination Strategy
+
+ResumableJS uploads files in chunks, so once the parts are on the server 
+we'll need to combine them in some way. There are two basic options:
+
+1. Store each part individually then combine them once all pieces are present
+2. Use a [RandomAccessFile] to place the chunks in the proper position inside of one file, and once all pieces are present to cease the upload.
+
+http://localhost:9000/upload?resumableChunkNumber=1&resumableChunkSize=1048576&resumableCurrentChunkSize=1048576&resumableTotalSize=7185630&resumableType=video%2Fwebm&resumableIdentifier=7185630-webm&resumableFilename=%E2%96%B3.webm&resumableRelativePath=%E2%96%B3.webm&resumableTotalChunks=6
+
 
 [resumablejs]:http://resumablejs.com/
 [wrote up uploading binaries in play]:/tech-blog/upload-binary-data-play-exif
+[RandomAccessFile]:https://docs.oracle.com/javase/7/docs/api/java/io/RandomAccessFile.html
