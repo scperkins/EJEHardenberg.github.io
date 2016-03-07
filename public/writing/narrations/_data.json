@@ -1,4 +1,9 @@
 {
+	"odor" : {
+		"title" : "Odor",
+		"date" : "2016-3-7",
+		"freq" : "monthly"
+	},
 	"lecture" : {
 		"title" : "Lecture",
 		"date" : "2016-2-25",
