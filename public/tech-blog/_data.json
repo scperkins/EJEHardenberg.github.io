@@ -782,5 +782,8 @@
 		"description" : "An example of how to combine asset's and configuration data (or other assets as you'd like.",
 		"date" : "2016-3-1",
 		"keywords" : "play,javascript,assets,combine,playframework,configuration"
+	},
+	"partial-file-uploads-play": { 
+		"draft" : true
 	}
 }

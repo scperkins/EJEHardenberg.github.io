@@ -26,6 +26,10 @@ we'll need to combine them in some way. There are two basic options:
 1. Store each part individually then combine them once all pieces are present
 2. Use a [RandomAccessFile] to place the chunks in the proper position inside of one file, and once all pieces are present to cease the upload.
 
+For simplicities sake, the [RandomAccessFile] is the way I've chosen to 
+go for this. Mainly because handling a single file rather than attempting 
+to monitor many seems like it would be easier to do.
+
 http://localhost:9000/upload?resumableChunkNumber=1&resumableChunkSize=1048576&resumableCurrentChunkSize=1048576&resumableTotalSize=7185630&resumableType=video%2Fwebm&resumableIdentifier=7185630-webm&resumableFilename=%E2%96%B3.webm&resumableRelativePath=%E2%96%B3.webm&resumableTotalChunks=6
 
 
