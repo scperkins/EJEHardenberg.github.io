@@ -1,4 +1,9 @@
 {
+	"old-house" : {
+		"title" : "Old House",
+		"date" : "2016-3-27",
+		"freq" : "monthly"
+	},
 	"odor" : {
 		"title" : "Odor",
 		"date" : "2016-3-7",
