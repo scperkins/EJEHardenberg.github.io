@@ -28,7 +28,9 @@ we'll need to combine them in some way. There are two basic options:
 
 For simplicities sake, the [RandomAccessFile] is the way I've chosen to 
 go for this. Mainly because handling a single file rather than attempting 
-to monitor many seems like it would be easier to do.
+to monitor many seems like it would be easier to do. We can also easily
+jump to an offset within the file by using the `seek` method. Or verify 
+that all the pieces of a file are there and match if we wanted to. 
 
 http://localhost:9000/upload?resumableChunkNumber=1&resumableChunkSize=1048576&resumableCurrentChunkSize=1048576&resumableTotalSize=7185630&resumableType=video%2Fwebm&resumableIdentifier=7185630-webm&resumableFilename=%E2%96%B3.webm&resumableRelativePath=%E2%96%B3.webm&resumableTotalChunks=6
 
