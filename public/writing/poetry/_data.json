@@ -1,4 +1,9 @@
 {
+	"climb" : {
+		"title" : "Climb",
+		"date" : "2016-3-30",
+		"freq" : "monthly"
+	},
 	"ode-to-tay" : {
 		"title" : "Ode to Tay",
 		"date" : "2016-3-26",
