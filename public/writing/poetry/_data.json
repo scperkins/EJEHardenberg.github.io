@@ -1,4 +1,9 @@
 {
+	"medicine" : {
+		"title" : "Medicine",
+		"date" : "2016-4-1",
+		"freq" : "monthly"
+	},
 	"climb" : {
 		"title" : "Climb",
 		"date" : "2016-3-30",
