@@ -1,4 +1,9 @@
 {
+	"pretense" : {
+		"title" : "Pretense",
+		"date" : "2016-4-4",
+		"freq" : "monthly"
+	},
 	"medicine" : {
 		"title" : "Medicine",
 		"date" : "2016-4-1",
