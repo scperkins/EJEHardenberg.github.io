@@ -1,4 +1,9 @@
 {
+	"stumble" : {
+		"title" : "Stumble",
+		"date" : "2016-4-5",
+		"freq" : "monthly"
+	},
 	"old-house" : {
 		"title" : "Old House",
 		"date" : "2016-3-27",
