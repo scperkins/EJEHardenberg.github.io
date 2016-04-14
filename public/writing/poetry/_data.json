@@ -1,4 +1,9 @@
 {
+	"life" : {
+		"title" : "Life",
+		"date" : "2016-4-14",
+		"freq" : "monthly"
+	},
 	"pretense" : {
 		"title" : "Pretense",
 		"date" : "2016-4-4",
