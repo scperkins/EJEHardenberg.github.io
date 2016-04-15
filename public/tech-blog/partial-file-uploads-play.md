@@ -49,7 +49,8 @@ share the same parameters. The `GET` request looks something like this:
 
 	http://localhost:9000/upload?resumableChunkNumber=1&resumableChunkSize=1048576&resumableCurrentChunkSize=1048576&resumableTotalSize=7185630&resumableType=video%2Fwebm&resumableIdentifier=7185630-webm&resumableFilename=%E2%96%B3.webm&resumableRelativePath=%E2%96%B3.webm&resumableTotalChunks=6
 
-
+You can see some useful parameters right away, namely the identifier and the 
+chunk related ones. 
 
 
 [resumablejs]:http://resumablejs.com/
