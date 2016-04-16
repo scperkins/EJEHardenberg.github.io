@@ -134,10 +134,10 @@ And then inside of a controller we can bind the incoming values using
 	)
 
 For the upload handler we'll use `Action(parse.multipartFormData)` to 
-define the action so that we can get the file chunk from the posted byte 
-array via `request.body.file("file")`. For the file test handler we can 
-simply `bindFromRequest` and use the unique identifier and chunk number 
-to see if we've already processed it.
+define the controller action so that we can get the file chunk from the 
+posted byte array via `request.body.file("file")`. For the file test 
+handler we can simply `bindFromRequest` and use the unique identifier 
+and chunk number to see if we've already processed it.
 
 	_Handling test requests for ResumableJS_:
 
@@ -167,7 +167,60 @@ You can use the `resumableIdentifier` as a key, or the path to the file you're
 creating (what my `fileNameFor` method does). But either way, our check for if 
 the file is done uploading or not is based on the presence of the file chunk 
 being in the `Set` of chunks tracked by the `ConcurrentHashMap` within the 
-`FileUploadService`.
+`FileUploadService`. If we implement the success method for the `fileUploadInfoForm` 
+fold as calling down to the FileUploadService or returning an error, then we can 
+finish up the controller:
+	
+	request.body.file("file") match {
+		case None => BadRequest("No file")
+		case Some(file) =>
+			val bytes = Files.readAllBytes(file.ref.file.toPath())
+			fileUploadService.savePartialFile(bytes, fileUploadInfo)
+			file.ref.clean()
+			Ok
+	}
+
+The `request.body.file` provides our code with a [TemporaryFile] that we 
+can use in our request. Since our [FileUploadService] works on byte arrays, 
+we can use the [Files] class to convert the [File] into what we need. 
+Once we have that, it's easy to save it. Expanding our example of how to 
+use the [RandomAccessFile], we can see the `savePartialFile` method is 
+very simple:
+
+	def savePartialFile(filePart: Array[Byte], fileInfo: FileUploadInfo) {
+		if (filePart.length != fileInfo.resumableChunkSize) {
+			return
+		}
+		val partialFile = new RandomAccessFile(fileNameFor(fileInfo), "rw")
+		val offset = (fileInfo.resumableChunkNumber - 1) * fileInfo.resumableChunkSize
+
+		try {
+			partialFile.seek(offset)
+			partialFile.write(filePart, 0, filePart.length)
+		} finally {
+			partialFile.close()
+		}
+
+		val key = fileNameFor(fileInfo)
+		if (uploadedParts.containsKey(key)) {
+			val partsUploaded = uploadedParts.get(key)
+			uploadedParts.put(key, partsUploaded + fileInfo)
+		} else {
+			uploadedParts.put(key, Set(fileInfo))
+		}
+	}
+
+`uploadedParts` is our [ConcurrentHashMap] defined during the construction 
+of the class. In a more robust implementation, we'd define the map as a 
+singleton or use an application wide cache to store the parts. But for now, 
+defining the map inside our class as a property, and then having the controller 
+be an `object` will work fine as a simple example. With this code, we're 
+able to handle the two types of requests that ResumableJS will send us.
+
+#### Example front end for ResumableJS
+
+
+
 
 [resumablejs]:http://resumablejs.com/
 [wrote up uploading binaries in play]:/tech-blog/upload-binary-data-play-exif
@@ -177,3 +230,6 @@ being in the `Set` of chunks tracked by the `ConcurrentHashMap` within the
 [My entire HTML file]:https://github.com/EdgeCaseBerg/play-resumablejs-upload/blob/master/app/views/index.scala.html
 [FileUploadService]:https://github.com/EdgeCaseBerg/play-resumablejs-upload/blob/master/app/service/FileUploadService.scala
 [ConcurrentHashMap]:https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ConcurrentHashMap.html
+[TemporaryFile]:https://www.playframework.com/documentation/2.3.x/api/scala/index.html#play.api.libs.Files$$TemporaryFile
+[Files]:https://docs.oracle.com/javase/7/docs/api/java/nio/file/Files.html
+[File]:https://docs.oracle.com/javase/7/docs/api/java/io/File.html
