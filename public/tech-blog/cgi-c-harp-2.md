@@ -147,7 +147,7 @@ to test everything you do! (more on that in a bit!)
 
 We're going to make a heartbeat script. This is a standard API trick, it's simple
 to make, and when you want to know if your server is still functioning it's a good
-way to check. Some heartbears can be complicated, but our's is going to be super
+way to check. Some heartbeats can be complicated, but our's is going to be super
 simple. We'll simply spit out the time and make sure the chat is initialized. 
 Check it out:
 
