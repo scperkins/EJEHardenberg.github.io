@@ -657,7 +657,7 @@ history down by calling our `scrollFix` function.
 ####Finishing up 
 
 With that, we're finished up. You can see and use the final product [right here]
-and chat with me or anyone else whose online. The files are temporary so they'll
+and chat with me or anyone else who's online. The files are temporary so they'll
 be cleared out whenever I reboot my server and also whenever I run a cronjob to
 remove the chat file. If you find any bugs or errors please [let me know] and I'll
 get onto fixing it. Have fun and I hope you learned something!
