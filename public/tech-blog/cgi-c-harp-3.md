@@ -671,7 +671,7 @@ get onto fixing it. Have fun and I hope you learned something!
 [harp's quickstart page]:http://harpjs.com/docs/quick-
 [partials]:http://harpjs.com/docs/development/partial
 [their download page]:http://nodejs.org/download/
-[harps layout documentation]:http://harpjs.com/docs/development/layout
+[harp's layout documentation]:http://harpjs.com/docs/development/layout
 [qdecoder]:http://www.qdecoder.org/wiki/qdecoder
 [here on github]:https://github.com/EdgeCaseBerg/chat-tutorial
 [first post]:http://www.ethanjoachimeldridge.info/tech-blog/cgi-c-harp-1
