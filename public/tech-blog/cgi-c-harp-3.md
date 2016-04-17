@@ -679,8 +679,7 @@ get onto fixing it. Have fun and I hope you learned something!
 [jquery]:http://jquery.com/
 [yield here]:http://harpjs.com/docs/development/yield
 [I store CDN]:http://www.ethanjoachimeldridge.info/tech-blog/harp-macro-revisit
-[macro
-functions]:http://www.ethanjoachimeldridge.info/tech-blog/harpjs-macros
+[macro functions]:http://www.ethanjoachimeldridge.info/tech-blog/harpjs-macros
 [blink tag]:https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blink
 [this]:http://ajaxload.info/
 [less]:http://lesscss.org/
