@@ -219,8 +219,26 @@ able to handle the two types of requests that ResumableJS will send us.
 
 #### Example front end for ResumableJS
 
+ResumableJS is a well written library in my opinion. Namely the API is clear 
+and the events are well documented. Before we get to the javascript we 
+need the page body though. Since this post is focused mainly on the back
+end code and a simple implementation of the front end I didn't make any 
+special styling for this, so the interface is rather sparse.
+
+	<body>
+		<a id="browseButton" href="#">Browse and Upload</a>
+		<a id="upLoadButton" href="#">Upload</a>
+		<a id="pauseButton" href="#">Pause Uploads</a>
+		<a id="cancelButton" href="#">Cancel All</a>
+		<span id="errorMsg" style="color: red;"></span>
+		<div id="uploadprogress">0 %</div>
+		<ul id="filestobeuploaded">
+		</ul>
+	</body>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/resumable.js/1.0.2/resumable.js">
 
 
+<img src="/images/tech-blog/resumablejs-front-end-1.jpg"/>
 
 [resumablejs]:http://resumablejs.com/
 [wrote up uploading binaries in play]:/tech-blog/upload-binary-data-play-exif
