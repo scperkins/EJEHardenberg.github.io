@@ -240,6 +240,70 @@ special styling for this, so the interface is rather sparse.
 
 <img src="/images/tech-blog/resumablejs-front-end-1.jpg"/>
 
+The first thing to do is intialize the library:
+
+		var r = new Resumable({
+			target:'/upload', 
+			query:{}
+		});
+		r.assignBrowse(document.getElementById('browseButton'));
+
+And bind the upload button to one of our anchors:
+
+	document.getElementById('upLoadButton').onclick = function(){
+		r.upload();
+	}
+
+And you're done. Well, if you're looking to create something which offers 
+no feedback to the users you are. But we want to show the users the files 
+they've selected for uploading. This is easy enough if we hook into the 
+`fileAdded` event:
+
+	r.on('fileAdded', function(file){ 
+		addFileToList(file);
+	});
+
+The method `addFileToList` is probably the longest part of our code simply 
+because we need to create and add elements to the page:
+
+	var filesSpace = document.getElementById('filestobeuploaded');
+	function addFileToList(file) {
+		var li = document.createElement('li');
+
+		var progressBar = document.createElement('span');
+		progressBar.textContent = '0 %';
+		progressBar.id = file.uniqueIdentifier + "-progress";
+
+		var fileNameSpan = document.createElement('span');
+		fileNameSpan.textContent = file.fileName;
+
+		var cancelButton = document.createElement('a');
+		cancelButton.href ='#';
+		cancelButton.textContent = 'Cancel';
+		cancelButton.onclick = function() {
+			file.cancel();
+			filesSpace.removeChild(li);
+		}
+		
+		li.setAttribute('style','border: solid black thin;');
+		li.appendChild(fileNameSpan);
+		li.appendChild(document.createElement('br'));
+		li.appendChild(progressBar);
+		li.appendChild(document.createElement('br'));
+		li.appendChild(cancelButton);
+
+		filesSpace.appendChild(li);
+	}
+
+Our display of each file shows the file name, a progress indicator, and 
+a cancel button. Canceling a file is simply a matter of calling  the 
+`cancel` method on ResumableJS's file object that is passed to the event. 
+This handles stopping the upload and removing the file from the list of 
+files to be uploaded by ResumableJS, our front end code simply deletes 
+the entire `li` element that we build in the above method. The progress 
+`span` is given an identifier that we will use from the `fileProgress` 
+event to update the progress shown to the user:
+
 [resumablejs]:http://resumablejs.com/
 [wrote up uploading binaries in play]:/tech-blog/upload-binary-data-play-exif
 [RandomAccessFile]:https://docs.oracle.com/javase/7/docs/api/java/io/RandomAccessFile.html
