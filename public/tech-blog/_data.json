@@ -784,6 +784,10 @@
 		"keywords" : "play,javascript,assets,combine,playframework,configuration"
 	},
 	"partial-file-uploads-play": { 
-		"draft" : true
+		"title" : "Partial file uploads in Play with ResumableJS",
+		"description" : "Implementing a backend for the ResumableJS library using the Play! framework.",
+		"date" : "2016-4-15",
+		"keywords" : "play,ResumableJS,PlayFramework,scala,javascript,file uploads,partial",
+		"draft" : false
 	}
 }
