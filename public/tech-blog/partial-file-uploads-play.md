@@ -304,6 +304,64 @@ the entire `li` element that we build in the above method. The progress
 `span` is given an identifier that we will use from the `fileProgress` 
 event to update the progress shown to the user:
 
+	r.on('fileProgress', function(file) {
+		var progressBarToUpdate = document.getElementById(file.uniqueIdentifier + "-progress");
+		progressBarToUpdate.textContent = (file.progress(false) * 100.00) + '%';
+	});
+
+As noted in the documentation, the method `progress` on the file instance:
+
+>Returns a float between 0 and 1 indicating the current upload progress of the file. If relative is true, the value is returned relative to all files in the Resumable.js instance.
+
+Since we're showing individual progress we use `false` for the relative 
+parameter. Since users might be interested in knowing the total progress 
+of the downloads we can show that to them too:
+
+	var progress = document.getElementById('uploadprogress');
+	r.on('progress', function() {
+		progress.textContent = (r.progress() * 100.00)+'%';
+	});
+
+At this point we have a fully functioning asynchronous upload page. But 
+if we wanted that we could have used any front end library to do that;
+what makes ResumableJS special is that it supports _pausing_ an upload 
+as well and resuming it later. 
+
+	document.getElementById('pauseButton').onclick = function(){
+		r.pause();
+	}
+
+If you pause an upload you can resume it at any time by clicking the 
+upload button again if you have the page still open in your browser. The 
+nice thing about handling the test requests means that we could upload 
+part of the file now, then come back hours later and continue the upload. 
+This is what ResumableJS is designed for after all, spotty networks and 
+fault tolerance in your uploads.
+
+Let's hook up the rest of our HTML to the library:
+
+	document.getElementById('cancelButton').onclick = function() {
+		r.cancel();
+	}
+
+	var errorMsg = document.getElementById('errorMsg');
+	r.on('cancel', function(file) {
+		var anchors = filesSpace.getElementsByTagName('a');
+		for (var i = anchors.length - 1; i >= 0; i--) {
+			anchors[i].click();
+		};
+		errorMsg.textContent = 'Upload canceled';
+	});
+
+	r.on('error', function (message, file) {
+		errorMsg.textContent = message;
+	});
+
+With that in place the cancel button works and we show any errors that 
+the library comes across in the error span. There are a few other events 
+in the library that you can handle (like file upload success), but you 
+can see that [on github]. 
+
 [resumablejs]:http://resumablejs.com/
 [wrote up uploading binaries in play]:/tech-blog/upload-binary-data-play-exif
 [RandomAccessFile]:https://docs.oracle.com/javase/7/docs/api/java/io/RandomAccessFile.html
@@ -315,3 +373,5 @@ event to update the progress shown to the user:
 [TemporaryFile]:https://www.playframework.com/documentation/2.3.x/api/scala/index.html#play.api.libs.Files$$TemporaryFile
 [Files]:https://docs.oracle.com/javase/7/docs/api/java/nio/file/Files.html
 [File]:https://docs.oracle.com/javase/7/docs/api/java/io/File.html
+[on github]:https://github.com/EdgeCaseBerg/play-resumablejs-upload
+[github issue on ResumableJS]:https://github.com/23/resumable.js/issues/135#issuecomment-31123690
