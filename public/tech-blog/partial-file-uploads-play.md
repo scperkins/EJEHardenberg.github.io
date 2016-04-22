@@ -338,7 +338,8 @@ part of the file now, then come back hours later and continue the upload.
 This is what ResumableJS is designed for after all, spotty networks and 
 fault tolerance in your uploads.
 
-Let's hook up the rest of our HTML to the library:
+Let's finish up the front end code by hooking up the rest of our HTML 
+to the library and handling the `cancel` and `error` events:
 
 	document.getElementById('cancelButton').onclick = function() {
 		r.cancel();
@@ -362,16 +363,34 @@ the library comes across in the error span. There are a few other events
 in the library that you can handle (like file upload success), but you 
 can see that [on github]. 
 
+#### Enhancements and notes
+
+As noted in a [github issue on ResumableJS], there is no checksum for the 
+individual file parts. Which means that you can't 100% guarantee that 
+each piece is not corrupt. Thankfully, on that issue is a solution offered 
+using [SparkMD5]. I haven't tried this yet, but I suggest you read the 
+issue thread as there's some very useful code and information there.
+
+Another thing to note is that the play code above will only work if you're 
+running _a single_ instance on one server. The reason for this is should 
+be obvious, namely that the ConcurrentMap used within the controller is 
+local _to that controller instance_. If one wanted to scale out the app 
+then you'll need to persist the information somewhere. Probably a shared 
+memcache instance would make sense. I might update this blog post at 
+some point with notes on how to do that, but for now this should be 
+enough to get you started!
+
 [resumablejs]:http://resumablejs.com/
 [wrote up uploading binaries in play]:/tech-blog/upload-binary-data-play-exif
 [RandomAccessFile]:https://docs.oracle.com/javase/7/docs/api/java/io/RandomAccessFile.html
 [loaded from a CDN]:https://cdnjs.cloudflare.com/ajax/libs/resumable.js/1.0.2/resumable.js
 [good documentation]:http://resumablejs.com/
-[My entire HTML file]:https://github.com/EdgeCaseBerg/play-resumablejs-upload/blob/master/app/views/index.scala.html
-[FileUploadService]:https://github.com/EdgeCaseBerg/play-resumablejs-upload/blob/master/app/service/FileUploadService.scala
+[My entire HTML file]:https://github.com/EdgeCaseBerg/play-resumablejs-upload/blob/f3925ebe64f92833162dca0712e75da1083768ad/app/views/index.scala.html
+[FileUploadService]:https://github.com/EdgeCaseBerg/play-resumablejs-upload/blob/f3925ebe64f92833162dca0712e75da1083768ad/app/service/FileUploadService.scala
 [ConcurrentHashMap]:https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ConcurrentHashMap.html
 [TemporaryFile]:https://www.playframework.com/documentation/2.3.x/api/scala/index.html#play.api.libs.Files$$TemporaryFile
 [Files]:https://docs.oracle.com/javase/7/docs/api/java/nio/file/Files.html
 [File]:https://docs.oracle.com/javase/7/docs/api/java/io/File.html
-[on github]:https://github.com/EdgeCaseBerg/play-resumablejs-upload
+[on github]:https://github.com/EdgeCaseBerg/play-resumablejs-upload/tree/f3925ebe64f92833162dca0712e75da1083768ad
 [github issue on ResumableJS]:https://github.com/23/resumable.js/issues/135#issuecomment-31123690
+[SparkMD5]:https://github.com/satazor/SparkMD5
