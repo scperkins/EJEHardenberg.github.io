@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Tue, 01 Mar 2016 05:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Fri, 15 Apr 2016 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Partial file uploads in Play with ResumableJS</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/partial-file-uploads-play</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/partial-file-uploads-play</guid>
+			<pubDate>Fri, 15 Apr 2016 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[Implementing a backend for the ResumableJS library using the Play! framework.]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Combining Asset's on the fly in Play (javascript example)</title>

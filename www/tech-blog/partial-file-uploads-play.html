@@ -2,11 +2,11 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Ethan's Tech Blog | Ethan Joachim Eldridge&#39;s Webspace</title>
+    <title>Ethan's Tech Blog | Partial file uploads in Play with ResumableJS</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="The website of Ethan Joachim Eldridge, code tutorials, poetry, narratives, recipes, and information about the Programmer Ethan." />
+    <meta name="description" content="Implementing a backend for the ResumableJS library using the Play! framework." />
     <meta name="author" content="Ethan Eldridge">
-    <meta name="keywords" content="Ethan,Eldridge,Joachim,Programming"/>
+    <meta name="keywords" content="play,ResumableJS,PlayFramework,scala,javascript,file uploads,partial"/>
     <meta name="robots" content="index, follow"  />
       <meta name="revisit-after" content="1 month" />
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
@@ -17,19 +17,19 @@
 
         
     <!-- Facebook Open Graph Tags -->
-    <meta property="og:title" content="Ethan Eldridge | Ethan Joachim Eldridge&#39;s Webspace" />
+    <meta property="og:title" content="Ethan Eldridge | Partial file uploads in Play with ResumableJS" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
     <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
     
-    <meta property="og:description" content="The website of Ethan Joachim Eldridge, code tutorials, poetry, narratives, recipes, and information about the Programmer Ethan." />
+    <meta property="og:description" content="Implementing a backend for the ResumableJS library using the Play! framework." />
     
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ethan Eldridge | Ethan Joachim Eldridge&#39;s Webspace" />
+    <meta name="twitter:title" content="Ethan Eldridge | Partial file uploads in Play with ResumableJS" />
     
-    <meta name="twitter:description" content="The website of Ethan Joachim Eldridge, code tutorials, poetry, narratives, recipes, and information about the Programmer Ethan." />
+    <meta name="twitter:description" content="Implementing a backend for the ResumableJS library using the Play! framework." />
     
     <meta name="twitter:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
     	<!-- Core CSS Scripts -->
@@ -53,18 +53,330 @@
   </head>
   <body>
     <header>
-      <h1>Ethan Joachim Eldridge&#39;s Webspace</h1>
+      <h1>Partial file uploads in Play with ResumableJS</h1>
     </header>
 
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      
-        <br/>
-        <h3>
-          You've stumbled onto a post that is coming soon! But for now you can't see it. Sorry. 
-        </h3>
-        <p> For now why don't you checkout the other posts?</p>
+      <h3>Partial File upload&#39;s and Play</h3><h4>ResumableJS</h4><p>The other day I stumbled across <a href="http://resumablejs.com/">resumablejs</a> and was thinking to myself 
+that when dealing with large files this would be a really nice thing to 
+have. Since I <a href="/tech-blog/upload-binary-data-play-exif">wrote up uploading binaries in play</a> before, I figure&#39;d 
+that writing about how to upload large files would be a reasonable thing 
+to continue with. </p>
+<p>Now, resumablejs has more features than just splicing a file and sending 
+those chunks along. Through its event API you can monitor progress, 
+errors, new files, cancel&#39;s and completions. This means that if you wanted 
+to you could build a very robust uploading system that let people upload 
+parts of files while their network was spotty, or allow them to pause 
+their uploads if they needed to use their bandwidth for other things. It&#39;s 
+a very well defined API that is designed to do one thing and do it well. 
+The nice thing about properly defined API&#39;s is that it&#39;s easy to code 
+against them.</p>
+<h4>File Combination Strategy</h4><p>ResumableJS uploads files in chunks, so once the parts are on the server 
+we&#39;ll need to combine them in some way. There are two basic options:</p>
+<ol>
+<li>Store each part individually then combine them once all pieces are present</li>
+<li>Use a <a href="https://docs.oracle.com/javase/7/docs/api/java/io/RandomAccessFile.html">RandomAccessFile</a> to place the chunks in the proper position inside of one file, and once all pieces are present to cease the upload.</li>
+</ol>
+<p>For simplicities sake, the <a href="https://docs.oracle.com/javase/7/docs/api/java/io/RandomAccessFile.html">RandomAccessFile</a> is the way I&#39;ve chosen to 
+go for this. Mainly because handling a single file rather than attempting 
+to monitor many seems like it would be easier to do. We can also easily
+jump to an offset within the file by using the <code>seek</code> method. Or verify 
+that all the pieces of a file are there and match if we wanted to. </p>
+<p><em>How to write some bytes to a part of a file</em></p>
+<pre><code>import java.io.{ File, RandomAccessFile }
+
+val filePart: Array[Byte] = // the bytes for the piece of the file
+val partialFile = new RandomAccessFile(&quot;myfilename.ext&quot;, &quot;rw&quot;)
+val offset = //compute offset inside of file for this part
+try {
+    partialFile.seek(offset)
+    partialFile.write(filePart, 0, filePart.length)
+} finally {
+    partialFile.close()
+}
+</code></pre><p>The above code is part of the <a href="https://github.com/EdgeCaseBerg/play-resumablejs-upload/blob/f3925ebe64f92833162dca0712e75da1083768ad/app/service/FileUploadService.scala">FileUploadService</a> which handles a <code>RandomAccessFile</code>. 
+The offset is created with the simple formula of <code>(Chunk # -1) * ChunkSize</code>. 
+The <code>-1</code> is because ResumableJS counts from 1 for the chunks. Note that we 
+don&#39;t need to worry about the last chunk&#39;s <code>ChunkSize</code> being different because 
+ResumableJS always passes the general chunk size, and not the length of the 
+byte array it&#39;s sending:</p>
+<p><em>From the Docs:</em></p>
+<blockquote>
+<p>resumableChunkSize: The general chunk size. Using this value and resumableTotalSize you can calculate the total number of chunks. Please note that the size of the data received in the HTTP might be lower than resumableChunkSize of this for the last chunk for a file.</p>
+</blockquote>
+<p>So the only other thing we need to worry about is keeping track of <em>which</em> parts
+of a file we&#39;ve uploaded and that we&#39;ve got a consistent filename. As you&#39;ll see 
+in the next part, ResumableJS gives us a unique identifier for each <em>whole</em> file 
+it&#39;s uploading, so we can rely on that as both a key to a hashmap, and as a name.
+Inside the <code>FileUploadService</code> we can use a <a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ConcurrentHashMap.html">ConcurrentHashMap</a> to keep track of 
+the part&#39;s we&#39;ve uploaded: </p>
+<p><em>Keeping track of file upload parts</em></p>
+<pre><code>val uploadedParts: ConcurrentMap[String, Set[FileUploadInfo]] = new ConcurrentHashMap(8, 0.9f, 1)
+</code></pre><h4>Handling ResumableJS requests</h4><p>ResumableJS can be <a href="https://cdnjs.cloudflare.com/ajax/libs/resumable.js/1.0.2/resumable.js">loaded from a CDN</a> onto your page if you don&#39;t want to 
+host it yourself. It&#39;s also fairly easy to use and has <a href="http://resumablejs.com/">good documentation</a>.
+<a href="https://github.com/EdgeCaseBerg/play-resumablejs-upload/blob/f3925ebe64f92833162dca0712e75da1083768ad/app/views/index.scala.html">My entire HTML file</a> was a little over 130 lines of code and was pretty small.
+Most of the work is done on the back-end to support the two types of requests
+that ResumableJS will make. </p>
+<ol>
+<li>The upload of a file chunk</li>
+<li>Testing if a file chunk has already been uploaded</li>
+</ol>
+<p>Both of these requests will be sent to the <code>target</code> url, the first via <code>POST</code>
+and the second via <code>GET</code>. Besides the file chunk in the body, both methods 
+share the same parameters. The <code>GET</code> request looks something like this:</p>
+<pre><code>http://localhost:9000/upload?resumableChunkNumber=1&amp;resumableChunkSize=1048576&amp;resumableCurrentChunkSize=1048576&amp;resumableTotalSize=7185630&amp;resumableType=video%2Fwebm&amp;resumableIdentifier=7185630-webm&amp;resumableFilename=%E2%96%B3.webm&amp;resumableRelativePath=%E2%96%B3.webm&amp;resumableTotalChunks=6
+</code></pre><p>You can see some useful parameters right away, namely the identifier and the 
+chunk related ones. Since we&#39;re using play, we can bind these to an object 
+very easily:</p>
+<p><em>Our object: FileUploadInfo.scala</em></p>
+<pre><code>package model
+
+case class FileUploadInfo(
+        val resumableChunkNumber: Int,
+        val resumableChunkSize: Int,
+        val resumableTotalSize: Int,
+        val resumableIdentifier: String,
+        val resumableFilename: String
+) {
+    def totalChunks = Math.ceil(resumableTotalSize.toDouble / resumableChunkSize.toDouble)
+}
+</code></pre><p><em>The Bindings for play: Forms.scala</em></p>
+<pre><code>package form
+
+import play.api.data._
+import play.api.data.Forms._
+
+import model._
+
+object Forms {
+    def fileUploadInfoForm = Form(
+        mapping(
+            &quot;resumableChunkNumber&quot; -&gt; number,
+            &quot;resumableChunkSize&quot; -&gt; number,
+            &quot;resumableTotalSize&quot; -&gt; number,
+            &quot;resumableIdentifier&quot; -&gt; nonEmptyText,
+            &quot;resumableFilename&quot; -&gt; nonEmptyText
+        )(FileUploadInfo.apply)(FileUploadInfo.unapply)
+    )
+}
+</code></pre><p>And then inside of a controller we can bind the incoming values using 
+<code>bindFromRequest</code>:</p>
+<pre><code>Forms.fileUploadInfoForm.bindFromRequest.fold(
+    formWithErrors =&gt; {...},
+    fileUploadInfo =&gt; {...}
+)
+</code></pre><p>For the upload handler we&#39;ll use <code>Action(parse.multipartFormData)</code> to 
+define the controller action so that we can get the file chunk from the 
+posted byte array via <code>request.body.file(&quot;file&quot;)</code>. For the file test 
+handler we can simply <code>bindFromRequest</code> and use the unique identifier 
+and chunk number to see if we&#39;ve already processed it.</p>
+<pre><code>_Handling test requests for ResumableJS_:
+
+def uploadTest = Action { implicit request =&gt;
+    Forms.fileUploadInfoForm.bindFromRequest.fold(
+        formWithErrors =&gt; {
+            BadRequest(formWithErrors.errors.mkString(&quot;\n&quot;))
+        },
+        fileUploadInfo =&gt; {
+            if (fileUploadService.isPartialUploadComplete(fileUploadInfo)) {
+                Ok
+            } else {
+                NotFound
+            }
+        }
+    )
+}
+</code></pre><p>Where <code>isPartialUploadComplete</code> is simply:</p>
+<pre><code>def isPartialUploadComplete(fileInfo: FileUploadInfo): Boolean = {
+    val key = fileNameFor(fileInfo)
+    uploadedParts.contains(key) &amp;&amp; uploadedParts.get(key).contains(fileInfo)
+}
+</code></pre><p>You can use the <code>resumableIdentifier</code> as a key, or the path to the file you&#39;re 
+creating (what my <code>fileNameFor</code> method does). But either way, our check for if 
+the file is done uploading or not is based on the presence of the file chunk 
+being in the <code>Set</code> of chunks tracked by the <code>ConcurrentHashMap</code> within the 
+<code>FileUploadService</code>. If we implement the success method for the <code>fileUploadInfoForm</code> 
+fold as calling down to the FileUploadService or returning an error, then we can 
+finish up the controller:</p>
+<pre><code>request.body.file(&quot;file&quot;) match {
+    case None =&gt; BadRequest(&quot;No file&quot;)
+    case Some(file) =&gt;
+        val bytes = Files.readAllBytes(file.ref.file.toPath())
+        fileUploadService.savePartialFile(bytes, fileUploadInfo)
+        file.ref.clean()
+        Ok
+}
+</code></pre><p>The <code>request.body.file</code> provides our code with a <a href="https://www.playframework.com/documentation/2.3.x/api/scala/index.html#play.api.libs.Files$$TemporaryFile">TemporaryFile</a> that we 
+can use in our request. Since our <a href="https://github.com/EdgeCaseBerg/play-resumablejs-upload/blob/f3925ebe64f92833162dca0712e75da1083768ad/app/service/FileUploadService.scala">FileUploadService</a> works on byte arrays, 
+we can use the <a href="https://docs.oracle.com/javase/7/docs/api/java/nio/file/Files.html">Files</a> class to convert the <a href="https://docs.oracle.com/javase/7/docs/api/java/io/File.html">File</a> into what we need. 
+Once we have that, it&#39;s easy to save it. Expanding our example of how to 
+use the <a href="https://docs.oracle.com/javase/7/docs/api/java/io/RandomAccessFile.html">RandomAccessFile</a>, we can see the <code>savePartialFile</code> method is 
+very simple:</p>
+<pre><code>def savePartialFile(filePart: Array[Byte], fileInfo: FileUploadInfo) {
+    if (filePart.length != fileInfo.resumableChunkSize) {
+        return
+    }
+    val partialFile = new RandomAccessFile(fileNameFor(fileInfo), &quot;rw&quot;)
+    val offset = (fileInfo.resumableChunkNumber - 1) * fileInfo.resumableChunkSize
+
+    try {
+        partialFile.seek(offset)
+        partialFile.write(filePart, 0, filePart.length)
+    } finally {
+        partialFile.close()
+    }
+
+    val key = fileNameFor(fileInfo)
+    if (uploadedParts.containsKey(key)) {
+        val partsUploaded = uploadedParts.get(key)
+        uploadedParts.put(key, partsUploaded + fileInfo)
+    } else {
+        uploadedParts.put(key, Set(fileInfo))
+    }
+}
+</code></pre><p><code>uploadedParts</code> is our <a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ConcurrentHashMap.html">ConcurrentHashMap</a> defined during the construction 
+of the class. In a more robust implementation, we&#39;d define the map as a 
+singleton or use an application wide cache to store the parts. But for now, 
+defining the map inside our class as a property, and then having the controller 
+be an <code>object</code> will work fine as a simple example. With this code, we&#39;re 
+able to handle the two types of requests that ResumableJS will send us.</p>
+<h4>Example front end for ResumableJS</h4><p>ResumableJS is a well written library in my opinion. Namely the API is clear 
+and the events are well documented. Before we get to the javascript we 
+need the page body though. Since this post is focused mainly on the back
+end code and a simple implementation of the front end I didn&#39;t make any 
+special styling for this, so the interface is rather sparse.</p>
+<pre><code>&lt;body&gt;
+    &lt;a id=&quot;browseButton&quot; href=&quot;#&quot;&gt;Browse and Upload&lt;/a&gt;
+    &lt;a id=&quot;upLoadButton&quot; href=&quot;#&quot;&gt;Upload&lt;/a&gt;
+    &lt;a id=&quot;pauseButton&quot; href=&quot;#&quot;&gt;Pause Uploads&lt;/a&gt;
+    &lt;a id=&quot;cancelButton&quot; href=&quot;#&quot;&gt;Cancel All&lt;/a&gt;
+    &lt;span id=&quot;errorMsg&quot; style=&quot;color: red;&quot;&gt;&lt;/span&gt;
+    &lt;div id=&quot;uploadprogress&quot;&gt;0 %&lt;/div&gt;
+    &lt;ul id=&quot;filestobeuploaded&quot;&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/resumable.js/1.0.2/resumable.js&quot;&gt;
+</code></pre><p><img src="/images/tech-blog/resumablejs-front-end-1.jpg"></p>
+<p>The first thing to do is intialize the library:</p>
+<pre><code>    var r = new Resumable({
+        target:&#39;/upload&#39;, 
+        query:{}
+    });
+    r.assignBrowse(document.getElementById(&#39;browseButton&#39;));
+</code></pre><p>And bind the upload button to one of our anchors:</p>
+<pre><code>document.getElementById(&#39;upLoadButton&#39;).onclick = function(){
+    r.upload();
+}
+</code></pre><p>And you&#39;re done. Well, if you&#39;re looking to create something which offers 
+no feedback to the users you are. But we want to show the users the files 
+they&#39;ve selected for uploading. This is easy enough if we hook into the 
+<code>fileAdded</code> event:</p>
+<pre><code>r.on(&#39;fileAdded&#39;, function(file){ 
+    addFileToList(file);
+});
+</code></pre><p>The method <code>addFileToList</code> is probably the longest part of our code simply 
+because we need to create and add elements to the page:</p>
+<pre><code>var filesSpace = document.getElementById(&#39;filestobeuploaded&#39;);
+function addFileToList(file) {
+    var li = document.createElement(&#39;li&#39;);
+
+    var progressBar = document.createElement(&#39;span&#39;);
+    progressBar.textContent = &#39;0 %&#39;;
+    progressBar.id = file.uniqueIdentifier + &quot;-progress&quot;;
+
+    var fileNameSpan = document.createElement(&#39;span&#39;);
+    fileNameSpan.textContent = file.fileName;
+
+    var cancelButton = document.createElement(&#39;a&#39;);
+    cancelButton.href =&#39;#&#39;;
+    cancelButton.textContent = &#39;Cancel&#39;;
+    cancelButton.onclick = function() {
+        file.cancel();
+        filesSpace.removeChild(li);
+    }
+
+    li.setAttribute(&#39;style&#39;,&#39;border: solid black thin;&#39;);
+    li.appendChild(fileNameSpan);
+    li.appendChild(document.createElement(&#39;br&#39;));
+    li.appendChild(progressBar);
+    li.appendChild(document.createElement(&#39;br&#39;));
+    li.appendChild(cancelButton);
+
+    filesSpace.appendChild(li);
+}
+</code></pre><p>Our display of each file shows the file name, a progress indicator, and 
+a cancel button. Canceling a file is simply a matter of calling  the 
+<code>cancel</code> method on ResumableJS&#39;s file object that is passed to the event. 
+This handles stopping the upload and removing the file from the list of 
+files to be uploaded by ResumableJS, our front end code simply deletes 
+the entire <code>li</code> element that we build in the above method. The progress 
+<code>span</code> is given an identifier that we will use from the <code>fileProgress</code> 
+event to update the progress shown to the user:</p>
+<pre><code>r.on(&#39;fileProgress&#39;, function(file) {
+    var progressBarToUpdate = document.getElementById(file.uniqueIdentifier + &quot;-progress&quot;);
+    progressBarToUpdate.textContent = (file.progress(false) * 100.00) + &#39;%&#39;;
+});
+</code></pre><p>As noted in the documentation, the method <code>progress</code> on the file instance:</p>
+<blockquote>
+<p>Returns a float between 0 and 1 indicating the current upload progress of the file. If relative is true, the value is returned relative to all files in the Resumable.js instance.</p>
+</blockquote>
+<p>Since we&#39;re showing individual progress we use <code>false</code> for the relative 
+parameter. Since users might be interested in knowing the total progress 
+of the downloads we can show that to them too:</p>
+<pre><code>var progress = document.getElementById(&#39;uploadprogress&#39;);
+r.on(&#39;progress&#39;, function() {
+    progress.textContent = (r.progress() * 100.00)+&#39;%&#39;;
+});
+</code></pre><p>At this point we have a fully functioning asynchronous upload page. But 
+if we wanted that we could have used any front end library to do that;
+what makes ResumableJS special is that it supports <em>pausing</em> an upload 
+as well and resuming it later. </p>
+<pre><code>document.getElementById(&#39;pauseButton&#39;).onclick = function(){
+    r.pause();
+}
+</code></pre><p>If you pause an upload you can resume it at any time by clicking the 
+upload button again if you have the page still open in your browser. The 
+nice thing about handling the test requests means that we could upload 
+part of the file now, then come back hours later and continue the upload. 
+This is what ResumableJS is designed for after all, spotty networks and 
+fault tolerance in your uploads.</p>
+<p>Let&#39;s finish up the front end code by hooking up the rest of our HTML 
+to the library and handling the <code>cancel</code> and <code>error</code> events:</p>
+<pre><code>document.getElementById(&#39;cancelButton&#39;).onclick = function() {
+    r.cancel();
+}
+
+var errorMsg = document.getElementById(&#39;errorMsg&#39;);
+r.on(&#39;cancel&#39;, function(file) {
+    var anchors = filesSpace.getElementsByTagName(&#39;a&#39;);
+    for (var i = anchors.length - 1; i &gt;= 0; i--) {
+        anchors[i].click();
+    };
+    errorMsg.textContent = &#39;Upload canceled&#39;;
+});
+
+r.on(&#39;error&#39;, function (message, file) {
+    errorMsg.textContent = message;
+});
+</code></pre><p>With that in place the cancel button works and we show any errors that 
+the library comes across in the error span. There are a few other events 
+in the library that you can handle (like file upload success), but you 
+can see that <a href="https://github.com/EdgeCaseBerg/play-resumablejs-upload/tree/f3925ebe64f92833162dca0712e75da1083768ad">on github</a>. </p>
+<h4>Enhancements and notes</h4><p>As noted in a <a href="https://github.com/23/resumable.js/issues/135#issuecomment-31123690">github issue on ResumableJS</a>, there is no checksum for the 
+individual file parts. Which means that you can&#39;t 100% guarantee that 
+each piece is not corrupt. Thankfully, on that issue is a solution offered 
+using <a href="https://github.com/satazor/SparkMD5">SparkMD5</a>. I haven&#39;t tried this yet, but I suggest you read the 
+issue thread as there&#39;s some very useful code and information there.</p>
+<p>Another thing to note is that the play code above will only work if you&#39;re 
+running <em>a single</em> instance on one server. The reason for this is should 
+be obvious, namely that the ConcurrentMap used within the controller is 
+local <em>to that controller instance</em>. If one wanted to scale out the app 
+then you&#39;ll need to persist the information somewhere. Probably a shared 
+memcache instance would make sense. I might update this blog post at 
+some point with notes on how to do that, but for now this should be 
+enough to get you started!</p>
       
       <h3>Other Posts</h3>
       <div id="other-posts">
