@@ -1,4 +1,9 @@
 {
+	"lounge" : {
+		"title" : "Lounge",
+		"date" : "2016-4-23",
+		"freq" : "monthly"
+	},
 	"stumble" : {
 		"title" : "Stumble",
 		"date" : "2016-4-5",
