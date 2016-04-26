@@ -1,4 +1,9 @@
 {
+	"nail" : {
+		"title" : "Nails",
+		"date" : "2016-4-26",
+		"freq" : "monthly"
+	},
 	"life" : {
 		"title" : "Life",
 		"date" : "2016-4-14",
