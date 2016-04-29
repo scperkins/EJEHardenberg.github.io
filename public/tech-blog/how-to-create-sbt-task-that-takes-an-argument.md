@@ -81,6 +81,6 @@ usage that I've seen come in handy.
 [SBT Native Packager]:https://github.com/sbt/sbt-native-packager
 [PlayFramework]:https://www.playframework.com
 [dist task]:https://www.playframework.com/documentation/2.3.x/ProductionDist
-[documentation on SBT]:http://www.scala-sbt.org/release/docs/Input-Tasks.html
+[documentation on Input Tasks]:http://www.scala-sbt.org/release/docs/Input-Tasks.html
 [Parsers]:http://www.scala-sbt.org/release/docs/Parsing-Input.html
 [combining parsers]:http://www.scala-sbt.org/release/docs/Parsing-Input.html#Combining+parsers
