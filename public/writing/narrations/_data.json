@@ -1,4 +1,9 @@
 {
+	"wisp" : {
+		"title" : "Wisp",
+		"date" : "2016-5-2",
+		"freq" : "monthly"
+	},
 	"lounge" : {
 		"title" : "Lounge",
 		"date" : "2016-4-23",
