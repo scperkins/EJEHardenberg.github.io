@@ -1,4 +1,9 @@
 {
+	"unlearn" : {
+		"title" : "Unlearn",
+		"date" : "2016-5-6",
+		"freq" : "monthly"
+	},
 	"nail" : {
 		"title" : "Nails",
 		"date" : "2016-4-26",
