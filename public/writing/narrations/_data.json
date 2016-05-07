@@ -1,4 +1,9 @@
 {
+	"half-pour" : {
+		"title" : "Half Pour",
+		"date" : "2016-5-7",
+		"freq" : "monthly"
+	},
 	"wisp" : {
 		"title" : "Wisp",
 		"date" : "2016-5-2",
