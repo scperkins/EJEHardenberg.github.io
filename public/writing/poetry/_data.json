@@ -1,4 +1,9 @@
 {
+	"nyc" : {
+		"title" : "NYC",
+		"date" : "2016-5-9",
+		"freq" : "monthly"
+	},
 	"scattered" : {
 		"title" : "Scattered",
 		"date" : "2016-5-8",
