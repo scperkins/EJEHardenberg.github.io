@@ -3,6 +3,9 @@ deploy: compile push
 push:
 	git push origin master
 	git push live master
+	
+pull:
+	git pull origin master
 
 compile: 
 	harp compile
