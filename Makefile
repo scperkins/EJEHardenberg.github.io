@@ -1,4 +1,4 @@
-deploy: compile push
+deploy: compile pull push
 
 push:
 	git push origin master
