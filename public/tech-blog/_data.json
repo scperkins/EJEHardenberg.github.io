@@ -789,5 +789,11 @@
 		"date" : "2016-4-15",
 		"keywords" : "play,ResumableJS,PlayFramework,scala,javascript,file uploads,partial",
 		"draft" : false
+	},
+	"request-bodies-and-java" :{
+		"title" : "Request Bodies and Java",
+		"description" : "A look into the code that runs Java's HTTPUrlConnection that displays an inconsistency with the RFCs defining HTTP",
+		"date" : "2016-5-10",
+		"keywords" : "java,java.net.ProtocolException,HTTP method DELETE doesn't support output,getOutputStream,HttpURLConnection,RFC 2616,RFC 7230"
 	}
 }
