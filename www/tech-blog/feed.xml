@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Fri, 15 Apr 2016 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Tue, 10 May 2016 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Request Bodies and Java</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/request-bodies-and-java</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/request-bodies-and-java</guid>
+			<pubDate>Tue, 10 May 2016 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[A look into the code that runs Java's HTTPUrlConnection that displays an inconsistency with the RFCs defining HTTP]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Partial file uploads in Play with ResumableJS</title>
