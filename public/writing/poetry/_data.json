@@ -1,4 +1,9 @@
 {
+	"feign" : {
+		"title" : "Feign",
+		"date" : "2016-5-17",
+		"freq" : "monthly"
+	},
 	"nyc" : {
 		"title" : "NYC",
 		"date" : "2016-5-9",
