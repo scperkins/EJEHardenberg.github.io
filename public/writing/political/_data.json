@@ -1,4 +1,12 @@
 {
+	"no-streaks" : {
+		"title" : "On Github's Streaks",
+		"description" : "Github removed their contribution streak number, which is massively disappointing for those of us who used it as motivation",
+		"date" : "2016-5-20",
+		"freq" : "monthly",
+		"draft" : false,
+		"keywords" : "github, streaks, contributions, disappointment"
+	},
 	"bleeding-the-4th" : {
 		"title" : "Bleeding the 4th",
 		"description" : "Thoughts about the continued devaluing of the 4th amendment of the United States",
