@@ -25,7 +25,7 @@ towards my streak. And I suppose now it does, in a way. But I'm lacking
 that number, and that number was _the_ reason for me to try to better
 myself code-wise everyday. 
 
-Honestly, I wish that had added the private contributions feature and
+Honestly, I wish they had added the private contributions feature and
 kept the streaks number. And I would really like to know what their
 justification for removing the feature is. 
 
