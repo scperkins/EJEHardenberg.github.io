@@ -1,4 +1,9 @@
 {
+	"ice-cream" : {
+		"title" : "Ice Cream",
+		"date" : "2016-5-22",
+		"freq" :"monthly"
+	},
 	"feign" : {
 		"title" : "Feign",
 		"date" : "2016-5-17",
