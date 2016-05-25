@@ -29,4 +29,12 @@ Honestly, I wish they had added the private contributions feature and
 kept the streaks number. And I would really like to know what their
 justification for removing the feature is. 
 
+*Update:*
+I was reading [some discussion on ycombinator] and was unsurprised to
+see a lot of other people using the feature in the same way I was, as a
+personal motivator. Unfortunately, I didn't find any well sourced
+justifications for the change itself, so maybe if everyone complains
+enough github will actually listen to its users.
+
+[some discussion on ycombinator]:https://archive.is/tHNIt
 [github removed the feature]:https://github.com/blog/2173-more-contributions-on-your-profile
