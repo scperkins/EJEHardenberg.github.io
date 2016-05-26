@@ -1,4 +1,9 @@
 {
+	"freely" : {
+		"title" : "Freely",
+		"date" : "2016-5-25",
+		"freq" : "monthly"
+	},
 	"ice-cream" : {
 		"title" : "Ice Cream",
 		"date" : "2016-5-22",
