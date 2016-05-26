@@ -11,7 +11,7 @@ Shut up, it's not right, but it's not always fair
 No thoughts about you ever passed through their heads  
 Maybe a persona or doll, but never a voice in your stead  
 Just a quiet nodding bobble, a smile on the dash  
-On this long road to ruin, you're clamped down fast  
+On this long road to ruin, you've clamped down fast  
 
 Will you sink with the ship and do nothing at all  
 Won't you stand up and say something? Or put up a wall  
