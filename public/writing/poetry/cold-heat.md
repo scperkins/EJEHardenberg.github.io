@@ -1,5 +1,5 @@
 Can I carve it out like a peach?  
-This unwanted feeling, replace it with sweets?
+This unwanted feeling, replace it with sweets?  
 Muscles are tired, not just the usual sores  
 The ones in the face, they don't work anymore  
 What to do about it? It's a change that must be done  
@@ -10,7 +10,7 @@ I'd rather talk it out, discuss things with friends
 but burden others? How could I ever make amends  
 It's not in my nature, to admit to every fault  
 To admit all the stupid, mean, horrible thoughts  
-"If you've got nothing nice to say" was always the rule  
+“If you've got nothing nice to say” was always the rule  
 But when you're quiet for so long, you feel the fool  
 Easier to smile and nod, just leave everyone alone  
 Think about talking, but back into hand comes the phone  
