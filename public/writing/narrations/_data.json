@@ -1,4 +1,9 @@
 {
+	"church-child" : {
+		"title" : "Church Child",
+		"date" : "2016-5-29",
+		"freq" : "monthly"
+	},
 	"half-pour" : {
 		"title" : "Half Pour",
 		"date" : "2016-5-7",
