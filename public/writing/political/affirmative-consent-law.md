@@ -65,7 +65,7 @@ this clause as stating that I can call rape on anyone I had relations
 with, and this law section would allow that. 
 
 Obviously this is an extreme, but so is murder and that happens literally
-every day. So I view this as something that could happen. My personal hope
+every day; so I view this as something that could happen. My personal hope
 is that this clause will not be mis-used, but with the way the law is written
 now, I don't know how one would rewrite it without being extremely verbose
 or somehow putting a time limit on how long you can wait before filing a
