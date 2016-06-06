@@ -178,7 +178,7 @@ shift going on in your brain when you read this.
 The problem with item 5 is that there is a victim, and there is an accused.
 As I stated before, you cannot have a victim if there was no aggressor.
 If the accused is still _just_ an **accused** they have not been proven
-or convicted as a rapist, and therefore _there is no victim yet__. But 
+or convicted as a rapist, and therefore _there is no victim yet_. But 
 the wording of this bill is problematic because it immediately shifts 
 into the idea that when someone brings a rape case to the table, you 
 must immediately believe them to be a victim.
