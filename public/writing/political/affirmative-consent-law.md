@@ -162,7 +162,7 @@ The thing that strikes me is that the law mandates policies and protocols
 to be victim oriented. While this may not sound that strange, you have
 to understand that as an American, you are innocent until proven guilty.
 This means that any policy which discusses a victim and an aggressor should
-only be in place for _cases which have been proven__. There must be an
+only be in place for _cases which have been proven_. There must be an
 aggressor to have a victim. 
 
 Still with me? Good, because I'm going to jump ahead a few line items to
