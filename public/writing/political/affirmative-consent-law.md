@@ -273,7 +273,7 @@ this line item states so.
 However, it states this within the victim-centered policy making section 
 of the bill. This means that not only does the institution define it's own
 role in these cases, it also means that whatever policies put in place will
-be biased and oriented towards a possible victim. While this is not neccesarily  
+be biased and oriented towards a possible victim. While this is not neccesarily 
 a bad thing, the addition of accused-centered policies such that both 
 parties are treated fairly and confidentially by the law would help balance 
 out the bill. Before you call me a defender of rapists, remember that 
