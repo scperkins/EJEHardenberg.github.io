@@ -409,7 +409,7 @@ get reimbursed according to a bunch of government forms (probably).
 
 #### Wrapping up
 
-If you're stil with me, I'm amazed, good job, you could have probably 
+If you're still with me, I'm amazed, good job, you could have probably 
 read the bill yourself 5 times over in the course of my disection. And 
 if you did, then let me know if your interpretation of the bill differs
 from mine. Do you disagree with me? If so, then read [the disclaimer]
