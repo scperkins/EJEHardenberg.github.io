@@ -210,7 +210,7 @@ being a possible victim of rape will define your own. Confidentiality is
 the most important thing you can hold here. 
 
 If the accused does turn out to be a disgusting excuse for a human, 
-than yeah, good that they get something so heavilty stigmatized 
+than yeah, good that they get something so heavily stigmatized 
 associated with them, and good riddance. But if they're found innocent 
 or false charges were alleged then that will still be held over them by
 society. Media will seize on an accusation and cause many to think of
@@ -276,7 +276,7 @@ role in these cases, it also means that whatever policies put in place will
 be biased and oriented towards a possible victim. While this is not neccesarily  
 a bad thing, the addition of accused-centered policies such that both 
 parties are treated fairly and confidentially by the law would help balance 
-out the bill. Before you call my a defender of rapists, remember that 
+out the bill. Before you call me a defender of rapists, remember that 
 there are people who falsely accuse out there, and that by law everyone 
 deserves a fair trial.
 
