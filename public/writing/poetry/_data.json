@@ -1,4 +1,9 @@
 {
+	"standstill" : {
+		"title" : "Standstill",
+		"date" : "2016-6-12",
+		"freq" : "monthly"
+	},
 	"cold-heat" : {
 		"title" : "Cold Heat",
 		"date" : "2016-5-28",
