@@ -1,13 +1,30 @@
 Trying out Soylent
 -------------------------------------------------------------
 
-Day 1:
+<div style="text-align: center">
+<img src="/images/soylent/Soylent.svg.png">
+</div>
+
+### Wait What?
+
+Soylent is the brain child of [this guy] who made some splashes when he 
+decided to ["stop eating food"]. It's designed to be a meal replacement 
+for one, two, or all of your meals as you like it. With the original 
+intent of saving time for the busy, and making a healthy alternative to 
+other inexpensive food, it's pretty neat. I was intrigued when I read 
+the original blog posts and then decided to try it myself after reading 
+[this blog post about it]. I figure'd that I'd keep a sort of log about 
+it to offer my opinion to anyone else who finds this page. I'm not going 
+to focus on the quality of writing, and this is more of a stream of 
+consciousness than anything else:
+
+### Day 1:
 
 Initial thoughts:
 
-Reading all those blogs and anecdotes about it, specifically [1] 
-prepared me pretty well. I was lucky enough to get an emersion blender
-for free this week and so my drink is very smooth. I got the powder
+Reading all those blogs and anecdotes about it, specifically the fourhourworkweek
+post prepared me pretty well. I was lucky enough to get an emersion blender
+for free this week and so my drink is pretty smooth. I got the powder
 version of v1.5. The smell reminds me like flour. And the taste is like
 soy, but creamy like milk at the same time. I can feel a little grit
 texture wise, but oddly enough it doesn't linger in my mouth with any
@@ -24,15 +41,25 @@ Day 3:
 
 Had another cup of soylent for dinner, had to work late (on a weekend)
 and so I didn't actually have Soylent for lunch like I had originally
-planned. But the dinner cup was fine. I experimented with holding
-chocolate to my nose before drinking, it was interesting how much that
-changed the perception of the taste of soylent. Tomorrow I'll try
-putting strawberries into it. I also used my blender rather than an
-emersion blender and had better results with removing clumps. The
-soylent instructions say that 2 days is typically the max for a batch so
-I'll have to make a new one tomorrow.
+planned. I did bring a small bottle of it with me to work, but it seems 
+that after a couple days keeping the drink from clumping becomes more 
+difficult, and the clumps were really off putting to me. Later, at night, 
+I put the remaining Soylent from lunch into my blender and it made it 
+drinkable again. While at work I experimented with holding chocolate to 
+my nose before drinking, it was interesting how much that changed the 
+perception of the taste of soylent. Tomorrow I'll try putting strawberries 
+into it. I also used my blender rather than an emersion blender and had 
+better results with removing clumps. The soylent instructions say that 
+2 days is typically the max for a batch before it goes rancid so I'll 
+have to make a new one tomorrow.
+
+Day 4:
 
 
 
 
-[1]:http://fourhourworkweek.com/2013/08/20/soylent/
+
+
+[this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
+[this guy]:http://robrhinehart.com/
+["stop eating food"]:http://robrhinehart.com/?p=298
