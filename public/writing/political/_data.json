@@ -1,4 +1,12 @@
 {
+	"soylent-log" : {
+		"title" : "Trying out Soylent",
+		"description" : "My personal log on my experience with Soylent",
+		"date" : "2016-6-27",
+		"freq" : "monthly",
+		"draft" : false,
+		"keywords": "soylent, bodyhacking, experiment"
+	},
 	"no-streaks" : {
 		"title" : "On Github's Streaks",
 		"description" : "Github removed their contribution streak number, which is massively disappointing for those of us who used it as motivation",
