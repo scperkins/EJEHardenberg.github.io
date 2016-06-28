@@ -31,6 +31,10 @@ texture wise, but oddly enough it doesn't linger in my mouth with any
 bad after taste. It goes down smoothly and my initial thought, like many
 others I think, is: "Huh, better than expected".
 
+<div style="text-align: center">
+<img src="/images/soylent/2016-06-25.jpg" title="My first up of Soylent">
+</div>
+
 ### Day 2:
 
 Only had a little bit this morning because I had to travel out of state
@@ -54,6 +58,28 @@ better results with removing clumps. The soylent instructions say that
 have to make a new one tomorrow.
 
 ### Day 4:
+
+I woke up much later than I should have this morning so I didn't have 
+any time to prepare Soylent for work. Once I did get home though I ran 
+off to the local Co-op to buy some strawberries. I've just finished my 
+dinner drink and dear Lord was this a good decision. The aversion I've 
+had to the slight texture in soylent is completely gone now that I've 
+mixed in the strawberries. 
+
+I think I'm used to the gritty feeling you get when making any blended 
+drink with berries, so that offsets anything in my brain that was getting 
+disturbed by the slight texture left over in the soylent (which no amount 
+of blending seems to remove for me). For future reference (and for anyone
+reading this) I bought a quart of strawberries and pre-blended enough of 
+them to fill up a 16oz cup. Then I made my soylent by pouring in half of 
+a bag, adding a bit of water, then adding the other half and the rest of 
+the water. After that I used my emersion blender for a bit, then shook 
+the container before adding in the blended strawberries. Finally, I poured 
+a cup for myself and blended that just for kicks. The result was a pretty 
+smooth meal. The smell of the strawberries easily overpowers the soylent 
+powdery smell and I had 0 problems drinking it. I think this is going to 
+be how I make my soylent from now on. 
+
 
 
 
