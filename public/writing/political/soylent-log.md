@@ -80,7 +80,31 @@ smooth meal. The smell of the strawberries easily overpowers the soylent
 powdery smell and I had 0 problems drinking it. I think this is going to 
 be how I make my soylent from now on. 
 
+### Day 5:
 
+Started today off by trying to find a better container for my drink,
+ended up finding an old glass jar that's about the same size as the
+water bottle I used yesterday. Glass = No plastic smell which is good.
+The consistency of the strawberry soylent is good still, not clumpy once
+I shake it in my jar. I packed a bit and took it to work. 
+
+Ended up drinking (should I call it eating?) my meal around 12:30 or so
+and it filled me up. I had to stay late in the office again though, I
+would have originally been home around 6, and that was right around the
+time when I was realy wanting some soylent. But I was in the office for
+another 4 hours, and my boss bought Pizza for the people working late.
+So sadly I had another day without being fully on Soylent like I wanted
+to be. Still, when I got home I had a small cup of soylent since I
+figure my breakfast and lunch couldn't have been more than 1000 calories
+and my dinner of pizza at work consisted of 4 thin-style pizza that
+probably was at most another 1000.
+
+Today was definitely a change from my previous mentality though. Before
+I was trying to figure out how I was going to mix it up to avoid clumps,
+today I was just thinking about how good it was with the strawberries.
+Tomorrow I'll bring more Soylent to work if I can find another
+container, it will probably another late night and I don't want to waste
+any of this batch like I did the previous.
 
 
 
