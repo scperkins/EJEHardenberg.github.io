@@ -106,7 +106,30 @@ Tomorrow I'll bring more Soylent to work if I can find another
 container, it will probably another late night and I don't want to waste
 any of this batch like I did the previous.
 
+### Day 6:
 
+I really need to buy another glass jar or something. Ended up using my
+small blender cup (16oz or so) as a second container for the Soylent I
+brought to work today. It was still delicious (yay strawberries!) and I
+was quite content having one cup a little after noon and the other one
+sometime around 5:30. 
+
+It was another late night at work, so I did end up eating some leftover
+pizza from the previous night around 8 or 9 since I couldn't make it
+back home to finish off the last of this Soylent batch. Unfortunately
+since I worked so late (past midnight) I didn't get a chance to go to
+the store and buy more strawberries, so I'm not sure if I'm going to be
+able to make more soylent tomorrow or not! 
+
+Still, I'm impressed again. Now that I've figure'd out how to get past
+any clumping and making the neutral taste be something I like, I'm
+starting to take more stock in other things. LIke whether or not I'm
+hungry. So far I haven't been hungry, even when two of my meals were
+replaced. I'm looking forward to the weekend so I can be sure to get a
+full day of only Soylent. 
+
+Oh, and I think my bowels have started taking notice. I won't go into
+detail, but there are some differences. Nothing bad, just differences.
 
 
 
