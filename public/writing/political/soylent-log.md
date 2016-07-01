@@ -131,6 +131,26 @@ full day of only Soylent.
 Oh, and I think my bowels have started taking notice. I won't go into
 detail, but there are some differences. Nothing bad, just differences.
 
+### Day 7:
+
+Wow has it already been a week? End of the year madness has hit me hard.
+But still, got an update on the soylent situation! This morning I poured
+what remained of my soylent into a jar and brought it to work. I had it
+as part of my lunch with a salad and some type of brocolli rabe. 
+
+My flatmate was kind enough to buy me strawberries, but I didn't have
+enough time in the morning to make a new batch of soylent to last me the
+day (other people are asleep when I get ready for work, so I wouldn't
+want to run a blender). So I'll be making that... sometime tomorrow,
+probably going in late to work tomorrow since we were all in the office
+until 12:30? 1? I don't know.
+
+Anyway, an interesting observation today: I've noticed that I'm not
+hungry when I drink Soylent, but when I do get "real" food (which my
+boss buys because they're a nice person and helps us out when we're
+working late) my stomach rumbles. Not really a problem, but found it
+interesting. Once again, looking forward to this weekend when I get to
+sit at home, not do anything, and enjoy a few full days of Soylent.
 
 
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
