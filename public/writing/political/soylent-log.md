@@ -152,6 +152,17 @@ working late) my stomach rumbles. Not really a problem, but found it
 interesting. Once again, looking forward to this weekend when I get to
 sit at home, not do anything, and enjoy a few full days of Soylent.
 
+### Day 8:
+
+Used the strawberries my house mate was kind of enough to buy me to make
+a new batch of Soylent. Even though I forgot to use my emersion blender
+on it it still turned out fine from just shaking it which is great.
+Enjoyed it at work, and then again later for dinner. I had a normal
+breakfast and did go out with friends to grab a drink and had a bit of
+pizza, so no all soylent day yet. that will be tomorrow though. Still,
+not having any problems with being hungry after subtituing in Soylent
+for a meal, I guess that's all the protein in it.
+
 
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
