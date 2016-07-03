@@ -163,6 +163,30 @@ pizza, so no all soylent day yet. that will be tomorrow though. Still,
 not having any problems with being hungry after subtituing in Soylent
 for a meal, I guess that's all the protein in it.
 
+### Day 9:
+
+Today was going to be my all soylent day, and I almost managed it!
+Breakfast and Lunch were both a cup of strawberry soylent. But then I
+watched the match between Germany & Italy, and met up with a friend, so
+I ended up having a delicious steak at a restaurant. So once again, I
+managed to botch up that whole idea of seeing what happens when I'm only
+going off Soylent. 
+
+Today there are no such matches though, and tomorrow is a holiday, not
+today, so I should be able to do it. We'll see if I can manage, or if I
+get pulled off into the world of fun activities with friends that always
+seem to involve food of some kind. Not that I'm really complaining. I
+think that a completely Soylent day would be fine, I mean, I've almost
+done it multiple times already having a few days last week where besides
+my breakfast I had just Soylent. 
+
+I haven't really felt any downgrade to my personal self due to it,
+despite having an intensely busy week where I was up late for work and
+such I still felt normal and good. Whether or not that's the Soylent
+kicking in with all those vitamins I don't normally get or not is
+another matter though. It's hard to measure that type of thing when
+you're usual schedule is thrown off. So next week should supply a better
+guage of the perceived effects.
 
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
