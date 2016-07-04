@@ -188,6 +188,17 @@ another matter though. It's hard to measure that type of thing when
 you're usual schedule is thrown off. So next week should supply a better
 guage of the perceived effects.
 
+### Day 10:
+
+So much for my plan of only having Soylent all day! Started out with
+being lazy and playing video games while having my breakfast cup. But
+since I sat around all day I wasn't that hungry. So I didn't bother with
+lunch, and then I went out to the movies with friends and had some candy
+and a soda. Afterward I had some beer and hung out with people chatting
+and that was it. So I suppose the only _real_ food I had all day was the
+Soylent, but I didn't have a _just_ soylent day. And tomorrow will
+probably be a miss too since it's a holiday.
+
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
 ["stop eating food"]:http://robrhinehart.com/?p=298
