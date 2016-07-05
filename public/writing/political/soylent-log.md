@@ -199,6 +199,12 @@ and that was it. So I suppose the only _real_ food I had all day was the
 Soylent, but I didn't have a _just_ soylent day. And tomorrow will
 probably be a miss too since it's a holiday.
 
+### Day 11:
+
+No soylent at all today on account of it being a holiday and me being
+the grill master. Provided I wake up early tomorrow though, I'll make a
+batch and bring some to work for lunch.
+
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
 ["stop eating food"]:http://robrhinehart.com/?p=298
