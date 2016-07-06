@@ -205,6 +205,11 @@ No soylent at all today on account of it being a holiday and me being
 the grill master. Provided I wake up early tomorrow though, I'll make a
 batch and bring some to work for lunch.
 
+### Day 12:
+
+That _provided_ was the main word there. Didn't have any soylent today,
+but I did make a batch for tomorrow!
+
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
 ["stop eating food"]:http://robrhinehart.com/?p=298
