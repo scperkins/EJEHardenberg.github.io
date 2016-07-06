@@ -210,6 +210,11 @@ batch and bring some to work for lunch.
 That _provided_ was the main word there. Didn't have any soylent today,
 but I did make a batch for tomorrow!
 
+### Day 13:
+
+Back on the bus! Lunch and dinner today were soylent and it feels good 
+to be back
+
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
 ["stop eating food"]:http://robrhinehart.com/?p=298
