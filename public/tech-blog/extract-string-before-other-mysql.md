@@ -158,9 +158,49 @@ To get:
 If the string you're looking for _isn't_ in the data, then you're going to get 
 back some funny results trying to do this whole thing all at once. So it would 
 be better to write a stored procedure or function that would handle the cases 
-where the `INSTR` methods don't find what you're looking for.
+where the `INSTR` methods don't find what you're looking for, like this:
 
+	DELIMITER ;;
+	CREATE FUNCTION ExtractStringBeforeUntil (findThisStr TEXT, rewindUntilStr TEXT, inSubject TEXT)
+	RETURNS TEXT
+	DETERMINISTIC
+	BEGIN
+		-- Good Arguments?
+		IF(rewindUntilStr IS NULL OR findThisStr IS NULL OR inSubject IS NULL) THEN
+			RETURN NULL;
+		END IF;
 
+		-- Do the strings even exist?
+		SET @foundStrLocation = INSTR(inSubject, findThisStr);
+		SET @rewindExists = INSTR(inSubject, rewindUntilStr);
+		IF( @foundStrLocation = 0 OR @rewindExists = 0) THEN
+			RETURN NULL;
+		END IF;
+
+		-- Make the reversing part a bit easier to read 
+		-- Also helps us not to compute this more than once
+		SET @partialData = REVERSE(
+			SUBSTRING(
+				inSubject FROM 1 FOR 
+				@foundStrLocation + LENGTH(findThisStr) -1
+			)
+		);
+
+		RETURN REVERSE(
+			SUBSTRING(
+				@partialData,
+				1,
+				INSTR(
+					@partialData,
+					REVERSE(rewindUntilStr)
+				) + LENGTH(rewindUntilStr)
+			)
+		);
+
+	END;;
+	DELIMITER ;
+
+Which we can then use whereever we need to!
 
 [other things]:https://dev.mysql.com/doc/refman/5.7/en/string-functions.html
 [LOCATE]:https://dev.mysql.com/doc/refman/5.7/en/string-functions.html#function_locate
