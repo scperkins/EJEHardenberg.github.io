@@ -121,7 +121,7 @@ Which just needs to be put through `REVERSE`
 
 And there you have it! Of course, this works well with data like XML or 
 other things you probably really shouldn't be storing in a database anyway. 
-But like I said, beggers can't be curious. You could still use this to 
+But like I said, beggers can't be choosers. You could still use this to 
 deal with non structured data as well if you know your data well. For
 example:
 
