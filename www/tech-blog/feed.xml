@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Tue, 10 May 2016 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Tue, 05 Jul 2016 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Getting a String before another in MySQL</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/extract-string-before-other-mysql</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/extract-string-before-other-mysql</guid>
+			<pubDate>Tue, 05 Jul 2016 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Request Bodies and Java</title>
