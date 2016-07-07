@@ -213,7 +213,9 @@ but I did make a batch for tomorrow!
 ### Day 13:
 
 Back on the bus! Lunch and dinner today were soylent and it feels good 
-to be back
+to be back! Granted I did have friends over again today and we ended up 
+running out at 10pm to get chinese food, but hey, still mostly Soylent 
+today!
 
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
