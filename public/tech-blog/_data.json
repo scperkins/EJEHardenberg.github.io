@@ -795,5 +795,11 @@
 		"description" : "A look into the code that runs Java's HTTPUrlConnection that displays an inconsistency with the RFCs defining HTTP",
 		"date" : "2016-5-10",
 		"keywords" : "java,java.net.ProtocolException,HTTP method DELETE doesn't support output,getOutputStream,HttpURLConnection,RFC 2616,RFC 7230"
+	},
+	"extract-string-before-other-mysql" : {
+		"title" : "Getting a String before another in MySQL",
+		"description" : "",
+		"date" : "2016-7-5",
+		"keywords" : "MySQL, Strings, String, before, extract, ExtractStringBeforeUntil, reverse"
 	}
 }
