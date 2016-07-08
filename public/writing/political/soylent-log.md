@@ -217,6 +217,11 @@ to be back! Granted I did have friends over again today and we ended up
 running out at 10pm to get chinese food, but hey, still mostly Soylent 
 today!
 
+### Day 14
+
+Only for lunch today, I had leftover chinese from last night so I had 
+that rather than let it slowly rot away in the fridge.
+
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
 ["stop eating food"]:http://robrhinehart.com/?p=298
