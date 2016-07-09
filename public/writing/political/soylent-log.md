@@ -222,6 +222,14 @@ today!
 Only for lunch today, I had leftover chinese from last night so I had 
 that rather than let it slowly rot away in the fridge.
 
+### Day 15
+
+Lunch again yesterday was Soylent. I didn't bother with dinner at all
+because I was busy. Tomorrow though, I'll be making a fresh batch of
+Soylent and will be trying to do an all day if I don't get pulled away
+into hanging out with friends.
+
+
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
 ["stop eating food"]:http://robrhinehart.com/?p=298
