@@ -229,6 +229,28 @@ because I was busy. Tomorrow though, I'll be making a fresh batch of
 Soylent and will be trying to do an all day if I don't get pulled away
 into hanging out with friends.
 
+### Day 16 
+
+All day of Soylent! Finally, managed to get a single day of just
+eating/drinking soylent! Near dinner time I kind of felt like my body
+was satisfied, but that it wasn't filled if that makes sense. Like, I
+wasn't hungry, but my stomach wasn't used to not having food in it at
+the same time. Soylent being mostly liquid probably has something to do
+with this feeling I think. 
+
+It brings me to wonder if someone only had Soylent, or primarily had it
+as their number one source of food for all but maybe one meal per week,
+would it negatively impact their stomach's size or ability to process
+more solid foods? 
+
+Curiousity aside, I'm a little bummed it took me this long to get a full
+day of just soylent in. As of today I feel perfectly fine. Not tired, or
+unsatisfied in anyway for that matter. I don't have any bloated feelings
+I might get from over-eating or anything like that. I just kind of
+feel... normal? We'll see if what I had today adversely effects
+tomorrow. 
+
+
 
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
