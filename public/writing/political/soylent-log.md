@@ -250,7 +250,16 @@ I might get from over-eating or anything like that. I just kind of
 feel... normal? We'll see if what I had today adversely effects
 tomorrow. 
 
+### Day 17 
 
+Breakfast was Soylent today, but then I ended up going out with friends
+for lunch, dinner was finishing off some leftovers. 
+
+### Day 18 
+
+Lunch today ended up being some pizza because it was a work thing, but I
+finished off the last bit of my Soylent for dinner and then made a new
+batch of soylent for tomorrow.
 
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
