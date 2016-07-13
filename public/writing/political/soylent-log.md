@@ -261,6 +261,11 @@ Lunch today ended up being some pizza because it was a work thing, but I
 finished off the last bit of my Soylent for dinner and then made a new
 batch of soylent for tomorrow.
 
+### Day 19
+
+Soylent lunch today, but then for Dinner I was out playing puzzled pint
+so I had some regular food. 
+
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
 ["stop eating food"]:http://robrhinehart.com/?p=298
