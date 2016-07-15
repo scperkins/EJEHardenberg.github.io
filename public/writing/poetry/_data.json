@@ -1,4 +1,9 @@
 {
+	"erosion" : {
+		"title" : "Erosion",
+		"date" : "2016-7-15",
+		"freq" : "monthly"
+	},
 	"standstill" : {
 		"title" : "Standstill",
 		"date" : "2016-6-12",
