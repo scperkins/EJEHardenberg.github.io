@@ -266,6 +266,27 @@ batch of soylent for tomorrow.
 Soylent lunch today, but then for Dinner I was out playing puzzled pint
 so I had some regular food. 
 
+### Day 20
+
+Soylent for lunch today, but had a friend over for dinner and games so
+we ate some takeout. 
+
+### Day 21
+
+Soylent for lunch and dinner today! 
+
+### Day 22
+
+Soylent for lunch, I'm down to my last batch from my initial order.
+Luckily the timing seems to have worked out all right, so my next batch
+will be arriving sometime next week. In the meanwhile I'll live off of
+my usual supply of pizza rolls. 
+
+Also, a friend and I made somewhere around 70 gyoza dumplings last
+night. So I have plenty of those for eating whenever I want as well.
+Just because I'm partially giving up traditional food doesn't mean that
+I can't still cook and enjoy making things!
+
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
 ["stop eating food"]:http://robrhinehart.com/?p=298
