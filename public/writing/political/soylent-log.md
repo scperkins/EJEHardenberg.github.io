@@ -287,6 +287,14 @@ night. So I have plenty of those for eating whenever I want as well.
 Just because I'm partially giving up traditional food doesn't mean that
 I can't still cook and enjoy making things!
 
+### Day 23
+
+Soylent for breakfast, but today was a weekend so we decided to do some
+grilling. Did some pretty awesome stuff on the grill, burgers made from
+the same filling as the gyoza turned out well. Also tried making some
+random frozen food stuffs on the grill wrapped in bacon and that worked
+too. Besides the grease fire. 
+
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
 ["stop eating food"]:http://robrhinehart.com/?p=298
