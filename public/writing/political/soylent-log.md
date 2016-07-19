@@ -295,6 +295,20 @@ the same filling as the gyoza turned out well. Also tried making some
 random frozen food stuffs on the grill wrapped in bacon and that worked
 too. Besides the grease fire. 
 
+### Day 24 
+
+Soylent for breakfast again, then relaxed and ate some of the groceries
+I bought so that I could conserve my last bit of soylent for the work
+day tomorrow. 
+
+### Day 24
+
+Last drink of my last batch of Soylent. Luckily my order went out
+yesterday, so hopefully my new batch of v1.6 will be arriving soon. I
+had v1.5 before, so this will be a change once it arrives. I just hope
+it arrives soon! It's way easier to prepare a cup of soylent for lunch
+at work than it is to make a sandwich or something else.
+
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
 ["stop eating food"]:http://robrhinehart.com/?p=298
