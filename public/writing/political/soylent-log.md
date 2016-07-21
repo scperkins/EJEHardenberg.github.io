@@ -96,8 +96,8 @@ another 4 hours, and my boss bought Pizza for the people working late.
 So sadly I had another day without being fully on Soylent like I wanted
 to be. Still, when I got home I had a small cup of soylent since I
 figure my breakfast and lunch couldn't have been more than 1000 calories
-and my dinner of pizza at work consisted of 4 thin-style pizza that
-probably was at most another 1000.
+and my dinner of pizza at work consisted of 4 slices of thin-style pizza 
+that probably was at most another 1000.
 
 Today was definitely a change from my previous mentality though. Before
 I was trying to figure out how I was going to mix it up to avoid clumps,
@@ -160,7 +160,7 @@ on it it still turned out fine from just shaking it which is great.
 Enjoyed it at work, and then again later for dinner. I had a normal
 breakfast and did go out with friends to grab a drink and had a bit of
 pizza, so no all soylent day yet. that will be tomorrow though. Still,
-not having any problems with being hungry after subtituing in Soylent
+not having any problems with being hungry after substituing in Soylent
 for a meal, I guess that's all the protein in it.
 
 ### Day 9:
@@ -309,6 +309,57 @@ had v1.5 before, so this will be a change once it arrives. I just hope
 it arrives soon! It's way easier to prepare a cup of soylent for lunch
 at work than it is to make a sandwich or something else.
 
+### Day 25 
+
+No soylent :(
+
+### Day 26
+
+Still no soylent! I haven't experienced any slowness or things like that
+that I've read described, but then again, I didn't experience any Jimmy
+Neutron brainblast style stuff while on it anyway. 
+
+### Day 27 
+
+Box of soylent arrived! I had a work function though, so I didn't
+actually need any for dinner. Still, I made my pitcher for tomorrow and
+since it's the new v1.6 I poured a small amount into a cup to try it
+while saving the rest for later. 
+
+My initial thoughts on v1.6 is that it's much _much_ finer than v1.5.
+And this has positives and negatives. For example, with v1.5 I was
+initially put off by the thick taste at first, but once I started mixing
+strawberries in it worked well for me and I started enjoying the
+viscosity. With v1.6 it feels more watery, I don't know if this will
+change my sense of soylent to be more of a drink than a shake. It was
+very easy for me to substitute a meal with v1.5 because it was a solid
+mix between liquid and, uh, solid. I wonder if tomorrow when I have v1.6 for
+lunch if I'll feel just as satisfied? 
+
+Also, the [release notes for v1.6] note that they've replaced the rice
+protein entirely with soy protein instead. So the flavor has changed a
+bit and the smell too. While drinking my test cup I was swirling it in
+my mouth for taste and could feel the fine powder. With v1.5 I felt like
+it mixed a bit better and disolved. This might go away with an overnight
+sit in the fridge though, so I'll have to wait until tomorrow lunch and
+dinner to really give it a go. The other thing I should probably try is
+drinking v1.6 without mixing any strawberries in; the taste has changed
+enough that I might be able to drink it without mixing something in,
+which would save me a little bit of money. 
+
+The smell of v1.6 is much more subdued than v1.5, oh and when I was
+using my emersion blender on it it was noticeably different from v1.5.
+With the older version I generally had clumps that would linger around
+still until I let the drink sit for a while and then mixed again. With
+v1.6 it was very smooth and I didn't see any clumping at all. I didn't
+look too hard before blending, but I imagine that I might be able to get
+away with just shaking this version. I'll have to experiment though.
+I'll take a picture tomorrow of my drink so I can compare it to my
+picture of v1.5 near the top of the log. 
+
+
+
+[release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
 ["stop eating food"]:http://robrhinehart.com/?p=298
