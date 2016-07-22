@@ -357,7 +357,11 @@ away with just shaking this version. I'll have to experiment though.
 I'll take a picture tomorrow of my drink so I can compare it to my
 picture of v1.5 near the top of the log. 
 
+### Day 28 
 
+Soylent for lunch! Trivia tonight kind of took over dinner and whatnot,
+but I had another glass of v1.6 for lunch today and am continuing to
+make my opinion up about it. 
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
