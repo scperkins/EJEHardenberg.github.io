@@ -361,7 +361,28 @@ picture of v1.5 near the top of the log.
 
 Soylent for lunch! Trivia tonight kind of took over dinner and whatnot,
 but I had another glass of v1.6 for lunch today and am continuing to
-make my opinion up about it. 
+make my opinion up about it. I read some other reviews to see if anyone 
+more eloquent had come up with a description that matched my taste, but 
+not much luck there. The biggest thing to me still is how smooth it is;
+it's a massive difference from v1.5 to me. 
+
+Someone on the discourse forums for soylent said "sawdust" and I kind 
+of see how the texture might be like that, but it definitely doesn't 
+taste like that. I'm thinking about my v1.5 now and thinking to myself 
+that it didn't have the same... hm... grit to it that v1.6 has. The 
+newer soylent definitely is smoother, more liquidy, and goes down 
+easier. But there is a noticeable grainyness to it that fits the 
+"sawdust" description. It's been a long time since I had kool-aid 
+made with the powder, but I wonder if it would be similar if you had
+added too much powder?
+
+I definitely notice the addition of soy in the aftertaste though I 
+saw lots of complaints about a very bitter aftertaste, to the point 
+of some people gagging. But I don't know, maybe it's the strawberries 
+or something but I really don't notice any aftertaste besides the 
+briefest of a hint of soy that fades quickly. I think I'll definitely 
+make a plain batch of Soylent next, maybe just two scoops or something 
+instead of the whole bag. Then again, why mess with success?
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
