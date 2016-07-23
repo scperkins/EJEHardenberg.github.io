@@ -384,6 +384,14 @@ briefest of a hint of soy that fades quickly. I think I'll definitely
 make a plain batch of Soylent next, maybe just two scoops or something 
 instead of the whole bag. Then again, why mess with success?
 
+### Day 29 
+
+Soylent for lunch and dinner with no problems. I tried to mull my drink
+over in my mouth and think more about it, but I think I summed it up
+pretty well in yesterday's note. I think I found a little bit of the
+bitterness, but it's still not to the same degree that others on
+discourse were saying.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
