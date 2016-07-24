@@ -392,6 +392,14 @@ pretty well in yesterday's note. I think I found a little bit of the
 bitterness, but it's still not to the same degree that others on
 discourse were saying.
 
+### Day 30
+
+Soylent for breakfast today, but that was it since I have a friend up
+visiting and we're planning on eating some of those dumplings I made
+before among other things. I let him try it and he said "not bad", which
+is pretty much the usual reaction. After looking at the nutritional
+information he also said that he thinks it'd be good for hiking.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
