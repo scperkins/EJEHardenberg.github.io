@@ -400,6 +400,35 @@ before among other things. I let him try it and he said "not bad", which
 is pretty much the usual reaction. After looking at the nutritional
 information he also said that he thinks it'd be good for hiking.
 
+### Day 31
+
+Still had my friend over for a while, so it wasn't until nighttime that 
+I made my newest batch of Soylent. I forewent the strawberries this time
+deciding that I'd find out if v1.6 was more palatable than v1.5. I had 
+already had dinner (need to use some milk before it went bad, so Mac & 
+Cheese it was!), but I made the batch and tried a spoonful of the plain
+Soylent. Not bad, creamy as usual, and very mild. I'll have to give a 
+more thoughtful review tomorrow when I have it for lunch.
+
+### Day 32
+
+Lunchtime Soylent! I'm still impressed with the smoothness in case you 
+can't tell. The color is the same cream, milky white-ish yellow that the
+powder is. And the smell reminds me somewhat of the smell you get when 
+you're mixing flour and water while baking bread... but without the yeast 
+part. I had to try _really_ hard to smell my drink though. It's really a 
+light smell. 
+
+The taste is exceptionally mild, it's somewhat hard to believe that it's 
+just water and powder because of how creamy it is, it reminds me of the 
+consistency of milk. As far as what the heck I'm tasting is, boy, I don't 
+know. I guess I'd say it tastes like Soylent, because I'm coming up blank 
+on what it tastes like, kinda nut-ish? Thinking back on the whole "OMG 
+IT'S SO BITTER" thing I read on the forums, I'm *not* experiencing it at all.
+In fact, now that I think about it, the graininess is gone too. So I think
+that I used more water (since I wasn't using the strawberries) really helped 
+mix in the rest of the soylent and remove the "sawdust" texture entirely. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
