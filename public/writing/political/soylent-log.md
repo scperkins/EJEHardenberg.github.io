@@ -429,6 +429,14 @@ In fact, now that I think about it, the graininess is gone too. So I think
 that I used more water (since I wasn't using the strawberries) really helped 
 mix in the rest of the soylent and remove the "sawdust" texture entirely. 
 
+I'm trying to remove some of the food I bought when I was waiting for my
+new soylent, so I had "normal" food for dinner.
+
+### Day 33 
+
+Mixed hot chocolate mix with my Soylent today for lunch to find out if it's
+good or not...
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
