@@ -434,8 +434,15 @@ new soylent, so I had "normal" food for dinner.
 
 ### Day 33 
 
-Mixed hot chocolate mix with my Soylent today for lunch to find out if it's
-good or not...
+Mixed hot chocolate mix with my Soylent today. Super good idea on my
+part if I do say so myself. It was creamy, chocolately, and delicious.
+Definitely going to have to do this one again, since it's just some more
+powder it mixes in easily and I can keep the amount of water I've put in
+to make it more creamy. 
+
+I had regular soylent for my dinner, tasty. My friend who drinks 2.0
+everynow and then and has compared the taste to soy milk. I've never had
+soy milk, so I don't know if that's a good comparison or not.
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
