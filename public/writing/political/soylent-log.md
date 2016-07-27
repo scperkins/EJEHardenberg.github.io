@@ -444,6 +444,14 @@ I had regular soylent for my dinner, tasty. My friend who drinks 2.0
 everynow and then and has compared the taste to soy milk. I've never had
 soy milk, so I don't know if that's a good comparison or not.
 
+### Day 34
+
+Regular soylent for lunch again today, definitely don't have any issues
+or even feel like I need strawberries for this. Which is great because
+that's going to save me a good amount of money each week. Soylent for
+dinner as well, though I finished my batch today so I supplemented a bit
+with some pizza rolls. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
