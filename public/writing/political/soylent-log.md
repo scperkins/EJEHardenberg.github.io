@@ -452,6 +452,14 @@ that's going to save me a good amount of money each week. Soylent for
 dinner as well, though I finished my batch today so I supplemented a bit
 with some pizza rolls. 
 
+### Day 35
+
+New batch of regular soylent again! I'm saving _a lot_ of time not having
+to cut up and prepare the strawberries for my soylent. Hello more time to 
+code! Yes! Nothing crazy to note for lunch, besides having a few ghost 
+pepper tortilla chips that someone brought it. Super tasty, very spicy, a 
+good way to round out the mild meal I had for sure. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
