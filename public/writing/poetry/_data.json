@@ -1,4 +1,9 @@
 {
+	"no-contest" : {
+		"title" : "No contest",
+		"date" : "2016-7-29",
+		"freq" : "monthly"
+	},
 	"erosion" : {
 		"title" : "Erosion",
 		"date" : "2016-7-15",
