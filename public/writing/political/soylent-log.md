@@ -402,6 +402,10 @@ information he also said that he thinks it'd be good for hiking.
 
 ### Day 31
 
+<div style="text-align: center">
+	<img src="/images/soylent/2016-07-26.jpg">
+</div>
+
 Still had my friend over for a while, so it wasn't until nighttime that 
 I made my newest batch of Soylent. I forewent the strawberries this time
 deciding that I'd find out if v1.6 was more palatable than v1.5. I had 
