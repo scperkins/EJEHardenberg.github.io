@@ -473,6 +473,13 @@ trucks and had a chicken sandwich for dinner.
 
 ### Day 37
 
+Soylent for breakfast, but ended up having dumplings for lunch (I still
+have so many of them from when my housemate and I made them). Then we
+chipped in together on some food for dinner for fun. I'll do my best to
+have my meals be soylent tomorrow.
+
+### Day 38
+
 Soylent for breakfast.
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
