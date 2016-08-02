@@ -480,7 +480,15 @@ have my meals be soylent tomorrow.
 
 ### Day 38
 
-Soylent for breakfast.
+Soylent for breakfast. I really didn't do much at all today so I didn't 
+really have lunch or dinner, just kind of snacked on some peanuts and a
+couple leftover wings from the other day. 
+
+### Day 39
+
+Soylent for lunch and dinner. I've decided to trim my breakfast down as 
+well, for both budget purposes and to get more soylent in so I can see 
+if it has any positive effects.
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
