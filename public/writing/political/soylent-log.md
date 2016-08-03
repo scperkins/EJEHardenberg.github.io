@@ -490,6 +490,22 @@ Soylent for lunch and dinner. I've decided to trim my breakfast down as
 well, for both budget purposes and to get more soylent in so I can see 
 if it has any positive effects.
 
+### Day 40 
+
+Trimmed out my breakfast beverage, so just had soylent today besides
+going to a movie. Feeling good.
+
+### Day 41
+
+Soylent for lunch today, no drink again during breakfast so that's good.
+And then I played trivia with people so ended up eating out instead of
+having soylent for dinner.
+
+### Day 42
+
+Breakfast sandwich again, no beverage though. Then soylent for lunch and
+I ate out with a friend again since we both had hard days.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
