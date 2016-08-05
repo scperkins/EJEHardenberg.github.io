@@ -1,4 +1,9 @@
 {
+	"swirl" : {
+		"title" : "Swirl",
+		"date" : "2016-8-4",
+		"freq" : "monthly"
+	},
 	"no-contest" : {
 		"title" : "No contest",
 		"date" : "2016-7-29",
