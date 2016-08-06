@@ -514,6 +514,15 @@ sweet of them. Soylent for lunch, and then my friend owed me dinner so I
 didn't have soylent for that. Will probably have a couple leftover
 breadsticks tomorrow for dinner along with my soylent.
 
+### Day 44
+
+Ended up going out to see Suicide Squad and had dinner before hand with
+friends so I only had soylent for lunch today. Also didn't get to eat my
+breadsticks yet either. Maybe I'll have those tomorrow sometime while
+trying to do a full day of soylent again. I figure if I can manage a
+full weekend of just Soylent then I'll treat myself to a pizza or
+something on Monday.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
