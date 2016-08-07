@@ -523,6 +523,15 @@ trying to do a full day of soylent again. I figure if I can manage a
 full weekend of just Soylent then I'll treat myself to a pizza or
 something on Monday.
 
+### Day 45
+
+For breakfast I finished off those leftover breadsticks, and then lunch
+and dinner was Soylent. So that makes another day of basically just
+Soylent (Would one really count 2 breadsticks as a meal? I suppose it's
+like toast). Tomorrow I'll try to just do straight soylent, but we'll
+see if that works out. I have a friend over tomorrow, so we'll see how
+that changes things.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
