@@ -532,6 +532,17 @@ like toast). Tomorrow I'll try to just do straight soylent, but we'll
 see if that works out. I have a friend over tomorrow, so we'll see how
 that changes things.
 
+### Day 46
+
+Breakfast and lunch went as planned. Just soylent. My friend did come
+over and we made some nacho's as a snack, so I wasn't going to count
+that towards my attempt at a full weekend of Soylent, but then _another_
+friend came over out of the blue and we ended up celebrating his return
+to the state by going out. So there it was. I was one meal away from an
+entirely soylent weekend. Not bad. Maybe next weekend I... oh wait, I
+have friends coming up I'll have to entertain, maybe the weekend after
+that...
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
