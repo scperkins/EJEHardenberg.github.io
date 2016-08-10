@@ -543,6 +543,20 @@ entirely soylent weekend. Not bad. Maybe next weekend I... oh wait, I
 have friends coming up I'll have to entertain, maybe the weekend after
 that...
 
+### Day 47
+
+So no pizza today since I didn't make it all the way through the
+weekend with all soylent meals. Oh well, lunch and dinner were both
+soylent with no issue. I also walked around again during my lunch break
+at work. Gotta try to get some cardio in now that I'm not really running
+anymore.
+
+### Day 48
+
+Walked again today, soylent for lunch while doing so. I ended up going
+out to eat though after seeing a special at a restaurant that peaked my
+interest.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
