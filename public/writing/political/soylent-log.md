@@ -564,6 +564,14 @@ up going out with a friend. And I have plans for a friend visiting this
 weekend so that spells doom on that... also, I'm down to one bag of
 Soylent somehow! I'll have to order more.
 
+### Day 50
+
+Walk & Lunch as is the routine I'm trying to get into a habit of. Played
+trivia with friends so ate out for dinner. Yeesh, so much eating out
+this week.
+
+
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
