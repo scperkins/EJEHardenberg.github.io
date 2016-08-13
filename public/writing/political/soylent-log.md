@@ -570,7 +570,9 @@ Walk & Lunch as is the routine I'm trying to get into a habit of. Played
 trivia with friends so ate out for dinner. Yeesh, so much eating out
 this week.
 
+### Day 51
 
+Full day of Soylent! 
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
