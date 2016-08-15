@@ -581,6 +581,11 @@ shipment to arrive. But, I went to a cancer charity event and ate good
 brisket and food there, so I suppose I'm on a vacation of sorts from
 soylent for now.
 
+### Day 53
+
+No soylent, still waiting for the new package to arrive, hopefully it
+will come soon.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
