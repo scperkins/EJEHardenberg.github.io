@@ -590,6 +590,12 @@ will come soon.
 
 Still waiting.
 
+### Day 55 
+
+Sigh, still waiting for my soylent. I did get a notification that it had
+been shipped though. So hopefully it will come soon. I do miss it,
+eating "real foid" is good and all, but, I want my soylent.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
