@@ -602,6 +602,15 @@ All my meals were non-soylent today, but I did finally get my package in
 the afternoon. Which is great. I'm pretty happy to get back into Soylent
 and having my designated lunch food and such. 
 
+### Day 57
+
+Soylent for lunch! So happy. I really did miss it. Not in an "oh I'm 
+addicted way" but in the "man, I could really go for some Soylent right
+now" kind of way. To be totally honest, it's a load off my mind trying
+to decide where to go for lunch and dinner. So that's nice to have 
+relieved. I have plenty of more important things to think about than what
+nutrient's I'm going to shove down my throat. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
