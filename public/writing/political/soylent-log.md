@@ -617,6 +617,14 @@ Dinner was soylent as well
 
 No soylent today because I had made plans to meet up with a friend who's traveling with me. I dunno when I'm going to get a chance to drink the soylent I just packed.
 
+### Day 59
+
+No soylent again, because of travel. 
+
+### Day 60 
+
+No soylent today because of more travel.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
