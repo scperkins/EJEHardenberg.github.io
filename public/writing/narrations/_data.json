@@ -1,4 +1,9 @@
 {
+	"parent" : {
+		"title" : "Parent",
+		"date" : "2016-8-20",
+		"freq" : "monthly"
+	},
 	"church-child" : {
 		"title" : "Church Child",
 		"date" : "2016-5-29",
