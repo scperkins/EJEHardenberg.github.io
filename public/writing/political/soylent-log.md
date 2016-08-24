@@ -623,7 +623,18 @@ No soylent again, because of travel.
 
 ### Day 60 
 
-No soylent today because of more travel.
+No soylent today because of more travel and events. 
+
+### Day 61
+
+Back in town but too much going on to really make any soylent and I had
+to throw out the batch I did make a while ago because it went back.
+
+### Day 62
+
+Phew! Back to what I need! Lunch and dinner were both soylent, which I'm
+thankful for because I got a lot of exercise today! Walk at lunch being
+part of it; but mostly dancing for just under 3 hours with a friend! 
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
