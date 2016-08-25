@@ -636,6 +636,12 @@ Phew! Back to what I need! Lunch and dinner were both soylent, which I'm
 thankful for because I got a lot of exercise today! Walk at lunch being
 part of it; but mostly dancing for just under 3 hours with a friend! 
 
+### Day 63
+
+Lunch was soylent today, with the usual walk. But dinner was fast food
+for funzies. Tomorrow will be more soylent though, probably for lunch
+and dinner because I have outing plans for Freitag
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
