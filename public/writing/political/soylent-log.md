@@ -642,6 +642,10 @@ Lunch was soylent today, with the usual walk. But dinner was fast food
 for funzies. Tomorrow will be more soylent though, probably for lunch
 and dinner because I have outing plans for Freitag
 
+### Day 64
+
+Lunch soylent. Dinner company party.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
