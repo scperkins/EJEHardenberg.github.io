@@ -646,6 +646,13 @@ and dinner because I have outing plans for Freitag
 
 Lunch soylent. Dinner company party.
 
+### Day 65
+
+Lunch was a delicious bit of soylent. Finishing off this batch and 
+clearing the way for a fresh batch come tomorrow! I say tomorrow 
+because dinner plans have kicked in for this weekend. That and my
+lunch tomorrow will also probably be regular food. Lame. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
