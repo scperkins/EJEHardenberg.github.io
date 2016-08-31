@@ -664,6 +664,14 @@ Made a new batch of soylent this morning. Unfortunately, work things
 occured and then I had no soylent at all, then a bday dinner made me not
 get my dinner in either as soylent. Which is sad. Tomorrow though.
 
+### Day 68
+
+All day of soylent! Had some for breakfast because I'm going to be on
+the go again and need to finish this batch before the day after
+tomorrow. Soylent for breakfast, lunch, and dinner. No issues with that,
+and after going all weekend with "real" food, it's a good feeling to get
+back into my routine and what my body wants. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
