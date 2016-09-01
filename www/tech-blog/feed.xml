@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Tue, 05 Jul 2016 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Thu, 01 Sep 2016 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>MySQL & JDBC timezone gotcha's</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/mysql-date-automatic-conversion-utc-problems</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/mysql-date-automatic-conversion-utc-problems</guid>
+			<pubDate>Thu, 01 Sep 2016 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Getting a String before another in MySQL</title>
@@ -19,7 +29,7 @@
 			<guid>http://ethanjoachimeldridge.info/tech-blog/extract-string-before-other-mysql</guid>
 			<pubDate>Tue, 05 Jul 2016 04:00:00 GMT</pubDate>
 			<description>
-				![CDATA[]]
+				![CDATA[A helpful database function and methodology for extracting strings from blob-like columns]]
 			</description>
 		</item>
 		

@@ -1,0 +1,223 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Ethan's Tech Blog | MySQL &amp; JDBC timezone gotcha&#39;s</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="MySQL, JDBC, timezone, Date, client, connector, UTC"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | MySQL &amp; JDBC timezone gotcha&#39;s" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | MySQL &amp; JDBC timezone gotcha&#39;s" />
+    
+    <meta name="twitter:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>MySQL &amp; JDBC timezone gotcha&#39;s</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>MySQL DATE type and JDBC connection conversion issues</h3><p>Today I was working on my side project <a href="https://github.com/EdgeCaseBerg/accountable">accountable</a> and ran into the fun
+of trying to line up timezones between the application and the MySQL 
+server I&#39;m using. I say fun because this of course involves the infamous 
+<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Date.html">java.util.Date</a>, which has been a <a href="http://stackoverflow.com/a/22126586/1808164">pain to developers</a>. </p>
+<p>In my application, I create <a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html">Instant</a> classes since that&#39;s the recommended 
+way to go now. And for my purposes I wanted to store them as UTC that way
+I can convert them to any locale I&#39;d like to later on, since I&#39;m also 
+only concerned about the date and no hours, I used the <a href="https://dev.mysql.com/doc/refman/5.5/en/datetime.html">MySQL Date type</a> 
+for my database table, this, when combined with <a href="https://github.com/playframework/playframework/blob/2.3.x/framework/src/anorm/src/main/scala/anorm/Column.scala#L247">Anorm&#39;s parser</a> leads me 
+to the use of the <code>Date</code> class in my code.</p>
+<p>The <a href="https://github.com/EdgeCaseBerg/accountable/blob/master/test/service/ExpenseManagementServiceTest.scala#L64">failing test</a> was failing with an odd error. When creating and 
+persisting my domain class to the database, the <code>dateOccured</code> field
+would read as the correct UTC timestamp. However, when reading the 
+field back out of the database when retrieving that same instance, I&#39;d 
+see a change equal to my timezone. This struck me as a bit odd, since I
+had spent some time trying to make sure I created UTC and stored UTC 
+dates.</p>
+<p>After a few hours scratching my head I came to the conclusion that I must
+have done something wrong, and when I found my pre-database-insertion 
+code using my system zone I thought to myself, ah of course! </p>
+<pre><code>val localTime = ZonedDateTime.ofInstant(Instant.ofEpochSecond(expense.dateOccured), ZoneId.systemDefault)
+</code></pre><p>Clearly, this must be it. After all, that&#39;s where the extra hours might 
+come from right? And changed it promptly to:</p>
+<pre><code>val localTime = ZonedDateTime.ofInstant(Instant.ofEpochSecond(expense.dateOccured), ZoneId.of(&quot;UTC&quot;))
+</code></pre><p>But unfortunately, this wasn&#39;t the case. It simply <em>shifted</em> my hours for
+both the stored instance <em>and</em> the returned instance. Remembering that 
+the <a href="https://dev.mysql.com/doc/refman/5.5/en/datetime.html">MySQL Date type</a> documentation mentions some conversions on storage, 
+I figure&#39;d I&#39;d read it again:</p>
+<blockquote>
+<p>MySQL converts TIMESTAMP values from the current time zone to UTC for storage, and back from UTC to the current time zone for retrieval. <strong>(This does not occur for other types such as DATETIME.)</strong></p>
+</blockquote>
+<p>So it&#39;s <em>only</em> for the TIMESTAMP type, not for the type I&#39;m using here. 
+This meant that it had to have <em>something</em> to do with the java client 
+itself. Looking at the <a href="http://cs.wellesley.edu/~cs304/jdbc/connector-j.html#connector-j-reference">connector paramaters one can pass to the JDBC</a> 
+it became clear that the client was performing a conversion from the 
+client side of the connection to whatever the server was speaking in. 
+Checking the timezone of the server is fairly simple from a MySQL CLI:</p>
+<pre><code>SELECT TIMEDIFF(NOW(), UTC_TIMESTAMP);
+-- OR/AND
+select @@global.time_zone;
+</code></pre><p>If the above two give back a time difference of <code>00:00:00</code> or the time
+zone of <code>+00:00</code> then your server is in UTC already. Mine wasn&#39;t, so I 
+updated my <em>my.cnf</em> file to set the <code>default-time-zone</code> property:</p>
+<pre><code>[client]
+default-time-zone=&#39;+00:00&#39;
+...
+
+[mysqld]
+default-time-zone=&#39;+00:00&#39;
+</code></pre><p>Sadly, this <em>still</em> didn&#39;t fix my problem entirely, now instead of both 
+sides of the <code>Date</code> being shifted, I was back to where I was before with 
+a valid UTC on creation, and an incorrect returned value from what felt 
+like the database. After some more thinking, I started wondering if the 
+client&#39;s default parameters included automatically converting Date&#39;s from
+the server&#39;s time to the recieving end. And sure enough, once I set the 
+timezone on the application side:</p>
+<pre><code>javaOptions in Test ++= Seq(&quot;-Dconfig.file=conf/test.conf&quot;, &quot;-Duser.timezone=UTC&quot;)
+
+javaOptions in Runtime += &quot;-Duser.timezone=UTC&quot;
+</code></pre><p>My issues disappeared. But setting the user.timezone is a bit drastic as
+it affects <em>the entire JVM</em>. I <a href="http://stackoverflow.com/a/7610174/1808164">found another option</a> in the parameter lists
+that <em>seems</em> like it should fix my problem without having to specify the 
+timezone at the JVM level, especially since it seems that <a href="https://github.com/playframework/playframework/blob/2.3.x/framework/src/anorm/src/main/scala/anorm/ToStatement.scala#L359">anorm doesn&#39;t 
+set a calendar</a> which is good, as the answer on that S.O. question explicitly
+says the trick only works with a null Calendar. But, like <a href="https://stackoverflow.com/questions/7605953/how-to-change-mysql-timezone-in-java-connection#comment35959548_7610174">one of the 
+commenters</a> I was still getting the client conversion on reading the data
+for some reason.</p>
+<p>So for now, I&#39;m going to set my JVM to run in UTC as that seems like the 
+only thing that actually fixes the client-reading conversion problem. 
+This isn&#39;t a bad thing, as if I were running this application on a &quot;real&quot; 
+server and not just my local computer, I&#39;d probably be running that box
+on UTC anyway.</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=extract-string-before-other-mysql>Getting a String before another in MySQL</a></li><li><a href=request-bodies-and-java>Request Bodies and Java</a></li><li><a href=partial-file-uploads-play>Partial file uploads in Play with ResumableJS</a></li><li><a href=appending-javascript-files-in-play-for-configuration>Combining Asset&#39;s on the fly in Play (javascript example)</a></li><li><a href=docker-playframework-tip>Dockerized Play! App continously restarts?</a></li><li><a href=exploiting-magento>Let&#39;s Exploit Magento! (&lt;1.9.2.3)</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<span>Github</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
+</html>
+  	
