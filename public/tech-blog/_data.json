@@ -798,7 +798,7 @@
 	},
 	"extract-string-before-other-mysql" : {
 		"title" : "Getting a String before another in MySQL",
-		"description" : "",
+		"description" : "A helpful database function and methodology for extracting strings from blob-like columns",
 		"date" : "2016-7-5",
 		"keywords" : "MySQL, Strings, String, before, extract, ExtractStringBeforeUntil, reverse"
 	}
