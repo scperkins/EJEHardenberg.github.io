@@ -672,6 +672,17 @@ tomorrow. Soylent for breakfast, lunch, and dinner. No issues with that,
 and after going all weekend with "real" food, it's a good feeling to get
 back into my routine and what my body wants. 
 
+
+### Day 69
+
+Regular day, besides having some soylent in the morning since I need to finish up this batch before I travel again. And by regular I mean, soylent lunch and dinner.
+
+### Day 70
+
+Lunch and dinner again. Had two small, maybe 8oz cups for dinner.
+
+### Day 77
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
