@@ -703,7 +703,8 @@ Travelling, but home tomorrow, so hopefully soylent will resume.
 
 ### Day 82
 
-Soylent for lunch today.
+Soylent for lunch today. But went out for dinner and had drinks with
+friends to celebrate a weekend. 
 
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
