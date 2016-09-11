@@ -703,8 +703,17 @@ Travelling, but home tomorrow, so hopefully soylent will resume.
 
 ### Day 82
 
-Soylent for lunch today. But went out for dinner and had drinks with
-friends to celebrate a weekend. 
+Soylent for lunch today. And dinner. But did get some chicken wings
+later on because I felt my body wanted meat. 
+
+### Day 83
+
+Soylent for lunch and dinner today. Nothing else besides a little bit
+of candy.
+
+### Day 84
+
+Soylent for lunch, not for dinner though because I had japanese instead. 
 
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
