@@ -724,6 +724,15 @@ Made a new batch of soylent, but didn't have any today.
 Soylent! For lunch and dinner. Though I'm supplementing it with some
 leftovers from last night.
 
+### Day 87
+
+Lunch and dinner soylent again, you know, besides the slice of pizza I
+had last night and along with my dinner today, That's basically two full
+days where my meals were soylent. I wonder if this will keep up this
+whole week, then I'll basically have done a full week of soylent. We'll
+see if I notice anything different from going full-soylent for an
+extended period of time.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
