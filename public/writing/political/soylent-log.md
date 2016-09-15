@@ -739,6 +739,18 @@ Lunch was soylent, but since this was the last of the batch and it was
 rainy and chill out I went and got some soup for dinner. But tomorrow
 will be all about plain soylent all day tomorrow!
 
+### Day 89
+
+Woke up hungry today. I've switched off my breakfast schedule so for the
+past two weeks or so I've only really been having lunch and dinner
+around 12 and 6 respectfully. So it's interesting to me that I'm hungry
+right now, and the only thing I can think of is that instead of having
+soylent, which gives me what I need in a cup, I had that soup and
+sandwich... So, that's kind of interesting and motivating in it's own
+way. Either I should have more than what I had last night for dinner
+when I switch back to "normal food" for dinners, or I should just eat my
+soylent and not worry about being hungry.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
