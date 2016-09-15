@@ -733,6 +733,12 @@ whole week, then I'll basically have done a full week of soylent. We'll
 see if I notice anything different from going full-soylent for an
 extended period of time.
 
+### Day 88
+
+Lunch was soylent, but since this was the last of the batch and it was
+rainy and chill out I went and got some soup for dinner. But tomorrow
+will be all about plain soylent all day tomorrow!
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
