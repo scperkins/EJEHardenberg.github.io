@@ -20,7 +20,7 @@ moving through the dance hall light as a feather
 
 Unlike our dance, always in constant motion  
 Fearing the worst, I hold back that emotion  
-Why ruin a good thing when it's not even done? 
+Why ruin a good thing when it's not even done?   
 The chance of more, but risk songs going unsung  
 
 Swing back from thought, back to this moment  
