@@ -59,12 +59,244 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      
-        <br/>
-        <h3>
-          You've stumbled onto a post that is coming soon! But for now you can't see it. Sorry. 
-        </h3>
-        <p> For now why don't you checkout the other posts?</p>
+      <h3>Guice Scala &amp; CheckedProviders</h3><p><strong>Note:</strong>
+<em>If you&#39;re unfamiliar with guice, I highly recommend reading the 
+<a href="https://github.com/google/guice/wiki/GettingStarted">getting started</a> or the <a href="https://github.com/google/guice/wiki/Motivation">motivation</a> before continuing so you have the 
+basic concepts of the library down.</em></p>
+<h4>Getting the CheckedProviders library in scope</h4><p>Last night I was working on one of my side projects and after reading 
+through the <a href="https://github.com/google/guice/wiki/ProvidesMethods#throwing-exceptions">guice wiki</a> decided that I should use the <code>CheckedProvides</code>
+in order to be responsible about my exceptions. Namely, this section of 
+the <code>@Provides</code> documentation caught my eye:</p>
+<blockquote>
+<p>Guice does not allow exceptions to be thrown from Providers. Exceptions thrown by <code>@Provides</code> methods will be wrapped in a ProvisionException. It is bad practice to allow any kind of exception to be thrown -- runtime or checked -- from an <code>@Provides</code> method. If you need to throw an exception for some reason, you may want to use the ThrowingProviders extension <code>@CheckedProvides</code> methods.</p>
+</blockquote>
+<p>This particular piece of code involved loading some configuration using 
+<a href="https://github.com/typesafehub/config">typesafe&#39;s config library</a>. Since loading a .conf file can throw any 
+of the <a href="https://typesafehub.github.io/config/latest/api/com/typesafe/config/ConfigException.html">ConfigException subclasses</a>, I figure&#39;d that if I had code that 
+was providing an instance and possibly throwing an exception that I 
+should try to handle it as gracefully as I can. The first thing I had to 
+figure out was why I kept getting the annoying dependency exception:</p>
+<pre><code>object throwingproviders is not a member of package com.google.inject
+</code></pre><p>Nothing on the <a href="https://github.com/google/guice/wiki/ProvidesMethods#throwing-exceptions">guice wiki</a> indicates that you ever need to do anything 
+more than include the core library. And not looking at the package level
+documentation on the <a href="https://google.github.io/guice/api-docs/latest/javadoc/com/google/inject/throwingproviders/CheckedProvider.html">JavaDoc</a> at first made me think that of course I 
+should have the <code>throwingproviders</code> in scope by including the library! 
+It&#39;s in the docs after all! But, after slowing down and reading a little
+more carefully I noticed the one line note on the <a href="https://google.github.io/guice/api-docs/latest/javadoc/com/google/inject/throwingproviders/package-summary.html">extension&#39;s JavaDoc</a>
+that I wished I had seen 5 minutes ago</p>
+<blockquote>
+<p>this extension requires guice-throwingproviders.jar.</p>
+</blockquote>
+<p>So after a quick trip over to maven central <a href="https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.google.inject.extensions%22">I found what I needed</a> and
+then updated my build.sbt file to include the neccesary dependencies:</p>
+<pre><code>libraryDependencies ++= Seq(
+    ...
+    &quot;com.google.inject&quot; % &quot;guice&quot; % &quot;4.1.0&quot;,
+    &quot;com.google.inject.extensions&quot; % &quot;guice-throwingproviders&quot; % &quot;4.1.0&quot;,
+    ...
+)
+</code></pre><p><small><em>Note that you can use anything 3.0+, I just used the latest version</em></small></p>
+<p>With that I was able to successfully import what I needed within my script:</p>
+<pre><code>import com.google.inject.AbstractModule
+import com.google.inject.throwingproviders.{ CheckedProvides, CheckedProvider }
+import com.typesafe.config.{ ConfigException, ConfigFactory } 
+</code></pre><h4>The use case &amp; motivation for using CheckedProvider</h4><p>Now that I had the library imported, I could actually start using it! As 
+an example, let&#39;s say we&#39;re loading up some type of data source 
+configuration. So we have a URL where we&#39;re getting the data from and an 
+access code. A scala model for this might look like:</p>
+<pre><code>import java.net.URL
+case class DataSourceParams(val url: URL, @transient val accessCode)
+</code></pre><p>And let&#39;s also say that once we&#39;ve loaded our local configuration, that 
+we&#39;re then loading the configured parameters to our application for use. 
+So, let&#39;s have another model that represents the data we&#39;ll load from 
+the outside world:</p>
+<pre><code>case class RemotePizzaOrder(
+    val numberOfPizzas: Long,
+    val pizzaToppings: Seq[String],
+    val dietRestrictions: Seq[String]
+)
+</code></pre><p>Without the extension to juice we&#39;d end up just using a regular <code>@Provides</code>
+annotation and praying nothing goes wrong. This might look something like 
+this within a module:</p>
+<pre><code>import com.google.inject.{AbstractModule, Provides}
+import com.typesafe.config.ConfigFactory
+
+class PizzaModule extends AbstractModule {
+
+    def configure {}
+
+    @Provides
+    def provideDataSourceParams() = {
+        val conf = ConfigFactory.load() // Might throw an exception!
+        val url = new URL(conf.getString(&quot;dsp.url&quot;)) // Might throw an exception!
+        val accessCode = conf.getString(&quot;accessCode&quot;) // Might throw an expcetion!
+        DataSourceParams(url, accessCode)
+    }
+
+    @Provides
+    def provideRemotePizzaOrder(dataSourceParams: DataSourceParams) = {
+        val conf = ConfigFactory.parseURL(dataSourceParams.url) // Might throw an exception
+        RemotePizzaOrder(
+            conf.getLong(&quot;rpo.numberOfPizzas&quot;),
+            conf.getStringList(&quot;rpo.pizzaToppings&quot;),
+            conf.getStringList(&quot;rpo.dietRestrictions&quot;)
+        ) // Any of the conf.get* might throw an exception
+    }
+}
+</code></pre><p>If anything goes wrong with this, from the URL being malformed, to a 
+configuration property not being set, we&#39;re going to get a runtime 
+exception from Guice. For example, if without setting up a configuration 
+file I were to run this code:</p>
+<pre><code>val injector = Guice.createInjector(new PizzaModule)
+val databaseParams = injector.getInstance(classOf[DataSourceParams])
+</code></pre><p>I&#39;d get a stacktrace like this:</p>
+<pre><code>com.google.inject.ProvisionException: Unable to provision, see the following errors:
+
+1) Error in custom provider, com.typesafe.config.ConfigException$Missing: No configuration setting found for key &#39;dsp&#39;
+  at Example$PizzaModule.provideDataSourceParams(TEST.scala:25)
+  while locating Example$DataSourceParams
+
+1 error
+  at com.google.inject.internal.InjectorImpl$2.get(InjectorImpl.java:1028)
+  at com.google.inject.internal.InjectorImpl.getInstance(InjectorImpl.java:1054)
+  at Example$.delayedEndpoint$Example$1(TEST.scala:43)
+  at Example$delayedInit$body.apply(TEST.scala:9)
+  at scala.Function0$class.apply$mcV$sp(Function0.scala:34)
+  at scala.runtime.AbstractFunction0.apply$mcV$sp(AbstractFunction0.scala:12)
+  at scala.App$$anonfun$main$1.apply(App.scala:76)
+  at scala.App$$anonfun$main$1.apply(App.scala:76)
+  at scala.collection.immutable.List.foreach(List.scala:381)
+  at scala.collection.generic.TraversableForwarder$class.foreach(TraversableForwarder.scala:35)
+  at scala.App$class.main(App.scala:76)
+  at Example$.main(TEST.scala:9)
+  ... 42 elided
+Caused by: com.typesafe.config.ConfigException$Missing: No configuration setting found for key &#39;dsp&#39;
+  at com.typesafe.config.impl.SimpleConfig.findKey(SimpleConfig.java:124)
+  at com.typesafe.config.impl.SimpleConfig.find(SimpleConfig.java:147)
+  at com.typesafe.config.impl.SimpleConfig.find(SimpleConfig.java:159)
+  at com.typesafe.config.impl.SimpleConfig.find(SimpleConfig.java:164)
+  at com.typesafe.config.impl.SimpleConfig.getString(SimpleConfig.java:206)
+  at Example$PizzaModule.provideDataSourceParams(TEST.scala:26)
+  at Example$PizzaModule$$FastClassByGuice$$6f73dc9a.invoke(&lt;generated&gt;)
+  at com.google.inject.internal.ProviderMethod$FastClassProviderMethod.doProvision(ProviderMethod.java:264)
+  at com.google.inject.internal.ProviderMethod$Factory.provision(ProviderMethod.java:401)
+  at com.google.inject.internal.ProviderMethod$Factory.get(ProviderMethod.java:376)
+  at com.google.inject.internal.InjectorImpl$2$1.call(InjectorImpl.java:1019)
+  at com.google.inject.internal.InjectorImpl.callInContext(InjectorImpl.java:1085)
+  at com.google.inject.internal.InjectorImpl$2.get(InjectorImpl.java:1015)
+  ... 53 more
+</code></pre><p>Which is not something we&#39;d want to be presenting to a user. Because 
+we&#39;re using the <code>@Provides</code> method the exception is thrown <em>within</em> 
+Guice, which is why we get a ProvisionException and are unable to handle 
+the <code>ConfigException.Missing</code> exception. We&#39;d rather catch such 
+exceptions and handle them more gracefully. </p>
+<p>According to the Guice wiki, the limitations of regular providers are:</p>
+<ul>
+<li>Implementers of Provider can only throw RuntimeExceptions.</li>
+<li>Callers of Provider can&#39;t catch the exception they threw, because it may be wrapped in a ProvisionException.</li>
+<li>Injecting an instance directly rather than a Provider can cause creation of the injected object to fail.</li>
+<li>Exceptions cannot be advertised in the API.</li>
+</ul>
+<p>This is where the CheckedProvider&#39;s come in. </p>
+<h3>Pushing exception handling to application scope with CheckedProvider</h3><p>A <code>CheckedProvider</code> allows you to push the error handling for <em>a provider 
+of that type</em> out to whatever is supposed to be getting an instance in 
+your code. This means that there is a level of indirection from guice 
+crossing into application space where we must handle the specific 
+exceptions we know will be thrown. This is obvious if you note in the 
+documentation for <a href="https://google.github.io/guice/api-docs/latest/javadoc/com/google/inject/throwingproviders/CheckedProvider.html">CheckedProvider</a> that it says:</p>
+<blockquote>
+<p>Users may not inject T directly.</p>
+</blockquote>
+<p>However if you rush over to use the annotation thinking that it works like
+<code>@Provides</code> and that you&#39;ll get a type <code>T</code> on injection from a 
+<code>CheckedProvider[T]</code> you might miss this note (like I did the first time 
+I looked at this). So don&#39;t do that. You need to be aware that when 
+you&#39;re injecting you need to take the <em>providing interface</em> of the type, 
+and not the type itself wherever you&#39;re planning on injecting.</p>
+<p>So firstly, we define the interface which will be used by Guice. This is 
+just an interface defining what we can get and what exceptions it throws. 
+In Java you&#39;d use the <code>throws</code> keyword, but in scala there&#39;s no such 
+thing, so you just annotate it for any Java code that might call your 
+own code to have the same effect.</p>
+<pre><code>import java.net.MalformedURLException
+
+trait DataSourceProviderLike extends CheckedProvider[DataSourceParams] {
+    @throws(classOf[ConfigException])
+    @throws(classOf[MalformedURLException])
+    def get(): DataSourceParams
+}
+
+trait RemotePizzaOrderProviderLike extends CheckedProvider[RemotePizzaOrder] {
+    @throws(classOf[ConfigException])
+    def get(): RemotePizzaOrder
+}
+</code></pre><p>Once you have the trait defined, you need to install it or bind it in 
+your module. If you&#39;re using the <code>@CheckedProvides</code> annotation you&#39;ll 
+want to use <code>install</code>:</p>
+<pre><code>class SaferPizzaModuleInstalled extends AbstractModule {
+    def configure() {
+        install(ThrowingProviderBinder.forModule(this))
+    }
+
+    @CheckedProvides(classOf[DataSourceProviderLike])
+    def provideDataSourceParams() = {
+        val conf = ConfigFactory.load() // Might throw an exception!
+        val url = new URL(conf.getString(&quot;dsp.url&quot;)) // Might throw an exception!
+        val accessCode = conf.getString(&quot;dsp.accessCode&quot;) // Might throw an expcetion!
+        DataSourceParams(url, accessCode)
+    }
+    ...
+}
+</code></pre><p>And if you&#39;re binding the interface to a concrete class you&#39;ll put your 
+loading logic into that implementation and use <code>ThrowingProviderBinder</code>&#39;s 
+static methods:</p>
+<pre><code>class DataSourceProvider extends DataSourceProviderLike {
+    @throws(classOf[ConfigException])
+    @throws(classOf[MalformedURLException])
+    def get() = {
+        val conf = ConfigFactory.load()
+        val url = new URL(conf.getString(&quot;dsp.url&quot;))
+        val accessCode = conf.getString(&quot;dsp.accessCode&quot;)
+        DataSourceParams(url, accessCode)
+    }
+}
+
+def configure() {
+    ...
+    ThrowingProviderBinder.create(binder())
+        .bind(classOf[DataSourceProviderLike], classOf[DataSourceParams])
+        .to(classOf[DataSourceProvider]) 
+    ...
+}
+</code></pre><p>Annotations or directly using the binding calls is up to you as it&#39;s 
+more of a matter of personal preference here. Here&#39;s a full example to 
+look at:</p>
+<script src="https://gist.github.com/EdgeCaseBerg/c25ec3d57a8622d08cafed2a1b7d320b.js"></script>
+
+<h4>Ok... So?</h4><p>It was at this point in my adventure through Guice&#39;s documentation and 
+wiki that I asked myself: &quot;What&#39;s the difference between this and just 
+using a plain interface?&quot;. After all, If in order to use the 
+<code>CheckedProvider</code> I have to update my constructors or other code to take 
+the interface anyway, how does using a <code>CheckedProvider</code> give me anything
+more? After all, I can provide an interface that&#39;s been bound to a 
+concrete class and scope it with a regular provider. The <em>only</em> shift in 
+using a <code>CheckedProvider</code> is that it forces calling code to handle the 
+<code>.get</code> call and its possible exceptions rather than allow the creation 
+of an instance to fail within the framework. And that&#39;s more of a 
+mentality shift than anything else because if you were to update to use 
+interfaces anyway, you&#39;d have to do that regardless. </p>
+<p>The only thing right now that I can think of that this helps is if 
+you&#39;re coding in Java and not Scala, because Scala doesn&#39;t complain like 
+Java&#39;s compiler about <code>throws</code>, I&#39;ve never had to deal with <code>Provider</code> 
+not being able to throw anything but runtime exceptions and not the 
+specific exception to be caught. So I might be missing context here.</p>
+<p>I hope that this helps provide a clearer example of how to use the 
+<code>CheckedProvider</code> and <code>ThrowingProviderBinder</code> than the guice wiki&#39;s 
+because I had a bit of a time deciphering what all of that meant without 
+a full example illustrating the full technique. And I&#39;m thinking that 
+because of this, I might still not be fully understanding how using the 
+<code>CheckedProvider</code>s improves ones code in a way that you couldn&#39;t do 
+without it.</p>
       
       <h3>Other Posts</h3>
       <div id="other-posts">
