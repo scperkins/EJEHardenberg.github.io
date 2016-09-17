@@ -157,6 +157,14 @@ Guice, which is why we get a ProvisionException and not a
 and handle them more gracefully. This is where the CheckedProvider's 
 come in.
 
+### Pushing exception handling to userspace with CheckedProvider
+
+A `CheckedProvider` allows you to push the error handling for _a provider 
+of that type_ out to whatever is supposed to be getting an instance in 
+your code. This means that there is a level of indirection from guice 
+crossing into application space where we must handle the specific 
+exceptions we know will be thrown.
+
 
 
 [guice wiki]:https://github.com/google/guice/wiki/ProvidesMethods#throwing-exceptions
