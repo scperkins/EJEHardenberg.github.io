@@ -813,6 +813,6 @@
 		"description" : "How to use Guice's @CheckedProvides method in scala",
 		"date" : "2016-9-12",
 		"keywords" : "Guice,CheckedProvides,CheckedProviders,scala,Dependency Injection",
-		"draft": true
+		"draft": false
 	}
 }
