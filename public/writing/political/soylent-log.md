@@ -751,6 +751,17 @@ way. Either I should have more than what I had last night for dinner
 when I switch back to "normal food" for dinners, or I should just eat my
 soylent and not worry about being hungry.
 
+Had soylent for lunch as usual and was pretty content with it. But had a
+bit of a day of work and ended up going to grab some comfort food for
+dinner. So not a full day of soylent as planned but that's ok. Also, my
+new batch of soylent arrived! Woo! Though I still have one pouch left,
+so that tells me I need to stop not eating my soylent so often and get
+back on that train!
+
+### Day 90
+
+Treated myself to my old breakfast routine to celebrate the weekend.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
