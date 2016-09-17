@@ -1,4 +1,9 @@
 {
+	"swing" : {
+		"title" : "Swing",
+		"date" : "2016-9-16",
+		"freq" : "monthly"
+	},
 	"with-you" : {
 		"title" : "With You",
 		"date" : "2016-8-18",
