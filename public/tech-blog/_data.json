@@ -807,5 +807,12 @@
 		"description" : "Dealing with UTC to local timezone conversion problems from a JVM application. One way to get around issues.",
 		"date" : "2016-9-1",
 		"keywords" : "MySQL, JDBC, timezone, Date, client, connector, UTC"
+	},
+	"guice-scala-checked-providers" : {
+		"title" : "Guice in Scala: Checked Providers",
+		"description" : "How to use Guice's @CheckedProvides method in scala",
+		"date" : "2016-9-12",
+		"keywords" : "Guice,CheckedProvides,CheckedProviders,scala,Dependency Injection",
+		"draft": true
 	}
 }
