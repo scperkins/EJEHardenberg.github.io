@@ -804,7 +804,7 @@
 	},
 	"mysql-date-automatic-conversion-utc-problems" : {
 		"title" : "MySQL & JDBC timezone gotcha's",
-		"description" : "",
+		"description" : "Dealing with UTC to local timezone conversion problems from a JVM application. One way to get around issues.",
 		"date" : "2016-9-1",
 		"keywords" : "MySQL, JDBC, timezone, Date, client, connector, UTC"
 	}
