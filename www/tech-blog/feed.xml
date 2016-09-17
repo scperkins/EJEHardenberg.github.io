@@ -19,7 +19,7 @@
 			<guid>http://ethanjoachimeldridge.info/tech-blog/mysql-date-automatic-conversion-utc-problems</guid>
 			<pubDate>Thu, 01 Sep 2016 04:00:00 GMT</pubDate>
 			<description>
-				![CDATA[]]
+				![CDATA[Dealing with UTC to local timezone conversion problems from a JVM application. One way to get around issues.]]
 			</description>
 		</item>
 		
