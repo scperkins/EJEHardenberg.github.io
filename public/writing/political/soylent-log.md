@@ -768,7 +768,14 @@ movies and grabbed dinner with friends.
 
 All soylent day today! Brunch & dinner. 
 
+### Day 92
 
+Soylent for the first half of the day but then grabbed a drink with a
+buddy and watched a sports game so had pub food. 
+
+### Day 93
+
+Soylent for lunch, had dinner out again though. 
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
