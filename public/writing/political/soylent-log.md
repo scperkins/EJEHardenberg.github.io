@@ -778,6 +778,10 @@ buddy and watched a sports game so had pub food.
 Soylent for lunch, had dinner out again though. Tomorrow will be all
 soylent though, plus I have a dentist appointment.
 
+### Day 94
+
+All soylent day today! Yay!
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
