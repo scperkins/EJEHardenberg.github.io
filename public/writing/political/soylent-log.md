@@ -784,7 +784,10 @@ All soylent day today! Yay!
 
 ### Day 95
 
-Had food provided for by work, so no soylent lunch today sadly.
+Had food provided for by work, so no soylent lunch today sadly. Then ate
+out with a friend as celebration of an early weekend. So no soylent.
+I'll have to be sure to smell my batch of soylent to make sure it's good
+by the time I get to it. 
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
