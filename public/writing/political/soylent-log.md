@@ -789,6 +789,11 @@ out with a friend as celebration of an early weekend. So no soylent.
 I'll have to be sure to smell my batch of soylent to make sure it's good
 by the time I get to it. 
 
+### Day 96
+
+Lunch from work again, but dinner is soylent today! Hurrah! Probably the
+last of this batch I think.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
