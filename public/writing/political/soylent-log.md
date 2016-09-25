@@ -796,7 +796,8 @@ last of this batch I think.
 
 ### Day 97 
 
-Nearly to 100 days! Crazy. Soylent for lunch today!
+Nearly to 100 days! Crazy. Sadly, no soylent eating today because I
+just ate chinese food day all day long. oops.
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
