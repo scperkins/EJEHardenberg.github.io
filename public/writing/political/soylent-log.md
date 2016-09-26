@@ -799,6 +799,16 @@ last of this batch I think.
 Nearly to 100 days! Crazy. Sadly, no soylent eating today because I
 just ate chinese food day all day long. oops.
 
+### Day 98 
+
+Soylent for lunch today, but had some take out with a housemate later
+on. 
+
+### Day 99
+
+Soylent for lunch, then had fast food for lunch because a long day left
+me wanting some comfort food.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
