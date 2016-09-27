@@ -814,5 +814,12 @@
 		"date" : "2016-9-12",
 		"keywords" : "Guice,CheckedProvides,CheckedProviders,scala,Dependency Injection",
 		"draft": false
+	},
+	"how-custom-type-form-binders-for-playframework" : {
+		"title" : "How to make custom form binders in play!",
+		"description" : "If you've ever needed to handle a custom type within a form element, look no farther than here!"
+		"date" : "2016-9-27",
+		"keywords" : "Form,PlayBinders'lifting,
+		"draft" : true
 	}
 }
