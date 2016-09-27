@@ -809,6 +809,24 @@ on.
 Soylent for lunch, then had fast food for lunch because a long day left
 me wanting some comfort food.
 
+### Day 100
+
+Woah. A hundred days already? All day of soylent today! Just thinking
+back on when I started this, it's come a ways. v1.5 was ok, but I had to
+buy strawberries to make it drinkable for me most of the time. But v1.6
+is just perfect the way it is. Although, well, I suppose if it had a
+little more salt that might be good. I say that simply because most of
+the time when I get a hankering for something after having just soylent
+for a while it's for salty things. Or steak. Hm. Steak. 
+
+But yeah, I haven't noticed any ill effects from converting most of my
+diet over to soylent. I'm satisfied with my lunch, satisfied wth my
+dinners. And on days where I only have soylent, I really don't get a
+craving for other food unless I happen to see a really good advertising
+or something. If anything, I'd say that the amount of protein I get now
+is more than before, and that combining that with increased exercise has
+been a big help to me. So that's good. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
