@@ -44,11 +44,16 @@ The arguments to the `FormError` are similar to the arguments to defining
 a custom `Constraint` in play, the `forms.invalid.uuid` indicates what
 message from the Message's API will be loaded if it's in scope, and the
 arguments after the hard-coded string correspond to any number of arguments
-that will be interpolated by the messages parameter substitution.
+that will be interpolated by the messages parameter substitution.\*
 
 The `unbind` method, unsurprisingly, does the opposte of the `bind` 
 statement in that we convert from our type to a string so that we can 
-pass the form field to any templates requiring us.
+pass the form field to any templates requiring us. map
+
+\*<small>In a messages file, if you set something like, forms.invalid.uuid={0} is invalid, 
+then you're going to see the first argument given to the FormError where that {0}
+is.
+</small>
 
 	
 
