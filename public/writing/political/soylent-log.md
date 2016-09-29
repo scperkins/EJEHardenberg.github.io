@@ -827,6 +827,14 @@ or something. If anything, I'd say that the amount of protein I get now
 is more than before, and that combining that with increased exercise has
 been a big help to me. So that's good. 
 
+### Day 101 
+
+All day of soylent, though I did have some Cheez-its. Going to do some
+fun trivia tomorrow, so I don't think I'll be having Soylent for dinner.
+
+### Day 102
+
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
