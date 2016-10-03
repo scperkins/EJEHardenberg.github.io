@@ -8,10 +8,9 @@ far as the type goes, map to normal primitives like `String`, `Long`,
 and [DateTime].
 
 There are [Mapping]s, and then there are [Format]s. They perform similar 
-methods within play, and in fact [Formatters] have a self-type of Mapping.
-So what's the difference between the two? From what I can tell, a Formatter
-is what's looked for when one calls `of[T]` when setting the type of a 
-form element. Like so:
+methods within play: binding values to forms and form fields. So what's 
+the difference between the two? A Formatter is what's looked for when 
+one calls `of[T]` when setting the type of a form element. Like so:
 
 	import java.util.UUID
 
@@ -48,15 +47,35 @@ that will be interpolated by the messages parameter substitution.\*
 
 The `unbind` method, unsurprisingly, does the opposte of the `bind` 
 statement in that we convert from our type to a string so that we can 
-pass the form field to any templates requiring us. map
+pass the form field to any templates requiring us to.
 
 \*<small>In a messages file, if you set something like, forms.invalid.uuid={0} is invalid, 
 then you're going to see the first argument given to the FormError where that {0}
 is.
 </small>
 
-	
+A Mapping had a bit more methods than just `bind` and `unbind`, however 
+they're very easily composable, alonging the creation of custom type
+mappings be leveraging existing ones. For example, to create a UUID 
+Mapping:
 
+	def uuid: Mapping[UUID] = {
+		text.transform(UUID.fromString _, _.toString)
+	}
+	
+Though, this isn't as safe as it could be, say if we verified that the 
+`text` was a valid UUID first via a constraint:
+
+	val validUUID = Constraint[String]("forms.invalid.uuid") { str =>
+		Try(UUID.fromString(str)) match {
+			case Success(uuid) => Valid
+			case Failure(e) => Invalid(ValidationError("forms.invalid.uuid", str))
+		}
+	}
+	
+	def uuid: Mapping[UUID] = {
+		text.verifying(validUUID).transform(UUID.fromString _, _.toString)
+	}
 
 
 
