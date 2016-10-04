@@ -851,6 +851,13 @@ finishing it. Guess I'll switch over to more solid food for the day.
 
 Just eating regular food today, tomorrow will be back to Soylent though.
 
+### Day 106
+
+As anticipated, lunch and dinner of soylent today. Thing that I haven't
+done in a while though was go for a little over a mile run. That was
+before dinner, and when I sat down and had some soylent afterward. Hm!
+Hm! It was even better than usual. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
