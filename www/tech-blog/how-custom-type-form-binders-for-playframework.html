@@ -59,12 +59,93 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      
-        <br/>
-        <h3>
-          You've stumbled onto a post that is coming soon! But for now you can't see it. Sorry. 
-        </h3>
-        <p> For now why don't you checkout the other posts?</p>
+      <h3>How to make custom type binders for Play! Forms</h3><p>If you&#39;ve used <a href="https://playframework.com/">play!</a> then you know that it comes with a number of 
+<a href="https://playframework.com/documentation/2.3.x/ScalaForms">form helpers that help define the types of data in a form</a>, such as 
+<code>nonEmptyText</code>, <code>boolean</code>, <code>email</code>, and a number of others. These, as 
+far as the type goes, map to normal primitives like <code>String</code>, <code>Long</code>, 
+<code>Int</code>, and in the case of the <code>date</code> helpers, to <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Date.html">Date</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/sql/Date.html">sql.Date</a>, 
+and <a href="http://joda-time.sourceforge.net/apidocs/org/joda/time/DateTime.html">DateTime</a>.</p>
+<p>There are <a href="https://www.playframework.com/documentation/2.3.x/api/scala/index.html#play.api.data.Mapping">Mapping</a>s, and then there are <a href="https://www.playframework.com/documentation/2.3.x/api/scala/index.html#play.api.data.format.Formats$">Format</a>s. They perform similar 
+methods within play: binding values to forms and form fields. So what&#39;s 
+the difference between the two? A Formatter is what&#39;s looked for when 
+one calls <code>of[T]</code> when setting the type of a form element. Like so:</p>
+<pre><code>import java.util.UUID
+
+val myForm = new Form[(String, UUID)](
+    tuple(
+        &quot;str&quot; -&gt; text,
+        &quot;uuid&quot; -&gt; of[UUID]
+    )
+)
+</code></pre><p><code>of</code> will look for an implicit <a href="https://www.playframework.com/documentation/2.3.x/api/scala/index.html#play.api.data.format.Formats$">Format</a> for the type given to use when 
+trying to bind and unbind the field <code>uuid</code>. This is as simple as looking 
+at the trait documentation for <a href="https://www.playframework.com/documentation/2.3.x/api/scala/index.html#play.api.data.format.Formatter">Formatters</a> and implementing it for the
+type:</p>
+<pre><code>import play.api.data.FormError
+import play.api.data.format.Formatter
+
+implicit val UUIDFormat = new Formatter[UUID] {
+    def bind(key: String, data: Map[String, String]): Either[Seq[FormError], UUID] = {
+        data.get(key).map(UUID.fromString(_)).toRight(Seq(FormError(key, &quot;forms.invalid.uuid&quot;, data.get(key).getOrElse(key))))
+    }
+    def unbind(key: String, value: UUID): Map[String, String] = Map(key -&gt; value.toString)
+}
+</code></pre><p>The <code>bind</code> method is used to transform text data from the submitted form 
+into the required type. The result of the <code>bind</code> method is an Either, 
+with the failed left projection indicating a <code>FormError</code> has occured. 
+The arguments to the <code>FormError</code> are similar to the arguments to defining
+a custom <code>Constraint</code> in play, the <code>forms.invalid.uuid</code> indicates what
+message from the Message&#39;s API will be loaded if it&#39;s in scope, and the
+arguments after the hard-coded string correspond to any number of arguments
+that will be interpolated by the messages parameter substitution.*</p>
+<p>The <code>unbind</code> method, unsurprisingly, does the opposte of the <code>bind</code> 
+statement in that we convert from our type to a string so that we can 
+pass the form field to any templates requiring us to.</p>
+<p>*<small>In a messages file, if you set something like, forms.invalid.uuid={0} is invalid, 
+then you&#39;re going to see the first argument given to the FormError where that {0}
+is.
+</small></p>
+<p>A Mapping had a bit more methods than just <code>bind</code> and <code>unbind</code>, however 
+they&#39;re very easily composable, allowing the creation of custom type
+mappings be leveraging existing ones. For example, to create a UUID 
+Mapping we can leverage the existing <code>text</code> mapping:</p>
+<pre><code>def uuid: Mapping[UUID] = {
+    text.transform(UUID.fromString _, _.toString)
+}
+</code></pre><p>Though, this isn&#39;t as safe as it could be, we could be safer if we verified that 
+the <code>text</code> was a valid UUID first via a constraint:</p>
+<pre><code>val validUUID = Constraint[String](&quot;forms.invalid.uuid&quot;) { str =&gt;
+    Try(UUID.fromString(str)) match {
+        case Success(uuid) =&gt; Valid
+        case Failure(e) =&gt; Invalid(ValidationError(&quot;forms.invalid.uuid&quot;, str))
+    }
+}
+
+def uuid: Mapping[UUID] = {
+    text.verifying(validUUID).transform(UUID.fromString _, _.toString)
+}
+</code></pre><p>Once we have the mapping defined, we can use it in a form like:</p>
+<pre><code>val myForm = new Form[(String, UUID)](
+    tuple(
+        ...,
+        &quot;uuid&quot; -&gt; uuid,
+        ...
+    )
+)
+</code></pre><p>And we&#39;ll get a useful error message if we can&#39;t bind the UUID for any reason.
+All without implicits because we&#39;ve explicitly provided a mapping. From my 
+understanding, this is the main difference between the two. As, calling <code>of</code> 
+will actually result in a <a href="https://github.com/playframework/playframework/blob/2.3.x/framework/src/play/src/main/scala/play/api/data/Forms.scala#L41"><code>FieldMapping</code> being created</a>.</p>
+<p>So, which one should you prefer? Creating a <code>Mapping</code>, or a <code>Formatter</code>? 
+I think that this is a matter of preference and your concern over compilation 
+times. It&#39;s a given that when the compiler has to resolve an implicit type 
+during it&#39;s &quot;proofing&quot; of the code that this will take longer than if it 
+doesn&#39;t. So if you&#39;re working on a very large project, and compilation 
+time is an issue, I&#39;d suggest favoring Mappings rather than using <code>of</code>. 
+I also find defining a Constraint and then using <code>verifying</code> to be more
+understandable, just from a semantic point of view. After all, when I 
+think about binding values to and from a form, I don&#39;t think &quot;format&quot;, I 
+think &quot;mapping&quot;.</p>
       
       <h3>Other Posts</h3>
       <div id="other-posts">

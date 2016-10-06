@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Mon, 12 Sep 2016 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Tue, 27 Sep 2016 04:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>How to make custom form binders in play!</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/how-custom-type-form-binders-for-playframework</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/how-custom-type-form-binders-for-playframework</guid>
+			<pubDate>Tue, 27 Sep 2016 04:00:00 GMT</pubDate>
+			<description>
+				![CDATA[If you've ever needed to handle a custom type within a form element, look no farther than here!]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Guice in Scala: Checked Providers</title>
