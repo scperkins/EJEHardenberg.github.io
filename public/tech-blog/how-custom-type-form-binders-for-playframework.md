@@ -55,7 +55,7 @@ is.
 </small>
 
 A Mapping had a bit more methods than just `bind` and `unbind`, however 
-they're very easily composable, alonging the creation of custom type
+they're very easily composable, allowing the creation of custom type
 mappings be leveraging existing ones. For example, to create a UUID 
 Mapping we can leverage the existing `text` mapping:
 
