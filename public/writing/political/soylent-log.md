@@ -860,7 +860,13 @@ Hm! It was even better than usual.
 
 ### Day 107
 
-Lunch and dinner for soylent today
+Lunch and dinner for soylent today 
+
+### Day 107 
+
+Hm hm hm! Lunch and dinner of soylent today, though I finished off my
+dinner and it was a bit lower than usual so I had some pizza rolls as
+well.
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
