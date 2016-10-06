@@ -57,14 +57,14 @@ is.
 A Mapping had a bit more methods than just `bind` and `unbind`, however 
 they're very easily composable, alonging the creation of custom type
 mappings be leveraging existing ones. For example, to create a UUID 
-Mapping:
+Mapping we can leverage the existing `text` mapping:
 
 	def uuid: Mapping[UUID] = {
 		text.transform(UUID.fromString _, _.toString)
 	}
 	
-Though, this isn't as safe as it could be, say if we verified that the 
-`text` was a valid UUID first via a constraint:
+Though, this isn't as safe as it could be, we could be safer if we verified that 
+the `text` was a valid UUID first via a constraint:
 
 	val validUUID = Constraint[String]("forms.invalid.uuid") { str =>
 		Try(UUID.fromString(str)) match {
@@ -72,11 +72,22 @@ Though, this isn't as safe as it could be, say if we verified that the
 			case Failure(e) => Invalid(ValidationError("forms.invalid.uuid", str))
 		}
 	}
-	
+
 	def uuid: Mapping[UUID] = {
 		text.verifying(validUUID).transform(UUID.fromString _, _.toString)
 	}
 
+Once we have the mapping defined, we can use it in a form like:
+
+	val myForm = new Form[(String, UUID)](
+		tuple(
+			...,
+			"uuid" -> uuid,
+			...
+		)
+	)
+
+And we'll get a useful error message if we can't bind the UUID for any reason.
 
 
 [play!]:https://playframework.com/
