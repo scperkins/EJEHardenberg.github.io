@@ -88,6 +88,20 @@ Once we have the mapping defined, we can use it in a form like:
 	)
 
 And we'll get a useful error message if we can't bind the UUID for any reason.
+All without implicits because we've explicitly provided a mapping. From my 
+understanding, this is the main difference between the two. As, calling `of` 
+will actually result in a [`FieldMapping` being created].
+
+So, which one should you prefer? Creating a `Mapping`, or a `Formatter`? 
+I think that this is a matter of preference and your concern over compilation 
+times. It's a given that when the compiler has to resolve an implicit type 
+during it's "proofing" of the code that this will take longer than if it 
+doesn't. So if you're working on a very large project, and compilation 
+time is an issue, I'd suggest favoring Mappings rather than using `of`. 
+I also find defining a Constraint and then using `verifying` to be more
+understandable, just from a semantic point of view. After all, when I 
+think about binding values to and from a form, I don't think "format", I 
+think "mapping".
 
 
 [play!]:https://playframework.com/
@@ -98,3 +112,4 @@ And we'll get a useful error message if we can't bind the UUID for any reason.
 [Mapping]:https://www.playframework.com/documentation/2.3.x/api/scala/index.html#play.api.data.Mapping
 [Format]:https://www.playframework.com/documentation/2.3.x/api/scala/index.html#play.api.data.format.Formats$
 [Formatters]:https://www.playframework.com/documentation/2.3.x/api/scala/index.html#play.api.data.format.Formatter
+[`FieldMapping` being created]:https://github.com/playframework/playframework/blob/2.3.x/framework/src/play/src/main/scala/play/api/data/Forms.scala#L41

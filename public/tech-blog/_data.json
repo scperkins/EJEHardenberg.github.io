@@ -820,6 +820,6 @@
 		"description" : "If you've ever needed to handle a custom type within a form element, look no farther than here!",
 		"date" : "2016-9-27",
 		"keywords" : "Form,Play,playframework,Binders,lifting,custom types,Formatter",
-		"draft" : true
+		"draft" : false
 	}
 }
