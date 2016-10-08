@@ -870,6 +870,11 @@ well.
 
 ### Day 108 
 
+Soylent for lunch today, but then went out for dinner because I was
+meeting with friends.
+
+### Day 109
+
 Had a starbucks breakfast sandwich for breakfast. Good stuff. Then
 soylent for lunch and dinner. Though I had a cookie later on in the day
 after visiting a friend at work.
