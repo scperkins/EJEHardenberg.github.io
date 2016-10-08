@@ -868,6 +868,12 @@ Hm hm hm! Lunch and dinner of soylent today, though I finished off my
 dinner and it was a bit lower than usual so I had some pizza rolls as
 well.
 
+### Day 108 
+
+Had a starbucks breakfast sandwich for breakfast. Good stuff. Then
+soylent for lunch and dinner. Though I had a cookie later on in the day
+after visiting a friend at work.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
