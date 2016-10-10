@@ -884,6 +884,11 @@ after visiting a friend at work.
 Soylent for breakfast, but then took a really easy day of playing video
 games and indulging in some snack foods for the rest of the day.
 
+### Day 111
+
+Soylent for breakfast/brunch. Then I had some snacks while I watched a
+movie and then I ended up having some more snacks for dinner. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
