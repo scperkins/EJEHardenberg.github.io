@@ -897,6 +897,11 @@ Soylent for lunch, but had fast food for dinner.
 
 Soylent for both lunch and dinner and hm hm hm it was gooooooood
 
+### Day 114
+
+Soylent for lunch but then I ended up going out to a restaurant with a
+friend.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
