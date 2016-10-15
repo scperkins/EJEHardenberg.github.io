@@ -821,5 +821,12 @@
 		"date" : "2016-9-27",
 		"keywords" : "Form,Play,playframework,Binders,lifting,custom types,Formatter",
 		"draft" : false
+	},
+	"slick-columnToOptionColumn-deprecation-warning-fix" : {
+		"title" : "Slick columnToOptionColumn deprecation warning fix",
+		"description" : "Sometimes SBT's ^ isn't enough to figure out what's actually wrong with something until you dive into documentation. This post describes one such case that was non-obvious to me.",
+		"date" : "2016-10-14",
+		"keywords" : "Scala, Slick, columnToOptionColumn, deprecation, warning",
+		"draft" : false
 	}
 }
