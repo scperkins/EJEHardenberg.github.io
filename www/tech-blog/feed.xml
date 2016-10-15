@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Tue, 27 Sep 2016 04:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Fri, 14 Oct 2016 00:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Slick columnToOptionColumn deprecation warning fix</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/slick-columnToOptionColumn-deprecation-warning-fix</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/slick-columnToOptionColumn-deprecation-warning-fix</guid>
+			<pubDate>Fri, 14 Oct 2016 00:00:00 GMT</pubDate>
+			<description>
+				![CDATA[Sometimes SBT's ^ isn't enough to figure out what's actually wrong with something until you dive into documentation. This post describes one such case that was non-obvious to me.]]
+			</description>
+		</item>
 		
 		<item>
 			<title>How to make custom form binders in play!</title>
