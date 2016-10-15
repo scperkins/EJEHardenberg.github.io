@@ -36,7 +36,8 @@ Where the only change is `u => u.unitId.?` instead of `u => u.unitId`.
 While this may seem obvious having just had it explained, if all you have
 to go on is the `^` in the warning from sbt pointing to the _end_ of the 
 statement. It's hard to determine _what_ in that statement was the source
-of the problem that caused an implicit. 
+of the problem that caused an implicit.  So I hope this helps people out
+there who stumble on the same issue.
 
 [Slick]:http://slick.lightbend.com/doc/3.1.1/schemas.html#constraints
 [`foreignKey` method here]:http://slick.lightbend.com/doc/3.1.1/api/index.html#slick.profile.RelationalTableComponent$Table@foreignKey[P,PU,TT<:AbstractTable[_],U](String,P,TableQuery[TT])((TT)⇒P,ForeignKeyAction,ForeignKeyAction)(Shape[_<:FlatShapeLevel,TT,U,_],Shape[_<:FlatShapeLevel,P,PU,_]):ForeignKeyQuery[TT,U]
