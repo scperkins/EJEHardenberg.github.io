@@ -906,6 +906,20 @@ friend.
 
 Soylent for lunch, but then played trivia and had dinner out.
 
+### Day 116
+
+Soylent for lunch and then went out to a new pizza place my friends
+wanted to try.
+
+### Day 117 
+
+Ate pizza rolls today because it was my lazy day off and I figure'd I'd
+just eat healthy the next day. 
+
+### Day 118 
+
+Unexpected brunch outing today, but had soylent for the rest of the day.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
