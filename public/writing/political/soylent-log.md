@@ -918,7 +918,8 @@ just eat healthy the next day.
 
 ### Day 118 
 
-Unexpected brunch outing today, but had soylent for the rest of the day.
+Unexpected brunch outing today, but had soylent for the rest of the day,
+except for when I had ramen for dinner.
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
