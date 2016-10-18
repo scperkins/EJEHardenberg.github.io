@@ -921,6 +921,12 @@ just eat healthy the next day.
 Unexpected brunch outing today, but had soylent for the rest of the day,
 except for when I had ramen for dinner.
 
+### Day 119 
+
+Soylent for lunch and then had soylent for dinner, though I also had
+some snacks that I bought as well. 
+
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
