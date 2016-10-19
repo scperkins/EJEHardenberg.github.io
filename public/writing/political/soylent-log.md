@@ -926,6 +926,11 @@ except for when I had ramen for dinner.
 Soylent for lunch and then had soylent for dinner, though I also had
 some snacks that I bought as well. 
 
+### Day 120 
+
+Had lunch provided for today, and then noticed that my soylent batch had
+gone a bit off so I threw it out and didn't end up having it for dinner
+since I like to make my batches in the morning so they last longer. 
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
