@@ -932,6 +932,12 @@ Had lunch provided for today, and then noticed that my soylent batch had
 gone a bit off so I threw it out and didn't end up having it for dinner
 since I like to make my batches in the morning so they last longer. 
 
+### Day 121
+
+Ended up not making a batch of soylent because I had an appointment in
+the morning and then ate some regular food for lunch and went out for
+food with friends for dinner. New batch tomorrow though for sure.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
