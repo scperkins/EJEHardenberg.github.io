@@ -943,6 +943,11 @@ food with friends for dinner. New batch tomorrow though for sure.
 Made a new batch of soylent and had some for lunch. Was a night out with
 friends though for dinner so regular food then.
 
+### Day 123 
+
+Today was soylent for lunch and for dinner. Some snacks while I watched
+a show though after dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
