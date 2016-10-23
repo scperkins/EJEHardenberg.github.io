@@ -948,6 +948,13 @@ friends though for dinner so regular food then.
 Today was soylent for lunch and for dinner. Some snacks while I watched
 a show though after dinner.
 
+### Day 124
+
+A little bit of soylent for breakfast today. But I needed to get a ride
+from a friend to go to the store, so I offered him lunch in exchange,
+and ended up having normal food for lunch. Soylent was for dinner
+though.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
