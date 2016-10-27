@@ -960,6 +960,24 @@ though.
 Had soylent for dinner, but had regular food and some snacks during the
 day. Was a sit around and do nothing but watch things kind of day.
 
+### Day 126
+
+Didn't have time to make a batch of soylent in the morning so I ended up
+just having regular food for lunch then fast food for dinner. 
+
+### Day 127 
+
+Soylent for lunch but then was late getting home and had plans, so I
+ended up not eating dinner until late and got dinner with my friend I
+was hanging out with. 
+
+### Day 128
+
+Soylent for lunch, and then thought about having it for dinner, but it
+was a rough day so I ended up going out. Man, I am doing terrible at
+having soylent for dinner this week! And tomorrow is my weekly outing
+with friends so that won't be soylent either! Ah!
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
