@@ -978,6 +978,11 @@ was a rough day so I ended up going out. Man, I am doing terrible at
 having soylent for dinner this week! And tomorrow is my weekly outing
 with friends so that won't be soylent either! Ah!
 
+### Day 129
+
+Went as expected today, soylent for lunch, out with friends for dinner.
+We'll try to be better tomorrow and ont go out, yeesh.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
