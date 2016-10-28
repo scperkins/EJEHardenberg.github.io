@@ -114,7 +114,7 @@ Mapping we can leverage the existing <code>text</code> mapping:</p>
 }
 </code></pre><p>Though, this isn&#39;t as safe as it could be, we could be safer if we verified that 
 the <code>text</code> was a valid UUID first via a constraint:</p>
-<pre><code>val validUUID = Constraint[String](&quot;forms.invalid.uuid&quot;) { str =&gt;
+<pre><code>val validUUID = Constraint[String](&quot;forms.constraint.uuid&quot;) { str =&gt;
     Try(UUID.fromString(str)) match {
         case Success(uuid) =&gt; Valid
         case Failure(e) =&gt; Invalid(ValidationError(&quot;forms.invalid.uuid&quot;, str))
