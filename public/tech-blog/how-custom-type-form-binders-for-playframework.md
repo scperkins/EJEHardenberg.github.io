@@ -66,7 +66,7 @@ Mapping we can leverage the existing `text` mapping:
 Though, this isn't as safe as it could be, we could be safer if we verified that 
 the `text` was a valid UUID first via a constraint:
 
-	val validUUID = Constraint[String]("forms.invalid.uuid") { str =>
+	val validUUID = Constraint[String]("forms.constraint.uuid") { str =>
 		Try(UUID.fromString(str)) match {
 			case Success(uuid) => Valid
 			case Failure(e) => Invalid(ValidationError("forms.invalid.uuid", str))
