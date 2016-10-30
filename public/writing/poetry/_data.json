@@ -1,4 +1,9 @@
 {
+	"clean" : {
+		"title" : "Clean",
+		"date" : "2016-10-30",
+		"freq" : "monthly"
+	},
 	"dream" : {
 		"title" : "Dream",
 		"date" : "2016-10-29",
