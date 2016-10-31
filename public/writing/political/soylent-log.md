@@ -995,6 +995,11 @@ for it.
 Party planning and throwing today, so was out pretty much all day so I
 didn't make any new soylent and just had normal food.
 
+### Day 132
+
+Spent the day with family for the most part, and then was eating some 
+leftovers from the party. So no soylent today. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
