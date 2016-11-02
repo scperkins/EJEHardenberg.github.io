@@ -1005,6 +1005,12 @@ leftovers from the party. So no soylent today.
 Hadn't made a batch of soylent before going to work, so I just used some
 leftover pizza as lunch and dinner. Tomorrow will be soylent though.
 
+### Day 134 
+
+Made a new batch of soylent, both dinner and lunch were tasty tasty
+soylent. Though I did have some nacho's after dinner while watching a
+show.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
