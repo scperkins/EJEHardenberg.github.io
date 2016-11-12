@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Fri, 14 Oct 2016 00:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Fri, 11 Nov 2016 00:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>ElasticSearch: Matching a Regular expression for an entire field</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/elastic-search-regular-expressions-against-whole-string</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/elastic-search-regular-expressions-against-whole-string</guid>
+			<pubDate>Fri, 11 Nov 2016 00:00:00 GMT</pubDate>
+			<description>
+				![CDATA[If you wanted to use elastic searche's match queries but when doing regular expression queries anchor the search against only the beginning of the field value, look no further.]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Slick columnToOptionColumn deprecation warning fix</title>
