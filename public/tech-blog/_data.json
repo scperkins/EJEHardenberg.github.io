@@ -828,5 +828,11 @@
 		"date" : "2016-10-14",
 		"keywords" : "Scala, Slick, columnToOptionColumn, deprecation, warning",
 		"draft" : false
+	},
+	"elastic-search-regular-expressions-against-whole-string" : {
+		"title" : "ElasticSearch: Matching a Regular expression for an entire field",
+		"description" : "If you wanted to use elastic searche's match queries but when doing regular expression queries anchor the search against only the beginning of the field value, look no further.",
+		"date" : "2016-11-11",
+		"keywords" : "ElasticSearch, Regular Expressions, regexp, copy_to, search, whole string, full string"
 	}
 }
