@@ -1047,6 +1047,19 @@ Had soylent for lunch and then leftovers for dinner.
 Soylent for lunch, leftovers for dinner. I may have bought too much
 pizza the other night...
 
+### Day 142 
+
+Last day of soylent for lunch and dinner for pizza. I'm not complaining,
+I love both of these things. 
+
+### Day 143 
+
+Haven't made a new batch of soylent yet because the powder is
+back-ordered for a long time because of some issues involving people
+having a food intolerance to it. So I'm conserving what I have for the
+work week since it is the most useful for bringing lunch to work.
+Needless to say, no soylent today.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
