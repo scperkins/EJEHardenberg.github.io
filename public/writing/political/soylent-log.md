@@ -1060,6 +1060,12 @@ having a food intolerance to it. So I'm conserving what I have for the
 work week since it is the most useful for bringing lunch to work.
 Needless to say, no soylent today.
 
+### Day 144 
+
+No soylent today on account of it being the weekend and I'm conserving
+until I get my refill order in. I suppose on the bright side I'll get to
+try the liquid form of Soylent at a discounted price.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
