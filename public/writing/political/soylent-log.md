@@ -1066,6 +1066,10 @@ No soylent today on account of it being the weekend and I'm conserving
 until I get my refill order in. I suppose on the bright side I'll get to
 try the liquid form of Soylent at a discounted price.
 
+### Day 145
+
+Soylent for lunch and then had some fast food for dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
