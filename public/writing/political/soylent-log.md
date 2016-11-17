@@ -1070,6 +1070,10 @@ try the liquid form of Soylent at a discounted price.
 
 Soylent for lunch and then had some fast food for dinner.
 
+### Day 146 
+
+Soylent for lunch, and then had some leftovers for dinner. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
