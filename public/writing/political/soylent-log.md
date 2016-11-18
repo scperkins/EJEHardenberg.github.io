@@ -1078,6 +1078,13 @@ Soylent for lunch, and then had some leftovers for dinner.
 
 Soylent for lunch, but went out for food with a friend for dinner.
 
+### Day 148 
+
+Lunch provided by work today, and then had my usual weekly trivia
+session so that was food out at dinner as well. I did get my box of
+liquid soylent though, so I should be diving into that and making a note
+of the differences tomorrow or the next day.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
