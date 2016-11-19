@@ -1085,6 +1085,19 @@ session so that was food out at dinner as well. I did get my box of
 liquid soylent though, so I should be diving into that and making a note
 of the differences tomorrow or the next day.
 
+### Day 149 
+
+Lunch from work again today, but then I did have my first bottle of
+liquid soylent for dinner. Man. It's _different_ than 1.6 by a lot. I'm
+not sure if I like it as much though. It's very smooth, no grit or
+anything like that. It's the consistency of melted ice cream, and tastes
+sorta kinda like that too. Though not really, it's really hard to peg
+down the taste. I finally figure'd that v1.6 tastes like the milk after
+you've eaten a bowl of cheerios with it, and 2.0 (liquid) tastes kinda
+similar but at the same time... more like cardboard I guess? Or maybe
+the smell is wet cardboard? I'm going to have some more tomorrow and
+I'll try to figure out what it tastes like then.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
