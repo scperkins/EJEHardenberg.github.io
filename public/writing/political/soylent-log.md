@@ -1098,6 +1098,26 @@ similar but at the same time... more like cardboard I guess? Or maybe
 the smell is wet cardboard? I'm going to have some more tomorrow and
 I'll try to figure out what it tastes like then.
 
+### Day 150 
+
+Liquid Soylent for breakfast/brunch. Went out and saw Arrival last night
+so I had some chinese food before hand for dinner. Anyway, back to
+breakfast. I'm still mulling over the flavor. It's SO much richer. Like,
+I normally drink my soylent pretty slowly, over the coarse of maybe
+20-60 minutes most days (I work while I eat). This morning I was
+definitely near the top of that range, I didn't keep specific track of
+time, but it took me a long time to finish and all I was doing was
+reading a book. 
+
+Definitely easier to drink than yesterday, I'm still getting used to the
+flavor though. It's more... it's more cardboard-y than the powder
+version, but at the same time it's way more creamy and reminds me of
+ice-cream / wet paper. I don't know if that duel taste can make much
+sense to anyone who hasn't tasted this before though. Like I said
+before, powder is like cheerio milk, but liquid is like... well, it's so
+exceptionally bland and non-tasting that I'm wondering if my mouth is
+just making things up at this point.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
