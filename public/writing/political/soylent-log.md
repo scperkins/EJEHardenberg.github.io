@@ -1124,6 +1124,10 @@ Met a friend for lunch today so I only had soylent for a sort of mid-day
 half lunch half dinner thing. Tomorrow I'll probably do a full day of
 liquid unless I get irritated and require comfort food.
 
+### Day 152 
+
+Soylent for lunch and fast food for dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
