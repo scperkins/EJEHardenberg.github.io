@@ -1128,6 +1128,10 @@ liquid unless I get irritated and require comfort food.
 
 Soylent for lunch and fast food for dinner.
 
+### Day 153 
+
+Soylent for lunch and for dinner. Hm hm good
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
