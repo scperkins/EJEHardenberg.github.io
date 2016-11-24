@@ -1132,6 +1132,14 @@ Soylent for lunch and fast food for dinner.
 
 Soylent for lunch and for dinner. Hm hm good
 
+### Day 154
+
+Soylent for lunch, was going to have it for dinner but then I was
+supposed to go play trivia with people so I had a quick hot pocket
+instead, but then because the trivia place was so full we didn't end up
+actually playing and whatnot, so I came home and wasn't hungry enough
+for a full meal of soylent, so I just had another hot pocket.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
