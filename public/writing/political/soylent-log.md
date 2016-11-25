@@ -1140,6 +1140,12 @@ instead, but then because the trivia place was so full we didn't end up
 actually playing and whatnot, so I came home and wasn't hungry enough
 for a full meal of soylent, so I just had another hot pocket.
 
+### Day 155
+
+Thanksgiving! No soylent today because I was cooking up a tasty meal
+instead. Tomorrow and the next day I might be eating leftovers,
+probably.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
