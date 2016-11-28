@@ -1157,6 +1157,10 @@ with them so no soylent again. Tomorrow my friends are leaving though,
 so I'll be back to drinking soylent then and probably be finishing off
 what leftovers I have then as well.
 
+### Day 158
+
+Soylent for breakfast, then finish off the leftovers I had.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
