@@ -1168,6 +1168,11 @@ so not quite a full day of soylent sadly. Pretty close though. I am
 enjoying the convenience of not having to mix and shake my drink I
 suppose. But I think I do prefer the taste of v1.6 to v2.0
 
+### Day 160 
+
+Soylent for lunch and dinner today, with no bagels in the morning. So it
+was a full day of liquid soylent! 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
