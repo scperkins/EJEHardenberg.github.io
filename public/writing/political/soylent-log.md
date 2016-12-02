@@ -1173,6 +1173,10 @@ suppose. But I think I do prefer the taste of v1.6 to v2.0
 Soylent for lunch and dinner today, with no bagels in the morning. So it
 was a full day of liquid soylent! 
 
+### Day 161 
+
+Soylent for lunch, but then had some olive garden for dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
