@@ -834,5 +834,11 @@
 		"description" : "If you wanted to use elastic searche's match queries but when doing regular expression queries anchor the search against only the beginning of the field value, look no further.",
 		"date" : "2016-11-11",
 		"keywords" : "ElasticSearch, Regular Expressions, regexp, copy_to, search, whole string, full string"
+	},
+	"supporting-enums-in-anorm-rowparsers" : {
+		"title" : "Custom Types & Enums in Anorm's RowParser definitions",
+		"description" : "How to use an Enum as a type parameter for anorm's column is simple once you see how they do it for UUID. This post explains how to define your own Column type so that you can use any type when defining your RowParser's for anorm.",
+		"date" : "2016-12-02",
+		"keywords" : "Anorm, scala, RowParser, Enumeration, Enum, custom, play"
 	}
 }
