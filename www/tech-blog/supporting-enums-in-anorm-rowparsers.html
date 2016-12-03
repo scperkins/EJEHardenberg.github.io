@@ -1,0 +1,247 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Ethan's Tech Blog | Custom Types &amp; Enums in Anorm&#39;s RowParser definitions</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="How to use an Enum as a type parameter for anorm&#39;s column is simple once you see how they do it for UUID. This post explains how to define your own Column type so that you can use any type when defining your RowParser&#39;s for anorm." />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="Anorm, scala, RowParser, Enumeration, Enum, custom, play"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Custom Types &amp; Enums in Anorm&#39;s RowParser definitions" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="How to use an Enum as a type parameter for anorm&#39;s column is simple once you see how they do it for UUID. This post explains how to define your own Column type so that you can use any type when defining your RowParser&#39;s for anorm." />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Custom Types &amp; Enums in Anorm&#39;s RowParser definitions" />
+    
+    <meta name="twitter:description" content="How to use an Enum as a type parameter for anorm&#39;s column is simple once you see how they do it for UUID. This post explains how to define your own Column type so that you can use any type when defining your RowParser&#39;s for anorm." />
+    
+    <meta name="twitter:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Custom Types &amp; Enums in Anorm&#39;s RowParser definitions</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>How to use enumerations in Anorm&#39;s RowParser</h3><p>Today I was writing up a bit of code involving <a href="https://www.playframework.com/documentation/2.3.x/ScalaAnorm">anorm</a>, and needed to 
+add in an Enum type. So I looked around at the <a href="https://www.playframework.com/documentation/2.3.x/api/scala/index.html#anorm.package">scaladoc</a> a little bit 
+and found that the <code>get</code> method of the <a href="https://www.playframework.com/documentation/2.3.x/api/scala/index.html#anorm.SqlParser$">SqlParser object</a> takes an 
+implicit <code>extractor</code> of type <code>Column[T]</code>. So I went ahead and looked at
+the documentation for <a href="https://www.playframework.com/documentation/2.3.x/api/scala/index.html#anorm.Column">Column</a>. I didn&#39;t find much hints to creating your 
+own in the trait itself, but in the <a href="https://www.playframework.com/documentation/2.3.x/api/scala/index.html#anorm.Column$">companion object</a> I did find all the 
+pre-defined extractors of anorm itself. One in particular caught my eye,<br>the <code>columnToUUID</code> value of the object. </p>
+<p>Since UUID is an Enum, I figure&#39;d I could easily lift and modify the code 
+for that to do what I needed for my other types. The <a href="https://github.com/playframework/playframework/blob/2.3.x/framework/src/anorm/src/main/scala/anorm/Column.scala#L179">source</a> for the it 
+looks like this:</p>
+<pre><code>implicit val columnToUUID: Column[UUID] = nonNull { (value, meta) =&gt;
+    val MetaDataItem(qualified, nullable, clazz) = meta
+    value match {
+      case d: UUID =&gt; Right(d)
+      case s: String =&gt; Try { UUID.fromString(s) } match {
+        case TrySuccess(v) =&gt; Right(v)
+        case Failure(ex) =&gt; Left(TypeDoesNotMatch(s&quot;Cannot convert $value: ${value.asInstanceOf[AnyRef].getClass} to UUID for column $qualified&quot;))
+      }
+      case _ =&gt; Left(TypeDoesNotMatch(s&quot;Cannot convert $value: ${value.asInstanceOf[AnyRef].getClass} to UUID for column $qualified&quot;))
+    }
+  }
+</code></pre><p>Which is <em>fairly</em> easy to understand. <code>nonNull</code> is a helper defined in 
+the <code>Column</code>&#39;s companion object which handles throwing an error if the 
+field is <code>null</code> when you didn&#39;t expect it to be, otherwise it executes 
+the partial function you&#39;re providing it. This function simply takes 
+<code>Any</code> and <a href="https://www.playframework.com/documentation/2.3.x/api/scala/index.html#anorm.MetaDataItem">MetaDataItem</a>. The <code>MetaDataItem</code> provides information about 
+the column up for conversion and allows you to provide an error message
+that&#39;s useful later on.</p>
+<p>Looking at the code, it&#39;s pretty similar to what you might expect. 
+Internally anorm uses <code>Left</code> and <code>Right</code> for parsing as well as scala&#39;s 
+<code>util.Success</code> and <code>util.Failure</code> (Note here that <code>TrySuccess</code> is a type 
+alias for <code>util.Success</code> because anorm <a href="https://www.playframework.com/documentation/2.3.x/api/scala/index.html#anorm.Success">has it&#39;s own success class</a>). The 
+only thing you really need to change here is the type parameter to <code>Column</code>
+and how you convert a <code>String</code> into it. Scala Enumeration&#39;s come with a 
+<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Enumeration@withName(s:String):Enumeration.this.Value">withName</a> method that you can use where <code>UUID.fromString</code> is called. </p>
+<p>So if you had an enumeration in scala defined like so:</p>
+<pre><code>object MyEnum extends Enumeration {
+    type MyAlias = Value
+    val foo = Value(&quot;foo&quot;)
+    val bar = Value(&quot;bar&quot;)
+}
+</code></pre><p>Then a parser for it would look like this:</p>
+<pre><code>implicit val columnToMyEnum: Column[MyEnum.MyAlias] = nonNull { (value, meta) =&gt;
+    val MetaDataItem(qualified, nullable, clazz) = meta
+    value match {
+      case d: MyEnum.MyAlias =&gt; Right(d)
+      case s: String =&gt; Try { MyEnum.withName(s) } match {
+        case TrySuccess(v) =&gt; Right(v)
+        case Failure(ex) =&gt; Left(TypeDoesNotMatch(s&quot;Cannot convert $value: ${value.asInstanceOf[AnyRef].getClass} to MyEnum.MyAlias for column $qualified&quot;))
+      }
+      case _ =&gt; Left(TypeDoesNotMatch(s&quot;Cannot convert $value: ${value.asInstanceOf[AnyRef].getClass} to MyEnum.MyAlias for column $qualified&quot;))
+    }
+  }
+</code></pre><p>Which is pretty straightforward to use in a <code>RowParser</code> by calling <code>get</code> 
+with your enumeration&#39;s type and having the custom Column in scope. This 
+will implicitly call your defined val:</p>
+<pre><code>implicit val columnToMyEnum = ...
+...
+val myRowParser = RowParser[Thing] {
+  ...
+  get[MyEnum.MyAlias](&quot;mycolumnname&quot;) ~ 
+  ...
+}
+</code></pre><p>And you&#39;re off to the races. Now, since the code is so similar, it begs 
+the question: Can we make defining arbitrary Column&#39;s for subtypes of 
+Enumeration take less boilerplate? The answer is yes:</p>
+<pre><code>object EnumColumn {
+  def for[E &lt;: Enumeration](enum: E): Column[E#Value] = {
+    Column.nonNull { (value, meta) =&gt;
+      val MetaDataItem(qualified, nullable, clazz) = meta
+      value match {
+        case d: E#Value =&gt; Right(d)
+        case s: String =&gt; Try { enum.withName(s) } match {
+          case scala.util.Success(v) =&gt; Right(v)
+          case Failure(ex) =&gt; Left(TypeDoesNotMatch(
+            s&quot;Cannot convert $value: ${value.asInstanceOf[AnyRef].getClass} to ${enum.getClass} for column $qualified&quot;
+          ))
+        }
+        case _ =&gt; Left(TypeDoesNotMatch(s&quot;Cannot convert $value: ${value.asInstanceOf[AnyRef].getClass} to ${enum.getClass} for column $qualified&quot;))
+      }
+    }
+  }
+}
+</code></pre><p>To use this, we need to pass the object extending Enumeration to our <code>for</code>
+method, like so:</p>
+<pre><code>implicit val enumColumnExtractor = EnumColumn.for(MyEnum)
+</code></pre><p>We&#39;ve now reduced a lot of boilerplates and we just have to pass our 
+object to our helper method and we&#39;re good to go. Sadly, because the 
+enumeration types are nested values we&#39;re not going to get much nicer 
+than this, because nested types can&#39;t be made without a reference to 
+their parent class, or in this case, object. Still, reducing having to 
+write the amount of code for each Enumeration is valuable.</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=elastic-search-regular-expressions-against-whole-string>ElasticSearch: Matching a Regular expression for an entire field</a></li><li><a href=slick-columnToOptionColumn-deprecation-warning-fix>Slick columnToOptionColumn deprecation warning fix</a></li><li><a href=how-custom-type-form-binders-for-playframework>How to make custom form binders in play!</a></li><li><a href=guice-scala-checked-providers>Guice in Scala: Checked Providers</a></li><li><a href=mysql-date-automatic-conversion-utc-problems>MySQL &amp; JDBC timezone gotcha&#39;s</a></li><li><a href=extract-string-before-other-mysql>Getting a String before another in MySQL</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<span>Github</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
+</html>
+  	
