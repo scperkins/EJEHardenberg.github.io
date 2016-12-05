@@ -840,5 +840,11 @@
 		"description" : "How to use an Enum as a type parameter for anorm's column is simple once you see how they do it for UUID. This post explains how to define your own Column type so that you can use any type when defining your RowParser's for anorm.",
 		"date" : "2016-12-02",
 		"keywords" : "Anorm, scala, RowParser, Enumeration, Enum, custom, play"
+	},
+	"easy-custom-class-enum-route-binding-in-play" : {
+		"title" : "Binding classes and enumerations in Play! routes and query parameters",
+		"description" : "Curious how to use an Enum in your path or query parameters? How about binding a class from those? This post shows how and provides a factory for easily creating bindings for Enumerations",
+		"date" : "2016-12-05",
+		"keywords" : "Play!, Enumeration, Enum, Route, Query, Binders, QueryStringBindable, PathBindable, Parsing, Examples"
 	}
 }
