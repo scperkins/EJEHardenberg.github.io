@@ -1,0 +1,340 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Ethan's Tech Blog | Binding classes and enumerations in Play! routes and query parameters</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Curious how to use an Enum in your path or query parameters? How about binding a class from those? This post shows how and provides a factory for easily creating bindings for Enumerations" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="Play!, Enumeration, Enum, Route, Query, Binders, QueryStringBindable, PathBindable, Parsing, Examples"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Binding classes and enumerations in Play! routes and query parameters" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Curious how to use an Enum in your path or query parameters? How about binding a class from those? This post shows how and provides a factory for easily creating bindings for Enumerations" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Binding classes and enumerations in Play! routes and query parameters" />
+    
+    <meta name="twitter:description" content="Curious how to use an Enum in your path or query parameters? How about binding a class from those? This post shows how and provides a factory for easily creating bindings for Enumerations" />
+    
+    <meta name="twitter:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Binding classes and enumerations in Play! routes and query parameters</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Easy Custom class/enum Route &amp; Query binding in Play! Framework</h3><h4>TL;DR;</h4><p>Both PathBindable and QueryStringBindable have an inner class called 
+<code>Parsing</code> which can be used to quickly define a binding as you see fit.
+Use this to write your methods without having to define a <code>*Bindable</code> 
+with two overridden methods yourself. </p>
+<p>From what I can tell you can&#39;t bind a class from a route parameter 
+unless it&#39;s possible to create your class from a single parameter. This 
+is because path binders only have 1 value available for the binder at a
+time.</p>
+<h4>Quick Examples</h4><p><em>Note: See the details section below for some important caveats about these examples</em></p>
+<p>Bind a class in the route:</p>
+<pre><code>case class TestObject(a: String, b: Int)
+
+object TestObject {
+    /** Define String =&gt; T, T =&gt; String, (String, Exception) =&gt; String 
+     *  to handle binding, unbinding, and exception handling
+     */
+    implicit object testObjectRouteBinder extends PathBindable.Parsing[TestObject](
+        TestObject(_, 0/*&lt;-- this is set by you because the route cant do both a &amp; b*/), 
+        _.a, 
+        (key: String, e: Exception) =&gt; &quot;Cannot parse %s as TestObject: %s&quot;.format(key, e.getMessage())
+    )
+}
+
+class TestController() extends Controller {
+    def testClass(param: TestObject) = Action {
+        Ok(param.toString)
+    }
+}
+
+// In route file:
+GET /test/class/:name @controller.TestController.testClass(name: controller.TestObject)
+</code></pre><p>Bind an Enumeration in the route:</p>
+<pre><code>object MyEnum extends Enumeration {
+    type MyAlias = Value
+    val foo = Value(&quot;foo&quot;)
+    val bar = Value(&quot;bar&quot;)
+
+    implicit object myEnumBinder extends PathBindable.Parsing[MyAlias](
+        withName(_), _.toString, (k: String, e: Exception) =&gt; &quot;Cannot parse %s as MyEnum: %s&quot;.format(k, e.getMessage())
+    )
+}
+
+class TestController() extends Controller {
+    def testEnum(enum: MyEnum.MyAlias) = Action {
+        Ok(enum.toString)
+    }
+}
+
+// In route file:
+GET /test/enum/:value @controller.TestController.testEnum(value: controller.MyEnum.MyAlias)
+</code></pre><p>Bind a class or enumeration from query parameters can be done in the 
+same way as path binding but instead of <code>PathBindable.Parsing</code> you use 
+<code>QueryStringBindable.Parsing</code>. However, if you need to use more than one 
+value when setting up the binding, you&#39;ll need to do a little more work 
+by overriding the <code>bind</code> and <code>unbind</code> methods like the <a href="https://www.playframework.com/documentation/2.3.x/api/scala/index.html#play.api.mvc.QueryStringBindable">documentation shows in the scaladoc</a>.
+Note that if your case class has a string value, bring the implicit 
+string binder from play into scope like so:</p>
+<pre><code>implicit def queryStringBinder(
+    implicit intBinder: QueryStringBindable[Int], 
+    stringBinder: QueryStringBindable[String]
+) = new QueryStringBindable[TestObject] {
+    override def bind(key: String, params: Map[String, Seq[String]]): Option[Either[String, TestObject]] = {
+        for {
+            a &lt;- stringBinder.bind(key + &quot;.a&quot;, params)
+            b &lt;- intBinder.bind(key + &quot;.b&quot;, params)
+        } yield {
+            (a, b) match {
+                case (Right(a), Right(b)) =&gt; Right(TestObject(a, b))
+                case _ =&gt; Left(&quot;Unable to bind a TestObject&quot;)
+            }
+        }
+    }
+    override def unbind(key: String, pager: TestObject): String = {
+        stringBinder.unbind(key + &quot;.a&quot;, pager.a) + &quot;&amp;&quot; + intBinder.unbind(key + &quot;.b&quot;, pager.b)
+    }
+}
+</code></pre><p>you&#39;ll want to use the <code>stringBinder</code> here in the <code>unbind</code> method to 
+properly escape the value. You don&#39;t want to generate an invalid query 
+string!</p>
+<p>There&#39;s no rule that says you need to use the key + <code>.field</code> when binding 
+parameters. For example, if you knew that some class would <em>always</em> be 
+bound with the same query parameter names you could hard code them and 
+drop the <code>.</code> convention. The above binder would be used say if you had a 
+route like</p>
+<pre><code>GET /test/q/class @controller.TestController.testClass(thing: controller.TestObject)
+</code></pre><p>And would be called correctly with a request like </p>
+<pre><code>/test/q/class?thing.a=Test%20Thing&amp;thing.b=3
+</code></pre><p>Take note that the the <code>key</code> being bound here is pulled from <code>thing</code> defined 
+as the argument name in the routes file.</p>
+<h4>Useful note about the above path examples</h4><p>Because under our path binders convert to <code>String</code> and back, the default 
+binder that play&#39;s framework defines is called on our values. That means 
+that we don&#39;t have to worry about encoding or decoding the values from 
+the URL&#39;s path ourselves.</p>
+<h4>A slightly more realistic example</h4><p>So you&#39;re writing a controller in play, and you decide that for some 
+parameter of your query, say a sorting or ordering parameter, you want 
+to use an Enumeration like this:</p>
+<pre><code>object RequestedOrder extends Enumeration {
+    type Order = Value
+
+    val ascending = Value(&quot;ASC&quot;)
+    val descending = Value(&quot;DSC&quot;)
+}
+</code></pre><p>And to go along with this you have a number of different field&#39;s you&#39;ll 
+be sorting by, which you&#39;ve also enumerated:</p>
+<pre><code>object SortingBy extends Enumeration {
+    type Field = Value
+
+    val id = Value(&quot;id&quot;)
+    val someField = Value(&quot;someField&quot;)
+    // etc ...
+}
+</code></pre><p>Your system has more than one data type though, and each has slightly 
+different fields, so you define a few more enumerations (maybe you&#39;d 
+define them all in one enumeration, but for the sake of this example 
+let&#39;s roll with this)</p>
+<pre><code>object DataType1SortableFields extends Enumeration {
+    type Field = Value
+    val id = Value(&quot;id&quot;)
+    val someOtherField = Value(&quot;someOtherField&quot;)
+    val anotherField = Value(&quot;anotherField&quot;)
+}
+</code></pre><p>This goes on for a while, and then you decide that because you&#39;re a good 
+person (or because you&#39;re getting tired of writing error handling code 
+in the controller for transforming raw <code>String</code>s to your <code>Enumeration</code> 
+types) you&#39;ll use the enumeration type in your routes/controller 
+signatures. This is all well and dandy so you then define query/route 
+binders for each of your enumerations:</p>
+<pre><code>implicit object testObjectRouteBinder extends PathBindable.Parsing[RequestedOrder](
+    RequestedOrder.withName(_), _.String, (k: String, e: Exception) =&gt; &quot;Cannot parse %s as RequestedOrder: %s&quot;.format(k, e.getMessage())
+)
+implicit object testObjectQueryBinder extends QueryStringBindable.Parsing[RequestedOrder](
+    RequestedOrder.withName(_), _.String, (k: String, e: Exception) =&gt; &quot;Cannot parse %s as RequestedOrder: %s&quot;.format(k, e.getMessage())
+)
+... repeat for SortingBy and DataType1SortableFields
+</code></pre><p>Seems like we&#39;ve still got a lot of boiler plate doesn&#39;t it? For each of 
+our Enumeration&#39;s we need to define a parser for both the path and the 
+query, and for each of these we need to pass in 3 functions for each 
+with only minor variations to each. Luckily, we can write a factory method 
+to make this a little less tedius:</p>
+<pre><code>object EnumPathAndRouteBinder {
+    def binders[E &lt;: Enumeration](enum: E): (PathBindable[E#Value], QueryStringBindable[E#Value]) = {
+        /** Because I don&#39;t want to repeat a list of arguments */
+        val args: (String =&gt; E#Value, E#Value =&gt; String, (String, Exception) =&gt; String) = (
+            enum.withName(_),
+            (e: E#Value) =&gt; e.toString,
+            (k: String, e: Exception) =&gt; &quot;Cannot parse %s as %s: %s&quot;.format(k, enum.getClass.getName(), e.getMessage())
+        )
+        ((new PathBindable.Parsing[E#Value](_, _, _)).tupled(args), (new QueryStringBindable.Parsing[E#Value](_, _, _)).tupled(args))
+    }
+}
+</code></pre><p>And then call it like so outside of the enum objects:</p>
+<pre><code>// you&#39;d probably give these better names in production code
+implicit val (pathBinders1, queryBinders1) = EnumPathAndRouteBinder.binders(RequestedOrder)
+implicit val (pathBinders2, queryBinders2) = EnumPathAndRouteBinder.binders(SortingBy)
+implicit val (pathBinders3, queryBinders3) = EnumPathAndRouteBinder.binders(DataType1SortableFields)
+</code></pre><p>Or you can call it <em>within</em> the objects extending Enumeration and then just pass 
+<code>this</code> to it:</p>
+<pre><code>object DataType1SortableFields extends Enumeration {
+    type Field = Value
+    val id = Value(&quot;id&quot;)
+    val someOtherField = Value(&quot;someOtherField&quot;)
+    val anotherField = Value(&quot;anotherField&quot;)
+
+    implicit val (pathBinders, queryBinders) = EnumPathAndRouteBinder.binders(this)
+}
+</code></pre><p>Let me explain the enum binder factory a little bit: As you&#39;re probably aware 
+if you <a href="/tech-blog/supporting-enums-in-anorm-rowparsers">read my last post</a>, nested types can&#39;t be made without a reference to 
+their parent class or object. So that&#39;s why we have to pass in the object 
+extending <code>Enumeration</code> to our <code>binders</code> method. Once we have it though, we 
+can happily instantiate members of the inner class (whose type is <code>E#Value</code>) 
+with <code>withName</code>. The odd looking: </p>
+<pre><code>((new PathBindable.Parsing[E#Value](_, _, _)).tupled(args), (new QueryStringBindable.Parsing[E#Value](_, _, _)).tupled(args))
+</code></pre><p>Is taking the constructor for the two <code>Parsing</code> classes, converting them into 
+partial functions, then using <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Function$">Function.tupled</a> to pass the <code>args</code> to the 
+constructor. The reason I did this is because I didn&#39;t want to write the 
+same boiler plate for the parsers over and over. If this is confusing to 
+you, this is the same code written without the use of <code>tupled</code>:</p>
+<pre><code>def binders[E &lt;: Enumeration](enum: E): (PathBindable[E#Value], QueryStringBindable[E#Value]) = {
+    val parse: String =&gt; E#Value = enum.withName(_)
+    val serialize = (e: E#Value) =&gt; e.toString
+    val err = (k: String, e: Exception) =&gt; &quot;Cannot parse %s as %s: %s&quot;.format(k, enum.getClass.getName(), e.getMessage())
+    (new PathBindable.Parsing(parse, serialize, err), new QueryStringBindable.Parsing(parse, serialize, err))
+}
+</code></pre><p>And with that helper object, you can more easily create bindings for your 
+enumerations! Hopefully this helps.</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=supporting-enums-in-anorm-rowparsers>Custom Types &amp; Enums in Anorm&#39;s RowParser definitions</a></li><li><a href=elastic-search-regular-expressions-against-whole-string>ElasticSearch: Matching a Regular expression for an entire field</a></li><li><a href=slick-columnToOptionColumn-deprecation-warning-fix>Slick columnToOptionColumn deprecation warning fix</a></li><li><a href=how-custom-type-form-binders-for-playframework>How to make custom form binders in play!</a></li><li><a href=guice-scala-checked-providers>Guice in Scala: Checked Providers</a></li><li><a href=mysql-date-automatic-conversion-utc-problems>MySQL &amp; JDBC timezone gotcha&#39;s</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<span>Github</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
+</html>
+  	
