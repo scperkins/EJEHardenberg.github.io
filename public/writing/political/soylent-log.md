@@ -1191,6 +1191,16 @@ because I forgot to put some bottles in the fridge.
 
 Ate leftover pizza today! 
 
+### Day 165
+
+Leftover pizza, and more pizza. Ugh. 
+
+### Day 166
+
+Soylent for lunch, asian food for dinner.
+
+
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
