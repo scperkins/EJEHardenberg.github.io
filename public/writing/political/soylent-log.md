@@ -1199,7 +1199,9 @@ Leftover pizza, and more pizza. Ugh.
 
 Soylent for lunch, asian food for dinner.
 
+### Day 167 
 
+Soylent for lunch, ended up eating food out after dancing a bit. 
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
