@@ -1,4 +1,9 @@
 {
+	"barstool" : {
+		"title" : "Bar Stool",
+		"date" : "2016-12-07",
+		"freq" : "monthly"
+	},
 	"clean" : {
 		"title" : "Clean",
 		"date" : "2016-10-30",
