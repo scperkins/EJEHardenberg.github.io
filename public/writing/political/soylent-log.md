@@ -1207,6 +1207,10 @@ Soylent for lunch, ended up eating food out after dancing a bit.
 
 Soylent for lunch then had some comfort food for dinner.
 
+### Day 169
+
+Soylent for lunch, but then it was trivia night so pub food for dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
