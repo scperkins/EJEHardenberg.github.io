@@ -1216,6 +1216,11 @@ Soylent for lunch, but then it was trivia night so pub food for dinner.
 Lunch is soylent! (Sensing a theme?) and I had a holiday party so little
 things and whatnot for dinner.
 
+### Day 171 
+
+Had brunch with some friends and then spent the whole day baking cookies
+so I didn't have any soylent today.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
