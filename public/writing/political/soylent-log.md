@@ -1221,6 +1221,10 @@ things and whatnot for dinner.
 Had brunch with some friends and then spent the whole day baking cookies
 so I didn't have any soylent today.
 
+### Day 172 
+
+No soylent today, mainly just had leftover pizza.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
