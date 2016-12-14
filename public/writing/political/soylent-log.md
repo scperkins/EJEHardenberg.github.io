@@ -1230,6 +1230,12 @@ No soylent today, mainly just had leftover pizza.
 Spent the day doing errands and appointments, so only grabbed a little
 food when I was out so no soylent today either :(
 
+### Day 174 
+
+Soylent for lunch and for dinner yum! One of my few liquid all days. 
+
+
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
