@@ -1234,7 +1234,11 @@ food when I was out so no soylent today either :(
 
 Soylent for lunch and for dinner yum! One of my few liquid all days. 
 
+### Day 175 
 
+No soylent today because lunch was provided and I ended up going out to
+eat randomly for dinner. But in other news I'm going to be getting v1.7
+powder soon! Which is super exciting.
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
