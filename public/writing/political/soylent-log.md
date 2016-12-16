@@ -1240,6 +1240,11 @@ No soylent today because lunch was provided and I ended up going out to
 eat randomly for dinner. But in other news I'm going to be getting v1.7
 powder soon! Which is super exciting.
 
+### Day 176 
+
+Soylent for lunch, but then a company dinner happened so I only had the
+one meal. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
