@@ -1255,6 +1255,12 @@ morning, so I just ate snacks for dinner. Hmmm cheezits!
 No soylent today since I was once again, forgetful on the whole cool the
 bottle thing. But I had more holiday parties to go to anyway.
 
+### Day 179 
+
+Again no soylent, but that's mainly because I was out and about running
+errands in the morning and then grabbed some chinese food before going
+to a going away/birthday party.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
