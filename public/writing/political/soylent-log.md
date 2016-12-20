@@ -1261,10 +1261,15 @@ Again no soylent, but that's mainly because I was out and about running
 errands in the morning and then grabbed some chinese food before going
 to a going away/birthday party.
 
-### Da7 180
+### Day 180
 
 No soylent today because I had to again, run errands and then ended up
 eating leftover chinese food for dinner.
+
+### Day 181 
+
+Soylent for lunch today! A friend wanted to go out for dinner though, so
+I ended up going with them.
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
