@@ -1243,14 +1243,16 @@ powder soon! Which is super exciting.
 ### Day 176 
 
 Soylent for lunch, but then a company dinner happened so I only had the
-one meal. 
+one
+meal.
+
 
 ### Day 177 
 
 Soylent for lunch, but then I forgot to put soylent in the fridge this
 morning, so I just ate snacks for dinner. Hmmm cheezits!
 
-### Day 178 
+
 
 No soylent today since I was once again, forgetful on the whole cool the
 bottle thing. But I had more holiday parties to go to anyway.
@@ -1270,6 +1272,8 @@ eating leftover chinese food for dinner.
 
 Soylent for lunch today! A friend wanted to go out for dinner though, so
 I ended up going with them.
+### Day 182
+
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
