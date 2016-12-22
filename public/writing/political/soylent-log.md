@@ -1252,7 +1252,7 @@ meal.
 Soylent for lunch, but then I forgot to put soylent in the fridge this
 morning, so I just ate snacks for dinner. Hmmm cheezits!
 
-
+### Day 178
 
 No soylent today since I was once again, forgetful on the whole cool the
 bottle thing. But I had more holiday parties to go to anyway.
@@ -1272,7 +1272,11 @@ eating leftover chinese food for dinner.
 
 Soylent for lunch today! A friend wanted to go out for dinner though, so
 I ended up going with them.
+
 ### Day 182
+
+Soylent for lunch today, but then I finished off the rest of my leftover 
+chinese food. 
 
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
