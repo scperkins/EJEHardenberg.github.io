@@ -1291,6 +1291,10 @@ No soylent today as expected. Since I'm on holiday.
 
 No soylent today as expected. Still I'm on holiday.
 
+### Day 186
+
+Another day of no soylent. Lots of normal and very tasty food though.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
