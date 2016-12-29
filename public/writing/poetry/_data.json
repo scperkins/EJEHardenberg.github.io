@@ -1,4 +1,9 @@
 {
+	"perception" : {
+		"title" : "Perception",
+		"date" : "2016-12-29",
+		"freq" : "monthly"
+	},
 	"barstool" : {
 		"title" : "Bar Stool",
 		"date" : "2016-12-07",
