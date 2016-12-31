@@ -1317,6 +1317,12 @@ have some soylent.
 Back home! Day off today and a lunch of soylent! Hm hm hm! I didn't
 bother having dinner because I wasn't hungry though.
 
+### Day 191
+
+Would have had soylent, but ended up ducking out of work early to meet
+up with a friend to have lunch with them. Then had dinner with an out of
+state friend. So no soylent.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
