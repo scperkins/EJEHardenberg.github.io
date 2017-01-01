@@ -1323,6 +1323,12 @@ Would have had soylent, but ended up ducking out of work early to meet
 up with a friend to have lunch with them. Then had dinner with an out of
 state friend. So no soylent.
 
+### Day 192
+
+Soylent for lunch today! Then had some quick food for dinner. Tomorrow's
+new years eve! So I don't know how much soylent I'll have since people
+will be around and we might eat out.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
