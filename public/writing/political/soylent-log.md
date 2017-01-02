@@ -1334,7 +1334,10 @@ will be around and we might eat out.
 Soylent for lunch. Then went out with friends for food for new years and
 whatnot.
 
+### Day 194 
 
+Day after new years. Soylent for lunch, then had some leftovers and then
+salad for dinner.
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
