@@ -1339,6 +1339,11 @@ whatnot.
 Day after new years. Soylent for lunch, then had some leftovers and then
 salad for dinner.
 
+### Day 195 
+
+Had today off, which was nice. Ended up drinking soylent for lunch
+anyway but had leftovers for dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
