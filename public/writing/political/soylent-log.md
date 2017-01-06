@@ -1349,6 +1349,11 @@ anyway but had leftovers for dinner.
 Soylent for lunch, but played pub trivia at night so I had that for
 dinner. Tasty ramen.
 
+### Day 197 
+
+Soylent for lunch. And then for dinner as well, though I did go for a
+walk later on and grab a litle sandwich from a corner store.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
