@@ -1377,6 +1377,11 @@ Tomorrow though.
 Soylent for lunch today. Got a call from a friend in the morning and
 ended up making dinner plans though, so not a full day.
 
+### Day 203
+
+Soylent for lunch. Ordered out for dinner though, felt like having
+salad.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
