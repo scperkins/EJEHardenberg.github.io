@@ -1387,6 +1387,10 @@ salad.
 Had a normal brunch, but then soylent for dinner. Man did I want asian
 though, housemate ordered some and it smelled so good!
 
+### Day 205 
+
+Soylent for lunch, then went out for trivia.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
