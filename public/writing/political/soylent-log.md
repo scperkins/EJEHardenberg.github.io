@@ -1391,6 +1391,16 @@ though, housemate ordered some and it smelled so good!
 
 Soylent for lunch, then went out for trivia.
 
+### Day 206 
+
+Soylent for lunch, then ended up going to the grocery store (for the
+first time in ages) with a friend and picked up some stuff to make a
+damn good stir fry. Jasmine rice with broccoli and bell peppers, grilled
+onions and beef strips. Hm. Hm. Even though I somewhat gave up "real"
+food, I still enjoy cooking and make pretty good food when I do too!
+Feel like the mellowness of soylent gives me an appreciation for other
+food too.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
