@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Mon, 05 Dec 2016 00:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Sun, 15 Jan 2017 00:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Do indices in playframework field names matter?</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/playframework-dynamic-form-markup</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/playframework-dynamic-form-markup</guid>
+			<pubDate>Sun, 15 Jan 2017 00:00:00 GMT</pubDate>
+			<description>
+				![CDATA[In depth look at the way naming your field names can affect whats sent to the system. Useful if you're planning on creating dynamic markup on the fly with javascript and need to know what your limitations are.]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Binding classes and enumerations in Play! routes and query parameters</title>

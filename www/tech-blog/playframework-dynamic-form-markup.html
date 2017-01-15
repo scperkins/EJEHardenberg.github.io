@@ -1,0 +1,274 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Ethan's Tech Blog | Do indices in playframework field names matter?</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="In depth look at the way naming your field names can affect whats sent to the system. Useful if you&#39;re planning on creating dynamic markup on the fly with javascript and need to know what your limitations are." />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="Play!, helpers, repeated, index, indices, dynamic, scala, javascript"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Do indices in playframework field names matter?" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="In depth look at the way naming your field names can affect whats sent to the system. Useful if you&#39;re planning on creating dynamic markup on the fly with javascript and need to know what your limitations are." />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Do indices in playframework field names matter?" />
+    
+    <meta name="twitter:description" content="In depth look at the way naming your field names can affect whats sent to the system. Useful if you&#39;re planning on creating dynamic markup on the fly with javascript and need to know what your limitations are." />
+    
+    <meta name="twitter:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Do indices in playframework field names matter?</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Indices in Play!&#39;s form helpers. Do they matter?</h3><p>So the other day my team and I were working on a bunch of forms that had 
+dynamically added/removed elements. Questions came up about how Play! 
+generates the indexes for repeated fields and how we should emulate the 
+functionality when adding in new mark up from the client side.</p>
+<p>Unfortunately, the <a href="https://playframework.com/documentation/2.3.x/ScalaForms#Repeated-values">documentation for Play! 2.3</a> only says this about 
+repeated value field names:</p>
+<blockquote>
+<p>When you are using repeated data like this, the form values sent by the browser must be named emails[0], emails[1], emails[2], etc.</p>
+</blockquote>
+<p>There&#39;s also <a href="https://playframework.com/documentation/2.3.x/ScalaForms#Repeated-values">a small section in 2.4&#39;s documentation</a> which hints at more:</p>
+<blockquote>
+<p>When you are using repeated data like this, there are two alternatives for sending the form values in the HTTP request. First, you can suffix the parameter with an empty bracket pair, as in “emails[]”. This parameter can then be repeated in the standard way, as in <a href="http://foo.com/request?emails[]=a@b.com&amp;emails[]=c@d.com">http://foo.com/request?emails[]=a@b.com&amp;emails[]=c@d.com</a>. Alternatively, the client can explicitly name the parameters uniquely with array subscripts, as in emails[0], emails[1], emails[2], and so on. This approach also allows you to maintain the order of a sequence of inputs.</p>
+</blockquote>
+<p>But, if you look at the <a href="https://github.com/playframework/playframework/blob/34b3090525c4b550938121beb09f10072811b1f3/framework/src/play/src/main/scala/play/api/data/Form.scala#L90">source code for 2.3</a>, it also supports the numberless names:</p>
+<pre><code>def bindFromRequest(data: Map[String, Seq[String]]): Form[T] = {
+  bind {
+    data.foldLeft(Map.empty[String, String]) {
+      case (s, (key, values)) if key.endsWith(&quot;[]&quot;) =&gt; s ++ values.zipWithIndex.map { case (v, i) =&gt; (key.dropRight(2) + &quot;[&quot; + i + &quot;]&quot;) -&gt; v }
+      case (s, (key, values)) =&gt; s + (key -&gt; values.headOption.getOrElse(&quot;&quot;))
+    }
+  }
+}
+</code></pre><p>Which means that you can do things like this:</p>
+<pre><code>import play.api.data._
+import play.api.data.Forms._
+
+val f = Form(single(&quot;s&quot; -&gt; seq(boolean)))
+
+f.bindFromRequest(Map(&quot;s[]&quot; -&gt; Seq(&quot;true&quot;, &quot;false&quot;,&quot;true&quot;))).get
+// Seq[Boolean] = List(true, false, true)
+</code></pre><p>And not have to worry about the numbers inbetween. This is great and all, 
+but if you&#39;re using the play helpers you&#39;re unlikely to ever even realize 
+you can do this if you don&#39;t see the note about it. Why? Because the 
+form helpers will <em>never</em> generate indexless names for your fields since
+the <a href="https://github.com/playframework/playframework/blob/34b3090525c4b550938121beb09f10072811b1f3/framework/src/play/src/main/scala/play/api/data/Form.scala#L726">RepeatedMapping.unbind method</a> adds in the indices. </p>
+<p>Another important thing to note about the <code>seq</code> mapping (which is derived 
+from the <code>RepeatedMapping</code> class) is that the index&#39;s you send for each 
+object that&#39;s mapped <em>must</em> be unique! If you submit two inputs that have 
+the name <code>email[1]</code> then only one of those will be bound. This is indicated 
+by the binding code which calls [RepeatedMapping.indexes], which looks like 
+this:</p>
+<pre><code>def indexes(key: String, data: Map[String, String]): Seq[Int] = {
+    val KeyPattern = (&quot;^&quot; + java.util.regex.Pattern.quote(key) + &quot;&quot;&quot;\[(\d+)\].*$&quot;&quot;&quot;).r
+    data.toSeq.collect { case (KeyPattern(index), _) =&gt; index.toInt }.sorted.distinct
+}
+</code></pre><p>Notice the <code>distinct</code>? That means no multiples! So these two things combined 
+means you have two options:</p>
+<ol>
+<li>Generate HTML with form helpers and then make sure to update indices for names in JS for dynamically added elements</li>
+<li>Generate HTML without the form helpers using the <code>[]</code> syntax and pray that you don&#39;t have any complex mappings.</li>
+</ol>
+<p>What I mean by a complex mapping is something like this:</p>
+<pre><code>def foo: Mapping[Foo] = mapping(
+    &quot;id&quot; -&gt; uuid,
+    &quot;value&quot; -&gt; nonEmptyText
+)(Foo.apply)(Foo.unapply)
+</code></pre><p>Why? Because say you were to put this into a repeated context like:</p>
+<pre><code>object RepeatedFoos {
+    def newForm(): Form[Seq[Foo]] = Form(single(&quot;foos&quot; -&gt; seq(foo)))
+}
+</code></pre><p>When you generate HTML without indices you&#39;ll get names like:</p>
+<pre><code>foos[].id = XXX
+foos[].value = YYY
+foos[].id = ZZZ
+foos[].value = WWW
+</code></pre><p>And play doesn&#39;t actually handle this in the case of custom object mappings. 
+<a href="https://github.com/EdgeCaseBerg/play--repeated-form-examples/blob/master/app/views/example/repeatedFoosEx3.scala.html">I tested this</a> and it only seems to work in the <a href="https://github.com/EdgeCaseBerg/play--repeated-form-examples/blob/master/app/views/example/simpleNoIndicesEx1.scala.html">case of a simple field</a>. 
+So keep that in mind, if you&#39;re dynamically adding a simple field you can 
+use the [] method and not have to worry about too much complexity. For complex
+objects, read on.</p>
+<p>So my team elected to go with the first option listed above. And we wrote 
+some pretty nice code to handle things generically. And I&#39;ve teased out 
+the main idea of it into some example code that you can <a href="https://github.com/EdgeCaseBerg/play--repeated-form-examples">look at here</a>. </p>
+<p>An interesting thing to note, and probably one of the first questions that 
+comes to mind for someone about to add in new markup from the front end 
+without help from play would be:</p>
+<blockquote>
+<p>Do the indices in field names matter in play?</p>
+</blockquote>
+<p>As in, do they need to be sequential? Do I need to keep them in order? 
+What happens if I don&#39;t? If you take a second look at the <code>KeyPattern</code> 
+that&#39;s used by <a href="https://github.com/playframework/playframework/blob/34b3090525c4b550938121beb09f10072811b1f3/framework/src/play/src/main/scala/play/api/data/Form.scala#L711">RepeatedMappings.indexes</a> you&#39;l see</p>
+<pre><code>val KeyPattern = (&quot;^&quot; + java.util.regex.Pattern.quote(key) + &quot;&quot;&quot;\[(\d+)\].*$&quot;&quot;&quot;).r
+</code></pre><p>Which is only matching numbers, it&#39;s not checking anything else about them. 
+And in the <code>bindFromRequest</code> method we mentioned above we&#39;re just sorting 
+and unduplicating data being bound. Which all boils down to <em>no. The actual 
+index of a playframework field name does not matter</em>. Its only purpose is 
+to provide a key for any related information (such as our <code>id</code> and <code>value</code> 
+fields for <code>Foo</code> we used above as an example). So any javascript code 
+or custom HTML generation you write can use arbitrary numbers as long as 
+you&#39;re consistent. This is illustrated in the <a href="https://github.com/EdgeCaseBerg/play--repeated-form-examples/blob/master/public/javascripts/repeatFoos-ex2.js#L24">second example here</a>.</p>
+<p>The last question you might ask yourself is: <em>If I have a simple field, 
+can I mix both the indexed and the non-indexed field names?</em>. The answer,
+unsurprisingly, is no you can&#39;t. One will overwrite the other. This isn&#39;t 
+surprising because if you pay attention to the bind code</p>
+<pre><code>def bindFromRequest(data: Map[String, Seq[String]]): Form[T] = {
+  bind {
+    data.foldLeft(Map.empty[String, String]) {
+      case (s, (key, values)) if key.endsWith(&quot;[]&quot;) =&gt; s ++ values.zipWithIndex.map { case (v, i) =&gt; (key.dropRight(2) + &quot;[&quot; + i + &quot;]&quot;) -&gt; v }
+      case (s, (key, values)) =&gt; s + (key -&gt; values.headOption.getOrElse(&quot;&quot;))
+    }
+  }
+}
+</code></pre><p>you&#39;ll note we&#39;re folding over a <code>Map</code>, and in the case of the same key 
+being present, new values overwrite the old. So if you were to submit 
+<code>field[0]</code> and <code>field[]</code> in that order, then you&#39;d only end up with <code>field[]</code>
+values since the other was overwritten. An example of <a href="https://github.com/EdgeCaseBerg/play--repeated-form-examples/blob/master/app/views/example/simpleMixedIndicesEx1.scala.html">this behavior is here</a>.</p>
+<p>And with that question answered we&#39;re done! To recap:</p>
+<ul>
+<li>Play&#39;s form helpers can bind to either <code>[]</code> or to <code>[#]</code> for <em>simple</em> fields, not to both</li>
+<li>Play&#39;s <code>[]</code> <em>cannot</em> handle custom mappings of case classes.</li>
+<li>The actual number between the brackets in a field name <em>does not matter</em> so long as its a number. Its only purpose is to group nested data together (if that&#39;s the case) and sort it</li>
+</ul>
+<p>One thing I didn&#39;t touch in this blogpost is dealing with dynamically generated 
+HTML for nested fields (inputs with names like <code>foo[0].bars[3].id</code>). They&#39;re not 
+that different, but you do need to keep in mind that the right index must change 
+if you were to do something like move one <code>bar</code> to another <code>foo</code>. I might update
+the example code I&#39;ve linked to in this blog with an example of this if someone 
+asks.</p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=easy-custom-class-enum-route-binding-in-play>Binding classes and enumerations in Play! routes and query parameters</a></li><li><a href=supporting-enums-in-anorm-rowparsers>Custom Types &amp; Enums in Anorm&#39;s RowParser definitions</a></li><li><a href=elastic-search-regular-expressions-against-whole-string>ElasticSearch: Matching a Regular expression for an entire field</a></li><li><a href=slick-columnToOptionColumn-deprecation-warning-fix>Slick columnToOptionColumn deprecation warning fix</a></li><li><a href=how-custom-type-form-binders-for-playframework>How to make custom form binders in play!</a></li><li><a href=guice-scala-checked-providers>Guice in Scala: Checked Providers</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<span>Github</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
+</html>
+  	
