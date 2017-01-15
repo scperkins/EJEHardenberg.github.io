@@ -126,7 +126,7 @@ surprising because if you pay attention to the bind code
 
 you'll note we're folding over a `Map`, and in the case of the same key 
 being present, new values overwrite the old. So if you were to submit 
-`field[0]` and field[]` in that order, then you'd only end up with `field[]`
+`field[0]` and `field[]` in that order, then you'd only end up with `field[]`
 values since the other was overwritten. An example of [this behavior is here].
 
 And with that question answered we're done! To recap:
