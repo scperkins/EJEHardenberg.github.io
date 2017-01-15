@@ -846,5 +846,11 @@
 		"description" : "Curious how to use an Enum in your path or query parameters? How about binding a class from those? This post shows how and provides a factory for easily creating bindings for Enumerations",
 		"date" : "2016-12-05",
 		"keywords" : "Play!, Enumeration, Enum, Route, Query, Binders, QueryStringBindable, PathBindable, Parsing, Examples"
+	},
+	"playframework-dynamic-form-markup" : {
+		"title" : "Do indices in playframework field names matter?",
+		"description" : "In depth look at the way naming your field names can affect whats sent to the system. Useful if you're planning on creating dynamic markup on the fly with javascript and need to know what your limitations are.",
+		"date" : "2017-01-15",
+		"keywords" : "Play!, helpers, repeated, index, indices, dynamic, scala, javascript"
 	}
 }
