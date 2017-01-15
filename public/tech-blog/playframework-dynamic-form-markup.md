@@ -147,7 +147,7 @@ asks.
 [a small section in 2.4's documentation]:https://playframework.com/documentation/2.3.x/ScalaForms#Repeated-values
 [source code for 2.3]:https://github.com/playframework/playframework/blob/34b3090525c4b550938121beb09f10072811b1f3/framework/src/play/src/main/scala/play/api/data/Form.scala#L90
 [RepeatedMapping.unbind method]:https://github.com/playframework/playframework/blob/34b3090525c4b550938121beb09f10072811b1f3/framework/src/play/src/main/scala/play/api/data/Form.scala#L726
-[RepeatedMapping.indexes]:https://github.com/playframework/playframework/blob/34b3090525c4b550938121beb09f10072811b1f3/framework/src/play/src/main/scala/play/api/data/Form.scala#L711
+[RepeatedMappings.indexes]:https://github.com/playframework/playframework/blob/34b3090525c4b550938121beb09f10072811b1f3/framework/src/play/src/main/scala/play/api/data/Form.scala#L711
 [look at here]:https://github.com/EdgeCaseBerg/play--repeated-form-examples
 [second example here]:https://github.com/EdgeCaseBerg/play--repeated-form-examples/blob/master/public/javascripts/repeatFoos-ex2.js#L24
 [I tested this]:https://github.com/EdgeCaseBerg/play--repeated-form-examples/blob/master/app/views/example/repeatedFoosEx3.scala.html
