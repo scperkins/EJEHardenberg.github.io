@@ -133,7 +133,7 @@ And with that question answered we're done! To recap:
 
 - Play's form helpers can bind to either `[]` or to `[#]` for _simple_ fields, not to both
 - Play's `[]` _cannot_ handle custom mappings of case classes.
-- The actual number between the brackets in a field name _does not matter_ so long as its a number. Its only purpose is to group nested data together (if that's the case)
+- The actual number between the brackets in a field name _does not matter_ so long as its a number. Its only purpose is to group nested data together (if that's the case) and sort it
 
 One thing I didn't touch in this blogpost is dealing with dynamically generated 
 HTML for nested fields (inputs with names like `foo[0].bars[3].id`). They're not 
