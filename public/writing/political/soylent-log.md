@@ -1412,6 +1412,11 @@ at night.
 No soylent again today, finished off leftovers for lunch, then ended up
 going to see a movie at night so I had some nachos there.
 
+### Day 209 
+
+Soylent for lunch, went to play monopoly and jackbox with a friend and
+got some quick food for dinner though.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
