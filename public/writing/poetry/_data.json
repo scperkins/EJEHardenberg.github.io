@@ -1,4 +1,9 @@
 {
+	"sterile" : {
+		"title" : "Sterile",
+		"date" : "2017-01-16",
+		"freq" : "monthly"
+	},
 	"perception" : {
 		"title" : "Perception",
 		"date" : "2016-12-29",
