@@ -9,4 +9,4 @@ You're welcome to sit, wait out the pain
 Into the machine you'll go in an hour  
 Until then, sit quiet and smile  
 Hundreds of dollars to look deep inside  
-Then the doctor will ask why you cried  
+Then the doctor will ask: "why did you cry"
