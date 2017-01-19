@@ -1421,6 +1421,11 @@ got some quick food for dinner though.
 
 Had soylent for lunch today, then had a tasty sandwich for dinner. 
 
+### Day 211 
+
+Soylent for lunch today, but then on the way home ended up stopping for
+fast food and tried out the new Grand Mac.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
