@@ -1431,6 +1431,11 @@ fast food and tried out the new Grand Mac.
 Soylent for lunch, but then I went to a screening of a new show from the
 local PBS and ate out with a friend.
 
+### Day 213
+
+Soylent for lunch, pizza for dinner and an adventure around town after
+that.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
