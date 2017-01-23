@@ -1436,6 +1436,12 @@ local PBS and ate out with a friend.
 Soylent for lunch, pizza for dinner and an adventure around town after
 that.
 
+### Day 214 
+
+Didn't have any soylent today on account of eating left overs and
+grabbing dinner out and about with a friend. I've really gotta get back
+into the habit I think.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
