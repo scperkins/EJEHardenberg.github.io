@@ -1447,6 +1447,10 @@ into the habit I think.
 Finished off the left overs of some soylent today, then had ramen for
 lunch and after going for a couple hours walk. 
 
+### Day 216
+
+Soylent for lunch, but had dominoes for dinner. Hmm. Wings.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
