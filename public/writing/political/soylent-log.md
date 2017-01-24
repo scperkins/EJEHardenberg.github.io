@@ -1442,6 +1442,11 @@ Didn't have any soylent today on account of eating left overs and
 grabbing dinner out and about with a friend. I've really gotta get back
 into the habit I think.
 
+### Day 215 
+
+Finished off the left overs of some soylent today, then had ramen for
+lunch and after going for a couple hours walk. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
