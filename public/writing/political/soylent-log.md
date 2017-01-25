@@ -1451,6 +1451,12 @@ lunch and after going for a couple hours walk.
 
 Soylent for lunch, but had dominoes for dinner. Hmm. Wings.
 
+### Day 217 
+
+Didn't end up eating lunch today for reasons, then had a night out for
+food. Sadly I had no soylent today, even sadder was how crappy my meal
+was from the place I went to for dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
