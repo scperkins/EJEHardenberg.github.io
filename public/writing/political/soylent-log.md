@@ -1461,6 +1461,11 @@ was from the place I went to for dinner.
 
 Soylent for lunch, and then had pizza rolls for dinner.
 
+### Day 219 
+
+Soylent for lunch, and then went out for pub trivia and had dinner on
+the town.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
