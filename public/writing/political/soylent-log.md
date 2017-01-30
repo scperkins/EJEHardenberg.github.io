@@ -1474,6 +1474,10 @@ Soylent for lunch and steak for dinner.
 
 No soylent today.
 
+### Day 222 
+
+Soylent for lunch today, and dinner was pizza and I'll have that for
+leftovers during this week.
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
