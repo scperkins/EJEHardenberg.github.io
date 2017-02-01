@@ -1,4 +1,9 @@
 {
+	"box" : {
+		"title" : "Box",
+		"date" : "2017-02-01",
+		"freq" : "monthly"
+	},
 	"sterile" : {
 		"title" : "Sterile",
 		"date" : "2017-01-16",
