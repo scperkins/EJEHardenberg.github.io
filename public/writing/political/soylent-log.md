@@ -1491,6 +1491,9 @@ Soylent for lunch today, and then had leftover pizza for dinner.
 
 Soylent for lunch today, and then had leftover pizza for dinner.
 
+### Day 226
+
+Soylent for lunch today, then had pub food for trivia dinner.
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
