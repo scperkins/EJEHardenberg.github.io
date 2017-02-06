@@ -1503,6 +1503,10 @@ Soylent for lunch, then ate out for dinner and had ramen.
 
 No soylent today, I've got family visiting.
 
+### Day 229 
+
+Day 2 of family, again no soylent.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
