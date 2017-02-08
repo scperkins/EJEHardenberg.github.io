@@ -1513,6 +1513,12 @@ Full day of soylent today! Been a while since I had one of those. Full,
 no issues being hungry or anything like that. So despite feeling like
 it's been forever since I've done that, not too much has changed.
 
+### Day 231 
+
+Another full day of soylent, though my friend called me up around
+midnight wanting to go get some food so I did go on an adventure and eat
+some fries.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
