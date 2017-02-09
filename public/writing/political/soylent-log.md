@@ -1519,6 +1519,10 @@ Another full day of soylent, though my friend called me up around
 midnight wanting to go get some food so I did go on an adventure and eat
 some fries.
 
+### Day 232
+
+Full day of soylent again. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
