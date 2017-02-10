@@ -1523,6 +1523,11 @@ some fries.
 
 Full day of soylent again. 
 
+### Day 233 
+
+Lunch was soylent, then I played trivia so I had a nice meal of taco
+salad and wings! Hm Hm hmm!
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
