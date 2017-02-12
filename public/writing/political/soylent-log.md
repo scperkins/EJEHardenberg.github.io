@@ -1534,6 +1534,11 @@ Lunch was soylent today, but had a rice bowl for dinner after a failed
 attempt to go to taco bell failed. Which is too bad because they have a
 new menu item I really want to try.
 
+### Day235 
+
+Didn't really eat that much today because I didn't really move. Had
+soylent for dinner, and then a pretzel and drink at the movies.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
