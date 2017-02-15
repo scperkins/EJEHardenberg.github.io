@@ -1545,6 +1545,11 @@ Soylent for lunch, and then had some regular pizza for dinner. Realized
 that I'm down to 4 bottles left and then I'll have to switch back over
 to powder unless my shipment arrives soon.
 
+### Day 237 
+
+Soylent for lunch and then a valentines day trivia night had me eating
+pub food while playing trivia. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
