@@ -1554,6 +1554,10 @@ pub food while playing trivia.
 
 Soylent for lunch, had panera for dinner though.
 
+### Day 239 
+
+Soylent for lunch, then had trivia bar food for dinner. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
