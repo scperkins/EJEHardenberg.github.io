@@ -1,4 +1,9 @@
 {
+	"downbeat" : {
+		"title" : "Downbeat",
+		"date" : "2017-02-19",
+		"freq" : "monthly"
+	},
 	"box" : {
 		"title" : "Box",
 		"date" : "2017-02-01",
