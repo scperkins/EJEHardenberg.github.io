@@ -1567,6 +1567,12 @@ a special guest.
 
 Didn't eat today by accident. Unless you count popcorn at the movies.
 
+### Day 242 
+
+No soylent again, trying to conserve since I only have a couple bottles
+left. Ate brunch with friends and that was enough that I didn't get
+hungry again for the rest of the day. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
