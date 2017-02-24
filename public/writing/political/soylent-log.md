@@ -1589,6 +1589,12 @@ want to eat it warm.
 Soylent for lunch today, but had some ramen for dinner because I haven't
 had it in forever.
 
+### Day  246
+
+Was going to have soylent for lunch, but it turned out that we got a
+free lunch at work today so I had that instead. Then I went to trivia so
+I had a Quesadilla for dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
