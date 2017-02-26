@@ -1597,6 +1597,7 @@ free lunch at work today so I had that instead. Then I went to trivia so
 I had a Quesadilla for dinner.
 ### Day 247
 No soylent again today because of wirk food and then traveling with my dad.
+### Day 248No soylent since I'm traveling and in another state
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
