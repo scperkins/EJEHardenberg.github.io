@@ -1611,6 +1611,11 @@ No soylent today because I was still traveling.
 
 Soylent for lunch today, but had leftovers for dinner.
 
+### Day 251
+
+Soylent for lunch today, augmented with some chicken wings. And then I
+have a guest over so we ate dinner out.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
