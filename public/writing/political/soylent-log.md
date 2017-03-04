@@ -1620,6 +1620,12 @@ have a guest over so we ate dinner out.
 
 Soylent for lunch today, and dinner was regular food.
 
+### Day 253
+
+Soylent for lunch, and then went out to trivia but the kitchen was
+closed. So no bar food, but my friends who came brought some other good
+stuff that we all ate together.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
