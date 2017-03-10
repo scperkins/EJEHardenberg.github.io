@@ -1653,6 +1653,11 @@ Soylent for lunch, and it was special trivia tonight so I had a really
 tasty brisket for dinner. Tomorrow will be trivia again so probably just
 one soylent.
 
+### Day 261 
+
+Soylent for lunch, trivia food for dinner as expected.
+
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
