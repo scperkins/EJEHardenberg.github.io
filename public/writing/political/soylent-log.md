@@ -1657,6 +1657,9 @@ one soylent.
 
 Soylent for lunch, trivia food for dinner as expected.
 
+### Day 262
+
+Full day of soylent!
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
