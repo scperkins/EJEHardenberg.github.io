@@ -1694,6 +1694,17 @@ Bam Bop for the first time. It was ok, to be honest I think I should
 have just gone with my staple of sukiyaki, but trying something new is
 good for you.
 
+### Day 270 
+
+Today was another one of those days where I didn't bother to eat until
+dinnertime because I wasn't hungry. This seems to happen frequently on
+Saturdays. I wonder if I should just start fasting on Saturdays for the
+fun of it. I mean, people fast all over the world for tons of reasons,
+and it's an interesting experience to feel the slow build of hunger and
+the bile from my stomach becoming an obvious flavor to my unfilled
+mouth. I did eat though. Had pizza for dinner, and I'll probably go
+ahead and have that for leftovers tomorrow for at least one meal.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
