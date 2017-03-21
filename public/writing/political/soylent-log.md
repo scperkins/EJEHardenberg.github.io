@@ -1709,7 +1709,10 @@ ahead and have that for leftovers tomorrow for at least one meal.
 
 Ate leftover Pizza today. 
 
+### Day 272
 
+Didn't have soylent for lunch today because of a going away party, but
+for dinner I had soylent and it was tasty.
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
