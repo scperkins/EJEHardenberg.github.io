@@ -1714,6 +1714,12 @@ Ate leftover Pizza today.
 Didn't have soylent for lunch today because of a going away party, but
 for dinner I had soylent and it was tasty.
 
+### Day 273 
+
+Soylent for lunch today, though also had some extra food because work
+fed us some steak and other really good stuff. Soylent for dinner as
+well.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
