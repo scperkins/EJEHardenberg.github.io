@@ -1723,7 +1723,15 @@ well.
 ### Day 274
 
 Soylent for lunch today, augmented with some lobster bisque as well.
-Then trivia food for dinner (tasty habanero burger)
+Then trivia food for dinner (tasty habanero burger).
+
+### Day 275 
+
+No soylent today, traveling today and for the weekend, so I'll likely
+not have any for a while. Instead, I ate a shepherd's pie omelet,
+homefries, and toast for breakfast, then had spaghetti bolognaisse for
+lunch. Then lastly, I had Wendy's for dinner. 
+
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
