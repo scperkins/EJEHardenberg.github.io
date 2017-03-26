@@ -1732,6 +1732,13 @@ not have any for a while. Instead, I ate a shepherd's pie omelet,
 homefries, and toast for breakfast, then had spaghetti bolognaisse for
 lunch. Then lastly, I had Wendy's for dinner. 
 
+### Day 276 
+
+No soylent today, I reached my travel destination and so I had breakfast
+with my mother of sausage, fried egg, and toast with jam. Then I didn't
+bother eating lunch because I was tired and took a nap. For dinner
+though, I went out to an Applebee's with friends. 
+
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
