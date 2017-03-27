@@ -1739,6 +1739,14 @@ with my mother of sausage, fried egg, and toast with jam. Then I didn't
 bother eating lunch because I was tired and took a nap. For dinner
 though, I went out to an Applebee's with friends. 
 
+### Day 277 
+
+No soylent today, I slept over a friend house so I didn't have
+breakfast, just some coffee in the morning while chatting with my
+friends. Lunch was an asian buffet which was tasty, they even had a
+sushi bar which was cool. Dinner was Taco bell with another friend and
+it was a good time.
+
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
