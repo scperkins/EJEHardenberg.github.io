@@ -1747,6 +1747,12 @@ friends. Lunch was an asian buffet which was tasty, they even had a
 sushi bar which was cool. Dinner was Taco bell with another friend and
 it was a good time.
 
+### Day 278
+
+No soylent today, had to travel back home. So no breakfast, but then had
+some chili and chicken tacos for lunch. Then I went home and napped
+before going over to a friends house for pizza and cake to celebrate my
+birthday. Tomorrow I'll probably do a full day of soylent.
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
