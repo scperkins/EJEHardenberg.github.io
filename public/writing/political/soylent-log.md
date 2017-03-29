@@ -1754,6 +1754,11 @@ some chili and chicken tacos for lunch. Then I went home and napped
 before going over to a friends house for pizza and cake to celebrate my
 birthday. Tomorrow I'll probably do a full day of soylent.
 
+### Day 279
+
+Ended up eating leftover birthday cake for dinner, and birthday pizza
+for lunch, so no soylent today either.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
