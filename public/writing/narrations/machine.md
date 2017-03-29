@@ -1,0 +1,5 @@
+A swaying tree branch caught the man's eye as he lifted his gaze from the machine in front of him. The leaves a decayed brown, its grey bark a gnarled and tangled thing. Against the steel sky it was hardly an inspiring sight. Yet, here he was. Distracted from the work in front of him for the first time in what felt like ages, the movement the smallest of respites from the otherwise dull and dreary work. 
+
+Noises from the gears and pipes of the machine startled the man; quickly putting the tree out of mind and out of sight, he knelt back down and picked up his tools. What a day it had been for him so far: eight hours spent huddling and bothered by nothing but the whirls of his duty. He was nearly done, the old and rusted container that lay with its secrets bared to him had begun breathing again. Life once again pumping through the cold wires running from one end of the frame to the other, tribuaries of electricity branching off and burying deep into the recesses of the hardware. 
+
+With one last look up at the delapitated tree, he sighed a contented sigh, and crawled into the machine once more.
