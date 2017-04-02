@@ -1774,6 +1774,10 @@ dinner.
 Soylent for lunch today, but then went out to the movies. I had more
 soylent for dinner.
 
+### Day 283 
+
+Only had dinner today, tried a new chicken place that opened up. It was
+extremely bland, and had no real flavor. 
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
