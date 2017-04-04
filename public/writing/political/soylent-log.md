@@ -1785,6 +1785,11 @@ Soylent for lunch today, then had some coupons for burger king so I
 checked to see if a friend wanted to go and ended up having some fast
 food for dinner.
 
+### Day 285
+
+Soylent for lunch today, then had leftovers from the fast food yesterday
+for dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
