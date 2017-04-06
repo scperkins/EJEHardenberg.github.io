@@ -1797,6 +1797,10 @@ things from work that I ate with my coworkers when they pressured me to
 take a break with them. Then it was the monthly trivia night, so I had a
 burger and a brownie for dinner.
 
+### Day 287
+
+Soylent for lunch and dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
