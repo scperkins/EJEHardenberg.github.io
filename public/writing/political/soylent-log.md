@@ -1801,6 +1801,10 @@ burger and a brownie for dinner.
 
 Soylent for lunch and dinner.
 
+### Day 288 
+
+Soylent for lunch, trivia at night so I had a pub burger for dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
