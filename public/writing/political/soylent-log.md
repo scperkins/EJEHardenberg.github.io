@@ -1819,6 +1819,11 @@ dinner I had half a bottle of soylent for dinner.
 Had kiwi and bananas for breakfast, then skipped lunch and had a pizza
 dinner out with some friends.
 
+### Day 302 
+
+Soylent for lunch, then had half a bottle of soylent and some pizza
+rolls for dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
