@@ -1824,6 +1824,18 @@ dinner out with some friends.
 Soylent for lunch, then had half a bottle of soylent and some pizza
 rolls for dinner.
 
+### Day 303 
+
+Soylent for lunch and even got to go for a walk at work which was nice,
+then dinner was some fast food because the other week I read about
+McDonald's newest shift. You see, they use fresh beef, but then they
+would freeze it for shipping; but apparently, as a bit of a test,
+they're now not freezing the quarter pounder beef so that it is still
+fresh. I went ahead and had one, and the texture is _slightly_ different
+and the taste a little bit different from say, their mcDoubles. It was
+good. Though not very economical (as all the combo meals are), so I
+think I'll continue just ordering from the value menu next time I go.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
