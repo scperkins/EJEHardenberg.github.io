@@ -97,7 +97,7 @@ without help from play would be:
 
 As in, do they need to be sequential? Do I need to keep them in order? 
 What happens if I don't? If you take a second look at the `KeyPattern` 
-that's used by [RepeatedMappings.indexes] you'l see
+that's used by [RepeatedMapping.indexes] you'll see
 
 	val KeyPattern = ("^" + java.util.regex.Pattern.quote(key) + """\[(\d+)\].*$""").r
 
@@ -147,7 +147,7 @@ asks.
 [a small section in 2.4's documentation]:https://playframework.com/documentation/2.3.x/ScalaForms#Repeated-values
 [source code for 2.3]:https://github.com/playframework/playframework/blob/34b3090525c4b550938121beb09f10072811b1f3/framework/src/play/src/main/scala/play/api/data/Form.scala#L90
 [RepeatedMapping.unbind method]:https://github.com/playframework/playframework/blob/34b3090525c4b550938121beb09f10072811b1f3/framework/src/play/src/main/scala/play/api/data/Form.scala#L726
-[RepeatedMappings.indexes]:https://github.com/playframework/playframework/blob/34b3090525c4b550938121beb09f10072811b1f3/framework/src/play/src/main/scala/play/api/data/Form.scala#L711
+[RepeatedMapping.indexes]:https://github.com/playframework/playframework/blob/34b3090525c4b550938121beb09f10072811b1f3/framework/src/play/src/main/scala/play/api/data/Form.scala#L711
 [look at here]:https://github.com/EdgeCaseBerg/play--repeated-form-examples
 [second example here]:https://github.com/EdgeCaseBerg/play--repeated-form-examples/blob/master/public/javascripts/repeatFoos-ex2.js#L24
 [I tested this]:https://github.com/EdgeCaseBerg/play--repeated-form-examples/blob/master/app/views/example/repeatedFoosEx3.scala.html
