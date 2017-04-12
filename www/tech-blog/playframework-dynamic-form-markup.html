@@ -98,7 +98,7 @@ the <a href="https://github.com/playframework/playframework/blob/34b3090525c4b55
 from the <code>RepeatedMapping</code> class) is that the index&#39;s you send for each 
 object that&#39;s mapped <em>must</em> be unique! If you submit two inputs that have 
 the name <code>email[1]</code> then only one of those will be bound. This is indicated 
-by the binding code which calls [RepeatedMapping.indexes], which looks like 
+by the binding code which calls <a href="https://github.com/playframework/playframework/blob/34b3090525c4b550938121beb09f10072811b1f3/framework/src/play/src/main/scala/play/api/data/Form.scala#L711">RepeatedMapping.indexes</a>, which looks like 
 this:</p>
 <pre><code>def indexes(key: String, data: Map[String, String]): Seq[Int] = {
     val KeyPattern = (&quot;^&quot; + java.util.regex.Pattern.quote(key) + &quot;&quot;&quot;\[(\d+)\].*$&quot;&quot;&quot;).r
@@ -140,7 +140,7 @@ without help from play would be:</p>
 </blockquote>
 <p>As in, do they need to be sequential? Do I need to keep them in order? 
 What happens if I don&#39;t? If you take a second look at the <code>KeyPattern</code> 
-that&#39;s used by <a href="https://github.com/playframework/playframework/blob/34b3090525c4b550938121beb09f10072811b1f3/framework/src/play/src/main/scala/play/api/data/Form.scala#L711">RepeatedMappings.indexes</a> you&#39;l see</p>
+that&#39;s used by <a href="https://github.com/playframework/playframework/blob/34b3090525c4b550938121beb09f10072811b1f3/framework/src/play/src/main/scala/play/api/data/Form.scala#L711">RepeatedMapping.indexes</a> you&#39;ll see</p>
 <pre><code>val KeyPattern = (&quot;^&quot; + java.util.regex.Pattern.quote(key) + &quot;&quot;&quot;\[(\d+)\].*$&quot;&quot;&quot;).r
 </code></pre><p>Which is only matching numbers, it&#39;s not checking anything else about them. 
 And in the <code>bindFromRequest</code> method we mentioned above we&#39;re just sorting 
