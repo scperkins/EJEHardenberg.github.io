@@ -1836,6 +1836,11 @@ and the taste a little bit different from say, their mcDoubles. It was
 good. Though not very economical (as all the combo meals are), so I
 think I'll continue just ordering from the value menu next time I go.
 
+### Day 303
+
+Soylent for lunch today, also had a lettuce wrap. Then had pizza rolls
+for dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
