@@ -1845,6 +1845,10 @@ for dinner.
 
 Soylent for lunch, wings at trivia for dinner.
 
+### Day 305 
+
+Soylent for lunch today, then for dinner I ended up cooking for the
+first time in ages. Made some Ribeye-Ramen! It was good.
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
