@@ -1855,6 +1855,12 @@ first time in ages. Made some Ribeye-Ramen! It was good.
 No soylent today, just ate some nachos and then went to a friends place
 for a cookout where she had smoked a couple pork shoulders. It was good. 
 
+### Day 307 
+
+No soylent today, nachos for lunch again, then had asome asian food for
+dinner along with some leftovers from the other day. Tomorrow will be
+back to the usual though.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
