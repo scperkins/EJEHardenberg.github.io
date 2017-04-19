@@ -1866,6 +1866,13 @@ back to the usual though.
 Soylent for lunch today, but I'm a bit under the weather so I had larger 
 dinner of leftover rice, nachos, and a lunchable. Gotta keep up my strength!
 
+### Day 309
+
+Soylent for lunch today, also had some chili as well. Gotta have extra
+food to get better faster! For dinner I had some spaghetti-O's with
+meatballs and then had some pizza rolls. Also drinking lots of juice
+with extra vitamin C.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
