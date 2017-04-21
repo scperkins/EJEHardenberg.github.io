@@ -1873,6 +1873,14 @@ food to get better faster! For dinner I had some spaghetti-O's with
 meatballs and then had some pizza rolls. Also drinking lots of juice
 with extra vitamin C.
 
+### Day 310 
+
+Soylent for breakfast today, then a breakfast sandwich, then a crepe filled 
+with good breakfast food stuffs. Then a plane ride that made my ears hurt like
+crazy because I was congested. But then after I landed, on some suggestions from
+a twitter user, I got Lou Malnati's and tried some Chicago deep dish. Which was
+really tasty.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
