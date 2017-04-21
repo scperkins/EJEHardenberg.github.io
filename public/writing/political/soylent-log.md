@@ -1881,6 +1881,13 @@ crazy because I was congested. But then after I landed, on some suggestions from
 a twitter user, I got Lou Malnati's and tried some Chicago deep dish. Which was
 really tasty.
 
+### Day 311 
+
+No soylent today, breakfast was two bottles of OJ, one of apple juice, a muffin
+and a croissant. Then for lunch I had salad, potatoes, carrots, beats, white fish
+and pork. Dinner was a bacon burger at a local tavern and two glasses of tasty 
+Hefeweizen.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
