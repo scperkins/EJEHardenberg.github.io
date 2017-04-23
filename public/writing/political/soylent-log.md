@@ -1888,6 +1888,15 @@ and a croissant. Then for lunch I had salad, potatoes, carrots, beats, white fis
 and pork. Dinner was a bacon burger at a local tavern and two glasses of tasty 
 Hefeweizen.
 
+### Day 312 
+
+No soylent today, more convention and travel again. So I had a bagel
+with strawberry jam and cream cheese for breakfast. Then for lunch I had
+a hot dog, italian beef, salad, and a pickle. Also, I had a piece of
+cheesecake for desert after that. Nothing really for dinner though,
+until late after I got back from traveling and stopped for some fast
+food on the way home.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
