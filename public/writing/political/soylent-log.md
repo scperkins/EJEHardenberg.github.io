@@ -1908,6 +1908,12 @@ No soylent again today. Had brunch with some friends and then had pizza
 for dinner. Tomorrow will be back to the soylent for lunch schedule
 though!
 
+### Day 315 
+
+Soylent for lunch today! Rest of my leftover pizza for dinner though.
+Also, I realized yesterday was my 314th day, so I should have had some
+Pie or something in honor of it. Shoot.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
