@@ -1925,6 +1925,10 @@ No soylent for lunch today because it was a coworkers birthday so we had
 pizza. For dinner I had soylent, and then because I was a bit hungry
 still I had some dumplings.
 
+### Day 318
+
+Soylent for lunch today, then it was a trivia night so I ate dinner out. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
