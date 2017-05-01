@@ -1,4 +1,9 @@
 {
+	"listen" : {
+		"title" : "Listen",
+		"date" : "2017-04-30",
+		"freq" : "monthly"
+	},
 	"broken" : {
 		"title" : "Broken",
 		"date" : "2017-03-19",
