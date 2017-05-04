@@ -1953,6 +1953,10 @@ run.
 
 Soylent for lunch, then had dinner at a pub because I played trivia.
 
+### Day 323 
+
+Soylent for lunch and dinner today!
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
