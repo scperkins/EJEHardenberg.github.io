@@ -1964,6 +1964,13 @@ shake and steakhouse king burger. It was pretty good, the shake was
 great, the burger could have used more A1 sauce since it only had it on
 one side it seemed.
 
+### Day 325
+
+Half of my usual soylent for lunch (so only 200 calories I guess)
+because I was in meetings all day and lost track of time. Then I had a
+couple slices of leftover pizza for dinner and then chips and salsa with
+friends.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
