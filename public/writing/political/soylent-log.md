@@ -1971,6 +1971,14 @@ because I was in meetings all day and lost track of time. Then I had a
 couple slices of leftover pizza for dinner and then chips and salsa with
 friends.
 
+### Day 326 
+
+Had a bagel for breakfast/lunch because I was out and about doing
+errands. Then went to a Kentucky Derby party and had some pulled pork,
+then finished off the night with a chicken wing dinner. So no soylent
+today. Can you believe that in a little under a month or so I will have
+been drinking mostly soylent for a whole year?
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
