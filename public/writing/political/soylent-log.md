@@ -1979,6 +1979,12 @@ then finished off the night with a chicken wing dinner. So no soylent
 today. Can you believe that in a little under a month or so I will have
 been drinking mostly soylent for a whole year?
 
+### Day 327 
+
+Had some hot chocolate for breakfast, but then didn't have anything to
+eat until later around 5 when I had some shepherds pie at an Irish pub
+before going to see Guardians of the Galaxy 2.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
