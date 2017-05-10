@@ -1991,6 +1991,11 @@ Soylent for both lunch and dinner. Though I supplemented my lunch with
 half a sandwich and some soup in order to make up for only getting half
 of it since I was drinking my leftover soylent from Friday.
 
+### Day 329
+
+Soylent for lunch today, then had a southwest chicken sandwich at a pub
+for dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
