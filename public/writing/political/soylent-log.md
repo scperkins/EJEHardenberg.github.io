@@ -2005,6 +2005,12 @@ Soylent for lunch today, and for dinner.
 Soylent for lunch and dinner today. With a nice glass of plum wine to go
 along with dinner.
 
+### Day 332 
+
+No soylent today, treated a friend to breakfast at a new restaurant in
+town in exchange for a ride to the air port. Then had five guys for
+lunch, and then some barbeque ribs for dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
