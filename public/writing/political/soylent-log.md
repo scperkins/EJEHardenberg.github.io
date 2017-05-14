@@ -2011,6 +2011,12 @@ No soylent today, treated a friend to breakfast at a new restaurant in
 town in exchange for a ride to the air port. Then had five guys for
 lunch, and then some barbeque ribs for dinner.
 
+### Day 333 
+
+No soylent today. Brunch today was neat though, I tried out deep fried
+french toast. Which was an experience. Then my friends and I did some
+grilling and had burgers and potato salad.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
