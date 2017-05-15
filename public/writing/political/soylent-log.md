@@ -2017,6 +2017,12 @@ No soylent today. Brunch today was neat though, I tried out deep fried
 french toast. Which was an experience. Then my friends and I did some
 grilling and had burgers and potato salad.
 
+### Day 334 
+
+No soylent today. Breakfast was a really good Vera Cruz omelette though,
+and then dinner was some sliders and fries with curry ketchup while
+doing some pub trivia. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
