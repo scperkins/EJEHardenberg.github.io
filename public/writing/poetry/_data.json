@@ -1,4 +1,9 @@
 {
+	"bottom-line": {
+		"title":"Bottom Line",
+		"date" : "2017-05-15",
+		"freq" : "monthly"
+	},
 	"listen" : {
 		"title" : "Listen",
 		"date" : "2017-04-30",
