@@ -1,16 +1,16 @@
-these fragments below me on this in air journey  
+These fragments below me on this in air journey  
 are sometimes gridded and cut.  
 But it's not in the east where the mountains peek  
-Forming these rocky old mountaintops  
+forming these ol' mountain tops  
   
 Sectioned and cornered, an unnatural order  
-But so human. So precise. So neat.  
+but so human. So precise. So neat.  
 We burn through this fuel as fast we can  
-Be it crop, grain, or creek.  
+be it crop, grain, or creek.  
 
-Nature is loved, but not human's at all  
+Nature is loved, but not human's at all,  
 For we consume, ignore, and cheat.  
-To be the better, to best one another  
+To be the better, to best one another.  
 It's what drives too many to seek  
   
 The planet our own: claimed, quarried, and loaned  
