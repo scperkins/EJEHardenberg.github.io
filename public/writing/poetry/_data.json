@@ -1,4 +1,9 @@
 {
+	"soft" : {
+		"title" : "soft",
+		"date" : "2017-05-16",
+		"freq" : "monthly"
+	},
 	"bottom-line": {
 		"title":"Bottom Line",
 		"date" : "2017-05-15",
