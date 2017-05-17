@@ -2034,6 +2034,10 @@ suppose tomorrow I'll be back to having soylent for lunch at least, and
 maybe for dinner as well. The slew of days of no soylent were just
 because I was traveling really.
 
+### Day 336 
+
+Soylent for lunch and for dinner today.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
