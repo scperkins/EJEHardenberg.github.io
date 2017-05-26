@@ -2076,6 +2076,16 @@ Soylent for lunch and panera for dinner.
 
 Soylent for lunch and then had five guys for dinner.
 
+### Day 345 
+
+Soylent for lunch today, then had a sip of soylent before going off for
+a walk to the bookstore to look for the second book in a trilogy I'm
+reading. No dice, but since I was out I went ahead and grabbed some
+chinese food on the way back home and had that for dinner. And tomorrow
+I have plans with people for dinner, so I've been really bad about not
+eating out this week, yeesh. I'll have to make it up to myself over the
+weekend by going on an all soylent diet for the weekend.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
