@@ -852,5 +852,12 @@
 		"description" : "In depth look at the way naming your field names can affect whats sent to the system. Useful if you're planning on creating dynamic markup on the fly with javascript and need to know what your limitations are.",
 		"date" : "2017-01-15",
 		"keywords" : "Play!, helpers, repeated, index, indices, dynamic, scala, javascript"
+	},
+	"circe-beyond-basics" : {
+		"title" : "Circe, beyond the basics",
+		"description" : "Looking at examples of how to use the scala json library circe in more involved ways than what is explained in its guide",
+		"date" : "2017-05-26",
+		"keywords" : "circe, scala, json",
+		"draft": true
 	}
 }
