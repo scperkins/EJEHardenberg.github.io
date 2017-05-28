@@ -2086,6 +2086,17 @@ I have plans with people for dinner, so I've been really bad about not
 eating out this week, yeesh. I'll have to make it up to myself over the
 weekend by going on an all soylent diet for the weekend.
 
+### Day 346 
+
+Soylent for lunch, then went to a food truck gathering thing with
+friends for dinner. 
+
+### Day 347
+
+Had the last of my pizza rolls for lunch, then was planning on having
+soylent for dinner but then some of my friends wanted to go get pizza at
+this place that has amazing pizza so I couldn't turn it down.`
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
