@@ -858,6 +858,6 @@
 		"description" : "Looking at examples of how to use the scala json library circe in more involved ways than what is explained in its guide",
 		"date" : "2017-05-26",
 		"keywords" : "circe, scala, json",
-		"draft": true
+		"draft": false
 	}
 }

@@ -149,7 +149,8 @@ If you look at the operations captured in the history you can see that circe has
 told you exactly where the problem was, namely the second child of the object. 
 But you might also see the weird message of `[A]Vector[A]` where before we saw 
 the nice human friendly error message we wrote. This is a bug, and until the 
-[issue] is closed you'll have to live with it. 
+[issue] is closed you'll have to live with it if you're not willing to use the 
+work around mentioned last in this blog post.
 
 #### Letting circe do most of your work 
 
@@ -192,6 +193,134 @@ res1: io.circe.Decoder.Result[A] = Left(DecodingFailure(Id must be greater than 
 
 #### Handling classes with defaults on non-optional fields
 
+If you've ever worked on a large system with a lot of components you know that 
+versioning your libraries and being clear about backwards compatibility is very
+important. So it makes sense that if your systems speak to each other through 
+json, then you want to keep things compatible there as well. So let's say we take
+our `A` class and make version 0.1.0 of it:
+
+```
+case class A(id: Int, children: Vector[A], isPublic: Boolean = false)
+```
+
+This new `A` class released in version 0.1.0 of our fake library can be used in 
+place of the old one with no compilation errors since we've defaulted the 
+`isPublic` field. However, if we were to use the regular serializer for this, 
+and then some other part of the system sends a 0.0.0 `A` instance:
+
+```
+{"id": 1, "children": []}
+```
+
+We'd get an error like so:
+
+```
+scala> parser.parse("""{"id":1,"children":[]}""").right.get.as[A]
+res0: io.circe.Decoder.Result[A] = Left(DecodingFailure(Attempt to decode value on failed cursor, List(DownField(isPublic))))
+```
+
+If we want out JSON defaults to match the same rules as our actual class, then 
+we need to also default the JSON. Luckily, the <a href="https://circe.github.io/circe/api/io/circe/Decoder.html#prepare(f:io.circe.ACursor=>io.circe.ACursor):io.circe.Decoder[A]">prepare</a> method let's us modify 
+the incoming JSON before the decoder gets to attempt to decode this. So we can 
+define the following decoder to get around this issue:
+
+```
+implicit val d: Decoder[A] = deriveDecoder[A].prepare { acursor =>
+	acursor.withFocus { json =>
+		json.mapObject { jsonObject =>
+			if(jsonObject.contains("isPublic")) {
+				jsonObject
+			} else {
+				jsonObject.add("isPublic", Json.fromBoolean(false))
+			}
+		}
+	}
+}
+```
+
+`prepare` gives us an [acursor] whose current focus is the root of whatever 
+was asked to be decoder, which we know in the case of an `A` is an object, 
+so we treat the json as an object and check if it already has the field 
+`isPublic` defined. If not, then we default it to the same thing that our 
+actual class did. With that in place, a system sending us 0.0.0 versions 
+of the `A` class serialized into JSON can be parsed:
+
+```
+scala> parser.parse("""{"id":1,"children":[]}""").right.get.as[A]
+res0: io.circe.Decoder.Result[A] = Right(A(1,Vector(),false))
+```
+
+#### Getting around that pesky useless error message. 
+
+For our last trick, let's make our error messages helpful to us again. This
+
+```
+Left(DecodingFailure([A]Vector[A], List(MoveRight, DownArray, DownField(children))))
+```
+
+is not useful. However, the reason we get this is because [the default decoder for Vector] 
+creates an error message of its own and overrides our custom one by calling 
+`decodeCanBuildFrom[T, Vector].withErrorMessage("[A]Vector[A]")`. So, all we need 
+to do to fix this error is get a more specific implicit for our type into scope 
+when we create our custom decoder:
+
+```
+import cats.syntax.either._ // Need for right biased Either
+
+case class A(id: Int, children: Vector[A]) // Back to 0.0.0 for this
+
+// The Magic:
+implicit def vectorADecoder[A: Decoder]: Decoder[Vector[A]] = Decoder.decodeCanBuildFrom[A, Vector]
+
+// The same decoder we defined before
+implicit val decoder: Decoder[A] = Decoder.instance { hCursor =>
+     val idDecodingResult = hCursor.downField("id").as[Int] match {
+          case Right(id) if id > 0 => Right[DecodingFailure, Int](id)
+          case Right(id) => Left(DecodingFailure("Id must be greater than 0", hCursor.history))
+          case l => l
+     }
+     val childrenResult = hCursor.downField("children").as[Vector[A]]
+     for {
+          id <- idDecodingResult
+          children <- childrenResult
+     } yield A(id, children)
+}
+
+```
+
+While this is the same custom decoder as before, the difference is that when we 
+call `as[Vector[A]]` and the compiler goes looking for an implicit Decoder for 
+that type, it sees our new `vectorADecoder` method and uses that rather than the 
+one defined within circe for generic Vectors. And so, when we parse some invalid 
+JSON:
+
+```
+scala> parser.parse("""{"id": 1, "children": [{"id" : 2, "children": []},{"id": -2, "children": []}]}""").right.get.as[A]
+res0: io.circe.Decoder.Result[A] = Left(DecodingFailure(Id must be greater than 0, List(MoveRight, DownArray, DownField(children))))
+```
+
+We see that we have the right error message now. And if we use `show` then we'll 
+get a very useful error message we can log or display:
+
+```
+import cats.implicits._
+scala> res0.left.get.show
+res1: String = DecodingFailure at .children[1]: Id must be greater than 0
+```
+
+Useful huh? 
+
+#### And that's it. 
+
+So, in summary:
+
+- define the type of your recursive decoders to avoid compilation errors
+- read through the [acursor] and [hCursor] docs to get a feel for navigating JSON when making custom decoders.
+- let circe do the work for you unless you really need that performance for some reason
+- use [prepare] to create JSON fields for defaults of fields that aren't optional in your schema but that have defaults defined at the class level
+- define a _more specific_ implicit for recursive list types if you want custom error messages to appear
+
+
 [play-json]:https://www.playframework.com/documentation/2.4.x/ScalaJson
 [circe]:https://github.com/circe/circe
 [simple six part guide]:https://circe.github.io/circe/parsing.html
@@ -199,3 +328,6 @@ res1: io.circe.Decoder.Result[A] = Left(DecodingFailure(Id must be greater than 
 [gitter channel]:https://gitter.im/circe/circe
 [Travis Brown]:https://github.com/travisbrown
 [issue]:https://github.com/circe/circe/issues/643
+[acursor]:https://circe.github.io/circe/api/io/circe/ACursor.html
+[hcursor]:https://circe.github.io/circe/api/io/circe/HCursor.html
+[the default decoder for Vector]:https://github.com/circe/circe/blob/master/modules/core/shared/src/main/scala/io/circe/Decoder.scala#L700
