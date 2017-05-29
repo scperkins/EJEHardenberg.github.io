@@ -59,12 +59,215 @@
 
     <div id="content">
       <a href="/tech-blog">Back</a>
-      
-        <br/>
-        <h3>
-          You've stumbled onto a post that is coming soon! But for now you can't see it. Sorry. 
-        </h3>
-        <p> For now why don't you checkout the other posts?</p>
+      <h3>Circe Examples</h3><p>I&#39;ve used a few JSON libraries in scala and most of the time end up using 
+<a href="https://www.playframework.com/documentation/2.4.x/ScalaJson">play-json</a> because if I&#39;m working in a play application, then its already
+there and easy to use. However, there are limitations that make one go out 
+and find an alternative sometimes. For example:</p>
+<ul>
+<li>Needing to use the same json serialization between different versions of play applications</li>
+<li>Needing support for flat classes that have more than 22 fields without a lot of boilerplate</li>
+</ul>
+<p>One such alternative is a very nice little library called <a href="https://github.com/circe/circe">circe</a>. It has a 
+<a href="https://circe.github.io/circe/parsing.html">simple six part guide</a> that serves as an introduction to using the library
+but anything more complex than that and you&#39;re left to hunting through the 
+<a href="https://circe.github.io/circe/api/">api documentation</a> for answers. And well, sometimes the answers aren&#39;t 
+immediately obvious. The best place to get help for when this occurs is the
+<a href="https://gitter.im/circe/circe">gitter channel</a> because generally someone can help you and more often than 
+not that someone is <a href="https://github.com/travisbrown">Travis Brown</a> who created the library.</p>
+<p>In this blog post, I&#39;ll document a few things that I&#39;ve had to do in circe 
+that don&#39;t appear in the guide I linked to, but which you might need to do 
+in your own projects.</p>
+<h4>Setup</h4><p>Before I show any examples, if you want to follow along or run these examples
+in your console you&#39;ll need to setup a few imports and a build file. </p>
+<p><em>build.sbt</em></p>
+<pre><code>scalaVersion := &quot;2.11.8&quot;
+
+val circeVersion = &quot;0.8.0&quot;
+
+libraryDependencies ++= Seq(
+  &quot;io.circe&quot; %% &quot;circe-core&quot;,
+  &quot;io.circe&quot; %% &quot;circe-generic&quot;,
+  &quot;io.circe&quot; %% &quot;circe-parser&quot;
+).map(_ % circeVersion)
+</code></pre><p><em>import these in your console</em></p>
+<pre><code>import io.circe._
+import io.circe.generic.semiauto._
+import io.circe.generic.decoding.DerivedDecoder
+import io.circe.generic.encoding.DerivedObjectEncoder
+</code></pre><p>or in one line:</p>
+<pre><code>import io.circe._, io.circe.generic.semiauto._, io.circe.generic.decoding.DerivedDecoder, io.circe.generic.encoding.DerivedObjectEncoder
+</code></pre><p>And now you&#39;re ready to work with the examples. </p>
+<h4>Recursive decoder gotchas</h4><p>Consider the recursive class</p>
+<pre><code>case class A(id: Int, children: Vector[A])
+</code></pre><p>The fact that this class is recursive isn&#39;t really a problem for circe, however 
+it is a problem for the <em>compiler</em> if you don&#39;t provide enough hints to it to
+figure out what you want it to be done. Type the following into your console to 
+use circe&#39;s semi-automatic deriviation to create a decoder:</p>
+<pre><code>implicit val d = deriveDecoder[A]
+</code></pre><p>You&#39;ll get an error like this:</p>
+<pre><code>error: could not find Lazy implicit value of type io.circe.generic.decoding.DerivedDecoder[A]
+</code></pre><p>So you read this error and think to yourself, <em>&quot;oh it right, it needs to be Lazy 
+since it&#39;s recursive, that makes sense!&quot;</em> so you try this:</p>
+<pre><code>lazy implicit val d = deriveDecoder[A]
+</code></pre><p>But you&#39;ll get the same error. The <em>real</em> problem is something similar to what 
+happens when you do something like this:</p>
+<pre><code>scala&gt; def f(x: Int) = if (x &lt; 0) true else f(x - 1)
+&lt;console&gt;:19: error: recursive method f needs result type
+</code></pre><p>The compiler needs to know exactly what the type of this recursive thing is. So
+if you write your decoder like so:</p>
+<pre><code>scala&gt; implicit val d: Decoder[A]  = deriveDecoder[A]
+</code></pre><p>You&#39;ll be happily treated to seeing it compile and the console spit back</p>
+<pre><code>d: io.circe.Decoder[A] = io.circe.generic.decoding.DerivedDecoder$$anon$1@78952c43
+</code></pre><p>Simple enough, but very easy to get tripped up. For example, if you remove the 
+implicit keyword from the declaration, you&#39;ll end up with that same error again. </p>
+<h4>Handling recursive decoding yourself</h4><p>So say you don&#39;t want to use the semi-automatic derivation, maybe you have some 
+rules you want to apply during the decoding process and fail it if it doesn&#39;t 
+quite fit what you want. Let&#39;s look at our example class again: </p>
+<pre><code>case class A(id: Int, children: Vector[A])
+</code></pre><p>Let&#39;s say that our system requires that all <code>id</code>s must be greater than 0. And 
+we&#39;ve decided to enforce this at the json layer and reject requests before they 
+even make it into the system. So we begin defining these things like so:</p>
+<pre><code>import cats.syntax.either._ // Make Either right biased
+
+implicit val decoder: Decoder[A] = Decoder.instance { hCursor =&gt;
+    val idDecodingResult = hCursor.downField(&quot;id&quot;).as[Int] match {
+        case Right(id) if id &gt; 0 =&gt; Right[DecodingFailure, Int](id)
+        case Right(id) =&gt; Left(DecodingFailure(&quot;Id must be greater than 0&quot;, hCursor.history))
+        case l =&gt; l
+    }
+    val childrenResult = hCursor.downField(&quot;children&quot;).as[Vector[A]]
+    for {
+        id &lt;- idDecodingResult
+        children &lt;- childrenResult
+    } yield A(id, children)
+}
+</code></pre><p>And we can see that it works:</p>
+<pre><code>scala&gt; parser.parse(&quot;&quot;&quot;{&quot;id&quot;: -1, &quot;children&quot;: []}&quot;&quot;&quot;).right.get.as[A]
+res3: io.circe.Decoder.Result[A] = Left(DecodingFailure(Id must be greater than 0, List()))
+</code></pre><p>However, there is one limitation here which we can see if one of the recursive 
+children is invalid:</p>
+<pre><code>scala&gt; parser.parse(&quot;&quot;&quot;{&quot;id&quot;: 1, &quot;children&quot;: [{&quot;id&quot; : 2, &quot;children&quot;: []},{&quot;id&quot;: -2, &quot;children&quot;: []}]}&quot;&quot;&quot;).right.get.as[A]
+res8: io.circe.Decoder.Result[A] = Left(DecodingFailure([A]Vector[A], List(MoveRight, DownArray, DownField(children))))
+</code></pre><p>If you look at the operations captured in the history you can see that circe has 
+told you exactly where the problem was, namely the second child of the object. 
+But you might also see the weird message of <code>[A]Vector[A]</code> where before we saw 
+the nice human friendly error message we wrote. This is a bug, and until the 
+<a href="https://github.com/circe/circe/issues/643">issue</a> is closed you&#39;ll have to live with it if you&#39;re not willing to use the 
+work around mentioned last in this blog post.</p>
+<h4>Letting circe do most of your work</h4><p>In the above example writing a decoder is simple, and part of this is because 
+our toy model <code>A</code> is only two fields. However, in the real world you might have 
+many more fields to deal with, and it&#39;s tedious and error prone to write them 
+all out yourself. So, rather than create the entire decoder ourselves we can 
+use the semi-automatic derivation and the method <code>emap</code> to construct something 
+similar to the above. </p>
+<pre><code>def validA(a: A): Boolean = {
+    a.id &gt; 0 &amp;&amp; a.children.map(validA).foldLeft(true)(_ &amp;&amp; _)
+}
+
+implicit val d: Decoder[A] = deriveDecoder[A].emap { a =&gt;
+    if(!validA(a)) {
+        Left(&quot;Id must be greater than 0&quot;)
+    } else {
+        Right(a)
+    }
+}
+</code></pre><p>This is a little more concise than previous code because we are now dealing with 
+the parsed instance of <code>A</code> rather than the cursors within circe directly. So you 
+basically now have 2 steps in the validation process, the reading of JSON, and 
+the extra validation of it. If performance is a concern you probably want to 
+stick with staying within circe, but if its not then the above would work fine.
+However, it has the same problems as I mentioned with the above, at least until 
+the <a href="https://github.com/circe/circe/issues/643">issue</a> is fixed:</p>
+<pre><code>scala&gt; parser.parse(&quot;&quot;&quot;{&quot;id&quot;: 1, &quot;children&quot;: [{&quot;id&quot; : 2, &quot;children&quot;: []},{&quot;id&quot;: -2, &quot;children&quot;: []}]}&quot;&quot;&quot;).right.get.as[A]
+res0: io.circe.Decoder.Result[A] = Left(DecodingFailure([A]Vector[A], List(MoveRight, DownArray, DownField(children))))
+
+scala&gt; parser.parse(&quot;&quot;&quot;{&quot;id&quot;: -1, &quot;children&quot;: []}&quot;&quot;&quot;).right.get.as[A]
+res1: io.circe.Decoder.Result[A] = Left(DecodingFailure(Id must be greater than 0, List()))
+</code></pre><h4>Handling classes with defaults on non-optional fields</h4><p>If you&#39;ve ever worked on a large system with a lot of components you know that 
+versioning your libraries and being clear about backwards compatibility is very
+important. So it makes sense that if your systems speak to each other through 
+json, then you want to keep things compatible there as well. So let&#39;s say we take
+our <code>A</code> class and make version 0.1.0 of it:</p>
+<pre><code>case class A(id: Int, children: Vector[A], isPublic: Boolean = false)
+</code></pre><p>This new <code>A</code> class released in version 0.1.0 of our fake library can be used in 
+place of the old one with no compilation errors since we&#39;ve defaulted the 
+<code>isPublic</code> field. However, if we were to use the regular serializer for this, 
+and then some other part of the system sends a 0.0.0 <code>A</code> instance:</p>
+<pre><code>{&quot;id&quot;: 1, &quot;children&quot;: []}
+</code></pre><p>We&#39;d get an error like so:</p>
+<pre><code>scala&gt; parser.parse(&quot;&quot;&quot;{&quot;id&quot;:1,&quot;children&quot;:[]}&quot;&quot;&quot;).right.get.as[A]
+res0: io.circe.Decoder.Result[A] = Left(DecodingFailure(Attempt to decode value on failed cursor, List(DownField(isPublic))))
+</code></pre><p>If we want out JSON defaults to match the same rules as our actual class, then 
+we need to also default the JSON. Luckily, the <a href="https://circe.github.io/circe/api/io/circe/Decoder.html#prepare(f:io.circe.ACursor=>io.circe.ACursor):io.circe.Decoder[A]">prepare</a> method let&#39;s us modify 
+the incoming JSON before the decoder gets to attempt to decode this. So we can 
+define the following decoder to get around this issue:</p>
+<pre><code>implicit val d: Decoder[A] = deriveDecoder[A].prepare { acursor =&gt;
+    acursor.withFocus { json =&gt;
+        json.mapObject { jsonObject =&gt;
+            if(jsonObject.contains(&quot;isPublic&quot;)) {
+                jsonObject
+            } else {
+                jsonObject.add(&quot;isPublic&quot;, Json.fromBoolean(false))
+            }
+        }
+    }
+}
+</code></pre><p><code>prepare</code> gives us an <a href="https://circe.github.io/circe/api/io/circe/ACursor.html">acursor</a> whose current focus is the root of whatever 
+was asked to be decoder, which we know in the case of an <code>A</code> is an object, 
+so we treat the json as an object and check if it already has the field 
+<code>isPublic</code> defined. If not, then we default it to the same thing that our 
+actual class did. With that in place, a system sending us 0.0.0 versions 
+of the <code>A</code> class serialized into JSON can be parsed:</p>
+<pre><code>scala&gt; parser.parse(&quot;&quot;&quot;{&quot;id&quot;:1,&quot;children&quot;:[]}&quot;&quot;&quot;).right.get.as[A]
+res0: io.circe.Decoder.Result[A] = Right(A(1,Vector(),false))
+</code></pre><h4>Getting around that pesky useless error message.</h4><p>For our last trick, let&#39;s make our error messages helpful to us again. This</p>
+<pre><code>Left(DecodingFailure([A]Vector[A], List(MoveRight, DownArray, DownField(children))))
+</code></pre><p>is not useful. However, the reason we get this is because <a href="https://github.com/circe/circe/blob/master/modules/core/shared/src/main/scala/io/circe/Decoder.scala#L700">the default decoder for Vector</a> 
+creates an error message of its own and overrides our custom one by calling 
+<code>decodeCanBuildFrom[T, Vector].withErrorMessage(&quot;[A]Vector[A]&quot;)</code>. So, all we need 
+to do to fix this error is get a more specific implicit for our type into scope 
+when we create our custom decoder:</p>
+<pre><code>import cats.syntax.either._ // Need for right biased Either
+
+case class A(id: Int, children: Vector[A]) // Back to 0.0.0 for this
+
+// The Magic:
+implicit def vectorADecoder[A: Decoder]: Decoder[Vector[A]] = Decoder.decodeCanBuildFrom[A, Vector]
+
+// The same decoder we defined before
+implicit val decoder: Decoder[A] = Decoder.instance { hCursor =&gt;
+     val idDecodingResult = hCursor.downField(&quot;id&quot;).as[Int] match {
+          case Right(id) if id &gt; 0 =&gt; Right[DecodingFailure, Int](id)
+          case Right(id) =&gt; Left(DecodingFailure(&quot;Id must be greater than 0&quot;, hCursor.history))
+          case l =&gt; l
+     }
+     val childrenResult = hCursor.downField(&quot;children&quot;).as[Vector[A]]
+     for {
+          id &lt;- idDecodingResult
+          children &lt;- childrenResult
+     } yield A(id, children)
+}
+</code></pre><p>While this is the same custom decoder as before, the difference is that when we 
+call <code>as[Vector[A]]</code> and the compiler goes looking for an implicit Decoder for 
+that type, it sees our new <code>vectorADecoder</code> method and uses that rather than the 
+one defined within circe for generic Vectors. And so, when we parse some invalid 
+JSON:</p>
+<pre><code>scala&gt; parser.parse(&quot;&quot;&quot;{&quot;id&quot;: 1, &quot;children&quot;: [{&quot;id&quot; : 2, &quot;children&quot;: []},{&quot;id&quot;: -2, &quot;children&quot;: []}]}&quot;&quot;&quot;).right.get.as[A]
+res0: io.circe.Decoder.Result[A] = Left(DecodingFailure(Id must be greater than 0, List(MoveRight, DownArray, DownField(children))))
+</code></pre><p>We see that we have the right error message now. And if we use <code>show</code> then we&#39;ll 
+get a very useful error message we can log or display:</p>
+<pre><code>import cats.implicits._
+scala&gt; res0.left.get.show
+res1: String = DecodingFailure at .children[1]: Id must be greater than 0
+</code></pre><p>Useful huh? </p>
+<h4>And that&#39;s it.</h4><p>So, in summary:</p>
+<ul>
+<li>define the type of your recursive decoders to avoid compilation errors</li>
+<li>read through the <a href="https://circe.github.io/circe/api/io/circe/ACursor.html">acursor</a> and <a href="https://circe.github.io/circe/api/io/circe/HCursor.html">hCursor</a> docs to get a feel for navigating JSON when making custom decoders.</li>
+<li>let circe do the work for you unless you really need that performance for some reason</li>
+<li>use [prepare] to create JSON fields for defaults of fields that aren&#39;t optional in your schema but that have defaults defined at the class level</li>
+<li>define a <em>more specific</em> implicit for recursive list types if you want custom error messages to appear</li>
+</ul>
       
       <h3>Other Posts</h3>
       <div id="other-posts">
