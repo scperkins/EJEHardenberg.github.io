@@ -2097,6 +2097,12 @@ Had the last of my pizza rolls for lunch, then was planning on having
 soylent for dinner but then some of my friends wanted to go get pizza at
 this place that has amazing pizza so I couldn't turn it down.`
 
+### Day 348 
+
+No soylent again today, but had leftover pizza from yesterday for lunch
+and then went to a cookout put on by the local young adult group. It was
+good and tasty and I played volleyballs.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
