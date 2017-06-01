@@ -2113,6 +2113,12 @@ between lunch and dinner.
 Soylent for lunch today, but then it was rainy and cold so I had some
 broccolli cheddar soup for dinner rather than cool soylent.
 
+### Day 351 
+
+Planned to have soylent today, but then turns out work was treating for
+lunch so that didn't happen. Had the last leftovers of my stir fry for
+dinner today.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
