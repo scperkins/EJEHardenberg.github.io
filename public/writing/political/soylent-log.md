@@ -2125,6 +2125,11 @@ Again, work had lunch so I didn't have my soylent. And then my friend
 sent me a recipe the other day for Dorito Burgers, so I made those for
 dinner tonight (they're really good) so no soylent today either.
 
+### Day 353 
+
+Soylent for lunch today, then had half of a leftover dorito burger and
+some pierogis for dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
