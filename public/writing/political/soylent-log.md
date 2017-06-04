@@ -2130,6 +2130,11 @@ dinner tonight (they're really good) so no soylent today either.
 Soylent for lunch today, then had half of a leftover dorito burger and
 some pierogis for dinner.
 
+### Day 354 
+
+No soylent today, finished my last dorito burger for lunch and ate some
+other leftovers throughout the day.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
