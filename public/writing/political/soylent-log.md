@@ -2135,6 +2135,15 @@ some pierogis for dinner.
 No soylent today, finished my last dorito burger for lunch and ate some
 other leftovers throughout the day.
 
+### Day 355 
+
+No soylent again. It seems recently I haven't been having soylent like
+I should on weekends. I wonder if it's because I traveled a good amount
+recently and it threw off the habit? Hm. Anyway, today I had some eggs
+mixed with tomato, onion, lettuce, and cheese for lunch and then a
+microwave burrito for an early dinner. Not the greatest of meals on a
+Sunday, but oh well.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
