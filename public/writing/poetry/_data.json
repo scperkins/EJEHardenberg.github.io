@@ -1,4 +1,9 @@
 {
+	"wandering" : {
+		"title" : "Wandering",
+		"date" : "2017-06-05",
+		"freq" : "monthly"
+	},
 	"without-words": { 
 		"title" : "Without words",
 		"date" : "2017-05-27",
