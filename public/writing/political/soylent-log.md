@@ -2144,6 +2144,11 @@ mixed with tomato, onion, lettuce, and cheese for lunch and then a
 microwave burrito for an early dinner. Not the greatest of meals on a
 Sunday, but oh well.
 
+### Day 356 
+
+Soylent for lunch today, but then was out buying new running shoes and
+grabbed five guys on the way home. Hm hm hm hot sauce burger.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
