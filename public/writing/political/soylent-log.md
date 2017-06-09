@@ -2159,6 +2159,11 @@ fries at the pub.
 Soylent for lunch today, then had panera for dinner since I was out and
 about getting a new book.
 
+### Day 359 
+
+Soylent for lunch and dinner today, then had some snacks and gatorade
+while I helped tutor a friend.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
