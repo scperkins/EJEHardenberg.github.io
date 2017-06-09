@@ -2154,6 +2154,11 @@ grabbed five guys on the way home. Hm hm hm hot sauce burger.
 Soylent for lunch today. Then it was a trivia day, so I had a burger and
 fries at the pub.
 
+### Day 358 
+
+Soylent for lunch today, then had panera for dinner since I was out and
+about getting a new book.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
