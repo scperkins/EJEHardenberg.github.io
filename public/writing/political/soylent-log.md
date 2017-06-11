@@ -2164,6 +2164,20 @@ about getting a new book.
 Soylent for lunch and dinner today, then had some snacks and gatorade
 while I helped tutor a friend.
 
+### Day 360 
+
+Soylent for lunch today, but then had a cheese-stick wrapped in some
+really good roast beef, wrapped in a tortilla for dinner. And some
+chips. Kind of a funny thing, but the other day I ended up reading the
+wikipedia article on fasting. According to St. Augustine's Prayer Book,
+fasting means not more than a light breakfast, one full meal and one
+half meal. Which is kind of funny if you look through my log and realize
+that I don't eat breakfast most of the time. So there's one requirement.
+My lunch is a bottle of soylent, which is 400 calories, which I'd call a
+light or half meal I suppose. And then I either have another one of
+those for dinner, or I have an actual meal. So in a weird way I've been
+fasting for 360 days without meaning to.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
