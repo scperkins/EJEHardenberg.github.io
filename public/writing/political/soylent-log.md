@@ -2178,6 +2178,16 @@ light or half meal I suppose. And then I either have another one of
 those for dinner, or I have an actual meal. So in a weird way I've been
 fasting for 360 days without meaning to.
 
+### Day 361 
+
+No soylent today. I've got this tasty roast beef in my house, and so I
+keep making tortilla wraps with it and some cheese sticks I got. Don't
+want to let that beef go to waste! Plus, I wanted some meaty food
+because I went to the gym today for the first time and met with a
+trainer to start looking into a workout plan. And I was sweating after
+an hour or so with him, so, I wanted some solid food rather than
+soylent.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
