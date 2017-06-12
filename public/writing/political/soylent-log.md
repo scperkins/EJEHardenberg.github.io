@@ -2188,6 +2188,12 @@ trainer to start looking into a workout plan. And I was sweating after
 an hour or so with him, so, I wanted some solid food rather than
 soylent.
 
+### Day 362 
+
+No soylent today, had some MnM's though, and some more roast beef wraps.
+Which was very tasty. Then for dinner my housemates and I had a movie
+night with some chicken parmesian. Which was wicked good.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
