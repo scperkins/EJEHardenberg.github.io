@@ -2203,6 +2203,12 @@ roast beef and cheese tortilla wrap thing. It's surprising it's almost
 been a year. Just a couple more days. I'll have to be sure to
 commemerate the date by having all soylent that day!
 
+### Day 364 
+
+Soylent for lunch today, then had some leftover chicken parmesian for
+dinner. There's still leftovers so I might end up having it tomorrow
+too.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
