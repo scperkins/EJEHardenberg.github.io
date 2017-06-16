@@ -2314,6 +2314,11 @@ know that I am.
 
 Now I have to decide if I'll keep this log going or not.
 
+### Day 366
+
+Work supplied lunch today, o Soylent for dinner only.
+
+
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
