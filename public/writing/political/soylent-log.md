@@ -2318,7 +2318,12 @@ Now I have to decide if I'll keep this log going or not.
 
 Work supplied lunch today, o Soylent for dinner only.
 
+### Day 367 
 
+Soylent for lunch today, then had mexican for dinner. Which is the first
+time in a little over a week I've been out to eat at a sitdown
+restaurant. Oh, and I had Soylent for breakfast since today was a
+workout day as well.
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
