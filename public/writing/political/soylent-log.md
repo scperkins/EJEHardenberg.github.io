@@ -2325,6 +2325,13 @@ time in a little over a week I've been out to eat at a sitdown
 restaurant. Oh, and I had Soylent for breakfast since today was a
 workout day as well.
 
+### Day 368 
+
+Had burger king for breakfast today because I was out running errands
+and there was one nearby. Then had five guys for dinner. Not the
+healthiest day in the world by any stretch of the imagination, but I do
+quite like hot sauce on my burgers.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
