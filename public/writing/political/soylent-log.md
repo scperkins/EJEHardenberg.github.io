@@ -2332,6 +2332,15 @@ and there was one nearby. Then had five guys for dinner. Not the
 healthiest day in the world by any stretch of the imagination, but I do
 quite like hot sauce on my burgers.
 
+### Day 369 
+
+Accidently forgot to eat most of the day. Had Strawberry Sage Kombucha
+around 10-ish and drank that until like... 3:30 ish? I was driving
+basically the whole day, so I wasn't really hungry or anything until I
+got back home around 8. And then I ordered dominoes to get some pasta
+because I figure pasta will be a good supply of energy during tomorrows
+gym visit.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
