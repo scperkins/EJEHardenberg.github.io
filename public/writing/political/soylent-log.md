@@ -2341,6 +2341,13 @@ got back home around 8. And then I ordered dominoes to get some pasta
 because I figure pasta will be a good supply of energy during tomorrows
 gym visit.
 
+### Day 370
+
+Soylent for breakfast after my gym visit. Then had soylent for lunch
+during my routine walk. Then finished off my day with a tasty tasty
+bottle of soylent! A full day of! Well, if you exclude the fact that I
+had a brownie my friend gave me as a snack. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
