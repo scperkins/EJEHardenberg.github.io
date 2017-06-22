@@ -2353,6 +2353,13 @@ had a brownie my friend gave me as a snack.
 Soylent for lunch and then had dominoes for dinner since they messed up
 my order and gave me credit the other day.
 
+### Day 372 
+
+Soylent for breakfast after my gym visit, and a breakfast sandwich from
+starbucks for when I was riding the bus. Then had Soylent for lunch and
+dinner. Though I was tutoring my friend and she brought over a 10 piece
+nugget from McDonalds for me. so I had that too. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
