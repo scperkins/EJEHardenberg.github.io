@@ -1,4 +1,9 @@
 {
+	"neighbor" : {
+		"title" : "Neighbor",
+		"date" : "2017-06-22",
+		"freq" : "monthly"
+	},
 	"wandering" : {
 		"title" : "Wandering",
 		"date" : "2017-06-05",
