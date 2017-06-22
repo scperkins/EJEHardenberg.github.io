@@ -2348,6 +2348,11 @@ during my routine walk. Then finished off my day with a tasty tasty
 bottle of soylent! A full day of! Well, if you exclude the fact that I
 had a brownie my friend gave me as a snack. 
 
+### Day 371 
+
+Soylent for lunch and then had dominoes for dinner since they messed up
+my order and gave me credit the other day.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
