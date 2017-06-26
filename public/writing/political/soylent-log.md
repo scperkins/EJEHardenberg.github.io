@@ -2376,6 +2376,12 @@ Didn't eat until around 3pm today on account of waking up at 12 then
 doing yard work for a couple hours. Then had Panera for lunch, and then
 had some nachos and a slice of pizza for dinner.
 
+### Day 376 
+
+Didn't bother with breakfast today, wasn't hungry until a little past
+lunch so I got chinese food and had half of it for lunch, and the other
+half for dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
