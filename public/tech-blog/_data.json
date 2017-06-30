@@ -859,5 +859,11 @@
 		"date" : "2017-05-26",
 		"keywords" : "circe, scala, json",
 		"draft": false
+	},
+	"play-optional-mapping-objects" : {
+		"title" : "Playframework Optional Mappings of Objects",
+		"description" : "Did you know that if only optional fields are sent in a play form, that it makes all other fields required? Here's how to deal with it!",
+		"date" : "2017-06-30",
+		"keywords" : "play!, circe, scala, helpers, forms, optional, mapping, FormError required"
 	}
 }
