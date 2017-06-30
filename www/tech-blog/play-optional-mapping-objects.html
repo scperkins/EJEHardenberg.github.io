@@ -1,0 +1,275 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Ethan's Tech Blog | Playframework Optional Mappings of Objects</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Did you know that if only optional fields are sent in a play form, that it makes all other fields required? Here&#39;s how to deal with it!" />
+    <meta name="author" content="Ethan Eldridge">
+    <meta name="keywords" content="play!, circe, scala, helpers, forms, optional, mapping, FormError required"/>
+    <meta name="robots" content="index, follow"  />
+      <meta name="revisit-after" content="1 month" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+      
+    
+	<link rel="shortcut icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="//static.ethanjoachimeldridge.info/favicon.ico" type="image/ico">
+
+        
+    <!-- Facebook Open Graph Tags -->
+    <meta property="og:title" content="Ethan Eldridge | Playframework Optional Mappings of Objects" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    <meta property="og:url" content="http://www.ethanjoachimeldridge.info/" />
+    
+    <meta property="og:description" content="Did you know that if only optional fields are sent in a play form, that it makes all other fields required? Here&#39;s how to deal with it!" />
+    
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ethan Eldridge | Playframework Optional Mappings of Objects" />
+    
+    <meta name="twitter:description" content="Did you know that if only optional fields are sent in a play form, that it makes all other fields required? Here&#39;s how to deal with it!" />
+    
+    <meta name="twitter:image" content="//static.ethanjoachimeldridge.info/ethan.jpeg" />
+    	<!-- Core CSS Scripts -->
+	<link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='//css.ethanjoachimeldridge.info/style.css' />
+
+
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52103053-1', 'www.ethanjoachimeldridge.info');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+  <body>
+    <header>
+      <h1>Playframework Optional Mappings of Objects</h1>
+    </header>
+
+
+    <div id="content">
+      <a href="/tech-blog">Back</a>
+      <h3>Playframework Optional Mappings of Objects</h3><p>The other day I was working on a form in play and fixing up some fields to go 
+from being required to optional. Not an unusual thing, requirements are wrong 
+all the time. But anyway, I started working on a form mapping and then had to 
+work around the fact that having even one <em>optional</em> value defined for the 
+mapping meant that it required any required mappings as well. This was a problem 
+because my optional field was populated by a drop down, but there was no empty 
+value.</p>
+<p>First off, here&#39;s some models to get some context if you&#39;d like to follow along 
+in a scala console. I&#39;m using play 2.3 here though I suspect that it might not 
+differ in 2.4 or 2.5 (if <em>you</em> know, let <em>me</em> know). </p>
+<pre><code>import play.api.data._
+import play.api.data.Forms._
+
+case class X(a: Option[Int], b: String)
+case class F(maybeX: Option[X])
+</code></pre><p>In the above, <code>X</code> is taking on the role of the model which had gone from being 
+required to being optional. So, it has some fields and then <code>F</code> is my whole 
+form data object. Obviously, my real form is more complicated, but this is a simple 
+minimal example to demonstrate the unintuive point I&#39;m going to go over. </p>
+<p>Here&#39;s the first instinct for writing this form:</p>
+<pre><code>val f = Form(
+    mapping(
+        &quot;x&quot; -&gt; optional(mapping(
+            &quot;a&quot; -&gt; optional(number),
+            &quot;b&quot; -&gt; nonEmptyText
+        )(X.apply)(X.unapply))
+    )(F.apply)(F.unapply)
+)
+</code></pre><p>It&#39;s a simple mapping, each element is captured in with a name matching its own 
+in the respective class, and I&#39;m using <code>optional</code> on the fields which are <code>Option</code>
+in their class. Sounds good right?</p>
+<p><strong>Wrong</strong></p>
+<p>Here&#39;s what happens when binding some data: </p>
+<pre><code>val m1 =  Map(&quot;x.a&quot; -&gt; &quot;1&quot;, &quot;x.b&quot; -&gt; &quot;hi&quot;)
+f.bind(m1).get // F(Some(X(1,hi))) (Right)
+
+f.bind(Map[String, String]()).get // F(None) // Right!
+
+val m2 = m1 - &quot;x.b&quot; // Lets make only that optional field be submitted!
+
+f.bind(m2) // form error x.b is required
+</code></pre><p>As you can see, the second example shows that if you submit <code>x.a</code> then play goes 
+and looks for <code>x.b</code> so it can finish mapping the <code>X</code> class. While not entirely 
+wrong, it certainly seems that hey, if a field is optional, and <em>only the optional 
+fields were submitted</em>, perhaps play shouldn&#39;t map the object at all?</p>
+<p>That&#39;s the behavior I wanted at least since I didn&#39;t want to go bother a UI person
+to make the form not send any value if there was no value in the other input. 
+Luckily, you can get this behavior in the form mapping if you try hard enough!</p>
+<pre><code>val f2 = Form(
+    mapping(
+        &quot;x&quot; -&gt; tuple(
+            &quot;a&quot; -&gt; optional(number),
+            &quot;b&quot; -&gt; optional(nonEmptyText)
+        ).transform(
+            { 
+                case (maybeA, Some(b)) =&gt; Option(X(maybeA,b))
+                case (_, _) =&gt; Option.empty[X]
+            },
+            (x: Option[X]) =&gt; (x.flatMap(_.a),x.map(_.b))
+        )
+    )(F.apply)(F.unapply)
+)
+</code></pre><p>So, now the base form mapping uses the <code>tuple</code> helper (because I&#39;m too lazy to 
+write an intermediate case class to use for this) and then we <code>transform</code> it in 
+order to apply out own rules in how it should become an <code>Option[X]</code>. The <code>transform</code>
+method takes in two arguments, both functions. One that tells the system how to 
+convert the given type (<code>Tuple2</code> in this case) into some other type (<code>X</code>), and 
+one that does the reverse. </p>
+<p>With that in place we can see the behavior we want:</p>
+<pre><code>f2.bind(m1).get // F(Some(X(1,hi)))
+
+f2.bind(m1 - &quot;x.a&quot;).get // F(Some(X(None,hi)))
+
+f2.bind(m1 - &quot;x.b&quot;).get // F(Some(X(None,hi)))
+
+f2.bind(Map[String,String]()).get // F(None)
+</code></pre><p>And it still handles errors as we&#39;d want it to:</p>
+<pre><code>f2.bind(m1 + (&quot;x.a&quot; -&gt; &quot;crap&quot;))  //FormError(x.a,List(error.number),List())
+</code></pre><p>Great! Applying <code>transform</code> is useful for making decisions about your form and 
+how it should map into a data class you&#39;ll use in the rest of your application. 
+And with the above trick, you can easily handle a drop down that always submits 
+to the backend. Before closing, its worth mentioning that there&#39;s also a <code>verifying</code>
+method you can use to check arbitrary conditions. For example, if there <em>was</em> a 
+non-value to be submitted from the dropdown, but I wanted to enforce that the 
+form handled data only when <em>both</em> were submited OR when they both weren&#39;t, then 
+I could use verifying to do that in a simple way. So, with the models like:</p>
+<pre><code>case class Y(a: Int, b: String)
+case class F2(maybeY: Option[Y])
+</code></pre><p>I could use the form mapping with <code>transform</code> and <code>verifying</code> like so:</p>
+<pre><code>val f2 = Form(
+    mapping(
+        &quot;y&quot; -&gt; tuple(
+            &quot;a&quot; -&gt; optional(number),
+            &quot;b&quot; -&gt; optional(nonEmptyText)
+        ).verifying(
+            &quot;If you enter a value for a you must enter one for b and vice verse&quot;, 
+            t =&gt; t._1.isDefined == t._2.isDefined
+        ).transform(
+            { 
+                case (Some(a), Some(b)) =&gt; Option(Y(a,b))
+                case (_, _) =&gt; Option.empty[Y]
+            },
+            (y: Option[Y]) =&gt; (y.map(_.a),y.map(_.b))
+        )
+    )(F2.apply)(F2.unapply)
+)
+</code></pre><p>Then when submitting data you&#39;d get the desired behavior and a useful error message:</p>
+<pre><code>val m3 = Map(&quot;y.a&quot; -&gt; &quot;1&quot;, &quot;y.b&quot; -&gt; &quot;yay&quot;)
+
+f2.bind(m3).get // F2(Some(Y(1,yay)))
+
+f2.bind(m3 - &quot;y.a&quot;) // FormError(y,List(If you enter a value for a you must enter one for b and vice verse),WrappedArray())
+
+f2.bind(m3 - &quot;y.b&quot;) // FormError(y,List(If you enter a value for a you must enter one for b and vice verse),WrappedArray())
+
+f2.bind(Map.empty[String, String]).get // F2(None)
+</code></pre><p>I hope this is useful to you! I&#39;m somewhat curious if there&#39;s a way to make a field 
+mapping that maps an object to None if no required fields are submitted, but right 
+now I don&#39;t think I have the time to explore it. If I do I&#39;ll update this post 
+though! </p>
+      
+      <h3>Other Posts</h3>
+      <div id="other-posts">
+        <ul>
+          <li><a href=circe-beyond-basics>Circe, beyond the basics</a></li><li><a href=playframework-dynamic-form-markup>Do indices in playframework field names matter?</a></li><li><a href=easy-custom-class-enum-route-binding-in-play>Binding classes and enumerations in Play! routes and query parameters</a></li><li><a href=supporting-enums-in-anorm-rowparsers>Custom Types &amp; Enums in Anorm&#39;s RowParser definitions</a></li><li><a href=elastic-search-regular-expressions-against-whole-string>ElasticSearch: Matching a Regular expression for an entire field</a></li><li><a href=slick-columnToOptionColumn-deprecation-warning-fix>Slick columnToOptionColumn deprecation warning fix</a></li>
+        </ul>
+      </div>
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ejehardenberg';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><!--
+    -->comments powered by <span class="logo-disqus">Disqus</span>
+</a>   
+    </div>
+    <nav>
+	<ul>
+		
+			<li>
+				<a href="/index">
+					<span>Home</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/about">
+					<span>About me</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/projects">
+					<span>Projects</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/resume">
+					<span>Resume</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/tech-blog">
+					<span>Tech Blog</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/cooking">
+					<span>Cooking</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/writing">
+					<span>Writing</span>
+				</a>
+			</li>
+		
+			<li>
+				<a href="/contact">
+					<span>Contact</span>
+				</a>
+			</li>
+		
+		<li>
+			<a href="/writing/political">
+				<span>Opinion</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/EdgeCaseBerg">
+				<span>Github</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/profile/view?id=151414806">
+				<span>LinkedIn</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+  </body>
+</html>
+  	

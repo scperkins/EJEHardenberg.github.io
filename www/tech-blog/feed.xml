@@ -8,10 +8,20 @@
 		<description>XML RSS 2.0 feed for Ethan Eldridge's tech blog</description>
 		<managingEditor>ejayeldridge@gmail.com (Ethan Eldridge)</managingEditor>
 		<webMaster>ejayeldridge@gmail.com(Ethan Eldridge)</webMaster>
-		<lastBuildDate>Fri, 26 May 2017 00:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Fri, 30 Jun 2017 00:00:00 GMT</lastBuildDate>
 		<language>en-us</language>
 		<atom:link href="http://ethanjoachimeldridge.info/tech-blog/feed.xml" rel="self" type="application/rss+xml" />
 
+		
+		<item>
+			<title>Playframework Optional Mappings of Objects</title>
+			<link>http://ethanjoachimeldridge.info/tech-blog/play-optional-mapping-objects</link>
+			<guid>http://ethanjoachimeldridge.info/tech-blog/play-optional-mapping-objects</guid>
+			<pubDate>Fri, 30 Jun 2017 00:00:00 GMT</pubDate>
+			<description>
+				![CDATA[Did you know that if only optional fields are sent in a play form, that it makes all other fields required? Here's how to deal with it!]]
+			</description>
+		</item>
 		
 		<item>
 			<title>Circe, beyond the basics</title>
