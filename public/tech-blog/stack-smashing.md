@@ -51,7 +51,7 @@ went from being 64 characters of ASCII to being part of the text stored in a
 different field of the struct.
 
 Clearly something had gone wrong when I wrote the field in the structure right? 
-I checked my functions and saw that I had very deliverately set the size of the
+I checked my functions and saw that I had very deliberately set the size of the
 character buffers to safe sizes and that they shouldn't have overran.
 
 Switching to trial and error mode I decided to print the offending field through
