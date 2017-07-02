@@ -2411,6 +2411,11 @@ Travel day today! So just had some soylent for breakfast, then had tacos
 for lunch and finally taco bell for dinner when I arrived at my
 destination.
 
+### Day 382 
+
+Pizza hut for lunch today, then ended up eating mostly snacks during the
+day, but then had some japanese food for dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
