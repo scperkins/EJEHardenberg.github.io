@@ -2416,6 +2416,13 @@ destination.
 Pizza hut for lunch today, then ended up eating mostly snacks during the
 day, but then had some japanese food for dinner.
 
+### Day 383 
+
+Took my mother out for lunch today at a new restaurant that had opened
+up, then met up with some friends and had ice cream and went to a lake.
+It was rather pleasant, then we had some chilis for dinner later on when
+meeting up with some other friends.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
