@@ -2436,6 +2436,11 @@ after having some toast and an egg for breakfast. For dinner I had a
 couple of hot dogs in honor of the fourth of July. Tomorrow I'll be
 getting back to a soylent diet.
 
+### Day 386 
+
+Soylent for breakfast after a gym session, then soylent for lunch. For
+dinner I ate some leftovers I brought back from traveling. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
