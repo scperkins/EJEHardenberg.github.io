@@ -2451,6 +2451,12 @@ tasty things and some pasta and pork.
 Soylent for lunch today, then had a bratwurst on a roll for dinner to
 finish off the leftovers from my trip.
 
+### Day 389 
+
+No soylent today, I have family visiting so when they arrived we went
+out to eat and I had a burger and then later on some pepsi while
+watching the new spider man movie.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
