@@ -2446,6 +2446,11 @@ dinner I ate some leftovers I brought back from traveling.
 Soylent for lunch and then had a work party dinner, so dinner was random
 tasty things and some pasta and pork.
 
+### Day 388 
+
+Soylent for lunch today, then had a bratwurst on a roll for dinner to
+finish off the leftovers from my trip.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
