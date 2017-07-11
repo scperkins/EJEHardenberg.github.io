@@ -2457,6 +2457,12 @@ No soylent today, I have family visiting so when they arrived we went
 out to eat and I had a burger and then later on some pepsi while
 watching the new spider man movie.
 
+### Day 390
+
+No soylent again today. Had crepes for breakfast and then had some
+japanese food for lunch. Dinner was wings. Having guests over is fun
+like that.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
