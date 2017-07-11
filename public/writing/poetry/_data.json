@@ -1,4 +1,9 @@
 {
+	"second-chance" : {
+		"title" : "Second Chance",
+		"date" : "2017-07-10",
+		"freq" : "monthly"
+	},
 	"neighbor" : {
 		"title" : "Neighbor",
 		"date" : "2017-06-22",
