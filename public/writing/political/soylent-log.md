@@ -2478,6 +2478,12 @@ Then had a few leftover slices of pizza for dinner.
 No soylent today for lunch because work provided lunch. Then for dinner
 I went out with friends to a pizza place. Though I got a sandwich there.
 
+### Day 394 
+
+Soylent just for dinner today because work provided lunch again.
+Augmented dinner with a 10 piece mcNugget that my friend gave me as
+payment for tutoring her.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
