@@ -2484,6 +2484,11 @@ Soylent just for dinner today because work provided lunch again.
 Augmented dinner with a 10 piece mcNugget that my friend gave me as
 payment for tutoring her.
 
+### Day 395 
+
+Soylent for lunch and then for dinner as well which was nice. Been too
+long since I had a relaxing evening to myself.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
