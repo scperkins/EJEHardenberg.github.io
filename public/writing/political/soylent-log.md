@@ -2489,6 +2489,12 @@ payment for tutoring her.
 Soylent for lunch and then for dinner as well which was nice. Been too
 long since I had a relaxing evening to myself.
 
+### Day 396 
+
+No soylent today since my friends came up and visited so we had somoza's
+for breakfast and then ramen for lunch. Then for dinner had wings. So
+much food.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
