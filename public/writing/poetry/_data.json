@@ -1,7 +1,12 @@
 {
+	"no-breeze" : {
+		"title" : "No Breeze",
+		"date" : "2017-07-17",
+		"freq" : "monthly"
+	},
 	"paint" : {
 		"title" : "Paint",
-		"date" : "2017-06-16",
+		"date" : "2017-07-16",
 		"freq" : "monthly"
 	},
 	"second-chance" : {
