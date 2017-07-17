@@ -2495,6 +2495,13 @@ No soylent today since my friends came up and visited so we had somoza's
 for breakfast and then ramen for lunch. Then for dinner had wings. So
 much food.
 
+### Day 397 
+
+No soylent today either. Had breakfast at a diner with my visiting
+friends before they left. Then spent the day painting and working on a
+project. Got some chow mein at the end of it, as well as some freshly
+slaughtered and barbequed chicken. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
