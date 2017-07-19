@@ -2502,6 +2502,11 @@ friends before they left. Then spent the day painting and working on a
 project. Got some chow mein at the end of it, as well as some freshly
 slaughtered and barbequed chicken. 
 
+### day 398
+
+Soylent for lunch today and a donut for breakfast. Then later for dinner
+I had five guys since I was out at the local mall to get a haircut.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
