@@ -2519,6 +2519,13 @@ Soylent for lunch today, and then for dinner I had five guys because
 apparently it was national hot dog day so I felt like celebrating with
 some.
 
+### Day 401 
+
+Soylent for lunch today, but then got picked up by a friend while I was
+on my walk and went to the store. So then I had a few chicken wings and
+some asparagus as well. Later on, I ate the rest of the chicken wings
+for dinner and ate some vegi-sticks for dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
