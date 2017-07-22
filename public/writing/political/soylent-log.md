@@ -2526,6 +2526,14 @@ on my walk and went to the store. So then I had a few chicken wings and
 some asparagus as well. Later on, I ate the rest of the chicken wings
 for dinner and ate some vegi-sticks for dinner.
 
+### Day 402 
+
+Was going to have soylent today, but then work supplied a lunch in order
+for us to share a meal with a contractor and build up that good ol' team
+spirit. Then I went out with friends to a truck stop gathering and had
+street food for dinner. Followed by an outing on the town. So no Soylent
+today, but I had some fun.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
