@@ -2534,6 +2534,14 @@ spirit. Then I went out with friends to a truck stop gathering and had
 street food for dinner. Followed by an outing on the town. So no Soylent
 today, but I had some fun.
 
+### Day 403 
+
+Wanted to try the new bacon cheddar cheeseburger pizza from Papa John's,
+so I got one of those and the chicken poppers. The chicken poppers were
+so-so, but the pizza was pretty good. No idea what is in the burger
+sauce, but it's tasty. No soylent today since I got a large and so I
+just had that to eat all day and have leftovers for tomorrow.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
