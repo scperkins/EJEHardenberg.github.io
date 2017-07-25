@@ -2547,6 +2547,12 @@ just had that to eat all day and have leftovers for tomorrow.
 Finishing off the leftovers of my pizza today as well as eating some
 candy when I went to go see Valerian.
 
+### Day 405 
+
+Full day of soylent today. Breakfast was soylent after the gym, lunch
+was soylent and unfortunately staying inside since it was raining so no
+lunch walk. Then dinner was, surprise, soylent! 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
