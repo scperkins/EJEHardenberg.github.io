@@ -2553,6 +2553,12 @@ Full day of soylent today. Breakfast was soylent after the gym, lunch
 was soylent and unfortunately staying inside since it was raining so no
 lunch walk. Then dinner was, surprise, soylent! 
 
+### Day 406 
+
+Soylent for lunch today, as well as some blueberry french toast cobbler
+from the kitchen at work. For dinner I went to five guys since I had a
+hankering for another one of their bacon cheese dogs. So good! 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
