@@ -2574,6 +2574,11 @@ Soylent for lunch (a really late lunch actually) then had a burger and
 brussel sprouts for dinner. Then it was a birthday outing for a friend
 so I had drinks and then some midnight pizza.
 
+### Day 410 
+
+Had panera for lunch then some hot dogs and chips for dinner since I was
+out at a birthday party.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
