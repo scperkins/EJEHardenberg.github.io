@@ -2589,6 +2589,13 @@ party. Then had some sashimi and rice for dinner.
 Soylent for lunch, then for dinner had a hot dog and chips with dip to
 end off a good July.
 
+### Day 413 
+
+Soylent for a rather late lunch around 3. Then I was going to have
+soylent for dinner. But I forgot that I had made plans to do a monthly
+trivia thing. We won, so that was fun, and I had a burger with pork
+belly and bacon on it for dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
