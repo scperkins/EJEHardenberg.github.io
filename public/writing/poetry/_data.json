@@ -1,4 +1,9 @@
 {
+	"ease" : {
+		"title" : "Ease",
+		"date" : "2017-08-01",
+		"freq" : "monthly"
+	},
 	"no-breeze" : {
 		"title" : "No Breeze",
 		"date" : "2017-07-17",
