@@ -2596,6 +2596,11 @@ soylent for dinner. But I forgot that I had made plans to do a monthly
 trivia thing. We won, so that was fun, and I had a burger with pork
 belly and bacon on it for dinner.
 
+### Day 414 
+
+Soylent for lunch, then had soylent for dinner and finished my chips and
+dip.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
