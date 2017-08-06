@@ -2611,6 +2611,12 @@ queso bacon burger, delicious.
 Soylent for lunch. Then for dinner I had a leftover wendy's JBC and some
 chips.
 
+### Day 417 
+
+Finished off some candy today, then for dinner had Panera. I didn't
+really do much for food since I played games all day and didn't do much
+energy expenditure.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
