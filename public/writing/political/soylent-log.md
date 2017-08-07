@@ -2615,7 +2615,14 @@ chips.
 
 Finished off some candy today, then for dinner had Panera. I didn't
 really do much for food since I played games all day and didn't do much
-energy expenditure.
+energy expenditure. Oh and I had somoza's for breakfast!
+
+### Day 418 
+
+Didn't bother eating this morning since I wasn't all that hungry. But
+then later on I had an appetizer combo planner for dinner that was
+tasty.
+
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
