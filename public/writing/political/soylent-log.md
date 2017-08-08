@@ -2623,6 +2623,11 @@ Didn't bother eating this morning since I wasn't all that hungry. But
 then later on I had an appetizer combo planner for dinner that was
 tasty.
 
+### Day 419 
+
+No breakfast today even though I went to the gym, then had Soylent for
+lunch and had some pizza for dinner.
+
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
