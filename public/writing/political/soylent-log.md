@@ -2628,6 +2628,16 @@ tasty.
 No breakfast today even though I went to the gym, then had Soylent for
 lunch and had some pizza for dinner.
 
+### Day 420 
+
+A breakfast sandwich for breakfast, then soylent for lunch, and lastly
+some five guys for dinner because I was hanging out with my friend and
+she wanted five guys.
+
+### Day 421 
+
+Breakfast sandwich, soylent, then had some dumplings and my last slice
+of pizza for dinner.
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
