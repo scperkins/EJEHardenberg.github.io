@@ -2639,6 +2639,13 @@ she wanted five guys.
 Breakfast sandwich, soylent, then had some dumplings and my last slice
 of pizza for dinner.
 
+### Day 422 
+
+Soylent for lunch today, also went to the store and grabbed some
+jalapeno poppers and some chicken wings. Which I saved some of for
+dinner later on, then my friend showed up for tutoring and brought me a
+happy meal!
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
