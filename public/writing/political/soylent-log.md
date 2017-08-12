@@ -2646,6 +2646,11 @@ jalapeno poppers and some chicken wings. Which I saved some of for
 dinner later on, then my friend showed up for tutoring and brought me a
 happy meal!
 
+### Day 423 
+
+Soylent for lunch then for dinner I got some pizza since I had a coupon
+for a free one.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
