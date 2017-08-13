@@ -2651,6 +2651,12 @@ happy meal!
 Soylent for lunch then for dinner I got some pizza since I had a coupon
 for a free one.
 
+### Day 424 
+
+Leftover pizza for breakfast/brunch, then had a bag of sweedish fish.
+Yup. That was my super healthy meal that lasted me through the day.
+
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
