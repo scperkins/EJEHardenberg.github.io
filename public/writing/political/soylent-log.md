@@ -2660,6 +2660,10 @@ Yup. That was my super healthy meal that lasted me through the day.
 
 Today was another day of unhealthiness. Bagel bites and a hot pocket!
 
+### Day 426 
+
+Breakfast sandwich today, but then kinda forgot to eat lunch. It worked
+out though, later on I had nachos.
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
