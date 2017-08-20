@@ -2682,6 +2682,10 @@ surely the dinner of champions.
 
 Soylent for lunch, then for dinner I had my other hot pocket.
 
+## Day 430 
+
+Soylent for dinner today, and had five guys for lunch.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
