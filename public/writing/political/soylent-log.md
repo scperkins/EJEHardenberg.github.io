@@ -2671,12 +2671,16 @@ Soylent for lunch then had leftover nachos for dinner.
 
 ### Day 428
 
-Soylent for lunch, for dinner had cheetohs and a hot pocket.
+Soylent for lunch, for dinner had bagel bites for dinner.
 
 ### Day 429
 
-Soylent for lunch, then some more cheetohs for dinner. And that was
-enough really, didn't really feel hungry after that.
+Soylent for lunch, then some more cheetohs for dinner. and a hot pocket.
+surely the dinner of champions.
+
+### Day 430
+
+Soylent for lunch, then for dinner I had my other hot pocket.
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
