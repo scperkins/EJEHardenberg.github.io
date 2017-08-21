@@ -2682,9 +2682,16 @@ surely the dinner of champions.
 
 Soylent for lunch, then for dinner I had my other hot pocket.
 
-## Day 430 
+### Day 430 
 
 Soylent for dinner today, and had five guys for lunch.
+
+### Day 431 
+
+Had Hiyashi Chuka for lunch today (chilled ramen) and then for dinner I
+had a lot of snacks like watermelon and cherries and stuff like that
+over at a house-warming party. So I didn't actually really end up eating
+a real dinner. 
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
