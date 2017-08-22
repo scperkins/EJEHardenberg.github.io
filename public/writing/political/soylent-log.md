@@ -2693,6 +2693,10 @@ had a lot of snacks like watermelon and cherries and stuff like that
 over at a house-warming party. So I didn't actually really end up eating
 a real dinner. 
 
+### Day 432 
+
+Soylent for lunch today, then for dinner I ordered in some wings.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
