@@ -1,4 +1,9 @@
 {
+	"let-go" : {
+		"title" : "Let Go",
+		"date" : "2017-08-23",
+		"freq" : "monthly"
+	},
 	"ease" : {
 		"title" : "Ease",
 		"date" : "2017-08-01",
