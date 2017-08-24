@@ -2703,6 +2703,11 @@ Soylent for lunch today and then for dinner I had the rest of my
 leftover wings and some chips with dip. Then afterward I celebrated my
 friends birthday with a few drinks.
 
+### Day 434
+
+Soylent for lunch, then for dinner I had a burger with some friends I
+hadn't seen in a while.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
