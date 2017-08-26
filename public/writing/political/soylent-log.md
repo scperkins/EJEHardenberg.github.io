@@ -2713,6 +2713,11 @@ hadn't seen in a while.
 Soylent for lunch, then a company party provided dinner of cheese steaks
 and perch poboys. Very tasty.
 
+### Day 346
+
+Had chinese food for lunch, and then for dinner I had some mac n cheese
+that came with pulled pork on top of it.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
