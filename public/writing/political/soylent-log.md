@@ -2718,6 +2718,11 @@ and perch poboys. Very tasty.
 Had chinese food for lunch, and then for dinner I had some mac n cheese
 that came with pulled pork on top of it.
 
+### Day 347 
+
+Ordered pizza for lunch and dinner while I lazed about. Had a samosa for
+breakfast.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
