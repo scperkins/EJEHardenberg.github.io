@@ -2723,6 +2723,12 @@ that came with pulled pork on top of it.
 Ordered pizza for lunch and dinner while I lazed about. Had a samosa for
 breakfast.
 
+### Day 348 
+
+Didn't have breakfast, but had a BBQ grill out for the rest of the day,
+so lunch was a mix of burger, hot dog, bacon, chips and other backyard
+food.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
