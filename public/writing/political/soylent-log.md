@@ -2734,9 +2734,15 @@ food.
 Soylent for lunch, then for dinner I finished off my leftover pizza from
 a few days ago.
 
+### Day 350
 
 Soylent for lunch, then for dinner I had a hot dog and some bacon that
 was leftover from the bbq.
+
+### Day 351
+
+Soylent for lunch. Then for dinner I met up with some friends I hadn't
+seen in a few months and had ramen.
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
