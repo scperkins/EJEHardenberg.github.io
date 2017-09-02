@@ -2744,10 +2744,19 @@ was leftover from the bbq.
 Soylent for lunch. Then for dinner I met up with some friends I hadn't
 seen in a few months and had ramen.
 
-### day 352 
+### Day 352 
 
 Went out with the work team for lunch. Then I had a dinner of bacon,
 chips and hot dog to finish off the leftovers from the BBQ.
+
+### Day 353 
+
+Traveling today, so had a breakfast sandwich for lunch, treated my
+mother to lunch at a pizza place. Then for dinner had taco bell.
+
+### Day 354 
+
+Had seafood for brunch today, then Wendys for a late lunch. 
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
