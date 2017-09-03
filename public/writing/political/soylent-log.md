@@ -2758,6 +2758,10 @@ mother to lunch at a pizza place. Then for dinner had taco bell.
 
 Had seafood for brunch today, then Wendys for a late lunch. 
 
+### Day 355 
+
+Had chinese food for lunch and then had pizza for dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
