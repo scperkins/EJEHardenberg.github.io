@@ -2766,6 +2766,11 @@ Had chinese food for lunch and then had pizza for dinner.
 
 Had an omellete for breakfast then for dinner had italian.
 
+### Day 457
+
+Bagel for breakfast, then soylent for lunchm, then it was trivia so a
+Briskett BLT for dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
