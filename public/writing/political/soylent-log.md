@@ -2771,6 +2771,11 @@ Had an omellete for breakfast then for dinner had italian.
 Bagel for breakfast, then soylent for lunchm, then it was trivia so a
 Briskett BLT for dinner.
 
+### Day 448 
+
+Nothing for breakfast because I was fasting for a wellness screening,
+then for lunch I had soylent and for dinner I had an apple and leftovers
+from that omellette the other day.
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
