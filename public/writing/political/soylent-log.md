@@ -2713,52 +2713,52 @@ hadn't seen in a while.
 Soylent for lunch, then a company party provided dinner of cheese steaks
 and perch poboys. Very tasty.
 
-### Day 346
+### Day 446
 
 Had chinese food for lunch, and then for dinner I had some mac n cheese
 that came with pulled pork on top of it.
 
-### Day 347 
+### Day 447 
 
 Ordered pizza for lunch and dinner while I lazed about. Had a samosa for
 breakfast.
 
-### Day 348 
+### Day 448 
 
 Didn't have breakfast, but had a BBQ grill out for the rest of the day,
 so lunch was a mix of burger, hot dog, bacon, chips and other backyard
 food.
 
-### Day 349 
+### Day 449 
 
 Soylent for lunch, then for dinner I finished off my leftover pizza from
 a few days ago.
 
-### Day 350
+### Day 450
 
 Soylent for lunch, then for dinner I had a hot dog and some bacon that
 was leftover from the bbq.
 
-### Day 351
+### Day 451
 
 Soylent for lunch. Then for dinner I met up with some friends I hadn't
 seen in a few months and had ramen.
 
-### Day 352 
+### Day 452 
 
 Went out with the work team for lunch. Then I had a dinner of bacon,
 chips and hot dog to finish off the leftovers from the BBQ.
 
-### Day 353 
+### Day 453 
 
 Traveling today, so had a breakfast sandwich for lunch, treated my
 mother to lunch at a pizza place. Then for dinner had taco bell.
 
-### Day 354 
+### Day 454 
 
 Had seafood for brunch today, then Wendys for a late lunch. 
 
-### Day 355 
+### Day 455 
 
 Had chinese food for lunch and then had pizza for dinner.
 
@@ -2770,6 +2770,7 @@ Had an omellete for breakfast then for dinner had italian.
 
 Bagel for breakfast, then soylent for lunchm, then it was trivia so a
 Briskett BLT for dinner.
+
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
