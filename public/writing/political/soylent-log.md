@@ -2777,6 +2777,11 @@ Nothing for breakfast because I was fasting for a wellness screening,
 then for lunch I had soylent and for dinner I had an apple and leftovers
 from that omellette the other day.
 
+### Day 449 
+
+Toast for breakfast. Then soylent for lunch, and lastly five guys for
+dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
