@@ -2788,6 +2788,11 @@ Half a soylent for breakfast, then a full soylent for lunch as well as
 an ok sized piece of steak, then for dinner I had a west-coast wrap,
 aka, chicken fingers and avocado in a tortilla.
 
+### Day 451 
+
+Had a bit of soylent for breakfast (the other half from yesterday), then
+had pizza for lunch/dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
