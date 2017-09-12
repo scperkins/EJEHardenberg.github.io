@@ -2801,7 +2801,12 @@ Pizza for breakfast, lunch, and dinner. Got to eat those leftovers.
 
 Breakfast sandwich for breakfast after a fun workout involving a ton of
 planks, then for lunch Soylent, and for dinner panera. I was out buying
-envelopes so I figured I'd grab some broccoli cheddar soup
+envelopes so I figured I'd grab some broccoli cheddar soup.
+
+### Day 454
+
+Soylent for lunch today, then ordered ribs and chicken for dinner
+because I want the protein and I'm sore from all those planks
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
