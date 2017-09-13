@@ -1,4 +1,9 @@
 {
+	"lay-the-path" : {
+		"title" : "Lay the Path",
+		"date" : "2017-09-13",
+		"freq" : "monthly"
+	},
 	"dirty-cloth" : {
 		"title" : "Dirty Cloth",
 		"date" : "2017-08-30",
