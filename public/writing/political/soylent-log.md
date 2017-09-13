@@ -2808,6 +2808,11 @@ envelopes so I figured I'd grab some broccoli cheddar soup.
 Soylent for lunch today, then ordered ribs and chicken for dinner
 because I want the protein and I'm sore from all those planks
 
+### Day 455
+
+Soylent for lunch after a breakfast sandwich for breakfast (redundant)
+and then had some leftover ribs and chicken for dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
