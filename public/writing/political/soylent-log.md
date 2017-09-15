@@ -2813,6 +2813,11 @@ because I want the protein and I'm sore from all those planks
 Soylent for lunch after a breakfast sandwich for breakfast (redundant)
 and then had some leftover ribs and chicken for dinner.
 
+### Day 456
+
+Bagel for breakfast and for lunch, then for dinner I finally finished
+off those leftovers.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
