@@ -2823,6 +2823,10 @@ off those leftovers.
 Breakfast sandwich, soylent, then waited for a half hour in line to get
 some KFC since I hadn't had it in so long. Totally worth it.
 
+### Day 458 
+
+Had some nachos today for uh... mid-lunch and dinner and that was all.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
