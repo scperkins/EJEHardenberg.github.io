@@ -2818,6 +2818,11 @@ and then had some leftover ribs and chicken for dinner.
 Bagel for breakfast and for lunch, then for dinner I finally finished
 off those leftovers.
 
+### Day 457 
+
+Breakfast sandwich, soylent, then waited for a half hour in line to get
+some KFC since I hadn't had it in so long. Totally worth it.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
