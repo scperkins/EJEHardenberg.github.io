@@ -2832,6 +2832,10 @@ Had some nachos today for uh... mid-lunch and dinner and that was all.
 Had the rest of my nachos today and a burger and fries as well as an
 orea milk shake. Besides that I didn't need much else.
 
+### Day 460
+
+Soylent for lunch, chinese food for dinner.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
