@@ -2836,6 +2836,12 @@ orea milk shake. Besides that I didn't need much else.
 
 Soylent for lunch, chinese food for dinner.
 
+### Day 461 
+
+Soylent for lunch, then for dinner I had five guys because I forgot to
+put a new pack of soylent into the fridge and didn't want to drink warm
+soylent.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
