@@ -2858,6 +2858,12 @@ Was going to have soylent for lunch, but then, unexpectedly, my boss
 took us out to pizza. Then at night time I went out to the movies so I
 had some candy for dinner. Not the greatest thing obviously, but hey.
 
+### Day 465 
+
+Had pulled pork pizza with pepperdew peppers for lunch, then for dinner
+I had salad, buffalo chicken dip with chips, breaksticks, a slice of
+pizza, and apple crisp at a friends game party.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
