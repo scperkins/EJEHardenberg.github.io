@@ -2869,6 +2869,11 @@ pizza, and apple crisp at a friends game party.
 Ate the rest of my pizza for lunch, then had bbq for dinner at a place I
 had never been to before.
 
+### Day 467 
+
+Soylent for lunch, then for dinner I had more soylent! Breakfast
+sandwich for lunch though, so not a full day.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
