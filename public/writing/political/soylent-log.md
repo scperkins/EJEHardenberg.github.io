@@ -2887,6 +2887,11 @@ skipped yesterday I just left at work). Then for dinner I ordered pizza
 because I got a hankering for it two days ago and decided that if I
 still wanted it in a couple days I'd indulge. 
 
+### Day 470 
+
+Skipped out on lunch today because I had a few french fries and didn't
+feel hungry. Then for dinner I had some leftover pizza
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
