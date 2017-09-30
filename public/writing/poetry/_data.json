@@ -1,4 +1,9 @@
 {
+	"busing" : {
+		"title" : "Busing",
+		"date": "2017-09-30",
+		"freq" : "monthly"
+	},
 	"easy-yoke" : {
 		"title" : "Easy Yoke",
 		"date" : "2017-09-24",
