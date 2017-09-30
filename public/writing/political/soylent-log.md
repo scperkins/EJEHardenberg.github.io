@@ -2892,6 +2892,11 @@ still wanted it in a couple days I'd indulge.
 Skipped out on lunch today because I had a few french fries and didn't
 feel hungry. Then for dinner I had some leftover pizza
 
+### Day 471 
+
+Breakfast sandwich in the morning, soylent in the afternoon, then two
+tacos from a taco truck for dinner when I was out with friends for food.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
