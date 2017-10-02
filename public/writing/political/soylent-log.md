@@ -2902,6 +2902,11 @@ tacos from a taco truck for dinner when I was out with friends for food.
 Last leftover slice of pizza for breakfast, then for lunch I had five
 guys which was a bit of a late lunch so I didn't bother eating dinner.
 
+### Day 473
+
+For lunch today I got a buffalo chicken sandwich and some pizza which I
+used for dinner as well. 
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
