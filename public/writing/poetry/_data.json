@@ -1,4 +1,9 @@
 {
+	"staystrong" : {
+		"title" : "Stay Strong",
+		"date" : "2017-10-03",
+		"freq" : "monthly"
+	},
 	"busing" : {
 		"title" : "Busing",
 		"date": "2017-09-30",
