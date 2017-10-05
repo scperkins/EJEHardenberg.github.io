@@ -2914,9 +2914,16 @@ of the leftover pizza.
 
 ### Day 475 
 
-Piece of chicken and a crepe for breakfast, then for dinner I had trivia
-food. A duck "bun cha" which is some korean thing with rice noodles and
-vegis. It was good.
+Breakfast sandwich for breakfast. Then a iece of chicken and a crepe for 
+breakfast, then for dinner I had trivia food. A duck "bun cha" which is 
+some korean thing with rice noodles and vegis. It was good.
+
+### Day 476 
+
+Soylent for lunch today, then for dinner I had taquitos! I went to the
+store with my friend the other day so I have real food in my house
+again, so I might be a little less on the soylent side for dinner this
+week.
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
