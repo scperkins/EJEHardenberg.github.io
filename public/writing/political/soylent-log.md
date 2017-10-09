@@ -2928,13 +2928,18 @@ week.
 ### Day 477 
 
 Breakfast sandwich, then for lunch I had some chicken soup, and for
-dinner I went out to eat with friends to a movie so I had a burger.
+dinner I had some taquitos!
 
 ### Day 478 
 
-For breakfast/brunch I had a microwaveable breakfast sandwich (as oppose
-to the usual one from starbucks) and then for dinner I had the rest of
-my taquitos.
+For breakfast I had a breakfast sandwich and then some chicken thingy
+for lunch, then went out to eat for dinner when I went and saw Blade
+Runner.
+
+### Day 479 
+
+Had a microwaveable breakfast sandwich for brunch lunch, then for dinner
+I had pizza rolls!
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
