@@ -2941,6 +2941,14 @@ Runner.
 Had a microwaveable breakfast sandwich for brunch lunch, then for dinner
 I had pizza rolls!
 
+### Day 480 
+
+For brunch I had a muffin and chatted with some people, and then for
+dinner I had a five guys burger because the woman behind the counter
+misheard "bacon cheese dog" as "bacon cheese burger" somehow and I'm too
+lazy once I've left a counter to correct simple mistakes like that.
+Especially when I'm cool with it either way.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
