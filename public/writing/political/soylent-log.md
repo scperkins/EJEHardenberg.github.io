@@ -2954,6 +2954,11 @@ Especially when I'm cool with it either way.
 For breakfast I had a microwaveable breakfast sandwich and then for
 lunch I had my soylent. For dinner I had spaghetti-O's.
 
+### Day 482 
+
+Nothing for breakfast, then for lunch I had soylent and for dinner I had
+chicken and dumplings, then some panera to top it off.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
