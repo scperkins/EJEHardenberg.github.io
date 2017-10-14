@@ -2964,6 +2964,12 @@ chicken and dumplings, then some panera to top it off.
 Soylent for lunch today, then quesadilla while playing trivia for
 dinner.
 
+### Day 484 
+
+Was going to have soylent for lunch today, but ended up splitting a
+pizza with my boss. Breakfast sandwich for breakfast, and then for
+dinner I had pizaa rolls.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
