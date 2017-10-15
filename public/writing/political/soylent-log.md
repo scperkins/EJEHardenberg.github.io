@@ -2970,6 +2970,11 @@ Was going to have soylent for lunch today, but ended up splitting a
 pizza with my boss. Breakfast sandwich for breakfast, and then for
 dinner I had pizaa rolls.
 
+### Day 485 
+
+Pretty lazy day today, had chicken and a burger wrap for dinner and
+didn't really eat much else since I didn't do too much.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
