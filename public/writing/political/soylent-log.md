@@ -2959,21 +2959,27 @@ lunch I had my soylent. For dinner I had spaghetti-O's.
 Nothing for breakfast, then for lunch I had soylent and for dinner I had
 chicken and dumplings, then some panera to top it off.
 
-### Day 483 
+### Day 483
+
+Soylent for lunch today and for dinner I didn't have anything special,
+just more soylent.
+
+### Day 484 
 
 Soylent for lunch today, then quesadilla while playing trivia for
 dinner.
 
-### Day 484 
+### Day 485 
 
 Was going to have soylent for lunch today, but ended up splitting a
 pizza with my boss. Breakfast sandwich for breakfast, and then for
 dinner I had pizaa rolls.
 
-### Day 485 
+### Day 486
 
 Pretty lazy day today, had chicken and a burger wrap for dinner and
 didn't really eat much else since I didn't do too much.
+
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
