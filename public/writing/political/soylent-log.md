@@ -2980,6 +2980,14 @@ dinner I had pizaa rolls.
 Pretty lazy day today, had chicken and a burger wrap for dinner and
 didn't really eat much else since I didn't do too much.
 
+### Day 487 
+
+Another lazy day, had a few pieces of leftover chicken for lunch then
+had cookies all day then for dinner when I was hungry again I got to
+have mcdonalds for the first time in forever. Tried their new BBQ
+signature burger, it was ok but I'll stick to their usual value menu
+instead, it's more worth it.
+
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
