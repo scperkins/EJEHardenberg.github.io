@@ -2988,6 +2988,10 @@ have mcdonalds for the first time in forever. Tried their new BBQ
 signature burger, it was ok but I'll stick to their usual value menu
 instead, it's more worth it.
 
+### Day 488 
+
+Soylent for lunch and then for dinner I went out for pizza and beer with
+a friend I hadn't seen in a long time.
 
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
