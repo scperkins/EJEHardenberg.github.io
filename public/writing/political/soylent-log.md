@@ -2993,6 +2993,10 @@ instead, it's more worth it.
 Soylent for lunch and then for dinner I went out for pizza and beer with
 a friend I hadn't seen in a long time.
 
+### Day 489
+
+Pasta and meatsauce for lunch today, then for dinner five guys.
+
 [release notes for v1.6]:http://files.soylent.com/pdf/soylent-release-notes-1-6-en.pdf
 [this blog post about it]:http://fourhourworkweek.com/2013/08/20/soylent/
 [this guy]:http://robrhinehart.com/
