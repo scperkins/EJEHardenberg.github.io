@@ -10,7 +10,7 @@ my [github repository], then fork the project and send me a pull request. If you
 have a project you think I'd be a help to, then you can find my email on github
 and contact me about it.
 
-If you're interesting in employing me professionally you should reach out to me 
+If you're interested in employing me professionally you should reach out to me 
 via the form, please include details on what type of technology you plan on using 
 or already use and I'll get back to you as soon as I can. Note that I do do contract
 work, but I do charge late fees if you fail to pay me within 30 days of an invoice.
